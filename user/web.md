@@ -183,7 +183,7 @@ branch = client.branch.get(stream_id, "globals")
 latest_commit = branch.commits.items[0]
 
 # receive the globals object
-globals = operations.receive(latest_commit.referencedObject, transport)
+globs = operations.receive(latest_commit.referencedObject, transport)
 ```
 
 ## Profile
