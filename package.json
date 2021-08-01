@@ -1,0 +1,24 @@
+{
+  "name": "speckle-docs",
+  "version": "0.0.1",
+  "description": "Documentation on everything Speckle",
+  "main": "index.js",
+  "authors": {
+    "name": "Speckle",
+    "email": "matteo@speckle.systems"
+  },
+  "repository": "https://github.com/specklesystems/speckle-docs",
+  "scripts": {
+    "dev": "vuepress dev",
+    "build": "vuepress build"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@vuepress/plugin-medium-zoom": "^1.8.0",
+    "vuepress": "^1.8.2"
+  },
+  "dependencies": {
+    "markdown-it-html5-embed": "^1.0.0",
+    "vuepress-plugin-matomo": "^1.0.2"
+  }
+}

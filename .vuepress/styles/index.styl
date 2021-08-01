@@ -1,0 +1,196 @@
+// NAVBAR
+
+body .navbar .site-name, h1, h2
+  color: $titleColor
+
+// API chips
+.api-chip
+  display: inline-flex
+  flex-direction: row
+  border: none
+  cursor: default
+  outline: none
+  font-size: 12px
+  font-weight:bold
+  padding: 0 10px
+  color: white
+  white-space: nowrap
+  align-items: center
+  border-radius: 16px
+  vertical-align: middle
+  text-decoration: none
+  justify-content: center
+.post
+  background-color: red
+.get
+  background-color: blue
+
+// SEARCH BOX
+
+video 
+  max-width: 100%
+
+.navbar
+  box-shadow: 0 3px 8px 0 rgba(116, 129, 141, 0.1)
+  .home-link
+    .site-name
+      display: none
+  .repo-link //hide github link
+    display: none
+      
+  // last button of navbar `Join the beta`
+  .nav-item:nth-last-child(2) a
+    background: rgb(37,99,235)
+    color: white
+    padding: .4rem 1rem
+    border-radius: .375rem
+  .nav-item:nth-last-child(2) a:hover
+    background: rgb(20,75,202)
+    color: white
+  .nav-item:nth-last-child(2) a span
+    display: none
+
+  .links
+    //flex-direction: row-reverse
+
+    .search-box
+      font-size: 1rem
+      border-radius: 3px
+      margin: 0 0 0 1rem
+
+
+      input
+        font: inherit
+        font-size: 0.9rem
+        border: none
+        margin:  0 20px
+        text-align: left
+        border-radius: 5px
+        padding: 0.5rem 2rem 
+        background-color: #eeeeee
+
+      .suggestions
+        border-radius: 0
+        border-color: $lightDelimiterColor
+        top: 2.25rem
+
+      @media (min-width: $MQNarrow)
+        &:before
+          top: 50%
+          left: 0
+          height: $navbarHeight
+          content: ""
+          position: absolute
+          transform: translateY(-50%)
+          //border-left: 1px solid $lightDelimiterColor
+
+        input
+          height: 100%
+          background-size: 0.9rem
+          background-position-y: 50%
+
+    #search-form
+      line-height: inherit
+
+// SIDEBAR
+
+.sidebar
+  background-color: $sidebarBgColor
+  padding-left: 1.5rem
+
+.sidebar-group
+  color: $sidebarHeaderColor
+  margin-bottom: 1.5rem
+
+  .sidebar-heading, .sidebar-heading
+    font-size: 0.75rem
+    text-transform: uppercase
+    color: $sidebarHeaderColor
+    letter-spacing: 1.2px
+    padding: 0.5rem 1.5rem 0.5rem 1rem
+
+  li a.sidebar-link
+    padding-left: 1.2rem
+
+.sidebar-links
+  a.sidebar-link
+    font-size: 0.9rem
+    font-weight: 500
+    line-height: 1.5
+    padding: 0.5rem 1.5rem 0.5rem 1rem
+    border: 1px solid transparent
+    color: $textColor
+
+    &:hover
+      color: $textColor
+      background-color: $lightDelimiterColor !important
+
+    &.active
+      border-color: $lightDelimiterColor
+      border-right: none
+      background-color: white
+
+  .sidebar-links .sidebar-sub-headers a
+    background-color: inherit
+    border-color: transparent
+
+// H1
+
+h1
+  padding-bottom: 2rem
+  border-bottom: 2px solid $lightDelimiterColor
+  font-size: 2rem
+  font-weight: 500
+  line-height: 1.5
+
+// Position the delimiting line above the h2
+// but it can cause an issue if the first h2 is directly afterwards the h1
+
+// h2
+//   position: relative
+//   border-bottom: none
+
+//   &:before
+//     bottom: 3.5rem
+//     left: 0
+//     width: 100%
+//     height: 1px
+//     content: ""
+//     position: absolute
+//     background-color: $lightDelimiterColor
+//   
+// 
+
+// PAGE NAV
+
+.page-nav .inner
+  display: grid
+  grid-column-gap: 1.5rem
+  grid-template-areas: "previous next"
+  grid-template-columns: 1fr 1fr
+
+  span.prev, span.next
+    display: flex
+    align-items: center
+    border: 1px solid $lightDelimiterColor
+    grid-area: previous
+    box-shadow: 0 3px 8px 0 rgba(116, 129, 141, 0.1)
+    border-radius: 3px
+    background-color: white
+    padding-left: 1rem
+
+    a
+      flex: 1
+      color: #242A31
+      text-align: right
+      padding: 1rem 1rem 1rem 0
+
+  span.next
+    grid-area: next
+    padding-right: 1rem
+    a
+      text-align: left
+
+// MAIN PAGE
+#main-title
+  display: none

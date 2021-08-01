@@ -1,0 +1,6 @@
+node_modules
+.vuepress/dist/
+**/Thumbs.db
+**/Icon
+.vscode/
+**/.DS_Store
