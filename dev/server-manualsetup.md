@@ -117,6 +117,15 @@ services:
       DEBUG: "preview-service:*"
       PG_CONNECTION_STRING: "postgres://speckle:speckle@postgres/speckle"
       WAIT_HOSTS: postgres:5432
+
+  webhook-service:
+    image: speckle/speckle-webhook-service:2
+    restart: always
+    command: ["bash", "-c", "/wait && node main.js"]
+    environment:
+      DEBUG: "webhook-service:*"
+      PG_CONNECTION_STRING: "postgres://speckle:speckle@postgres/speckle"
+      WAIT_HOSTS: postgres:5432
 ```
 
 #### Step 3: Edit the fields marked with `TODO`
@@ -184,6 +193,15 @@ services:
     memswap_limit: "1000m"
     environment:
       DEBUG: "preview-service:*"
+      
+      # TODO: Change to PostgreSQL connection string:
+      PG_CONNECTION_STRING: "postgres://speckle:speckle@postgres/speckle"
+
+  webhook-service:
+    image: speckle/speckle-webhook-service:2
+    restart: always
+    environment:
+      DEBUG: "webhook-service:*"
       
       # TODO: Change to PostgreSQL connection string:
       PG_CONNECTION_STRING: "postgres://speckle:speckle@postgres/speckle"
