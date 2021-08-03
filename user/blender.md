@@ -40,6 +40,22 @@ At the very bottom of the panel (not pictured), you'll find a button that will o
 
 - [Blender Support Tables](/user/support-tables.html#blender)
 
+## Blender BIM
+
+There is currently some limited support for [BlenderBIM](https://blenderbim.org/), though this is intended as an export and does not work coming back. To take advantage of this, simply open an IFC using BlenderBIM then use the Speckle Connector to send to Speckle.
+
+<iframe src="https://speckle.xyz/embed?stream=c51120a7f7&commit=767b7288ee" width=600 height=400 />
+
+There are a few things to keep in mind when sending an IFC to Speckle using BlenderBIM:
+
+- Structure: The hierarchical structure of collections and objects is preserved when sending to Speckle.
+  - The name of each object is attached in the `name` field.
+  - Any `/` in names will be replaced with `::`
+- Materials: If the object has a material, this will be simplified into a [Render Material](https://github.com/specklesystems/speckle-py/blob/9a1f28516d0bb7c76e390af103bc677bc5ca7b04/specklepy/objects/other.py#L6-L12) and attached in the `renderMaterial` field.
+- Properties: Custom properties added within Blender are always added to a `properties` field on respective objects. For BlenderBIM objects, this includes the `ifc_definition_id`. 
+  - Additional IFC properties that aren't stored in Blender are currently not extracted from the IFC and attached. This may be explored as an enhancement in the future.
+- Type: Objects are all sent as meshes and collections are sent as `Base` objects. None of the objects are currently being converted and sent as BIM objects. 
+
 ## Developing Locally
 
 If you'd like to help develop this connector further, you can pull from the [github repo here](https://github.com/specklesystems/speckle-blender).
