@@ -80,6 +80,25 @@ Tada! You should now have a commit on your stream containing your block. You'll 
 received_base = operations.receive(obj_id=hash, remote_transport=transport)
 ```
 
+### Short Hand: The Stream Wrapper
+
+You've just seen how to simply send and receive objects using the `SpeckleClient` and a `ServerTransport`. Since v2.2.6, there is a handy helper you can use to get a client and a transport from a stream URL - the `StreamWrapper`!
+
+Any URL to a stream, a branch, a commit, an object, or your globals will we parsed by the `StreamWrapper`. If you have a local account for the stream you provided, you can get an authenticated client and transport using the helper methods:
+
+```py
+from specklepy.api.credentials import StreamWrapper
+
+# provide any stream, branch, commit, object, or globals url
+wrapper = StreamWrapper("https://speckle.xyz/streams/3073b96e86/commits/604bea8cc6")
+
+# get an authenticated SpeckleClient if you have a local account for the server
+client = wrapper.get_client()
+
+# get an authenticated ServerTransport if you have a local account for the server
+transport = wrapper.get_transport()
+```
+
 ## Overview of Functionality
 
 ### GraphQL Client
