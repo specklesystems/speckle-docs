@@ -32,6 +32,10 @@ The Blender Connector lives in the 3D viewport toolbar (N) under the Speckle tab
 
 The **Streams Panel** shows a list of your most recent streams, which you can search through by name. You can add new streams with the "+" button, delete streams with the "-" button, and refresh the streams with the refresh button.
 
+![add by url](./img-blender/add-by-url.png)
+
+From version 2.1.9, you can also add existing streams by their URL. You can use the URL to a stream, a specific branch, or a specific commit. Simply paste it into the popup and the correct account, stream, branch, and commit will get selected for you.
+
 The **Active Stream Panel** will show more details about the stream you've selected in the Streams Panel. From here, you can change the active branch and commit. You can also Send and Receive any items you have selected in Blender. Under the Send and Receive buttons, you can use the dropdown menus to select a script to run on all elements during the send / receive process.
 
 At the very bottom of the panel (not pictured), you'll find a button that will open the stream in the [Speckle Web App](/user/web).
