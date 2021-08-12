@@ -4,7 +4,7 @@ typora-copy-images-to: ./img-gh
 
 # Grasshopper
 
-::: tip 
+::: tip
 
 Check out our dedicated tutorial on [how to get started with Grasshopper](https://speckle.systems/tutorials/getting-started-with-speckle-for-grasshopper/)!
 
@@ -159,7 +159,7 @@ Choosing the wrong access type for your data may result in duplicated data being
 
 #### Detach/Do Not Detach
 
-Every property can also be specified as _detached/non-detached_. When a property is _detached_, it means that the objects it contains will be saved as independent entities in the Speckle database. All properties are detached by default for performance reasons, but you can choose not to by specifying `Do not detach` on the right-click menu.
+Every property can also be specified as _detached/non-detached_. When a property is _detached_, it means that the objects it contains will be saved as independent entities in the Speckle database. All properties are detached by default for performance reasons, but you can choose not to by specifying `Do not detach` on the right-click menu. Primitive types (int/double/bool/etc...) are never detached even if flagged as such.
 
 ![Detach/Do not detach](./img-gh/menu-DoNotDetach.gif)
 
@@ -392,7 +392,6 @@ There is also an option to set the node to automatically send every time there i
 
 | ![Activating auto mode in sender](./img-gh/nodes-send-automode-activate.png) | ![Auto-send mode active in sender](./img-gh/nodes-send-automode-active.png) |
 | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-
 
 <!-- > This node is capable of [Kit Selection](#object-conversion-and-kits) -->
 
