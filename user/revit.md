@@ -6,7 +6,7 @@ typora-copy-images-to: img-revit
 
 The Speckle Revit Connector currently supports Autodesk Revit 2019, 2020 and 2021.
 
-::: tip 
+::: tip
 
 Check out our dedicated tutorial on [how to get started with Revit](https://speckle.systems/tutorials/getting-started-with-speckle-for-revit/)!
 
@@ -30,7 +30,7 @@ This connector uses our shared Desktop UI. Read up on general guidelines for usa
 
 ### Selection Filters
 
-To help you select which elements will be to sent to Speckle, we've built various filters into our Revit connector. Once a filter is set, just click **Send** and all objects passing the filter will be sent to your Stream. 
+To help you select which elements will be to sent to Speckle, we've built various filters into our Revit connector. Once a filter is set, just click **Send** and all objects passing the filter will be sent to your Stream.
 
 _Please Note: Elements are sent regardless of whether they are visible or if they were created after setting up the filter._
 
@@ -62,7 +62,13 @@ The list of available parameters comes from the current elements in the model. I
 
 ## Supported Elements
 
-* [Revit Support Tables](/user/support-tables.html#revit)
+- [Revit Support Tables](/user/support-tables.html#revit)
+
+## Family Editor
+
+The Revit connector also works in the Family Editor, refer to the list below for supported element types.
+
+- [Revit Support Tables](/user/support-tables.html#revit)
 
 ## Updating Elements
 

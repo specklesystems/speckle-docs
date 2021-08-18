@@ -163,6 +163,14 @@ Generally speaking, Revit doesn't support raw geometry as it deals with families
 | Brep         |      | ✅ As DirectShape | `Complete` |
 | Mesh         |      | ✅ As DirectShape | `Complete` |
 
+### Supported Geometries in Family Editor
+
+| Geometry     | Send | Receive          | Status     |
+| ------------ | ---- | ---------------- | ---------- |
+| Line & Curve |      | ✅ As ModelCurve | `Complete` |
+| Brep         |      | ✅ As FreeForm   | `Complete` |
+| Mesh         |      | ✅ As FreeForm   | `Complete` |
+
 ### Non Supported Elements
 
 Various element and data types do not have a direct conversions in Revit. Therefore sending Numbers, Points, Vectors or other non supported elements will have no effects.
