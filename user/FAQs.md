@@ -7,10 +7,10 @@ When a Speckle Server is unreachable a few things could be going on.
 If you cannot access the server from **your browser** or from **Speckle Manager**:
 
 - Firstly, check you are online by visiting other websites.
-- Make sure the server address is not blocked by a corporate firewall or VPN, by either trying to access it via a different network (eg mobile network) or by contacting your IT department.
+- Make sure the server address is not blocked by a corporate firewall, proxy or VPN, by either trying to access it via a different network (eg mobile network) or by _contacting your IT department_.
 - The server could be down! If it's hosted by us, we're most likely working on it already. If it's hosted by your company, please reach out to them.
 
-If the server address is **blocked by a corporate firewall or VPN**, kindly ask your IT department to whitelist the following domains and subdomains that Speckle uses: 
+If the server address is **blocked by a corporate firewall, proxy or VPN**, kindly ask your IT department to allowlist the following domains and subdomains that Speckle uses:
 
 - **speckle.xyz (critical)**
 - **speckle-releases.ams3.digitaloceanspaces.com (critical)**
@@ -22,9 +22,7 @@ For any more questions about this, feel free to [contact us](https://speckle.sys
 
 ## I can't add an account in Speckle Manager
 
-This is probably related to the server being unreachable, please check the section above.
-If the server is available and the account flow just doesn't work, please try alternative methods of [adding your account](/user/manager).
-If nothing works, please [let us know on the forum!](https://speckle.community)!  
+Check our [troubleshooting section](/user/manager.html#troubleshooting) for Speckle Manager.
 
 ## How do I merge two branches in Speckle
 
@@ -34,11 +32,10 @@ Currently, commits, branches or streams cannot be merged via Speckle, but you ca
 
 Our 3D Viewer only supports visualizing geometry. If you're sending any data that doesn't have a supported geometrical representation it will not be visible, for example when sending a list of Levels or Revit Family and Type names. You'll always be able to explore the raw data of a Stream in the JSON editor inside the commit page.
 
-
 ## I forgot my password 🤔
 
 This time over, we've got you covered: just go to the [password reset page](https://speckle.xyz/authn/resetpassword)!
 
-## More questions? 
+## More questions?
 
-We source them from all the feedback we get. Head over to [the forum and post one](https://speckle.community)!  
+We source them from all the feedback we get. Head over to [the forum and post one](https://speckle.community)!
