@@ -195,7 +195,15 @@ To something like:
 
 You should now see the UI responding to various user actions with your custom binding logic.
 
-For any questions feel free to write on the [community forum](https://speckle.community/)!
+## Implementing telemetry
+
+Telemetry is an optional aspects of a connector, but it massively helps us understand how our tech is being used and if our products are useful or not.
+We encourage everyone adding it (and enabling it) in their connectors. The more usage we see, the more resources the project will get and a Better Speckle will be possible.
+
+The telemetry service (matomo) is already added as a reference in Core, so you will just need to:
+
+- initialize it with a `Setup.Init()` with the name of your connector as input, [example](https://github.com/specklesystems/speckle-sharp/blob/2a2ac0a6900e8833081b8cc851878b0decffa304/ConnectorGrasshopper/ConnectorGrasshopper/Loader.cs#L25).
+- track the [main actions](https://github.com/specklesystems/speckle-sharp/blob/main/Core/Core/Logging/Tracker.cs#L20-L48) with `Tracker.TrackPageView`, [example](https://github.com/specklesystems/speckle-sharp/blob/2a2ac0a6900e8833081b8cc851878b0decffa304/ConnectorGrasshopper/ConnectorGrasshopper/Ops/Operations.SendComponent.cs#L59)
 
 ## Writing the Converter
 

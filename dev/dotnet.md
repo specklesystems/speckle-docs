@@ -21,7 +21,6 @@ All our NuGets are prefixed by `Speckle.`. Please don't confuse them with the ol
 
 ## How to use
 
-
 Here's a quick summary of the main tasks Core helps you with:
 
 - sending and receiving data to and from multiple transports
@@ -76,7 +75,7 @@ The `Helpers.Receive` takes optional arguments for specifying an `account` (othe
 
 ### Advanced Receiving
 
-If you want more control on how and where from your data is Received, just use some of our lower lever functions. 
+If you want more control on how and where from your data is Received, just use some of our lower lever functions.
 For instance, the code below receives the last commit of a stream from a specific branch:
 
 ```csharp
@@ -105,7 +104,7 @@ var data = await Operations.Receive(
 
 ```
 
-## Sending Data 
+## Sending Data
 
 Sending data to Speckle is also pretty straightforward. Assuming you have SpeckleManager set up locally, all you need to do is:
 
@@ -117,7 +116,7 @@ var commitId = Helpers.Send("Stream URL or ID", data, "My commit message").Resul
 
 ### Advanced Sending
 
-If you want more control on how and where to your data is Sent, just use some of our lower lever functions. 
+If you want more control on how and where to your data is Sent, just use some of our lower lever functions.
 For instance:
 
 ```csharp
@@ -152,7 +151,6 @@ var commitId = await client.CommitCreate(
   });
 ```
 
-
 ## Serializing & Deserializing Data
 
 Getting a JSON representation of your data is easy:
@@ -167,3 +165,39 @@ var data = Operations.Deserialize(json);
 
 ```
 
+## Using the .NET SDK without Manager
+
+Core has been designed to be used in conjunction with Manager, that's where the account information is basically pulled from.
+
+But you can of course also use Core in environments where Manager is not available, for example in a serverless function.
+To do so (and avoid worrying about authentication), we first need to set up a [personal access token](/dev/tokens).
+
+Then, we can create a basic `Account` and pass it to a new `Client` and use the API as usual, see full example below:
+
+```csharp
+using Speckle.Core.Api;
+using Speckle.Core.Credentials;
+using System;
+
+namespace SpeckleSampleApp
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      var account = new Account();
+      account.token = "YOUR-PERSONAL-ACCESS-TOKEN";
+      account.serverInfo = new ServerInfo
+      {
+        url = "https://speckle.xyz/"
+      };
+
+      var client = new Client(account);
+      var stream = client.StreamGet("5dfbeb49c9").Result;
+    }
+  }
+}
+
+```
+
+Alternatively, if you don't want to use a personal access token you'd need to take care of the auth flow yourself, this functionality is not currently present in Core.
