@@ -117,35 +117,36 @@ Non-geometric elements and any geometric element not listed above, such as text 
 
 ### Supported Elements
 
-| BuiltElement                                          | Send | Receive |    Status     |
-| ----------------------------------------------------- | :--: | :-----: | :-----------: |
-| Area                                                  |  ✅  |         |  `Complete`   |
-| Adaptive Component                                    |  ✅  |   ✅    |  `Complete`   |
-| Beam                                                  |  ✅  |   ✅    |  `Complete`   |
-| Brace                                                 |  ✅  |   ✅    |  `Complete`   |
-| Building Pad                                          |  ✅  |         |  `Complete`   |
-| Ceiling                                               |  ✅  |         |  `Complete`   |
-| Curves (Model, Detail, Room Boundary)                 |  ✅  |   ✅    |  `Complete`   |
-| Direct Shape                                          |  ✅  |   ✅    |  `Complete`   |
-| Duct                                                  |  ✅  |   ✅    |  `Complete`   |
-| Face Wall                                             |      |   ✅    |  `Complete`   |
-| Family Instance                                       |  ✅  |   ✅    |  `Complete`   |
-| Floor                                                 |  ✅  |   ✅    |  `Complete`   |
-| Freeform Element                                      |      |   ✅    | `In Progress` |
-| Grid                                                  |  ✅  |   ✅    |  `Complete`   |
-| Group                                                 |  ✅  |         | `In Progress` |
-| Level                                                 |  ✅  |   ✅    |  `Complete`   |
-| Opening (Wall, Vertical, Shaft)                       |  ✅  |   ✅    |  `Complete`   |
-| Pipe                                                  |  ✅  |   ✅    |  `Complete`   |
-| Project Information                                   |  ✅  |         |  `Complete`   |
-| Railing                                               |  ✅  |   ✅    |  `Complete`   |
-| Roof (Extrusion, Footprint)                           |  ✅  |   ✅    |  `Complete`   |
-| Room                                                  |  ✅  |   ✅    |  `Complete`   |
-| Stair                                                 |  ✅  |         |  `Complete`   |
-| Topography                                            |  ✅  |   ✅    |  `Complete`   |
-| View (FloorPlan, CeilingPlan, Elevation, Section, 3D) |  ✅  |         |  `Complete`   |
-| Wall                                                  |  ✅  |   ✅    |  `Complete`   |
-| Wire                                                  |  ✅  |   ✅    |  `Complete`   |
+| BuiltElement                                            | Send | Receive |    Status     |
+| ------------------------------------------------------- | :--: | :-----: | :-----------: |
+| Area                                                    |  ✅  |         |  `Complete`   |
+| Adaptive Component                                      |  ✅  |   ✅    |  `Complete`   |
+| Beam                                                    |  ✅  |   ✅    |  `Complete`   |
+| Brace                                                   |  ✅  |   ✅    |  `Complete`   |
+| Building Pad                                            |  ✅  |         |  `Complete`   |
+| Ceiling                                                 |  ✅  |         |  `Complete`   |
+| Curves (Model, Detail, Room Boundary, Space Separation) |  ✅  |   ✅    |  `Complete`   |
+| Direct Shape                                            |  ✅  |   ✅    |  `Complete`   |
+| Duct                                                    |  ✅  |   ✅    |  `Complete`   |
+| Face Wall                                               |      |   ✅    |  `Complete`   |
+| Family Instance                                         |  ✅  |   ✅    |  `Complete`   |
+| Floor                                                   |  ✅  |   ✅    |  `Complete`   |
+| Freeform Element                                        |      |   ✅    | `In Progress` |
+| Grid                                                    |  ✅  |   ✅    |  `Complete`   |
+| Group                                                   |  ✅  |         | `In Progress` |
+| Level                                                   |  ✅  |   ✅    |  `Complete`   |
+| Opening (Wall, Vertical, Shaft)                         |  ✅  |   ✅    |  `Complete`   |
+| Pipe                                                    |  ✅  |   ✅    |  `Complete`   |
+| Project Information                                     |  ✅  |         |  `Complete`   |
+| Railing                                                 |  ✅  |   ✅    |  `Complete`   |
+| Roof (Extrusion, Footprint)                             |  ✅  |   ✅    |  `Complete`   |
+| Room                                                    |  ✅  |   ✅    |  `Complete`   |
+| Space                                                   |  ✅  |   ✅    |  `Complete`   |
+| Stair                                                   |  ✅  |         |  `Complete`   |
+| Topography                                              |  ✅  |   ✅    |  `Complete`   |
+| View (FloorPlan, CeilingPlan, Elevation, Section, 3D)   |  ✅  |         |  `Complete`   |
+| Wall                                                    |  ✅  |   ✅    |  `Complete`   |
+| Wire                                                    |  ✅  |   ✅    |  `Complete`   |
 
 | Other          | Send | Receive             | Status     |
 | -------------- | ---- | ------------------- | ---------- |
@@ -162,6 +163,14 @@ Generally speaking, Revit doesn't support raw geometry as it deals with families
 | Line & Curve |      | ✅ As ModelCurve  | `Complete` |
 | Brep         |      | ✅ As DirectShape | `Complete` |
 | Mesh         |      | ✅ As DirectShape | `Complete` |
+
+### Supported Geometries in Family Editor
+
+| Geometry     | Send | Receive          | Status     |
+| ------------ | ---- | ---------------- | ---------- |
+| Line & Curve |      | ✅ As ModelCurve | `Complete` |
+| Brep         |      | ✅ As FreeForm   | `Complete` |
+| Mesh         |      | ✅ As FreeForm   | `Complete` |
 
 ### Non Supported Elements
 
