@@ -43,16 +43,15 @@ class Block(Base):
     height: float
     origin: Point = None
 
-    def __init__(self, **kwargs) -> None:
+    def __init__(self, length=1.0, width=1.0, height=1.0, origin=Point(), **kwargs) -> None:
         super().__init__(**kwargs)
         # mark the origin as a detachable attribute
         self.add_detachable_attrs({"origin"})
 
-        # set defaults if you'd like
-        self.length = kwargs.get("length", 1.0)
-        self.width = kwargs.get("width", 1.0)
-        self.height = kwargs.get("height", 1.0)
-        self.origin = kwargs.get("origin", Point())
+        self.length = length
+        self.width = width
+        self.height = height
+        self.origin = origin
 ```
 
 Now let's send a block to the server! To do this, you'll first need to send the object to the stream and get back the object id or hash. You can then use this to create a commit on the stream that references this object.
