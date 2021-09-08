@@ -38,15 +38,21 @@ from specklepy.objects import Base
 from specklepy.objects.geometry import Point
 
 class Block(Base):
-    length: float = 1.0
-    width: float = 1.0
-    height: float = 1.0
-    origin: Point = Point()
+    length: float
+    width: float
+    height: float
+    origin: Point = None
 
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
         # mark the origin as a detachable attribute
-        self.add_detachable_attrs("origin")
+        self.add_detachable_attrs({"origin"})
+
+        # set defaults if you'd like
+        self.length = kwargs.get("length", 1.0)
+        self.width = kwargs.get("width", 1.0)
+        self.height = kwargs.get("height", 1.0)
+        self.origin = kwargs.get("origin", Point())
 ```
 
 Now let's send a block to the server! To do this, you'll first need to send the object to the stream and get back the object id or hash. You can then use this to create a commit on the stream that references this object.
@@ -246,23 +252,23 @@ Each `Base` object has an `id` (a unique hash) as it does in the other SDKs. Thi
 
 The `Base` class can be subclassed to create your own custom objects. These are automatically added to a a class level registry which is simply a dictionary with the type name as the key. The type is automatically populated by the `speckle_type` attribute, but can be overwritten when writing your class.
 
-Note that all typed attributes of a class must be initialised with a default value for serialisation purposes.
+Note that all typed attributes of a class **must be initialised with a non-mutable default value** or a value that you will only change by reassignment. If you'd like to have mutable defaults, you should write an `__init__` method for the class to set these (see the `Block` example in the first section).
 
 ```py
 from specklepy.objects import Base
 from specklepy.objects.point import Point
 
 class Line(Base):
-    start: Point = Point()
-    end: Point = Point()
+    start: Point = None
+    end: Point = None
 
 class AlternativeLine(Base, speckle_type="Line_Two"):
     """
     The `speckle_type` is automatically populated by the class name.
     You can override this behaviour as demonstrated here.
     """
-    a: Point = Point()
-    b: Point = Point()
+    a: Point = None
+    b: Point = None
 
 # look, a new custom line!
 line = Line(end=Point(1, 0, 2))
@@ -290,7 +296,8 @@ CHUNKABLE_PROPS = {
 # detachable members are just added to an internal set by name
 DETACHABLE = {"detach_this", "origin"}
 
-class FakeMesh(Base):
+# you can pass a chunkables dict and a detachables as keyword arguments when writing your class
+class FakeMesh(Base, chunkable=CHUNKABLE_PROPS, detachable=DETACHABLE):
     vertices: List[float] = None
     faces: List[int] = None
     colors: List[int] = None
@@ -298,12 +305,6 @@ class FakeMesh(Base):
     test_bases: List[Base] = None
     detach_this: Base = None
     _origin: Point = None
-
-    def __init__(self, **kwargs) -> None:
-        """You'll need an init method to add your chunkable and detachable members"""
-        super().__init__(**kwargs)
-        self.add_chunkable_attrs(**CHUNKABLE_PROPS) # add the chunkables
-        self.add_detachable_attrs(DETACHABLE) # add the detachables
 
     # properties are also picked up and serialised as you'd expect
     @property
