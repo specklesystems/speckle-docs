@@ -46,6 +46,7 @@ Almost all geometric elements are supported by the Rhino connector. This include
 | BlockInstance   |  ✅  |   ✅    |  `Complete`   |
 | BlockDefinition |  ✅  |   ✅    |  `Complete`   |
 | PointCloud      |  ✅  |   ✅    |  `Complete`   |
+| Hatch           |  ✅  |   ✅    |  `Complete`   |
 
 > Speckle supports sending BREPs from Rhino <-> Rhino, and Rhino <-> Revit, with some limitations imposed by Revit's API.
 
@@ -222,12 +223,12 @@ Any geometric elements not listed above are not supported.
 | Geometry     | Send       | Receive | Status        |
 | ------------ | ---------- | ------- | ------------- |
 | Alignment    | ✅         |         | `In Progress` |
-| Corridor     |            |         | `In Progress` |
+| Corridor     | ✅         |         | `In Progress` |
 | FeatureLine  | ✅         |         | `In Progress` |
 | Grid Surface | ✅ as Mesh |         | `In Progress` |
-| Pipe         | ✅ as Mesh |         | `In Progress` |
+| Pipe         | ✅         |         | `In Progress` |
 | Profile      | ✅         |         | `In Progress` |
-| Structure    | ✅ as Mesh |         | `In Progress` |
+| Structure    | ✅         |         | `In Progress` |
 | Tin Surface  | ✅ as Mesh |         | `In Progress` |
 
 ### Unsupported Elements
@@ -250,14 +251,15 @@ Subassemblies and Assemblies are not supported.
 | Spline        |   ✅    |   ✅    |  `Complete`   |
 | Plane Surface |   ✅    |         | `In Progress` |
 | Nurb Surface  |   ✅    |         | `In Progress` |
-| PolyFace Mesh |   ✅    |         | `In Progress` |
-| SubD Mesh     |   ✅    |         | `In Progress` |
-| 3D Solid      | as Mesh |         | `In Progress` |
+| PolyFace Mesh |   ✅    |   ✅    |  `Complete`   |
+| SubD Mesh     |   ✅    |   ✅    |  `Complete`   |
+| 3D Solid      | as Mesh | as Mesh  | `In Progress` |
 
 | Other           | Send | Receive |   Status   |
 | --------------- | :--: | :-----: | :--------: |
 | BlockInstance   |  ✅  |   ✅    | `Complete` |
 | BlockDefinition |  ✅  |   ✅    | `Complete` |
+| Hatch           |  ✅  |   ✅    | `Complete` |
 
 ### Unsupported Elements
 
