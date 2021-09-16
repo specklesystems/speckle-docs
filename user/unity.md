@@ -29,7 +29,7 @@ To receive data directly from the editor, just add the `SpeckleManager.cs` scrip
 
 Please note this feature is in early release and might be a bit unstable.
 
-!\[image\](![](https://user-images.githubusercontent.com/2679513/123954157-fb0ea300-d99f-11eb-8507-724676d4717c.png))
+![StreamManager](https://user-images.githubusercontent.com/2679513/123954157-fb0ea300-d99f-11eb-8507-724676d4717c.png)
 
 ## Game Time Sending and Receiving
 
@@ -79,4 +79,4 @@ In order to build the Speckle Playground project (and potentially any project) u
 
 * Set the project architecture to `x86_64`
 * If you get errors on missing shaders include them in your build. To do so, just copy them to a Resource folder OR add them in `Project Settings → Graphics → Built-in Shader Settings → Always Included shaders`
-  ![shader](https://speckle.community/uploads/default/optimized/2X/3/38063ce2324d9f5ef00ec30f87d033b750745c20_2_690x247.png)
+  ![shader](https://user-images.githubusercontent.com/45512892/133601294-cdd78c5f-4c35-4f88-8a7a-73d97a7b234c.png)
