@@ -79,4 +79,4 @@ In order to build the Speckle Playground project (and potentially any project) u
 
 * Set the project architecture to `x86_64`
 * If you get errors on missing shaders include them in your build. To do so, just copy them to a Resource folder OR add them in `Project Settings → Graphics → Built-in Shader Settings → Always Included shaders`
-  ![shader](https://user-images.githubusercontent.com/45512892/133595679-3c37c01e-f156-4a17-afde-a975a523c90b.png)
+  ![shader](https://user-images.githubusercontent.com/45512892/133601294-cdd78c5f-4c35-4f88-8a7a-73d97a7b234c.png)
