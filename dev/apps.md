@@ -178,7 +178,7 @@ Vue will automatically read any `.env` files in the root of your project and loa
 VUE_APP_SPECKLE_ID=YOUR_APP_ID # The Speckle Application Id
 VUE_APP_SPECKLE_SECRET=YOUR_APP_SECRET # The Speckle Application Secret
 VUE_APP_SERVER_URL=https://speckle.xyz
-VUE_APP_SPECKLE_NAME=SpeckleDemo
+VUE_APP_SPECKLE_NAME="Speckle Demo App"
 ```
 
 ### Login in with Speckle
@@ -418,7 +418,7 @@ router.beforeEach(async (to, from, next) => {
 })
 ```
 
-Now, press the Log In button again, allow the app to access your account and wait for the redirect to the app. Once it's done, you should have 2 variables stored in `localStorage`: `SpeckleDemo.Token` and `SpeckleDemo.RefreshToken`
+Now, press the Log In button again, allow the app to access your account and wait for the redirect to the app. Once it's done, you should have 2 variables stored in `localStorage`: `Speckle Demo App.AuthToken` and `Speckle Demo App.RefreshToken`
 
 At this point, we've managed to save our authentication token but our app still cannot discern if your users are authenticated or not (remember the `isAuthenticated` computed property in `App.vue`). We'll add this on the next step.
 
