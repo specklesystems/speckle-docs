@@ -47,6 +47,7 @@ Almost all geometric elements are supported by the Rhino connector. This include
 | BlockDefinition |  ✅  |   ✅    |  `Complete`   |
 | PointCloud      |  ✅  |   ✅    |  `Complete`   |
 | Hatch           |  ✅  |   ✅    |  `Complete`   |
+| Text            |  ✅  |   ✅    |  `Complete`   |
 
 > Speckle supports sending BREPs from Rhino <-> Rhino, and Rhino <-> Revit, with some limitations imposed by Revit's API.
 
@@ -260,10 +261,11 @@ Subassemblies and Assemblies are not supported.
 | BlockInstance   |  ✅  |   ✅    | `Complete` |
 | BlockDefinition |  ✅  |   ✅    | `Complete` |
 | Hatch           |  ✅  |   ✅    | `Complete` |
+| Text            |  ✅  |   ✅    | `Complete` |
 
 ### Unsupported Elements
 
-Hatches, labels, and annotations are not supported, as well as any unlisted element. Dynamic blocks are not supported at this time.
+Labels, dimensions, and annotations are not supported, as well as any unlisted element. Dynamic blocks are not supported at this time, and there is a known issue with blocks containing text that is not updated with field values.
 
 ## Blender
 
