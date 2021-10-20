@@ -135,7 +135,54 @@ Make sure to edit the file and change
 
 The server also supports some other environment variables. You can see them in our [.env-example file from the git repo](https://github.com/specklesystems/speckle-server/blob/main/packages/server/.env-example).  
 
-#### Step 4: Start the Server and the dependencies
+#### Step 4: Optionally add easy TLS certificate
+
+* set up a dns record, that point to the public ip of your VM
+* add a new entry into the services into the previously defined docker-compose.yml
+  ```yaml
+  services:
+    reverse-proxy:
+      image: traefik:v2.5
+      command: 
+        - "--providers.docker"
+        - "--entrypoints.websecure.address=:443"
+        - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+        #- "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+
+        # TODO: replace with proper email
+        - "--certificatesresolvers.myresolver.acme.email={your@example.com}"
+
+        - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+
+      ports:
+        # The HTTP port
+        - "443:443"
+        # The Web UI (enabled by --api.insecure=true)
+        - "8080:8080"
+      volumes:
+        - "./letsencrypt:/letsencrypt"
+        # So that Traefik can listen to the Docker events
+        - /var/run/docker.sock:/var/run/docker.sock
+  ```
+* make sure to replace `{your@example.com}` for the `--certificatesresolvers.myresolver.acme.email` with an email, that belongs to you
+
+* modify the frontend service definition with some extra labels like below
+  ```yaml
+
+    speckle-frontend:
+      image: speckle/speckle-frontend:latest
+      restart: always
+      labels:
+        - "traefik.http.routers.speckle-frontend.rule=Host(`{example.com}`)"
+        - "traefik.http.routers.speckle-frontend.entrypoints=websecure"
+        - "traefik.http.routers.speckle-frontend.tls.certresolver=myresolver"
+
+  ```
+
+* change `traefik.http.routers.speckle-frontend.rule` replace `{example.com}` with your domain
+* change `CANONICAL_URL` to match `https://yourdomain`
+
+#### Step 5: Start the Server and the dependencies
 ```bash
 # cd /opt/speckle
 # docker-compose up -d
