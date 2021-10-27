@@ -301,3 +301,23 @@ We've only started supporting Unity elements, please let us know what else you'd
 | Curve                |       ✅        |                 |
 | Mesh                 |       ✅        |       ✅        |
 | BuiltElements 3DView |       ✅        |                 |
+
+## ETABS
+
+### Supported Elements
+
+We've only started supporting with an alpha release of ETABS elements, please let us know what else you'd like to see, and do contribute if you have the skillz!
+
+| Geometry                                                           |  Send   | Receive |
+| ------------------------------------------------------------------ | :-----: | :-----: |
+| Point                                                              |   ✅    |   ✅    |
+| Columns                                                            |   ✅    |   ✅    | 
+| Beams                                                              |   ✅    |   ✅    |  
+| Braces                                                             |   ✅    |   ✅    |  
+| Sections Profile (Catalogue)                                       |   ✅    |   ✅    |
+| User Defined Sections ~ refer to [structural object kit](https://github.com/specklesystems/speckle-sharp/blob/structural/structural-kit/Objects/Objects/Structural/Property/SectionProfile.cs) for schema                                                           |   ✅    |   ✅    |
+| Floor with Slab Sections + Deck Sections                           |   ✅    |   ✅    |
+| Wall and Sections                                                  |   ✅    |   ✅    |
+| Material Code definition                                           |          |   ✅    |
+| Restraints                                                         |   ✅    |   ✅    |
+
