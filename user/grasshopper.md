@@ -92,6 +92,14 @@ To view the data you just sent in Grasshopper, right-click the `Send` node and s
 
 :::
 
+
+### Auto Sending
+
+By right-clicking on the node, you can enable/disable auto sending. If enabled, data will be send automatically every time it changes.
+
+![image](https://user-images.githubusercontent.com/2679513/139331715-86d102dd-fa0b-4854-bc75-764e005b0559.png)
+
+
 ### Sending to a Specific Branch
 
 When referring to a stream by its URL, the `main` branch is used to send and receive data by default.
