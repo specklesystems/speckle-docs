@@ -87,6 +87,7 @@ module.exports = {
           children: [
             "connectors",
             "ui",
+            "ui2",
             "revit",
             "rhino",
             "autocadcivil",
