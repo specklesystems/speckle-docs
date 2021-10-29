@@ -18,7 +18,7 @@ To install the ETABS Connector and add your Speckle account, proceed by followin
 
 Once installed, you can find the ETABS connector in the PlugIn menu under the **Tools** tab like so:
 
-![ToolBar](./img-etabs/ToolBar.png) 
+![ToolBar](./img-etabs/toolbar.png) 
 
 ### Recieving in ETABS
 Save the ETABS model as a file first before attempting to recieve streams into your ETABS model. 
@@ -38,7 +38,7 @@ To help you select which elements will be to sent to Speckle, we've built variou
 
 _Please Note: Elements are sent regardless of whether they are visible or if they were created after setting up the filter._
 
-![ETABS-ui](./img-etabs/etabs-ui.png)
+![ETABS](./img-etabs/etabs-ui.png)
 
 #### Category Filter
 
@@ -66,11 +66,11 @@ To send elements from Revit specficially into a structural model, use the analyt
 ## Grasshopper to ETABS
 The schema for the structural objects is based around our structural pyramid of objects. Refer to the [discourse post](https://speckle.community/t/introducing-structural-classes-for-speckle/1824/8) here if you haven't for all the information about this kit. There are ETABS application specific grasshopper components. Check them out and use them to build specific properties like deck sections. If there is no specific ETABS component, use the general structural schema to define them. 
 
-![ETABS Schema](./img-etabs/Structural-Tool.png)
+![ETABS Schema](./img-etabs/structural-tool.png)
 
 Everything is encapsulated in the model object from the schema in the end. Therefore make sure you define the model object. 
 
-![ETABS Schema](./img-etabs/model.png)
+![ETABS grasshopper model](./img-etabs/model.png)
 
 ::: Tip
 
