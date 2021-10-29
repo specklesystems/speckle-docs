@@ -96,6 +96,7 @@ module.exports = {
             "unreal",
             "blender",
             "excel",
+            "etabs",
             "support-tables"
           ]
         },
