@@ -72,7 +72,7 @@ Everything is encapsulated in the model object from the schema in the end. There
 
 ![ETABS grasshopper model](./img-etabs/model.png)
 
-::: Tip
+::: tip
 
 It's worth building an ETABS model and sending and recieving that object in ETABS before you attempting building a model from grasshopper directly. 
 
