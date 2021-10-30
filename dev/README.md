@@ -5,7 +5,7 @@ If you're looking for info on how to _use_ Speckle, check our [user guide](/).
 
 > Speckle is the open source data platform for architecture, engineering, and construction. It liberates your data from proprietary file formats and closed source software and puts it back into your hands.
 
-This part of our docs is for any developer planning to extend, integrate or improve Speckle. We'll walk you through the main concepts behind our tech and guide you through fun tasks as [writing your own connector](/dev/connectors-dev) or [writing custom Speckle apps](/dev/apps-dev).
+This part of our docs is for any developer planning to extend, integrate or improve Speckle. We'll walk you through the main concepts behind our tech and guide you through fun tasks as [writing your own connector](/dev/connectors-dev) or [writing custom Speckle apps](/dev/apps).
 
 We hope to see the great things you'll do with our SDKs and APIs, let's go!
 
