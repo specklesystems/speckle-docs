@@ -99,6 +99,17 @@ If you have used a connector and you've sent data to a stream, you've already us
 
 When receiving data in a connector, you have the option of either staying synced with the latest commit or receiving a specific commit based on the `commitId`. If you choose to stay on the latest commit, you'll see a notification when someone else has sent new data to the stream. When you see this, you'll be able to use the receive function to get the new commit and update your file.
 
+### Commit Received Receipts
+
+The most recent update to Commits was Received Receipts feature: log of all the times users received a commit through Speckle connector. Each time a registered user receives specific commit, the record is being created, containing information on who received the data, when and in which software.
+
+![image-commit-data-rr](./img/image-commit-data-rr.png)
+![image-commit-data-rr-popup](./img/image-commit-data-rr-popup.png)
+
+The Received Receipts are displayed alongside commit description in the web interface, and every receive-event makes a new record in your Activity Feed.
+
+![image-feed-rr](./img/image-feed-rr.png)
+
 ## What Next?
 
 &nbsp;
