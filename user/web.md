@@ -66,7 +66,7 @@ By going even deeper, you can access a page for a single branch in your stream. 
 
 ![image-20210322193547220](./img/web/image-20210322193547220.png)
 
-The latest Received Receipts feature allows to display all the receive-events next to each commit - records of receiving the commit by a registered user through Speckle connector. You can view the full list of records by clicking on the avatars of receiving users.
+The latest Received Receipts feature allows to display all the receive-events next to each commit - records of receiving the commit by a registered user through Speckle connector. You can view the full list of records by clicking on user avatars.
 
 ![image-brach-rr](./img/web/image-brach-rr.png)
 ![image-brach-rr-popup](./img/web/image-brach-rr-popup.png)
