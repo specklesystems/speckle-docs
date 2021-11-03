@@ -4,15 +4,19 @@ typora-copy-images-to: img-interop
 
 # User Interface
 
-Most of our Connectors look the same, despite working inside of different applications. Our shared user interface is currently used inside: 
+::: tip IMPORTANT ⚠️
+Our default User Interface is changing! 🤩
+See our new version [here](./ui2), and add your feedback on the [forum](https://speckle.community/t/new-desktopui-in-alpha-testing/1851)!
+:::
 
-* McNeel Rhinoceros
-* Autodesk Revit
-* Autodesk Civil3D
-* Autodesk AutoCAD
-* Blender
+Most of our Connectors look the same, despite working inside of different applications. Our shared user interface is currently used inside:
 
-Other Connectors work slightly differently depending on which software they're used in (e.g. Grasshopper and Dynamo use a node-based environment). 
+- McNeel Rhinoceros
+- Autodesk Revit
+- Autodesk Civil3D
+- Autodesk AutoCAD
+
+Other Connectors work slightly differently depending on which software they're used in (e.g. Grasshopper and Dynamo use a node-based environment).
 
 Let's go on a quick graphical tour of the shared user interface to get you familiar with using Speckle.
 
@@ -22,15 +26,16 @@ When launching a Connector in your host application (e.g. Rhino), you'll be pres
 
 ### Sender or Receiver?
 
-When viewed in the Connector, a stream can be in either  _Sender_ or  _Receiver_ mode, which determines whether you're sending data to your Speckle server or receiving data from it. The easiest way to tell which mode it's in is to check whether the stream has a **Send** or a **Receive** button (you can toggle between these two states using the switch button.) 
+When viewed in the Connector, a stream can be in either _Sender_ or _Receiver_ mode, which determines whether you're sending data to your Speckle server or receiving data from it. The easiest way to tell which mode it's in is to check whether the stream has a **Send** or a **Receive** button (you can toggle between these two states using the switch button.)
 
 ![desktopui home page with labelled buttons](https://user-images.githubusercontent.com/7717434/107382404-badd7f80-6ae7-11eb-9941-2265b1cc5748.png)
 
-Your streams have several buttons along the bottom, which can vary depending on whether they are in _Sender_ or _Receiver_ mode. The leftmost button lets you create and switch between the stream's branches (if you have any). 
+Your streams have several buttons along the bottom, which can vary depending on whether they are in _Sender_ or _Receiver_ mode. The leftmost button lets you create and switch between the stream's branches (if you have any).
 
-The center button changes, depending on the stream's mode: 
-* On a stream in _Receiver_ mode, the center button allows you to choose which commit you would like to receive.
-* On a stream in _Sender_ mode, the center button lets you select which objects in your model should be sent to this stream.
+The center button changes, depending on the stream's mode:
+
+- On a stream in _Receiver_ mode, the center button allows you to choose which commit you would like to receive.
+- On a stream in _Sender_ mode, the center button lets you select which objects in your model should be sent to this stream.
 
 The rightmost button is the Send/Receive button, for pushing/pulling data to (or from) this stream. This is where the Speckle magic happens!
 
@@ -54,11 +59,11 @@ Please note, removing a stream from the Connector will just disassociate it from
 
 ## Sending Data
 
-In order to send data to your stream, you'll need to tell Speckle which elements should be sent. Is it: 
+In order to send data to your stream, you'll need to tell Speckle which elements should be sent. Is it:
 
-* Just the items you've selected?
-* A specific layer(s) in Rhino?
-* A specific Revit workset?
+- Just the items you've selected?
+- A specific layer(s) in Rhino?
+- A specific Revit workset?
 
 The Connectors are built to help you select objects in ways that make the most sense for the application you're using.
 
@@ -75,8 +80,6 @@ By clicking on (1) an additional view will show, wich will let you filter the mo
 ![desktopui-using-filters](https://user-images.githubusercontent.com/7717434/106741137-35ebf500-6613-11eb-84b7-0ceb721a28cb.gif)
 
 By clicking on any of the (2) buttons instead, the elements are added/removed based on the current selection in the model.
-
-
 
 ### Sending Data
 
