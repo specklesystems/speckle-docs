@@ -4,11 +4,13 @@
 This connector is currently in alpha with limited functionality. Sending is fairly stable, but receiving is unreliable. Please keep this in mind while testing!
 :::
 
+![example-send](./img-sketchup/sketchup-hostel-sent.png)
+
 ## Getting Started
 
 Before using this connector, you'll need to follow our standard setup instructions to [install Speckle Manager and add a Speckle account](/user/manager).
 
-![example-send](./img-sketchup/sketchup-hostel-sent.png)
+As this connector is still in heavy development, see the [repo](https://github.com/specklesystems/speckle-sketchup) for the latest installation instructions.
 
 ## User Interface
 
