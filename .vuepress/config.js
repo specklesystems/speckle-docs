@@ -98,6 +98,7 @@ module.exports = {
             "blender",
             "excel",
             "etabs",
+            "sketchup",
             "support-tables"
           ]
         },

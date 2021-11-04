@@ -321,3 +321,17 @@ We've only started supporting with an alpha release of ETABS elements, please le
 | Material Code definition                                           |          |   ✅    |
 | Restraints                                                         |   ✅    |   ✅    |
 
+## SketchUp
+
+### Supported Elements
+
+The SketchUp connector is still in early Alpha and is therefore a work in progress. Let us know what else you'd like to see supported or if you would like to contribute!
+
+| Type                                     | Send | Receive |    Status     |
+| ---------------------------------------- | :--: | :-----: | :-----------: |
+| Brep                                     |      | as mesh | `In Progress` |
+| Mesh                                     |  ✅  |   ✅   | `In Progress` |
+| Polyline                                 |  ✅  |   ✅   | `In Progress` |
+| Render Material                          |  ✅  |   ✅   | `In Progress` |
+| BlockInstance                            |  ✅  |        | `In Progress` |
+| BlockDefinition                          |  ✅  |        | `In Progress` |
