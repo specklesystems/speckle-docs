@@ -1,4 +1,4 @@
-# Writing Your Own connector
+# Writing Your Own Connector
 
 ![img](./img/connectors-dev/connectors.png)
 
@@ -49,7 +49,12 @@ Then you can proceed to add the following packages from NuGet:
 
 By installing these packages,`Speckle.Core` and other packages will be also added automatically.
 
-## Launching the UI
+## Adding DesktopUI (old)
+
+::: tip IMPORTANT ⚠️
+Our default User Interface is changing! 🤩
+See our new version [here](./ui2), and add your feedback on the [forum](https://speckle.community/t/new-desktopui-in-alpha-testing/1851)!
+:::
 
 Assuming the host application you are integrating with provides a way to launch plugins via command or by clicking a button, you can insatiate and launch the DesktopUI with the code below:
 
@@ -82,7 +87,7 @@ Now, in your host application, after launching the Speckle plugin you should see
 
 ![image-20210427164951074](./img/connectors-dev/image-20210427164951074.png)
 
-## Adding the Bindings
+### Adding the Bindings
 
 The UI we just launched is quite sleek, but also a bit useless for the time being, as it doesn't have any connection to the host application; so it wouldn't know what to do when the _Send_ button is clicked, when the user wants to change selection or where to load saved streams from etc...
 
@@ -194,6 +199,229 @@ To something like:
 ```
 
 You should now see the UI responding to various user actions with your custom binding logic.
+
+## Adding DesktopUI (new)
+
+::: tip IMPORTANT ⚠️
+This new User Interface is currently in beta testing, add your feedback on the [forum](https://speckle.community/t/new-desktopui-in-alpha-testing/1851)!
+:::
+
+Our new DesktopUI is written using [Avalonia](https://avaloniaui.net/), a .NET open source framework for cross-platform UIs.
+You can play around with a standalone version of it by opening the solution in `speckle-sharp/DesktopUI2/DesktopUI2.sln`.
+Assuming the host application you are integrating with provides a way to launch plugins via command or by clicking a button, you can insatiate and launch the new DesktopUI with the code below:
+
+```csharp
+public static Window MainWindow { get; private set; }
+
+public static AppBuilder BuildAvaloniaApp() => AppBuilder.Configure<DesktopUI2.App>()
+  .UsePlatformDetect()
+  .With(new SkiaOptions { MaxGpuResourceSizeBytes = 8096000 })
+  .With(new Win32PlatformOptions { AllowEglInitialization = true, EnableMultitouch = false })
+  .LogToTrace()
+  .UseReactiveUI();
+
+protected override Result Command()
+{
+  CreateOrFocusSpeckle();
+  return Result.Success;
+}
+
+public static void CreateOrFocusSpeckle()
+{
+  if (MainWindow == null)
+  {
+    BuildAvaloniaApp().Start(AppMain, null);
+  }
+
+  MainWindow.Show();
+}
+
+private static void AppMain(Application app, string[] args)
+{
+  var viewModel = new MainWindowViewModel();
+  MainWindow = new MainWindow
+  {
+    DataContext = viewModel
+  };
+
+  Task.Run(() => app.Run(MainWindow));
+}
+
+```
+
+You can see how it's been implemented in [Rhino](https://github.com/specklesystems/speckle-sharp/tree/c413671748d72b236c99177f8f4994ad015da6ba/ConnectorRhino/ConnectorRhino/ConnectorRhinoShared/ConnectorRhinoCommand2.cs) and [Revit](https://github.com/specklesystems/speckle-sharp/tree/c413671748d72b236c99177f8f4994ad015da6ba/ConnectorRevit/ConnectorRevit/Entry/SpeckleRevitCommand2.cs).
+
+Now, in your host application, after launching the Speckle plugin you should see this window pop up:
+
+![image](https://user-images.githubusercontent.com/2679513/140319871-f242c4e6-9a9f-40ed-976e-9bd91b9c7b03.png)
+
+### Adding the Bindings
+
+The UI we just launched is quite sleek, but also a bit useless for the time being, as it doesn't have any connection to the host application; so it wouldn't know what to do when the _Send_ button is clicked, when the user wants to change selection or where to load saved streams from etc...
+
+DesktopUI comes with some [DummyBindings](https://github.com/specklesystems/speckle-sharp/tree/c413671748d72b236c99177f8f4994ad015da6ba/DesktopUI2/DesktopUI2/DummyBindings.cs) so that you can test it, but let's go ahead and write our own.
+
+Create a class named something like `ConnectorBindingsAPP_NAME.cs` and have it implement the abstract class `ConnectorBindings.cs`. It'll look something like the code below:
+
+```csharp
+public class ConnectorBindingsAECApp : ConnectorBindings
+  {
+    public override string GetActiveViewName()
+    {
+      throw new NotImplementedException();
+    }
+
+    public override List<MenuItem> GetCustomStreamMenuItems()
+    {
+      throw new NotImplementedException();
+    }
+
+    public override string GetDocumentId()
+    {
+      throw new NotImplementedException();
+    }
+
+    public override string GetDocumentLocation()
+    {
+      throw new NotImplementedException();
+    }
+
+    public override string GetFileName()
+    {
+      throw new NotImplementedException();
+    }
+
+    public override string GetHostAppName()
+    {
+      throw new NotImplementedException();
+    }
+
+    public override List<string> GetObjectsInView()
+    {
+      throw new NotImplementedException();
+    }
+
+    public override List<string> GetSelectedObjects()
+    {
+      throw new NotImplementedException();
+    }
+
+    public override List<ISelectionFilter> GetSelectionFilters()
+    {
+      throw new NotImplementedException();
+    }
+
+    public override List<StreamState> GetStreamsInFile()
+    {
+      throw new NotImplementedException();
+    }
+
+    public override Task<StreamState> ReceiveStream(StreamState state, ProgressViewModel progress)
+    {
+      throw new NotImplementedException();
+    }
+
+    public override void SelectClientObjects(string args)
+    {
+      throw new NotImplementedException();
+    }
+
+    public override Task SendStream(StreamState state, ProgressViewModel progress)
+    {
+      throw new NotImplementedException();
+    }
+
+    public override void WriteStreamsToFile(List<StreamState> streams)
+    {
+      throw new NotImplementedException();
+    }
+  }
+```
+
+As you might have guessed, we now need to populate these methods with logic that calls the host app API to perform the various actions. You don't have to implement each method as some might not be relevant for your host application, but make sure exceptions are handled gracefully. This is one of the most complicated parts of writing a connector and requires a very good understanding and experience with the host app API.
+
+You can see how that's been done in [Rhino](https://github.com/specklesystems/speckle-sharp/tree/c413671748d72b236c99177f8f4994ad015da6ba//ConnectorRhino/ConnectorRhino/ConnectorRhinoShared/UI/ConnectorBindingsRhino2.cs) and [Revit](https://github.com/specklesystems/speckle-sharp/tree/c413671748d72b236c99177f8f4994ad015da6ba/ConnectorRevit/ConnectorRevit/UI/ConnectorBindingsRevit2) (where it's split in multiple partial classes).
+
+In this class you might also want to add the logic to handle various events triggered from the host application such as `DocumentOpened` and automatically open the UI if the document has any streams saved.
+
+Once the binding class is complete you need to set it in the MainWindow constructor when launching the UI.
+
+Change:
+
+```csharp
+ var viewModel = new MainWindowViewModel();
+```
+
+To something like:
+
+```csharp
+ var viewModel = new MainWindowViewModel(Bindings);
+```
+
+You should now see the UI responding to various user actions with your custom binding logic.
+
+### Adding support for Reports
+
+Our new DesktopUI has methods to better track what happens during send and receive operations, so that we can present a report to the user to better understand what happened.
+The class being used is `ProgressReport` defined in [Core](https://github.com/specklesystems/speckle-sharp/tree/c413671748d72b236c99177f8f4994ad015da6ba/Core/Core/Models/Extras.cs#L96-L178).
+
+It has three main methods that you should implement in your conversions and bindings:
+
+- `Log()`: used to log any useful operation, for instance [the converter version being used](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.cs#L51), [successful operations](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.cs#L483) or [skipped elements](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.cs#L255). You should Log as many useful operations as possible, in our connectors every conversion is being logged.
+- `LogConversionError()`: used to track any errors happening [during a conversion](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.Geometry.cs#L949)
+- `LogOperationError()`: used to track [any other error](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/ConnectorRhino/ConnectorRhino/ConnectorRhinoShared/UI/ConnectorBindingsRhino2.cs#L194), while sending or receiving
+
+#### Passing errors from the converter to the UI
+
+:::tip IMPORTANT
+Don't forget this step! Not doing so will result in incomplete reports.
+:::
+
+Since Speckle kits are hot swappable, the connectors or UI don't have any direct dependency on them. Therefore, we'd typically have 2 instances of a `ProgressReport` class, one [inside the converter](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.cs#L58) and one in the [connector/UI](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/DesktopUI2/DesktopUI2/ViewModels/ProgressViewModel.cs#L20).
+
+To make sure your reports include everything, you need to merge the two at the end of a send/receive conversion by calling: `connectorReport.Merge(converterReport);` like demonstrated [here](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/ConnectorRhino/ConnectorRhino/ConnectorRhinoShared/UI/ConnectorBindingsRhino2.cs#L230).
+
+#### Report summary
+
+At the top of a report we're outputting a summary, it only works if some _keywords_ are used in the messages being logged: `converted`, `created`, `updated`, `skipped` ,`failed`; [see the logic here](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/Core/Core/Models/Extras.cs#L103-L124). It might change in the future, but works for now.
+
+Therefore your messages should be formatted like this:
+
+- "_Converted_ Curve to Beam"
+- "_Created_ Wall"
+- "_Updated_ Floor"
+- "_Skipped_ not supported type: {@object.GetType()}"
+- "_Failed_ to create Floor: ..."
+
+### Adding custom actions
+
+The new UI also offers the possibility of registering custom actions that will show up in the "options menu" of each saved stream:
+![img](https://user-images.githubusercontent.com/2679513/139488772-80fa5715-7b88-451e-9dcd-326cfe368660.gif)
+
+You can register new actions in your `GetCustomStreamMenuItems` bindings method like so:
+
+```csharp
+public override List<MenuItem> GetCustomStreamMenuItems()
+{
+  var menuItems = new List<MenuItem>
+  {
+    new MenuItem { Header="Test link", Icon="Home", Action =OpenLink},
+    new MenuItem { Header="More items", Icon="List", Items = new List<MenuItem>
+    {
+      new MenuItem { Header="Sub item 1", Icon="Account" },
+      new MenuItem { Header="Sub item 2", Icon="Clock" },
+    }
+    },
+  };
+  return menuItems;
+}
+
+public void OpenLink(StreamState state)
+{
+  //to open urls in .net core you must set UseShellExecute = true
+  Process.Start(new ProcessStartInfo(state.ServerUrl) { UseShellExecute = true });
+}
+```
 
 ## Implementing telemetry
 
