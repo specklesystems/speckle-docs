@@ -1,3 +1,6 @@
+---
+title: FAQ
+---
 # FAQs
 
 ## The Speckle Server is unreachable
