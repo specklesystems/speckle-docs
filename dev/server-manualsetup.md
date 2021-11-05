@@ -18,9 +18,10 @@ If you want to run your own instance, there are multiple ways to achieve this:
 The Speckle server needs two services available over the network:
 - PostgreSQL (tested with v12 and v13)
 - Redis
+- Optional: S3-compatible Object Storage
 
 ::: tip
-Both PostgreSQL and Redis are included in the following deployment instructions, so **you don't need to install them manually**.
+PostgreSQL, Redis and MinIO are included in the following deployment instructions, so **you don't need to install them manually**.
 
 You can also install them manually or use a managed deployment from a cloud provider (Azure, AWS, DigitalOcean, etc). Setting them up manually is out of scope of this article.
 :::
@@ -76,6 +77,16 @@ services:
     ports:
       - "127.0.0.1:6379:6379"
 
+  minio:
+    image: "minio/minio"
+    command: server /data --console-address ":9001"
+    restart: always
+    volumes:
+      - ./minio-data:/data
+    ports:
+      - "127.0.0.1:9000:9000"
+      - "127.0.0.1:9001:9001"
+
   ####
   # Speckle Server
   #######
@@ -105,7 +116,14 @@ services:
       POSTGRES_DB: "speckle"
 
       REDIS_URL: "redis://redis"
-      WAIT_HOSTS: postgres:5432, redis:6379
+      
+      S3_ENDPOINT: "http://minio:9000"
+      S3_ACCESS_KEY: "minioadmin"
+      S3_SECRET_KEY: "minioadmin"
+      S3_BUCKET: "speckle-server"
+      S3_CREATE_BUCKET: "true"
+      
+      WAIT_HOSTS: postgres:5432, redis:6379, minio:9000
 
   preview-service:
     image: speckle/speckle-preview-service:2
@@ -126,6 +144,23 @@ services:
       DEBUG: "webhook-service:*"
       PG_CONNECTION_STRING: "postgres://speckle:speckle@postgres/speckle"
       WAIT_HOSTS: postgres:5432
+
+  fileimport-service:
+    image: speckle/speckle-fileimport-service:2
+    restart: always
+    command: ["bash", "-c", "/wait && node src/daemon.js"]
+    environment:
+      DEBUG: "fileimport-service:*"
+      PG_CONNECTION_STRING: "postgres://speckle:speckle@postgres/speckle"
+      WAIT_HOSTS: postgres:5432
+
+      S3_ENDPOINT: "http://minio:9000"
+      S3_ACCESS_KEY: "minioadmin"
+      S3_SECRET_KEY: "minioadmin"
+      S3_BUCKET: "speckle-server"
+
+      SPECKLE_SERVER_URL: "http://speckle-server:3000"
+      
 ```
 
 #### Step 3: Edit the fields marked with `TODO`
@@ -191,8 +226,10 @@ The server also supports some other environment variables. You can see them in o
 This will:
 - Run PostgreSQL inside docker, with data files stored in `/opt/speckle/postgres-data/`
 - Run Redis inside docker, with data files stored in `/opt/speckle/redis-data/`
+- Run MinIO inside docker, with data files stored in `/opt/speckle/minio-data/` 
 - Run the Server component, configured for this environment.
 - Run the Frontend component, exposing port 80 to the network the VM is in.
+- Run the other microservices for extending the SpeckleServer functionality ( `preview-service`, `webhook-service`, `fileimport-service` )
 
 All containers, except the frontend, are not accessible from outside the VM.
 
@@ -201,7 +238,7 @@ All containers automatically start at system startup (so if the VM gets rebooted
 
 ## Run in a VM without dependencies
 
-If you plan to run PostgreSQL and Redis separately, for example as managed deployments by a cloud provider (DigitalOcean, AWS, Azure, etc), you can follow the same instructions as above, but with this simplified `docker-compose.yml` file:
+If you plan to run PostgreSQL, Redis and and S3-compatible object storage service separately, for example as managed deployments by a cloud provider (DigitalOcean, AWS, Azure, etc), you can follow the same instructions as above, but with this simplified `docker-compose.yml` file:
 ```yaml
 version: "2"
 services:
@@ -233,6 +270,12 @@ services:
       # TODO: Change to redis connection string:
       REDIS_URL: "redis://redis"
 
+      # TODO: Change to ObjectStorage connection information (s3-compatible):
+      S3_ENDPOINT: "http://minio:9000"
+      S3_ACCESS_KEY: "minioadmin"
+      S3_SECRET_KEY: "minioadmin"
+      S3_BUCKET: "speckle-server"
+      
   preview-service:
     image: speckle/speckle-preview-service:2
     restart: always
@@ -252,6 +295,23 @@ services:
       
       # TODO: Change to PostgreSQL connection string:
       PG_CONNECTION_STRING: "postgres://speckle:speckle@postgres/speckle"
+
+  fileimport-service:
+    image: speckle/speckle-fileimport-service:2
+    restart: always
+    environment:
+      DEBUG: "fileimport-service:*"
+      SPECKLE_SERVER_URL: "http://speckle-server:3000"
+
+      # TODO: Change to PostgreSQL connection string:
+      PG_CONNECTION_STRING: "postgres://speckle:speckle@postgres/speckle"
+
+      # TODO: Change to ObjectStorage connection information (s3-compatible):
+      S3_ENDPOINT: "http://minio:9000"
+      S3_ACCESS_KEY: "minioadmin"
+      S3_SECRET_KEY: "minioadmin"
+      S3_BUCKET: "speckle-server"
+
 ```
 
 ## Run your speckle-server fork
@@ -261,10 +321,10 @@ If you made some changes to the server and want to run those instead of the offi
 #### Step 1: Set up dependencies
 
 ::: tip
-If you set up PostgreSQL or Redis outside of this VM (for example a managed deployment from a cloud provider), you can skip this step, but remember to set up the correct environment variables later
+If you set up PostgreSQL, Redis and S3-compatible service outside of this VM (for example a managed deployment from a cloud provider), you can skip this step, but remember to set up the correct environment variables later
 :::
 
-To get the PostgreSQL and Redis dependencies up and running in the VM, our git repo contains 
+To get the PostgreSQL, Redis and MinIO dependencies up and running in the VM, our git repo contains 
 [a docker-compose file](https://github.com/specklesystems/speckle-server/blob/main/docker-compose-deps.yml)
 for running these dependencies locally in docker containers.
 
@@ -281,6 +341,7 @@ This will run the following containers, and will automatically launch them at sy
 - *Redis v6*, listening only on `127.0.0.1:6379`
 - *PGAdmin4*, listening only on `127.0.0.1:16543` with default credentials `admin@localhost` : `admin`
 - *Redis Insight*, listening only on `127.0.0.1:8001`
+- *MinIO*, listenting on `127.0.0.1:9000` with the API endpoint and on `127.0.0.1:9001` with the Web Management Interface (default credentials used: `minioadmin`/`minioadmin`)
 
 All of the above containers listen on the local loopback interface (`127.0.0.1`) and are NOT accessible from the local network (for security, since they use default credentials)
 
@@ -305,8 +366,9 @@ $ docker-compose -f docker-compose-speckle.yml up --build -d
 This will run the following containers, and will automatically launch them at system startup:
 - *speckle-frontend*, an nginx container that serves the Vue app build as static files (exposed on port 80 in the VM network) and proxies server requests to the `speckle-server` container
 - *speckle-server*, the `server` component that doesn't expose any port outside the internal docker network.
-- *preview-service*, the `preview-service` component that doesn't expose any port outside the internal docker network.
-
+- *preview-service*, the component that generates stream previews. Doesn't expose any port outside the internal docker network.
+- *webhook-service*, the component that calls webhooks. Doesn't expose any port.
+- *fileimport-service*, the component that imports uploaded files. Doesn't expose any port.
 
 ## Run in development mode
 
@@ -318,8 +380,10 @@ To run the Speckle Server, you need to run:
 - the `frontend` package (see [the readme.md file in the git repo](https://github.com/specklesystems/speckle-server/tree/main/packages/frontend))
 - the `server` package (see [the readme.md file in the git repo](https://github.com/specklesystems/speckle-server/tree/main/packages/server))
 
-Optionally, to enable object previews for the frontend, you can also run:
-- the `preview-service` package (see [the readme.md file in the git repo](https://github.com/specklesystems/speckle-server/tree/main/packages/preview-service)) 
+Optionally, to enable extra functionality, microservices should be run separately. For more information, check their `README.md` file in the git repository:
+- the `preview-service` package generates preview images for streams (see [the readme.md file in the git repo](https://github.com/specklesystems/speckle-server/tree/main/packages/preview-service))
+- the `webhook-service` package is responsible with calling the configured webhooks
+- the `fileimport-service` package parses and imports uploaded files into Speckle.
 
 
 Detailed instructions for running them locally are kept up to date in their respective readme.md files.
