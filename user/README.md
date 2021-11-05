@@ -2,12 +2,11 @@
 permalink: /
 ---
 
-# Welcome! 
+# Welcome!
 
 Thanks for visiting our user guide! This is the single source of documentation on everything Speckle.
 
 Organizations all over the world rely on our collaboration, interoperability and automation platform to deliver better buildings, faster. Speckle is a platform with endless possibilities, we'll walk you through some of its most common usage scenarios, but ultimately you'll have the flexibility to use Speckle (and your data) however you want.
-
 
 ## What We'll Cover
 
@@ -42,7 +41,7 @@ Each time the Connectors send data to your Speckle server, they also take care o
 
 ### Speckle Manager
 
-![Speckle Manager](http://localhost:8080/assets/img/manager.389b0634.png)
+![image](https://user-images.githubusercontent.com/2679513/140551954-20e06937-d519-4b93-8b0f-5e51a94b69f3.png)
 
 The [Speckle Manager](/user/manager) is a desktop application that handles accounts and connectors on your machine. You'll need to add a Speckle account to your computer using Speckle Manager in order to be authorised to send or access data to/from a Speckle Server.
 
