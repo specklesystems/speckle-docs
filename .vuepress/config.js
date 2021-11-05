@@ -28,6 +28,12 @@ module.exports = {
       "script",
       {
         src: "/scripts/scroll-to-hash.js"
+      },
+    ],
+    [
+      "script",
+      {
+        src:"https://identity.netlify.com/v1/netlify-identity-widget.js"
       }
     ]
   ],
