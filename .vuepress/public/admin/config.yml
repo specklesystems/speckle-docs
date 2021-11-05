@@ -2,6 +2,7 @@ backend:
   name: github
   branch: main
   repo: specklesystems/speckle-docs
+  site_domain: speckle-docs.netlify.app
 
 publish_mode: editorial_workflow
 media_folder: ".vuepress/public/uploads"
