@@ -55,7 +55,7 @@ Note: If Rhino's unit system is changed by the user, this may result in incorrec
 
 ### Unsupported elements
 
-Many non-geometric elements and any geometric element not listed above, such as text tags, hatches, etc are not supported.
+Many non-geometric elements (such as text dots) and any geometric element not listed above are not supported.
 
 ## Grasshopper
 
