@@ -15,7 +15,7 @@ Before you begin writing your own connector, we encourage you to follow the step
 3. **post on the [community forum](https://speckle.community/)** announcing what you are planning to develop and how
 4. **consider** that if you make your connector publicly available it's going to be your own responsibility to maintain it
 5. **check whether the [objects](https://github.com/specklesystems/speckle-sharp/tree/master/Objects) kit is fit** to support your future connector, if it might need to be extended or if you might want to develop a new kit as well
-6. **read** our [dev docs on Base object, Kits, Transports](dev/base.html) etc...
+6. **read** our [dev docs on Base object, Kits, Transports](/dev/base.html) etc...
 
 ## Anatomy of a connector
 
