@@ -150,7 +150,7 @@ module.exports = {
         {
           title: "Server API & Apps",
           collapsable: false,
-          children: ["server-api", "server-graphql-api", "server-rest-api", "server-stream-previews", "server-webhooks", "server-setup", "server-manualsetup", "tokens", "apps"]
+          children: ["server-api", "server-graphql-api", "server-rest-api", "server-stream-previews", "server-webhooks", "server-setup", "server-manualsetup", "server-local-dev", "tokens", "apps"]
         }
       ]
     }
