@@ -10,7 +10,6 @@ If you don't have one provided by your company, you can use our [free Speckle se
 :::
 
 ## Installation
-
 Manager is available for both Windows and Mac (with limitations).
 
 ::: tip
@@ -121,15 +120,31 @@ From here you'll be able to do various things such as clearing your local cache,
 
 ![image](https://user-images.githubusercontent.com/2679513/112291184-cc3dae00-8c87-11eb-9c02-693108f499fb.png)
 
+### Resetting Manager
+This resets the list of installed connectors but it does not uninstall them. It also does not affect any accounts.
+
+### Resetting the local cache
+
+The local cache is used when sending and receiving to Speckle to speed up similar operations in the future. If you notice your cache is significantly large, you can delete it from here.
+
+### Using Beta Versions of Manager
+Toggling this setting on **on** will enable beta versions of Manager. This means that every time we make a beta release you'll be able to install it as well. 
+If you are experiencing issues with Manager we might ask you do so to try a new version we have made.
+
+
 ### Using Beta Versions of our Connectors
 
-From the settings tab you'll be able to toggle **on** beta versions of connectors. This means that every time we make a beta release you'll be able to install it as well.
+Toggling this setting on **on** will enable beta versions of connectors. This means that every time we make a beta release you'll be able to install it as well.
 In general, **you should not enable this setting unless you have been asked to**, this could happen when we are trying to release a fix for a specific issue affecting you.
 
 To uninstall the beta version of a connector and to return to its latest stable release, just do the following:
 
 - set the beta toggle to **off**
 - uninstall & reinstall the connector
+
+### SUUID
+
+The Speckle Unique User ID is an anonimized identifier which can help us debug issues you're running into. You might be asked to share it in case you're facing bugs we cannot replicate ourselves.
 
 ## Troubleshooting
 
