@@ -1,7 +1,7 @@
 # SketchUp (Alpha) 🛠️
 
 ::: tip IMPORTANT ⚠️
-This connector is currently in alpha with limited functionality. Sending is fairly stable, but receiving is unreliable. Please keep this in mind while testing!
+This connector is currently in alpha with limited functionality - please keep this in mind while testing!
 :::
 
 ![example-send](./img-sketchup/sketchup-hostel-sent.png)
@@ -68,9 +68,9 @@ See the gif below for the full process.
 
 ### Receiving Data
 
-Receiving is currently unreliable and not fully supported. SketchUp models sent to Speckle will not always be received due to some current issues with receiving components/blocks.
+Receiving streams in SketchUp is as simple as clicking the "Receive" cube. As with sending, you can switch the targeted branch and the particular commit to receive.
 
-However, meshes and lines that are not contained in components/blocks should be received as expected.
+Note that if you sent SketchUp groups to a stream, they will be received as component instances rather than groups.
 
 ![receiving-with-sketchup-img](./img-sketchup/sketchup-receive.png)
 
