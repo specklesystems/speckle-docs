@@ -329,9 +329,9 @@ The SketchUp connector is still in early Alpha and is therefore a work in progre
 
 | Type                                     | Send | Receive |    Status     |
 | ---------------------------------------- | :--: | :-----: | :-----------: |
-| Brep                                     |      | as mesh | `In Progress` |
+| Brep                                     |      | as mesh | `Complete`    |
 | Mesh                                     |  ✅  |   ✅   | `In Progress` |
-| Polyline                                 |  ✅  |   ✅   | `In Progress` |
+| Line & Polyline                          |  ✅  |   ✅   | `Complete`    |
 | Render Material                          |  ✅  |   ✅   | `In Progress` |
-| BlockInstance                            |  ✅  |        | `In Progress` |
-| BlockDefinition                          |  ✅  |        | `In Progress` |
+| BlockInstance                            |  ✅  |   ✅   | `In Progress` |
+| BlockDefinition                          |  ✅  |   ✅   | `In Progress` |
