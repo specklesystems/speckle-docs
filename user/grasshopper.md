@@ -92,13 +92,11 @@ To view the data you just sent in Grasshopper, right-click the `Send` node and s
 
 :::
 
-
 ### Auto Sending
 
 By right-clicking on the node, you can enable/disable auto sending. If enabled, data will be send automatically every time it changes.
 
 ![image](https://user-images.githubusercontent.com/2679513/139331715-86d102dd-fa0b-4854-bc75-764e005b0559.png)
-
 
 ### Sending to a Specific Branch
 
@@ -229,8 +227,36 @@ The `Speckle 2 Revit`tab holds all the components that can create _Revit specifi
 
 You can share all your Revit project information through Speckle, including all available families in the project, so you won't have to guess!
 
-Follow our [Revit to GH guide](https://link) for more details.
+Follow our [Revit to GH guide](https://speckle.systems/tutorials/create-revit-bim-models-in-grasshopper/) for more details.
 :::
+
+#### Updating Revit Parameters
+
+Sometimes you might just want to update Revit parameters from Grasshopper rather than creating new elements.
+For this we have created a "ParameterUpdater" component.
+
+![image](https://user-images.githubusercontent.com/2679513/142267411-fb9149f9-b878-4dc9-a2ec-2102d1bef90f.png)
+
+It takes as inputs:
+
+- a Revit element ID (ElementId or UniqueId)
+- one or more **Parameters**
+
+![image](https://user-images.githubusercontent.com/2679513/142267701-2de399b3-8f5c-4b7c-b7a0-d388a7175f7d.png)
+
+Each Parameter will have:
+
+- a name, either a the Revit display name, BuiltInParameter name or GUID (for shared parameters)
+- a value
+- (optional) Speckle units (_mm, cm, m, km, in, ft, yd, mi, none_)
+
+Here’s how units are handled:
+
+- if updating a _length based_ parameter (eg Base Offset) you don’t need to set the units. Speckle will automatically pick the ones in the current Rhino document and convert them to Revit (unless you want to override them)
+- if updating a _non-length based_ parameter (eg Air FLow) you should set the units to `none`. Speckle will then simply assume the value used matches the _display units being used in Revit_ (eg L/s) and will not convert them.
+- Speckle currently does not support converting non-length base units
+
+![image](https://user-images.githubusercontent.com/2679513/142268627-e3dbf093-e306-4ffb-b4ed-f39014caf6b4.png)
 
 ### Using Grasshopper BIM
 
@@ -400,6 +426,7 @@ There is also an option to set the node to automatically send every time there i
 
 | ![Activating auto mode in sender](./img-gh/nodes-send-automode-activate.png) | ![Auto-send mode active in sender](./img-gh/nodes-send-automode-active.png) |
 | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+
 
 <!-- > This node is capable of [Kit Selection](#object-conversion-and-kits) -->
 
