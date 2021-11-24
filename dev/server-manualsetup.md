@@ -372,33 +372,4 @@ This will run the following containers, and will automatically launch them at sy
 
 ## Run in development mode
 
-This is the recommended method for developing or debugging the Speckle Server locally.
-
-If you plan to give others access to your Server instance, consider running it with production settings in a dedicated virtual machine (see previous section)
-
-To run the Speckle Server, you need to run:
-- the `frontend` package (see [the readme.md file in the git repo](https://github.com/specklesystems/speckle-server/tree/main/packages/frontend))
-- the `server` package (see [the readme.md file in the git repo](https://github.com/specklesystems/speckle-server/tree/main/packages/server))
-
-Optionally, to enable extra functionality, microservices should be run separately. For more information, check their `README.md` file in the git repository:
-- the `preview-service` package generates preview images for streams (see [the readme.md file in the git repo](https://github.com/specklesystems/speckle-server/tree/main/packages/preview-service))
-- the `webhook-service` package is responsible with calling the configured webhooks
-- the `fileimport-service` package parses and imports uploaded files into Speckle.
-
-
-Detailed instructions for running them locally are kept up to date in their respective readme.md files.
-
-::: tip IMPORTANT
-Don't forget to set up the variables in the `.env` file according to your deployment. You can get started by copying the `.env-example` file to `.env` and then edit it.
-:::
-
-In this deployment type, the frontend Vue app will listen by default on the local interface (not available over the network) on `port 8080`, but will have no knowledge about the `server` component, and thus **should not be accessed directly**.
-
-The server component will listen on the local interface (not available over the network) on `port 3000`, and will proxy the frontend requests to the frontend component (as configured in .env file).
-
-The optional `preview-service` component has an internal express app that listens only on the local interface on `port 3001`
-
-You can access Speckle Web from your browser at [http://localhost:3000/](http://localhost:3000/).
-
-If you plan to access the development server over the network, you should update the `CANONICAL_URL` variable in the .env file to the URL that is used to access the server, and also set the `BIND_ADDRESS` env variable to `0.0.0.0`.
-
+See the dedicated getting started with speckle server development [page](/dev/server-local-dev).
