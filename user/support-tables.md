@@ -205,6 +205,7 @@ If non supported elements are received in this connector, no errors are thrown.
 | Polygon        |  As Polyline  |      ✅       | `Complete` |
 | Rectangle      |  As Polyline  |      ✅       | `Complete` |
 | Spline         |      ✅       |      ✅       | `Complete` |
+| Solid           |             |             | `To do` |
 | Brep           |      ✅       |      ✅       | `Complete` |
 | Mesh           |      ✅       |      ✅       | `Complete` |
 | Revit Elements | x<sup>β</sup> |               | `Complete` |
