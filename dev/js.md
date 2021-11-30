@@ -1,10 +1,10 @@
 # Introduction
 
+Note, these are WIP instructions. More details coming soon!
+
 ## The Speckle Viewer: Getting started
 
-You cann download the package [here](https://github.com/specklesystems/speckle-server/tree/main/packages/viewer)!
-
-Note, these are WIP instructions. More details coming soon!
+You can download the package [here](https://github.com/specklesystems/speckle-server/tree/main/packages/viewer)!
 
 For development purposes, to start a webpack live reload server run:
 
