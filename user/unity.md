@@ -21,6 +21,21 @@ Before using this connector, you'll need to follow our standard setup instructio
 
 The repo contains a sample scene named `SpecklePlayground` that shows how to send and receive data from your default account.
 
+## Installation
+
+To install the connector into your own Unity project (rather than using sample project), open the Package Manager (`Windows -> Package Manager`)
+and select **Add Package from git URL**.
+
+<center><img src="./img-unity/unity_install_git.png" width="50%" /></center>
+
+
+Paste in the following URL
+```
+https://github.com/specklesystems/speckle-unity.git?path=/Packages/systems.speckle.speckle-unity
+```
+
+Once the package has installed, you must follow the steps in [Project Setup](unity.html#project-setup) inorder to be able to successfully build your project.
+
 ## Editor Time Sending and Receiving
 
 ### Receiving
@@ -73,10 +88,12 @@ We have included basic material support in Speckle and in some of our connectors
 
 When receiving, the Unity connectors first checks if a shader exists in the scene that matches the incoming object's material _by name_. If a match cannot be found, Speckle will try to create a basic material with the same color and transparency. If an incoming object has no materials set, a default material will be applied.
 
-## Building
+## Project Setup
 
-In order to build the Speckle Playground project (and potentially any project) using the Unity Connector, please ensure the following:
+In order to sucessfully build a project using the Unity Connector, please ensure the following:
 
-* Set the project architecture to `x86_64`
-* If you get errors on missing shaders include them in your build. To do so, just copy them to a Resource folder OR add them in `Project Settings → Graphics → Built-in Shader Settings → Always Included shaders`
+* Set the project architecture to `x86_64`.
+* Include `Standard` and `Diffuse` shaders in project settings. To do so, just add them in `Project Settings → Graphics → Built-in Shader Settings → Always Included shaders`.
   ![shader](https://user-images.githubusercontent.com/45512892/133601294-cdd78c5f-4c35-4f88-8a7a-73d97a7b234c.png)
+ 
+Note that these steps have already been applied to the **Speckle Playground** sample project.
