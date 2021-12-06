@@ -61,16 +61,17 @@ The 3 optional parameters are:
 
 To remove all filters: `await v.applyFilter( null )`
 
-####Examples
+Examples:
+
 - filter and color levels by name
-```
+```js
 __viewer.applyFilter({filterBy: {'level.name': ['3FL', '4FL', '7FL']}, colorBy: { property: 'level.name', type: 'category', values: {'3FL': '#F0FFFF', '4FL': '#6495ED', '7FL': '#7B68EE'} }, ghostOthers: true } )
 ```
 
 ![image-20210322193547220](./img/image-20211206-viewer-filter-color.png)
 
 - color by property (e.g. baseLine)
-```
+```js
 __viewer.applyFilter({colorBy: { property: 'baseLine.start.x', type: 'gradient', minValue: -7200, maxValue: 33000, 'gradientColors': ['white', 'CornflowerBlue', 'BlueViolet'] } } )
 ```
 
