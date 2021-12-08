@@ -286,7 +286,7 @@ The precise language of the options varies depending on the BIM element you are 
 This option allows you to switch between generating `Speckle BIM` elements directly, or treat them as geometry with a special property attached (`@speckleSchema`). The advantage of selecting one over the other depends on your preference:
 
 - When targeting exclusively BIM applications, it makes sense to use the _default setting_ (`Convert as Schema Object`), as the data will be organised in a way that is relatable to BIM users (such as beams, columns, slabs, etc...)
-- When your data is going to be consumed primarily as geometry, but needs to play nice in some BIM application, then it may make more sense to treat this objects as **geometry first**, and attach the BIM information to that geometry.
+- When your data is going to be consumed primarily as geometry in other applications, but needs to play nice in some BIM application as well, then it may make more sense to treat this objects as **geometry first**, and attach the BIM information to that geometry.
 
 They will both be received as **native BIM elements** in any target BIM application, so esentially, there is no difference between the two in the way they will behave, and you can even have both types of objects mixed in the same commit.
 
@@ -298,7 +298,15 @@ You can _expand_ the generated objects further to inspect differences:
 
 ![Difference in conversion methods](img-gh/gh-schema-convertOption-nodes.png)
 
-As you can see,
+As you can see, the resulting objects are quite different, but contain essentially the same information (one as `Geometry -> BIM Element` and the other as `BIM Element -> Geometry`).
+
+##### Setting the default behaviour
+
+By default, any `BIM Element` node uses the `Convert to Schema Object` option. You can modify this behaviour in your Grasshopper installation using the `Speckle 2` menu in the top menu bar.
+
+![Default conversion option](img-gh/gh-schema-defaultconversion-menu.png)
+
+This setting will be recorded in your Grasshopper installation, and will only affect all newly created nodes.
 
 ### Schema Builder
 
