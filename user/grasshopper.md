@@ -272,6 +272,34 @@ The example bellow creates a `DirectShape` from a list of spheres. Since Revit's
 
 ![Direct shape from list of spheres](./img-gh/gh-bim-DS.png)
 
+#### Understanding the schema conversion option
+
+Each `Grasshopper BIM` node has an option that allows the user to select between two different types of conversion:
+
+- Convert as `Schema Object`
+- Convert as `Geometry(Line,Curve,Mesh...)` with `Schema(Beam, Floor...)` attached.
+
+The precise language of the options varies depending on the BIM element you are trying to create, take for example the `Beam` node:
+
+![Schema conversion option for a Beam](img-gh/speckle-gh-schema-option.png)
+
+This option allows you to switch between generating `Speckle BIM` elements directly, or treat them as geometry with a special property attached (`@speckleSchema`). The advantage of selecting one over the other depends on your preference:
+
+- When targeting exclusively BIM applications, it makes sense to use the _default setting_ (`Convert as Schema Object`), as the data will be organised in a way that is relatable to BIM users (such as beams, columns, slabs, etc...)
+- When your data is going to be consumed primarily as geometry, but needs to play nice in some BIM application, then it may make more sense to treat this objects as **geometry first**, and attach the BIM information to that geometry.
+
+They will both be received as **native BIM elements** in any target BIM application, so esentially, there is no difference between the two in the way they will behave, and you can even have both types of objects mixed in the same commit.
+
+When the **Convert `Geometry` with `Schema` attached** option is enabled, the output will display a visual hint to indicate to the user this behaviour is ocurring, and allow to distinguish between nodes with different state options active:
+
+![Output visual hint](img-gh/gh-schema-convertOption-nodesSimple.png)
+
+You can _expand_ the generated objects further to inspect differences:
+
+![Difference in conversion methods](img-gh/gh-schema-convertOption-nodes.png)
+
+As you can see,
+
 ### Schema Builder
 
 ::: tip
