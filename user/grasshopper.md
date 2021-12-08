@@ -292,11 +292,11 @@ They will both be received as **native BIM elements** in any target BIM applicat
 
 When the **Convert `Geometry` with `Schema` attached** option is enabled, the output will display a visual hint to indicate to the user this behaviour is ocurring, and allow to distinguish between nodes with different state options active:
 
-![Output visual hint](img-gh/gh-schema-convertOption-nodesSimple.png)
+![Output visual hint](./img-gh/gh-schema-convertOption-nodesSimple.png)
 
 You can _expand_ the generated objects further to inspect differences:
 
-![Difference in conversion methods](img-gh/gh-schema-convertOption-nodes.png)
+![Difference in conversion methods](./img-gh/gh-schema-convertOption-nodes.png)
 
 As you can see, the resulting objects are quite different, but contain essentially the same information (one as `Geometry -> BIM Element` and the other as `BIM Element -> Geometry`).
 
@@ -304,7 +304,7 @@ As you can see, the resulting objects are quite different, but contain essential
 
 By default, any `BIM Element` node uses the `Convert to Schema Object` option. You can modify this behaviour in your Grasshopper installation using the `Speckle 2` menu in the top menu bar.
 
-![Default conversion option](img-gh/gh-schema-defaultconversion-menu.png)
+![Default conversion option](./img-gh/gh-schema-defaultconversion-menu.png)
 
 This setting will be recorded in your Grasshopper installation, and will only affect all newly created nodes.
 
