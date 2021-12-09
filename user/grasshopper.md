@@ -281,7 +281,7 @@ Each `Grasshopper BIM` node has an option that allows the user to select between
 
 The precise language of the options varies depending on the BIM element you are trying to create, take for example the `Beam` node:
 
-![Schema conversion option for a Beam](img-gh/speckle-gh-schema-option.png)
+![Schema conversion option for a Beam](./img-gh/speckle-gh-schema-option.png)
 
 This option allows you to switch between generating `Speckle BIM` elements directly, or treat them as geometry with a special property attached (`@speckleSchema`). The advantage of selecting one over the other depends on your preference:
 
