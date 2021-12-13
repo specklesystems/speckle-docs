@@ -4,7 +4,7 @@ This post was originally part of the Making Speckle 2.0 series of posts on the c
 
 ## Preamble
 
-The Base object is one of the smallest, yet most critical parts of our SDKs as it influences the serialisation & deserialisation process, hashing speed & correctness, overall performance, etc.
+The Base object is one of the smallest, yet most critical parts of our SDKs as it influences the serialisation & deserialisation process, hashing speed & correctness, overall performance, and how elements are defined in the Speckleverse. It's the building block of Speckle.
 
 In this page we'll describe what it is and how to use it in more detail. Please note that currently examples are only in C#, equivalent implementations are available in our other SDKs.
 
@@ -19,9 +19,10 @@ This is what it looks like:
 ```csharp
 // Simplified class defintion:
 public class Base {
-	public string id { get; set; } // this is the hash!
-    public string applicationId { get; set; } // a secondary identity mechanism, optional
-	public string speckle_type { get; } // this is the discriminator
+	public string id { get; set; } // this is the unique hash, generated from the serialized object
+    	public string applicationId { get; set; } // a secondary (optional) identity value, for example the host application object id
+	public string speckle_type { get; } // this is the discriminator comprised of assembly name and inheritence
+	public long totalChildrenCount { get; } // this is the total number of detachable objects
 }
 ```
 
@@ -80,6 +81,24 @@ Setting a dynamic property that overlaps with a strongly typed one will actually
 
 All kit object models are inheriting from the `Base` object class for their object definitions. This ensures that Speckle will be able to transport them!
 
+## Detaching @
+
+When defining your dynamic `Base` object properties, you can detach them by prepending an `@` to your property name like so:
+
+```csharp
+public class Foo : Base { }
+public class Bar : Base { }
+
+var foo = new Foo();
+var bar = new Bar();
+
+foo["@bar"] = bar;
+```
+
+Detatching a property stores that property value as a reference to another object. Why do this? Since it's possible to nest your `Base` inherited class objects, detaching any properties that may be assigned an object used by other objects keeps your data squeaky clean. Since detached objects are only serialized once during transport, detaching when appropriate means faster sending and receiving times as well ⚡ 
+
+For a more in depth rundown of detachables and examples, check out the [decomposition API section](/dev/decomposition).
+
 ## Hashing
 
 As you may or may not know, objects in Speckle are immutable. That means that if you change a property of one, it essentially gets a whole new identity; it's a whole new object (as far as the storage layer is concerned). This immutability is enforced through unique hashes that are dependent on the object's properties.
@@ -106,3 +125,27 @@ public string GetId(bool decompose = false) { }
 ```
 
 Noticed that `decompose` flag? You're sharp - check out the [decomposition API section](/dev/decomposition) for more.
+
+## The Speckle Objects Kit
+
+Our SDKs come with our in-house Objects Kit comprised of `Base` inherited classes for your standard AEC needs. The core geometry kit contains all your basic elements like Points, Lines, Curves, and Breps, which are then used as properties for our more extensively defined BIM, Structural, and Civil elements. Read more in our [Objects section](/dev/objects)!
+
+## Displaying `Base`
+
+In addition to the `Base` properties in our model above, you may also encounter certain common properties when exploring your data in our web viewer. The objects in our Objects Kit come with properties that we use to display them in our frontend:
+
+```csharp
+// Class definition with additional display properties
+public class Foo : Base {
+	[DetachProperty]
+	public Mesh displayMesh { get; set; } // a mesh used to render surface or solid objects in our viewer
+	// or
+	[DetachProperty]
+	public Polyline displayValue { get; set; } // a polyline used to render complex curve objects in our viewer
+	
+	public Box bbox { get; set; } // a bounding box used to assist with object selection in our viewer
+	public RenderMaterial renderMaterial { get; set; } // for displaying this object with a specific color and transparency
+}
+```
+
+In addition to helping render certain geometries in our viewer, the `displayMesh` and `displayValue` properties are also sometimes used as fallback geometry when converting to desktop applications. A common example is using `displayMesh` when converting Revit objects like walls, beams, floors, etc into an application like Rhino, which has no native way of rendering BIM elements.
