@@ -79,7 +79,7 @@ From the list of streams in the **Project streams** panel, you can select one to
 In order to send some data, just follow these steps:
 
 1. Select a stream so it becomes **active**
-2. Specify a specific stream to send data to using the dropdown menu.
+2. Specify a specific branch to send data to using the dropdown menu.
 3. Select the layers in the file that you wish to send.
 4. (optional) Write a commit message.
 5. Send the selected layers.
