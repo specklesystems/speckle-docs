@@ -72,7 +72,7 @@ hash = operations.send(base=block, transports=[transport])
 # you can now create a commit on your stream with this object
 commid_id = client.commit.create(
     stream_id=new_stream_id, 
-    obj_id=hash, 
+    object_id=hash, 
     message="this is a block I made in speckle-py",
     )
 ```
