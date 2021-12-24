@@ -10,16 +10,17 @@ If you don't have one provided by your company, you can use our [free Speckle se
 :::
 
 ## Installation
+
 Manager is available for both Windows and Mac (with limitations).
 
 ::: tip
 Manager does not require admin privileges! Just double click and run to install it.
 :::
 
-Download the latest version of Speckle Manager:
+Download Speckle Manager now:
 
-- [Speckle Manager for Windows](https://speckle-releases.ams3.digitaloceanspaces.com/manager/SpeckleManager%20Setup.exe)
-- [Speckle Manager for Mac](https://speckle-releases.ams3.digitaloceanspaces.com/manager/SpeckleManager%20Setup.dmg) (currently account management only)
+- [Speckle Manager for Windows](https://speckle-releases.netlify.app/)
+- [Speckle Manager for Mac](https://speckle-releases.netlify.app/) (currently account management only)
 
 Manager for Windows will prompt you to update when an update is available, in Mac you'll need to manually install new versions.
 
@@ -121,6 +122,7 @@ From here you'll be able to do various things such as clearing your local cache,
 ![image](https://user-images.githubusercontent.com/2679513/112291184-cc3dae00-8c87-11eb-9c02-693108f499fb.png)
 
 ### Resetting Manager
+
 This resets the list of installed connectors but it does not uninstall them. It also does not affect any accounts.
 
 ### Resetting the local cache
@@ -128,9 +130,9 @@ This resets the list of installed connectors but it does not uninstall them. It 
 The local cache is used when sending and receiving to Speckle to speed up similar operations in the future. If you notice your cache is significantly large, you can delete it from here.
 
 ### Using Beta Versions of Manager
-Toggling this setting **on** will enable beta versions of Manager. This means that every time we make a beta release you'll be able to install it as well. 
-If you are experiencing issues with Manager we might ask you do so to try a new version we have made.
 
+Toggling this setting **on** will enable beta versions of Manager. This means that every time we make a beta release you'll be able to install it as well.
+If you are experiencing issues with Manager we might ask you do so to try a new version we have made.
 
 ### Using Beta Versions of our Connectors
 

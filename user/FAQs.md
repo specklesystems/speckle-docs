@@ -12,8 +12,8 @@ If you cannot access the server from **your browser** or from **Speckle Manager*
 
 If the server address is **blocked by a corporate firewall, proxy or VPN**, kindly ask your IT department to allowlist the following domains and subdomains that Speckle uses:
 
-- ***.speckle.xyz (critical)**
-- ***.speckle.dev (critical)**
+- **\*.speckle.xyz (critical)**
+- **\*.speckle.dev (critical)**
 - speckle-releases.ams3.digitaloceanspaces.com
 - speckle.systems
 - speckle.community
