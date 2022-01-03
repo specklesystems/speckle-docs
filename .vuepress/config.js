@@ -53,8 +53,10 @@ module.exports = {
     lastUpdated: true,
     logo: "/assets/logo-docs.png",
     algolia: {
-      apiKey: '4f23c1e333e0ff5c9e7e5cbb8a933749',
+      appId: 'XOL51LKXOA',
+      apiKey: '595b9c5533a46cfa0f999033d4e4ba28',
       indexName: 'speckle'
+      
     },
     nav: [
       {
