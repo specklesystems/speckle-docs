@@ -30,6 +30,29 @@ We've also built a few components designed for advanced users and developers:
 - Dev/Conversion: Conversion + serialization nodes.
 - Dev/Transports: Not sure what transports are? Check [this](/dev/transports.md) out!
 
+### Ribbon tabs
+
+In addition to the nodes in the `Speckle 2` tab, the Speckle Grasshopper connector also comes with a variety of specific nodes create objects for specific industry standards (such as `BIM` and `Structural`) or specific applications (such as `ETABS`, `Revit` or `GSA`). These nodes are organized in independent tabs:
+
+- **Speckle 2 BIM**
+- **Speckle 2 Revit**
+- **Speckle 2 Structural**
+- **Speckle 2 ETABS**
+- **Speckle 2 GSA**
+
+::: tip Too many tabs?
+
+We know your ribbon tab space is precious (as Grasshopper doesn't allow for horizontal scrolling of tabs...) and that in all likelyhood, you will only need a couple of these nodes available at any given time.
+
+You can choose which of these tabs you want to display in your Grasshopper instance using the `Speckle 2` top-menu.
+
+Just go to `Speckle 2 -> Tabs` and disable the ones you do not need.
+
+![Grasshopper Tabs menu](./img-gh/gh-speckleMenu-tabs.png)
+
+**Changes to this settings will take effect after Restarting Rhino**.
+:::
+
 ## Streams and URLs
 
 In visual programming environments, Speckle Streams are identified by their URLs. Across our Dynamo and Grasshopper connectors you'll see URLs in 4 different formats:
