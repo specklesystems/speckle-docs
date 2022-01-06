@@ -107,6 +107,7 @@ module.exports = {
             "excel",
             "etabs",
             "sketchup",
+            "qgis",
             "support-tables"
           ]
         },

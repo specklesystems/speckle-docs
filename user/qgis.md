@@ -46,6 +46,8 @@ For vector layers, supported geometries include:
 - Poligon
 - Multipolygon
 
+The geometry will be reprojected and sent in a `Project CRS` of your QGIS project. If the chosen Coordinate Reference System is of Geographic type with non-linear units, they will be treated as Meters in other software that do not support such units.
+
 ### Using Speckle QGIS
 
 Once the plugin is installed, you'll find a new toolbar button in QGIS that will open the `SpeckleQGIS` panel.

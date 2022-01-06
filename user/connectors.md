@@ -12,6 +12,7 @@ Our Desktop Connectors are plugins for some of the most popular AEC software, in
 - [Unreal Engine](/user/unreal)
 - [Blender](/user/blender)
 - [Excel](/user/excel)
+- [QGIS](/user/qgis)
 
 ...with more on the way soon!
 
