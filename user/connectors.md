@@ -18,7 +18,7 @@ Our Desktop Connectors are plugins for some of the most popular AEC software, in
 
 These Connectors take care of sending and receiving data to your Speckle server, in the form of streams (no need for files or file types!)
 
-::: tip 
+::: tip
 
 Check out the 👉 [tutorials](https://speckle.systems/tutorials/) on how to use our connectors!
 

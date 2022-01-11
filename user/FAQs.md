@@ -1,5 +1,52 @@
 # FAQs
 
+## What is Speckle?
+
+Speckle is an open source software platform that helps you get in control of your own data.
+Speckle stores your 3D models and BIM data directly inside a database in a transparent and accessible way.
+
+## What can I do with Speckle?
+
+Speckle is a swiss-army knife for working with 3D data and we keep adding new functionalities every day. Here are some of the main things people have been using Speckle for:
+
+- Interoperability: get your CAD and BIM models into other software without exporting or importing
+- 3D Viewer: see your CAD and BIM models online, share and embed them anywhere
+- Real time: get real time updates and notifications and changes
+- Object-based: say goodbye to files! Speckle is the first object based platform for the AEC industry, store your data in a fast and accessible database
+- Version control: Speckle is the Git & Hub for geometry and BIM data
+- Collaboration: share your designs collaborate with others
+- Permission and data management: set granular permissions on you designs and parts of them
+- GraphQL API: get what you need anywhere you want it
+- Webhooks: the base for a automation and next-gen pipelines
+- Custom Apps: create custom apps that leverage your data the way you want
+- Built for developers: we are building Speckle with developers in mind and got tools for every stack
+- Built for the AEC industry: Speckle connectors are plugins for the most common software used in the industry such as Revit, Rhino, Grasshopper, AutoCAD, Civil 3D, Excel, Unreal Engine, Unity, QGIS, Blender and more!
+
+In short, Speckle is a great basis for you company's digital transformation and for transitioning to digital and data driven workflows.
+
+## What does open source mean?
+
+It means that you are free to take our code and run away with it! Really!
+Speckle is licensed as Apache 2 so you are free to study, modify, redistribute and commercialize any parts of it.
+
+This means that you can totally deploy your own Speckle server without ever having to depend on us!
+
+## What is a Stream?
+
+**Streams** are collections of data inside Speckle. You can see a stream as a folder, a project or a repository.
+
+## What is a Commit?
+
+Data in a stream is stored in **commits**, which are snapshots of data in time. Every time you send to Speckle from a connector, a commit is created.
+
+## What is a Branch?
+
+Commits can also be organized in **branches**, for instance, to have multiple design options or to store data by discipline. The default branch is called _main_.
+
+## What is a Connector?
+
+**Connectors** are plugins for design and analysis software, they let you exchange geometry and BIM data with Speckle (send and receive it)
+
 ## The Speckle Server is unreachable
 
 When a Speckle Server is unreachable a few things could be going on.

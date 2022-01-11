@@ -6,7 +6,7 @@ Here's a few examples to get you started.
 
 ## Prerequisites
 
-First of all we need to create a [Personal Access Token](/dev/tokens-apps), make sure to select the scopes that you'll need for running your queries and mutations.
+First of all we need to create a [Personal Access Token](/dev/tokens), make sure to select the scopes that you'll need for running your queries and mutations.
 As always, treat this token as a password!
 
 ## Writing your queries
