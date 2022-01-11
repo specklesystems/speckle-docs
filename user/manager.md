@@ -1,15 +1,15 @@
-# Speckle Manager
+# Installing Connectors
 
-Speckle Manager is a standalone desktop application that helps you manage your Speckle [Accounts](/quickstart.html#registration) and [Connectors](/#connectors). While the Speckle Manager isn't strictly required to use the Speckle platform, we highly recommend using it to help keep track of your connectors, install the latest updates and handle multiple user accounts.
+Speckle Connectors are primarily installed from Speckle Manager, a standalone desktop application. While Manager isn't strictly required to use the Speckle platform, we highly recommend using it to help keep track of your connectors, install the latest updates and handle multiple user accounts.
 
-Throughout this documentation we'll assume you have used Manager to set up your account and install the connectors ([alternative methods](/user/manager.md#adding-accounts-manually) are also supported).
+Throughout this documentation we'll assume you have used Manager to set up your account and install the connectors, ([alternative methods](/user/manager.md#adding-accounts-manually) are also supported).
 
 ::: tip IMPORTANT 🙌
-This guide assumes you have access to a **Speckle Server**.
-If you don't have one provided by your company, you can use our [free Speckle server](https://speckle.systems/getstarted/).
+This guide assumes you have a **Speckle Account**.
+If you don't, register on our [free XYZ Speckle server](https://speckle.xyz).
 :::
 
-## Installation
+## Download
 
 Manager is available for both Windows and Mac (with limitations).
 
@@ -19,8 +19,7 @@ Manager does not require admin privileges! Just double click and run to install 
 
 Download Speckle Manager now:
 
-- [Speckle Manager for Windows](https://speckle-releases.netlify.app/)
-- [Speckle Manager for Mac](https://speckle-releases.netlify.app/) (currently account management only)
+- [⬇️ Speckle Manager](https://speckle-releases.netlify.app/)
 
 Manager for Windows will prompt you to update when an update is available, in Mac you'll need to manually install new versions.
 
@@ -72,7 +71,7 @@ You can also add an account directly from Speckle Web as part of the onboarding 
 
 Using Manager to handle your accounts and [Connectors](/#connectors) is the recommended way, but if you'd like to do without it a manual flow is also available.
 
-To manually add an account you first need to [generate a token for your account](/dev/tokens-apps).
+To manually add an account you first need to [generate a token for your account](/dev/tokens).
 
 Then you can proceed to create a `.json` file in `%appdata%\Speckle\Accounts\` with the following data structure:
 

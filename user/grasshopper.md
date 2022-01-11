@@ -220,7 +220,7 @@ Speckle 2.0 lets you create _Speckle BIM Elements_ from Rhino Geometry, so you c
 
 ::: tip
 
-You'll find the same functionality for Rhino [here](XXX).
+You'll find the same functionality for Rhino [here](/rhino.html#using-rhino-bim).
 
 :::
 
@@ -352,7 +352,7 @@ When a new **Schema Builder** node is created, a pop-up window will be displayed
 ![Schema builder pop-up](./img-gh/nodes-schema-builder-popup.png)
 
 ::: tip
-Check out our [tutorial on sending data from Grasshopper to Revit](/user/interop-gh-revit)!
+Check out our [tutorial on sending data from Grasshopper to Revit](https://speckle.systems/tutorials/process-revit-bim-models-in-grasshopper/)!
 :::
 
 ## Object Conversion

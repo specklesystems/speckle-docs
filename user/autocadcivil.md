@@ -4,7 +4,7 @@ Speckle currently supports Autodesk AutoCAD 2021 and Civil 3D 2021.
 
 ⚠ _This connector is currently in alpha with limited functionality._
 
-::: tip 
+::: tip
 
 Check out our dedicated tutorial on [how to get started with AutoCAD](https://speckle.systems/tutorials/getting-started-with-speckle-for-autocad/)!
 Check out our dedicated tutorial on [how to get started with Civil3D](https://speckle.systems/tutorials/getting-started-with-speckle-for-civil3d/)!
@@ -45,8 +45,8 @@ Any layer information from the incoming stream will be appended to the prefix wi
 
 ## Supported Elements
 
-* [AutoCAD Support Tables](/user/support-tables.html#autocad)
-* [Civil 3D Support Tables](/user/support-tables.html#civil-3d)
+- [AutoCAD Support Tables](/user/support-tables.html#autocad)
+- [Civil 3D Support Tables](/user/support-tables.html#civil-3d)
 
 ### Things to keep in mind
 

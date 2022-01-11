@@ -5,62 +5,63 @@ Pressed for time? Here's a lightning fast intro to getting started!
 ## Registration
 
 Before you can use Speckle, you'll need an account!
-* If your company runs its own Speckle server, you can register using the URL they can provide you.
-* Otherwise, you can register with our [free official server](https://speckle.systems/getstarted/))
 
-## Onboarding
-As you register, our onboarding process will take you through:
+- You can register on our [free official XYZ Server](https://speckle.xyz/))
+- Otherwise, If your company runs its own Speckle server, you can register using the URL they provided
 
-- Downloading and installing the Speckle Manager, our desktop application for account and connector management.
-- Linking your newly-created account to the Speckle Manager ([additional ways to do this](/user/manager.md#adding-account)).
-- Creating your first stream.
+As you register, a friendly onboarding wizard will take you through some set-up steps.
 
-::: tip Psst!
+## Creating your first stream
 
-Did you skip the onboarding? No problem!
-If you're on a company server, head over to: `https://your-server-address/onboarding`.
-If you're using our official server, that's: `https://speckle.xyz/onboarding`.
+![image](https://user-images.githubusercontent.com/2679513/148923228-790246ff-d25a-4c25-966c-e2399b2ea13e.png)
 
-:::
+Congratulations 🥳! You now have a Speckle account and have logged in, what you are seeing is the Speckle [web app](/user/web).
 
+From here, you can view and manage data and 3D models yuo have sent to Speckle or that others have shared with you.
 
-## Speckle Web App
+**Let's now create your first stream:** to do so click on the big blue button that says "New Stream".
 
-![image-20210322192558215](./img/quickstart/image-20210322192558215.png)
+:::tip 💡 What's a Stream
 
-Our [browser-based app](/user/web) is your gateway to the Speckle server. From here, you can:
-* View and manage your streams, administer them and control who has viewing & editing access to them.
-* Visualise your data in our interactive 3D viewer
-* Create new branches (and soon - commits!)
-* Manage your authorised apps and create personal access tokens to use in your own scripts and apps.
- 
-::: tip Got Programming Skills?
+**Streams** are collections of data inside Speckle. You can see a stream as a folder, a project or a repository.
 
-If you're interested in experimenting with the API, check out our [developer sections](/dev/server-api.).
+Data in a stream is stored in **commits**, which are snapshots of data in time. Every time you send to Speckle from a connector, a commit is created.
+
+Commits can also be organized in **branches**, for instance, to have multiple design options or to store data by discipline. The default branch is called main .
 
 :::
 
-## Connectors
+![newstream](https://user-images.githubusercontent.com/2679513/148924418-4af6e065-97fc-4c9c-b906-5a0d2f0e821a.gif)
 
-Once you've authorised the Manager, you are ready to use the desktop [Connectors](/user/connectors)!
-&nbsp;
-Connectors link your AEC software to Speckle, allowing you to send/receive data to/from a Speckle server.
+## Sending and Receiving data with Connectors
 
-Our growing list of official Speckle Connectors includes:
-- [Rhino](/user/rhino)
-- [Revit](/user/revit)
-- [Grasshopper](/user/grasshopper)
-- [Dynamo](/user/dynamo)
-- [AutoCAD](/user/autocadcivil)
-- [Civil3D](/user/autocadcivil)
-- [Unity](/user/unity)
-- [Blender](/user/blender)
+New Streams are always empty, in order to get data into them we'll need to use one of the many Speckle connectors
+
+:::tip 💡 What's a Connectors
+
+**Connectors** are plugins for design and analysis software, they let you exchange geometry and BIM data directly from the tools you use.
+
+Install our connectors and you'll instantly be able to **share your models and data** with others or **access it from the web**, or **load it into other supported software**.
+
+:::
+
+You can explore each of our connectors in detail in their docs section: [Connectors](/user/connectors).
 
 ### Installation
 
-The official connectors can be installed through the "Connectors" page of the Speckle Manager. Simply select which one you'd like to install from the list, and the Manager will do the work for you.
+Unless otherwise stated, Connectors are installed from a standalone desktop app called [Speckle Manager](/user/manager).
 
-![manager-connectors](https://user-images.githubusercontent.com/7717434/106609134-2b6f2400-655d-11eb-8d2a-1730115e3bc7.gif)
+- [⬇️ Download Speckle Manager](https://speckle-releases.netlify.app/)
+
+Manager will also notify when new versions are available, so you never miss out on the good stuff!
+
+![manager](https://user-images.githubusercontent.com/2679513/148925769-e12fe66f-923e-4af8-9eac-166dab1eb21d.gif)
+
+:::tip ⚠️ Important
+
+In order to use use our connector, you also need to log into your Speckle account using Manager. A wizard will guide you through that process when you install Manager or as well from our web app if needed.
+
+:::
 
 ### Grasshopper and Dynamo
 
@@ -72,33 +73,37 @@ Finally, there are some more advanced components/nodes for creating and expandin
 
 ![dyn-send](./img-dyn/dyn-send.gif)
 
-### Revit, Rhino, AutoCAD, Civil3D
+### Revit, Rhino, AutoCAD, Civil3D, Bentley etc
 
-Our Revit and Rhino Connectors share the same user interface.
-When loaded, the main dialog displays all the streams that exist in the current file. Each stream can be either a Sender or Receiver - click the double arrow button on the top right corner of a card to switch a stream from Sender to Receiver mode (or vice versa).
+Most other Connectors share the same user interface, you can read more about it [in its own section](/user/ui2).
 
-![desktopui home page with labelled buttons](https://user-images.githubusercontent.com/7717434/107382404-badd7f80-6ae7-11eb-9941-2265b1cc5748.png)
+From it you can select a Stream you have previously created and decide whether to send or receive data from it. Pretty simple huh?!
+In case you were wondering what data exchanges are allowed between all the various supported software, we have crated a series of [Supported Elements tables](/user/support-tables) that will help you.
 
-The big blue button in the bottom right corner will let you add an existing stream or create a new one. Once you've added a stream, you'll see a new Sender stream on the home screen. You can click the centre "0 objects" button to add objects to the stream using selection or filters.
+![dui2-select](https://user-images.githubusercontent.com/2679513/139484851-8038b1c3-e0a5-4585-892e-bc870974f422.gif)
 
-Once you've added objects, you can send by clicking the Send button. You may want to add a short message describing this stream. To do this, just click the three dots menu to the right of the Send button.
+## Seeing your models online
 
-![desktopui-new-stream](https://user-images.githubusercontent.com/7717434/106741747-08ec1200-6614-11eb-9162-829670899da9.gif)
+After you've sent something to Speckle (aka you created a commit, using Speckle's lingo) you'll be able to see it in our 3D viewer and embed it into almost any other web page.
+Just head to that stream in our web app to do so!
 
-Clicking on a stream's name in your stream list will let you edit its name and description, add collaborators, or remove the stream from the file.
+Here's a sample one we have created for you: [https://speckle.xyz/streams/3073b96e86](https://speckle.xyz/streams/3073b96e86)
 
-A Receiver has a commit selection button in the centre instead of an objects selection button. This button opens a menu that lets you choose if you want to receive a specific commit or just the latest commit.
+Once your data is on Speckle, there's of course much more you can do like:
 
-![desktopui-switch-cards](https://user-images.githubusercontent.com/7717434/106739209-c5dc6f80-6610-11eb-8625-01b19240c612.gif)
-
-#### Further Reading
-
-For information on using specific connectors, check out the [Desktop Connectors](/user/connectors) section of the User Guide.
-
-If you'd like more detailed guides for sending data between AEC software, check out our [tutorials](https://speckle.systems/tutorials/).
+- managing permissions
+- sharing it with others
+- exploring it in our UI and 3D viewer
+- accessing it programmatically via API
+- consuming it via other Speckle apps
+- receive it into other software
+- add comments and issues (coming soon!)
+- much more!
 
 ## Conclusion
 
-That's all, folks! You are now successfully set up and have the tools to start using Speckle. If you need further guidance on anything we covered here, head over to the more detailed sections below. If you want to learn more about the code side of things, the [Dev Docs](/dev/) should be your next stop. If you're looking for more in-depth reading on how Speckle does its Speckling, have a browse through the additional sections below.
+That's all, folks! You are now successfully set up and have the tools to start using Speckle. If you need further guidance on anything we covered here, head over to the more detailed sections below. If you want to learn more about the code side of things, the [Dev Docs](/dev/) should be your next stop.
+
+If you'd like more detailed guides for sending data between AEC software, check out our [tutorials](https://speckle.systems/tutorials/).
 
 If you're enjoying Speckle, have any questions, or would like to share any feedback or suggestions, please drop by our [Community Forum](https://speckle.community/) and join the conversation.

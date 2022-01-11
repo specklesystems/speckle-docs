@@ -20,7 +20,7 @@ Prefer watching to reading? Who doesn't!
 
 ## Getting Started
 
-::: tip 
+::: tip
 
 Check out our dedicated tutorial on [how to get started with Dynamo](https://speckle.systems/tutorials/getting-started-with-speckle-for-dyanmo/)!
 
@@ -64,9 +64,9 @@ In order to select which stream to send data to, you just need to pass a stream 
 
 Alternatively, you can also use one of the following nodes to create / retrieve existing streams:
 
-- [Create Stream](user/dynamo.md#create-stream)
-- [Get Stream](user/dynamo.md#get-stream)
-- [List Streams](user/dynamo.md#list-streams)
+- [Create Stream](/user/dynamo.md#create-stream)
+- [Get Stream](/user/dynamo.md#get-stream)
+- [List Streams](/user/dynamo.md#list-streams)
 
 :::tip NOTE
 You cannot send data to a specific commit. Commits are a snapshot of data at a specific point in time and therefore cannot be edited.

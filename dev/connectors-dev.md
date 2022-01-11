@@ -53,7 +53,7 @@ By installing these packages,`Speckle.Core` and other packages will be also adde
 
 ::: tip IMPORTANT ⚠️
 Our default User Interface is changing! 🤩
-See our new version [here](./ui2), and add your feedback on the [forum](https://speckle.community/t/new-desktopui-in-alpha-testing/1851)!
+See our new version [here](/user/ui2), and add your feedback on the [forum](https://speckle.community/t/new-desktopui-in-alpha-testing/1851)!
 :::
 
 Assuming the host application you are integrating with provides a way to launch plugins via command or by clicking a button, you can insatiate and launch the DesktopUI with the code below:

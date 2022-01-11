@@ -1,4 +1,4 @@
-# Speckle Web App
+# Web App
 
 ## Introduction
 
@@ -14,8 +14,8 @@ The **Speckle Web App** is our browser-based interface for managing all things S
 When you first visit your speckle server address (e.g. our default [speckle.xyz server](https://speckle.xyz)), you'll be prompted to log in or register to that server. Servers are independent of each other meaning if you are a part of multiple Speckle Servers, you'll need to create a new account for each one.
 
 ::: tip IMPORTANT 🙌
-This guide assumes you have access to a **Speckle Server**.
-If you don't have one provided by your company, you can use our [free Speckle server](https://speckle.systems/getstarted/).
+This guide assumes you have a **Speckle Account**.
+If you don't, register on our [free XYZ Speckle server](https://speckle.xyz).
 :::
 
 ## Streams

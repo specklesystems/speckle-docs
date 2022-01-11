@@ -4,7 +4,7 @@ typora-copy-images-to: img-etabs
 
 # ETABS (Alpha) 🛠️
 
-The Speckle ETABS Connector currently supports ETABS v18 and v19. It is currently under alpha development so please report any bugs or feedback to the [community forum](https://speckle.community/). 
+The Speckle ETABS Connector currently supports ETABS v18 and v19. It is currently under alpha development so please report any bugs or feedback to the [community forum](https://speckle.community/).
 
 ::: tip
 
@@ -18,12 +18,14 @@ To install the ETABS Connector and add your Speckle account, proceed by followin
 
 Once installed, you can find the ETABS connector in the PlugIn menu under the **Tools** tab like so:
 
-![ToolBar](./img-etabs/toolbar.png) 
+![ToolBar](./img-etabs/toolbar.png)
 
 ### Recieving in ETABS
-Save the ETABS model as a file first before attempting to recieve streams into your ETABS model. 
+
+Save the ETABS model as a file first before attempting to recieve streams into your ETABS model.
 
 ## User Interface
+
 ::: tip IMPORTANT 🙌
 
 This connector uses our shared Desktop UI2. Read up on general guidelines for usage in the [Desktop UI2 section](https://speckle.community/t/new-desktopui-in-alpha-testing/1851/2).
@@ -34,7 +36,7 @@ This connector uses our shared Desktop UI2. Read up on general guidelines for us
 
 ### Selection Filters
 
-To help you select which elements will be to sent to Speckle, we've built various filters into our ETABS connector. Once a filter is set, just click **Send** and all objects passing the filter will be sent to your Stream. Section properties and materials defined within the model will always be sent. 
+To help you select which elements will be to sent to Speckle, we've built various filters into our ETABS connector. Once a filter is set, just click **Send** and all objects passing the filter will be sent to your Stream. Section properties and materials defined within the model will always be sent.
 
 _Please Note: Elements are sent regardless of whether they are visible or if they were created after setting up the filter._
 
@@ -46,12 +48,11 @@ The category filter lets you select one or more of the currently-supported ETABS
 
 #### All Filter
 
-This trivial filter allows you to select all the elements that are currently supported by the ETABS connector. 
+This trivial filter allows you to select all the elements that are currently supported by the ETABS connector.
 
 ## Supported Elements
 
 - [ETABS Support Tables](/user/support-tables.html#etabs)
-
 
 ## Updating Elements
 
@@ -64,26 +65,25 @@ When sending from elements from Revit, Speckle takes care of converting the data
 To send elements from Revit specficially into a structural model, use the analytical models generated within a revit model.Currently there is no conversion from the BuiltElement object kits and the Structural object kits. Which means that only the analytical models in Revit are supported to be converted into ETABS. Give us feedback on this workflow. ![Revit Analytical Model](./img-etabs/analytical-model.png)
 
 ## Grasshopper to ETABS
-The schema for the structural objects is based around our structural pyramid of objects. Refer to the [discourse post](https://speckle.community/t/introducing-structural-classes-for-speckle/1824/8) here if you haven't for all the information about this kit. There are ETABS application specific grasshopper components. Check them out and use them to build specific properties like deck sections. If there is no specific ETABS component, use the general structural schema to define them. 
+
+The schema for the structural objects is based around our structural pyramid of objects. Refer to the [discourse post](https://speckle.community/t/introducing-structural-classes-for-speckle/1824/8) here if you haven't for all the information about this kit. There are ETABS application specific grasshopper components. Check them out and use them to build specific properties like deck sections. If there is no specific ETABS component, use the general structural schema to define them.
 
 ![ETABS Schema](./img-etabs/structural-tool.png)
 
-Everything is encapsulated in the model object from the schema in the end. Therefore make sure you define the model object. 
+Everything is encapsulated in the model object from the schema in the end. Therefore make sure you define the model object.
 
 ![ETABS grasshopper model](./img-etabs/model.png)
 
 ::: tip
 
-It's worth building an ETABS model and sending and recieving that object in ETABS before you attempting building a model from grasshopper directly. 
+It's worth building an ETABS model and sending and recieving that object in ETABS before you attempting building a model from grasshopper directly.
 
 :::
 
-
-Building models parametrically in grasshopper with the structural object schema is supported with ETABS. To build section profiles from catalogue and have material definitions imported into the ETABS from scratch, you will have to match the spelling of the catalogue directly as if you were importing it.  Look below for an example of the spelling used.
+Building models parametrically in grasshopper with the structural object schema is supported with ETABS. To build section profiles from catalogue and have material definitions imported into the ETABS from scratch, you will have to match the spelling of the catalogue directly as if you were importing it. Look below for an example of the spelling used.
 
 ![ETABS property](./img-etabs/grasshopper-sections.png)
 
 ## Exploring the ETABS data
 
 To easily explore on object's data and parameters, our [Speckle Web App](/user/web.html) interface can be of great help. As well as any other applications that lets you explore the object metadata (eg Grasshopper, Dynamo, Unity, etc).
-
