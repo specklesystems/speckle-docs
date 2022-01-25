@@ -4,10 +4,10 @@
 
 ::: tip
 
-The QGIS conector is in early stages of development and it is released as _experimental_. This means there's an extra step to installing it. Once we're out of `beta`, this step will no longer be necessary.
+The QGIS connector is in early stages of development and it is released as _experimental_. This means there's an extra step to installing it. Once we're out of `beta`, this step will no longer be necessary.
 :::
 
-The Speckle 2.0 conector for QGIS currently supports QGIS versions 3.0.0 and upwards.
+The Speckle 2.0 connector for QGIS currently supports QGIS versions 3.0.0 and upwards.
 
 ## Getting started
 
