@@ -13,6 +13,7 @@ Our Desktop Connectors are plugins for some of the most popular AEC software, in
 - [Blender](/user/blender)
 - [Excel](/user/excel)
 - [QGIS](/user/qgis)
+- [Power BI](/user/powerbi)
 
 ...with more on the way soon!
 
