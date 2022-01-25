@@ -108,6 +108,7 @@ module.exports = {
             "etabs",
             "sketchup",
             "qgis",
+            "powerbi",
             "support-tables"
           ]
         },
