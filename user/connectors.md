@@ -14,6 +14,10 @@ Our Desktop Connectors are plugins for some of the most popular AEC software, in
 - [Excel](/user/excel)
 - [QGIS](/user/qgis)
 - [Power BI](/user/powerbi)
+- [Bentley MicroStation](/user/bentley)
+- [Bentley OpenRoads](/user/bentley)
+- [Bentley OpenRail](/user/bentley)
+- [Bentley OpenBuildings](/user/bentley)
 
 ...with more on the way soon!
 

@@ -309,25 +309,25 @@ We've only started supporting Unity elements, please let us know what else you'd
 
 We've only started supporting with an alpha release of ETABS elements, please let us know what else you'd like to see, and do contribute if you have the skillz!
 
-| Geometry                                                           |  Send   | Receive |
-| ------------------------------------------------------------------ | :-----: | :-----: |
-| Point                                                              |   ✅    |   ✅    |
-| Columns                                                            |   ✅    |   ✅    | 
-| Beams                                                              |   ✅    |   ✅    |  
-| Braces                                                             |   ✅    |   ✅    |  
-| Sections Profile (Catalogue)                                       |   ✅    |   ✅    |
-| User Defined Sections ~ refer to [structural object kit](https://github.com/specklesystems/speckle-sharp/blob/structural/structural-kit/Objects/Objects/Structural/Property/SectionProfile.cs) for schema                                                           |   ✅    |   ✅    |
-| Floor with Slab Sections + Deck Sections                           |   ✅    |   ✅    |
-| Wall and Sections                                                  |   ✅    |   ✅    |
-| Material Code definition                                           |          |   ✅    |
-| Loading (1D,2D)   note: node elements can only send                |       ✅   |   ✅    |
-| Results (1D,2D,Node)                                                       |   ✅    |    |
-| Restraints                                                         |   ✅    |   ✅    |
-| Links                                                              |   ✅    |   ✅    |
-| Stories                                                              |   ✅    |   ✅    |
-| Springs (Point,Linear,Area)                                        |   ✅    |   ✅    |
-| Tendons                                                             |   ✅    |       |
-| GridLines                                                             |   ✅    |       |
+| Geometry                                               |  Send   | Receive |
+| ------------------------------------------------------ | :-----: | :-----: |
+| Point                                                  |   ✅   |   ✅   |
+| Columns                                                |   ✅   |   ✅   | 
+| Beams                                                  |   ✅   |   ✅   |  
+| Braces                                                 |   ✅   |   ✅   |  
+| Sections Profile (Catalogue)                           |   ✅   |   ✅   |
+| User Defined Sections ~ refer to [structural object kit](https://github.com/specklesystems/speckle-sharp/blob/structural/structural-kit/Objects/Objects/Structural/Property/SectionProfile.cs) for schema              |   ✅    |   ✅    |
+| Floor with Slab Sections + Deck Sections               |   ✅   |   ✅   |
+| Wall and Sections                                      |   ✅   |   ✅   |
+| Material Code definition                               |        |   ✅   |
+| Loading (1D, 2D) (send: node only)                     |   ✅   |   ✅   |
+| Results (1D, 2D, Node)                                 |   ✅   |        |
+| Restraints                                             |   ✅   |   ✅   |
+| Links                                                  |   ✅   |   ✅   |
+| Stories                                                |   ✅   |   ✅   |
+| Springs (Point, Linear, Area)                          |   ✅   |   ✅   |
+| Tendons                                                |   ✅   |        |
+| GridLines                                              |   ✅   |        |
 
 ## SketchUp
 
@@ -343,3 +343,71 @@ The SketchUp connector is still in early Alpha and is therefore a work in progre
 | Render Material                          |  ✅  |   ✅   | `In Progress` |
 | BlockInstance                            |  ✅  |   ✅   | `In Progress` |
 | BlockDefinition                          |  ✅  |   ✅   | `In Progress` |
+
+## MicroStation
+
+**This is a community-contributed connector! We'll try to keep these charts as accurate as possible, but keep in mind some information may be out of date.**
+
+### Supported Elements
+
+| Geometry         |  Send   | Receive |    Status     |
+| ---------------- | :-----: | :-----: | :-----------: |
+| Point            |   ✅    | as LineElement |  `Complete`   |
+| Vector           |   ✅    |   ✅    |  `Complete`   |
+| Plane            |   ✅    |   ✅    |  `Complete`   |
+| Line             |   ✅    |   ✅    |  `Complete`   |
+| Arc              |   ✅    |   ✅    |  `Complete`   |
+| Circle           |   ✅    | as EllipseElement |  `Complete`   |
+| Ellipse          |   ✅    |   ✅    |  `Complete`   |
+| Polyline         |   ✅    |   ✅    |  `Complete`   |
+| Polycurve        |   ✅    |   ✅    |  `Complete`   |
+| Curve (BSpline)  |   ✅    |   ✅    |  `Complete`   |
+| Shape            | as Polyline | as Polyline | `Complete` |
+| Complex Shape    | as Polycurve | as Polycurve |  `Complete`   |
+| Mesh             |   ✅    |   ✅    |  `Complete`   |
+| Surface (BSpline)|   ✅    |         | `In Progress` |
+| ExtendedElement  | as Base |          | `In Progress` |
+| ComplexHeader    | as Base |          | `In Progress` |
+
+### Unsupported Elements
+
+Note that 2d elements (like `Point2d` and `Vector3d`) are converted into 3d elements on send and receive.
+
+Points are converted as LineElements with the same start and end point on receive, and LineElements with the same start and end points are converted as Points on send.
+
+Ellipses with rotation are converted as a curve when sent to Speckle.
+
+Breps, pointclouds, blocks, views, and any other element not listed are not supported in MicroStation.
+
+## OpenRoads and OpenRail
+
+**These are community-contributed connectors! We'll try to keep these charts as accurate as possible, but keep in mind some information may be out of date.**
+
+### Supported Elements
+
+In addition to supporting all of the geometry elements that the MicroStation connector supports, OpenRoads and OpenRail also support the following built elements:
+
+| BuiltElement                 | Send | Receive |    Status     |
+| ---------------------------- | :--: | :-----: | :-----------: |
+| Alignment                    |  ✅  |   ✅   |  `Complete`   |
+| Corridor                     |  as Base  |    |  `In Progress`   |
+
+### Unsupported Elements
+
+Profiles, Stations, Featurelines, and anything else not listed are currently not supported.
+
+## OpenBuildings
+
+**This is a community-contributed connector! We'll try to keep these charts as accurate as possible, but keep in mind some information may be out of date.**
+
+### Supported Elements
+
+In addition to supporting all of the geometry elements that the MicroStation connector supports, OpenBuildings also supports the following built elements:
+
+| BuiltElement                 | Send | Receive |    Status     |
+| ---------------------------- | :--: | :-----: | :-----------: |
+| GridCurve                    |  as Line  |      |  `In Progress`  |
+| GridSystem                   |  as Base  |      |  `In Progress`  |
+
+### Unsupported Elements
+

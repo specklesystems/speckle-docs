@@ -109,6 +109,7 @@ module.exports = {
             "sketchup",
             "qgis",
             "powerbi",
+            "bentley",
             "support-tables"
           ]
         },
