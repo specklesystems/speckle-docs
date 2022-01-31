@@ -179,7 +179,7 @@ stream_id = "62e5ff6a2b"
 account = get_default_account()
 client = SpeckleClient(host=account.serverInfo.url)
 client.authenticate(token=account.token)
-transport = ServerTransport(client, stream_id)
+transport = ServerTransport(client=client, stream_id=stream_id)
 
 # get the `globals` branch
 branch = client.branch.get(stream_id, "globals")
