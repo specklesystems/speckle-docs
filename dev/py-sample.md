@@ -33,7 +33,7 @@ client.authenticate(token=account.token)
 commit = client.commit.get(STREAM_ID, COMMIT_ID)
 
 # create an authenticated server transport from the client and receive the commit obj
-transport = ServerTransport(client, STREAM_ID)
+transport = ServerTransport(client=client, stream_id=STREAM_ID)
 res = operations.receive(commit.referencedObject, transport)
 
 # get the list of levels from the received object
@@ -149,7 +149,7 @@ client.authenticate(token=account.token)
 
 commit = client.commit.get(STREAM_ID, COMMIT_ID)
 
-transport = ServerTransport(client, STREAM_ID)
+transport = ServerTransport(client=client, stream_id=STREAM_ID)
 res = operations.receive(commit.referencedObject, transport)
 
 # get the list of levels from the received object
