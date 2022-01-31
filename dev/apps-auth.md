@@ -104,7 +104,7 @@ Note: broadly speaking, there are two type of apps:
 
 We'll write soon more documentation on how the authentication flow with the Server actually works. For the geeks out there, here's a short summary, or some important points:
 
-- We are supporting the **authorization_code** flow with **PCKE** only for public and confidential clients.
+- We are supporting the **authorization_code** flow with **PKCE** only for public and confidential clients.
 - We do not support dynamic scope requests for apps. We **only support pre-registered scopes for each app**.
 - If an app is edited in any way - name, scopes, etc. - all its tokens get revoked and users will need to re-authorize it.
 
