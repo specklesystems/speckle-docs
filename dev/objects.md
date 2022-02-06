@@ -67,6 +67,60 @@ In order to better support interop between the various AEC host applications and
 
 For example, [`Objects.BuiltElements.Revit`](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects/BuiltElements/Revit) contains a collection of classes that extend the basic ones with a series of default Revit properties. This is the approach we'll follow with other host applications as well.
 
+#### Adding Schema information attributes to classes
+
+In order for these _Host Application specific_ classes to be discoverable in any other host application (such as Grasshopper's `Create Schema Object` node), this objects must contain at least one constructor with the attribute `SchemaInfo`. The attribute allows to provide human-readable names and descriptions that will be used to display to the user.
+
+In addition, you can optionally add the `SchemaMainParam` attribute to one of the constructor's inputs to signal it as the **main geometry parameter** for that Schema.
+
+Here's the code for the `Objects.BuiltElements.Beam` constructor, with the `baseLine` flagged as its main parameter:
+
+```csharp
+[SchemaInfo("Beam", "Creates a Speckle beam", "BIM", "Structure")]
+public Beam([SchemaMainParam] ICurve baseLine)
+{
+    this.baseLine = baseLine;
+}
+```
+
+#### Handing breaking changes in the Schema model
+
+These information from the `SchemaInfo` attribute is used, among other places, to automatically generate all the Schema Nodes you'll find in the Grasshopper connector.
+
+This means that any breaking-change on that object will have unwanted side-effects on the end-user; such as previously existing Schemas dissapearing without warning.
+
+In order to prevent this, the recommended way to update is to:
+
+1. Add a `SchemaDeprecated` attribute to the existing constructor, and modify it's implementation if necessary.
+2. Create a new constructor with the new parameters and add the `SchemaInfo` attribute to it too.
+
+Following our previous `Beam` example. If we added two new properties to our beam (`width` and `height`), the final changes would look like this:
+
+```csharp
+public double width;
+public double height;
+
+[SchemaDeprecated, SchemaInfo("Beam", "Creates a Speckle beam", "BIM", "Structure")]
+public Beam([SchemaMainParam] ICurve baseLine)
+{
+    this.baseLine = baseLine;
+    this.height = 1.0;
+    this.width = 1.0;
+}
+
+[SchemaInfo("Beam", "Creates a Speckle beam", "BIM", "Structure")]
+public Beam([SchemaMainParam] ICurve baseLine, double height, double width)
+{
+    this.baseLine = baseLine;
+    this.height = height;
+    this.width = width;
+}
+```
+
+This will ensure that anyone using the previous Schema definition can still do, but also provide a way to notify them that they should upgrade to the new/upgraded one.
+
+> These `SchemaDeprecated` constructors will eventually be deleted from the object model, but not before giving all users enough warning.
+
 ### Converters
 
 The Objects Kit doesn't just stop at Objects - you need converters as well! These can be found in [Objects/Converters](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Converters). Each converter is a class within the `Objects.Converter` namespace and contains conversion routines to a Speckle object and to the native software equivalent. The two key methods within a converter are predictably:
