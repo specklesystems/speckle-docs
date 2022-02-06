@@ -59,8 +59,6 @@ public class Box : Base, IHasVolume, IHasArea, IHasBoundingBox
 }
 ```
 
-#### Adding `SchemaInfo` attributes to
-
 ### Specific Host Application Support
 
 The basic objects are intended to be as general as possible
