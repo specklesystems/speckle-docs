@@ -140,7 +140,7 @@ module.exports = {
         {
           title: ".NET SDK",
           collapsable: false,
-          children: ["dotnet", "objects", "connectors-dev", "kits-dev", "transports-dev"]
+          children: ["dotnet", "FilteringData", "objects", "connectors-dev", "kits-dev", "transports-dev"]
         },
         {
           title: "Python SDK",
