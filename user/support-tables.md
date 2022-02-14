@@ -406,8 +406,15 @@ In addition to supporting all of the geometry elements that the MicroStation con
 
 | BuiltElement                 | Send | Receive |    Status     |
 | ---------------------------- | :--: | :-----: | :-----------: |
-| GridCurve                    |  as Line  |      |  `In Progress`  |
-| GridSystem                   |  as Base  |      |  `In Progress`  |
+| Beam                         |  as RevitBeam       |      |  `In Progress`  |
+| Capping Beam                 |  as FamilyInstance  |      |  `In Progress`  |
+| Column                       |  as RevitColumn     |      |  `In Progress`  |
+| GridCurve                    |  as Line            |      |  `In Progress`  |
+| GridSystem                   |  as Base            |      |  `In Progress`  |
+| Pile                         |  as FamilyInstance  |      |  `In Progress`  |
+| Slab                         |  as RevitFloor      |      |  `In Progress`  |
+| Wall                         |  as RevitWall       |      |  `In Progress`  |
 
 ### Unsupported Elements
 
+Openings, inclined Slabs and Walls, and anything else not listed are currently not supported.
