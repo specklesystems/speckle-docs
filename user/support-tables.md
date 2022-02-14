@@ -415,6 +415,8 @@ In addition to supporting all of the geometry elements that the MicroStation con
 | Slab                         |  as RevitFloor      |      |  `In Progress`  |
 | Wall                         |  as RevitWall       |      |  `In Progress`  |
 
+Since GridSystems/GridCurves can not be selected in the OpenBuildings user interface, they get sent to Speckle automatically every time any of the other elements are sent.
+
 ### Unsupported Elements
 
 Openings, inclined Slabs and Walls, and anything else not listed are currently not supported.
