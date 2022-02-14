@@ -371,7 +371,7 @@ The SketchUp connector is still in early Alpha and is therefore a work in progre
 
 ### Unsupported Elements
 
-Note that 2d elements (like `Point2d` and `Vector3d`) are converted into 3d elements on send and receive.
+Note that 2d elements (like `Point2d` and `Vector2d`) are converted into 3d elements on send and receive.
 
 Points are converted as LineElements with the same start and end point on receive, and LineElements with the same start and end points are converted as Points on send.
 
