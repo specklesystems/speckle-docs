@@ -309,25 +309,25 @@ We've only started supporting Unity elements, please let us know what else you'd
 
 We've only started supporting with an alpha release of ETABS elements, please let us know what else you'd like to see, and do contribute if you have the skillz!
 
-| Geometry                                               |  Send   | Receive |
-| ------------------------------------------------------ | :-----: | :-----: |
-| Point                                                  |   ✅   |   ✅   |
-| Columns                                                |   ✅   |   ✅   | 
-| Beams                                                  |   ✅   |   ✅   |  
-| Braces                                                 |   ✅   |   ✅   |  
-| Sections Profile (Catalogue)                           |   ✅   |   ✅   |
-| User Defined Sections ~ refer to [structural object kit](https://github.com/specklesystems/speckle-sharp/blob/structural/structural-kit/Objects/Objects/Structural/Property/SectionProfile.cs) for schema              |   ✅    |   ✅    |
-| Floor with Slab Sections + Deck Sections               |   ✅   |   ✅   |
-| Wall and Sections                                      |   ✅   |   ✅   |
-| Material Code definition                               |        |   ✅   |
-| Loading (1D, 2D) (send: node only)                     |   ✅   |   ✅   |
-| Results (1D, 2D, Node)                                 |   ✅   |        |
-| Restraints                                             |   ✅   |   ✅   |
-| Links                                                  |   ✅   |   ✅   |
-| Stories                                                |   ✅   |   ✅   |
-| Springs (Point, Linear, Area)                          |   ✅   |   ✅   |
-| Tendons                                                |   ✅   |        |
-| GridLines                                              |   ✅   |        |
+| Geometry                                                           |  Send   | Receive |
+| ------------------------------------------------------------------ | :-----: | :-----: |
+| Point                                                              |   ✅    |   ✅    |
+| Columns                                                            |   ✅    |   ✅    |
+| Beams                                                              |   ✅    |   ✅    |  
+| Braces                                                             |   ✅    |   ✅    |  
+| Sections Profile (Catalogue)                                       |   ✅    |   ✅    |
+| User Defined Sections ~ refer to [structural object kit](https://github.com/specklesystems/speckle-sharp/blob/structural/structural-kit/Objects/Objects/Structural/Property/SectionProfile.cs) for schema                                                           |   ✅    |   ✅    |
+| Floor with Slab Sections + Deck Sections                           |   ✅    |   ✅    |
+| Wall and Sections                                                  |   ✅    |   ✅    |
+| Material Code definition                                           |          |   ✅    |
+| Loading (1D,2D)   note: node elements can only send                |       ✅   |   ✅    |
+| Results (1D,2D,Node)                                                       |   ✅    |    |
+| Restraints                                                         |   ✅    |   ✅    |
+| Links                                                              |   ✅    |   ✅    |
+| Stories                                                              |   ✅    |   ✅    |
+| Springs (Point,Linear,Area)                                        |   ✅    |   ✅    |
+| Tendons                                                             |   ✅    |       |
+| GridLines                                                             |   ✅    |       |
 
 ## SketchUp
 
@@ -411,3 +411,20 @@ In addition to supporting all of the geometry elements that the MicroStation con
 
 ### Unsupported Elements
 
+## Tekla Structures
+
+### Supported Elements
+
+The Tekla Structures connector is still in early Alpha and therefore will still be developed and worked on. Let us know what else you'd like to see supported or if you would like to contribute to make it finish the alpha phase faster!
+
+| Type                                     | Send | Receive |    Status     |
+| ---------------------------------------- | :--: | :-----: | :-----------: |
+| Contour plates (slabs/plates)                                  |  ✅    | ✅ | `Complete`    |
+| Beams                           |  ✅  |   ✅   | `Complete` |
+| Columns                          |  ✅  |   ✅   | `Complete`    |
+| Spiral Beams                          |  ✅  |   ✅   | `Complete` |
+| Curved Beams                                |  ✅  |      | `In Progress`|
+| Polybeams                             |  ✅  |   ✅   | `Complete` |
+| Welds                                 |   ✅    |   |`In Progress`|  
+| Rebars                                |  ✅     |    |`In Progress`|
+| Bolts                                 |  ✅      |  |`In Progress`|

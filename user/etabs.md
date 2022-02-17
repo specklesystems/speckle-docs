@@ -34,7 +34,7 @@ This connector uses our shared Desktop UI2. Read up on general guidelines for us
 
 :::
 
-### Selection Filters
+### Filters
 
 To help you select which elements will be to sent to Speckle, we've built various filters into our ETABS connector. Once a filter is set, just click **Send** and all objects passing the filter will be sent to your Stream. Section properties and materials defined within the model will always be sent.
 
@@ -42,13 +42,21 @@ _Please Note: Elements are sent regardless of whether they are visible or if the
 
 ![ETABS](./img-etabs/etabs-ui.png)
 
+#### Selection Filters
+
+The selection filters will send everything that is selected within the ETABS display.
+
+#### Group Filters
+
+You can create predefined groups of geometrical elements within ETABS to send already within the ETABS group and select based on those groupings of elements for a more precise stream of elemenets.
+
 #### Category Filter
 
-The category filter lets you select one or more of the currently-supported ETABS categories.
+The category filter lets you select one or more of the currently-supported ETABS categories, this is the most granular filter that will also enable you to send results. Note : Other filters will not enable you to send results or non geometrical elements and properties.
 
 #### All Filter
 
-This trivial filter allows you to select all the elements that are currently supported by the ETABS connector.
+This trivial filter allows you to select all the elements that are currently supported by the ETABS connector. This will send all geometrical elements and their associated properties.
 
 ## Supported Elements
 
