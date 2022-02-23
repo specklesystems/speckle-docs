@@ -92,7 +92,7 @@ You've just seen how to simply send and receive objects using the `SpeckleClient
 Any URL to a stream, a branch, a commit, an object, or your globals will we parsed by the `StreamWrapper`. If you have a local account for the stream you provided, you can get an authenticated client and transport using the helper methods:
 
 ```py
-from specklepy.api.credentials import StreamWrapper
+from specklepy.api.wrapper import StreamWrapper
 
 # provide any stream, branch, commit, object, or globals url
 wrapper = StreamWrapper("https://speckle.xyz/streams/3073b96e86/commits/604bea8cc6")
