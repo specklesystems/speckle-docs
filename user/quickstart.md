@@ -1,6 +1,6 @@
 # Zero to Speckle ASAP
 
-Pressed for time? Here's a lightning fast intro to getting started!
+Pressed for time? Here's a lightning-fast intro to getting started!
 
 ## Registration
 
@@ -17,7 +17,7 @@ As you register, a friendly onboarding wizard will take you through some set-up 
 
 Congratulations 🥳! You now have a Speckle account and have logged in, what you are seeing is the Speckle [web app](/user/web).
 
-From here, you can view and manage data and 3D models yuo have sent to Speckle or that others have shared with you.
+From here, you can view and manage data and 3D models you have sent to Speckle or that others have shared with you.
 
 **Let's now create your first stream:** to do so click on the big blue button that says "New Stream".
 
@@ -27,7 +27,7 @@ From here, you can view and manage data and 3D models yuo have sent to Speckle o
 
 Data in a stream is stored in **commits**, which are snapshots of data in time. Every time you send to Speckle from a connector, a commit is created.
 
-Commits can also be organized in **branches**, for instance, to have multiple design options or to store data by discipline. The default branch is called main .
+Commits can also be organized in **branches**, for instance, to have multiple design options or to store data by discipline. The default branch is called main.
 
 :::
 
@@ -53,7 +53,7 @@ Unless otherwise stated, Connectors are installed from a standalone desktop app 
 
 - [⬇️ Download Speckle Manager](https://speckle-releases.netlify.app/)
 
-Manager will also notify when new versions are available, so you never miss out on the good stuff!
+Manager will also notify you when new versions are available, so you never miss out on the good stuff!
 
 ![manager](https://user-images.githubusercontent.com/2679513/148925769-e12fe66f-923e-4af8-9eac-166dab1eb21d.gif)
 
@@ -67,7 +67,7 @@ In order to use use our connector, you also need to log into your Speckle accoun
 
 The connectors for [Grasshopper](/user/grasshopper) and [Dynamo](/user/dynamo) are fairly aligned. The most important components/nodes are `Send Data` and `Receive Data`. These connectors will use the default account you've set in Speckle Manager, though this can be overridden using the relevant `Account` components/nodes.
 
-You also get components/nodes to `Create`, `Get`, `Update`, and `Delete` streams as well as get a `List` of your streams or more `Details` for a stream. Streams can be retrieved by either using the `List` component or the url of a specific stream, branch, commit or object.
+You also get components/nodes to `Create`, `Get`, `Update`, and `Delete` streams as well as get a `List` of your streams or more `Details` for a stream. Streams can be retrieved by either using the `List` component or the URL of a specific stream, branch, commit or object.
 
 Finally, there are some more advanced components/nodes for creating and expanding custom objects, for JSON serialisation, and local sending / receiving.
 
@@ -77,8 +77,8 @@ Finally, there are some more advanced components/nodes for creating and expandin
 
 Most other Connectors share the same user interface, you can read more about it [in its own section](/user/ui2).
 
-From it you can select a Stream you have previously created and decide whether to send or receive data from it. Pretty simple huh?!
-In case you were wondering what data exchanges are allowed between all the various supported software, we have crated a series of [Supported Elements tables](/user/support-tables) that will help you.
+From it, you can select a Stream you have previously created and decide whether to send or receive data from it. Pretty simple huh?!
+In case you were wondering what data exchanges are allowed between all the various supported software, we have created a series of [Supported Elements tables](/user/support-tables) that will help you.
 
 ![dui2-select](https://user-images.githubusercontent.com/2679513/139484851-8038b1c3-e0a5-4585-892e-bc870974f422.gif)
 
