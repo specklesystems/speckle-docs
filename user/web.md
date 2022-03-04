@@ -178,7 +178,7 @@ If you want to get your globals using code, you can do this in the same way you 
 stream_id = "62e5ff6a2b"
 account = get_default_account()
 client = SpeckleClient(host=account.serverInfo.url)
-client.authenticate(token=account.token)
+client.authenticate_with_account(account)
 transport = ServerTransport(client=client, stream_id=stream_id)
 
 # get the `globals` branch

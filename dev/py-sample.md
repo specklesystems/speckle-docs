@@ -27,7 +27,7 @@ from specklepy.transports.server import ServerTransport
 # create and authenticate a client
 client = SpeckleClient(host=HOST)
 account = get_default_account()
-client.authenticate(token=account.token)
+client.authenticate_with_account(account)
 
 # get the specified commit data
 commit = client.commit.get(STREAM_ID, COMMIT_ID)
@@ -145,7 +145,7 @@ We'll then use `operations.send()` to send this object to the stream, then use `
 # recap from earlier
 client = SpeckleClient(host=HOST)
 account = get_default_account()
-client.authenticate(token=account.token)
+client.authenticate_with_account(account)
 
 commit = client.commit.get(STREAM_ID, COMMIT_ID)
 

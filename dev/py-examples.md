@@ -18,7 +18,11 @@ client = SpeckleClient(host="your-server.com") # or whatever your host is
 
 # authenticate the client with a token
 account = get_default_account()
-client.authenticate(token=account.token)
+client.authenticate_with_account(account)
+
+# if you're in an environment without accounts, you can construct an Account object yourself
+# or authenticate with just a token
+# client.authenticate_with_token("YOUR_TOKEN")
 ```
 
 Now that you have an authenticated client, you can start interacting with the API. Let's create a new stream and get that stream back.
@@ -92,7 +96,7 @@ You've just seen how to simply send and receive objects using the `SpeckleClient
 Any URL to a stream, a branch, a commit, an object, or your globals will we parsed by the `StreamWrapper`. If you have a local account for the stream you provided, you can get an authenticated client and transport using the helper methods:
 
 ```py
-from specklepy.api.credentials import StreamWrapper
+from specklepy.api.wrapper import StreamWrapper
 
 # provide any stream, branch, commit, object, or globals url
 wrapper = StreamWrapper("https://speckle.xyz/streams/3073b96e86/commits/604bea8cc6")
@@ -120,7 +124,7 @@ account = get_default_account()
 client = SpeckleClient(host="your-server.com") # or whatever your host is
 # client = SpeckleClient(host="localhost:3000", use_ssl=False) or use local server
 
-client.authenticate(token=account.token)
+client.authenticate_with_account(account)
 ```
 
 Interacting with streams is designed to be intuitive and evocative of SpecklePy 1.0
