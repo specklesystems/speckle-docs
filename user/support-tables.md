@@ -415,7 +415,11 @@ In addition to supporting all of the geometry elements that the MicroStation con
 | Slab                         |  as RevitFloor      |      |  `In Progress`  |
 | Wall                         |  as RevitWall       |      |  `In Progress`  |
 
-Since GridSystems/GridCurves can not be selected in the OpenBuildings user interface, they get sent to Speckle automatically every time any of the other elements are sent.
+All features regarding OBD BuiltElements (Beams, Columns, Piles, Slabs, Walls) are built and tested against OpenBuildings Designer Update 6.
+
+Since GridSystems/GridCurves can not be selected in the OpenBuildings user interface, they get sent to Speckle automatically every time any of the other elements are sent. 
+
+Only horizontal (not inclined) slabs and walls are supported. Currently openings in slabs and walls are not supported.
 
 ### Unsupported Elements
 
