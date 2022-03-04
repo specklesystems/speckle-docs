@@ -421,7 +421,7 @@ Since GridSystems/GridCurves can not be selected in the OpenBuildings user inter
 
 ### Unsupported Elements
 
-Openings, inclined Slabs and Walls, and anything else not listed is currently not supported.
+Openings, Sketch Grids (2/3 Axis) and inclined Slabs and Walls, and anything else not listed is currently not supported.
 
 ## Tekla Structures
 
