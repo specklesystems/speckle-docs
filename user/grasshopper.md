@@ -221,7 +221,7 @@ Most of the time, Grasshopper user's may have already named some of their input 
 2. Double-click the input while pressing `shift`.
    ![Shift + double-click "Inherit names" shortcut](./img-gh/gh-cso-rename-shiftdoubleclick.gif)
 3. Drag a new connection into the parameter while pressing `tab`.
-   ![Tab + drag connection "Inherit names" shortcut](./-img-gh/gh-cso-rename-tabdrag.gif)
+   ![Tab + drag connection "Inherit names" shortcut](./img-gh/gh-cso-rename-tabdrag.gif)
 
 ::: tip
 
