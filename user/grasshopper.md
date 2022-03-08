@@ -541,7 +541,7 @@ This option can be disabled in the right-click menu of the Receive node.
 
 Here's a quick animation of the process:
 
-![Receive node with expand option active](./-img-gh/gh-receive-variableoutput.gif)
+![Receive node with expand option active](./img-gh/gh-receive-variableoutput.gif)
 
 ##### Do not convert
 
