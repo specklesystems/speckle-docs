@@ -65,6 +65,8 @@ If the server address is **blocked by a corporate firewall, proxy or VPN**, kind
 - speckle.systems
 - speckle.community
 
+Make sure you can also receive emails from `*@speckle.sytems`, eg. `no-reply@speckle.systems`. Some IT departments might block this sender adress - without it invites and other features will not work.
+
 For any more questions about this, feel free to [contact us](https://speckle.systems/contact/)!
 
 ## I can't add an account in Speckle Manager
