@@ -126,6 +126,7 @@ Non-geometric elements and any geometric element not listed above, such as text 
 | Beam                                                    |  ✅  |   ✅    |  `Complete`   |
 | Brace                                                   |  ✅  |   ✅    |  `Complete`   |
 | Building Pad                                            |  ✅  |         |  `Complete`   |
+| CableTray                                               |  ✅  |   ✅    |  `Complete`   |
 | Ceiling                                                 |  ✅  |         |  `Complete`   |
 | Curves (Model, Detail, Room Boundary, Space Separation) |  ✅  |   ✅    |  `Complete`   |
 | Direct Shape                                            |  ✅  |   ✅    |  `Complete`   |
@@ -224,7 +225,7 @@ Any geometric elements not listed above are not supported.
 
 | Geometry     | Send       | Receive | Status        |
 | ------------ | ---------- | ------- | ------------- |
-| Alignment    | ✅         |         | `In Progress` |
+| Alignment    | ✅         | ✅     |  `Complete`   |
 | Corridor     | ✅         |         | `In Progress` |
 | FeatureLine  | ✅         |         | `In Progress` |
 | Grid Surface | ✅ as Mesh |         | `In Progress` |
