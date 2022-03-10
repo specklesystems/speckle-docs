@@ -8,7 +8,7 @@ If you plan to give others access to your Server instance, consider running it w
 
 Assuming you have:
 * git with ssh key auth
-* nodejs 14
+* nodejs 16
 * docker and docker-compose
 
 Also don't worry if you don't have all of these, the detailed instructions provide more info on alternative ways to achieve the same thing.
