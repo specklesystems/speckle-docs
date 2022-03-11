@@ -17,7 +17,9 @@ This method is useful for optimizing uploads, so that objects that are already i
 
 **Required permissions:** Write permissions on the stream
 
-**Parameters:**
+**Request body schema:** application/json
+
+**Request body:**
 
 - `objects` (string): An array of object ids, serialized as a JSON string
 
@@ -72,7 +74,9 @@ This method is useful when optimizing downloads: Get the root object without chi
 
 **Required permissions:** Read permissions on the stream
 
-**Parameters:**
+**Request body schema:** application/json
+
+**Request body:**
 
 - `objects` (string): An array of object ids, serialized as a JSON string
 

@@ -37,7 +37,7 @@ Commits can also be organized in **branches**, for instance, to have multiple de
 
 New Streams are always empty, in order to get data into them we'll need to use one of the many Speckle connectors
 
-:::tip 💡 What's a Connectors
+:::tip 💡 What are Connectors
 
 **Connectors** are plugins for design and analysis software, they let you exchange geometry and BIM data directly from the tools you use.
 

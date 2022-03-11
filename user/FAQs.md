@@ -13,7 +13,7 @@ Speckle is a swiss-army knife for working with 3D data and we keep adding new fu
 - 3D Viewer: see your CAD and BIM models online, share and embed them anywhere
 - Real time: get real time updates and notifications and changes
 - Object-based: say goodbye to files! Speckle is the first object based platform for the AEC industry, store your data in a fast and accessible database
-- Version control: Speckle is the Git & Hub for geometry and BIM data
+- Version control: Speckle is the Git & Hub for geometry and BIM data - you can manage multiple versions of this data with ease!
 - Collaboration: share your designs collaborate with others
 - Permission and data management: set granular permissions on you designs and parts of them
 - GraphQL API: get what you need anywhere you want it
@@ -79,7 +79,7 @@ Currently, commits, branches or streams cannot be merged via Speckle, but you ca
 
 ## Why can't I see anything in the 3D Viewer?
 
-Our 3D Viewer only supports visualizing geometry. If you're sending any data that doesn't have a supported geometrical representation it will not be visible, for example when sending a list of Levels or Revit Family and Type names. You'll always be able to explore the raw data of a Stream in the JSON editor inside the commit page.
+Our 3D Viewer only supports visualizing geometry. If you're sending any data that doesn't have a supported geometrical representation it will not be visible, for example when sending a list of Levels or Revit Family and Type names. You'll always be able to explore the raw data of a Stream in the commit page, however.
 
 ## I forgot my password 🤔
 
