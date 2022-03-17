@@ -105,11 +105,11 @@ Instead, the **converter logic is modularised**, such that the conversion functi
 Out of the box, the plugin provides converters for the following conversions:
 
 | Speckle Type |  | Native Type |
-| --- | :---: | --- |
-| `Objects.Geometry.Mesh` | → | [Static Mesh Component](https://docs.unrealengine.com/4.27/en-US/API/Runtime/Engine/Components/UStaticMeshComponent/) |
-| `Objects.Geometry.Mesh` | → | [Procedural Mesh](https://docs.unrealengine.com/4.27/en-US/API/Plugins/ProceduralMeshComponent/UProceduralMeshComponent/) |
-| `Objects.Other.PointCloud` | → | [Lidar Point Cloud](https://docs.unrealengine.com/4.27/en-US/WorkingWithContent/LidarPointCloudPlugin/LidarPointCloudPluginReference/) |
-| `Objects.Other.BlockInstance` | → | Actor with Transform |
+| ---: | :---: | :--- |
+| [`Objects.Geometry.Mesh`](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Geometry/Mesh.cs) | → | [Static Mesh Component](https://docs.unrealengine.com/4.27/en-US/API/Runtime/Engine/Components/UStaticMeshComponent/) /<br/> [Procedural Mesh Component](https://docs.unrealengine.com/4.27/en-US/API/Plugins/ProceduralMeshComponent/UProceduralMeshComponent/) |
+| [`Objects.Geometry.PointCloud`](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Geometry/Pointcloud.cs) | → | [LiDAR Point Cloud](https://docs.unrealengine.com/4.27/en-US/WorkingWithContent/LidarPointCloudPlugin/LidarPointCloudPluginReference/) |
+| [`Objects.Other.BlockInstance`](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/Block.cs) | → | Actor with Transform |
+
 
 > `StaticMeshConverter` and `ProceduralMeshConverter` are mutually exclusive, and for most users we recommend using static meshes (default).
 
@@ -198,9 +198,9 @@ These base materials are exposed as properties of the converter, and can be chan
 
 #### Overriding Converted Materials
 
-Speckle does not currently support textured materials.
+Speckle does **not currently** support sending/receiving textured materials.
+However, we do provide a way to automatically apply native Unreal materials while receiving objects from Speckle.
 
-Because of this, often users want to use their own textured materials instead of the ones converted from the `RenderMaterial`.
 Converted materials can be overridden with custom materials in two ways.
 
 - **By Name** - The `RenderMaterial.name` will be matched against materials in the `MaterialsOverridesByName` array.
@@ -208,13 +208,13 @@ Converted materials can be overridden with custom materials in two ways.
 
 <center><img src="./img-unreal/OverridesById.png" width="66.66%" /></center>
 
-Screenshot of material overrides **By ID** in the details panel of <code style="color:brown">ASpeckleUnrealManager</code>.
-Materials with the ID `280559dd3...` will use this material instead of converting one from the object's <code style="color: #144bca">RenderMaterial</code>.
+Screenshot of material overrides **By ID** in the details panel of the default `MaterialConverter` instance.
+Materials with the ID `f5f7ebd4a...` will use this material instead of converting one from the object's `RenderMaterial`.
 
 <center><img src="./img-unreal/OverridesByName.png" width="66.66%" /></center>
 
-Screenshot of material overrides **By Name** in the details panel of <code style="color:brown">ASpeckleUnrealManager</code>.
-Materials with the name `Mossy_Grass` will use this material instead of converting one from the object's <code style="color: #144bca">RenderMaterial</code>.
+Screenshot of material overrides **By Name** in the details panel of the default `MaterialConverter` instance..
+Materials with the name `Mossy_Grass` will use this material instead of converting one from the object's `RenderMaterial`.
 
 #### Material Priorities
 
@@ -378,7 +378,7 @@ Under *Class Settings* add `ISpeckleConverter` to the *Implemented Interfaces* l
 
 Finally, implement your conversion logic in the required functions.
 
-<center><img src="./img-unreal/bp_functions.png" width="33.33%" /></center>
+<center><img src="./img-unreal/bp_functions.png" width="50%" /></center>
 
 <!--
 ::: tip Tutorial
