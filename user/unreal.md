@@ -1,9 +1,12 @@
 # Unreal
 
-Our Unreal connector is in an early stage of development.
-It supports receiving meshes from Speckle in Unreal Engine 4.
+Our Unreal Connector is in an **beta** stage of development.
+Currently we only support receiving objects, and there is no UI to fetch lists of streams/commits/branches.
+
+We officially support Unreal Engine 4.26 and 4.27, and have experimental support for UE5.
 
 Make sure to check out (and star :star: ) our Github repository: [https://github.com/specklesystems/speckle-unreal](https://github.com/specklesystems/speckle-unreal)
+If you have any thoughts or suggestions about this plugin, you're welcome to [discuss them in our forum](https://speckle.community/).
 
 <video width="761" height="454" controls>
   <source src="https://user-images.githubusercontent.com/2551138/114720093-61403e00-9d40-11eb-8045-6e8ca656554d.mp4" type="video/mp4">
@@ -18,7 +21,7 @@ Check out our dedicated [tutorials on Unreal](https://speckle.systems/tag/unreal
 
 ## Installation
 
-The Unreal connector is packaged as an Unreal Engine 4 plugin that is currently only available through GitHub. To use it in your project:
+The Unreal connector is packaged as an Unreal Engine plugin that is currently only available through GitHub. To use it in your project:
 
 1. Download `speckle-unreal` repository archive from [https://github.com/specklesystems/speckle-unreal/archive/refs/heads/main.zip](https://github.com/specklesystems/speckle-unreal/archive/refs/heads/main.zip)
 
@@ -26,7 +29,7 @@ The Unreal connector is packaged as an Unreal Engine 4 plugin that is currently 
 
 ![Plugin Directory](./img-unreal/plugin_directory.png)
 
-3. Open your UE4 project (or restart the editor if you already have it opened). This will build the plugin in your environment.
+3. Open your UE project (or restart the editor if you already have it opened). This will build the plugin in your environment.
 
 **That's It!** Your project can now use the Speckle plugin!
 
@@ -36,150 +39,354 @@ and [Create a New Project](https://docs.unrealengine.com/4.27/en-US/Basics/Proje
 
 ### Alternate Installation (git)
 
-If you plan on developing on top of `speckle-unreal` or prefer to use `git`, you can clone the `speckle-unreal` repository into your project's `Plugins` directory
+If you plan on developing on top of `speckle-unreal` or prefer to use `git`, you can clone the git repository into your project's `Plugins` directory
 
-1. Within your project's `Plugins` folder execute `git clone https://github.com/specklesystems/speckle-unreal.git`
+1. Within your project's `Plugins` folder execute
+    ```
+    git clone https://github.com/specklesystems/speckle-unreal.git
+    ```
 
 2. Open / Restart your Unreal project.
 
 _For a beginners guide to git, see [git - the simple guide by Roger Dudler](https://rogerdudler.github.io/git-guide/)._
 
-## Usage
+## Usage (editor)
 
 The plugin includes an actor type named `Speckle Unreal Manager` that you can use to import objects from Speckle.
 
 Here is how to use it:
 
-1. In the `Place Actors` sidebar, search for Speckle Unreal Manager and add it to the world.
+1. In the `Place Actors` sidebar, search for *Speckle Unreal Manager* and add it to the world.
 
 <center><img src="./img-unreal/speckle_manager_actor.png" width="50%" /></center>
 
-2. Select the `SpeckleUnrealManager` instance in the `World Outliner` sidebar and use the options presented in the `Speckle` category
+2. Select the `SpeckleUnrealManager` instance in the `World Outliner` sidebar and use the options presented in the `Speckle` category.
 
 <center><img src="./img-unreal/speckle_manager_config.png" width="50%" /></center>
 
-3. Currently, we require an explicit ObjectID to import. You can explore the objects in a stream by using the [Speckle Web App](/user/web) for the Speckle server that you use.
+3. Currently, we require an **explicit ObjectID** to import.
+You can explore the objects in a stream by using the [Speckle Web App](/user/web) for the Speckle server that you use.
 
-![FindingObjectId](./img-unreal/finding_object_id.png)
+<center><img src="./img-unreal/finding_object_id.png" width="66.66%" /></center>
 
-4. If your Speckle Stream is not public, you must generate a [Personal Access Token](/dev/apps-auth.html#personal-access-tokens) and set it in the `Auth Token` configuration option.
+
+4. If your Speckle Stream **is not public**, you must generate a [Personal Access Token](/dev/apps-auth.html#personal-access-tokens) and set it in the `Auth Token` configuration option.
 
 ::: tip IMPORTANT
-Treat your Personal Access Token as a password. If someone else has access to your auth token, they can access to your Speckle data.
+⚠️ Treat your Personal Access Token **as a password**. If someone else has access to your auth token, they can access your Speckle data.
 :::
 
-5. After you set up the import parameters, just click the `Import Speckle Object` button. The specified object and all its children will be important as mesh actors.
+5. After you set up the import parameters, just click the `Receive` button. The specified object and all its children will be imported as Actors.
 
-## General Notes
 
-This plugin is in early stages of development. If you have any thoughts or suggestions about this plugin, you're welcome to [discuss them in our forum](https://speckle.community/).
+## Usage (blueprint)
 
-## Mesh Conversion
+The receiving process can be performed using blueprint, doing it this way can allow for **extra flexibility** for performing additional actions with received data/converted actors.
 
-::: tip Document Note
-<code style="color: #144bca">Blue</code> snippets refer to **[Speckle Objects](https://github.com/specklesystems/speckle-sharp)** classes.
+Using blueprint to do this requires some basic understanding of how the plugin works.
+- A `ServerTransport` is used to make a HTTP request to a Speckle server for the object (and its children).
+It fetches JSON objects from the server, which are then stored in a local `Memory Transport`.
+- The `ReceiveOperation` node handles the received objects, and deserializes them into Object Models (objects inheriting `UBase`).
+- The `SpeckleConverterComponent` converts these objects into native actors/components.
 
-<code style="color: red">Red</code> snippets refer to **Unreal Engine** classes.
+An example of this process in Blueprint is provided in the `Plugins\speckle-unreal\Content\Examples` directory and looks like this:
+<center><img src="./img-unreal/receiving_bp.png" width="100%" /></center>
 
-<code style="color: brown">Brown</code> snippets refer to **[Speckle Unreal](https://github.com/specklesystems/speckle-unreal/)** classes.
+Blueprint can be a powerful tool for implementing your own custom behaviours for receiving objects.
+
+## Object Conversion
+
+The `SpeckleConverterComponent` provides the conversion functionality for converting **Speckle objects to native UE Actors**.
+However, this class does not contain specific conversion logic.<br/>
+Instead, the **converter logic is modularised**, such that the conversion functions and settings for specific types are encapsulated **in their own class** implementing `ISpeckleConverter`.
+
+> Please note that `ISpeckleConverter` here, is not the same as the `Speckle.​Core.​Kits.​ISpeckleConverter` in the .NET SDK.
+
+Out of the box, the plugin provides converters for the following conversions:
+
+| Speckle Type |  | Native Type |
+| --- | :---: | --- |
+| `Objects.Geometry.Mesh` | → | [Static Mesh Component](https://docs.unrealengine.com/4.27/en-US/API/Runtime/Engine/Components/UStaticMeshComponent/) |
+| `Objects.Geometry.Mesh` | → | [Procedural Mesh](https://docs.unrealengine.com/4.27/en-US/API/Plugins/ProceduralMeshComponent/UProceduralMeshComponent/) |
+| `Objects.Other.PointCloud` | → | [Lidar Point Cloud](https://docs.unrealengine.com/4.27/en-US/WorkingWithContent/LidarPointCloudPlugin/LidarPointCloudPluginReference/) |
+| `Objects.Other.BlockInstance` | → | Actor with Transform |
+
+> `StaticMeshConverter` and `ProceduralMeshConverter` are mutually exclusive, and for most users we recommend using static meshes (default).
+
+Due to the nature of Unreal Engine, it is necessary to offer **options/settings for how objects are converted**.
+So each `ISpeckleConverter` can also expose **properties that can be set** from within the editor, or from BP/C++.
+This structure is distinctly different from other connectors, which often have one large conversion class that holds many conversions, and provide few (if any) settings.
+
+Using the `StaticMeshConverter` as an example, you can see that it exposes several settings, such as the type of actor to create, and mesh build settings.
+
+<video width="100%" loop controls autoplay muted>
+  <source src="./img-unreal/converter-settings.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video> 
+
+
+Out of the box, `SpeckleConverterComponent`s will be setup with a set of default converters.
+For most users, there is no further configuration required.
+However you can create your own instances of specific `ISpeckleConverter`s through the assets in the Content, and then assign them to the Converter Component.
+This can be done by right clicking and creating a new converter of a specificed type.
+<center><img src="./img-unreal/create_converter.png" width="66.66%" /></center>
+
+You can create your own custom converters in BP/C++ (see [Creating Custom Conversion](./unreal.html#creating-custom-conversion) docs)
+
+### Mesh Converters
+
+Speckle-Unreal provides two types of mesh converters:
+1. [<code style="color: brown">ProceduralMeshConverter</code>](https://github.com/specklesystems/speckle-unreal/blob/main/Source/SpeckleUnreal/Public/Conversion/Converters/ProceduralMeshConverter.h):
+   - Creates a `UProceduralMeshComponent`.
+   - Slightly faster to convert, and allow run-time editing of vertices/faces.
+   - Slowest to render, can't use baked lighting.
+2. [<code style="color: brown">StaticMeshConverter</code>](https://github.com/specklesystems/speckle-unreal/blob/main/SpeckleUnrealProject/Plugins/SpeckleUnreal/Source/SpeckleUnreal/Public/SpeckleUnrealStaticMesh.h):
+   - Creates a `UStaticMeshComponent`.
+   - Mesh vertices/faces/etc can't be edited easily (needs to be rebuilt).
+   - Faster to render.
+   - Built meshes can be saved as assets allowing levels to be reloaded.
+   - Additional Editor only build process allows for baked lighting, extra path-tracing options, and more optimised rendering.
+
+For most users we recommend using Static Meshes because they are more optimised for rendering and can be saved to a level.
+Static Meshes can be used during runtime or editor mode, but editor only build process will only be available with editor access.
+
+> There currently is a bug in Unreal Engine 5 Preview 2 that may cause runtime-built static meshes to have [broken lighting](https://gyazo.com/eebbfcf98d7378e554c4998223effaea).
+
+
+### Material Converter
+
+
+As a tool, Unreal shines when it comes to producing **beautiful, photorealistic renders** of scenes.
+This has significant value for Speckle users as a tool for producing high quality and real-time demonstrations, animations, and XR experiences.
+
+For some users, the simple flat shaded PBR materials converted using an object's [<code style="color: #144bca">RenderMaterial</code>](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/RenderMaterial.cs) will be all they want.
+
+Many users, however, want to use **textured materials**, after all, Unreal excels in photorealism, and high quality materials are a significant part of that.
+
+**The Material Overrides feature** of the `MaterialConverter` addresses this need, as it enables a semi-automated workflow for applying textured materials to received geometry.
+
+
+
+
+Speckle's [<code style="color: #144bca">Objects</code>](https://speckle.guide/dev/objects.html) kit supports PBR materials through
+the [<code style="color: #144bca">RenderMaterial</code>](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/RenderMaterial.cs) property of Speckle meshes.
+When receiving meshes with a `RenderMaterial`, the `MaterialConverter` will create a [`MaterialInstance`](https://docs.unrealengine.com/4.26/en-US/API/Runtime/Engine/Materials/UMaterialInstance/)s which are applied to converted meshes.
+
+::: tip
+
+ Unreal has integration with [Quixel](https://quixel.com/), a library of high-quality materials and assets that are free to use inside of Unreal Engine.
+
 :::
-
----
-
-Speckle-Unreal provides two types of mesh conversion
-
-1. [<code style="color: brown">ASpeckleUnrealProceduralMesh</code>](https://github.com/specklesystems/speckle-unreal/blob/main/SpeckleUnrealProject/Plugins/SpeckleUnreal/Source/SpeckleUnreal/Public/SpeckleUnrealProceduralMesh.h):
-   - Uses a <code style="color: red">UProceduralMeshComponent</code>
-   - Are fast to convert to, and allow run-time editing
-   - Slowest to render, can't use baked lighting
-2. [<code style="color: brown">ASpeckleUnrealStaticMesh</code>](https://github.com/specklesystems/speckle-unreal/blob/main/SpeckleUnrealProject/Plugins/SpeckleUnreal/Source/SpeckleUnreal/Public/SpeckleUnrealStaticMesh.h):
-
-   - Uses a <code style="color: red">UStaticMeshComponent</code>.
-   - Are slower to convert to, and can't be easily edited at runtime.
-   - Faster to render, can use baked lighting (assuming appropriate UVs).
-   - Built meshes are saved in `/Game/Speckle/<streamid>/Geometry/<meshid>`
-
-By extending either <code style="color: brown">ASpeckleUnrealStaticMesh</code> or <code style="color: brown">ASpeckleUnrealProceduralMesh</code>, you can set certain UProperties to customise conversion¹. This can be done through C++ or Blueprints.
-
-> ¹Dev Note <br/>
-> It is also possible to create a custom <code style="color: brown">ASpeckleUnrealActor</code> and implement <code style="color: brown">ISpeckleMesh</code> to have completely custom mesh conversions. (If you are doing this, give us a shout on [the forums](https://speckle.community), we can help!)
-
-## Material Conversion
-
-### Conversion of Materials
-
-Speckle's [<code style="color: #144bca">Objects</code>](https://speckle.guide/dev/objects.html) kit supports PBR materials through the [<code style="color: #144bca">RenderMaterial</code>](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/RenderMaterial.cs) property of Speckle meshes.
-
-When receiving meshes with a [<code style="color: #144bca">RenderMaterial</code>](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/RenderMaterial.cs), the Unreal connector will create [<code style="color: red">UMaterialInstance</code>](https://docs.unrealengine.com/4.26/en-US/API/Runtime/Engine/Materials/UMaterialInstance/)s which are applied to converted meshes.
 
 #### How are materials converted
 
-For opaque materials, a [<code style="color: red">UMaterialInstanceDynamic</code>](https://docs.unrealengine.com/4.27/en-US/API/Runtime/Engine/Materials/UMaterialInstanceDynamic/) is created as child material instance of [<code style="color: brown">ASpeckleUnrealManager::BaseMeshOpaqueMaterial</code>](https://github.com/specklesystems/speckle-unreal/blob/main/SpeckleUnrealProject/Plugins/SpeckleUnreal/Source/SpeckleUnreal/Public/SpeckleUnrealManager.h). For translucent materials (with an opacity <1), [<code style="color: brown">ASpeckleUnrealManager::BaseMeshTransparentMaterial</code>](https://github.com/specklesystems/speckle-unreal/blob/main/SpeckleUnrealProject/Plugins/SpeckleUnreal/Source/SpeckleUnreal/Public/SpeckleUnrealManager.h) is used as the parent instead.
+The `MaterialConverter` exposes a few properties for defining the base/parent material of the materials created.
+Opaque materials will be converted as instances of `BaseMeshOpaqueMaterial`.
+And transparent materials will be converted as instances of `BaseMeshTransparentMaterial`.
 
-By default, these base materials are a simple [<code style="color: red">UMaterial</code>](https://docs.unrealengine.com/4.27/en-US/API/Runtime/Engine/Materials/UMaterial/)s with opaque/translucent shader models respectively. Both have several properties exposed (see screenshot), and during the conversion process, these properties are set with the values from the [<code style="color: #144bca">RenderMaterial</code>](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/RenderMaterial.cs)².
+By default, these base materials are simple materials with opaque/translucent shader models respectively.
+Both have several properties exposed (see screenshot), and during the conversion process,
+these properties are set with the values from the `RenderMaterial`.
 
+The default opaque material "SpeckleMaterial", looks like this:
 <center><img src="./img-unreal/SpeckleMaterial.png" width="50%" /></center>
 
-SpeckleMaterial, the default <code style="color: brown">BaseMeshOpaqueMaterial</code>.
-
+And the default translucent material "SpeckleGlassMaterial", looks like this:
 <center><img src="./img-unreal/SpeckleGlassMaterial.png" width="50%" /></center>
 
-SpeckleGlassMaterial, the default <code style="color: brown">BaseMeshTransparentMaterial</code>.
+These base materials are exposed as properties of the converter, and can be changed from within the editor (or from BP/C++) to a custom material.
 
-By specifying a custom base material, users can have complete control over how these properties are assigned.
-
-> ²Dev Note <br/>
-> <code style="color: brown">URenderMaterial</code> is a C++ port of [<code style="color: #144bca">Objects.Other.RenderMaterial</code>](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/RenderMaterial.cs).
-> [<code style="color: #144bca">RenderMaterial</code>](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/RenderMaterial.cs) json is parsed into <code style="color:brown">URenderMaterial</code>.
-> A [<code style="color: red">UMaterialInstanceDynamic</code>](https://docs.unrealengine.com/4.27/en-US/API/Runtime/Engine/Materials/UMaterialInstanceDynamic/) is created from a base [<code style="color: red">UMaterialInterface</code>](https://docs.unrealengine.com/4.27/en-US/API/Runtime/Engine/Materials/UMaterialInterface/) before being assigned the values from <code style="color: brown">URenderMaterial</code>. [<code style="color: brown">ASpeckleUnrealStaticMesh</code>](https://github.com/specklesystems/speckle-unreal/blob/main/SpeckleUnrealProject/Plugins/SpeckleUnreal/Source/SpeckleUnreal/Public/SpeckleUnrealStaticMesh.h) gets or creates the correct material that should be applied to a mesh.
-
-### Overriding Converted Materials
+#### Overriding Converted Materials
 
 Speckle does not currently support textured materials.
 
-Because of this, often users want to use their own textured [<code style="color: red">UMaterialInterface</code>](https://docs.unrealengine.com/4.27/en-US/API/Runtime/Engine/Materials/UMaterialInterface/)s instead of the ones converted from the [<code style="color: #144bca">RenderMaterial</code>](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/RenderMaterial.cs). Converted [<code style="color: red">UMaterialInstance</code>](https://docs.unrealengine.com/4.27/en-US/API/Runtime/Engine/Materials/UMaterialInterface/)s can be overridden with custom [<code style="color: red">UMaterialInterface</code>](https://docs.unrealengine.com/4.27/en-US/API/Runtime/Engine/Materials/UMaterialInterface/)s in two ways.
+Because of this, often users want to use their own textured materials instead of the ones converted from the `RenderMaterial`.
+Converted materials can be overridden with custom materials in two ways.
 
-- **By Name** - The [<code style="color: #144bca">RenderMaterial.Name</code>](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/RenderMaterial.cs) will be matched by name, against [<code style="color: red">UMaterialInterface</code>](https://docs.unrealengine.com/4.27/en-US/API/Runtime/Engine/Materials/UMaterialInterface/)s in the [<code style="color: brown">ASpeckleUnrealManager::MaterialsOverridesByName</code>](https://github.com/specklesystems/speckle-unreal/blob/main/SpeckleUnrealProject/Plugins/SpeckleUnreal/Source/SpeckleUnreal/Public/SpeckleUnrealManager.h) <code style="color: red">TArray</code>.
-- **By Id** - The Speckle ID of the [<code style="color: #144bca">RenderMaterial</code>](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/RenderMaterial.cs) will be matched against [<code style="color: red">UMaterialInterface</code>](https://docs.unrealengine.com/4.27/en-US/API/Runtime/Engine/Materials/UMaterialInterface/) values in [<code style="color: brown">ASpeckleUnrealManager::MaterialsOverridesById</code>](https://github.com/specklesystems/speckle-unreal/blob/main/SpeckleUnrealProject/Plugins/SpeckleUnreal/Source/SpeckleUnreal/Public/SpeckleUnrealManager.h)<code style="color: red">TMap</code> by key.
+- **By Name** - The `RenderMaterial.name` will be matched against materials in the `MaterialsOverridesByName` array.
+- **By Id** - The `RenderMaterial.id` will be by key with materials in the `MaterailOverridesById` map.
 
 <center><img src="./img-unreal/OverridesById.png" width="66.66%" /></center>
 
-Screenshot of material overrides **By ID** in details panel of <code style="color:brown">ASpeckleUnrealManager</code>.
+Screenshot of material overrides **By ID** in the details panel of <code style="color:brown">ASpeckleUnrealManager</code>.
 Materials with the ID `280559dd3...` will use this material instead of converting one from the object's <code style="color: #144bca">RenderMaterial</code>.
 
 <center><img src="./img-unreal/OverridesByName.png" width="66.66%" /></center>
 
-Screenshot of material overrides **By Name** in details panel of <code style="color:brown">ASpeckleUnrealManager</code>.
+Screenshot of material overrides **By Name** in the details panel of <code style="color:brown">ASpeckleUnrealManager</code>.
 Materials with the name `Mossy_Grass` will use this material instead of converting one from the object's <code style="color: #144bca">RenderMaterial</code>.
 
 #### Material Priorities
 
 Material priority (high to low).
 
-1. A [<code style="color: red">UMaterialInterface</code>](https://docs.unrealengine.com/4.27/en-US/API/Runtime/Engine/Materials/UMaterialInterface/) in [<code style="color: brown">ASpeckleUnrealManager::MaterialOverridesById</code>](https://github.com/specklesystems/speckle-unreal/blob/main/SpeckleUnrealProject/Plugins/SpeckleUnreal/Source/SpeckleUnreal/Public/SpeckleUnrealManager.h) that matches [<code style="color: #144bca">RenderMaterial</code>](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/RenderMaterial.cs)s by their Speckle ID.
-2. A [<code style="color: red">UMaterialInterface</code>](https://docs.unrealengine.com/4.27/en-US/API/Runtime/Engine/Materials/UMaterialInterface/) in [<code style="color: brown">ASpeckleUnrealManager::MaterialOverridesByName</code>](https://github.com/specklesystems/speckle-unreal/blob/main/SpeckleUnrealProject/Plugins/SpeckleUnreal/Source/SpeckleUnreal/Public/SpeckleUnrealManager.h) that matches [<code style="color: #144bca">RenderMaterial</code>](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/RenderMaterial.cs)s by name.
-3. Converted [<code style="color: #144bca">RenderMaterial</code>](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/RenderMaterial.cs) set on [<code style="color: #144bca">Mesh</code>](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Geometry/Mesh.cs) Speckle object.
-4. Converted [<code style="color: #144bca">RenderMaterial</code>](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/RenderMaterial.cs) on [<code style="color: #144bca">Mesh</code>](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Geometry/Mesh.cs)'s parent Speckle object. (<code style="color:brown">FallbackMaterial</code>).³
-5. [<code style="color: brown">ASpeckleUnrealManager::DefaultMeshMaterial</code>](https://github.com/specklesystems/speckle-unreal/blob/main/SpeckleUnrealProject/Plugins/SpeckleUnreal/Source/SpeckleUnreal/Public/SpeckleUnrealManager.h)
+1. A material in `OverridesById` that matches by Id.
+2. A material in `OverridesByName` that matches by Name.
+3. A material cached from a previous receive operation.
+4. A material asset in the `/Game/Speckle/Materials/{id}` package. (i.e. from a previous receive, but not cached, or from a strategically placed asset)
+5. A material converted from `RenderMaterial` of the Mesh.
+6. Finally, if all else fails, the `DefaultMaterial` set in the `MaterialConverter` will be used.
 
-> ³Dev Note <br/>
-> Depending on the source application, the <code style="color: #144bca">RenderMaterial</code> could a property of the <code style="color:#144bca">Mesh</code> object, or of the <code style="color:#144bca">Mesh</code>es parent. This is why both cases 3 and 4 (Above) exist.
+> Note: If there is no material on an object, we do not fall back to the parent's material like previous versions of this connector.
+We are aware this may cause unexpected behaviour. This issue will be addressed.
 
-### Limitations
+#### Limitations
 
-- I order to use textured materials, meshes need to have **Texture coordinates** (UV coordinates). Currently, Texture coordinates are only outputted from Rhino, Blender, and Sketchup connectors. (More connectors will receive support shortly! see [issue](https://github.com/specklesystems/speckle-sharp/issues/797)). The Unreal connector does **not** generate texture coordinates for you.
-  Having UV coordinates also has other advantages for lighting.
+- I order to use textured materials, meshes need to have **Texture coordinates** (UV coordinates). Currently, Texture coordinates are only outputted from Rhino, Blender, and Sketchup connectors. (More connectors will receive support shortly! see [issue](https://github.com/specklesystems/speckle-sharp/issues/797). The Unreal connector does **not** generate texture coordinates for you.
+  Having UV coordinates also has other advantages for baked lighting.
 - **Textures cannot be sent/received through Speckle**, only flat colours and simple PBR properties. Fully supporting textures could add significant value for interoperability between Unreal, Unity, Blender, Rhino, and Sketchup, however poses several technical challenges.
-  Of course, Users are more than welcome to extend Speckle's Objects kit to include textures and their own custom properties to suit their needs.
 
-### Motivation
 
-As a tool, Unreal shines when it comes to producing **beautiful, photorealistic renders** of scenes. This has significant value for Speckle users as a tool for producing high quality and real-time demonstrations, animations, and XR experiences.
+### Developing Custom Conversion 
 
-For some users, the simple flat materials converted using an object's [<code style="color: #144bca">RenderMaterial</code>](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/RenderMaterial.cs) will be all they want, and PBR properties are used by many of the connectors Speckle supports.
+As previously mentioned, `ISpeckleConverter` classes can expose properties, such as the type of Actor to create, whether to create an asset, or build settings etc.
 
-Many users, however, want to use **textured materials**, after all, Unreal excels in photorealism, and high quality materials are a significant part of that.
+If this doesn't satisfy your needs, there are a few ways to further customise conversion.
 
-**The Material Overrides feature** of the Unreal connector addresses this need as it enables a semi-automated workflow for applying textured materials to received geometry.
+  1. You can extend an existing converter, and re-implement specific functions.
+  2. You can write a completely custom `ISpeckleConverter` class and add an instance to your `SpeckleConverterComponent`
+  3. You can extend the `SpeckleConverterComponent` to customise more generally how objects are converted and actors attached.
+  
+Converters can be created in either C++ or Blueprint.
 
-It is worth mentioning that Unreal has integration with [Quixel](https://quixel.com/), a library of high-quality materials and assets that are free to use inside of Unreal Engine.
+<!--
+::: tip Tutorial
+
+We have a tutorial for adding conversion functions for a custom Object Model
+
+See [tutorial](-- LINK TO TUTORIAL--)
+
+:::
+-->
+
+#### Custom Object Models 
+
+Object Models in the Unreal plugin function the same as the Object Models in .NET.
+
+Out of the box, the Speckle for Unreal plugin provides several Object Models.
+These classes can be found in `speckle-unreal\Source\SpeckleUnreal\Public\Objects` and are all subclasses of the `UBase` type.
+For the most part, these classes are direct ports of the corresponding .NET classes from our Objects kit.
+For example `Mesh`, and `BlockInstance`.
+
+An Object Model is required in order to convert Speckle objects.
+If you are looking to convert a type that we don't provide an Object Model, creating one is simple.
+
+This process is very similar to defining an object model in the .NET and PY SDKs,
+But be aware of certain limitations:
+ 1. The UE plugin **does not provide a reflection based (de)serializer**.
+   Object Models implement their own (de)serialization logic in the form of manually parsing JSON properties.
+ 2. **Only certain Object Models are provided** out of the box, while most are direct ports of Objects kit, some are not!
+ 4. The Speckle Type is defined in the Object Model's constructor, not by it's Namespace like in .NET.
+ 5. Units are applied while parsing (rather than ToNative conversion - subject to change)
+
+To implement your own Unreal Object Model, simply create a new class inheriting from `UBase`.
+Add your properties, and implement the `Parse` method to set these properties from the JSON object. 
+
+
+```cpp
+bool UMyObjectModel::Parse(const TSharedPtr<FJsonObject> Obj, const TScriptInterface<ITransport> ReadTransport)
+{
+	if(!Super::Parse(Obj, ReadTransport)) return false;
+
+	// Add your own JSON parsing here!
+	// Remove explicit properties from DynamicProperties array
+	
+	// Simple example of parsing an optional number property:
+	if(Obj->TryGetNumberField("myProperty", MyProperty)) DynamicProperties.Remove("myProperty");
+	
+	// Simple example of parsing an required number property:
+	if(!Obj->TryGetNumberField("myProperty", MyProperty)) return false; // Return false on error, rather than fatal assertions
+	DynamicProperties.Remove("myProperty");
+	
+	//Return true if parsed successfully
+	return true;
+}
+```
+
+For further reference, see `URenderMaterial` for an example, see `UMesh` for a more advanced example.
+`UConversionUtils` provides helper methods for dechunking / dereferencing Speckle objects.
+
+> Currently, Unit scaling is applied during Parsing (not conversion). This is subject to change!
+
+In the future, we may consider creating a proper deserializer that uses reflection, this would mean Object Models can be deserialized  without developers having to write these Parse methods.
+There are several technical challenges for us to solve before this is possible. <br/>
+Feel free to open a discussion on [our forums](https://speckle.community).
+
+#### Creating Converters (C++)
+
+<!--
+::: tip Tutorial
+
+We have a [tutorial on creating a custom converter]( -- LINK TO TUTORIAL -- )!!
+
+:::
+-->
+
+A custom converters can be defined by creating a `UObject` class that implements `ISpeckleConverter`.
+You must implement the `ConvertToNative` and `CanConverToNative` methods.
+
+
+```cpp
+
+UCLASS(BlueprintType, Blueprintable)
+class SPECKLEUNREAL_API UMyConverter : public UObject, public ISpeckleConverter
+{
+	GENERATED_BODY()
+
+public:
+	virtual UObject* ConvertToNative_Implementation(const UBase* SpeckleBase, UWorld*, TScriptInterface<ISpeckleConverter>&) override;
+	
+	virtual bool CanConvertToNative_Implementation(TSubclassOf<UBase> BaseType) override;
+
+}
+```
+
+Most likely, instead of jamming the actual conversion code in the `ConvertToNative` function, it is best to contain that in a separate function.
+But this class can be implemented however you want!
+The `AvailableConverters` parameter object is a reference to the master aggregate  converter, and we can use this if we need to convert other Speckle Objects, and want to reuse conversion logic from another converter.
+The `StaticMeshConverter` for example, will use the `AvailableConverters` to convert a `RenderMaterial`.
+
+```cpp
+UObject* UMyConverter::ConvertToNative_Implementation(const UBase* SpeckleBase, UWorld* World, TScriptInterface<ISpeckleConverter>& AvailableConverters)
+{
+	const UMyObjectModel* m = Cast<UMyObjectModel>(SpeckleBase);
+	
+	if(m == nullptr) return nullptr;
+	
+	return MyObjectToNative(m);
+}
+
+AActor* UMyConverter::MyObjectToNative(const UMyObjectModel* MyObject, UWorld* World)
+{
+	// Conversion logic here!!
+	// Convert MyObject into an Actor that we return
+}
+```
+
+An optional `CleanUp` method can be implemented, which is used to clear any cached objects / any additional clean up that needs to be done between receive operations.
+
+#### Creating Converters (Blueprint)
+
+In the same way as with C++, Converters can also be implemented using Blueprint.
+First create a new Blueprint Inheriting `UObject`
+
+<center><img src="./img-unreal/new_blueprint.png" width="50%" /></center>
+
+Under *Class Settings* add `ISpeckleConverter` to the *Implemented Interfaces* list.
+
+<center><img src="./img-unreal/bp_speckle_converter_interface.png" width="50%" /></center>
+
+Finally, implement your conversion logic in the required functions.
+
+<center><img src="./img-unreal/bp_functions.png" width="33.33%" /></center>
+
+<!--
+::: tip Tutorial
+
+We have a [tutorial on creating a custom converter]( -- LINK TO TUTORIAL -- )!!
+
+:::
+-->
+
+
+
