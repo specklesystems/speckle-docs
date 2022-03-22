@@ -334,32 +334,6 @@ We've only started supporting with an alpha release of ETABS elements, please le
 
 ### Supported Elements
 
-We've only started supporting with an alpha release of ETABS elements, please let us know what else you'd like to see, and do contribute if you have the skillz!
-
-| Geometry                                                           |  Send   | Receive |
-| ------------------------------------------------------------------ | :-----: | :-----: |
-| Point                                                              |   ✅    |   ✅    |
-| Columns                                                            |   ✅    |   ✅    |
-| Beams                                                              |   ✅    |   ✅    |  
-| Braces                                                             |   ✅    |   ✅    |  
-| Sections Profile (Catalogue)                                       |   ✅    |   ✅    |
-| User Defined Sections ~ refer to [structural object kit](https://github.com/specklesystems/speckle-sharp/blob/structural/structural-kit/Objects/Objects/Structural/Property/SectionProfile.cs) for schema                                                           |   ✅    |   ✅    |
-| Floor with Slab Sections + Deck Sections                           |   ✅    |   ✅    |
-| Wall and Sections                                                  |   ✅    |   ✅    |
-| Material Code definition                                           |          |   ✅    |
-| Loading (1D,2D)   note: node elements can only send                |       ✅   |   ✅    |
-| Results (1D,2D,Node)                                                       |   ✅    |    |
-| Restraints                                                         |   ✅    |   ✅    |
-| Links                                                              |   ✅    |   ✅    |
-| Stories                                                              |   ✅    |   ✅    |
-| Springs (Point,Linear,Area)                                        |   ✅    |   ✅    |
-| Tendons                                                             |   ✅    |       |
-| GridLines                                                             |   ✅    |       |
-
-## SAP2000
-
-### Supported Elements
-
 We've only started supporting with an alpha release of SAP2000 elements, please let us know what else you'd like to see, and do contribute if you have the skillz!
 
 | Geometry                                                           |  Send   | Receive |
