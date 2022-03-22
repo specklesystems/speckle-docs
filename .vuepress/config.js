@@ -1,17 +1,17 @@
-const { description } = require("../package")
+const { description } = require("../package");
 
 module.exports = {
   markdown: {
     lineNumbers: true,
-    extendMarkdown: md => {
+    extendMarkdown: (md) => {
       // use more markdown-it plugins!
       md.use(require("markdown-it-html5-embed"), {
         html5embed: {
           useImageSyntax: true, // Enables video/audio embed with ![]() syntax (default)
-          useLinkSyntax: true // Enables video/audio embed with []() syntax
-        }
-      })
-    }
+          useLinkSyntax: true, // Enables video/audio embed with []() syntax
+        },
+      });
+    },
   },
   base: "/",
   title: "Speckle Docs",
@@ -22,20 +22,20 @@ module.exports = {
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
     [
       "meta",
-      { name: "apple-mobile-web-app-status-bar-style", content: "black" }
+      { name: "apple-mobile-web-app-status-bar-style", content: "black" },
     ],
     [
       "script",
       {
-        src: "/scripts/scroll-to-hash.js"
+        src: "/scripts/scroll-to-hash.js",
       },
     ],
     [
       "script",
       {
-        src:"https://identity.netlify.com/v1/netlify-identity-widget.js"
-      }
-    ]
+        src: "https://identity.netlify.com/v1/netlify-identity-widget.js",
+      },
+    ],
   ],
   /**
    * Theme configuration, here is the default theme configuration for VuePress.
@@ -53,49 +53,49 @@ module.exports = {
     lastUpdated: true,
     logo: "/assets/logo-docs.png",
     algolia: {
-      appId: 'XOL51LKXOA',
-      apiKey: '595b9c5533a46cfa0f999033d4e4ba28',
-      indexName: 'speckle'
-      
+      appId: "XOL51LKXOA",
+      apiKey: "595b9c5533a46cfa0f999033d4e4ba28",
+      indexName: "speckle",
     },
     nav: [
       {
         text: "User Guide",
-        link: "/"
+        link: "/",
       },
       {
         text: "Developer Docs",
-        link: "/dev/"
+        link: "/dev/",
       },
       {
         text: "Speckle Website",
-        link: "https://speckle.systems"
+        link: "https://speckle.systems",
       },
       //this button has custom style in index.styl under `.nav-item:last-child a`
       {
         text: "Get Started",
-        link: "https://speckle.systems/getstarted/"
-      }
+        link: "https://speckle.systems/getstarted/",
+      },
     ],
     sidebar: {
       "/user/": [
         {
           title: "Quickstart 🏃‍♀️",
           collapsable: false,
-          children: ["quickstart", "FAQs"]
+          children: ["quickstart", "FAQs"],
         },
         {
           title: "User Guide 🤷",
           collapsable: false,
-          children: ["", "concepts", "concepts-advanced", "manager", "web"]
+          children: ["", "concepts", "concepts-advanced", "installing", "web"],
         },
         {
           title: "Connectors 🔌",
           collapsable: false,
           children: [
             "connectors",
-            "ui",
+            "manager",
             "ui2",
+            "ui",
             "revit",
             "rhino",
             "autocadcivil",
@@ -110,55 +110,77 @@ module.exports = {
             "qgis",
             "powerbi",
             "bentley",
-            "support-tables"
-          ]
+            "support-tables",
+          ],
         },
         {
           title: "Tutorials ⚡",
           collapsable: false,
-          children: [
-            "tutorials"
-          ]
-        }
+          children: ["tutorials"],
+        },
       ],
       "/dev/": [
         {
           title: "Developer Docs 👩‍💻",
           collapsable: false,
-          children: ["", "architecture"]
+          children: ["", "architecture"],
         },
         {
           title: "Core Concepts",
           collapsable: false,
-          children: ["base", "decomposition", "kits", "transports", "apps-auth"]
+          children: [
+            "base",
+            "decomposition",
+            "kits",
+            "transports",
+            "apps-auth",
+          ],
         },
         {
           title: "Advanced Concepts",
           collapsable: false,
-          children: []
+          children: [],
         },
         {
           title: ".NET SDK",
           collapsable: false,
-          children: ["dotnet", "FilteringData", "objects", "connectors-dev", "kits-dev", "transports-dev"]
+          children: [
+            "dotnet",
+            "FilteringData",
+            "objects",
+            "connectors-dev",
+            "kits-dev",
+            "transports-dev",
+          ],
         },
         {
           title: "Python SDK",
           collapsable: false,
-          children: ["python", "py-examples", "py-sample"]
+          children: ["python", "py-examples", "py-sample"],
         },
         {
           title: "Javascript SDK",
           collapsable: false,
-          children: ["js", "viewer", "js-app-script"]
+          children: ["js", "viewer", "js-app-script"],
         },
         {
           title: "Server API & Apps",
           collapsable: false,
-          children: ["server-api", "server-graphql-api", "server-rest-api", "server-stream-previews", "server-webhooks", "server-setup", "server-manualsetup", "server-local-dev", "tokens", "apps"]
-        }
-      ]
-    }
+          children: [
+            "server-api",
+            "server-graphql-api",
+            "server-rest-api",
+            "server-stream-previews",
+            "server-webhooks",
+            "server-setup",
+            "server-manualsetup",
+            "server-local-dev",
+            "tokens",
+            "apps",
+          ],
+        },
+      ],
+    },
   },
 
   /**
@@ -171,8 +193,8 @@ module.exports = {
       "vuepress-plugin-matomo",
       {
         siteId: 5,
-        trackerUrl: "https://speckle.matomo.cloud/"
-      }
-    ]
-  ]
-}
+        trackerUrl: "https://speckle.matomo.cloud/",
+      },
+    ],
+  ],
+};
