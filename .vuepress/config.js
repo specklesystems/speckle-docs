@@ -105,13 +105,16 @@ module.exports = {
             "unreal",
             "blender",
             "excel",
-            "etabs",
+            "csi",
             "sketchup",
             "qgis",
             "powerbi",
             "bentley",
             "support-tables",
           ],
+            "teklastructures",
+            "support-tables"
+          ]
         },
         {
           title: "Tutorials ⚡",
