@@ -33,7 +33,7 @@ module.exports = {
     [
       "script",
       {
-        src:"https://identity.netlify.com/v1/netlify-identity-widget.js"
+        src: "https://identity.netlify.com/v1/netlify-identity-widget.js"
       }
     ]
   ],
@@ -56,7 +56,7 @@ module.exports = {
       appId: 'XOL51LKXOA',
       apiKey: '595b9c5533a46cfa0f999033d4e4ba28',
       indexName: 'speckle'
-      
+
     },
     nav: [
       {
@@ -105,11 +105,12 @@ module.exports = {
             "unreal",
             "blender",
             "excel",
-            "etabs",
+            "csi",
             "sketchup",
             "qgis",
             "powerbi",
             "bentley",
+            "teklastructures",
             "support-tables"
           ]
         },
