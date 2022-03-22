@@ -110,11 +110,9 @@ module.exports = {
             "qgis",
             "powerbi",
             "bentley",
+            "teklastructures",
             "support-tables",
           ],
-            "teklastructures",
-            "support-tables"
-          ]
         },
         {
           title: "Tutorials ⚡",
