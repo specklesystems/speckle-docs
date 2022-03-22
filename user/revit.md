@@ -87,6 +87,12 @@ Here are some technical details if you're curious about what's happening behind 
 - If no cached element is found, but there is an element in the document with a matching `applicationId` that is used for the update (this is the case of someone restoring changes previously sent, in the same project)
 - If an element being received doesn’t have an `applicationId` no update mechanism will happen (this could be the case of BuiltElements created in Python if no `applicationIds` are generated manually)
 
+### Levels
+
+Levels in Revit are updated following the logic described above with just one minor exception: if you receive a level in a model that already has a level at the same elevation, the existing one will be used and its name will be updated if needed.
+For example, you receive `Level 03` which is at 9000mm, in a file that has `3rd Floor` at 9000mm => `3rd Floor` will be renamed and used (we use a tolerance of 5mm for matching levels by elevation).
+NOTE: Levels are _not matched by name_ as this could end up with undesired results.
+
 ## Revit & BIM Data
 
 When sending from Revit, Speckle takes care of converting the data to a Speckle friendly format. If you're curious about how this data is being structured, please have a look at our [Objects Kit class definitions](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects/BuiltElements).
@@ -110,3 +116,29 @@ All the parameters are stored using their **internal Revit names**. You can see 
 To easily explore on object's data and parameters, our [Speckle Web App](/user/web.html) interface can be of great help. As well as any other applications that lets you explore the object metadata (eg Grasshopper, Dynamo, Unity, etc).
 
 ![image-20210303224640764](./img-revit/image-20210303224640764.png)
+
+## Scheduler (alpha)
+
+Sometimes you might want to send data to Speckle automatically, based on a few triggers. For this, we have recently added a "Scheduler" functionality to the Revit Connector.
+
+![image](https://user-images.githubusercontent.com/2679513/159046475-0b2f908a-346e-4603-937c-4bd04fa07188.png)
+
+### Usage
+
+To use the scheduler, you first need to set up a Sender via the main connector interface.
+Make sure to select the filter you intent to use when the scheduler is triggered, for instance to send all the model:
+
+![image](https://user-images.githubusercontent.com/2679513/159046830-a40b6dc0-46f1-4681-9de1-fb094c8d41ff.png)
+
+Now that your sender stream is saved you can open the Scheduler and select it, together with the intended trigger:
+
+![image](https://user-images.githubusercontent.com/2679513/159047256-1971295a-782e-439e-be61-c92d712ae1fd.png)
+
+Currently the following triggers are available:
+
+- On File Save
+- On Sync To Central
+- On File Export
+
+Click "Save", and that's it! Every time you save your file, for instance, the sender will send data to Speckle.
+_NOTE_: currently only one scheduler can be set per file, in the future we will enable multiple scheduler and let you set them up from the main Connector interface.

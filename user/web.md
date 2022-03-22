@@ -9,7 +9,6 @@ The **Speckle Web App** is our browser-based interface for managing all things S
 - Creating and editing streams
 - Viewing your data in our 3D model viewer
 - Managing your account
-- Sharing your data with others
 
 When you first visit your speckle server address (e.g. our default [speckle.xyz server](https://speckle.xyz)), you'll be prompted to log in or register to that server. Servers are independent of each other meaning if you are a part of multiple Speckle Servers, you'll need to create a new account for each one.
 
@@ -114,22 +113,19 @@ Your stream must be made **public** in order for the embedded viewer to properly
 
    ![Stream page with geometric data](./img/web/embedViewer-StreamPage.png)
 
-2. Press the _play_ button to load the viewer. The viewer toolbar should appear in the bottom.
+1. Open any of the commits of the stream, for example, the latest one at the top of the page
 
-   ![Viewer toolbar](./img/web/embedViewer-Toolbar.png)
+1. In the commit page you'll see the 3D viewer and in the top right corner of the page you'll see a sharing button
 
-3. You'll find the share button on the left-hand side.
+   ![Sharing button](./img/web/commit-share.png)
 
-   ![Viewer embed button](./img/web/embedViewer-embedButton.png)
+1. Click it and you'll be presented with the sharing popup
 
-4. Click it and you'll be provided with 2 options:
+   ![Sharing options](./img/web/commit-share-modal.png)
 
-   ![Viewer embed options](./img/web/embedViewer-embedOptions.png)
+   Here you can copy the `iframe` code that you can paste in any HTML document, or the link to the stream or commit page in the Web app.
 
-   - Copy `iframe`: Will copy the `iframe` code required to paste on any html document.
-   - Copy `url`: Will copy the `url` of the embed viewer.
-
-The result would be a viewer like the one [above ☝🏼](#_3d-viewer)
+The resulting `iframe` would be a viewer like the one [above ☝🏼](#_3d-viewer)
 
 ## Globals
 
@@ -178,7 +174,7 @@ If you want to get your globals using code, you can do this in the same way you 
 stream_id = "62e5ff6a2b"
 account = get_default_account()
 client = SpeckleClient(host=account.serverInfo.url)
-client.authenticate(token=account.token)
+client.authenticate_with_account(account)
 transport = ServerTransport(client=client, stream_id=stream_id)
 
 # get the `globals` branch
