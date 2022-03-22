@@ -18,7 +18,7 @@ To install the any of CSI Connector and add your Speckle account, proceed by fol
 
 Once installed, you can find the Speckle Connector in the PlugIn menu under the **Tools** tab like so:
 
-![ToolBar](./img-etabs/toolbar.png)
+![ToolBar](./img-csi/toolbar.png)
 
 ::: warning
 If the plugin is not installed properly, you can find the path to the PlugIn in the relative path here : This is the example for SAP2000, but you will see similar install folders to other paths in here.
@@ -47,7 +47,7 @@ To help you select which elements will be to sent to Speckle, we've built variou
 
 _Please Note: Elements are sent regardless of whether they are visible or if they were created after setting up the filter._
 
-![ETABS](./img-etabs/etabs-ui.png)
+![ETABS](./img-csi/etabs-ui.png)
 
 #### Selection Filters
 
@@ -80,17 +80,17 @@ The connector does not take care of updating existing elements within the stream
 
 When sending from elements from Revit, Speckle takes care of converting the data to a Speckle friendly format. If you're curious about how this data is being structured, please have a look at our [Objects Kit class definitions](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects/BuiltElements).
 
-To send elements from Revit specficially into a structural model, use the analytical models generated within a revit model.Currently there is no conversion from the BuiltElement object kits and the Structural object kits. Which means that only the analytical models in Revit are supported to be converted into CSI. Give us feedback on this workflow. ![Revit Analytical Model](./img-etabs/analytical-model.png)
+To send elements from Revit specficially into a structural model, use the analytical models generated within a revit model.Currently there is no conversion from the BuiltElement object kits and the Structural object kits. Which means that only the analytical models in Revit are supported to be converted into CSI. Give us feedback on this workflow. ![Revit Analytical Model](./img-csi/analytical-model.png)
 
 ## Grasshopper to CSI Products
 
 The schema for the structural objects is based around our structural pyramid of objects. Refer to the [discourse post](https://speckle.community/t/introducing-structural-classes-for-speckle/1824/8) here if you haven't for all the information about this kit. There are CSI application specific grasshopper components. Check them out and use them to build specific properties like deck sections. If there is no specific CSI component, use the general structural schema to define them.
 
-![ETABS Schema](./img-etabs/structural-tool.png)
+![ETABS Schema](./img-csi/structural-tool.png)
 
 Everything is encapsulated in the model object from the schema in the end. Therefore make sure you define the model object.
 
-![ETABS grasshopper model](./img-etabs/model.png)
+![ETABS grasshopper model](./img-csi/model.png)
 
 ::: tip
 
@@ -100,7 +100,7 @@ It's worth building an CSI model and sending and recieving that object in the so
 
 Building models parametrically in grasshopper with the structural object schema is supported with CSI. To build section profiles from catalogue and have material definitions imported into the CSI from scratch, you will have to match the spelling of the catalogue directly as if you were importing it. Look below for an example of the spelling used.
 
-![ETABS property](./img-etabs/grasshopper-sections.png)
+![ETABS property](./img-csi/grasshopper-sections.png)
 
 ## Exploring the CSI data
 
