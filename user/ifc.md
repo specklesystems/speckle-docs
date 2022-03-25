@@ -1,6 +1,6 @@
 # IFC Import Service
 
-Speckle can now process IFC files and store them in your st reams. You can then receive them in other applications and access them from the Speckle API.
+Speckle can now process IFC files and store them in your streams. You can then receive them in other applications and access them from the Speckle API.
 
 > This was made possible thanks to the amazing IFC.js Open Source project! 🙌🏼
 
