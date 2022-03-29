@@ -24,6 +24,32 @@ Go back to the main "Webhooks" tab to view all the webhooks on the stream. Click
 
 You can of course also manage webhooks via the [GraphQL API](/dev/server-graphql-api) using the `webhookCreate`, `webhookUpdate`, and `webhookDelete` mutations. There is a `webhooks` field on the `stream` schema which you can query to get the webhooks for a stream and the `history` of previous requests.
 
+## Receiving the Webhook
+When the condition defined in the webhook definition is met, a `POST` request will be made to the provided URL.
+
+The POST request will contain 1 string parameter, called `payload`, that is the JSON representation of the webhook payload.
+
+::: tip Important note on the JSON encoding
+The way of passing the POST parameter is `application/json`, and the parameter is again encoded as JSON for compatibility with various frameworks that don't handle nested json properties.
+So the actual POST request body might look something like:
+```
+{"payload":"{\"streamId\":\"a35c7a8bdd\",\"userId\":\"bc4e472126\",\"activityMessage\":\"Stream metadata changed\", ...
+```
+:::
+
+To ensure that only the configured Speckle Server will successfully call your publicly available webhook server, there is the `X-WEBHOOK-SIGNATURE` header that can be used to validate the authenticity of the call.
+It is the sha256 HMAC on the payload json string, using the shared secret configured on the webhook.
+Example python code to validate the signature:
+```python
+import hmac
+# ...
+
+expected_signature = hmac.new(SHARED_SECRET.encode(), payload_json.encode(), 'sha256').hexdigest()
+if not hmac.compare_digest(expected_signature, SIGNATURE_FROM_HEADER):
+    print('Ignoring request with invalid signature')
+    return
+```
+
 ## The Webhook Payload
 
 Here is an example of what a webhook payload looks like. The structure will always be the same, except for the `["event"]["data"]` which will change depending on the event that triggered the request.
