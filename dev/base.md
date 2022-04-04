@@ -138,14 +138,20 @@ In addition to the `Base` properties in our model above, you may also encounter 
 // Class definition with additional display properties
 public class Foo : Base {
 	[DetachProperty]
-	public Mesh displayMesh { get; set; } // a mesh used to render surface or solid objects in our viewer
+	public List<Mesh> displayValue { get; set; } // polygonal Mesh objects (one Mesh per RenderMaterial), used to render elements, surfaces, or solid objects in our viewer
 	// or
 	[DetachProperty]
 	public Polyline displayValue { get; set; } // a polyline used to render complex curve objects in our viewer
 	
 	public Box bbox { get; set; } // a bounding box used to assist with object selection in our viewer
-	public RenderMaterial renderMaterial { get; set; } // for displaying this object with a specific color and transparency
 }
 ```
 
-In addition to helping render certain geometries in our viewer, the `displayMesh` and `displayValue` properties are also sometimes used as fallback geometry when converting to desktop applications. A common example is using `displayMesh` when converting Revit objects like walls, beams, floors, etc into an application like Rhino, which has no native way of rendering BIM elements.
+The `displayValue` property is a **special property** within the Objects kit. It is common for classes inheriting `Base` to represent complex, conceptual, or domain specific objects.
+The `displayValue` property can be used to provide a **simple geometric representation** to help display the object in applications that don't have a native form.
+
+For example, When receiving **BIM types** like `Wall`, `Floor`, `Beam`, etc into a **non-BIM application** like Rhino, Unity, or our web viewer, these applications **have no way of rendering these elements natively**. The `displayValue` property represents **fallback** geometry, that will automatically be used by applications when receiving types without a native conversion.
+
+The `displayValue` property is expected to be either an **object inheriting `Base`** or a **`List` of objects inheriting `Base`**.
+Ideally, these types **should be simple geometry types** like `Mesh` or `Polyline` as these can be converted in all (or almost all) receiving applications (However, this rule isn't enforced for custom `Base` objects, and in theory, any type inheriting `Base` can be used .)
+
