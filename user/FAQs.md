@@ -61,6 +61,7 @@ If the server address is **blocked by a corporate firewall, proxy or VPN**, kind
 
 - **\*.speckle.xyz (critical)**
 - **\*.speckle.dev (critical)**
+- speckle-excel.netlify.app (critical for the Excel connector)
 - speckle-releases.ams3.digitaloceanspaces.com
 - speckle.systems
 - speckle.community
