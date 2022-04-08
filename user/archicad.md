@@ -58,6 +58,10 @@ Receiving Archicad models in other geometry focussed connectors (eg SketchUp, Rh
 
 ![archicad to rhino](./img-archicad/archicad-to-rhino.png)
 
+**SketchUp**
+
+![archicad to sketchup](./img-archicad/archicad-to-sketchup.png)
+
 ## Supported Elements
 
 [Archicad Support Tables](/user/support-tables.html#archicad)
