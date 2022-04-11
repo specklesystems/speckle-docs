@@ -8,6 +8,10 @@ Check out our dedicated tutorial on [how to get started with Archicad](https://s
 
 ## Getting Started
 
+Please note that this connector is still in Alpha and is thus not fully featured. Keep in mind that sending out to geometry applications is well supported, but receiving back into BIM applications is not fully supported. See the support table linked at the bottom of this guide for specifics on what is and isn't supported.
+
+Feel free to reach out on the forum regarding your potential use cases and we will try to prioritise what you need in the development of this connector!
+
 <div style="position: relative;padding-bottom: 56.25%;"><iframe width="100%" height="100%" style="position: absolute;" src="https://www.youtube.com/embed/TNJIQHd3vuk" title="Archicad Teaser Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 ## Installation
