@@ -138,7 +138,7 @@ In addition to the `Base` properties in our model above, you may also encounter 
 // Class definition with additional display properties
 public class Foo : Base {
 	[DetachProperty]
-	public List<Mesh> displayValue { get; set; } // polygonal Mesh objects (one Mesh per RenderMaterial), used to render elements, surfaces, or solid objects in our viewer
+	public List<Mesh> displayValue { get; set; } // Mesh objects that represent the geometry of this Base object, e.g. used to render surfaces, or solid objects in our viewer
 	// or
 	[DetachProperty]
 	public Polyline displayValue { get; set; } // a polyline used to render complex curve objects in our viewer
@@ -148,7 +148,7 @@ public class Foo : Base {
 ```
 
 The `displayValue` property is a **special property** within the Objects kit. It is common for classes inheriting `Base` to represent complex, conceptual, or domain specific objects.
-The `displayValue` property can be used to provide a **simple geometric representation** to help display the object in applications that don't have a native form.
+The `displayValue` property can be used to provide a **geometric representation** to help display the object in applications that don't have a native form.
 
 For example, When receiving **BIM types** like `Wall`, `Floor`, `Beam`, etc into a **non-BIM application** like Rhino, Unity, or our web viewer, these applications **have no way of rendering these elements natively**. The `displayValue` property represents **fallback** geometry, that will automatically be used by applications when receiving types without a native conversion.
 
