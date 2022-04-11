@@ -8,7 +8,7 @@ Check out our dedicated tutorial on [how to get started with Archicad](https://s
 
 ## Getting Started
 
-![archicad teaser vid](./img-archicad/Archicad%20Teaser.mp4)
+<div style="position: relative;padding-bottom: 56.25%;"><iframe width="100%" height="100%" style="position: absolute;" src="https://www.youtube.com/embed/TNJIQHd3vuk" title="Archicad Teaser Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 ## Installation
 
