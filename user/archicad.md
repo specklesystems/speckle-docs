@@ -8,6 +8,8 @@ Check out our dedicated tutorial on [how to get started with Archicad](https://s
 
 ## Getting Started
 
+![archicad teaser vid](./img-archicad/Archicad%20Teaser.mp4)
+
 ## Installation
 
 Before using this connector, you'll need to follow our standard setup instructions to [install Speckle Manager and add a Speckle account](/user/manager).
