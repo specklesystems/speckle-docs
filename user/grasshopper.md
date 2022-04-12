@@ -481,23 +481,39 @@ The process to use Speckle in a python script is similar to the C# node steps, o
 
 The **Send Node** performs sending operations, usually to a Speckle Server, but also supports sending to a different data storage using _transports_. Whenever possible, the _Send_ node wil try to convert any Rhino-compatible objects into Speckle format.
 
+<!-- > This node is capable of [Kit Selection](#object-conversion-and-kits) -->
+
+#### Input
+
+- _Stream_: Supports any generated stream from within the `Stream` component category, but also _stream urls_ in text format.
+- _Message_: The message you want to attach to the _commit_ when you send the data. Defaults to `"Grasshopper push"`.
+- _Data_: This port will accept almost anything you give it. If the objects provided are not `Base` objects, it will also perform the conversion to Speckle automatically.
+
+#### Output
+
+- _Stream_: The _commit url_ pointing to the objects in the Speckle server.
+
+#### Extra options
+
+##### Variable inputs
+
+Just as in the `Create Speckle Object` node, you can add as many inputs as necessary. In the `Send` node, all inputs are set to `tree` to accept any type of information and grasshopper data structure.
+
+![Send node variable input behaviour](./img-gh/gh-send-variableinput.gif)
+
+##### Send automatically
+
 There is also an option to set the node to automatically send every time there is a change in the data. You will find this option in the right-click menu of the node.
 
 | ![Activating auto mode in sender](./img-gh/nodes-send-automode-activate.png) | ![Auto-send mode active in sender](./img-gh/nodes-send-automode-active.png) |
 | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 
 
-<!-- > This node is capable of [Kit Selection](#object-conversion-and-kits) -->
+##### Detach input data
 
-#### Input
+This option is enabled by default in all inputs, but it can be disabled on a per-input basis on the right-click menu of each input.
 
-- _Data_: This port will accept almost anything you give it. If the objects provided are not `Base` objects, it will also perform the conversion to Speckle automatically.
-- _Stream_: Supports any generated stream from within the `Stream` component category, but also _stream urls_ in text format.
-- _Message_: The message you want to attach to the _commit_ when you send the data. Defaults to `"Grasshopper push"`.
-
-#### Output
-
-- _Stream_: The _commit url_ pointing to the objects in the Speckle server.
+You can find a more detailed explanation of this option [here](#detachdo-not-detach).
 
 ### Receive Node
 
@@ -514,6 +530,28 @@ The **Receive Node** fetches data from a specified `Stream` or any other valid `
 #### Outputs
 
 - _Data_: The data that was received from the stream.
+
+#### Extra options
+
+##### Expand received object
+
+**Enabled by default**. This will expand the received object to expose it's properties. If the specific speckle object has a supported conversion, it will be converted insted (i.e.: a point, line, mesh)
+
+This option can be disabled in the right-click menu of the Receive node.
+
+Here's a quick animation of the process:
+
+![Receive node with expand option active](./img-gh/gh-receive-variableoutput.gif)
+
+##### Do not convert
+
+Similar to the `Do not convert` option in `Create Speckle Object` node, it will prevent any conversion from happening and output Speckle objects instead.
+
+##### Receive automatically
+
+There is also an option to set the node to automatically send every time there is a new commit on the stream. You will find this option in the right-click menu of the node.
+
+This option is not available when the input stream url points to a specific `commit` or an `object`.
 
 ### Local Send Node
 

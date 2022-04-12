@@ -126,6 +126,7 @@ Non-geometric elements and any geometric element not listed above, such as text 
 | Beam                                                    |  ✅  |   ✅    |  `Complete`   |
 | Brace                                                   |  ✅  |   ✅    |  `Complete`   |
 | Building Pad                                            |  ✅  |         |  `Complete`   |
+| CableTray                                               |  ✅  |   ✅    |  `Complete`   |
 | Ceiling                                                 |  ✅  |         |  `Complete`   |
 | Curves (Model, Detail, Room Boundary, Space Separation) |  ✅  |   ✅    |  `Complete`   |
 | Direct Shape                                            |  ✅  |   ✅    |  `Complete`   |
@@ -205,7 +206,7 @@ If non supported elements are received in this connector, no errors are thrown.
 | Polygon        |  As Polyline  |      ✅       | `Complete` |
 | Rectangle      |  As Polyline  |      ✅       | `Complete` |
 | Spline         |      ✅       |      ✅       | `Complete` |
-| Solid           |             |             | `To do` |
+| Solid          |               |               |  `To do`   |
 | Brep           |      ✅       |      ✅       | `Complete` |
 | Mesh           |      ✅       |      ✅       | `Complete` |
 | Revit Elements | x<sup>β</sup> |               | `Complete` |
@@ -224,7 +225,7 @@ Any geometric elements not listed above are not supported.
 
 | Geometry     | Send       | Receive | Status        |
 | ------------ | ---------- | ------- | ------------- |
-| Alignment    | ✅         |         | `In Progress` |
+| Alignment    | ✅         | ✅      | `Complete`    |
 | Corridor     | ✅         |         | `In Progress` |
 | FeatureLine  | ✅         |         | `In Progress` |
 | Grid Surface | ✅ as Mesh |         | `In Progress` |
@@ -255,7 +256,7 @@ Subassemblies and Assemblies are not supported.
 | Nurb Surface  |   ✅    |         | `In Progress` |
 | PolyFace Mesh |   ✅    |   ✅    |  `Complete`   |
 | SubD Mesh     |   ✅    |   ✅    |  `Complete`   |
-| 3D Solid      | as Mesh | as Mesh  | `In Progress` |
+| 3D Solid      | as Mesh | as Mesh | `In Progress` |
 
 | Other           | Send | Receive |   Status   |
 | --------------- | :--: | :-----: | :--------: |
@@ -309,25 +310,79 @@ We've only started supporting Unity elements, please let us know what else you'd
 
 We've only started supporting with an alpha release of ETABS elements, please let us know what else you'd like to see, and do contribute if you have the skillz!
 
-| Geometry                                                           |  Send   | Receive |
-| ------------------------------------------------------------------ | :-----: | :-----: |
-| Point                                                              |   ✅    |   ✅    |
-| Columns                                                            |   ✅    |   ✅    |
-| Beams                                                              |   ✅    |   ✅    |  
-| Braces                                                             |   ✅    |   ✅    |  
-| Sections Profile (Catalogue)                                       |   ✅    |   ✅    |
-| User Defined Sections ~ refer to [structural object kit](https://github.com/specklesystems/speckle-sharp/blob/structural/structural-kit/Objects/Objects/Structural/Property/SectionProfile.cs) for schema                                                           |   ✅    |   ✅    |
-| Floor with Slab Sections + Deck Sections                           |   ✅    |   ✅    |
-| Wall and Sections                                                  |   ✅    |   ✅    |
-| Material Code definition                                           |          |   ✅    |
-| Loading (1D,2D)   note: node elements can only send                |       ✅   |   ✅    |
-| Results (1D,2D,Node)                                                       |   ✅    |    |
-| Restraints                                                         |   ✅    |   ✅    |
-| Links                                                              |   ✅    |   ✅    |
-| Stories                                                              |   ✅    |   ✅    |
-| Springs (Point,Linear,Area)                                        |   ✅    |   ✅    |
-| Tendons                                                             |   ✅    |       |
-| GridLines                                                             |   ✅    |       |
+| Geometry                                                                                                                                                                                                  | Send | Receive |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--: | :-----: |
+| Point                                                                                                                                                                                                     |  ✅  |   ✅    |
+| Columns                                                                                                                                                                                                   |  ✅  |   ✅    |
+| Beams                                                                                                                                                                                                     |  ✅  |   ✅    |
+| Braces                                                                                                                                                                                                    |  ✅  |   ✅    |
+| Sections Profile (Catalogue)                                                                                                                                                                              |  ✅  |   ✅    |
+| User Defined Sections ~ refer to [structural object kit](https://github.com/specklesystems/speckle-sharp/blob/structural/structural-kit/Objects/Objects/Structural/Property/SectionProfile.cs) for schema |  ✅  |   ✅    |
+| Floor with Slab Sections + Deck Sections                                                                                                                                                                  |  ✅  |   ✅    |
+| Wall and Sections                                                                                                                                                                                         |  ✅  |   ✅    |
+| Material Code definition                                                                                                                                                                                  |      |   ✅    |
+| Loading (1D,2D) note: node elements can only send                                                                                                                                                         |  ✅  |   ✅    |
+| Results (1D,2D,Node)                                                                                                                                                                                      |  ✅  |         |
+| Restraints                                                                                                                                                                                                |  ✅  |   ✅    |
+| Links                                                                                                                                                                                                     |  ✅  |   ✅    |
+| Stories                                                                                                                                                                                                   |  ✅  |   ✅    |
+| Springs (Point,Linear,Area)                                                                                                                                                                               |  ✅  |   ✅    |
+| Tendons                                                                                                                                                                                                   |  ✅  |         |
+| GridLines                                                                                                                                                                                                 |  ✅  |         |
+
+## SAP2000
+
+### Supported Elements
+
+We've only started supporting with an alpha release of SAP2000 elements, please let us know what else you'd like to see, and do contribute if you have the skillz!
+
+| Geometry                                                                                                                                                                                                  | Send | Receive |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--: | :-----: |
+| Point                                                                                                                                                                                                     |  ✅  |   ✅    |
+| Columns                                                                                                                                                                                                   |  ✅  |   ✅    |
+| Beams                                                                                                                                                                                                     |  ✅  |   ✅    |
+| Braces                                                                                                                                                                                                    |  ✅  |   ✅    |
+| Sections Profile (Catalogue)                                                                                                                                                                              |  ✅  |   ✅    |
+| User Defined Sections ~ refer to [structural object kit](https://github.com/specklesystems/speckle-sharp/blob/structural/structural-kit/Objects/Objects/Structural/Property/SectionProfile.cs) for schema |  ✅  |   ✅    |
+| Material Code definition                                                                                                                                                                                  |      |   ✅    |
+| Loading (1D,2D) note: node elements can only send                                                                                                                                                         |  ✅  |   ✅    |
+| Results (1D,2D,Node)                                                                                                                                                                                      |  ✅  |         |
+
+## CSiBridge
+
+### Supported Elements
+
+We've only started supporting with an alpha release of CSiBridge elements, please let us know what else you'd like to see, and do contribute if you have the skillz!
+
+| Geometry                                                                                                                                                                                                  | Send | Receive |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--: | :-----: |
+| Point                                                                                                                                                                                                     |  ✅  |   ✅    |
+| Columns                                                                                                                                                                                                   |  ✅  |   ✅    |
+| Beams                                                                                                                                                                                                     |  ✅  |   ✅    |
+| Braces                                                                                                                                                                                                    |  ✅  |   ✅    |
+| Sections Profile (Catalogue)                                                                                                                                                                              |  ✅  |   ✅    |
+| User Defined Sections ~ refer to [structural object kit](https://github.com/specklesystems/speckle-sharp/blob/structural/structural-kit/Objects/Objects/Structural/Property/SectionProfile.cs) for schema |  ✅  |   ✅    |
+| Material Code definition                                                                                                                                                                                  |      |   ✅    |
+| Loading (1D,2D) note: node elements can only send                                                                                                                                                         |  ✅  |   ✅    |
+| Results (1D,2D,Node)                                                                                                                                                                                      |  ✅  |         |
+
+## SAFE
+
+### Supported Elements
+
+We've only started supporting with an alpha release of SAFE elements, please let us know what else you'd like to see, and do contribute if you have the skillz!
+
+| Geometry                                                                                                                                                                                                  | Send | Receive |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--: | :-----: |
+| Point                                                                                                                                                                                                     |  ✅  |   ✅    |
+| Columns                                                                                                                                                                                                   |  ✅  |   ✅    |
+| Beams                                                                                                                                                                                                     |  ✅  |   ✅    |
+| Braces                                                                                                                                                                                                    |  ✅  |   ✅    |
+| Sections Profile (Catalogue)                                                                                                                                                                              |  ✅  |   ✅    |
+| User Defined Sections ~ refer to [structural object kit](https://github.com/specklesystems/speckle-sharp/blob/structural/structural-kit/Objects/Objects/Structural/Property/SectionProfile.cs) for schema |  ✅  |   ✅    |
+| Material Code definition                                                                                                                                                                                  |      |   ✅    |
+| Loading (1D,2D) note: node elements can only send                                                                                                                                                         |  ✅  |   ✅    |
+| Results (1D,2D,Node)                                                                                                                                                                                      |  ✅  |         |
 
 ## SketchUp
 
@@ -335,14 +390,14 @@ We've only started supporting with an alpha release of ETABS elements, please le
 
 The SketchUp connector is still in early Alpha and is therefore a work in progress. Let us know what else you'd like to see supported or if you would like to contribute!
 
-| Type                                     | Send | Receive |    Status     |
-| ---------------------------------------- | :--: | :-----: | :-----------: |
-| Brep                                     |      | as mesh | `Complete`    |
-| Mesh                                     |  ✅  |   ✅   | `In Progress` |
-| Line & Polyline                          |  ✅  |   ✅   | `Complete`    |
-| Render Material                          |  ✅  |   ✅   | `In Progress` |
-| BlockInstance                            |  ✅  |   ✅   | `In Progress` |
-| BlockDefinition                          |  ✅  |   ✅   | `In Progress` |
+| Type            | Send | Receive |    Status     |
+| --------------- | :--: | :-----: | :-----------: |
+| Brep            |      | as mesh |  `Complete`   |
+| Mesh            |  ✅  |   ✅    | `In Progress` |
+| Line & Polyline |  ✅  |   ✅    |  `Complete`   |
+| Render Material |  ✅  |   ✅    | `In Progress` |
+| BlockInstance   |  ✅  |   ✅    | `In Progress` |
+| BlockDefinition |  ✅  |   ✅    | `In Progress` |
 
 ## MicroStation
 
@@ -350,24 +405,24 @@ The SketchUp connector is still in early Alpha and is therefore a work in progre
 
 ### Supported Elements
 
-| Geometry         |  Send   | Receive |    Status     |
-| ---------------- | :-----: | :-----: | :-----------: |
-| Point            |   ✅    | as LineElement |  `Complete`   |
-| Vector           |   ✅    |   ✅    |  `Complete`   |
-| Plane            |   ✅    |   ✅    |  `Complete`   |
-| Line             |   ✅    |   ✅    |  `Complete`   |
-| Arc              |   ✅    |   ✅    |  `Complete`   |
-| Circle           |   ✅    | as EllipseElement |  `Complete`   |
-| Ellipse          |   ✅    |   ✅    |  `Complete`   |
-| Polyline         |   ✅    |   ✅    |  `Complete`   |
-| Polycurve        |   ✅    |   ✅    |  `Complete`   |
-| Curve (BSpline)  |   ✅    |   ✅    |  `Complete`   |
-| Shape            | as Polyline | as Polyline | `Complete` |
-| Complex Shape    | as Polycurve | as Polycurve |  `Complete`   |
-| Mesh             |   ✅    |   ✅    |  `Complete`   |
-| Surface (BSpline)|   ✅    |         | `In Progress` |
-| ExtendedElement  | as Base |          | `In Progress` |
-| ComplexHeader    | as Base |          | `In Progress` |
+| Geometry          |     Send     |      Receive      |    Status     |
+| ----------------- | :----------: | :---------------: | :-----------: |
+| Point             |      ✅      |  as LineElement   |  `Complete`   |
+| Vector            |      ✅      |        ✅         |  `Complete`   |
+| Plane             |      ✅      |        ✅         |  `Complete`   |
+| Line              |      ✅      |        ✅         |  `Complete`   |
+| Arc               |      ✅      |        ✅         |  `Complete`   |
+| Circle            |      ✅      | as EllipseElement |  `Complete`   |
+| Ellipse           |      ✅      |        ✅         |  `Complete`   |
+| Polyline          |      ✅      |        ✅         |  `Complete`   |
+| Polycurve         |      ✅      |        ✅         |  `Complete`   |
+| Curve (BSpline)   |      ✅      |        ✅         |  `Complete`   |
+| Shape             | as Polyline  |    as Polyline    |  `Complete`   |
+| Complex Shape     | as Polycurve |   as Polycurve    |  `Complete`   |
+| Mesh              |      ✅      |        ✅         |  `Complete`   |
+| Surface (BSpline) |      ✅      |                   | `In Progress` |
+| ExtendedElement   |   as Base    |                   | `In Progress` |
+| ComplexHeader     |   as Base    |                   | `In Progress` |
 
 ### Unsupported Elements
 
@@ -387,10 +442,10 @@ Breps, pointclouds, blocks, views, and any other element not listed are not supp
 
 In addition to supporting all of the geometry elements that the MicroStation connector supports, OpenRoads and OpenRail also support the following built elements:
 
-| BuiltElement                 | Send | Receive |    Status     |
-| ---------------------------- | :--: | :-----: | :-----------: |
-| Alignment                    |  ✅  |   ✅   |  `Complete`   |
-| Corridor                     |  as Base  |    |  `In Progress`   |
+| BuiltElement |  Send   | Receive |    Status     |
+| ------------ | :-----: | :-----: | :-----------: |
+| Alignment    |   ✅    |   ✅    |  `Complete`   |
+| Corridor     | as Base |         | `In Progress` |
 
 ### Unsupported Elements
 
@@ -429,14 +484,27 @@ Openings, Sketch Grids (2/3 Axis) and inclined Slabs and Walls, and anything els
 
 The Tekla Structures connector is still in early Alpha and therefore will still be developed and worked on. Let us know what else you'd like to see supported or if you would like to contribute to make it finish the alpha phase faster!
 
-| Type                                     | Send | Receive |    Status     |
-| ---------------------------------------- | :--: | :-----: | :-----------: |
-| Contour plates (slabs/plates)                                  |  ✅    | ✅ | `Complete`    |
-| Beams                           |  ✅  |   ✅   | `Complete` |
-| Columns                          |  ✅  |   ✅   | `Complete`    |
-| Spiral Beams                          |  ✅  |   ✅   | `Complete` |
-| Curved Beams                                |  ✅  |      | `In Progress`|
-| Polybeams                             |  ✅  |   ✅   | `Complete` |
-| Welds                                 |   ✅    |   |`In Progress`|  
-| Rebars                                |  ✅     |    |`In Progress`|
-| Bolts                                 |  ✅      |  |`In Progress`|
+| Type                          | Send | Receive |    Status     |
+| ----------------------------- | :--: | :-----: | :-----------: |
+| Contour plates (slabs/plates) |  ✅  |   ✅    |  `Complete`   |
+| Beams                         |  ✅  |   ✅    |  `Complete`   |
+| Columns                       |  ✅  |   ✅    |  `Complete`   |
+| Spiral Beams                  |  ✅  |   ✅    |  `Complete`   |
+| Curved Beams                  |  ✅  |         | `In Progress` |
+| Polybeams                     |  ✅  |   ✅    |  `Complete`   |
+| Welds                         |  ✅  |         | `In Progress` |
+| Rebars                        |  ✅  |         | `In Progress` |
+| Bolts                         |  ✅  |         | `In Progress` |
+
+## Archicad
+
+### Supported Elements
+
+The Archicad connector is still in early Alpha and is still being developed. Geometry and mesh based support is pretty comprehensive, but built element support is still limited. Let us know what elements would be particularly useful to you and we will make sure to prioritise them!
+
+| Type                | Send | Receive |    Status     |                       Notes                       |
+| ------------------- | :--: | :-----: | :-----------: | :-----------------------------------------------: |
+| Mesh / Direct Shape |  ✅  |   ✅    |  `Complete`   | All unsupported elements will go in/out as meshes |
+| Floor (Slab)        |  ✅  |   ✅    |  `Complete`   |                                                   |
+| Wall                |  🟨  |   🟨    | `In Progress` |       Nested elements are not yet supported       |
+| Room (Zone)         |  ✅  |   🟨    | `In Progress` |                                                   |

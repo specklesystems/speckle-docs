@@ -1,13 +1,6 @@
-# Installing Connectors
+# Manager
 
-Speckle Connectors are primarily installed from Speckle Manager, a standalone desktop application. While Manager isn't strictly required to use the Speckle platform, we highly recommend using it to help keep track of your connectors, install the latest updates and handle multiple user accounts.
-
-Throughout this documentation we'll assume you have used Manager to set up your account and install the connectors, ([alternative methods](/user/manager.md#adding-accounts-manually) are also supported).
-
-::: tip IMPORTANT 🙌
-This guide assumes you have a **Speckle Account**.
-If you don't, register on our [free XYZ Speckle server](https://speckle.xyz).
-:::
+Speckle Manager is a standalone desktop application you can use to keep track of your connectors, install the latest updates and handle multiple user accounts.
 
 ## Download
 
@@ -25,6 +18,12 @@ Manager for Windows will prompt you to update when an update is available, in Ma
 
 ![image](https://user-images.githubusercontent.com/2679513/129895485-77fbf165-ff2d-4d7f-8aca-4a8a476d1274.png)
 
+### Uninstallation
+
+On Windows, simply head over **Apps & Features**, find **SpeckleManager** and then click **Uninstall**.
+
+![image](https://user-images.githubusercontent.com/2679513/112290160-dc08c280-8c86-11eb-962c-19a8a20afc94.png)
+
 ### Preventing Manager from running at Startup
 
 On Windows, Manager will automatically launch on startup to check for new updates. It will notify you of any updated connector versions as soon as they are released.
@@ -37,18 +36,11 @@ If you want to disable this functionality, you can simply do so:
 
 ![image](https://user-images.githubusercontent.com/2679513/112289752-7caab280-8c86-11eb-8c9a-928d536e8eb3.png)
 
-### Uninstallation
+## Logging In & Adding Accounts
 
-On Windows, simply head over **Apps & Features**, find **SpeckleManager** and then click **Uninstall**.
+:::tip NEW 🆕
 
-![image](https://user-images.githubusercontent.com/2679513/112290160-dc08c280-8c86-11eb-962c-19a8a20afc94.png)
-
-## Adding Accounts
-
-:::warning Account Problems
-
-Having trouble adding an account? Check our [troubleshooting section](/user/manager.html#troubleshooting)!
-
+You can now log into your Speckle account/s directly from our main [User Interface](/user/ui2), without the need to have Manager installed.
 :::
 
 ### From Speckle Manager

@@ -2,7 +2,7 @@
 typora-copy-images-to: img-interop
 ---
 
-# User Interface
+# User Interface (old)
 
 ::: tip IMPORTANT ⚠️
 Our default User Interface is changing! 🤩

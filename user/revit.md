@@ -116,3 +116,29 @@ All the parameters are stored using their **internal Revit names**. You can see 
 To easily explore on object's data and parameters, our [Speckle Web App](/user/web.html) interface can be of great help. As well as any other applications that lets you explore the object metadata (eg Grasshopper, Dynamo, Unity, etc).
 
 ![image-20210303224640764](./img-revit/image-20210303224640764.png)
+
+## Scheduler (alpha)
+
+Sometimes you might want to send data to Speckle automatically, based on a few triggers. For this, we have recently added a "Scheduler" functionality to the Revit Connector.
+
+![image](https://user-images.githubusercontent.com/2679513/159046475-0b2f908a-346e-4603-937c-4bd04fa07188.png)
+
+### Usage
+
+To use the scheduler, you first need to set up a Sender via the main connector interface.
+Make sure to select the filter you intent to use when the scheduler is triggered, for instance to send all the model:
+
+![image](https://user-images.githubusercontent.com/2679513/159046830-a40b6dc0-46f1-4681-9de1-fb094c8d41ff.png)
+
+Now that your sender stream is saved you can open the Scheduler and select it, together with the intended trigger:
+
+![image](https://user-images.githubusercontent.com/2679513/159047256-1971295a-782e-439e-be61-c92d712ae1fd.png)
+
+Currently the following triggers are available:
+
+- On File Save
+- On Sync To Central
+- On File Export
+
+Click "Save", and that's it! Every time you save your file, for instance, the sender will send data to Speckle.
+_NOTE_: currently only one scheduler can be set per file, in the future we will enable multiple scheduler and let you set them up from the main Connector interface.
