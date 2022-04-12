@@ -457,7 +457,7 @@ Profiles, Stations, Featurelines, and anything else not listed are currently not
 
 ### Supported Elements
 
-In addition to supporting all of the geometry elements that the MicroStation connector supports, OpenBuildings also supports the following built elements:
+In addition to supporting all of the geometry elements that the MicroStation connector supports, OpenBuildings also supports the following BuiltElements:
 
 | BuiltElement                 | Send | Receive |    Status     |
 | ---------------------------- | :--: | :-----: | :-----------: |
@@ -476,7 +476,7 @@ Since GridSystems/GridCurves can not be selected in the OpenBuildings user inter
 
 ### Unsupported Elements
 
-Openings, Sketch Grids (2/3 Axis) and inclined Slabs and Walls, and anything else not listed is currently not supported.
+Openings in walls, Sketch Grids (2/3 Axis) and inclined Slabs and Walls, and anything else not listed is currently not supported.
 
 ## Tekla Structures
 
