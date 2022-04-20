@@ -168,6 +168,27 @@ If you'd prefer to use the command line instead of the toolbar buttons, refer to
 5. Transform your rhino line, and resend it to Revit - your beam will automatically update!
 
 
+### Creating Pipes
+
+**Command:** *CreatePipe* 
+
+1. Create or select open curves (this works best for lines).
+2. Click on the Speckle BIM Pipe button and press Enter. Check your object's User Attribute Text to confirm the Speckle BIM tag was successfully applied. **Note:** the default Pipe `diameter` is set to "1.0" - if you'd like to change this, just change the value in the user string!
+3. Send the geometry with Speckle: if you're unfamiliar with how to do this, check out the How To Get Started with Rhino docs.
+4. Receive the geometry in Revit: if you're unfamiliar with how to do this, check out the How To Get Started with Revit docs. The curve will be created as a default pipe type.
+5. Transform your rhino curve, and resend it to Revit - your pipe will automatically update!
+
+
+### Creating Ducts
+
+**Command:** *CreateDuct* 
+
+1. Create or select open curves (this works best for lines).
+2. Click on the Speckle BIM Duct button and press Enter. Check your object's User Attribute Text to confirm the Speckle BIM tag was successfully applied. **Note:** the default Duct `width`, `height`, and `diameter` is set to "1.0" - if you'd like to change this, just change the corresponding value in the user string.
+3. Send the geometry with Speckle: if you're unfamiliar with how to do this, check out the How To Get Started with Rhino docs.
+4. Receive the geometry in Revit: if you're unfamiliar with how to do this, check out the How To Get Started with Revit docs. The curve will be created as a default duct type.
+5. Transform your rhino curve, and resend it to Revit - your duct will automatically update!
+
 ### Creating Face Walls
 
 **Command:** *CreateFaceWall* 
