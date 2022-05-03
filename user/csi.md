@@ -27,9 +27,9 @@ If the plugin is not installed properly, you can find the path to the PlugIn in 
 
 :::
 
-### Recieving in CSI Products
+### Receiving in CSI Products
 
-Save the CSI model as a file first before attempting to recieve streams into your CSI model.
+Save the CSI model as a file first before attempting to receive streams into your CSI model.
 
 ## User Interface
 
@@ -74,7 +74,7 @@ This trivial filter allows you to select all the elements that are currently sup
 
 ## Updating Elements
 
-The connector does not take care of updating existing elements within the stream. However the CSI products does recognize if concident elements are generated and will not generate new elements that concident ontop of each other.
+The connector does not take care of updating existing elements within the stream. However the CSI products does recognize if coincident elements are generated and will not generate new elements that coincide on top of each other.
 
 ## Revit & BIM Data to CSI Products
 
@@ -94,7 +94,7 @@ Everything is encapsulated in the model object from the schema in the end. There
 
 ::: tip
 
-It's worth building an CSI model and sending and receiving that object in the software before you attempting building a model from grasshopper directly.
+It's worth building a CSI model and sending and receiving that object in the software before you attempting building a model from grasshopper directly.
 
 :::
 
@@ -104,4 +104,4 @@ Building models parametrically in grasshopper with the structural object schema 
 
 ## Exploring the CSI data
 
-To easily explore on object's data and parameters, our [Speckle Web App](/user/web.html) interface can be of great help. As well as any other applications that lets you explore the object metadata (eg Grasshopper, Dynamo, Unity, etc).
+To easily explore on object's data and parameters, our [Speckle Web App](/user/web.html) interface can be of great help, as well as any other applications that lets you explore the object metadata (eg Grasshopper, Dynamo, Unity, etc).
