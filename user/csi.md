@@ -55,11 +55,11 @@ The selection filters will send everything that is selected within the CSI displ
 
 #### Group Filters
 
-You can create predefined groups of geometrical elements within CSI products to send already within the CSI group and select based on those groupings of elements for a more precise stream of elemenets.
+You can create predefined groups of geometrical elements within CSI products to send already within the CSI group and select based on those groupings of elements for a more precise stream of elements.
 
 #### Category Filter
 
-The category filter lets you select one or more of the currently-supported CSI categories, this is the most granular filter that will also enable you to send results. Note : Other filters will not enable you to send results or non geometrical elements and properties.
+The category filter lets you select one or more of the currently-supported CSI categories, this is the most granular filter that will also enable you to send results. Note : Other filters will not enable you to send results or non-geometrical elements and properties.
 
 #### All Filter
 
@@ -80,7 +80,7 @@ The connector does not take care of updating existing elements within the stream
 
 When sending from elements from Revit, Speckle takes care of converting the data to a Speckle friendly format. If you're curious about how this data is being structured, please have a look at our [Objects Kit class definitions](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects/BuiltElements).
 
-To send elements from Revit specficially into a structural model, use the analytical models generated within a revit model.Currently there is no conversion from the BuiltElement object kits and the Structural object kits. Which means that only the analytical models in Revit are supported to be converted into CSI. Give us feedback on this workflow. ![Revit Analytical Model](./img-csi/analytical-model.png)
+To send elements from Revit specficially into a structural model, use the analytical models generated within a revit model. Currently there is no conversion from the BuiltElement object kits and the Structural object kits, which means that only the analytical models in Revit are supported to be converted into CSI. Give us feedback on this workflow. ![Revit Analytical Model](./img-csi/analytical-model.png)
 
 ## Grasshopper to CSI Products
 
@@ -94,7 +94,7 @@ Everything is encapsulated in the model object from the schema in the end. There
 
 ::: tip
 
-It's worth building an CSI model and sending and recieving that object in the software before you attempting building a model from grasshopper directly.
+It's worth building an CSI model and sending and receiving that object in the software before you attempting building a model from grasshopper directly.
 
 :::
 
