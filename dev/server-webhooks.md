@@ -49,6 +49,22 @@ if not hmac.compare_digest(expected_signature, SIGNATURE_FROM_HEADER):
     print('Ignoring request with invalid signature')
     return
 ```
+And javascript (node):
+```js
+const * as crypto from 'crypto'
+
+const secret = 'YOUR_SECRET_HERE'
+const expectedSignature = crypto
+    .createHmac('sha256', secret)
+    .update(request.body.payload)
+    .digest('hex')
+const signatureFromHeader = request.headers['x-webhook-signature']
+
+if (signatureFromHeader != expectedSignature) response.status(401).send('Ignoring request with invalid signature')
+```
+
+## Reporting Success
+The endpoint code will need to return a HTTP response status header. Currently the server recognises `200 OK` as a successful response. Alternatively, it can respond with any other status in its execution. These will also be highlighted as the webhook being in error in the UI with ❌ as described above.
 
 ## The Webhook Payload
 
