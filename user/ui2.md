@@ -69,7 +69,7 @@ For instance in Revit you can send:
 
 #### Commit Message
 
-When sending state in use by others, it's always good to include a message describing what you're sending.
+When sending to Speckle, it's always good to include a message describing what you're sending or explaining the changes applied since the last send operation.
 The commit message is saved and re-used in future sends.
 
 #### Save or Send
