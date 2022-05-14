@@ -64,7 +64,7 @@ if (signatureFromHeader != expectedSignature) response.status(401).send('Ignorin
 ```
 
 ## Reporting Success
-The endpoint code will need to return a HTTP response status header. Currently the server recognises `200 OK` as a successful response. Alternatively, it can respond with any other status in its execution. These will also be highlighted as the webhook being in error in the UI with ❌ as described above.
+The endpoint code should return a HTTP response status header. The server recognises statuses `200 OK` to `204 NO_CONTENT` as a successful execution. Alternatively, your endpoint can respond with other statuses in its execution. The webhook execution log shows these as error with additional payload data you supply to diagnose issues.
 
 ## The Webhook Payload
 
