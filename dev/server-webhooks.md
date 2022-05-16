@@ -18,10 +18,6 @@ There are a few different fields to fill out when setting up a webhook:
 
 ![webhook-edit](https://user-images.githubusercontent.com/7717434/126979041-ac01d1f7-e9d3-455c-ab4f-7154ab891a96.png)
 
-Go back to the main "Webhooks" tab to view all the webhooks on the stream. Click on a webhook to open the edit menu. The symbol to the left to the description indicates the status of the last webhook request; hover over it to get more information. Here, the green ✔ indicates the last request was successfully sent. The grey circle with an ❕ indicates no requests have been sent yet (you've likely just created the webhook and none of the triggers have happened yet). If the last request failed, you will see a red ❌ which you can hover over to see the error message.
-
-![webhook-list](https://user-images.githubusercontent.com/7717434/126981792-d1a66613-43d9-4992-a8e2-fe692b68198e.png)
-
 You can of course also manage webhooks via the [GraphQL API](/dev/server-graphql-api) using the `webhookCreate`, `webhookUpdate`, and `webhookDelete` mutations. There is a `webhooks` field on the `stream` schema which you can query to get the webhooks for a stream and the `history` of previous requests.
 
 ## Receiving the Webhook
@@ -49,6 +45,26 @@ if not hmac.compare_digest(expected_signature, SIGNATURE_FROM_HEADER):
     print('Ignoring request with invalid signature')
     return
 ```
+And javascript (node):
+```js
+const * as crypto from 'crypto'
+
+const secret = 'YOUR_SECRET_HERE'
+const expectedSignature = crypto
+    .createHmac('sha256', secret)
+    .update(request.body.payload)
+    .digest('hex')
+const signatureFromHeader = request.headers['x-webhook-signature']
+
+if (signatureFromHeader != expectedSignature) response.status(401).send('Ignoring request with invalid signature')
+```
+
+## Reporting Success
+The endpoint code should return a HTTP response status header. The server recognises statuses `200 OK` to `204 NO_CONTENT` as a successful execution. Alternatively, your endpoint can respond with other statuses in its execution. The webhook execution log shows these as error with additional payload data you supply to diagnose issues.
+
+Go back to the main "Webhooks" tab to view all the webhooks on the stream. Click on a webhook to open the edit menu. The symbol to the left to the description indicates the status of the last webhook request; hover over it to get more information. Here, the green ✔ indicates the last request was successfully sent. The grey circle with an ❕ indicates no requests have been sent yet (you've likely just created the webhook and none of the triggers have happened yet). If the last request failed, you will see a red ❌ which you can hover over to see the error message.
+
+![webhook-list](https://user-images.githubusercontent.com/7717434/126981792-d1a66613-43d9-4992-a8e2-fe692b68198e.png)
 
 ## The Webhook Payload
 
