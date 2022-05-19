@@ -17,13 +17,13 @@ This is a high efficiency getting started step list.
 ### Steps
 
 1. `$ git clone https://github.com/specklesystems/speckle-server.git`
-1. `$ npm install`
-1. `$ npx lerna bootstrap`
-1. `$ npx lerna run build`
-1. `$ docker-compose -f docker-compose-deps.yml up -d`
-1. `$ cp packages/server/.env-example packages/server/.env`
-1. `$ cp packages/server/.env.test-example packages/server/.env.test`
-1. `$ npx lerna run dev --parallel`
+2. `$ corepack enable`
+3. `$ yarn`
+4. `$ yarn build`
+5. `$ docker-compose -f docker-compose-deps.yml up -d`
+6. `$ cp packages/server/.env-example packages/server/.env`
+7. `$ cp packages/server/.env.test-example packages/server/.env.test`
+8. `$ yarn dev`
 
 Wait for the frontend to build, and voila, you have a fully functional Speckle Server running at [http://localhost:3000](http://localhost:3000).
 
@@ -35,14 +35,13 @@ Let's step back and see what we did.
 
 1. To clone the repo git with [ssh key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) auth was used.
 You can use https based auth too, and can also gather some bonus points by using the `gh-cli` :D
-1. Install the root level npm packages, you can use the shorthand `$ npm i`
-1. The monorepo is managed by [lerna](https://lerna.js.org/).
-This tool is necessary to create the proper connections between the different packages.
-To get things set up first we need to bootstrap the project dependencies with lerna. This step will install all required npm dependencies for all the packages.
-`$ npx lerna bootstrap`. Please note, that this step **can take a while** to finish.
+1. Nodejs versions ^16 now come with a package manager manager bundled named `corepack`. It enables us to use yarn without actually installing anything.
+1. The monorepo is managed by [yarn workspaces](https://yarnpkg.com/features/workspaces).
+This way the package manager handles dependencies of the monorepo and the proper connections between the different packages.
+Running `$ yarn` a shorthand for `$ yarn install` bootstraps the repo.
 1. Some of the local packages (viewer, object loader) has to be built the first time so that all packages are linked properly. 
-This can be done easily with lerna, where the lerna run command will execute the given npm script in all packages where it exists.
-So running `$ npx lerna run build` triggers all build commands.
+This can be done easily with a yarn script, where the yarn command will execute the given build script in all packages where it exists.
+So running `$ yarn build` triggers all available build commands.
 1. In this step, all the required services are started via docker-compose.
 The `docker-compose-deps.yml` file contains a sensible default setup of all the required non Speckle developed services.
 This config by no means meant to be used in production.
@@ -50,7 +49,7 @@ If you are not running these dependencies via docker-compose, please make sure, 
 1. In this step the provided example file is copied to a `.env` file with keeping the default values.
 Here again we are providing a set of sensible defaults that work out of the box if you follow this guide, but do make sure to reflect any changes you make in you environment.
 1. Similarly to the last step, we're providing sensible defaults for env variables that are applied when running tests or running the server in test mode
-1. Just like above, we use lerna to run the `dev` script in each package. This is probably not the most efficient way, since it starts more package in development mode, than needed, but its the easiest command that gets a server up and running. When developing, you probably want to run each component separately.
+1. Just like above, we use yarn to run the `dev` script in each package. This is probably not the most efficient way, since it starts more package in development mode, than needed, but its the easiest command that gets a server up and running. When developing, you probably want to run each component separately.
 
 ::: tip IMPORTANT
 Don't forget to set up the variables in the `.env` & `.env.test` files according to your deployment
