@@ -60,6 +60,28 @@ The list of available parameters comes from the current elements in the model. I
 
 ![image-20210303201525577](./img-revit/image-20210303201525577.png)
 
+## Linked Models
+
+The Revit connector supports Linked Models, here's how it works.
+
+### Sending Linked Models
+
+First enable support for linked models when sending from the _Send tab_ > click on _Advanced Settings_ > _Send Linked Models_.
+Then use the selection filters as you would normally would and any relevant item from the linked models will be sent as well.
+For instance: _Everything_ will send all the models, _Category_ filters will work in conjunction with any linked model elements and _Selection_ too.
+
+![linkedmodels](https://user-images.githubusercontent.com/2679513/169900594-52826070-6071-430d-9caf-8a97d3d39b64.gif)
+
+### Receiving Linked Models
+
+First enable support for linked models when receiving from the _Receive tab_ > click on _Advanced Settings_ > _Receive Linked Models_.
+On receiving we do not attempt to modify in any way linked model files, but when the _Receive Linked Models_ setting is turned on the linked model elements will be received in the current document as any other element.
+
+### Current Limitations
+
+Additional transformations applied to Linked Models after they have been imported are not taken into account.
+Please always ensure your Revit Models are aligned without the need for any additional transformations when working with Speckle.
+
 ## Supported Elements
 
 - [Revit Support Tables](/user/support-tables.html#revit)
