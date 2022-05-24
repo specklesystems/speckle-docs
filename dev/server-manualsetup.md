@@ -15,7 +15,7 @@ If you want to run your own instance, there are multiple ways to achieve this:
 
 ### Dependencies
 
-The Speckle server needs two services available over the network:
+The Speckle server needs these services available over the network:
 - PostgreSQL (tested with v12 and v13)
 - Redis
 - Optional: S3-compatible Object Storage
