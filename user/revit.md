@@ -60,6 +60,18 @@ The list of available parameters comes from the current elements in the model. I
 
 ![image-20210303201525577](./img-revit/image-20210303201525577.png)
 
+### Receive Modes
+
+When receiving from a Stream that has been received before, you might want to update, create or ignore elements that were already created before.
+This is when the **Receive Mode** setting comes in! This is how it works:
+
+- update: updates elements if they already exist and creates missing ones (current behavior in Revit)
+- create: always creates new elements even if pre-existing (current behavior in Rhino)
+- ignore: skips elements if they already exist
+- update only: only updates existing elements (coming soon)
+
+![Image](https://user-images.githubusercontent.com/2679513/170976936-012a6818-3a3d-4e2b-ac9b-e74ad8c4f381.png)
+
 ## Linked Models
 
 The Revit connector supports Linked Models, here's how it works.
