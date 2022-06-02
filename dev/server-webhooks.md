@@ -66,6 +66,12 @@ Go back to the main "Webhooks" tab to view all the webhooks on the stream. Click
 
 ![webhook-list](https://user-images.githubusercontent.com/7717434/126981792-d1a66613-43d9-4992-a8e2-fe692b68198e.png)
 
+## Avoid Looping
+| **:warning: Warning:** Any time you make a commit in response to a triggered stream webhook event, you are at risk of creating an infinite loop on both your handling code and your speckle server. Use caution and ensure that you safely exit your handling code when no change is needed. |
+| --- |
+
+If you happen to have triggered an infinite loop, either make your endpoint inaccessible, deploy new code or delete the webhook on the server stream.
+
 ## The Webhook Payload
 
 Here is an example of what a webhook payload looks like. The structure will always be the same, except for the `["event"]["data"]` which will change depending on the event that triggered the request.
