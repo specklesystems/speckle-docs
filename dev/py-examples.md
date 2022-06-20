@@ -203,6 +203,7 @@ You can also use the GraphQL API to send and receive objects. However, note that
 
 ```py
 from specklepy.objects import Base
+from specklepy.serialization.base_object_serializer import BaseObjectSerializer
 
 # create a test base object
 test_base = Base()
