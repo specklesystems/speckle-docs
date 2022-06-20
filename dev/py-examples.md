@@ -154,7 +154,7 @@ commit = client.commit.get("stream_id", "commit_id")
 
 # create a commit
 commit_id = client.commit.create(
-    stream_id="stream_id", obj_id="object_id", message="this is a commit message to describe the commit")
+    stream_id="stream_id", object_id="object_id", message="this is a commit message to describe the commit")
 
 # delete a commit
 deleted = client.commit.delete("stream_id", "commit_id")
