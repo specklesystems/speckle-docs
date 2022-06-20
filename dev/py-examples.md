@@ -134,7 +134,7 @@ Interacting with streams is designed to be intuitive and evocative of SpecklePy 
 stream_list = client.stream.list()
 
 # search your streams
-results = client.user.search("mech")
+results = client.stream.search("mech")
 
 # create a stream
 new_stream_id = client.stream.create(name="a shiny new stream")
