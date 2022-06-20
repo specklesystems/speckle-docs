@@ -192,7 +192,7 @@ hash = operations.send(base=base_obj, transports=[transport])
 # if the object had detached objects, you can see these as well
 saved_objects = transport.objects # a dict with the obj hash as the key
 
-# this receives and object from the given transport, deserialises it,
+# this receives an object from the given transport, deserialises it,
 # and recomposes it into a base object.
 # you can optionally provide a local_transport which will default to
 # the `SQLiteTransport` pointing at your local cache
