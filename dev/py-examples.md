@@ -1,6 +1,6 @@
 # Examples
 
-This doc will show you the basics of how to send and receive data and give you an overview of SpecklePy functionality. However, it is not comprehensive. Feel free to explore the repo's [tests](https://github.com/specklesystems/speckle-py/tree/main/tests) for even more examples.
+This doc will show you the basics of sending and receiving data and give you an overview of SpecklePy functionality. However, it is not comprehensive. For more examples, please explore the repo's [tests](https://github.com/specklesystems/speckle-py/tree/main/tests).
 
 ## Sending & Receiving
 
@@ -35,7 +35,7 @@ new_stream_id = client.stream.create(name="a shiny new stream")
 new_stream = client.stream.get(id=new_stream_id)
 ```
 
-Next, we'll need some data to send. To make it more interesting, let's extend `Base` to create a simple block. All your custom objects should inherit from `Base` to ensure serialization will work as expected.
+Next, we'll need some data to send. Let's extend `Base` to create a simple block to make it more interesting. All your custom objects should inherit from `Base` to ensure that serialization will work as expected.
 
 ```py
 from specklepy.objects import Base
@@ -91,9 +91,9 @@ received_base = operations.receive(obj_id=hash, remote_transport=transport)
 
 ### Short Hand: The Stream Wrapper
 
-You've just seen how to simply send and receive objects using the `SpeckleClient` and a `ServerTransport`. Since v2.2.6, there is a handy helper you can use to get a client and a transport from a stream URL - the `StreamWrapper`!
+You've just seen how to simply send and receive objects using the `SpeckleClient` and a `ServerTransport`. Since v2.2.6, you can use a handy helper to get a client and a transport from a stream URL - the `StreamWrapper`!
 
-Any URL to a stream, a branch, a commit, an object, or your globals will be parsed by the `StreamWrapper`. If you have a local account for the stream you provided, you can get an authenticated client and transport using the helper methods:
+The `StreamWrapper` can parse any URL pointing to a stream, branch, commit, object, or globals. If you have a local account for the stream you provided, you can get an authenticated client and transport using the helper methods:
 
 ```py
 from specklepy.api.wrapper import StreamWrapper
@@ -178,7 +178,7 @@ The `operations` include four main methods:
 3. `serialize`: serialize a given `Base` object
 4. `deserialize`: deserializes JSON into an object into the type specified in `speckle_type` (defaults to a vanilla `Base` if the type can't be found)
 
-Let's look at sending and receiving. You will need to provide a `transport` to indicate where the objects should be sent/received from. When sending, you can provide multiple transports to send the same object to multiple places simultaneously. At the moment, we have three types of 'transport': `SQLiteTransport`, `MemoryTransport`, and `ServerTransport`. If you'd like to learn more about Transports in Speckle 2.0, have a look [here](/dev/transports).
+Let's look at sending and receiving. You will need to provide a `transport` to indicate where the objects should be sent to/received from. When sending, you can provide multiple transports to send the same object to multiple places simultaneously. Currently, we have three types of 'transport': `SQLiteTransport`, `MemoryTransport`, and `ServerTransport`. If you'd like to learn more about Transports in Speckle 2.0, have a look [here](/dev/transports).
 
 ```py
 from specklepy.transports.memory import MemoryTransport
@@ -250,13 +250,13 @@ The `Base` class has a few handy instance methods for identifying your object's 
 - `get_dynamic_member_names()` gets all of the names of the dynamic attributes of the object 
 - `get_member_names()` gets a list of all the attributes on the object, dynamic or not
 
-Each `Base` object has an `id` (a unique hash) as it does in the other SDKs. This field is only populated if the `Base` has been previously serialized. If you really need the hash, you can get it using the `get_id()` method. Be aware that if the `id` is not populated, this call will fully serialize the object to create the `id`! By default, the hash will be generated without decomposing the object. However, you can pass `decompose=True` as an argument if you want the decomposed `id`.
+Each `Base` object has an `id` (a unique hash) as it does in the other SDKs. This field is only populated if the `Base` has been previously serialized. If you *really* need the hash, you can get it using the `get_id()` method. Be aware that this call will fully serialize the object to create the `id` if the `id` is not populated! By default, the hash will be generated without decomposing the object. However, you can pass `decompose=True` as an argument if you want the decomposed `id`.
 
 #### Subclassing Base
 
-The `Base` class can be subclassed to create your own custom objects. These are automatically added to a class-level registry which is simply a dictionary with the type name as the key. The type is automatically populated by the `speckle_type` attribute but can be overwritten when writing your class.
+The `Base` class can be subclassed to create your own custom objects. These are automatically added to a class-level registry, simply a dictionary with the type name as the key. The type is automatically populated by the `speckle_type` attribute but can be overwritten when writing your class.
 
-Note that all typed attributes of a class **must be initialized with a non-mutable default value** or a value that you will only change by reassignment. If you'd like to have mutable defaults, you should write an `__init__` method for the class to set these (see the `Block` example in the first section).
+Note that all typed attributes of a class **must be initialized with a non-mutable default value** or a value that you will only change by reassignment. If you'd like mutable defaults, you should write an `__init__` method for the class to set these (see the `Block` example in the first section).
 
 ```py
 from specklepy.objects import Base
@@ -324,7 +324,7 @@ class FakeMesh(Base, chunkable=CHUNKABLE_PROPS, detachable=DETACHABLE):
 
 #### Serialization
 
-The `BaseObjectSerializer` is what's used behind the scenes in the `operations` for decomposing and serializing `Base` objects so they can be sent/received to the server. You probably won't ever need to use it directly. However, if you want, you can use it to get the id (hash) and a serializable object representation of the decomposed `Base`. You can learn more about the Speckle `Base` object [here](/dev/base) and the decomposition API [here](/dev/decomposition).
+The `BaseObjectSerializer` is used behind the scenes in the `operations` for decomposing and serializing `Base` objects so they can be sent/received to the server. You probably won't ever need to use it directly. However, if you want, you can use it to get the id (hash) and a serializable object representation of the decomposed `Base`. You can learn more about the Speckle `Base` object [here](/dev/base) and the decomposition API [here](/dev/decomposition).
 
 ```py
 from specklepy.objects import Base
