@@ -260,7 +260,7 @@ Note that all typed attributes of a class **must be initialised with a non-mutab
 
 ```py
 from specklepy.objects import Base
-from specklepy.objects.point import Point
+from specklepy.objects.geometry import Point
 
 class Line(Base):
     start: Point = None
