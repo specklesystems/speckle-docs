@@ -275,7 +275,7 @@ class AlternativeLine(Base, speckle_type="Line_Two"):
     b: Point = None
 
 # look, a new custom line!
-line = Line(end=Point(1, 0, 2))
+line = Line(end=Point(x=1, y=0, z=2))
 
 # adding dynamic attributes as normal
 line.blah = "blah"
