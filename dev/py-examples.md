@@ -286,6 +286,7 @@ You can also mark typed attributes as detachable or chunkable by updating the in
 
 ```py
 from specklepy.objects import Base
+from typing import List
 
 # members that are chunked upon sending are stored in a dictionary
 # with the name as the key and the maximum chunk size as the value
