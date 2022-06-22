@@ -185,6 +185,7 @@ from specklepy.transports.memory import MemoryTransport
 from specklepy.api import operations
 
 transport = MemoryTransport()
+base_obj = Base()
 
 # this serialises the object and sends it to the transport
 hash = operations.send(base=base_obj, transports=[transport])
