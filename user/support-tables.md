@@ -264,10 +264,11 @@ Subassemblies and Assemblies are not supported.
 | BlockDefinition |  ✅  |   ✅    | `Complete` |
 | Hatch           |  ✅  |   ✅    | `Complete` |
 | Text            |  ✅  |   ✅    | `Complete` |
+| Dimension       |  ✅  |   ✅    | `Complete` |
 
 ### Unsupported Elements
 
-Labels, dimensions, and annotations are not supported, as well as any unlisted element. Dynamic blocks are not supported at this time, and there is a known issue with blocks containing text that is not updated with field values.
+Labels and tables are not supported, as well as any unlisted element. There is a known issue with blocks containing text that is not updated with field values.
 
 ## Blender
 
