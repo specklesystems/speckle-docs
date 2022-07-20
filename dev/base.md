@@ -49,6 +49,8 @@ myCommit["RhinoLayer-B"] = new List<Point>() { ... };
 myCommit["RhinoLayer-A:RhinoLayer-C"] = new List<String>() { ... };
 ```
 
+:raised_hand: All property names will need to be serializable and some characters prevent this. With dot notation this is more obvious, but using the dictionary method, invalid prop names will only show up at serialization time. There is a helper function `IsPropNameValid` within `DynamicBase` that you could use to check whenever you are dealing with handling indeterminate properties from other software. It also checks for double special characters or overwritten instance property names.
+
 ### Inherited Usage
 
 Of course, you can define custom classes that inherit from `Base` and define strongly typed properties in there, which can then be accessed as usual; these can easily coexist alongside dynamic ones.
