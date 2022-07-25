@@ -73,7 +73,7 @@ Let's say you have a very large model you want to add to a single stream, but yo
 
 Or perhaps you have a complex model that encompasses a site with multiple separate buildings. You could still contain the whole model in a single stream, but create a separate branch for each building: `Building A`, `Building B`, `Building C`.
 
-Maybe you're working on a smaller scale and you would like to present a different facade options to the client. The stream could be split into `Option A`, `Option B`, and `Option C` which you could then easily switch between to explore the different options in your next meeting.
+Maybe you're working on a smaller scale and you would like to present different facade options to the client. The stream could be split into `Option A`, `Option B`, and `Option C` which you could then easily switch between to explore the different options in your next meeting.
 
 If you happen to be familiar with `git`, you might be wondering _"Can I also merge the content of a branch into another one?"_. The answer is yes, but currently that can only happen inside one of the AEC software for which we have connectors. The merged data can then be re-sent to an existing or new branch.
 
