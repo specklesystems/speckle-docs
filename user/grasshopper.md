@@ -42,11 +42,11 @@ In addition to the nodes in the `Speckle 2` tab, the Speckle Grasshopper connect
 
 ::: tip Too many tabs?
 
-We know your ribbon tab space is precious (as Grasshopper doesn't allow for horizontal scrolling of tabs...) and that in all likelyhood, you will only need a couple of these nodes available at any given time.
+We know your ribbon tab space is precious (as Grasshopper doesn't allow for horizontal scrolling of tabs...) and that in all likelihood, you will only need a couple of these nodes available at any given time.
 
 You can choose which of these tabs you want to display in your Grasshopper instance using the `Speckle 2` top-menu.
 
-Just go to `Speckle 2 -> Tabs` and disable the ones you do not need.
+Just go to `Speckle 2 -> Tabs` and enable the ones you do need. By default, all these extra tabs will be deactivated.
 
 ![Grasshopper Tabs menu](./img-gh/gh-speckleMenu-tabs.png)
 
@@ -196,7 +196,7 @@ Every property can also be specified as _detached/non-detached_. When a property
 
 Every property can also be flagged as _optional_. This will allow you to create new objects with _incomplete_ data.
 
-Please Note: There is a limitation on this behaviour. At least one of the node's inputs must be _non-optional_.
+Please Note: There is a limitation on this behavior. At least one of the node's inputs must be _non-optional_.
 
 ![Optional menu](./img-gh/menu-Optional.gif)
 
@@ -214,7 +214,7 @@ When you activate any of the previous options, the corresponding icon will be sh
 
 ## Grasshopper BIM
 
-Speckle 2.0 lets you create _Speckle BIM Elements_ from Rhino Geometry, so you can send objects like lines and surfaces as beams and flors! This means you can bring in your Rhino geometry directly as native Revit family elements using Grasshopper 💥
+Speckle 2.0 lets you create _Speckle BIM Elements_ from Rhino Geometry, so you can send objects like lines and surfaces as beams and floors! This means you can bring in your Rhino geometry directly as native Revit family elements using Grasshopper 💥
 
 ![Grasshopper BIM](./img-gh/gh-bim.png)
 
@@ -236,7 +236,7 @@ The functionality is currently split into 2 distinct categories: `Speckle 2 BIM`
 
 The `Speckle 2 BIM` tab holds all components that can create _generic_ BIM elements. These are the most basic BIM elements supported by Speckle, and consist on the minimum amount of information required to make them work.
 
-![Examle of simple floor, wall and level](./img-gh/gh-bim-BuiltElements.png)
+![Example of simple floor, wall and level](./img-gh/gh-bim-BuiltElements.png)
 
 ### The "Speckle 2 Revit" Tab
 
@@ -311,9 +311,9 @@ This option allows you to switch between generating `Speckle BIM` elements direc
 - When targeting exclusively BIM applications, it makes sense to use the _default setting_ (`Convert as Schema Object`), as the data will be organised in a way that is relatable to BIM users (such as beams, columns, slabs, etc...)
 - When your data is going to be consumed primarily as geometry in other applications, but needs to play nice in some BIM application as well, then it may make more sense to treat this objects as **geometry first**, and attach the BIM information to that geometry.
 
-They will both be received as **native BIM elements** in any target BIM application, so esentially, there is no difference between the two in the way they will behave, and you can even have both types of objects mixed in the same commit.
+They will both be received as **native BIM elements** in any target BIM application, so essentially, there is no difference between the two in the way they will behave, and you can even have both types of objects mixed in the same commit.
 
-When the **Convert `Geometry` with `Schema` attached** option is enabled, the output will display a visual hint to indicate to the user this behaviour is ocurring, and allow to distinguish between nodes with different state options active:
+When the **Convert `Geometry` with `Schema` attached** option is enabled, the output will display a visual hint to indicate to the user this behavior is occurring, and allow to distinguish between nodes with different state options active:
 
 ![Output visual hint](./img-gh/gh-schema-convertOption-nodesSimple.png)
 
@@ -323,9 +323,9 @@ You can _expand_ the generated objects further to inspect differences:
 
 As you can see, the resulting objects are quite different, but contain essentially the same information (one as `Geometry -> BIM Element` and the other as `BIM Element -> Geometry`).
 
-##### Setting the default behaviour
+##### Setting the default behavior
 
-By default, any `BIM Element` node uses the `Convert to Schema Object` option. You can modify this behaviour in your Grasshopper installation using the `Speckle 2` menu in the top menu bar.
+By default, any `BIM Element` node uses the `Convert to Schema Object` option. You can modify this behavior in your Grasshopper installation using the `Speckle 2` menu in the top menu bar.
 
 ![Default conversion option](./img-gh/gh-schema-defaultconversion-menu.png)
 
@@ -535,7 +535,7 @@ The **Receive Node** fetches data from a specified `Stream` or any other valid `
 
 ##### Expand received object
 
-**Enabled by default**. This will expand the received object to expose it's properties. If the specific speckle object has a supported conversion, it will be converted insted (i.e.: a point, line, mesh)
+**Enabled by default**. This will expand the received object to expose it's properties. If the specific speckle object has a supported conversion, it will be converted instead (i.e.: a point, line, mesh)
 
 This option can be disabled in the right-click menu of the Receive node.
 
@@ -639,11 +639,13 @@ This node will create a new Speckle object using a list of `Keys` to be used as 
 
 > Notice when creating list items, the data structure must match. Meaning, the keys and values for each object must start with the same branch index.
 
-### Expand Speckle Object
+### Deconstruct Speckle Object
 
 ![Expand Object node](./img-gh/nodes-expand-object.png)
 
-The **Expand Speckle Object** works in the exact opposite way as the [Create Speckle Object](#create-speckle-object). When a `Base` object is plugged into the input, it will automatically create the outputs for each of the `Base` objects' properties.
+> This node used to be called `Expand Speckle Object`
+
+The **Deconstruct Speckle Object** works in the exact opposite way as the [Create Speckle Object](#create-speckle-object). When a `Base` object is plugged into the input, it will automatically create the outputs for each of the `Base` objects' properties.
 
 <!-- > This node is capable of [Kit Selection](#object-conversion-and-kits) -->
 
@@ -655,6 +657,16 @@ The **Expand Speckle Object** works in the exact opposite way as the [Create Spe
 
 Outputs are dynamically generated according to the specific Base objects that have to be expanded.
 All outputs will appear in alphabetical order regardless on the order they were created/added to the object.
+
+### Get Speckle Object Keys
+
+#### Inputs
+
+- `Speckle Object`: The Speckle object to extract the properties from.
+
+#### Outputs
+
+- `Keys`: The list of keys available for each object as text or, if the option is enabled, a unique list containing all available keys in any of the objects.
 
 ### Extend Speckle Object
 
@@ -670,7 +682,7 @@ The **Extend Speckle Object** node provides a way to add new properties to an al
 You can add or remove inputs just like you would with the `Create Speckle Object` node.
 :::
 
-#### Outpus
+#### Outputs
 
 - _Speckle Object_: The extended/updated Speckle `Base` object.
 
@@ -726,7 +738,7 @@ Once an account has been provided, the node will generate a new stream and remem
 
 - _Account_: A Speckle account, provided by the **Accounts Node**.
 
-#### Ouputs
+#### Outputs
 
 - _Stream_: A `Stream` object pointing to the newly created stream.
 
@@ -753,7 +765,7 @@ You can also use a stream URL copied from your browser instead of using this nod
 
 ![Stream list node](./img-gh/nodes-stream-list.png)
 
-The **List Streams** node returns a specified ammount of streams available in an account. For performance reasons, it has been limited to fetching a maximum of 20 streams.
+The **List Streams** node returns a specified amount of streams available in an account. For performance reasons, it has been limited to fetching a maximum of 20 streams.
 
 ::: tip
 You can also use a stream URL copied from your browser instead of using this node
@@ -770,7 +782,7 @@ You can also use a stream URL copied from your browser instead of using this nod
 
 ### Stream details
 
-![Strean details node](./img-gh/nodes-stream-details.png)
+![Stream details node](./img-gh/nodes-stream-details.png)
 
 The **Stream Details** node returns all relevant information related to a specific `Stream`.
 
@@ -780,7 +792,7 @@ The **Stream Details** node returns all relevant information related to a specif
 
 #### Output
 
-- _Stream ID_: The unique `id` that identies the stream.
+- _Stream ID_: The unique `id` that identifies the stream.
 - _Name_: The name of the stream.
 - _Description_: The description of the stream.
 - _Created at_: The date this stream was created.
@@ -868,7 +880,7 @@ Creates a connection to a specific SQLite database.
 
 #### Disk Transport
 
-![Disk tranport](./img-gh/nodes-transport-disk.png)
+![Disk transport](./img-gh/nodes-transport-disk.png)
 
 Creates a connection to a specific file in the computer's disk, where the data will be saved in JSON format.
 
