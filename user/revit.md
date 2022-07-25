@@ -151,6 +151,56 @@ To easily explore on object's data and parameters, our [Speckle Web App](/user/w
 
 ![image-20210303224640764](./img-revit/image-20210303224640764.png)
 
+## Stream Advanced Settings
+
+![Advanced settings button](./img-revit/revit-advancedSettings-button.png)
+
+The `Advanced Settings` page allows you to customize the way Speckle behaves "per-stream".
+
+![Advanced settings page](./img-revit/revit-advancedSettings-view.png)
+
+### Reference point
+
+Allows the user to specify which reference point should be used when sending or receiving data.
+
+Available options are:
+
+- **Internal Origin** (the default option)
+- The **project base** point
+- The **survey point**
+
+### Send/Receive Linked models
+
+![Linked Models setting](./img-revit/revit-advancedSettings-linkedModels.png)
+
+By default, Speckle will only send data from the current model, without including any elements from any _Linked Models_ (if they exist).
+
+Use this option to control when you want to send all the information (including Linked models) and when to receive it.
+
+### Receive objects as Meshes
+
+![Receive as mesh](./img-revit/revit-advancedSettings-directMesh.png)
+
+In some cases, you may just want to receive the exact geometry some other user sent, without trying to convert it into Revit native elements.
+
+In these cases, `Receive objects as Direct Meshes` will force all objects to be `DirectShape` instances.
+
+### Disallow join for elements
+
+![Disallow join](./img-revit/revit-advancedSettings-disallowJoin.png)
+
+### Import Meshes as DXF
+
+![DXF Import options](./img-revit/revit-advancedSettings-dxfImport.png)
+
+Allows to select what type of Mesh import method you'd like to use.
+
+- By default, Speckle will convert any Meshes into Revit native meshes, leading to them appearing with all their internal edges. This may not be desired depending on the geometry and density of the mesh.
+
+- In order to import meshes **without the inner edges**, you can select the `DXF Import` option. This will export the mesh into `DXF` format, and import it into your project. This way of exporting will also preserve colors and materials whenever possible.
+
+- The third option is similar to the second, but it will insert the resulting DXF into a new Family document, that will then be inserted into the project.
+
 ## Scheduler (alpha)
 
 Sometimes you might want to send data to Speckle automatically, based on a few triggers. For this, we have recently added a "Scheduler" functionality to the Revit Connector.
