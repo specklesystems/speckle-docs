@@ -208,6 +208,30 @@ When you activate any of the previous options, the corresponding icon will be sh
 
 :::
 
+#### Renaming inputs
+
+All inputs can be renamed following the normal Grasshopper way. Just right-click the input you wish to rename, and write a new name for it in the first field of the pop-up menu.
+
+![Classic input renaming](./img-gh/gh-cso-rename-classic.gif)
+
+Most of the time, Grasshopper user's may have already named some of their input connections, and you can _inherit_ those names in your input in several ways:
+
+1. Use the `Inherit names` option in each input _right-click menu_.
+   ![Right-click menu "Inherit names" option](./img-gh/gh-cso-rename-menu.gif)
+2. Double-click the input while pressing `shift`.
+   ![Shift + double-click "Inherit names" shortcut](./img-gh/gh-cso-rename-shiftdoubleclick.gif)
+3. Drag a new connection into the parameter while pressing `tab`.
+   ![Tab + drag connection "Inherit names" shortcut](./img-gh/gh-cso-rename-tabdrag.gif)
+
+::: tip
+
+All renaming options and shortcuts are available in any other "variable input" speckle nodes, such as:
+
+- Send node
+- Extend speckle object
+
+:::
+
 ## Supported Elements
 
 - [Grasshopper Support Tables](/user/support-tables.html#grasshopper)
