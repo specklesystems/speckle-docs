@@ -94,19 +94,79 @@ Speckle requires blob storage to save files and other similar data.   You can pr
 - Now navigate to the [API page](https://cloud.digitalocean.com/account/api/tokens) in DigitalOcean.  Next to the `Spaces access keys` heading, click `Generate New Key`.  You will only be able to see the Secret value once, so copy the name, the key and the secret and store this securely.
   ![image](./img/k8s/14_spaces_access_key.png)
 ## Step 3: Deploy dependencies to Kubernetes
+### Step 3a: Create a namespace
+- Kubernetes allows applications to be separated into different namespaces.  We can create a namespace in our Kubernetes cluster with the following:
+```shell
+kubectl create namespace speckle --context YOUR_CLUSTER_CONTEXT_NAME
+```
+
+- Verify that the namespace was created by running the following command. You should see a list of namespaces, including `speckle`.  The other existing namespaces were created by Kubernetes and are required for Kubernetes to run.
+```shell
+kubectl get namespace --context YOUR_CLUSTER_CONTEXT_NAME
+```
 ### Step 3a: Create Secrets
-- Create a secret in your Kubernetes Cluster in the `speckle-test` namespace.  Replace all the items starting with `YOUR_`... with the appropriate value.
+- Create a secret in your Kubernetes Cluster in the `speckle-test` namespace.  Replace all the items starting with `YOUR_`... with the appropriate value. `YOUR_SECRET` should be replaced with a value unique to this cluster, we recommend creating a random value of at least 10 characters long. 
  ```shell
  kubectl create secret generic server-vars \
-  --context YOUR_CLUSTER_CONTEXT_NAME
-  --namespace speckle-test \
+  --context YOUR_CLUSTER_CONTEXT_NAME \
+  --namespace speckle \
   --from-literal=redis_url=YOUR_REDIS_CONNECTION_STRING \
   --from-literal=postgres_url=YOUR_POSTGRES_CONNECTION_STRING \
   --from-literal=s3_secret_key=YOUR_SPACES_SECRET \
+  --from-literal=session_secret=YOUR_SECRET \
+  --from-literal=email_password=YOUR_EMAIL_SERVER_PASSWORD # optional, only required if you wish to enable email invitations
  ```
+
+- You can verify that your secret was create correctly by running:
+  ```shell
+  kubectl describe secret secret-vars --context YOUR_CLUSTER_CONTEXT_NAME --namespace speckle
+  ```
   ![image](./img/k8s/15_secrets.png)
 
-- Priority Classes #TODO
+- To view the contents of an individual secret, you can run the following replacing `redis_url` with the key you require:
+```shell
+kubectl get secret server-vars --context YOUR_CLUSTER_CONTEXT_NAME \
+  --namespace speckle \
+  --output jsonpath='{.data.redis_url}' | base64 --decode
+```
+
+- Should you need to amend any values after creating the secret, use the following command. More information about working with secrets can be found on the [Kubernetes website](https://kubernetes.io/docs/concepts/configuration/secret/#editing-a-secret).
+  ```shell
+  kubectl edit secrets server-vars --context YOUR_CLUSTER_CONTEXT_NAME --namespace speckle-test
+  ```
+
+### 3b: Priority Classes
+
+If Kubernetes ever begins to run out of resources (such as processor or memory) on a node then Kubernetes will have to terminate some of the processes.  Kubernetes decides which processes will be terminated based on their priority.  Here we will tell Kubernetes which priority that Speckle will have.
+
+- Run the following command:
+  ```shell
+  cat <<'EOF' | kubectl create  --context YOUR_CLUSTER_CONTEXT_NAME --namespace speckle --filename -
+  apiVersion: scheduling.k8s.io/v1
+  kind: PriorityClass
+  metadata:
+    name: high-priority
+  value: 100
+  globalDefault: false
+  description: "High priority (100) for business-critical services"
+  ---
+  apiVersion: scheduling.k8s.io/v1
+  kind: PriorityClass
+  metadata:
+    name: medium-priority
+  value: 50
+  globalDefault: true
+  description: "Medium priority (50) - dev/test services"
+  ---
+  apiVersion: scheduling.k8s.io/v1
+  kind: PriorityClass
+  metadata:
+    name: low-priority
+  value: -100
+  globalDefault: false
+  description: "Low priority (-100) - Non-critical microservices"
+  EOF
+  ```
   ![image](./img/k8s/16_priority_classes.png)
 
 - CertManager (optional) #TODO
