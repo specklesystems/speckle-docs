@@ -19,7 +19,7 @@ If you need help deploying a production server, [we can help](https://speckle.sy
 - [Required] A [DigitalOcean](https://www.digitalocean.com/) account. Please note that this guide will create resources which may incur a charge on DigitalOcean.
 - [Required][helm](https://helm.sh/docs/intro/install/) installed
 - [Required][kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) installed
-- [Optional] A domain name (to use https encryption)
+- [Required] A domain name (to enable access from the internet, and to create a certificate for https encryption)
 - [Optional] An email service provider account of your choice (to allow the server to send emails)
 - [Optional] An authentication service of your choice (to allow the server to authenticate users)
 - [Optional] The [DigitalOcean client, `doctl`](https://docs.digitalocean.com/reference/doctl/how-to/install/), installed on your local machine
@@ -169,13 +169,74 @@ If Kubernetes ever begins to run out of resources (such as processor or memory) 
   ```
   ![image](./img/k8s/16_priority_classes.png)
 
-- CertManager (optional) #TODO
+### 3c CertManager
+
+To allow secure (https) access to your Speckle server from the internet, we have to provide a means of creating a TLS (X.509) certificate.  This certificate will have to be renewed and kept up to date. To automate this, we will install CertManager and connect it to a Certificate Authority. CertManager will create a new certificate, request the Certificate Authority signs it and any renewals when required.  The Certificate Authority in our case will be [Let's Encrypt](https://letsencrypt.org/).
+
+- We first need to let helm know where CertManager can be found:
+```shell
+helm repo add jetstack https://charts.jetstack.io
+```
+
+- Then update helm so it knows what the newly added repo contains
+```shell
+helm repo update
+```
+
+- Deploy the CertManager helm release in a new namespace
+```shell
+helm upgrade cert-manager jetstack/cert-manager --namespace cert-manager --version v1.8.0 --set installCRDs=true --install --create-namespace --kube-context do-ams3-k8s-ams3-dev-iain
+```
   ![image](./img/k8s/17_certmanager.png)
 
-- Ingress (optional) #TODO
+- We now need to tell CertManager which Certificate Authority should be issuing the certificate. We will deploy a CertIssuer. Run the following command, replacing `YOUR_EMAIL_ADDRESS` and `YOUR_CLUSTER_CONTEXT_NAME` with the appropriate values.  Please note that this targets the staging issuer of letsencrypt, which is recommended when testing a new system.  A production system will need to target 
+```shell
+cat <<'EOF' | kubectl create --context YOUR_CLUSTER_CONTEXT_NAME --namespace cert-manager --filename -
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+ name: letsencrypt-staging
+spec:
+ acme:
+   # The ACME server URL
+   server: https://acme-staging-v02.api.letsencrypt.org/directory
+   # Email address used for ACME registration
+   email: YOUR_EMAIL_ADDRESS
+   # Name of a secret used to store the ACME account private key
+   privateKeySecretRef:
+     name: letsencrypt-staging
+   # Enable the HTTP-01 challenge provider
+   solvers:
+   - http01:
+       ingress:
+         class:  nginx
+EOF
+```
+  ![image](./img/k8s/18_certmanager_cluster_issuer.png)
+
+- We can verify that this worked by running the following command. Within the response it should state that the message was "_The ACME account was registered with the ACME server_".
+```shell
+kubectl describe clusterissuer.cert-manager.io/letsencrypt-staging --namespace cert-manager --context
+```
+  ![image](./img/k8s/18_certmanager_account_registered.png)
+### 3d Ingress (optional) #TODO
+- 
+```shell
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+```
+
+- Then update helm so it knows what the newly added repo contains
+```shell
+helm repo update
+```
+
+- helm upgrade ingress-nginx ingress-nginx \
+  --namespace ingress-nginx \
+  --install --create-namespace \
+  --set controller.annotations."acme\.cert-manager\.io/http01-edit-in-place"=true
   ![image](./img/k8s/18_ingress.png)
 
-## Step 3: Configure your deployment
+## Step 4: Configure your deployment
 
 - [Download the `values.yaml` file from the Helm chart repository](https://raw.githubusercontent.com/specklesystems/helm/main/charts/speckle-server/values.yaml) and save it to a directory on your local machine, we will be editing and using this file in the following steps.
 
@@ -195,10 +256,15 @@ helm repo add speckle https://specklesystems.github.io/helm
 - You should see something like this:
   ![image](./img/k8s/15_add_helm_repo.png)
 
+- Then update helm so it knows what the newly added repo contains
+```shell
+helm repo update
+```
+
 - Run the following command to deploy the Helm chart to your Kubernetes cluster configured with the values you configured in the prior step.  Replace `YOUR_CLUSTER_CONTEXT_NAME` with the name of your cluster.
 
 ```shell
-helm install my-speckle-server speckle/speckle-server --values values.yaml --kube-context YOUR_CLUSTER_CONTEXT_NAME
+helm upgrade my-speckle-server speckle/speckle-server --values values.yaml --namespace speckle --install --create-namespace --kube-context YOUR_CLUSTER_CONTEXT_NAME
 ```
 
 - After configuration is done, you should see this success message:
