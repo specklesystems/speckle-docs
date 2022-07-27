@@ -189,6 +189,16 @@ If you'd prefer to use the command line instead of the toolbar buttons, refer to
 4. Receive the geometry in Revit: if you're unfamiliar with how to do this, check out the How To Get Started with Revit docs. The curve will be created as a default duct type.
 5. Transform your rhino curve, and resend it to Revit - your duct will automatically update!
 
+### Creating Topography
+
+**Command:** *CreateTopography* 
+
+1. Create or select open meshes.
+2. Click on the Speckle BIM Topography button and press Enter. Check your object's User Attribute Text to confirm the Speckle BIM tag was successfully applied.
+3. Send the geometry with Speckle: if you're unfamiliar with how to do this, check out the How To Get Started with Rhino docs.
+4. Receive the geometry in Revit: if you're unfamiliar with how to do this, check out the How To Get Started with Revit docs. The mesh will be created as a default topography type.
+5. Transform your rhino mesh, and resend it to Revit - your topography will automatically update!
+
 ### Creating Face Walls
 
 **Command:** *CreateFaceWall* 
