@@ -48,6 +48,7 @@ Almost all geometric elements are supported by the Rhino connector. This include
 | PointCloud      |  ✅  |   ✅    |  `Complete`   |
 | Hatch           |  ✅  |   ✅    |  `Complete`   |
 | Text            |  ✅  |   ✅    |  `Complete`   |
+| Dimension       |  ✅  |   ✅    |  `Complete`   |
 
 > Speckle supports sending BREPs from Rhino <-> Rhino, and Rhino <-> Revit, with some limitations imposed by Revit's API.
 
