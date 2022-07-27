@@ -28,7 +28,7 @@ If you need help deploying a production server, [we can help](https://speckle.sy
 
 Speckle requires a Postgres database to function, you can provide your own if you have an existing database or follow the following steps to create a new one in DigitalOcean.
 
-- Go to your DigitalOcean dashboard and [create a new Kubernetes cluster](https://cloud.digitalocean.com/kubernetes/clusters/new).  We provided the cluster a name, but otherwise left configuration as per DigitalOcean's recommended defaults. When prompted to select the node count and size, we selected the default of three nodes. Each node with the default 2 vcpu and 4Gb (`s-2vcpu-4gb`). Your usage may vary, and we recommend testing under your typical loads and adjusting by deploying new node-pools.
+- Go to your DigitalOcean dashboard and [create a new Kubernetes cluster](https://cloud.digitalocean.com/kubernetes/clusters/new).  We provided the cluster a name, but otherwise left configuration as per DigitalOcean's recommended defaults. When prompted to select the node count and size, we selected four nodes. Each node with the default 2 vcpu and 4Gb (`s-2vcpu-4gb`). Your usage may vary, and we recommend testing under your typical loads and adjusting by deploying new node-pools.
   ![image](./img/k8s/01_select_node_size.png)
 
 - Configure other options for your Kubernetes cluster and click the `Create Cluster` button. After the cluster is created and initialized, you should see it in your list of kubernetes clusters:
@@ -105,25 +105,28 @@ kubectl create namespace speckle --context YOUR_CLUSTER_CONTEXT_NAME
 kubectl get namespace --context YOUR_CLUSTER_CONTEXT_NAME
 ```
 ### Step 3a: Create Secrets
-- Create a secret in your Kubernetes Cluster in the `speckle-test` namespace.  Replace all the items starting with `YOUR_`... with the appropriate value. `YOUR_SECRET` should be replaced with a value unique to this cluster, we recommend creating a random value of at least 10 characters long. 
+- Create a secret in your Kubernetes Cluster in the `speckle-test` namespace.  Replace all the items starting with `YOUR_`... with the appropriate value. `YOUR_SECRET` should be replaced with a value unique to this cluster, we recommend creating a random value of at least 10 characters long.
+
  ```shell
  kubectl create secret generic server-vars \
-  --context YOUR_CLUSTER_CONTEXT_NAME \
+  --context do-ams3-k8s-ams3-dev-iain \
   --namespace speckle \
-  --from-literal=redis_url=YOUR_REDIS_CONNECTION_STRING \
-  --from-literal=postgres_url=YOUR_POSTGRES_CONNECTION_STRING \
-  --from-literal=s3_secret_key=YOUR_SPACES_SECRET \
-  --from-literal=session_secret=YOUR_SECRET \
-  --from-literal=email_password=YOUR_EMAIL_SERVER_PASSWORD # optional, only required if you wish to enable email invitations
+  --from-literal=redis_url="YOUR_REDIS_CONNECTION_STRING" \
+  --from-literal=postgres_url="YOUR_POSTGRES_CONNECTION_STRING" \
+  --from-literal=s3_secret_key="YOUR_SPACES_SECRET" \
+  --from-literal=session_secret="YOUR_SECRET" \
+  --from-literal=email_password="YOUR_EMAIL_SERVER_PASSWORD" # optional, only required if you wish to enable email invitations
  ```
 
-- You can verify that your secret was create correctly by running:
+- You can verify that your secret was created correctly by running:
+
   ```shell
   kubectl describe secret secret-vars --context YOUR_CLUSTER_CONTEXT_NAME --namespace speckle
   ```
   ![image](./img/k8s/15_secrets.png)
 
 - To view the contents of an individual secret, you can run the following replacing `redis_url` with the key you require:
+
 ```shell
 kubectl get secret server-vars --context YOUR_CLUSTER_CONTEXT_NAME \
   --namespace speckle \
@@ -131,6 +134,7 @@ kubectl get secret server-vars --context YOUR_CLUSTER_CONTEXT_NAME \
 ```
 
 - Should you need to amend any values after creating the secret, use the following command. More information about working with secrets can be found on the [Kubernetes website](https://kubernetes.io/docs/concepts/configuration/secret/#editing-a-secret).
+
   ```shell
   kubectl edit secrets server-vars --context YOUR_CLUSTER_CONTEXT_NAME --namespace speckle-test
   ```
@@ -250,6 +254,7 @@ helm repo update
 - [Download the `values.yaml` file from the Helm chart repository](https://raw.githubusercontent.com/specklesystems/helm/main/charts/speckle-server/values.yaml) and save it as `values.yaml` to the current directory on your local machine. We will be editing and using this file in the following steps.
 
 - Fill in the requested fields and save the file:
+  - `namespace`: required, we are using `speckle` in this guide so change this value
   - `domain`: optional, providing a domain name will use HTTPS to encrypt your data when you send/receive from your Speckle Server if you also installed the CertManager and Ingress in the previous steps.
   - `server.email`: optional, enabling emails will enable extra features like sending invites.  This requires the `email_password` secret to have been set in Step 2.
   - `db.certificate`: required, this can be found by clicking `Download CA certificate` in your database's overview page on DigitalOcean.  You can find your Postgres database by selecting it from the [Database page on DigitalOcean](https://cloud.digitalocean.com/databases).  When entering the data, please be careful with indentation.  We recommend reading [Helm's guide on formatting multiline strings](https://helm.sh/docs/chart_template_guide/yaml_techniques/#strings-in-yaml).
@@ -271,7 +276,7 @@ helm repo add speckle https://specklesystems.github.io/helm
 - You should see something like this:
   ![image](./img/k8s/15_add_helm_repo.png)
 
-- Then update Helm so it knows what the newly added repo contains
+- Then update Helm so it knows what the newly added repository contains:
 ```shell
 helm repo update
 ```
@@ -283,7 +288,7 @@ helm upgrade my-speckle-server speckle/speckle-server \
  --values values.yaml \
  --namespace speckle \
  --install --create-namespace \
- --kube-context YOUR_CLUSTER_CONTEXT_NAME
+ --kube-context do-ams3-k8s-ams3-dev-iain
 ```
 
 - After configuration is done, you should see this success message:
