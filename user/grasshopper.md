@@ -448,7 +448,7 @@ That said, they **will work** inside your Grasshopper definition, but we heavily
    ![](./img-gh/speckle-gh-script-assemblyMenu.png)
 
 3. A new window will appear. Press the `Add` link to select a new library. You'll need to add **two libraries**:
-   1. Find the location of the Speckle Grasshopper connector. It should be in the same library as all your other 3rd party plugins (usually `%appdata%\Grasshopper\Libraries\SpeckleGrasshopper2`) and select `SpeckleCore2.dll`.
+   1. Find the location of the Speckle Rhino+Grasshopper connector. It should be in `%appdata%\McNeel\Rhinoceros\7.0\Plug-ins\SpeckleRhino2 (8dd5f30b-a13d-4a24-abdc-3e05c8c87143)` and select `SpeckleCore2.dll` (make sure to use the right Rhino folder based on your installed version).
    2. Now head to `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\netstandard\v4.0_2.0.0.0__cc7b13ffcd2ddd51` and select `netstandard.dll`
 4. Once done, it should look like this:
 
