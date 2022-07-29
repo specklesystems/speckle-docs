@@ -95,6 +95,8 @@ services:
     restart: always
     ports:
       - "0.0.0.0:80:80"
+    environment:
+      FILE_SIZE_LIMIT_MB: 100
 
   speckle-server:
     image: speckle/speckle-server:2
@@ -122,6 +124,8 @@ services:
       S3_SECRET_KEY: "minioadmin"
       S3_BUCKET: "speckle-server"
       S3_CREATE_BUCKET: "true"
+
+      FILE_SIZE_LIMIT_MB: 100
       
       WAIT_HOSTS: postgres:5432, redis:6379, minio:9000
 
