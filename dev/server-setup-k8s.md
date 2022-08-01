@@ -203,47 +203,47 @@ kubectl get pods --namespace cert-manager --context YOUR_CLUSTER_CONTEXT_NAME
   ![image](./img/k8s/21_certmanager_pods.png)
 
 - We now need to tell CertManager which Certificate Authority should be issuing the certificate. We will deploy a CertIssuer. Run the following command, replacing `YOUR_EMAIL_ADDRESS` and `YOUR_CLUSTER_CONTEXT_NAME` with the appropriate values.  Please note that this targets the staging issuer of letsencrypt, which is recommended when testing a new system.  A production system will need to target the server, `https://acme-staging-v02.api.letsencrypt.org/directory`.
-  ```shell
-  cat <<'EOF' | kubectl create --context YOUR_CLUSTER_CONTEXT_NAME --namespace cert-manager --filename -
-  apiVersion: cert-manager.io/v1
-  kind: ClusterIssuer
-  metadata:
-    name: letsencrypt-staging
-  spec:
-    acme:
-      # The ACME server URL
-      server: https://acme-staging-v02.api.letsencrypt.org/directory
-      # Email address used for ACME registration
-      email: YOUR_EMAIL_ADDRESS
-      # Name of a secret used to store the ACME account private key
-      privateKeySecretRef:
-        name: letsencrypt-staging
-      # Enable the HTTP-01 challenge provider
-      solvers:
-      - http01:
-          ingress:
-            class:  nginx
-  ---
-  apiVersion: cert-manager.io/v1
-  kind: ClusterIssuer
-  metadata:
-    name: letsencrypt-prod
-  spec:
-    acme:
-      # The ACME server URL
-      server: https://acme-staging-v02.api.letsencrypt.org/directory
-      # Email address used for ACME registration
-      email: YOUR_EMAIL_ADDRESS
-      # Name of a secret used to store the ACME account private key
-      privateKeySecretRef:
-        name: letsencrypt-prod
-      # Enable the HTTP-01 challenge provider
-      solvers:
-      - http01:
-          ingress:
-            class:  nginx
-  EOF
-  ```
+```shell
+cat <<'EOF' | kubectl create --context YOUR_CLUSTER_CONTEXT_NAME --namespace cert-manager --filename -
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging
+spec:
+  acme:
+    # The ACME server URL
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    # Email address used for ACME registration
+    email: YOUR_EMAIL_ADDRESS
+    # Name of a secret used to store the ACME account private key
+    privateKeySecretRef:
+      name: letsencrypt-staging
+    # Enable the HTTP-01 challenge provider
+    solvers:
+    - http01:
+        ingress:
+          class:  nginx
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    # The ACME server URL
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    # Email address used for ACME registration
+    email: YOUR_EMAIL_ADDRESS
+    # Name of a secret used to store the ACME account private key
+    privateKeySecretRef:
+      name: letsencrypt-prod
+    # Enable the HTTP-01 challenge provider
+    solvers:
+    - http01:
+        ingress:
+          class:  nginx
+EOF
+```
   ![image](./img/k8s/22_certmanager_cluster_issuer.png)
 
 - We can verify that this worked by running the following command. Within the response it should state that the message was "_The ACME account was registered with the ACME server_".
