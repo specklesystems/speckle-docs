@@ -288,18 +288,20 @@ helm repo update
   - `namespace`: required, we are using `speckle` in this guide so change this value
   - `domain`: required, this is the domain name at which your Speckle server will be available.
   - `db.useCertificate`: required, this should be set to true and will force Speckle to use the certificate for Postgres we shall provide in `db.certificate`.
-  - `db.certificate`: required, this can be found by clicking `Download CA certificate` in your database's overview page on DigitalOcean.  You can find your Postgres database by selecting it from the [Database page on DigitalOcean](https://cloud.digitalocean.com/databases).  When entering the data, please be careful with indentation.  We recommend reading [Helm's guide on formatting multiline strings](https://helm.sh/docs/chart_template_guide/yaml_techniques/#strings-in-yaml).
+  - `db.certificate`: required, this can be found by clicking `Download CA certificate` in your database's overview page on DigitalOcean.  You can find your Postgres database by selecting it from the [Database page on DigitalOcean](https://cloud.digitalocean.com/databases).  When entering the data, please use Helm's pipe operator for multiline strings and be careful with indentation.  We recommend reading [Helm's guide on formatting multiline strings](https://helm.sh/docs/chart_template_guide/yaml_techniques/#strings-in-yaml), and refer to the image below for an example of this format.
   - `s3.endpoint`: required, the endpoint can be found in the Settings Page of your DigitalOcean Space.  You can find your Space by selecting it from the [Spaces page on DigitalOcean](https://cloud.digitalocean.com/spaces?i=b49c54).  This value must be prepended with `https://`.
   - `s3.bucket`: required, this is the name of your DigitalOcean space.
   - `s3.access_key`: required, this is the `Key` of your Spaces API key.  You can find this by viewing it from the [Spaces API Key page on DigitalOcean](https://cloud.digitalocean.com/account/api/tokens)
   - `s3.auth.local.enabled`: this is enabled by default.  This requires users to register on your Speckle cluster with a username and password.  If you wish to use a different authorization provider, such as Azure AD, Github, or Google, then set this value to `false`, and amend the relevant section below by enabling that and providing the relevant details where necessary.
   - `server.email`: optional, enabling emails will enable extra features like sending invites.
-    - You will need to set `server.email.enabled` to `true.
+    - You will need to set `server.email.enabled` to `true`.
     - Please set `server.email.host`, `server.email.username`, and optionally depending on your email server `server.email.port`
     - This also requires the `email_password` secret to have been set in [Step 3](#step-3b-create-secrets).
   - `cert_manager_issuer`: optional, the default is set for Let's Encrypt staging api `letsencrypt-staging`.  For production, or if you encounter an issue with certificates, change the value to `letsencrypt-prod`.
 
 The remaining values can be left as their defaults.
+
+  ![image](./img/k8s/37_values_yaml_showing_certificate_formatting.png)
 
 ## Step 5: Deploy Speckle to Kubernetes
 
