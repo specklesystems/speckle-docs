@@ -203,29 +203,47 @@ kubectl get pods --namespace cert-manager --context YOUR_CLUSTER_CONTEXT_NAME
   ![image](./img/k8s/21_certmanager_pods.png)
 
 - We now need to tell CertManager which Certificate Authority should be issuing the certificate. We will deploy a CertIssuer. Run the following command, replacing `YOUR_EMAIL_ADDRESS` and `YOUR_CLUSTER_CONTEXT_NAME` with the appropriate values.  Please note that this targets the staging issuer of letsencrypt, which is recommended when testing a new system.  A production system will need to target the server, `https://acme-staging-v02.api.letsencrypt.org/directory`.
-```shell
-cat <<'EOF' | kubectl create --context YOUR_CLUSTER_CONTEXT_NAME --namespace cert-manager --filename -
-apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
-metadata:
- name: letsencrypt-staging # For production, rename to letsencrypt-prod
-spec:
- acme:
-   # The ACME server URL
-   # For production, change the below value to https://acme-staging-v02.api.letsencrypt.org/directory
-   server: https://acme-staging-v02.api.letsencrypt.org/directory
-   # Email address used for ACME registration
-   email: YOUR_EMAIL_ADDRESS
-   # Name of a secret used to store the ACME account private key
-   privateKeySecretRef:
-     name: letsencrypt-staging
-   # Enable the HTTP-01 challenge provider
-   solvers:
-   - http01:
-       ingress:
-         class:  nginx
-EOF
-```
+  ```shell
+  cat <<'EOF' | kubectl create --context YOUR_CLUSTER_CONTEXT_NAME --namespace cert-manager --filename -
+  apiVersion: cert-manager.io/v1
+  kind: ClusterIssuer
+  metadata:
+  name: letsencrypt-staging
+  spec:
+  acme:
+    # The ACME server URL
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    # Email address used for ACME registration
+    email: YOUR_EMAIL_ADDRESS
+    # Name of a secret used to store the ACME account private key
+    privateKeySecretRef:
+      name: letsencrypt-staging
+    # Enable the HTTP-01 challenge provider
+    solvers:
+    - http01:
+        ingress:
+          class:  nginx
+  ---
+  apiVersion: cert-manager.io/v1
+  kind: ClusterIssuer
+  metadata:
+  name: letsencrypt-prod
+  spec:
+  acme:
+    # The ACME server URL
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    # Email address used for ACME registration
+    email: YOUR_EMAIL_ADDRESS
+    # Name of a secret used to store the ACME account private key
+    privateKeySecretRef:
+      name: letsencrypt-prod
+    # Enable the HTTP-01 challenge provider
+    solvers:
+    - http01:
+        ingress:
+          class:  nginx
+  EOF
+  ```
   ![image](./img/k8s/22_certmanager_cluster_issuer.png)
 
 - We can verify that this worked by running the following command. Within the response it should state that the message was "_The ACME account was registered with the ACME server_".
@@ -276,7 +294,7 @@ helm repo update
   - `s3.bucket`: required, this is the name of your DigitalOcean space.
   - `s3.access_key`: required, this is the `Key` of your Spaces API key.  You can find this by viewing it from the [Spaces API Key page on DigitalOcean](https://cloud.digitalocean.com/account/api/tokens)
   - `s3.auth.local.enabled`: this is enabled by default.  This requires users to register on your Speckle cluster with a username and password.  If you wish to use a different authorization provider, such as Azure AD, Github, or Google, then set this value to `false`, and amend the relevant section below by enabling that and providing the relevant details where necessary.
-  - `cert_manager_issuer`: optional, the default is set for Let's Encrypt staging api.  For production, change the value to `letsencrypt-prod` and amend the ClusterIssuer in [Step 3.d](#3d-certificate-manager).
+  - `cert_manager_issuer`: optional, the default is set for Let's Encrypt staging api `letsencrypt-staging`.  For production, change the value to `letsencrypt-prod`.
 
 The remaining values can be left as their defaults.
 
@@ -358,7 +376,7 @@ You can verify that the certificate was generated correctly by inspecting the Ce
 ![image](./img/k8s/35_inspecting_certificates.png)
 ![image](./img/k8s/36_certificate_details.png)
 
-In this case, our deployment is correct but our browser rightly does not trust Let's Encrypt's staging environment. To resolve this issue, we recommend amending the Certificate to a production certificate.  Please refer to [Step 3.c](#3d-certificate-manager) and [Step 4](#step-4-configure-your-deployment) for notes on how to amend your Speckle deployment to use Let's Encrypt's Production environment.
+In this case, our deployment is correct but our browser rightly does not trust Let's Encrypt's staging environment. To resolve this issue, we recommend amending the Certificate to a production certificate.  Please refer to [Step 4](#step-4-configure-your-deployment) for notes on how to amend your Speckle deployment to use Let's Encrypt's Production environment.
 
 More information about Let's Encrypt's Staging Environment can be found on [Let's Encrypt's website](https://letsencrypt.org/docs/staging-environment/#root-certificates).
 
