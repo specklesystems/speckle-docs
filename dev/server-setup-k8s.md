@@ -76,7 +76,7 @@ Speckle requires a Postgres database to function. You can provide your own if yo
   ![image](./img/k8s/09_postgres_configuration.png)
   ![image](./img/k8s/09_postgres_configuration_02.png)
 
-- From the overview page for your Redis database, click on `Secure this database cluster by restricting access.`.  This will take you to the Trusted Sources panel in the Settings tab. Here we will improve the security of your database by only allowing connections from your Kubernetes cluster.  Type the name of your Kubernetes cluster and add it as a Trusted Source.
+- From the overview page for your Postgres database, click on `Secure this database cluster by restricting access`.  This will take you to the Trusted Sources panel in the Settings tab. Here we will improve the security of your database by only allowing connections from your Kubernetes cluster.  Type the name of your Kubernetes cluster and add it as a Trusted Source.
   ![image](./img/k8s/10_postgres_trusted_source_edit.png)
 
 - In the Overview tab for your Redis database. Select `connection string` from the dropdown, and copy the displayed Connection String. You will require this for when configuring your deployment in [step 4](#step-4-configure-your-deployment).
@@ -123,7 +123,7 @@ kubectl get namespace --context YOUR_CLUSTER_CONTEXT_NAME
 - You can verify that your secret was created correctly by running:
 
   ```shell
-  kubectl describe secret secret-vars --context YOUR_CLUSTER_CONTEXT_NAME --namespace speckle
+  kubectl describe secret server-vars --namespace speckle --context YOUR_CLUSTER_CONTEXT_NAME
   ```
   ![image](./img/k8s/17_secrets.png)
 
@@ -138,7 +138,7 @@ kubectl get secret server-vars --context YOUR_CLUSTER_CONTEXT_NAME \
 - Should you need to amend any values after creating the secret, use the following command. More information about working with secrets can be found on the [Kubernetes website](https://kubernetes.io/docs/concepts/configuration/secret/#editing-a-secret).
 
   ```shell
-  kubectl edit secrets server-vars --context YOUR_CLUSTER_CONTEXT_NAME --namespace speckle-test
+  kubectl edit secrets server-vars --namespace speckle --context YOUR_CLUSTER_CONTEXT_NAME
   ```
 
 ### 3.c: Priority Classes
@@ -147,7 +147,7 @@ If Kubernetes ever begins to run out of resources (such as processor or memory) 
 
 - Run the following command:
   ```shell
-  cat <<'EOF' | kubectl create  --context YOUR_CLUSTER_CONTEXT_NAME --namespace speckle --filename -
+  cat <<'EOF' | kubectl create --context YOUR_CLUSTER_CONTEXT_NAME --namespace speckle --filename -
   apiVersion: scheduling.k8s.io/v1
   kind: PriorityClass
   metadata:
@@ -198,7 +198,7 @@ helm upgrade cert-manager jetstack/cert-manager --namespace cert-manager --versi
 
 - We can verify that this deployed to Kubernetes with the following command:
 ```shell
-kubectl get Pods --context YOUR_CLUSTER_CONTEXT_NAME --namespace cert-manager
+kubectl get pods --namespace cert-manager --context YOUR_CLUSTER_CONTEXT_NAME
 ```
   ![image](./img/k8s/21_certmanager_pods.png)
 
@@ -230,7 +230,8 @@ EOF
 
 - We can verify that this worked by running the following command. Within the response it should state that the message was "_The ACME account was registered with the ACME server_".
 ```shell
-kubectl describe clusterissuer.cert-manager.io/letsencrypt-staging --namespace cert-manager --context
+kubectl describe clusterissuer.cert-manager.io/letsencrypt-staging \
+ --namespace cert-manager --context YOUR_CLUSTER_CONTEXT_NAME
 ```
   ![image](./img/k8s/23_certmanager_account_registered.png)
 ### 3.e: Ingress
@@ -252,10 +253,10 @@ helm repo update
 - Now we can deploy NGINX to our kubernetes cluster. The additional annotation allows CertManager, deployed in the [previous step](#3d-certificate-manager), to advise NGINX as to the certificate to use for https connections.
   ```shell
   helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
-    --namespace ingress-nginx \
-    --kube-context YOUR_CLUSTER_CONTEXT_NAME \
     --install --create-namespace \
-    --set-string controller.podAnnotations."acme\.cert-manager\.io/http01-edit-in-place"=true
+    --set-string controller.podAnnotations."acme\.cert-manager\.io/http01-edit-in-place"=true \
+    --namespace ingress-nginx \
+    --kube-context YOUR_CLUSTER_CONTEXT_NAME
   ```
   ![image](./img/k8s/26_ingress_controller.png)
 
@@ -326,6 +327,8 @@ Initially accessing Speckle may take some time as DigitalOcean has to create a l
 
 - Navigate to your domain registrar's website for your domain name and add a DNS A record. This will allow web browser's to resolve your domain name to the IP of the load balancer.  The domain must match the domain name provided to Speckle in the `values.yaml` file you edited previously.  If DigitalOcean manages your Domain Names, adding a DNS A record using [DigitalOcean's Domain page(https://cloud.digitalocean.com/networking/domains) will look something like the following:
 ![image](./img/k8s/32_domain_a_record.png)
+
+- It may take a moment for the domain name and A Record to be propogated to all relevant DNS servers, and then for Let's Encrypt to be able to reach your domain and generate a certificate.  Please be patient while this is updated.
 
 ## Step 7: Create an account on your Server
 
