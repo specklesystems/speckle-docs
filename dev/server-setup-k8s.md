@@ -208,40 +208,40 @@ kubectl get pods --namespace cert-manager --context YOUR_CLUSTER_CONTEXT_NAME
   apiVersion: cert-manager.io/v1
   kind: ClusterIssuer
   metadata:
-  name: letsencrypt-staging
+    name: letsencrypt-staging
   spec:
-  acme:
-    # The ACME server URL
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
-    # Email address used for ACME registration
-    email: YOUR_EMAIL_ADDRESS
-    # Name of a secret used to store the ACME account private key
-    privateKeySecretRef:
-      name: letsencrypt-staging
-    # Enable the HTTP-01 challenge provider
-    solvers:
-    - http01:
-        ingress:
-          class:  nginx
+    acme:
+      # The ACME server URL
+      server: https://acme-staging-v02.api.letsencrypt.org/directory
+      # Email address used for ACME registration
+      email: YOUR_EMAIL_ADDRESS
+      # Name of a secret used to store the ACME account private key
+      privateKeySecretRef:
+        name: letsencrypt-staging
+      # Enable the HTTP-01 challenge provider
+      solvers:
+      - http01:
+          ingress:
+            class:  nginx
   ---
   apiVersion: cert-manager.io/v1
   kind: ClusterIssuer
   metadata:
-  name: letsencrypt-prod
+    name: letsencrypt-prod
   spec:
-  acme:
-    # The ACME server URL
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
-    # Email address used for ACME registration
-    email: YOUR_EMAIL_ADDRESS
-    # Name of a secret used to store the ACME account private key
-    privateKeySecretRef:
-      name: letsencrypt-prod
-    # Enable the HTTP-01 challenge provider
-    solvers:
-    - http01:
-        ingress:
-          class:  nginx
+    acme:
+      # The ACME server URL
+      server: https://acme-staging-v02.api.letsencrypt.org/directory
+      # Email address used for ACME registration
+      email: YOUR_EMAIL_ADDRESS
+      # Name of a secret used to store the ACME account private key
+      privateKeySecretRef:
+        name: letsencrypt-prod
+      # Enable the HTTP-01 challenge provider
+      solvers:
+      - http01:
+          ingress:
+            class:  nginx
   EOF
   ```
   ![image](./img/k8s/22_certmanager_cluster_issuer.png)
