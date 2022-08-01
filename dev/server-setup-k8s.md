@@ -202,7 +202,7 @@ kubectl get pods --namespace cert-manager --context YOUR_CLUSTER_CONTEXT_NAME
 ```
   ![image](./img/k8s/21_certmanager_pods.png)
 
-- We now need to tell CertManager which Certificate Authority should be issuing the certificate. We will deploy a CertIssuer. Run the following command, replacing `YOUR_EMAIL_ADDRESS` and `YOUR_CLUSTER_CONTEXT_NAME` with the appropriate values.  Please note that this targets the staging issuer of letsencrypt, which is recommended when testing a new system.  A production system will need to target 
+- We now need to tell CertManager which Certificate Authority should be issuing the certificate. We will deploy a CertIssuer. Run the following command, replacing `YOUR_EMAIL_ADDRESS` and `YOUR_CLUSTER_CONTEXT_NAME` with the appropriate values.  Please note that this targets the staging issuer of letsencrypt, which is recommended when testing a new system.  A production system will need to target the server, `https://acme-staging-v02.api.letsencrypt.org/directory`.
 ```shell
 cat <<'EOF' | kubectl create --context YOUR_CLUSTER_CONTEXT_NAME --namespace cert-manager --filename -
 apiVersion: cert-manager.io/v1
