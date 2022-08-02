@@ -176,6 +176,7 @@ module.exports = {
             "server-stream-previews",
             "server-webhooks",
             "server-setup",
+            "server-setup-k8s",
             "server-manualsetup",
             "server-local-dev",
             "tokens",
