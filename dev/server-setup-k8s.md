@@ -281,7 +281,7 @@ cat <<'EOF' | helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
         --install --create-namespace \
         --set-string controller.podAnnotations."acme.cert-manager.io/http01-edit-in-place"=true \
         --namespace ingress-nginx \
-        --kube-context do-ams3-k8s-speckletest-2 \
+        --kube-context YOUR_CLUSTER_CONTEXT_NAME \
         --values - 
 controller:
   replicaCount: 2
