@@ -276,14 +276,24 @@ helm repo update
   ![image](./img/k8s/25_helm_repo_update.png)
 
 - Now we can deploy NGINX to our kubernetes cluster. The additional annotation allows CertManager, deployed in the [previous step](#3d-certificate-manager), to advise NGINX as to the certificate to use for https connections.
-  ```shell
-  helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
-    --install --create-namespace \
-    --set-string controller.podAnnotations."acme\.cert-manager\.io/http01-edit-in-place"=true \
-    --namespace ingress-nginx \
-    --kube-context YOUR_CLUSTER_CONTEXT_NAME
-  ```
-  ![image](./img/k8s/26_ingress_controller.png)
+```shell
+cat <<'EOF' | helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
+        --install --create-namespace \
+        --set-string controller.podAnnotations."acme.cert-manager.io/http01-edit-in-place"=true \
+        --namespace ingress-nginx \
+        --kube-context do-ams3-k8s-speckletest-2 \
+        --values - 
+controller:
+  replicaCount: 2
+  publishService:
+    enabled: true
+  config:
+    http2-max-concurrent-streams: "512"
+    use-http2: "true"
+    keep-alive-requests: "1000"
+EOF
+```
+![image](./img/k8s/26_ingress_controller.png)
 
 - We can ignore the instructions printed out by the NGINX Helm chart as the required resources will be provided by the Speckle Helm chart.
 
