@@ -35,18 +35,13 @@ The plugin allows you to select several layers in your project, and send their g
 
 Only vector and raster based layers are supported. We're looking to improve support for other types of layers in the future.
 
-For vector layers, supported geometries include:
-
-- Point
-- Multipoint
-- Linestring
-- MultiLineString
-- Polyline
-- Multipoliline
-- Poligon
-- Multipolygon
-
 The geometry will be reprojected and sent in a `Project CRS` of your QGIS project. If the chosen Coordinate Reference System is of Geographic type with non-linear units, they will be treated as Meters in other software that do not support such units.
+
+You can received Speckle geometry sent from other software. Currently supported Speckle types for receiving: Point, Line, Polyline, Arc, Circle, Polycurve. 
+
+Properties of the objects upon receiving are stored in the layer attribute table.
+
+You can send you data from QGIS and receive it in CAD in a CAD-friendly location, thanks to option to create custom CRS in QGIS. To do this, you will be required to enter geographic coordinates of the point representing origin point (0, 0, 0) in your CAD project.
 
 ### Using Speckle QGIS
 
@@ -84,11 +79,16 @@ In order to send some data, just follow these steps:
 2. Specify a specific branch to send data to using the dropdown menu.
 3. Select the layers in the file that you wish to send.
 4. (optional) Write a commit message.
+5. (optional) If you want to receive it in a non-GIS software or view in the browser, make sure you set your project to CRS of projected type using Meters as units.
 5. Send the selected layers.
 
 Here's a quick walkthrough of the process.
 
-![Sending data from QGIS](./img-qgis/qgis-sendingData.gif)
+![Sending data from QGIS](./img-qgis/QGIS_03_sending.gif)
+
+If you want to receive the layers later in a non-GIS software at the exact location (e.g. receive a context for your building in London), you can create a custom CRS in QGIS, that will match the global coordinate system from QGIS with the local coordinate system in CAD. Simply enter the geographic coordinates (Lat, Lon) of the point which is the origin (0,0,0) of your CAD environment. 
+
+![Matching coordinates with CAD](./img-qgis/QGIS_04_matching_CAD_coordinates.gif)
 
 #### Viewing the result
 
@@ -98,7 +98,14 @@ Once data has been sent to Speckle, you can view the result by going to your Spe
 
 #### Receiving data
 
-> We're working on enabling receiving data into QGIS and will be released in the near future! Stay tuned in our [Community Forum](https://speckle.community)!
+Steps to receive the data:
+
+1. Select the stream to receive data from
+2. Select the branch
+3. Select specific commit (by default the latest one)
+4. Find the received layers in the new layer group named after stream, branch and commit
+
+[Community Forum](./img-qgis/QGIS_05_receiving.gif)!
 
 ## Feedback
 
