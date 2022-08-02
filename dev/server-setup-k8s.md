@@ -35,16 +35,16 @@ If you need help deploying a production server, [we can help](https://speckle.sy
 - To log into the cluster, follow the getting started guide on the DigitalOcean dashboard for your cluster.  We recommend the automated option of updating your local Kubernetes configuration (kubeconfig) using the [DigitalOcean client, `doctl`](https://docs.digitalocean.com/reference/doctl/how-to/install/).
   ![image](./img/k8s/03_get_kubeconfig.png)
 
-- After downloading the kubernetes config, you can verify that your kubernetes client has the cluster configuration by running the following command.  A list of kubernetes clusters will be printed, your cluster context should have the prefix `do-`. Make a note of the name, you will use this in place of `YOUR_CLUSTER_CONTEXT_NAME` in following steps of this guide.
+- After downloading the kubernetes config, you can verify that your kubernetes client has the cluster configuration by running the following command.  A list of kubernetes clusters will be printed, your cluster context should have the prefix `do-`. Make a note of the name, you will use this in place of `${YOUR_CLUSTER_CONTEXT_NAME}` in most of the following steps of this guide.
  ```shell
  kubectl config get-contexts
  ```
    ![image](./img/k8s/04_show_contexts.png)
 
-- Verify that you can connect to the cluster using kubectl by running the following command to show the nodes you have provisioned. Remember to replace `YOUR_CLUSTER_CONTEXT_NAME` with the name of your cluster.
+- Verify that you can connect to the cluster using kubectl by running the following command to show the nodes you have provisioned. Remember to replace `${YOUR_CLUSTER_CONTEXT_NAME}` with the name of your cluster.
 
  ```shell
- kubectl get nodes --context YOUR_CLUSTER_CONTEXT_NAME 
+ kubectl get nodes --context "${YOUR_CLUSTER_CONTEXT_NAME}"
  ```
  
  - You should see something like the following:
@@ -94,60 +94,60 @@ Speckle requires blob storage to save files and other similar data.   You can pr
   ![image](./img/k8s/14_spaces_access_key.png)
 ## Step 3: Deploy dependencies to Kubernetes
 ### Step 3.a: Create a namespace
-- Kubernetes allows applications to be separated into different namespaces.  We can create a namespace in our Kubernetes cluster with the following:
+- Kubernetes allows applications to be separated into different namespaces.  We can create a namespace in our Kubernetes cluster with the following command.  Replace `${YOUR_CLUSTER_CONTEXT_NAME}` with the name of your cluster.:
 ```shell
-kubectl create namespace speckle --context YOUR_CLUSTER_CONTEXT_NAME
+kubectl create namespace speckle --context "${YOUR_CLUSTER_CONTEXT_NAME}"
 ```
   ![image](./img/k8s/15_create_namespace.png)
 
-- Verify that the namespace was created by running the following command. You should see a list of namespaces, including `speckle`.  The other existing namespaces were created by Kubernetes and are required for Kubernetes to run.
+- Verify that the namespace was created by running the following command. You should see a list of namespaces, including `speckle`.  The other existing namespaces were created by Kubernetes and are required for Kubernetes to run.  Replace `${YOUR_CLUSTER_CONTEXT_NAME}` with the name of your cluster.
 ```shell
-kubectl get namespace --context YOUR_CLUSTER_CONTEXT_NAME
+kubectl get namespace --context "${YOUR_CLUSTER_CONTEXT_NAME}"
 ```
   ![image](./img/k8s/16_get_namespaces.png)
 
 ### Step 3.b: Create Secrets
-- To securely store the connection details of Speckle's dependencies, we will create a secret in the Kubernetes Cluster in the `speckle` namespace.  Replace all the items starting with `YOUR_`... with the appropriate value. `YOUR_SECRET` should be replaced with a value unique to this cluster, we recommend creating a random value of at least 10 characters long.
+- To securely store the connection details of Speckle's dependencies, we will create a secret in the Kubernetes Cluster in the `speckle` namespace.  Replace all the items starting with `${YOUR_...}` with the appropriate value. `${YOUR_SECRET}` should be replaced with a value unique to this cluster, we recommend creating a random value of at least 10 characters long.
 
  ```shell
  kubectl create secret generic server-vars \
-  --context YOUR_CLUSTER_CONTEXT_NAME \
+  --context "${YOUR_CLUSTER_CONTEXT_NAME}" \
   --namespace speckle \
-  --from-literal=redis_url="YOUR_REDIS_CONNECTION_STRING" \
-  --from-literal=postgres_url="YOUR_POSTGRES_CONNECTION_STRING" \
-  --from-literal=s3_secret_key="YOUR_SPACES_SECRET" \
-  --from-literal=session_secret="YOUR_SECRET" \
-  --from-literal=email_password="YOUR_EMAIL_SERVER_PASSWORD" # optional, only required if you wish to enable email invitations
+  --from-literal=redis_url="${YOUR_REDIS_CONNECTION_STRING}" \
+  --from-literal=postgres_url="${YOUR_POSTGRES_CONNECTION_STRING}" \
+  --from-literal=s3_secret_key="${YOUR_SPACES_SECRET}" \
+  --from-literal=session_secret="${YOUR_SECRET}" \
+  --from-literal=email_password="${YOUR_EMAIL_SERVER_PASSWORD}" # optional, only required if you wish to enable email invitations
  ```
 
-- You can verify that your secret was created correctly by running:
+- You can verify that your secret was created correctly by running the following command.  Replace `${YOUR_CLUSTER_CONTEXT_NAME}` with the name of your cluster.:
 
   ```shell
-  kubectl describe secret server-vars --namespace speckle --context YOUR_CLUSTER_CONTEXT_NAME
+  kubectl describe secret server-vars --namespace speckle --context "${YOUR_CLUSTER_CONTEXT_NAME}"
   ```
   ![image](./img/k8s/17_secrets.png)
 
-- To view the contents of an individual secret, you can run the following replacing `redis_url` with the key you require:
+- To view the contents of an individual secret, you can run the following replacing `redis_url` with the key you require and replacing `${YOUR_CLUSTER_CONTEXT_NAME}` with the name of your cluster.:
 
 ```shell
-kubectl get secret server-vars --context YOUR_CLUSTER_CONTEXT_NAME \
+kubectl get secret server-vars --context "${YOUR_CLUSTER_CONTEXT_NAME}" \
   --namespace speckle \
   --output jsonpath='{.data.redis_url}' | base64 --decode
 ```
 
-- Should you need to amend any values after creating the secret, use the following command. More information about working with secrets can be found on the [Kubernetes website](https://kubernetes.io/docs/concepts/configuration/secret/#editing-a-secret).
+- Should you need to amend any values after creating the secret, use the following command. More information about working with secrets can be found on the [Kubernetes website](https://kubernetes.io/docs/concepts/configuration/secret/#editing-a-secret).  Replace `${YOUR_CLUSTER_CONTEXT_NAME}` with the name of your cluster.
 
   ```shell
-  kubectl edit secrets server-vars --namespace speckle --context YOUR_CLUSTER_CONTEXT_NAME
+  kubectl edit secrets server-vars --namespace speckle --context "${YOUR_CLUSTER_CONTEXT_NAME}"
   ```
 
 ### 3.c: Priority Classes
 
 If Kubernetes ever begins to run out of resources (such as processor or memory) on a node then Kubernetes will have to terminate some of the processes.  Kubernetes decides which processes will be terminated based on their priority.  Here we will tell Kubernetes which priority that Speckle will have.
 
-- Run the following command:
+- Run the following command. Replace `${YOUR_CLUSTER_CONTEXT_NAME}` with the name of your cluster.:
   ```shell
-  cat <<'EOF' | kubectl create --context YOUR_CLUSTER_CONTEXT_NAME --namespace speckle --filename -
+  cat <<'EOF' | kubectl create --context "${YOUR_CLUSTER_CONTEXT_NAME}" --namespace speckle --filename -
   apiVersion: scheduling.k8s.io/v1
   kind: PriorityClass
   metadata:
@@ -190,21 +190,21 @@ helm repo add jetstack https://charts.jetstack.io
 helm repo update
 ```
 
-- Deploy the CertManager Helm release in a new namespace
+- Deploy the CertManager Helm release with the following command. Replace `${YOUR_CLUSTER_CONTEXT_NAME}` with the name of your cluster.
 ```shell
-helm upgrade cert-manager jetstack/cert-manager --namespace cert-manager --version v1.8.0 --set installCRDs=true --install --create-namespace --kube-context YOUR_CLUSTER_CONTEXT_NAME
+helm upgrade cert-manager jetstack/cert-manager --namespace cert-manager --version v1.8.0 --set installCRDs=true --install --create-namespace --kube-context "${YOUR_CLUSTER_CONTEXT_NAME}"
 ```
   ![image](./img/k8s/20_certmanager.png)
 
-- We can verify that this deployed to Kubernetes with the following command:
+- We can verify that this deployed to Kubernetes with the following command. Replace `${YOUR_CLUSTER_CONTEXT_NAME}` with the name of your cluster.:
 ```shell
-kubectl get pods --namespace cert-manager --context YOUR_CLUSTER_CONTEXT_NAME
+kubectl get pods --namespace cert-manager --context "${YOUR_CLUSTER_CONTEXT_NAME}"
 ```
   ![image](./img/k8s/21_certmanager_pods.png)
 
-- We now need to tell CertManager which Certificate Authority should be issuing the certificate. We will deploy a CertIssuer. Run the following command, replacing `YOUR_EMAIL_ADDRESS` and `YOUR_CLUSTER_CONTEXT_NAME` with the appropriate values.
+- We now need to tell CertManager which Certificate Authority should be issuing the certificate. We will deploy a CertIssuer. Run the following command, replacing `${YOUR_EMAIL_ADDRESS}` and `${YOUR_CLUSTER_CONTEXT_NAME}` with the appropriate values.
 ```shell
-cat <<'EOF' | kubectl apply --context YOUR_CLUSTER_CONTEXT_NAME --namespace cert-manager --filename -
+cat <<'EOF' | kubectl apply --context "${YOUR_CLUSTER_CONTEXT_NAME}" --namespace cert-manager --filename -
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
@@ -214,7 +214,7 @@ spec:
     # The ACME server URL
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     # Email address used for ACME registration
-    email: YOUR_EMAIL_ADDRESS
+    email: ${YOUR_EMAIL_ADDRESS}
     # Name of a secret used to store the ACME account private key
     privateKeySecretRef:
       name: letsencrypt-staging
@@ -233,7 +233,7 @@ spec:
     # The ACME server URL
     server: https://acme-v02.api.letsencrypt.org/directory
     # Email address used for ACME registration
-    email: YOUR_EMAIL_ADDRESS
+    email: ${YOUR_EMAIL_ADDRESS}
     # Name of a secret used to store the ACME account private key
     privateKeySecretRef:
       name: letsencrypt-prod
@@ -246,17 +246,17 @@ EOF
 ```
   ![image](./img/k8s/22_certmanager_cluster_issuer.png)
 
-- We can verify that this worked by running the following command. Within the response it should state that the message was "_The ACME account was registered with the ACME server_".
+- We can verify that this worked by running the following command. Replace `${YOUR_CLUSTER_CONTEXT_NAME}` with the name of your cluster. Within the response it should state that the message was "_The ACME account was registered with the ACME server_".
 ```shell
 kubectl describe clusterissuer.cert-manager.io/letsencrypt-staging \
- --namespace cert-manager --context YOUR_CLUSTER_CONTEXT_NAME
+ --namespace cert-manager --context "${YOUR_CLUSTER_CONTEXT_NAME}"
 ```
   ![image](./img/k8s/23_certmanager_account_registered.png)
 
-- We repeat this command to verify the production certificate was also created. Again, within the response it should state that the message was "_The ACME account was registered with the ACME server_".
+- We repeat this command to verify the production certificate was also created. Replace `${YOUR_CLUSTER_CONTEXT_NAME}` with the name of your cluster. Again, within the response it should state that the message was "_The ACME account was registered with the ACME server_".
 ```shell
 kubectl describe clusterissuer.cert-manager.io/letsencrypt-prod \
- --namespace cert-manager --context YOUR_CLUSTER_CONTEXT_NAME
+ --namespace cert-manager --context "${YOUR_CLUSTER_CONTEXT_NAME}"
 ```
 
 ### 3.e: Ingress
@@ -275,13 +275,13 @@ helm repo update
 ```
   ![image](./img/k8s/25_helm_repo_update.png)
 
-- Now we can deploy NGINX to our kubernetes cluster. The additional annotation allows CertManager, deployed in the [previous step](#3d-certificate-manager), to advise NGINX as to the certificate to use for https connections.
+- Now we can deploy NGINX to our kubernetes cluster. The additional annotation allows CertManager, deployed in the [previous step](#3d-certificate-manager), to advise NGINX as to the certificate to use for https connections. Replace `${YOUR_CLUSTER_CONTEXT_NAME}` with the name of your cluster.
 ```shell
 cat <<'EOF' | helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
         --install --create-namespace \
         --set-string controller.podAnnotations."acme.cert-manager.io/http01-edit-in-place"=true \
         --namespace ingress-nginx \
-        --kube-context YOUR_CLUSTER_CONTEXT_NAME \
+        --kube-context "${YOUR_CLUSTER_CONTEXT_NAME}" \
         --values - 
 controller:
   replicaCount: 2
@@ -337,23 +337,23 @@ helm repo update
 ```
   ![image](./img/k8s/28_helm_repo_update.png)
 
-- Run the following command to deploy the Helm chart to your Kubernetes cluster configured with the values you configured in the [prior step](#step-4-configure-your-deployment).  Replace `YOUR_CLUSTER_CONTEXT_NAME` with the name of your cluster.
+- Run the following command to deploy the Helm chart to your Kubernetes cluster configured with the values you configured in the [prior step](#step-4-configure-your-deployment).  Replace `${YOUR_CLUSTER_CONTEXT_NAME}` with the name of your cluster.
 
 ```shell
 helm upgrade my-speckle-server speckle/speckle-server \
  --values values.yaml \
  --namespace speckle \
  --install --create-namespace \
- --kube-context YOUR_CLUSTER_CONTEXT_NAME
+ --kube-context "${YOUR_CLUSTER_CONTEXT_NAME}"
 ```
 
 - After configuration is done, you should see this success message:
   ![image](./img/k8s/29_install_speckle_release.png)
 
-- Verify all of the deployed Helm charts were successful by checking their deployed status. Replace `YOUR_CLUSTER_CONTEXT_NAME` with the name of your cluster.:
+- Verify all of the deployed Helm charts were successful by checking their deployed status. Replace `${YOUR_CLUSTER_CONTEXT_NAME}` with the name of your cluster.:
 
 ```shell
-helm list --all-namespaces --kube-context YOUR_CLUSTER_CONTEXT_NAME
+helm list --all-namespaces --kube-context "${YOUR_CLUSTER_CONTEXT_NAME}"
 ```
 
 - You should see something similar to the following:
@@ -381,10 +381,10 @@ Finally, you should now register the first user. The first user that registers w
 
 You have deployed a Speckle Server on Kubernetes that you have full control over.
 
-To reconfigure the server, you can change the values in values.yaml, and run this command:
+To reconfigure the server, you can change the values in values.yaml, and run the following command. Replace `${YOUR_CLUSTER_CONTEXT_NAME}` with the name of your cluster.:
 
 ```shell
-helm upgrade my-speckle-server --values values.yaml --kube-context YOUR_CLUSTER_CONTEXT_NAME
+helm upgrade my-speckle-server --values values.yaml --kube-context "${YOUR_CLUSTER_CONTEXT_NAME}"
 ```
 
 ## Common Issues
