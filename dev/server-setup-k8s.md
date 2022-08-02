@@ -252,6 +252,13 @@ kubectl describe clusterissuer.cert-manager.io/letsencrypt-staging \
  --namespace cert-manager --context YOUR_CLUSTER_CONTEXT_NAME
 ```
   ![image](./img/k8s/23_certmanager_account_registered.png)
+
+- We repeat this command to verify the production certificate was also created. Again, within the response it should state that the message was "_The ACME account was registered with the ACME server_".
+```shell
+kubectl describe clusterissuer.cert-manager.io/letsencrypt-prod \
+ --namespace cert-manager --context YOUR_CLUSTER_CONTEXT_NAME
+```
+
 ### 3.e: Ingress
 
 To allow access from the internet to your kubernetes cluster, Speckle will deploy a [Kubernetes Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) which defines how that external traffic should be managed.  The component that manages the traffic per Speckle's ingress definition is known as an Ingress Controller.  In this step we will deploy our Ingress Controller, [NGINX](https://www.nginx.com/).
