@@ -105,7 +105,7 @@ Steps to receive the data:
 3. Select specific commit (by default the latest one)
 4. Find the received layers in the new layer group named after stream, branch and commit
 
-[Community Forum](./img-qgis/QGIS_05_receiving.gif)!
+![Receiving data](./img-qgis/QGIS_05_receiving.gif)
 
 ## Feedback
 
