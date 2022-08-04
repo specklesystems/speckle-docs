@@ -1,7 +1,6 @@
 # Installing Connectors
 
-Speckle Connectors can be installed from Speckle Manager, a standalone desktop application, or individually.
-While Manager isn't strictly required to use the Speckle platform, we highly recommend using it to help keep track of your connectors, install the latest updates and handle multiple user accounts.
+Manager for Speckle is the best way to get (almost) all our Connectors installed and up to date on your computer, and if you have more than one Speckle accounts you'll be able to manage them there as well.
 
 ::: tip IMPORTANT 🙌
 This guide assumes you have a **Speckle Account**.
@@ -11,18 +10,18 @@ If you don't, just register on our [free XYZ Speckle server](https://speckle.xyz
 ## Download
 
 Manager is available for both Windows and Mac (with limitations).
+Manager automatically updates when new versions are available.
 
 ::: tip
 Manager does not require admin privileges! Just double click and run to install it.
 :::
 
-Download Speckle Manager and any of our connectors from our:
+Download Speckle Manager from our:
 
 - [⬇️ Releases Website](https://speckle-releases.netlify.app/)
 
-Manager for Windows will prompt you to update when an update is available, in Mac you'll need to manually install new versions.
 
-![image](https://user-images.githubusercontent.com/2679513/129895485-77fbf165-ff2d-4d7f-8aca-4a8a476d1274.png)
+![image](https://user-images.githubusercontent.com/2679513/182888937-d998604c-59ef-4cbc-bdb6-2176338d41fd.png)
 
 ## System Wide Installations
 

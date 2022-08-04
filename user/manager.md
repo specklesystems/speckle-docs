@@ -1,10 +1,11 @@
 # Manager
 
-Speckle Manager is a standalone desktop application you can use to keep track of your connectors, install the latest updates and handle multiple user accounts.
+Manager for Speckle is the best way to get (almost) all our Connectors installed and up to date on your computer, and if you have more than one Speckle accounts you'll be able to manage them there as well.
 
 ## Download
 
 Manager is available for both Windows and Mac (with limitations).
+Manager automatically updates when new versions are available.
 
 ::: tip
 Manager does not require admin privileges! Just double click and run to install it.
@@ -14,15 +15,14 @@ Download Speckle Manager now:
 
 - [⬇️ Speckle Manager](https://speckle-releases.netlify.app/)
 
-Manager for Windows will prompt you to update when an update is available, in Mac you'll need to manually install new versions.
 
-![image](https://user-images.githubusercontent.com/2679513/129895485-77fbf165-ff2d-4d7f-8aca-4a8a476d1274.png)
+![image](https://user-images.githubusercontent.com/2679513/182888937-d998604c-59ef-4cbc-bdb6-2176338d41fd.png)
 
 ### Uninstallation
 
-On Windows, simply head over **Apps & Features**, find **SpeckleManager** and then click **Uninstall**.
+On Windows, simply head over **Apps & Features**, find **Manager for Speckle** and then click **Uninstall**.
 
-![image](https://user-images.githubusercontent.com/2679513/112290160-dc08c280-8c86-11eb-962c-19a8a20afc94.png)
+![image](https://user-images.githubusercontent.com/2679513/182909714-1a7f4815-949c-4557-870e-05ede9550f0c.png)
 
 ### Preventing Manager from running at Startup
 
@@ -32,9 +32,9 @@ If you want to disable this functionality, you can simply do so:
 
 - Open the Task Manager, using (e.g.) `Ctrl + Shift + Esc`
 - Navigate to the Startup tab..
-- Find the row with **SpeckleManager** and set its **Status** to **Disabled**
+- Find the row with **Manager.exe** and set its **Status** to **Disabled**
 
-![image](https://user-images.githubusercontent.com/2679513/112289752-7caab280-8c86-11eb-8c9a-928d536e8eb3.png)
+![image](https://user-images.githubusercontent.com/2679513/182909877-e6e86778-7cb6-4c79-9a2e-687f49c9694f.png)
 
 ## Logging In & Adding Accounts
 
@@ -47,7 +47,8 @@ You can now log into your Speckle account/s directly from our main [User Interfa
 
 Once you have downloaded the Manager, you'll be able to easily add an account. All you need to do is head to the "Accounts" menu, click the "Add Account" button, and provide your server URL. This will open a browser window where you can log in or register an account on that server and authorise the Speckle Manager.
 
-![manager account add](https://user-images.githubusercontent.com/2679513/129895785-9ea26528-65ff-4882-9f7b-e48c7b18352d.gif)
+![image](https://user-images.githubusercontent.com/2679513/182910118-c53294bc-d524-4821-b3da-ce3f7061da33.png)
+
 
 ### From the Web
 
@@ -93,7 +94,8 @@ Having installing connectors? Check our [troubleshooting section](/user/manager.
 
 Manager also shows you the currently available connectors and allows you to install or remove connectors from your machine. Head into the **"Connectors"** menu to see what connectors you have installed and which are available to download. You'll also be able to check which version of each connector you have and update a connector as new versions are released.
 
-![manager connector add](https://user-images.githubusercontent.com/2679513/129897388-cbf5f00b-dccf-4609-aeb0-5dd3b0b52c5d.gif)
+![ezgif-2-e7d31df8ef](https://user-images.githubusercontent.com/2679513/182913494-026396d2-a59e-4da5-88ce-9b6a2bb595f1.gif)
+
 
 ### Updating Connectors
 
@@ -106,15 +108,14 @@ Just head over the [Connectors](/#connectors) page in Speckle Manager and click 
 ## Advanced Settings
 
 You can access the Settings page by clicking the ⚙ icon on the top right of the Speckle Manager window.
-![image](https://user-images.githubusercontent.com/2679513/112290969-a1535a00-8c87-11eb-82f8-8e3a4b630e7c.png)
+![image](https://user-images.githubusercontent.com/2679513/182913666-099783ce-8350-4729-9962-930abca15735.png)
 
-From here you'll be able to do various things such as clearing your local cache, resetting Speckle Manager, allowing beta versions etc.
 
-![image](https://user-images.githubusercontent.com/2679513/112291184-cc3dae00-8c87-11eb-9c02-693108f499fb.png)
+From here you'll be able to do various things such as changing the default position, clearing your local cache, allowing beta versions etc.
 
-### Resetting Manager
+![image](https://user-images.githubusercontent.com/2679513/182913732-bcbeb0e8-851c-456b-aa23-d306a2d92400.png)
 
-This resets the list of installed connectors but it does not uninstall them. It also does not affect any accounts.
+
 
 ### Resetting the local cache
 
@@ -125,19 +126,12 @@ The local cache is used when sending and receiving to Speckle to speed up simila
 Toggling this setting **on** will enable beta versions of Manager. This means that every time we make a beta release you'll be able to install it as well.
 If you are experiencing issues with Manager we might ask you do so to try a new version we have made.
 
-### Using Beta Versions of our Connectors
+### Installing Early Versions of our Connectors
 
-Toggling this setting **on** will enable beta versions of connectors. This means that every time we make a beta release you'll be able to install it as well.
-In general, **you should not enable this setting unless you have been asked to**, this could happen when we are trying to release a fix for a specific issue affecting you.
+To install early version of our connectors, simply head to the *versions* tab inside a connector.
 
-To uninstall the beta version of a connector and to return to its latest stable release, just do the following:
+![ezgif-2-b39b4d0a6b](https://user-images.githubusercontent.com/2679513/182914704-abed66ce-404b-457f-a770-084a590d8fc3.gif)
 
-- set the beta toggle to **off**
-- uninstall & reinstall the connector
-
-### SUUID
-
-The Speckle Unique User ID is an anonimized identifier which can help us debug issues you're running into. You might be asked to share it in case you're facing bugs we cannot replicate ourselves.
 
 ## Troubleshooting
 
@@ -145,17 +139,17 @@ Having issues with Speckle Manager? Try the solutions below:
 
 _Cannot log into your account?_ Check if the [Speckle server might be blocked](https://speckle.guide/user/FAQs.html#the-speckle-server-is-unreachable)
 _Cannot see any Connectors?_ Check if the [connectors url might be blocked](https://speckle.guide/user/FAQs.html#the-speckle-server-is-unreachable)
-_Cannot install any Connectors?_ Try disabling your antivirus and/or ask IT to trust our Certificate:
 
-![image](https://user-images.githubusercontent.com/2679513/129898042-0783221c-de08-4054-8afc-51298abb88f6.png)
 
 Still having problems? Help us troubleshoot your issues by doing the following:
 
 - Open the settings page
-- Click on **Open Dev Tools**, a new window will open
-- Try reproducing you issue and if you see any text in the Dev Tools take a screenshot
-- Take a note of you `SUUID`
+- Turn the log on
+- Try reproducing you issue and copy paste the text in the Connector log
 - Send us a message on the [forum](https://speckle.community)!
+
+![image](https://user-images.githubusercontent.com/2679513/182915726-ef32b867-0d44-4cf8-8d4e-2e110b836c84.png)
+
 
 ## License
 
