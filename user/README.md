@@ -27,7 +27,8 @@ Speckle is made up of several moving parts. Before describing each in detail, le
 
 ### Speckle Web App
 
-![image-20210322192558215](./img/web/image-20210322192558215.png)
+![image](https://user-images.githubusercontent.com/2679513/183118366-767ba483-2f65-4713-8cea-2b995befd7da.png)
+
 
 The [Speckle Web App](/user/web) lets you manage and coordinate your data directly from your web browser. It includes a management interface to help you administer your various streams and a 3D model viewer to let see your projects.
 
@@ -41,7 +42,7 @@ Each time the Connectors send data to your Speckle server, they also take care o
 
 ### Speckle Manager
 
-![image](https://user-images.githubusercontent.com/2679513/140551954-20e06937-d519-4b93-8b0f-5e51a94b69f3.png)
+![image](https://user-images.githubusercontent.com/2679513/182888937-d998604c-59ef-4cbc-bdb6-2176338d41fd.png)
 
 The [Speckle Manager](/user/manager) is a desktop application that handles accounts and connectors on your machine. You'll need to add a Speckle account to your computer using Speckle Manager in order to be authorised to send or access data to/from a Speckle Server.
 
