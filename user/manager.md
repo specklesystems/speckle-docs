@@ -13,7 +13,7 @@ Manager does not require admin privileges! Just double click and run to install 
 
 Download Speckle Manager now:
 
-- [⬇️ Speckle Manager](https://speckle-releases.netlify.app/)
+- [⬇️ Speckle Manager](https://releases.speckle.systems)
 
 
 ![image](https://user-images.githubusercontent.com/2679513/182888937-d998604c-59ef-4cbc-bdb6-2176338d41fd.png)

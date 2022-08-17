@@ -51,7 +51,7 @@ You can explore each of our connectors in detail in their docs section: [Connect
 
 Unless otherwise stated, Connectors are installed from a standalone desktop app called [Speckle Manager](/user/manager).
 
-- [⬇️ Download Speckle Manager](https://speckle-releases.netlify.app/)
+- [⬇️ Download Speckle Manager](https://releases.speckle.systems)
 
 Manager will also notify you when new versions are available, so you never miss out on the good stuff!
 
