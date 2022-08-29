@@ -4,9 +4,8 @@ typora-copy-images-to: img-revit
 
 # Revit
 
-The Speckle Revit Connector currently supports Autodesk Revit 2019, 2020 and 2021.
-
-::: tip
+The Speckle Revit Connector currently supports Autodesk Revit 2019, 2020, 2021, 2022 and 🆕2023.
+::: tip 💡 TIP
 
 Check out our dedicated tutorial on [how to get started with Revit](https://speckle.systems/tutorials/getting-started-with-speckle-for-revit/)!
 
@@ -16,13 +15,13 @@ Check out our dedicated tutorial on [how to get started with Revit](https://spec
 
 To install the Revit Connector and add your Speckle account, proceed by following the instructions in [Speckle Manager](/user/manager).
 
-Once installed, you can find the Revit connector in the ribbon menu under the **Add-Ins** tab like so:
+Once installed, you can find the Revit connector in the ribbon menu under the **Speckle** tab like so:
 
-![image-20210303191815524](./img-revit/image-20210303191815524.png)
+![speckle-ribbon-revit](https://user-images.githubusercontent.com/51519350/186413456-3c2f0f5c-f5f4-4f40-a8cf-1ed53ee0ae39.png)
 
 ## User Interface
 
-::: tip IMPORTANT 🙌
+::: tip 🙌 IMPORTANT
 
 This connector uses our shared Desktop UI. Read up on general guidelines for usage in the [Desktop UI section](/user/ui).
 
@@ -34,31 +33,37 @@ To help you select which elements will be to sent to Speckle, we've built variou
 
 _Please Note: Elements are sent regardless of whether they are visible or if they were created after setting up the filter._
 
-![image-20210303192915561](./img-revit/image-20210303192915561.png)
+![Revit_rlKM6e6qTn](https://user-images.githubusercontent.com/51519350/186396184-be4fd296-8be2-4657-89b8-943170be4304.png)
 
 #### Category Filter
 
 The category filter lets you select one or more of the currently-supported Revit categories.
 
+![Revit_6AL9bGaXo5](https://user-images.githubusercontent.com/51519350/186414149-51459e43-011f-4a49-8a00-cb51b549bef2.gif)
+
 #### View Filter
 
 The view filter works similarly to the category one, and lets you include all elements visible in one or more views.
+
+![Revit_j4qto03sVu](https://user-images.githubusercontent.com/51519350/186414397-d7493ee9-2177-406d-908c-dc986f1772d5.gif)
 
 #### Project Info Filter
 
 The project info filter lets you add non physical elements, such as levels, views, element types (their properties, not geometry) and project information.
 
+![Revit_tqN7o2tYxY](https://user-images.githubusercontent.com/51519350/186414641-21225e10-122b-44cd-bf4d-322ecc80f53b.gif)
+
 #### Parameter Filter
 
-The parameter filter will filter all model elements that satisfy the logical conditions defined by you. For example, in the image below, Speckle will send all elements whose `Base Offset` value is greater then 2000mm.
+The parameter filter will filter all model elements that satisfy the logical conditions defined by you. For example, in the image below, Speckle will send all elements whose `Base Cosntraint` value is equal to "GF".
 
-:::tip NOTE
+:::tip 📝 NOTE
 
 The list of available parameters comes from the current elements in the model. If the model is empty, no parameters will be available.
 
 :::
 
-![image-20210303201525577](./img-revit/image-20210303201525577.png)
+![Revit_Rm4mEZvBCX](https://user-images.githubusercontent.com/51519350/186415474-50b778cb-7d4d-4a1d-996a-ac2024c43431.gif)
 
 ### Receive Modes
 
@@ -70,7 +75,7 @@ This is when the **Receive Mode** setting comes in! This is how it works:
 - ignore: skips elements if they already exist
 - update only: only updates existing elements (coming soon)
 
-![Image](https://user-images.githubusercontent.com/2679513/170976936-012a6818-3a3d-4e2b-ac9b-e74ad8c4f381.png)
+![receive-modes](https://user-images.githubusercontent.com/51519350/186415788-4e3d9860-22b7-4acf-8fb1-5f19fee0bf1e.png)
 
 ## Linked Models
 
@@ -141,7 +146,7 @@ See an example below:
 
 ![image](https://user-images.githubusercontent.com/2679513/126662964-6ce0c0f2-7e42-4835-ac7b-51fce0eb0f2a.png)
 
-::: tip Note 🙌
+::: tip 📝 NOTE
 
 All the parameters are stored using their **internal Revit names**. You can see the full list of `BuiltInParameter` values [here](https://www.revitapidocs.com/2022/fb011c91-be7e-f737-28c7-3f1e1917a0e0.htm). If you need to access their display name, just refer to the `name` property of each parameter, but please keep in mind these are not unique and can vary between languages.
 
@@ -149,11 +154,9 @@ All the parameters are stored using their **internal Revit names**. You can see 
 
 To easily explore on object's data and parameters, our [Speckle Web App](/user/web.html) interface can be of great help. As well as any other applications that lets you explore the object metadata (eg Grasshopper, Dynamo, Unity, etc).
 
-![image-20210303224640764](./img-revit/image-20210303224640764.png)
+![web-bim-data](https://user-images.githubusercontent.com/51519350/186416982-15eb496a-18fc-4782-b1d2-a6df01e9a5ed.png)
 
 ## Stream Advanced Settings
-
-![Advanced settings button](./img-revit/revit-advancedSettings-button.png)
 
 The `Advanced Settings` page allows you to customize the way Speckle behaves "per-stream".
 

@@ -36,7 +36,9 @@ Adding a stream by URL is very useful when you want to receive from a public str
 ## Stream View
 
 After selecting a stream, you'll see the Stream View.
+
 At the top you'll be able to see all the recent send & receive activity for the stream.
+
 At the bottom, you can select whether you want to send or receive from it.
 
 ![dui2-stream](https://user-images.githubusercontent.com/2679513/159477977-6468748a-e73b-4be6-924b-00cb08121efb.gif)
@@ -46,12 +48,16 @@ At the bottom, you can select whether you want to send or receive from it.
 When sending to a stream, you'll be able to decide which branch to use and what elements to send.
 Each connector has built in filters to help you select elements in ways that make the most sense for the application you're using.
 
+![Revit_rlKM6e6qTn](https://user-images.githubusercontent.com/51519350/186396184-be4fd296-8be2-4657-89b8-943170be4304.png)
+
 #### Branch Selection
 
 Data in a stream can be organized in branches, for instance, to have multiple design options or to store data by discipline.
 The default branch is called main, you can select the branch you want to send to by using the dropdown.
 
 If you want to create a new branch, you can do so from the [web](./web) interface.
+
+![Revit_nNrp8zDlw1](https://user-images.githubusercontent.com/51519350/186396455-838408eb-039b-4615-a2ab-2401b18b5099.png)
 
 #### Object Selection
 
@@ -72,9 +78,13 @@ For instance in Revit you can send:
 When sending to Speckle, it's always good to include a message describing what you're sending or explaining the changes applied since the last send operation.
 The commit message is saved and re-used in future sends.
 
+![Revit_NKzJqG4NoT](https://user-images.githubusercontent.com/51519350/186397873-1c889e61-2a06-467c-a073-d38ae6c0b345.gif)
+
 #### Save or Send
 
-You can now click "Save" and these options will be saved locally in the current document for later use.
+You can now click "Save 💾" and these options will be saved locally in the current document for later use.
+
+![image](https://user-images.githubusercontent.com/51519350/186397368-5e6ed7ec-c32c-40dd-a8f4-685325406d33.png)
 
 If instead you want to send already, just click on "Send", the stream will also be saved.
 
@@ -87,6 +97,8 @@ Similarly to sending data, the Receiving comes with a few options.
 Data in a stream can be organized in branches, for instance, to have multiple design options or to store data by discipline.
 The default branch is called main, you can select the branch you want to receive from by using the dropdown.
 
+![image](https://user-images.githubusercontent.com/51519350/186398225-d9759a2d-6695-4aa6-a857-ae152b77eb5b.png)
+
 If a branch has no data in it, you will not be able to use it.
 
 #### Commit Selection
@@ -98,9 +110,13 @@ If you choose to stay on the "latest" commit, you'll get a notification every ti
 
 If a preview is available it will be displayed when selecting a commit.
 
+![Revit_WrPYfd3bxG](https://user-images.githubusercontent.com/51519350/186398705-112a5491-78a9-4cbd-b311-d3b60ff109b0.gif)
+
 #### Save or Receive
 
 You can now click "Save" and these options will be saved locally in the current document for later use.
+
+![image](https://user-images.githubusercontent.com/51519350/186398525-bde3349b-2193-4cb5-b26c-8d3185555304.png)
 
 If instead you are ready to receive, just click on "Receive".
 
@@ -114,7 +130,7 @@ Saved streams will show up under a "Saved Streams" list.
 
 By clicking the three vertical dots, you'll access a menu with more actions, like viewing it online, or editing its options.
 
-::: tip
+::: tip 💡 TIP
 
 This menu is customizable, and every Connector will have slightly different actions available.
 

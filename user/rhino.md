@@ -8,7 +8,7 @@ Prefer watching to reading? Who doesn't!
 
 ## Getting Started
 
-::: tip 
+::: tip 💡 TIP
 
 Check out our dedicated tutorial on [how to get started with Rhino](https://speckle.systems/tutorials/getting-started-with-speckle-for-rhino/)!
 
@@ -21,7 +21,6 @@ Once installed, you can find the connector by running the `Speckle` command in R
 
 ![Speckle command](./img-rhino/rhino-speckle-command.png)
 
-
 ## User Interface
 
 > This connector uses our shared Desktop UI. Read up on general guidelines for usage in the [Desktop UI section](/user/ui).
@@ -30,39 +29,32 @@ Once the Desktop UI panel is open, go ahead and create a new stream (or add an e
 
 ### Sending
 
-To send objects to Speckle, you'll first need to specify which objects are to be sent.
-This can be done in two ways:
+Sending objects to Speckle can be done in multiple ways.
 
-* The simpler way involves manually selecting elements in Rhino. 
-* The more powerful way is to use filtering logic to select elements.
-
-In the example below, we'll use the simpler method of manually selecting the elements to be sent. First, ensure the stream you want to send data to is in _Sender_ mode.
-
-![Stream in send mode](./img-rhino/rhino-stream-send-mode.png)
-
-Next, select the objects you want to send, and left-click the button that says `0 objects` in the Speckle Panel. A drop-down will appear; choose `Set Selection`.
-
-![Stream selection dropdown](./img-rhino/rhino-selection-dropdown.png)
-
-The same button should now display the total count of objects that were selected.
-
-![Stream selection set](./img-rhino/rhino-selection-set.png)
-
-You're ready to send! Press the `Send` button. You should see a progress bar and, once completed, a success message.
-
-![Stream send operation](./img-rhino/rhino-stream-send.gif)
+- Default method sends `Everything` from Rhino. This includes all document objects and project info.
+  ![Rhino_l5U9dlMIpg](https://user-images.githubusercontent.com/51519350/187154289-8bbb5ff6-8e86-4adc-bd16-110025e2b78a.gif)
+- `Layers` option will send objects on the selected layers.
+  ![Rhino_Sv9ZFfjPtS](https://user-images.githubusercontent.com/51519350/187154488-db2a5a2c-ee20-46cc-b115-5bd5c4732622.gif)
+- `Project Information` adds the selected project information as views to the stream.
+  ![Rhino_geo27Qb21a](https://user-images.githubusercontent.com/51519350/187154964-a3d05c4d-2f94-4133-8aac-691d62cf8674.gif)
+- `Selection` sends only the selected objects.
+  ![Rhino_e9hP9XMEgx](https://user-images.githubusercontent.com/51519350/187155192-2c85a908-ffba-4e14-8d46-ec4653a92c00.gif)
 
 For the detail-lovers out there, you'll notice that your Rhino layer structure is replicated as `Base` object properties, which can be recreated on the receiving end.
 
 ### Receiving
 
-In order to receive data from a Speckle stream, you'll first need to add that stream to your Speckle streams panel. If the stream already exists on the server it will automatically be added in _Receiver_ mode.
+In order to receive data from a Speckle stream, you'll first need to add that to your active document. If the stream already exists on the server it will automatically be listed. You can also use the search bar to find the stream you are looking for👀.
 
-![Stream in receiver mode](./img-rhino/rhino-stream-receive-mode.png)
+![rhino-search-stream](https://user-images.githubusercontent.com/51519350/187166411-6759734d-6335-4134-92ad-06010d1af36f.png)
 
-Once the stream has been added, go ahead and hit the `Receive` button. This will display a progress bar (just like the sending operation) and, if successfull, will add the received objects to the current document.
+Once the stream has been added, switch to the `Receive` mode.
 
-![Stream receive operation](./img-rhino/rhino-stream-receive.gif)
+![Rhino_zbpyw7DbW5](https://user-images.githubusercontent.com/51519350/187166530-974e37fb-dcc4-48a0-a739-6a134cc94e4f.gif)
+
+From here, you can select the `branch` and the `commit` you want to receive. Once you are done with the selection, go ahead and click on the `🔵 Receive` button. This will display a progress bar (just like the sending operation) and, if successful, will add the received objects to the current document.
+
+![Rhino_R2Ga18NETv](https://user-images.githubusercontent.com/51519350/187166647-a18dd449-faff-4806-a4c4-e59b8a6c57a7.gif)
 
 In order to prevent overriding existing layers/objects in the file, all received objects will be placed in a nested layer structure. This structure will contain all the layers. that the sent objects were placed to, with a parent layer with a name in the format `<STREAM_NAME>: <BRANCH_NAME> @ <COMMIT>`.
 
@@ -79,13 +71,13 @@ You may also notice the overlapping received objects(gray) with the original obj
 
 ## Supported Elements
 
-* [Rhino Support Tables](/user/support-tables.html#rhino)
+- [Rhino Support Tables](/user/support-tables.html#rhino)
 
 # Rhino BIM
 
 Speckle 2.0 lets you tag Rhino geometry as Speckle BIM elements, so you can send objects like lines and surfaces as beams and floors! This means you can bring in your Rhino geometry directly as native Revit family elements 💥
 
-![example](https://i.imgur.com/O5wCzcx.gif)
+![RhinoBIM](https://user-images.githubusercontent.com/51519350/187174018-fe346d28-3ab2-49ec-b9e6-c3c3d193cfa9.gif)
 
 ## Features
 
@@ -103,7 +95,7 @@ If this is your first time installing the Speckle connector, you may need to loa
 
 Keep in mind that when streaming Speckle BIM elements from Rhino into Revit, they will come in as the first available family type in your Revit document. Currently there is no way to assign specific revit families to Rhino BIM elements, but this may be changed in the future.
 
-## Using Rhino BIM 
+## Using Rhino BIM
 
 Assigning or removing Speckle BIM tags from geometry objects is easy:
 
@@ -115,62 +107,59 @@ If you'd prefer to use the command line instead of the toolbar buttons, refer to
 
 ### Creating walls
 
-**Command:** *CreateWall* 
+**Command:** _CreateWall_
 
-1. Create or select *vertically planar* surfaces.
-![wall](https://i.imgur.com/uHG7zPF.gif)
+1. Create or select _vertically planar_ surfaces.
+   ![wall](https://i.imgur.com/uHG7zPF.gif)
 2. Click on the Speckle BIM wall button and press Enter. Check your object's User Attribute Text to confirm the Speckle BIM tag was successfully applied.
-![wall](https://i.imgur.com/xDZZsSe.gif)
-3. Send the geometry with Speckle: if you're unfamiliar with how to do this, check out the How To Get Started with Rhino docs!
-4. Receive the geometry in Revit: if you're unfamiliar with how to do this, check out the How To Get Started with Revit docs! The surface will be created as a default wall type.
-![wall](./img-rhino/BIM/wall_3.gif)
+   ![wall](https://i.imgur.com/xDZZsSe.gif)
+3. Send the geometry with Speckle: if you're unfamiliar with how to do this, check out the [How To Get Started with Rhino](/user/rhino.html#getting-started) docs!
+4. Receive the geometry in Revit: if you're unfamiliar with how to do this, check out the [How To Get Started with Revit](/user/revit.html#getting-started) docs! The surface will be created as a default wall type.
+   ![wall](./img-rhino/BIM/wall_3.gif)
 5. Transform your rhino surface, and resend it to Revit - your wall will automatically update!
-
 
 ### Creating Floors
 
-**Command:** *CreateFloor* 
+**Command:** _CreateFloor_
 
-1. Create or select *xy planar* surfaces.
-![floor](https://i.imgur.com/5RPrnv3.gif)
+1. Create or select _xy planar_ surfaces.
+   ![floor](https://i.imgur.com/5RPrnv3.gif)
 2. Click on the Speckle BIM floor button and press Enter. Check your object's User Attribute Text to confirm the Speckle BIM tag was successfully applied.
-![floor](https://i.imgur.com/edTLmkm.gif)
+   ![floor](https://i.imgur.com/edTLmkm.gif)
 3. Send the geometry with Speckle: if you're unfamiliar with how to do this, check out the How To Get Started with Rhino docs!
 4. Receive the geometry in Revit: if you're unfamiliar with how to do this, check out the How To Get Started with Revit docs! The surface will be created as a default floor type.
-![floor](./img-rhino/BIM/floor_3.gif)
+   ![floor](./img-rhino/BIM/floor_3.gif)
 5. Transform your rhino surface, and resend it to Revit - your floor will automatically update!
 
 ### Creating Columns
 
-**Command:** *CreateColumn* 
+**Command:** _CreateColumn_
 
-1. Create or select lines that are *approximately vertical*, defined as less than 45 degrees tilted relative to the z-axis.
-![column](https://i.imgur.com/ZSg1JO9.gif)
+1. Create or select lines that are _approximately vertical_, defined as less than 45 degrees tilted relative to the z-axis.
+   ![column](https://i.imgur.com/ZSg1JO9.gif)
 2. Click on the Speckle BIM Column button and press Enter. Check your object's User Attribute Text to confirm the Speckle BIM tag was successfully applied.
-![column](https://i.imgur.com/3ob91pt.gif)
+   ![column](https://i.imgur.com/3ob91pt.gif)
 3. Send the geometry with Speckle: if you're unfamiliar with how to do this, check out the How To Get Started with Rhino docs!
 4. Receive the geometry in Revit: if you're unfamiliar with how to do this, check out the How To Get Started with Revit docs! The line will be created as a default column type.
-![column](./img-rhino/BIM/column_3.gif)
+   ![column](./img-rhino/BIM/column_3.gif)
 5. Transform your rhino line, and resend it to Revit - your column will automatically update!
-
 
 ### Creating Beams
 
-**Command:** *CreateBeam* 
+**Command:** _CreateBeam_
 
-1. Create or select lines that are *approximately horizontal*, defined as less than 45 degrees tilted relative to the xy-plane.
-![beam](https://i.imgur.com/YupuFuK.gif)
+1. Create or select lines that are _approximately horizontal_, defined as less than 45 degrees tilted relative to the xy-plane.
+   ![beam](https://i.imgur.com/YupuFuK.gif)
 2. Click on the Speckle BIM Beam button and press Enter. Check your object's User Attribute Text to confirm the Speckle BIM tag was successfully applied.
-![beam](https://i.imgur.com/yrByUwv.gif)
+   ![beam](https://i.imgur.com/yrByUwv.gif)
 3. Send the geometry with Speckle: if you're unfamiliar with how to do this, check out the How To Get Started with Rhino docs!
 4. Receive the geometry in Revit: if you're unfamiliar with how to do this, check out the How To Get Started with Revit docs! The line will be created as a default beam type.
-![beam](./img-rhino/BIM/beam_3.gif)
+   ![beam](./img-rhino/BIM/beam_3.gif)
 5. Transform your rhino line, and resend it to Revit - your beam will automatically update!
-
 
 ### Creating Pipes
 
-**Command:** *CreatePipe* 
+**Command:** _CreatePipe_
 
 1. Create or select open curves (this works best for lines).
 2. Click on the Speckle BIM Pipe button and press Enter. Check your object's User Attribute Text to confirm the Speckle BIM tag was successfully applied. **Note:** the default Pipe `diameter` is set to "1.0" - if you'd like to change this, just change the value in the user string!
@@ -178,10 +167,9 @@ If you'd prefer to use the command line instead of the toolbar buttons, refer to
 4. Receive the geometry in Revit: if you're unfamiliar with how to do this, check out the How To Get Started with Revit docs. The curve will be created as a default pipe type.
 5. Transform your rhino curve, and resend it to Revit - your pipe will automatically update!
 
-
 ### Creating Ducts
 
-**Command:** *CreateDuct* 
+**Command:** _CreateDuct_
 
 1. Create or select open curves (this works best for lines).
 2. Click on the Speckle BIM Duct button and press Enter. Check your object's User Attribute Text to confirm the Speckle BIM tag was successfully applied. **Note:** the default Duct `width`, `height`, and `diameter` is set to "1.0" - if you'd like to change this, just change the corresponding value in the user string.
@@ -191,7 +179,7 @@ If you'd prefer to use the command line instead of the toolbar buttons, refer to
 
 ### Creating Topography
 
-**Command:** *CreateTopography* 
+**Command:** _CreateTopography_
 
 1. Create or select open meshes.
 2. Click on the Speckle BIM Topography button and press Enter. Check your object's User Attribute Text to confirm the Speckle BIM tag was successfully applied.
@@ -201,58 +189,58 @@ If you'd prefer to use the command line instead of the toolbar buttons, refer to
 
 ### Creating Face Walls
 
-**Command:** *CreateFaceWall* 
+**Command:** _CreateFaceWall_
 
 1. Create or select any kind of surface.
-![facewall](https://i.imgur.com/q1tBTgQ.gif)
+   ![facewall](https://i.imgur.com/q1tBTgQ.gif)
 2. Click on the Speckle BIM face wall button and press Enter. Check your object's User Attribute Text to confirm the Speckle BIM tag was successfully applied.
-![facewall](https://i.imgur.com/B6jrSim.gif)
+   ![facewall](https://i.imgur.com/B6jrSim.gif)
 3. Send the geometry with Speckle: if you're unfamiliar with how to do this, check out the How To Get Started with Rhino docs!
 4. Receive the geometry in Revit: if you're unfamiliar with how to do this, check out the How To Get Started with Revit docs! The surface will be created as a default wall type.
-![facewall](https://i.imgur.com/JIk5nek.gif)
+   ![facewall](https://i.imgur.com/JIk5nek.gif)
 5. Transform your rhino surface, and resend it to Revit - your face wall will automatically update!
 
 ### Creating Direct Shapes
 
-**Command:** *CreateDirectShape* 
+**Command:** _CreateDirectShape_
 
 1. Create or select any kind of brep, extrusion, or mesh.
-![directshape](https://i.imgur.com/SMVl5Qc.gif)
-2. Click on the Speckle BIM direct shape button and press Enter. *Select the BIM type for this direct shape in the commandline*. Check your object's User Attribute Text to confirm the Speckle BIM tag was successfully applied.
-![directshape](https://i.imgur.com/guy9X0S.gif)
+   ![directshape](https://i.imgur.com/SMVl5Qc.gif)
+2. Click on the Speckle BIM direct shape button and press Enter. _Select the BIM type for this direct shape in the commandline_. Check your object's User Attribute Text to confirm the Speckle BIM tag was successfully applied.
+   ![directshape](https://i.imgur.com/guy9X0S.gif)
 3. Send the geometry with Speckle: if you're unfamiliar with how to do this, check out the How To Get Started with Rhino docs!
 4. Receive the geometry in Revit: if you're unfamiliar with how to do this, check out the How To Get Started with Revit docs! The geometry will be created as a generic model.
-![directshape](./img-rhino/BIM/directshape_3.gif)
+   ![directshape](./img-rhino/BIM/directshape_3.gif)
 5. Transform your rhino geometry, and resend it to Revit - your generic model will automatically update!
 
 ### Creating Adaptive Components
 
-**Command:** *CreateAdaptiveComponent* 
+**Command:** _CreateAdaptiveComponent_
 
 1. Create a set of points that define your adaptive components. In this example, our Revit adaptive family is defined by four points, so we will have a collection of points in a multiple of four.
-![adaptivecomponent](https://i.imgur.com/vb3Rfzi.gif)
-2. Click on the Speckle BIM adaptive component button and press Enter. *Then type the family name for your adaptive component in commandline*. Select your points in order, pressing enter after every group of four. Press Enter again when done, and blocks will be created for each point group. Check your block's User Attribute Text to confirm the Speckle BIM tag was successfully applied!
-![adaptivecomponent](https://i.imgur.com/PIdhc5B.gif)
+   ![adaptivecomponent](https://i.imgur.com/vb3Rfzi.gif)
+2. Click on the Speckle BIM adaptive component button and press Enter. _Then type the family name for your adaptive component in commandline_. Select your points in order, pressing enter after every group of four. Press Enter again when done, and blocks will be created for each point group. Check your block's User Attribute Text to confirm the Speckle BIM tag was successfully applied!
+   ![adaptivecomponent](https://i.imgur.com/PIdhc5B.gif)
 3. Send the blocks with Speckle: if you're unfamiliar with how to do this, check out the How To Get Started with Rhino docs!
 4. Receive the blocks in Revit: if you're unfamiliar with how to do this, check out the How To Get Started with Revit docs! Make sure you have your Adaptive Family loaded into your Revit document. The geometry will be created as instances of your adaptive component!
-![adaptivecomponent](https://i.imgur.com/zEUG5tO.gif)
+   ![adaptivecomponent](https://i.imgur.com/zEUG5tO.gif)
 
 ### Automatically Creating BIM elements
 
-**Command:** *CreateAutomatic* 
+**Command:** _CreateAutomatic_
 
 This is a super magic option that will try to automatically assign the most appropriate Speckle BIM tags to all of your selected geometry 🔮
 
 1. Select all geometry that you want to turn into BIM elements.
 2. Click on the Speckle BIM automatic button and press enter. Check each geometry's User Attribute Text to see the Speckle BIM tag that is applied.
-![automatic](https://i.imgur.com/3wzFqO9.gif)
+   ![automatic](https://i.imgur.com/3wzFqO9.gif)
 3. Send the geometry with Speckle: if you're unfamiliar with how to do this, check out the How To Get Started with Rhino docs!
 4. Receive the geometry in Revit: if you're unfamiliar with how to do this, check out the How To Get Started with Revit docs! The geometries that have a BIM tag will come in as their respective default category type.
-![automatic](https://i.imgur.com/yasZg4v.gif)
+   ![automatic](https://i.imgur.com/yasZg4v.gif)
 
 ### Remove
 
-**Command:** *RemoveSpeckleSchema* 
+**Command:** _RemoveSpeckleSchema_
 
 Removes all Speckle BIM tags from selected geometry objects. This is necessary when you want to send your geometry as regular geometry, or if you'd like to change the BIM tag for an object.
 
@@ -265,14 +253,14 @@ This feature is now replaced by Rhino BIM, but the commands still work - check b
 
 Currently, direct conversions are available for the following types:
 
-| Base Geometry            | BuiltElement schemas            | Revit type |
-| ------------------------ | ------------------------------- | :--------: |
-| Planar surface           | `Wall` `Floor` `Roof`           |            |
-| Planar polysurface       | `Wall`                          |            |
-| Planar and nurbs surface | `FaceWall`                      | ✅         |
-| Line                     | `Column` `Beam`                 |            |
-| Brep / extrusion         | `DirectShape`                   | ✅          |
-| Mesh                     | `DirectShape`                   | ✅          |
+| Base Geometry            | BuiltElement schemas  | Revit type |
+| ------------------------ | --------------------- | :--------: |
+| Planar surface           | `Wall` `Floor` `Roof` |            |
+| Planar polysurface       | `Wall`                |            |
+| Planar and nurbs surface | `FaceWall`            |     ✅     |
+| Line                     | `Column` `Beam`       |            |
+| Brep / extrusion         | `DirectShape`         |     ✅     |
+| Mesh                     | `DirectShape`         |     ✅     |
 
 ### Walkthrough
 

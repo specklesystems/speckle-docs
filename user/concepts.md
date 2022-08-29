@@ -32,7 +32,7 @@ A stream can contain anything from a handful of objects to a whole building mode
 - A selection of objects from Grasshopper
 - A structural model
 
-A stream also contains further options for managing your data using  **branches** and **commits**. Don't worry about these yet - we'll cover them in the following sections.
+A stream also contains further options for managing your data using **branches** and **commits**. Don't worry about these yet - we'll cover them in the following sections.
 
 ### Who can I share streams with?
 
@@ -67,7 +67,7 @@ All streams start with a single default branch called `main`. If you would like 
 
 ### How do I use branches?
 
-You can add as many additional branches to your streams as you would like. Some Connectors and the Speckle Web App give you the option of creating new branches and switching between them.
+You can add as many additional branches to your streams as you would like. Speckle Web App gives you the option of creating new branches and switching between them.
 
 Let's say you have a very large model you want to add to a single stream, but your collaborators from different disciplines don't want to receive the whole model every time. You could split the model up into different branches: `Structural`, `MEP`, `Architecture`.
 
@@ -85,7 +85,7 @@ Commits are essentially a snapshot of your data - a point in time where you have
 
 Each time you send data to Speckle, you are automatically creating a new commit which contains all the objects in your stream along with additional information such as the time, date, and author of the commit. You can also add an optional _commit message_ which is a short description of what you've changed. Like a stream, each commit is assigned a generated `commitId` which can be used to identify and retrieve it. You can go back in time and look at the history of your stream through the series of commits.
 
-![a commit card from the Speckle frontend](https://user-images.githubusercontent.com/7717434/107365302-814f4900-6ad4-11eb-894f-3094863ad7c6.png)
+![Commit Card](https://user-images.githubusercontent.com/51519350/186121617-9f83dc01-89c5-4878-b088-7c3a81d4d75d.png)
 
 Say goodbye to saving your files as "AM_Project_Design-final", "AM_Project_Design-final-final", "AM_Project_Design-final-final-latest"...!
 
@@ -98,17 +98,6 @@ Please Note: Commits aren't editable, you can change their message but not their
 If you have used a connector and you've sent data to a stream, you've already used them! Each time data is sent to a stream, a commit is created. To help you keep track of the changes in your stream, it is a good idea to add a commit message that succinctly describes what the commit contains. Some of the connectors pre-populate a default commit message for you, but you are still free to write your own to add more detail.
 
 When receiving data in a connector, you have the option of either staying synced with the latest commit or receiving a specific commit based on the `commitId`. If you choose to stay on the latest commit, you'll see a notification when someone else has sent new data to the stream. When you see this, you'll be able to use the receive function to get the new commit and update your file.
-
-### Commit Received Receipts
-
-The most recent update to Commits was Received Receipts feature: log of all the times users received a commit through Speckle connector. Each time a registered user receives specific commit, the record is being created, containing information on who received the data, when and in which software.
-
-![image-commit-data-rr](./img/image-commit-data-rr.png)
-![image-commit-data-rr-popup](./img/image-commit-data-rr-popup.png)
-
-The Received Receipts are displayed alongside commit description in the web interface, and every receive-event makes a new record in your Activity Feed.
-
-![image-feed-rr](./img/image-feed-rr.png)
 
 ## What Next?
 

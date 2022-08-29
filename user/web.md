@@ -4,7 +4,7 @@
 
 The **Speckle Web App** is our browser-based interface for managing all things Speckle. It is your one stop shop for:
 
-- Managing your streams and their viewing / editing permissions
+- Managing your streams and their viewing/editing permissions
 - Coordinating your data among various parties & users
 - Creating and editing streams
 - Viewing your data in our 3D model viewer
@@ -12,14 +12,14 @@ The **Speckle Web App** is our browser-based interface for managing all things S
 
 When you first visit your speckle server address (e.g. our default [speckle.xyz server](https://speckle.xyz)), you'll be prompted to log in or register to that server. Servers are independent of each other meaning if you are a part of multiple Speckle Servers, you'll need to create a new account for each one.
 
-::: tip IMPORTANT 🙌
+::: tip 🙌 IMPORTANT
 This guide assumes you have a **Speckle Account**.
 If you don't, register on our [free XYZ Speckle server](https://speckle.xyz).
 :::
 
 ## Streams
 
-![image-20210322192558215](./img/web/image-20210322192558215.png)
+![speckle-web-interface](https://user-images.githubusercontent.com/51519350/186161631-bf87b7f8-865a-490c-a72e-e81dae8e1102.png)
 
 Once you're logged in, you'll be greeted by the home page which shows your [streams](/user/concepts.html#what-are-streams) and a feed of recent activity on the left.
 
@@ -27,48 +27,36 @@ These streams are the ones you have access to including streams you've created a
 
 ### The Streams Page
 
-👉 Psst - need a streams refresher? [Let's go!](/user/concepts.html#what-are-streams)
+👉 Psst - need a streams refresher? [Let's go!🏃‍♂️](/user/concepts.html#what-are-streams)
 
-On a stream page, you can browse the existing commits and view the data in our lovely 3D viewer. The most recent commit is the one you will initially see in the viewer.
+On a stream page, you can browse the existing commits and view the data in our lovely 3D viewer. The most recent commit is the one you will initially see in the viewer. You can see 🔄360-preview your commits by hovering over them.
 
-![image-20210322192409067](./img/web/image-20210322192409067.png)
+![opera_xQ0xkzHx14](https://user-images.githubusercontent.com/51519350/186161920-341a5862-b580-4cb5-aa2e-ef6bc4d6b59c.gif)
 
 If you have _contributor_ access, you can also add new branches and commits to the stream. If you have _owner_ access, you will see additional buttons which will let you edit the name / description, configure link sharing, and manage collaborators.
 
 By clicking on any of the latest commits you'll be taken to that commit's page.
 
-::: tip NOTE
-
-The list of recent commits by default refers to the `main` branch. You can swap branches by using the dropdown at the top of the page.
-
-![image-20210322192914688](./img/web/image-20210322192914688.png)
-
-:::
-
 ## Branches
 
 🤔 Wait, what were branches again? [We gotchu!](/user/concepts.html#what-are-branches)
 
-Each stream contains a little branching-icon button to help you easily switch between a stream's different branches. By default, each stream will contain only one branch, called **main**.
+Each stream contains a branching-icon on the sidebar to help you easily switch between a stream's different branches. By default, each stream will contain only one branch, called **main**.
 
-![image-20210322193000611](./img/web/image-20210322193000611.png)
+![branches](https://user-images.githubusercontent.com/51519350/186162317-958b49d9-82c2-403a-882e-1530645248e4.png)
 
-By clicking on the **Branches** button you'll be taken to a page that lists all existing branches for the current stream.
+By clicking on the **Branches** button, all existing branches for the current stream will be listed.
 
-![image-20210322193139643](./img/web/image-20210322193139643.png)
+![ezgif-5-c718dccbf0](https://user-images.githubusercontent.com/51519350/186162858-fa139544-4b47-4324-aaba-674161688288.gif)
 
 From here you can access each branch's page or create new branches.
+![opera_HpsebHQzLo](https://user-images.githubusercontent.com/51519350/186163315-08a7ca29-8f03-4c75-b486-280c864e6692.gif)
 
 ### The Branches Page
 
 By going even deeper, you can access a page for a single branch in your stream. This will display all of the commits that have been pushed to it, and you can edit the branch name and description too. This looks like:
 
-![image-20210322193547220](./img/web/image-20210322193547220.png)
-
-The latest Received Receipts feature allows to display all the receive-events next to each commit - records of receiving the commit by a registered user through Speckle connector. You can view the full list of records by clicking on user avatars.
-
-![image-brach-rr](./img/web/image-brach-rr.png)
-![image-brach-rr-popup](./img/web/image-brach-rr-popup.png)
+![image](https://user-images.githubusercontent.com/51519350/186163938-4a71677f-874b-4b62-96be-f7595f9ae3e9.png)
 
 ## The Commit Page
 
@@ -76,13 +64,23 @@ The latest Received Receipts feature allows to display all the receive-events ne
 
 Clicking on a particular commit will take you to a new page where you can view the commit in the viewer and explore the commit object.
 
-The "Data" section on this page allows you to explore the commit object by expanding it. The top level [_Base_](/user/concepts.html#the-base-object) is the root commit object and each item within it is a property. Properties can either be simple values (like the id, speckle type, and children count), another object, or a list of objects.
+The "Expand Data View" option on the sidebar allows you to explore the commit object. The top level [_Base_](/user/concepts.html#the-base-object) is the root commit object and each item within it is a property. Properties can either be simple values (like the id, speckle type, and children count), another object, or a list of objects.
 
-![object expander in speckle web](https://user-images.githubusercontent.com/7717434/107505427-955a7f80-6b94-11eb-8624-b6c694a568b4.png)
+![commit-page](https://user-images.githubusercontent.com/51519350/186190430-6bc2a26e-59bd-4588-8c27-44f77db5cc7d.png)
 
 Clicking on one of these lists will expand it and show you all the objects nested within it. If a nested object is a "Referenced Object", this means it is a separate object that hasn't been loaded yet. You can click it to load the referenced object and get more details. Clicking on the little arrow button next to an object will open that particular object in a new page and display it in the viewer.
 
-![web-commit-objects](https://user-images.githubusercontent.com/7717434/107504494-4b24ce80-6b93-11eb-8a4d-1895d55c32e0.gif)
+![opera_dh6fdPSMEN](https://user-images.githubusercontent.com/51519350/186192655-ac93da0a-bc6b-4594-807c-7f3a7850ceb5.gif)
+
+### Commit Received Receipts
+
+The most recent update to Commits was Received Receipts feature: log of all the times users received a commit through Speckle connector. Each time a registered user receives specific commit, the record is being created, containing information on who received the data, when and in which software.
+
+![opera_HIkQ1lQfwE](https://user-images.githubusercontent.com/51519350/186360257-080a43f8-39bd-4213-81d1-46fd51fa540e.gif)
+
+The Received Receipts are displayed alongside commit description in the web interface, and every receive-event makes a new record in your Activity Feed.
+
+![receive-record](https://user-images.githubusercontent.com/51519350/186184861-9dafcf20-effa-410a-92b9-76b52a321bc6.png)
 
 ## 3D Viewer
 
@@ -105,25 +103,28 @@ The toolbar at the bottom edge of the viewer allows you to:
 
 You can easily embed any stream, branch, commit or object directly from the **web app**. To do so, just follow these steps:
 
-::: warning Please note
+::: warning 📌 Please Note
 Your stream must be made **public** in order for the embedded viewer to properly load.
 :::
 
 1. In the **_web app_**, go to a stream page containing _geometric data_.
 
-   ![Stream page with geometric data](./img/web/embedViewer-StreamPage.png)
+   ![image](https://user-images.githubusercontent.com/51519350/186363636-2b94f885-4afd-4fea-bfea-ac231d909729.png)
 
 1. Open any of the commits of the stream, for example, the latest one at the top of the page
 
+   ![image](https://user-images.githubusercontent.com/51519350/186363745-0efab129-c77a-437a-b1af-eb58107e17ee.png)
+
 1. In the commit page you'll see the 3D viewer and in the top right corner of the page you'll see a sharing button
 
-   ![Sharing button](./img/web/commit-share.png)
+   ![share-button](https://user-images.githubusercontent.com/51519350/186364448-f109c15d-dd4e-428a-9566-e179d2c9f41a.png)
 
 1. Click it and you'll be presented with the sharing popup
 
-   ![Sharing options](./img/web/commit-share-modal.png)
+   ![embed-options (2)](https://user-images.githubusercontent.com/51519350/186365051-5eadc0cb-ade8-4997-9847-a0761fbb5580.png)
 
-   Here you can copy the `iframe` code that you can paste in any HTML document, or the link to the stream or commit page in the Web app.
+Sharing pop
+Here you can customize the embed viewer and copy the `iframe` code that you can paste in any HTML document, or the link to the stream or commit page in the Web app.
 
 The resulting `iframe` would be a viewer like the one [above ☝🏼](#_3d-viewer)
 
@@ -155,7 +156,7 @@ Each time you hit "save", you'll be prompted to add a message along with your ch
 
 ![globals history](./img/web/globals-history.png)
 
-::: tip NOTE
+::: tip 📝 NOTE
 
 Globals currently do not support detached objects. Let us know on the forum if this is something you would want!
 
@@ -189,13 +190,13 @@ globs = operations.receive(latest_commit.referencedObject, transport)
 
 ## Profile
 
-Click on your profile image to head to the **Profile** management page. If you haven't added a profile pic yet, we've auto-generated you a nice little robot avatar (you're welcome :smile:)
+Click on your profile image to head to the **Profile** management page. If you haven't added a profile pic yet, we've auto-generated you a nice little robot avatar🤖 (you're welcome :smile:)
 
 From your profile page, you can edit your personal details and manage your authorised applications in the "Your Apps" section. These are the applications that you have granted access to your streams and profile. On this page, you can make sure you recognise all the apps and easily revoke access to any apps you no longer want to authorise.
 
-![profile page on speckle web](https://user-images.githubusercontent.com/7717434/107490504-e14ff900-6b81-11eb-9fe5-2ae7297090f9.png)
+![speckle-profile](https://user-images.githubusercontent.com/51519350/186372877-121c4490-36dc-4aef-a769-d110e63ee012.png)
 
-Further down the page are some more advanced options intended for developers. You can check out the GraphiQL Explorer where you can explore the API and interact with your live data. You can generate Personal Access Tokens which are like passwords you can use to authenticate in your scripts and apps. You can also register your own Apps so other people on the server can use them too.
+Further down the page are some more advanced options intended for developers. You can check out the GraphQL Explorer where you can explore the API and interact with your live data. You can generate Personal Access Tokens which are like passwords you can use to authenticate in your scripts and apps. You can also register your own Apps so other people on the server can use them too.
 
 ## Admin
 

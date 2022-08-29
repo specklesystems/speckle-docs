@@ -27,22 +27,21 @@ Speckle is made up of several moving parts. Before describing each in detail, le
 
 ### Speckle Web App
 
-![image](https://user-images.githubusercontent.com/2679513/183118366-767ba483-2f65-4713-8cea-2b995befd7da.png)
-
+![speckle-web-app (1)](https://user-images.githubusercontent.com/51519350/186359062-550b8805-1a43-448b-8153-92695c2307ce.png)
 
 The [Speckle Web App](/user/web) lets you manage and coordinate your data directly from your web browser. It includes a management interface to help you administer your various streams and a 3D model viewer to let see your projects.
 
 ### Connectors
 
-![desktopui-send-stream](https://user-images.githubusercontent.com/7717434/106739196-c248e880-6610-11eb-8cc5-01216cc980b1.gif)
+![desktopui-send-stream](https://user-images.githubusercontent.com/51519350/185949603-bdc88a6a-d7e9-416b-9263-ea5b693604c8.gif)
 
-Our desktop [Connectors](/user/connectors) are plugins for some of the most popular construction industry software including Rhino, Revit, Grasshopper, Dynamo, AutoCAD, Civil3D, Unity, Blender (and more). They take care of sending and receiving data in your software (e.g. Rhino) to and from your Speckle server. The Connectors can handle almost any kind of data. Most commonly, this will be CAD and BIM data; essentially, geometry with attached metadata.
+Our desktop [Connectors](/user/connectors) are plugins for some of the most popular construction industry software including Rhino, Revit, Grasshopper, Dynamo, AutoCAD, Sketchup, Civil3D, Unity, Blender (and more). They take care of sending and receiving data in your software (e.g. Rhino) to and from your Speckle server. The Connectors can handle almost any kind of data. Most commonly, this will be CAD and BIM data; essentially, geometry with attached metadata.
 
 Each time the Connectors send data to your Speckle server, they also take care of transforming it from your software's native format to Speckle's own, neutral format. This makes accessing it from other software extremely easy and fast.
 
 ### Speckle Manager
 
-![image](https://user-images.githubusercontent.com/2679513/182888937-d998604c-59ef-4cbc-bdb6-2176338d41fd.png)
+![Speckle-Manager](https://user-images.githubusercontent.com/51519350/185951596-c3b4b52b-c1df-4199-94fd-61246f6227c2.gif)
 
 The [Speckle Manager](/user/manager) is a desktop application that handles accounts and connectors on your machine. You'll need to add a Speckle account to your computer using Speckle Manager in order to be authorised to send or access data to/from a Speckle Server.
 
