@@ -27,7 +27,7 @@ Whenever a connector is "sending to Speckle", it needs to convert data (lines, p
 
 ## How Kits work
 
-A Kit is assumed to be able to handle all element types, geometries and disciplines in use by a user/team/company. This is a core difference from previous iterations of Speckle. It multiple kits are available on a user machine, the user (or system administrators) will be responsible of selecting the default kit.
+A Kit is assumed to be able to handle all element types, geometries and disciplines in use by a user/team/company. This is a core difference from previous iterations of Speckle. If multiple kits are available on a user machine, the user (or system administrators) will be responsible of selecting the default kit.
 
 ::: tip IMPORTANT 🙌
 Kit selection is not yet available in most of our connectors. We are planning to add it soon!
