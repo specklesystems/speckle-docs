@@ -89,7 +89,7 @@ This allows for nested property names to not have a prefix (i.e. the level name 
 
 > The PowerBI visual is still in **early stages of development**. We welcome your feedback!
 
-![PowerBI rooms report](./img-powerbi/powerbi-rooms%20-%2001.gif)
+![PowerBI rooms report](./img-powerbi/powerbi-rooms.gif)
 
 The _3D Viewer Visual_ allows for the visualisation of Speckle data in a 3D environment inside your PowerBI reports. It is compatible with PowerBI Desktop and can also be used in PowerBI.com for online visualization.
 
