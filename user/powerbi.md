@@ -49,9 +49,47 @@ Once the connector is installed, you'll find a `Speckle (beta)` option in the `G
 
 Select the Speckle connector and click `Connect` - a window will open where you can input your Speckle stream, branch, commit, or object URL!
 
+The result of that query will be a table with the following columns:
+
+- Stream URL
+- URL Type
+- Object ID
+- speckle_type
+- data
+
+![Result table](./img-powerbi/powerbi-result-table.png)
+
+::: tip
+
+Stream URL and Object ID columns were added to facilitate loading data into the new `Speckle PowerBI 3D Viewer` (see below.)
+
+:::
+
+#### Expanding the `data` records
+
+In order to access the data within each object, you must expand that record into a set of it's properties.
+
+Pressing the `expand column` button displays a pop-up that will enable you to choose which properties to expand.
+
+![Expand column button](./img-powerbi/expand-column-button.png)
+
+This process can be done several times in a row until you reach the property values you're interested in.
+
+![Expand column pop-up](./img-powerbi/expand-column-popup.png)
+
+::: tip
+
+We recommend that you uncheck the `Use original column name as prefix` option **only** when expanding the initial `data` column.
+
+This allows for nested property names to not have a prefix (i.e. the level name of a room would be `level.name` instead of `data.level.name`
+
+:::
+
 ## Speckle 3D Viewer Visual
 
-> The PowerBI visual is still in **early stages of development**.
+> The PowerBI visual is still in **early stages of development**. We welcome your feedback!
+
+![PowerBI rooms report](./img-powerbi/powerbi-rooms%20-%2001.gif)
 
 The _3D Viewer Visual_ allows for the visualisation of Speckle data in a 3D environment inside your PowerBI reports. It is compatible with PowerBI Desktop and can also be used in PowerBI.com for online visualization.
 
@@ -60,7 +98,8 @@ The _3D Viewer Visual_ allows for the visualisation of Speckle data in a 3D envi
 The current version of enables basic visualisation, filtering and coloring features, as well as some basic camera and color controls:
 
 - Load individual objects that were fetched with the PowerBI Data Connector
--
+- Highlight objects in the 3D viewer that were selected on a different table in the report.
+- Color objects based on a category or value
 
 ### Installation
 
@@ -88,7 +127,7 @@ If you want the visual to remain on the visualization pane so you can use it in 
 
 ### Usage
 
-The 3D Viewer Visual was designed to work alongside our _PowerBI Data Connector_ (version 0.9 or above). The _data connector_ will output a table containing the following columns:
+The 3D Viewer Visual was designed to work alongside our _PowerBI Data Connector_ (version 0.10 or above). The _data connector_ will output a table containing the following columns:
 
 - `data`: A column of records containing the data belonging to each speckle object.
 - `Stream URL`: The stream url this object was fetched from
