@@ -95,7 +95,7 @@ The _3D Viewer Visual_ allows for the visualisation of Speckle data in a 3D envi
 
 ### Features
 
-The current version of enables basic visualisation, filtering and coloring features, as well as some basic camera and color controls:
+The current version enables basic visualisation, filtering and coloring features, as well as some basic camera and color controls:
 
 - Load individual objects that were fetched with the PowerBI Data Connector
 - Highlight objects in the 3D viewer that were selected on a different table in the report.
@@ -137,11 +137,11 @@ The 3D Viewer Visual was designed to work alongside our _PowerBI Data Connector_
 
 #### Loading objects
 
-In order load the objects from the table into the viewer, just add the fields `Stream URL` and `Object ID` onto their respective inputs in the visual.
+In order to load the objects from the table into the viewer, just add the fields `Stream URL` and `Object ID` onto their respective inputs in the visual.
 
 ![Visual inputs](./img-powerbi/visual-inputs.png)
 
-Once both fields are added, the Viewer would start to load the objects into the scene. The **Object Data** input is optional, and is only used to enable highlight/coloring functions.
+Once both the fields are added, the Viewer would start to load the objects into the scene. The **Object Data** input is optional, and is only used to enable highlight/coloring functions.
 
 #### Highlighting objects across visuals
 
@@ -166,7 +166,7 @@ The way an object is colored depends on the type of field you connected:
 
 The camera controls settings allow for:
 
-- Controlling if the camera should be in orthogonal or perspective mode
+- Orthogonal or perspective mode
 - Setting the view that would be shown when first loaded (top, front, back, left, right)
 
 #### Colors
