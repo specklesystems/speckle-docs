@@ -1,6 +1,6 @@
 # AutoCAD & Civil 3D
 
-Speckle currently supports Autodesk AutoCAD 2021 and Civil 3D 2021.
+Speckle currently supports Autodesk AutoCAD™ 2021-2023 and Civil 3D™ 2021-2023.
 
 ⚠ _This connector is currently in alpha with limited functionality._
 
