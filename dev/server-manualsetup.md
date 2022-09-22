@@ -318,9 +318,24 @@ services:
 
 ```
 
+## Update the server to new versions
+
+This deployment mechanism doesn't provide an automatic update mechanism, 
+so from time to time server operators need to manually update the deployment.
+
+To do that:
+- connect to the virtual machine running the Speckle server instance
+- navigate to the folder, where the Speckle server docker-compose file is located
+- run `$ docker-compose down` (this will take the server offline)
+- run `$ docker-compose pull`
+- run `$ docker-compose up -d` (this starts the server stack, and runs it in the background)
+
+Your server instance should be back online and updated.
+
+
 ## Run your speckle-server fork
 
-If you made some changes to the server and want to run those instead of the official releases, we created some useful docker-compose .yml files to help with that.
+If you made some changes to the server and want to run those instead of the official releases, we created some useful docker-compose.yml files to help with that.
 
 #### Step 1: Set up dependencies
 
