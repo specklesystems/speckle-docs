@@ -53,7 +53,7 @@ let res = await fetch('/graphql', {
     Authorization: 'Bearer ' + token, // <- Passing in the token!
     'Content-Type': 'application/json'
   },
-  body: JSON.stringify({ query: `{ user { id suuid streams { totalCount } } }` })
+  body: JSON.stringify({ query: `{ user { id streams { totalCount } } }` })
 })
 
 ```
