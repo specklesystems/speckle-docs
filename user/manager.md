@@ -13,7 +13,7 @@ Manager does not require admin privileges! Just double click and run to install 
 
 Download Speckle Manager now:
 
-- [🔽 Speckle Manager](https://releases.speckle.systems)
+- [🔽 Speckle Manager](https://speckle.systems/download/)
 
 ![Manager_hZXb0CIu5N 1](https://user-images.githubusercontent.com/51519350/186161062-70f7a7de-c215-4410-9aa7-5f7158b357f0.png)
 
