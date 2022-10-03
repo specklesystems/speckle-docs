@@ -18,7 +18,7 @@ Manager does not require admin privileges🎉! Just double-click and run to inst
 
 Download Speckle Manager from our:
 
-- [⬇️ Releases Website](https://releases.speckle.systems)
+- [⬇️ Downloads Page](https://speckle.systems/download/)
 
 ![Manager_hZXb0CIu5N 1](https://user-images.githubusercontent.com/51519350/186161062-70f7a7de-c215-4410-9aa7-5f7158b357f0.png)
 
@@ -30,7 +30,7 @@ By default Manager installs Connectors on Windows under the _local user app data
 We are rolling out this functionality to more connectors, currently it's only been added in Revit, Rhino and Grasshopper
 :::
 
-1. To do so, first download the individual exe for manual installation from our [⬇️ Releases Website](https://releases.speckle.systems)
+1. To do so, first download the individual exe for manual installation from our [⬇️ website](https://speckle.systems/download/)
 2. If you are running the installer manually, you'll no see a dialog prompting you to choose local (_Install for me only_) or system wide (_Install for all users - requires admin privileges_) options.
    ![install-manager-admin](https://user-images.githubusercontent.com/51519350/186138876-e221babc-36b5-4621-9b54-195168a70fa0.png)
 3. If you are running the installer programmatically, you can instead use the following command-line arguments:
