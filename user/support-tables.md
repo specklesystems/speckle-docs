@@ -233,7 +233,7 @@ Any geometric elements not listed above are not supported.
 | Pipe         | ✅         |         | `In Progress` |
 | Profile      | ✅         |         | `In Progress` |
 | Structure    | ✅         |         | `In Progress` |
-| Tin Surface  | ✅ as Mesh |         | `In Progress` |
+| Tin Surface  | ✅ as Mesh | ✅      |  `Complete`   |
 
 ### Unsupported Elements
 
