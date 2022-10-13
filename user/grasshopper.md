@@ -82,9 +82,9 @@ To select the stream you want send data to,just pass in its URL as a string to t
 
 Alternatively, you can also use one of the following nodes to create or retrieve existing streams:
 
-- [Create Stream](user/grasshopper.md#create-stream)
-- [Get Stream](user/grasshopper.md#get-stream)
-- [List Streams](user/grasshopper.md#list-streams)
+- [Create Stream](/user/grasshopper.md#create-stream)
+- [Get Stream](/user/grasshopper.md#get-stream)
+- [List Streams](/user/grasshopper.md#list-streams)
 
 :::tip NOTE
 While you can send data to streams and branches, you cannot send data to a specific commit. This is because commits represent your stream in a specific point in time. Therefore, everything that gets sent to Speckle is already a commit.
@@ -189,6 +189,8 @@ Choosing the wrong access type for your data may result in duplicated data being
 #### Detach/Do Not Detach
 
 Every property can also be specified as _detached/non-detached_. When a property is _detached_, it means that the objects it contains will be saved as independent entities in the Speckle database. All properties are detached by default for performance reasons, but you can choose not to by specifying `Do not detach` on the right-click menu. Primitive types (int/double/bool/etc...) are never detached even if flagged as such.
+
+Want to dig deeper into Detach/Do Not Detatch? Take a look at [this](/dev/decomposition.md) dev doc about the Decomposition API.
 
 ![Detach/Do not detach](./img-gh/menu-DoNotDetach.gif)
 
