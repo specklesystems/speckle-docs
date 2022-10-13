@@ -73,13 +73,13 @@ In our example, each Level can hold, in a _detachable_ property, all its walls, 
 Let's illustrate this through an example that also demonstrates how dynamically added properties can be detached. We'll assume that we will dynamically set `topSlab` and `bottomSlab` properties to each level in our imaginary object model:
 
 ```csharp
-// We're grossly simplyfing in this example. Here are our two building levels:
+// We're grossly simplifying in this example. Here are our two building levels:
 var level_1, level_2;
 
 // The philosophical slab instance. Does it belong to level 1 or level 2?
 var slab_between_1_and_2 = new Slab();
 
-// Well, it belongs to both! Notice the "@" characther at the beginning of
+// Well, it belongs to both! Notice the "@" character at the beginning of
 // the dynamic property assignment - it's the Speckle convention for "detaching"
 // dynamically added properties.
 level_1["@topSlab"] = slab_between_1_and_2;
@@ -114,7 +114,7 @@ Some list properties of various objects can get very large. Examples:
 - a Brep with many faces will have a Surfaces list prop containing 1000s of potentially heavy Surfaces.
 - a mesh with 100k+ vertices and faces.
 
-This results in a clunky (memory heavy) serialisation process and can be unsafe (read: cause borkages) due to memory limitations.
+This results in a clunky (memory heavy) serialisation process and can be unsafe (read: cause breakages) due to memory limitations.
 
 ### Solutions
 

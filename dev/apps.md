@@ -76,7 +76,7 @@ This will ask you some questions, such as the version of vue to use, what plugin
    ![Step 5](./img/apps-guide/app-guide-vue-setup-step5.png)
 6. When prompted for a Linter, choose the option **ESLint with error prevention only**
    ![Step 6](./img/apps-guide/app-guide-vue-setup-step6.png)
-7. When prompted for aditional lint features, select **Lint on save**
+7. When prompted for additional lint features, select **Lint on save**
    ![Step 7](./img/apps-guide/app-guide-vue-setup-step7.png)
 8. Choose to place config files **In dedicated config files**
    ![Step 8](./img/apps-guide/app-guide-vue-setup-step8.png)
@@ -602,7 +602,7 @@ Now that we have access to our user and server data in our app, and also disting
 
 ### Search query
 
-Start by adding the following function to our `speckeQueries.js`
+Start by adding the following function to our `speckleQueries.js`
 
 ```js
 export const streamSearchQuery = search => `query {
