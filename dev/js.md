@@ -38,7 +38,7 @@ This returns a dictionary with `{ propertyName: propertyInfo }` elements. The pr
  - `allValues` (array of `objectCount` elements): The values for this property of all objects that have this property
  - `minValue` - the smallest value (using `<` operator, works also on strings)
  - `maxValue` - the largest value
- - `uniqueValues` - a dictionary of `{ uniqueValue: occurenceCount }` elements, secifying how many objects have the property set to that specific value
+ - `uniqueValues` - a dictionary of `{ uniqueValue: occurrenceCount }` elements, specifying how many objects have the property set to that specific value
 
 ### Filtering and coloring
 Those calls filter and color the objects loaded in the scene, and drops the previous applied filters (filtering is not additive).
@@ -54,7 +54,7 @@ The 3 optional parameters are:
 
  - `colorBy`: A dictionary that makes all objects colored based on a property value. Two types of coloring are supported:
    - Gradient (from a numeric property): `{ 'type': 'gradient', 'property': propertyName, 'minValue': propertyMinValue, 'maxValue': propertyMaxValue, 'gradientColors': [color1, color2] }`
-   - Category (for coloring each unique value differently): `{ 'type': 'category', 'property': propertyName, 'values': { value1: color1, value2: color2, ... }, 'default': colorForAnyOtherValue }`. The `values` and the `default` parameters are optional: Random colors are generated if they are ommited.
+   - Category (for coloring each unique value differently): `{ 'type': 'category', 'property': propertyName, 'values': { value1: color1, value2: color2, ... }, 'default': colorForAnyOtherValue }`. The `values` and the `default` parameters are optional: Random colors are generated if they are omitted.
 
  - `ghostOthers`: A boolean (default `false`). If set to `true`, then the objects that are filtered out are actually shown with very low opacity, so that the remaining objects have a better context.
 

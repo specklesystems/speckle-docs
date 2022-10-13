@@ -360,7 +360,7 @@ This will run the following containers, and will automatically launch them at sy
 - *Redis v6*, listening only on `127.0.0.1:6379`
 - *PGAdmin4*, listening only on `127.0.0.1:16543` with default credentials `admin@localhost` : `admin`
 - *Redis Insight*, listening only on `127.0.0.1:8001`
-- *MinIO*, listenting on `127.0.0.1:9000` with the API endpoint and on `127.0.0.1:9001` with the Web Management Interface (default credentials used: `minioadmin`/`minioadmin`)
+- *MinIO*, listening on `127.0.0.1:9000` with the API endpoint and on `127.0.0.1:9001` with the Web Management Interface (default credentials used: `minioadmin`/`minioadmin`)
 
 All of the above containers listen on the local loopback interface (`127.0.0.1`) and are NOT accessible from the local network (for security, since they use default credentials)
 

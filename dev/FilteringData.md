@@ -148,7 +148,7 @@ On level Foundation there are 31 elements.
 
 ## Conclusion: Structured Data vs. Flat Data
 
-Both structured data and flattened data have advantages and disadvanteges. The latter lends itself for ETL worflows and various classification based exercises, whereas the former allows for a better model. Dealing with structured data doesn't mean that we can't flatten it and benefit from all processing ease of flattened data. You can use this as a basis for quite a few automation exercises, such as: 
+Both structured data and flattened data have advantages and disadvantages. The latter lends itself for ETL workflows and various classification based exercises, whereas the former allows for a better model. Dealing with structured data doesn't mean that we can't flatten it and benefit from all processing ease of flattened data. You can use this as a basis for quite a few automation exercises, such as: 
 - automatically compiling bills of materials
 - checking model quality (ie, why are there two Level 1s, `Level 1` and `Level 1 Living Rm` in that model?)
 - creating custom schedules
