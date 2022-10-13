@@ -217,7 +217,7 @@ The **Receive Local Data** node performs receive operations in the same way as t
 
 #### Outputs
 
-- _Data_: The data thas was received. This port will accept almost anything you give it. If the objects provided are not `Base` objects, it will also perform the conversion to Speckle automatically.
+- _Data_: The data that was received. This port will accept almost anything you give it. If the objects provided are not `Base` objects, it will also perform the conversion to Speckle automatically.
 
 ### Select Account
 
@@ -251,7 +251,7 @@ To view the newly-created stream online you can just right click on the node:
 
 > This node has no inputs.
 
-#### Ouputs
+#### Outputs
 
 - _streamUrl_: A URL, pointing to the newly-created stream.
 
@@ -287,7 +287,7 @@ The **List Streams** node returns a specified amount of streams available in an 
 
 ### Stream Details
 
-![Strean details node](./img-dyn/nodes-stream-details.png)
+![Stream details node](./img-dyn/nodes-stream-details.png)
 
 The **Stream Details** node returns all relevant information related to a specific `Stream`.
 
@@ -369,7 +369,7 @@ Creates a connection to a specific SQLite database.
 
 #### Disk Transport
 
-![Disk tranport](./img-dyn/nodes-transport-disk.png)
+![Disk transport](./img-dyn/nodes-transport-disk.png)
 
 Creates a connection to a specific file in the computer's disk, where the data will be saved in JSON format.
 
