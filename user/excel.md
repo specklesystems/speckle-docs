@@ -137,7 +137,7 @@ More advanced workflows are possible, similarly to how our [Grasshopper Schema B
 
 ### Updating Revit Parameters
 
-To update Revit paramteres from Excel, just copy paste the sample table below and update it with your element ids and values.
+To update Revit parameters from Excel, just copy paste the sample table below and update it with your element ids and values.
 **We are working to make this flow simpler and more intuitive, it might change in the future**
 
 | elementId | parameters.speckle_type | parameters.ALL_MODEL_INSTANCE_COMMENTS.value | parameters.ALL_MODEL_INSTANCE_COMMENTS.units | parameters.ALL_MODEL_INSTANCE_COMMENTS.speckle_type | speckle_type                                 |
