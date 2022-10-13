@@ -39,7 +39,7 @@ Geometry from streams will be added to AutoCAD / Civil3D layers starting with a 
 stream[ branch @ commit id ]
 ```
 
-Any layer information from the incoming stream will be appended to the prefix with the standard AutoCAD delimiter `$`. When recieving from applications (like Rhino) with nested layers, the incoming full layer path will replace any default delimiters with `$`.
+Any layer information from the incoming stream will be appended to the prefix with the standard AutoCAD delimiter `$`. When receiving from applications (like Rhino) with nested layers, the incoming full layer path will replace any default delimiters with `$`.
 
 ![](./img-acad/receiving-layers.png)
 
