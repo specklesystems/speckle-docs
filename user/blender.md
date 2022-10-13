@@ -1,6 +1,6 @@
 # Blender
 
-::: tip
+::: tip 💡 TIP
 
 Check out our dedicated tutorial on [how to get started with Blender](https://speckle.systems/tutorials/getting-started-with-speckle-for-blender/)!
 
@@ -19,6 +19,19 @@ Before using this connector, you'll need to follow our standard setup instructio
 Once the connector has been installed, you will find it in the Add-ons tab of your Preferences menu, under the "Scene" category. Activate it by checking the tick box next to the Add-on name.
 
 ![activating the Blender Connector](./img-blender/enable-addon.png)
+
+### Manual Installation
+
+If setup from the manager didn’t work for you or you want to install the Blender connector on an unsupported Blender version (e.g. 3.3.):
+
+1. Go to `%appdata%/Blender Foundation/Blender/version-number (2.9, 3.1)/scripts/addons`.
+2. Copy `bpy_speckle` and `modules` folders from here.
+3. Go back to `%appdata%/Blender Foundation/Blender`.
+4. Select the folder with the version name you want to install Speckle to.
+5. Go to `scripts/addons`. Create them if they don’t exist.
+6. Paste copied `bpy_speckle` and `modules` folder here.
+
+After you’re done with these steps you should be able to see Speckle under Add-ons. Enable it from there. If you face any issues during the initial run, restarting Blender will fix it.
 
 ## User Interface
 
@@ -39,6 +52,16 @@ From version 2.1.9, you can also add existing streams by their URL. You can use 
 The **Active Stream Panel** will show more details about the stream you've selected in the Streams Panel. From here, you can change the active branch and commit. You can also Send and Receive any items you have selected in Blender. Under the Send and Receive buttons, you can use the dropdown menus to select a script to run on all elements during the send / receive process.
 
 At the very bottom of the panel (not pictured), you'll find a button that will open the stream in the [Speckle Web App](/user/web).
+
+## Clean Meshes
+
+One of the new features we added with the 2.9. release is **Clean Meshes** for Blender. With this feature, a single surface is obtained by combining triangular coplanar faces. This is especially useful for geometry that is coming from applications that do not support NGON meshes. With Clean Meshes, Material Assignment and UV Mapping will be much easier now.
+
+![image](https://user-images.githubusercontent.com/51519350/195507307-78ae7cd4-5895-4b4b-ba99-91e734cdb541.png)
+
+Clean Mesh option can be accessed from the dialog that pops up after clicking the Receive button. By default, this will be unchecked🔳.
+
+![image](https://user-images.githubusercontent.com/51519350/195507390-54e44041-8a10-4b1f-a034-4f3dd68dd13b.png)
 
 ## Supported Elements
 
