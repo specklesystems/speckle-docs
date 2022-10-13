@@ -80,7 +80,7 @@ The connector does not take care of updating existing elements within the stream
 
 When sending from elements from Revit, Speckle takes care of converting the data to a Speckle friendly format. If you're curious about how this data is being structured, please have a look at our [Objects Kit class definitions](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects/BuiltElements).
 
-To send elements from Revit specficially into a structural model, use the analytical models generated within a revit model. Currently there is no conversion from the BuiltElement object kits and the Structural object kits, which means that only the analytical models in Revit are supported to be converted into CSI. Give us feedback on this workflow. ![Revit Analytical Model](./img-csi/analytical-model.png)
+To send elements from Revit specificially into a structural model, use the analytical models generated within a revit model. Currently there is no conversion from the BuiltElement object kits and the Structural object kits, which means that only the analytical models in Revit are supported to be converted into CSI. Give us feedback on this workflow. ![Revit Analytical Model](./img-csi/analytical-model.png)
 
 ## Grasshopper to CSI Products
 

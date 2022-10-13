@@ -49,13 +49,13 @@ The following filters are also available depending on the Bentley application:
 - `Element Type` (all connectors): sends all elements of the selected types
 - `Civil Element Type` (OpenRoads, OpenRail): sends all elements of the selected civil types
 
-All geometric elements are organized by `Level` when they are sent to Speckle: elements that do not have a level will be located in `Unkonwn`. For Civil elements from OpenRoads and OpenRail are organized by their element type, and in OpenBuildings, if you sent gridlines, they will be located in the `Grid Systems` container.
+All geometric elements are organized by `Level` when they are sent to Speckle: elements that do not have a level will be located in `Unknown`. For Civil elements from OpenRoads and OpenRail are organized by their element type, and in OpenBuildings, if you sent gridlines, they will be located in the `Grid Systems` container.
 
 ### Receiving
 
 In order to receive data from a Speckle stream, you'll first need to add that stream to your Speckle streams panel. If the stream already exists on the server it will automatically be added in _Receiver_ mode.
 
-Once the stream has been added, go ahead and hit the `Receive` button. This will display a progress bar (just like the sending operation) and, if successfull, will add the received objects to the current document.
+Once the stream has been added, go ahead and hit the `Receive` button. This will display a progress bar (just like the sending operation) and, if successful, will add the received objects to the current document.
 
 ## Supported Elements
 
