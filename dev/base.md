@@ -17,11 +17,11 @@ The base object class (actually called `Base`) is the foundation of all data bei
 This is what it looks like:
 
 ```csharp
-// Simplified class defintion:
+// Simplified class definition:
 public class Base {
 	public string id { get; set; } // this is the unique hash, generated from the serialized object
     	public string applicationId { get; set; } // a secondary (optional) identity value, for example the host application object id
-	public string speckle_type { get; } // this is the discriminator comprised of assembly name and inheritence
+	public string speckle_type { get; } // this is the discriminator comprised of assembly name and inheritance
 	public long totalChildrenCount { get; } // this is the total number of detachable objects
 }
 ```
@@ -97,7 +97,7 @@ var bar = new Bar();
 foo["@bar"] = bar;
 ```
 
-Detatching a property stores that property value as a reference to another object. Why do this? Since it's possible to nest your `Base` inherited class objects, detaching any properties that may be assigned an object used by other objects keeps your data squeaky clean. Since detached objects are only serialized once during transport, detaching when appropriate means faster sending and receiving times as well ⚡ 
+Detaching a property stores that property value as a reference to another object. Why do this? Since it's possible to nest your `Base` inherited class objects, detaching any properties that may be assigned an object used by other objects keeps your data squeaky clean. Since detached objects are only serialized once during transport, detaching when appropriate means faster sending and receiving times as well ⚡ 
 
 For a more in depth rundown of detachables and examples, check out the [decomposition API section](/dev/decomposition).
 
