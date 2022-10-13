@@ -368,7 +368,7 @@ Initially accessing Speckle may take some time as DigitalOcean has to create a l
 - Navigate to your domain registrar's website for your domain name and add a DNS A record. This will allow web browser's to resolve your domain name to the IP of the load balancer.  The domain must match the domain name provided to Speckle in the `values.yaml` file you edited previously.  If DigitalOcean manages your Domain Names, adding a DNS A record using [DigitalOcean's Domain page(https://cloud.digitalocean.com/networking/domains) will look something like the following:
 ![image](./img/k8s/32_domain_a_record.png)
 
-- It may take a moment for the domain name and A Record to be propogated to all relevant DNS servers, and then for Let's Encrypt to be able to reach your domain and generate a certificate.  Please be patient while this is updated.
+- It may take a moment for the domain name and A Record to be propagated to all relevant DNS servers, and then for Let's Encrypt to be able to reach your domain and generate a certificate.  Please be patient while this is updated.
 
 ## Step 7: Create an account on your Server
 
