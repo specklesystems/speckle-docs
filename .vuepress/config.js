@@ -179,6 +179,7 @@ module.exports = {
             "server-setup-k8s",
             "server-manualsetup",
             "server-local-dev",
+            "server-database-migration",
             "tokens",
             "apps",
           ],
