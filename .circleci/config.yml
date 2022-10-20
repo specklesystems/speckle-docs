@@ -13,4 +13,4 @@ jobs:
     steps:
       - checkout
       - run:
-          command: yarn build
+          command: yarn && yarn build
