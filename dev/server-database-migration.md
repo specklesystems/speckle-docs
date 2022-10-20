@@ -35,7 +35,7 @@ Speckle's preferred method of backing up and restoring data in a Postgres databa
     04fb5cfc43e9   dpage/pgadmin4   "/entrypoint.sh"   8 days ago   Up 53 minutes   443/tcp, 127.0.0.1:16543->80/tcp   speckle-server-pgadmin-1
     ```
 
-1. _If pgAdmin is already running, you can skip this step._ Save the following Docker-Compose configuration in a file named `docker-compose-pgadmin.yml`
+1. Save the following Docker-Compose configuration in a file named `docker-compose-pgadmin.yml`
 
     ```yaml
     version: '3'
@@ -57,35 +57,36 @@ Speckle's preferred method of backing up and restoring data in a Postgres databa
       pgadmin-data:
     ```
 
-1. _If Postgres and pgAdmin are already running, you can skip this step._ Start the pgAdmin using Docker-Compose:
+1. Start the pgAdmin using Docker-Compose:
 
    ```shell
    docker-compose --file docker-compose-pgadmin.yml up --detach
    ```
 
-1. _If Postgres and pgAdmin are already running, you can skip this step._ Verify that pgAdmin is now running:
+1. Verify that pgAdmin is now running:
 
    ```shell
-   docker ps
+   docker ps --filter name='pgadmin'
    ```
 
 ### Connecting to pgAdmin
 
 #### Connecting to pgAdmin running in Docker on your local machine
 
-1. Find the port that Postgres is being served on using [Docker's `ps` command](https://docs.docker.com/engine/reference/commandline/ps/).
+1. Find the port that pgAdmin is being served on using [Docker's `ps` command](https://docs.docker.com/engine/reference/commandline/ps/).
 
     ```shell
-    docker ps --format '{{.Names}} {{.Ports}}' --filter name='postgres'
+    docker ps --filter name='pgadmin'
     ```
 
 1. The above command should produce something like the below. In this example, the port we are interested in is the port exposed on our localhost (`127.0.0.1`), this port is `5432`.
 
     ```shell
-    speckle-server-postgres-1 127.0.0.1:5432->5432/tcp
+    CONTAINER ID   IMAGE            COMMAND            CREATED       STATUS       PORTS                              NAMES
+    465897401a96   dpage/pgadmin4   "/entrypoint.sh"   2 hours ago   Up 2 hours   443/tcp, 127.0.0.1:16543->80/tcp   speckle-server-pgadmin-1
     ```
 
-1. Open the [pgAdmin dashboard](http://127.0.0.1:16543/) in your browser. If you have changed the configuration of pgAdmin, you can find how to access it by running `docker ps --format '{{.Names}} {{.Ports}}' --filter name='pgadmin'` and making a note of the host and port it is being served on.
+1. Open the [pgAdmin dashboard](http://127.0.0.1:16543/) in your browser. If you have changed the configuration of pgAdmin, you can find how to access it by running `docker ps --filter name='pgadmin'` and making a note of the host and port it is being served on.
 
 #### Connecting to pgAdmin running in a DigitalOcean 1-click Droplet
 
@@ -111,8 +112,8 @@ For those who are interested, more information about SSH tunnels can be found in
 1. In the dialog box in the `General` tab, enter the name `docker-compose`.
 1. In the dialog box in the `Connection` tab:
    - for the `Host name/addresses` enter the name of the Postgres container, in our example it is `speckle-server-postgres-1`
-       - the name of the Postgres container can be found with `docker ps --format '{{.Names}}' --filter name='postgres'`
-   - for `port`, use `5432` (or the value discovered when running `docker ps`, see instructions above).
+       - the name of the Postgres container can be found with `docker ps --filter name='postgres'`
+   - for `port`, use `5432` (or the value discovered when running `docker ps --filter name='postgres'`, see instructions above).
    - for `database`, `username`, and `password` use the values in your configuration assigned to the respective `POSTGRES_DB`, `POSTGRES_USER`, and `POSTGRES_PASSWORD` keys. If installed with Speckle's manual installation or DigitalOcean 1-click, by default the value of these are all `speckle`.
 
   ![image](./img/postgres-backup/03_pgadmin_connect.png)
@@ -152,7 +153,7 @@ recover to a previous good working state.
 1. Find the name of the Postgres database volume.
 
    ```shell
-   docker volume ls --format '{{.Name}}' --filter name='postgres'
+   docker volume ls --filter name='postgres'
    ```
 
 1. Follow the instructions on backing up a Docker Volume in [Docker's Documentation](https://docs.docker.com/storage/volumes/#backup-restore-or-migrate-data-volumes)
@@ -165,13 +166,14 @@ If you are not upgrading the Postgres database, you can stop at this step. The f
 1. Determine the name of the Docker container that is running your Postgres database, and the version of Postgres.
 
     ```shell
-    docker ps --format '{{.Names}} {{.Image}}' --filter name='postgres'
+    docker ps --filter name='postgres'
     ```
 
-1. If successful, the above will print out something similar to the below. In our example the name is `speckle-server-postgres-1` and the version `postgres:13-alpine`.
+1. If successful, the above will print out something similar to the below. In our example the name is `speckle-server-postgres-1` and the image version `13-alpine`.
 
     ```shell
-    speckle-server-postgres-1 postgres:13-alpine
+    CONTAINER ID   IMAGE                COMMAND                  CREATED       STATUS       PORTS                      NAMES
+    510e024a4700   postgres:13-alpine   "docker-entrypoint.s…"   2 hours ago   Up 2 hours   127.0.0.1:5432->5432/tcp   speckle-server-postgres-1
     ```
 
 1. ⚠️ **CAUTION** This step will cause Speckle, and any other application relying on the database, to stop working until the database is restored. You may wish to notify users of your Speckle server about the disruption to Speckle before proceeding with this and the following steps. Stop your Postgres database with the following command, replacing `speckle-server-postgres-1` with the name of your container.
@@ -189,7 +191,7 @@ If you are not upgrading the Postgres database, you can stop at this step. The f
 1. Find the name of the Postgres database volume.
 
    ```shell
-   docker volume ls --format '{{.Name}}' --filter name='postgres'
+   docker volume ls --filter name='postgres'
    ```
 
 1. During upgrades we recommend undertaking a Docker volume backup. This allows us to restore to the previous version if the upgrade was unsuccessful. See the instructions for undertaking a Docker volume backup in the section above.
