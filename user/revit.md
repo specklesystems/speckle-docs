@@ -13,7 +13,7 @@ Check out our dedicated tutorial on [how to get started with Revit](https://spec
 
 ## Getting Started
 
-To install the Revit Connector and add your Speckle account, proceed by following the instructions in [Speckle Manager](/user/manager).
+To install the Revit Connector and add your Speckle account, proceed by following the instructions in [Speckle Manager](/user/manager.md).
 
 Once installed, you can find the Revit connector in the ribbon menu under the **Speckle** tab like so:
 
@@ -23,7 +23,7 @@ Once installed, you can find the Revit connector in the ribbon menu under the **
 
 ::: tip 🙌 IMPORTANT
 
-This connector uses our shared Desktop UI. Read up on general guidelines for usage in the [Desktop UI section](/user/ui).
+This connector uses our shared Desktop UI. Read up on general guidelines for usage in the [Desktop UI section](/user/ui.md).
 
 :::
 
@@ -101,13 +101,13 @@ Please always ensure your Revit Models are aligned without the need for any addi
 
 ## Supported Elements
 
-- [Revit Support Tables](/user/support-tables.html#revit)
+- [Revit Support Tables](/user/support-tables.md#revit)
 
 ## Family Editor
 
 The Revit connector also works in the Family Editor, refer to the list below for supported element types.
 
-- [Revit Support Tables](/user/support-tables.html#revit)
+- [Revit Support Tables](/user/support-tables.md#revit)
 
 ## Updating Elements
 
@@ -152,7 +152,7 @@ All the parameters are stored using their **internal Revit names**. You can see 
 
 :::
 
-To easily explore on object's data and parameters, our [Speckle Web App](/user/web.html) interface can be of great help. As well as any other applications that lets you explore the object metadata (eg Grasshopper, Dynamo, Unity, etc).
+To easily explore on object's data and parameters, our [Speckle Web App](/user/web.md) interface can be of great help. As well as any other applications that lets you explore the object metadata (eg Grasshopper, Dynamo, Unity, etc).
 
 ![web-bim-data](https://user-images.githubusercontent.com/51519350/186416982-15eb496a-18fc-4782-b1d2-a6df01e9a5ed.png)
 
