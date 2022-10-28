@@ -1,36 +1,18 @@
 # Power BI
 
-![Power BI connector](./img-powerbi/powerbi-main.png)
+## PowerBI Data Connector
 
-::: tip
+The Speckle 2.0 connector for Power BI supports **Power BI Desktop only**.
+
+::: tip 💡 TIP
 
 The Power BI connector is in `beta` development and still requires manual installation. We will look into streamlining installation via Speckle Manager as well as Microsoft certification once development stabilizes.
 
 :::
 
-## PowerBI Data Connector
+![Power BI connector](./img-powerbi/powerbi-main.png)
 
-The Speckle 2.0 connector for Power BI supports Power BI Desktop only.
-
-### Getting Started
-
-#### Installation
-
-> All releases of the Speckle 2.0 Power BI Connector are available on our [Power BI GitHub repository](https://github.com/specklesystems/speckle-powerbi/releases).
-
-1. Download the `Speckle.mez` file from the latest release (or release of your choice).
-
-2. Copy the downloaded file into the local `Custom Connectors` folder in your installation of Power BI: `Documents\Power BI Desktop\Custom Connectors`.
-
-3. The Speckle Power BI Beta Connector should now appear as a data source once you load up Power BI Desktop!
-
-::: warning
-
-If the `Custom Connectors` folder doesn't exist, you can create it at the path in Step 2! Make sure it is created in your user's `Documents` directory.
-
-:::
-
-#### Features
+### Features
 
 The Power BI beta connector allows you to import your Speckle stream, branch, commit, or object data using the corresponding URL from your Speckle server stream. The following data will be retrieved depending on which type of URL you use:
 
@@ -41,7 +23,27 @@ The Power BI beta connector allows you to import your Speckle stream, branch, co
 
 If you're having issues connecting to your stream, make sure the stream is either set to `Public` or your local account has access to the private stream.
 
-#### Using Speckle Power BI
+### Installation
+
+::: tip 📌 IMPORTANT
+
+All releases of the Speckle 2.0 Power BI Connector are available on our [Power BI GitHub repository](https://github.com/specklesystems/speckle-powerbi/releases).
+
+:::
+
+1. Download the `Speckle.mez` file from the latest release (or release of your choice).
+
+2. Copy the downloaded file into the local `Custom Connectors` folder in your installation of Power BI: **`Documents\Power BI Desktop\Custom Connectors`**.
+
+3. The Speckle Power BI Beta Connector should now appear as a data source once you load up Power BI Desktop!
+
+::: warning 📁 WARNING
+
+If the `Custom Connectors` folder doesn't exist, you can create it at the path in Step 2! Make sure it is created in your user's `Documents` directory.
+
+:::
+
+### Using Speckle Power BI
 
 Once the connector is installed, you'll find a `Speckle (beta)` option in the `Get data` interface, under the `Other` category.
 
@@ -61,7 +63,7 @@ The result of that query will be a table with the following columns:
 
 ::: tip
 
-Stream URL and Object ID columns were added to facilitate loading data into the new `Speckle PowerBI 3D Viewer` (see below.)
+Stream URL and Object ID columns were added to facilitate loading data into the new [Speckle PowerBI 3D Viewer](#speckle-3d-viewer-visual)
 
 :::
 
@@ -84,6 +86,36 @@ We recommend that you uncheck the `Use original column name as prefix` option **
 This allows for nested property names to not have a prefix (i.e. the level name of a room would be `level.name` instead of `data.level.name`
 
 :::
+
+### Accessing Private Streams 🔒
+
+If you're having issues connecting to your private stream, make sure you set an `Access Token` on your Profile. This is how you do it:
+
+1. Go to you Profile on Speckle server. [https://speckle.xyz/profile](https://speckle.xyz/profile)
+2. Under Developer Setting Create a `New Token`
+
+   ![image](https://user-images.githubusercontent.com/51519350/198557652-abd6f63b-4260-4ef8-aeb9-bac03bf2f7e1.png)
+
+3. Set its name as `PowerBI Connector` and check every option under `Scopes`✅ and click `SAVE`.
+
+   ![image](https://user-images.githubusercontent.com/51519350/198579553-61a9e918-a35a-4498-b774-3a0be3ca8d20.png)
+
+4. This will create a token for you. Make sure you copied it. It is the first and last time you’ll be able to see this token. Treat it as a Password 🔑 and do not share it with anyone.
+5. Go to **Power BI > Options and Settings > Data source settings.**
+
+   ![image](https://user-images.githubusercontent.com/51519350/198579710-17e33e8f-a61c-47b1-8a20-68a03d1e49db.png)
+
+6) Go to **Global Permissions** and select your Speckle server.
+
+   ![image](https://user-images.githubusercontent.com/51519350/198579769-5116f628-c0bd-4226-98d5-878815251d4e.png)
+
+7) After selecting server, follow **Edit Permissions > Edit > Private Stream.** Paste your *Token* into `Personal Access Token` input.
+
+   ![cdaf98266d5cc4ba2e82776bc54ba8a367a83232](https://user-images.githubusercontent.com/51519350/198579885-cbc6bed1-5659-42b9-80dd-6a4afd53321e.gif)
+
+8) That’s it. It should work now.
+
+If you have trouble seeing your server under Data sources, simply delete existing servers. Go back to Speckle connector and try to receive the same stream/branch/commit. You’ll have the option to add it from there.
 
 ## Speckle 3D Viewer Visual
 
