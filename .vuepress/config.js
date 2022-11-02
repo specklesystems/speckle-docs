@@ -108,6 +108,7 @@ module.exports = {
             "csi",
             "sketchup",
             "qgis",
+            "arcgis",
             "powerbi",
             "bentley",
             "teklastructures",
