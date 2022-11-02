@@ -7,13 +7,13 @@
 The ArcGIS connector is in early stages of development and released as `beta`.
 :::
 
-The Speckle 2.0 connector for ArcGIS currently supports ArcGIS versions 2.9.0 and upwards.
+The Speckle connector for ArcGIS currently supports ArcGIS versions 2.9.0 and upwards.
 
 ## Getting started
 
 ### Installation
 
-You can install the plugin using Manager for Speckle.
+You can install the plugin using [Speckle Manager](https://speckle.systems/download/).
 
 ![Plugins](./img-arcgis/arcgis-speckle-manager.png)
 
@@ -33,11 +33,9 @@ Only vector and raster based layers are supported. We're looking to improve supp
 
 The geometry will be reprojected and sent in a `Project SR` of your current ArcGIS project. If the chosen Spatial Reference is of Geographic type with non-linear units, they will be treated as Meters in other software that do not support such units.
 
-You can received Speckle geometry sent from other software. Currently supported Speckle types for receiving: Point, Line, Polyline, Arc, Circle, Polycurve. BIM objects are not supported yet. 
+You can receive Speckle geometry sent from other software. Currently supported Speckle types for receiving: Point, Line, Polyline, Arc, Circle, Polycurve. Properties of the objects upon receiving are stored in the layer attribute table. BIM objects are not supported yet. 
 
-Properties of the objects upon receiving are stored in the layer attribute table.
-
-You can send you data from ArcGIS and receive it in CAD in a CAD-friendly location, thanks to option to create custom SR in ArcGIS. To do this, you will be required to enter geographic coordinates of the point representing origin point (0, 0, 0) in your CAD project.
+You can send you data from ArcGIS and receive it in CAD in a CAD-friendly coordinate system, thanks to option to create custom SR in ArcGIS. To do this, you will be required to enter geographic coordinates of the point representing origin point (0, 0, 0) in your CAD project.
 
 ### Using Speckle ArcGIS
 
@@ -45,7 +43,7 @@ Once the plugin is installed, you'll find a new toolbox in Geoprocessing tools, 
 
 ![Speckle panel](./img-arcgis/arcgis-ui0.png)
 
-The panel contains a very simple UI interface: 
+The panel contains a very simple interface: 
 - Foldable section "Add Streams": Add streams to work with to the main UI section.
 
 ![Speckle panel](./img-arcgis/arcgis-add-streams.png)
