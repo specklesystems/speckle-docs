@@ -18,11 +18,11 @@ You can install the plugin using Manager for Speckle.
 ![Plugins](./img-arcgis/arcgis-speckle-manager.png)
 
 
-Then open ArcGIS, go to Geoprocessing tools (Vies -> Geoprocessing) and you will find `Speckle tools` toolbox with `Speckle` script tool inside. 
+Then open ArcGIS, go to Geoprocessing tools (View -> Geoprocessing) and you will find `Speckle tools` toolbox with `Speckle` script tool inside. 
 
 ![Speckle panel](./img-arcgis/arcgis-geoprocessing.png)
 
-> I case you are using a custom conda environment for your project, or if installation was unsuccessful, you can also do it manually following [these instructions](https://github.com/specklesystems/speckle-arcgis/tree/main/speckle_arcgis_installer).
+In case you are using a custom conda environment for your project, or if installation was unsuccessful, you can also do it manually following [these instructions](https://github.com/specklesystems/speckle-arcgis/tree/main/speckle_arcgis_installer).
 
 
 ### Features
@@ -47,9 +47,11 @@ Once the plugin is installed, you'll find a new toolbox in Geoprocessing tools, 
 
 The panel contains a very simple UI interface: 
 - Foldable section "Add Streams": Add streams to work with to the main UI section.
+
 ![Speckle panel](./img-arcgis/arcgis-add-streams.png)
 
 - Foldable section "Create custom Spatial Reference": If you want to receive the layers later in a non-GIS software at the exact location (e.g. receive a context for your building in London), you can create a custom SR in ArcGIS, that will match the global coordinate system from ArcGIS with the local coordinate system in CAD. Simply enter the geographic coordinates (Lat, Lon) of the point which is the origin (0,0,0) of your CAD environment. 
+
 ![Speckle panel](./img-arcgis/arcgis-create-sr.png)
 
 - Selecting Speckle server options for sending and receiving data: Stream, Branch and Commit: list of streams in this section will be saved even when you re-open the project. 
@@ -82,6 +84,9 @@ In order to send some data from the active Map, just follow these steps:
 #### Viewing the result
 
 Once data has been sent to Speckle, you can view the result by going to your Speckle's server Url (our public one is https://speckle.xyz)
+
+Here is the example of [data](https://www.diva-gis.org/gdata) sent from ArcGIS: 
+<iframe src="https://speckle.xyz/streams/1a3ba52990/commits/214c531539" width=600 height=400></iframe>
 
 #### Receiving data
 
