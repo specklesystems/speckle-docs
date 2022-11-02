@@ -117,7 +117,7 @@ For those who are interested, more information about SSH tunnels can be found in
    - for `database`, `username`, and `password` use the values in your configuration assigned to the respective `POSTGRES_DB`, `POSTGRES_USER`, and `POSTGRES_PASSWORD` keys. If installed with Speckle's manual installation or DigitalOcean 1-click, by default the value of these are all `speckle`.
 1. (optional) For some databases, but not the default database provided by Speckle, you may also have to provide a Certificate.
     1. Copy this certificate into the pgadmin container with `docker cp ./local/path/to/my/certificate.crt speckle-server-pgadmin-1:/var/lib/pgadmin/storage/admin_localhost.com/` (assuming the default pgadmin user is `admin@localhost.com` and `speckle-server-pgadmin-1` is the name of the pgAdmin container.)
-    1. In the dialog box in the `SSL` tab, select the certificate within the `Client Certificates` input.
+    1. In the dialog box in the `SSL` tab, select the certificate within the `Root Certificate` input.
 
   ![image](./img/postgres-backup/03_pgadmin_connect.png)
 
