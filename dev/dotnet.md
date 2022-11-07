@@ -59,50 +59,6 @@ More on `Base` [can be found here](/dev/base)
 
 For advanced use of `Base`, please see how our [BuiltElement classes](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects/BuiltElements) have been structured inheriting from `Base`.
 
-## Receiving Data
-
-Receiving data from Speckle couldn't be easier when using our SDKs. Assuming you have SpeckleManager set up locally, all you need to do is:
-
-```csharp
-using Speckle.Core.Api;
-
-var data = Helpers.Receive("Stream URL or ID").Result;
-```
-
-Just use a stream URL or Id to receive from. If the URL contains branchName, commitId or objectId those will be used, otherwise the latest commit from main will be received.
-
-The `Helpers.Receive` takes optional arguments for specifying an `account` (otherwise the default will be used) and for progress/error reporting.
-
-### Advanced Receiving
-
-If you want more control on how and where from your data is Received, just use some of our lower lever functions.
-For instance, the code below receives the last commit of a stream from a specific branch:
-
-```csharp
-using Speckle.Core.Api;
-using Speckle.Core.Models;
-using Speckle.Core.Transports;
-
-
-
-var streamId = "streamId";
-var branchName = "main";
-var client = new Client(account);
-var branch = await client.BranchGet(streamId, branchName, 1);
-var objectId = branch.commits.items[0].referencedObject; // take last commit
-
-var transport = new ServerTransport(account, "streamId");
-
-var data = await Operations.Receive(
-  objectId,
-  remoteTransport: transport,
-  onErrorAction: onErrorAction,
-  onProgressAction: onProgressAction,
-  onTotalChildrenCountKnown: onTotalChildrenCountKnown,
-  disposeTransports: true
-);
-
-```
 
 ## Sending Data
 
@@ -151,6 +107,50 @@ var commitId = await client.CommitCreate(
   });
 ```
 
+## Receiving Data
+
+Receiving data from Speckle couldn't be easier when using our SDKs. Assuming you have SpeckleManager set up locally, all you need to do is:
+
+```csharp
+using Speckle.Core.Api;
+
+var data = Helpers.Receive("Stream URL or ID").Result;
+```
+
+Just use a stream URL or Id to receive from. If the URL contains branchName, commitId or objectId those will be used, otherwise the latest commit from main will be received.
+
+The `Helpers.Receive` takes optional arguments for specifying an `account` (otherwise the default will be used) and for progress/error reporting.
+
+### Advanced Receiving
+
+If you want more control on how and where from your data is Received, just use some of our lower lever functions.
+For instance, the code below receives the last commit of a stream from a specific branch:
+
+```csharp
+using Speckle.Core.Api;
+using Speckle.Core.Models;
+using Speckle.Core.Transports;
+
+
+
+var streamId = "streamId";
+var branchName = "main";
+var client = new Client(account);
+var branch = await client.BranchGet(streamId, branchName, 1);
+var objectId = branch.commits.items[0].referencedObject; // take last commit
+
+var transport = new ServerTransport(account, "streamId");
+
+var data = await Operations.Receive(
+  objectId,
+  remoteTransport: transport,
+  onErrorAction: onErrorAction,
+  onProgressAction: onProgressAction,
+  onTotalChildrenCountKnown: onTotalChildrenCountKnown,
+  disposeTransports: true
+);
+
+```
 ## Serializing & Deserializing Data
 
 Getting a JSON representation of your data is easy:
