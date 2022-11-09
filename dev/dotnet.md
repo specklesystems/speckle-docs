@@ -139,7 +139,7 @@ var client = new Client(account);
 var branch = await client.BranchGet(streamId, branchName, 1);
 var objectId = branch.commits.items[0].referencedObject; // take last commit
 
-var transport = new ServerTransport(account, "streamId");
+var transport = new ServerTransport(account, streamId);
 
 var data = await Operations.Receive(
   objectId,
