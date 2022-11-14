@@ -13,6 +13,11 @@ The Speckle connector for ArcGIS currently supports ArcGIS versions 2.9.0 and up
 
 ### Installation
 
+::: important
+
+If you have previously installed Speckle for ArcGIS and then updated ArcGIS, you need to first manually delete Speckle conda environment (in ArcGIS: Project-> Python-> Manage Environments-> Remove "arcgispro-py3-speckle", or Project-> Package Manager-> Active Environment (Environment Manager)-> Remove "arcgispro-py3-speckle").
+:::
+
 You can install the plugin using [Speckle Manager](https://speckle.systems/download/).
 
 ![Plugins](./img-arcgis/arcgis-speckle-manager.png)
