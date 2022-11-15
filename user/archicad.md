@@ -1,6 +1,8 @@
 # Archicad (Alpha) 🛠️
 
-::: tip
+The Speckle Archicad Connector currently supports Archicad 25 and 26🆕. It is available both on Windows and Mac.
+
+::: tip 💡 TIP
 
 Check out our dedicated tutorial on [how to get started with Archicad](https://speckle.systems/tutorials/getting-started-with-speckle-for-archicad/)!
 
@@ -36,7 +38,7 @@ This connector uses our shared Desktop UI. Read up on general guidelines for usa
 
 Currently, sending is just supported through selection.
 
-After launching the connector, either create a new stream or select and existing one.
+After launching the connector, either create a new stream or select an existing one.
 
 Next, select the objects you want to send from within the model viewer. Then in the send menu, click "Add selection".
 

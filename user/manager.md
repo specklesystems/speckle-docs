@@ -17,24 +17,6 @@ Download Speckle Manager now:
 
 ![Manager_hZXb0CIu5N 1](https://user-images.githubusercontent.com/51519350/186161062-70f7a7de-c215-4410-9aa7-5f7158b357f0.png)
 
-### Uninstallation
-
-On Windows, simply head over **Apps & Features**, find **Manager for Speckle** and then click **Uninstall**.
-
-![image](https://user-images.githubusercontent.com/2679513/182909714-1a7f4815-949c-4557-870e-05ede9550f0c.png)
-
-### Preventing Manager from running at Startup
-
-On Windows, Manager will automatically launch on startup to check for new updates.
-
-If you want to disable this functionality, you can simply do so:
-
-- Open the Task Manager, using (e.g.) `Ctrl + Shift + Esc`
-- Navigate to the **Startup** tab.
-- Find the row with **Manager.exe** and set its **Status** to **Disabled**
-
-![image](https://user-images.githubusercontent.com/2679513/182909877-e6e86778-7cb6-4c79-9a2e-687f49c9694f.png)
-
 ## Logging In & Adding Accounts
 
 :::tip ✨ NEW
@@ -130,6 +112,24 @@ If you are experiencing issues with Manager we might ask you do so to try a new 
 To install early version of our connectors, simply head to the _versions_ tab inside a connector.
 
 ![Connectors-Install-Beta](https://user-images.githubusercontent.com/51519350/186392925-1263b0d4-48e7-4724-be89-c5d0a01e3506.gif)
+
+## Uninstalling Manager
+
+On Windows, simply head over **Apps & Features**, find **Manager for Speckle** and then click **Uninstall**.
+
+![image](https://user-images.githubusercontent.com/2679513/182909714-1a7f4815-949c-4557-870e-05ede9550f0c.png)
+
+## Preventing Manager from running at Startup
+
+On Windows, Manager will automatically launch on startup to check for new updates.
+
+If you want to disable this functionality, you can simply do so:
+
+- Open the Task Manager, using (e.g.) `Ctrl + Shift + Esc`
+- Navigate to the **Startup** tab.
+- Find the row with **Manager.exe** and set its **Status** to **Disabled**
+
+![image](https://user-images.githubusercontent.com/2679513/182909877-e6e86778-7cb6-4c79-9a2e-687f49c9694f.png)
 
 ## Troubleshooting
 

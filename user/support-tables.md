@@ -233,7 +233,7 @@ Any geometric elements not listed above are not supported.
 | Pipe         | ✅         |         | `In Progress` |
 | Profile      | ✅         |         | `In Progress` |
 | Structure    | ✅         |         | `In Progress` |
-| Tin Surface  | ✅ as Mesh | ✅      |  `Complete`   |
+| Tin Surface  | ✅ as Mesh | ✅      | `Complete`    |
 
 ### Unsupported Elements
 
@@ -498,3 +498,4 @@ The Archicad connector is still in early Alpha and is still being developed. Geo
 | Floor (Slab)        |  ✅  |   ✅    |  `Complete`   |                                                   |
 | Wall                |  🟨  |   🟨    | `In Progress` |       Nested elements are not yet supported       |
 | Room (Zone)         |  ✅  |   🟨    | `In Progress` |                                                   |
+| Beam                |  ✅  |   ✅    |  `Complete`   |                                                   |
