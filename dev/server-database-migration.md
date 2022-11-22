@@ -44,14 +44,12 @@ Speckle's preferred method of backing up and restoring data in a Postgres databa
         image: dpage/pgadmin4
         restart: always
         environment:
-          PGADMIN_DEFAULT_EMAIL: admin@localhost.com
-          PGADMIN_DEFAULT_PASSWORD: admin
+          PGADMIN_DEFAULT_EMAIL: 'admin@localhost.com'
+          PGADMIN_DEFAULT_PASSWORD: 'admin'
         volumes:
           - pgadmin-data:/var/lib/pgadmin
         ports:
           - '127.0.0.1:16543:80'
-        depends_on:
-          - postgres
 
     volumes:
       pgadmin-data:
