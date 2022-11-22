@@ -114,6 +114,7 @@ module.exports = {
             "teklastructures",
             "archicad",
             "ifc",
+            "mapping-tool",
             "support-tables",
           ],
         },
