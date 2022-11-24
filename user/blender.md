@@ -35,9 +35,9 @@ Pre-requisites: [Git](https://git-scm.com/), [Poetry](https://python-poetry.org/
 	git clone https://github.com/specklesystems/specklepy
 ```
 
-2. **Run `local_build_modules.sh`** to build `modules` dependencies.
+2. **Run `speckle-blender/local_build_modules.sh`** to build `modules` dependencies.
 ```sh
-	sh speckle-blender/local_build_modules.sh
+	sh local_build_modules.sh
 ```
 3. **Go to `%appdata%/Blender Foundation/Blender/{blender-version-number}/scripts/addons`**. (Create `scripts/addons` if needed).
 4. From the cloned Blender repo, **copy** (or symlink) the `bpy_speckle` and `modules` folders into `scripts/addons`.
