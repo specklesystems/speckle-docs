@@ -16,22 +16,33 @@ For a quick overview, check out this short video on how to get started sending a
 
 Before using this connector, you'll need to follow our standard setup instructions to [install Speckle Manager and add a Speckle account](/user/manager).
 
-Once the connector has been installed, you will find it in the Add-ons tab of your Preferences menu, under the "Scene" category. Activate it by checking the tick box next to the Add-on name.
+Once the blender connector has been installed, you will find it in the Add-ons tab of your Preferences menu, under the "Scene" category. Activate it by checking the tick box next to the Add-on name.
 
 ![activating the Blender Connector](./img-blender/enable-addon.png)
 
-### Manual Installation
+Once enabled, restart blender.
 
-If setup from the manager didn’t work for you or you want to install the Blender connector on an unsupported Blender version (e.g. 3.3.):
+### Manual Installation / Developing Locally
 
-1. Go to `%appdata%/Blender Foundation/Blender/version-number (2.9, 3.1)/scripts/addons`.
-2. Copy `bpy_speckle` and `modules` folders from here.
-3. Go back to `%appdata%/Blender Foundation/Blender`.
-4. Select the folder with the version name you want to install Speckle to.
-5. Go to `scripts/addons`. Create them if they don’t exist.
-6. Paste copied `bpy_speckle` and `modules` folder here.
+For developers looking to **contribute to Speckle**, or users wanting to **install the addon on an unsupported Blender version** (e.g. alpha versions),
+it's possible to manually install the Speckle Blender addon.
 
-After you’re done with these steps you should be able to see Speckle under Add-ons. Enable it from there. If you face any issues during the initial run, restarting Blender will fix it.
+1. **Git clone** [this repo](https://github.com/specklesystems/speckle-blender) and [speckle py](https://github.com/specklesystems/specklepy) into the a folder somewhere on your system.
+```sh
+	git clone https://github.com/specklesystems/speckle-blender
+	git clone https://github.com/specklesystems/specklepy
+```
+
+2. **Run `local_build_modules.sh`** to build `modules` dependencies. (match with the python version that blender uses (e.g. Python 3.10 for Blender ≥3.0))
+```sh
+	sh speckle-blender/local_build_modules.sh
+```
+3. **Go to `%appdata%/Blender Foundation/Blender/{blender-version-number}/scripts/addons`**. (Create `scripts/addons` if needed).
+4. From the cloned Blender repo, **copy** (or symlink) the `bpy_speckle` and `modules` folders into `scripts/addons`.
+5. Open Blender, and **enable the SpeckleBlender plugin** from the `Blender Preferences -> Addons` menu.
+6. Once enabled, **restart blender**, now your accounts & commits should load in the Speckle tab.
+
+> Feel free to reachout to us on the [forums](https://speckle.community/) if you're having any difficulties.
 
 ## User Interface
 
@@ -82,9 +93,3 @@ There are a few things to keep in mind when sending an IFC to Speckle using Blen
 - Properties: Custom properties added within Blender are always added to a `properties` field on respective objects. For BlenderBIM objects, this includes the `ifc_definition_id`.
   - Additional IFC properties that aren't stored in Blender are currently not extracted from the IFC and attached. This may be explored as an enhancement in the future.
 - Type: Objects are all sent as meshes and collections are sent as `Base` objects. None of the objects are currently being converted and sent as BIM objects.
-
-## Developing Locally
-
-If you'd like to help develop this connector further, you can pull from the [github repo here](https://github.com/specklesystems/speckle-blender).
-
-To run your local version of the connector, drag the `bpy_speckle` folder from the `speckle-blender` directory into your Blender `addons` folder replacing any previous version you may have in there. This will be at `%APPDATA%/Blender Foundation/Blender/2.92/scripts/addons`. If you haven't installed the connector before, you'll need to manually go into the `addons/modules` folder and install the dependencies there.
