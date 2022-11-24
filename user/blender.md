@@ -27,13 +27,15 @@ Once enabled, restart blender.
 For developers looking to **contribute to Speckle**, or users wanting to **install the addon on an unsupported Blender version** (e.g. alpha versions),
 it's possible to manually install the Speckle Blender addon.
 
+Pre-requisites: [Git](https://git-scm.com/), [Poetry](https://python-poetry.org/docs/),  [Python](https://www.python.org/) (match with the python version that blender uses (e.g. Python 3.10 for Blender ≥3.0)), 
+
 1. **Git clone** [this repo](https://github.com/specklesystems/speckle-blender) and [speckle py](https://github.com/specklesystems/specklepy) into the a folder somewhere on your system.
 ```sh
 	git clone https://github.com/specklesystems/speckle-blender
 	git clone https://github.com/specklesystems/specklepy
 ```
 
-2. **Run `local_build_modules.sh`** to build `modules` dependencies. (match with the python version that blender uses (e.g. Python 3.10 for Blender ≥3.0))
+2. **Run `local_build_modules.sh`** to build `modules` dependencies.
 ```sh
 	sh speckle-blender/local_build_modules.sh
 ```
