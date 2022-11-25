@@ -101,11 +101,11 @@ For those who are interested, more information about SSH tunnels can be found in
 1. The user name and password can be found next to `PGADMIN_DEFAULT_EMAIL` and `PGADMIN_DEFAULT_PASSWORD` in your configuration file for pgAdmin.
    - The default values we provided in our `docker-compose-pgadmin.yml` file are `admin@localhost.com` and the password `admin`.
 
-  ![image](./img/postgres-backup/01_pgadmin_login.png)
+    ![image](./img/postgres-backup/01_pgadmin_login.png)
 
 1. Click `add new server`.
 
-  ![image](./img/postgres-backup/02_pgadmin_add_new_server.png)
+    ![image](./img/postgres-backup/02_pgadmin_add_new_server.png)
 
 1. In the dialog box in the `General` tab, enter the name `docker-compose`.
 1. In the dialog box in the `Connection` tab:
@@ -117,7 +117,7 @@ For those who are interested, more information about SSH tunnels can be found in
     1. Copy this certificate into the pgadmin container with `docker cp ./local/path/to/my/certificate.crt speckle-server-pgadmin-1:/var/lib/pgadmin/storage/admin_localhost.com/` (assuming the default pgadmin user is `admin@localhost.com` and `speckle-server-pgadmin-1` is the name of the pgAdmin container.)
     1. In the dialog box in the `SSL` tab, select the certificate within the `Root Certificate` input.
 
-  ![image](./img/postgres-backup/03_pgadmin_connect.png)
+    ![image](./img/postgres-backup/03_pgadmin_connect.png)
 
 1. Click `save`.
 
@@ -127,11 +127,15 @@ For those who are interested, more information about SSH tunnels can be found in
 
 1. Once you have found the database in pgAdmin, right-click the database name and select `backup`.
 
-  ![image](./img/postgres-backup/04_pgadmin_backup.png)
+    ![image](./img/postgres-backup/04_pgadmin_backup.png)
 
-1. Provide a filename (there is no need to change directory or select other options) and then start the backup process. This will generate a backup that is stored in the container's volume.
+1. Provide a filename in the `general` tab.
 
-  ![image](./img/postgres-backup/05_pgadmin_backup_dialog.png)
+    ![image](./img/postgres-backup/05_pgadmin_backup_dialog.png)
+
+1. In the `options` tab, select the options `Include CREATE DATABASE statement` and `Include DROP DATABASE statement`.
+
+1. Then start the backup process. This will generate a backup that is stored in the container's volume.
 
 1. Once the backup is prepared, we now need to save the file to your local machine.
     - If a `Click to open file location` button is displayed (this may depend on the version of pgAdmin running), click on it and download the backup to your machine.
@@ -251,7 +255,15 @@ If you are not upgrading the Postgres database, you can stop at this step. The f
 1. Right-click `databases` from the browser window, and click `create`. The name of the database should be `speckle`.
 1. Right-click the created database and click `restore`, selecting your previously stored backup. You will need to upload the backup you previously downloaded back into pgAdmin first.
 
-  ![image](./img/postgres-backup/06_pgadmin_restore.png)
+    ![image](./img/postgres-backup/06_pgadmin_restore.png)
+
+1. If you encounter errors at this point, it may be because pgAdmin considers the database to be a `maintenance database`. To workaround this issue please try the following:
+
+    1. Create another (maybe empty) database.
+    1. Disconnect from the Speckle database.
+    1. Edit server properties for other database.
+    1. On the connection tab set the other database as `Maintenance database`.
+    1. Reconnect to the Speckle database.
 
 1. Deploy Speckle server, if not already deployed, and verify the data is correct.
 
