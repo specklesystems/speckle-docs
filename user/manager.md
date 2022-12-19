@@ -113,11 +113,11 @@ To install early version of our connectors, simply head to the _versions_ tab in
 
 ![Connectors-Install-Beta](https://user-images.githubusercontent.com/51519350/186392925-1263b0d4-48e7-4724-be89-c5d0a01e3506.gif)
 
-### Changing the default Speckle Sevrer address
+### Changing the default Speckle Server address
 
-You can change the default address of the Speckle sevrer in two ways:
+You can change the default address of the Speckle server in two ways:
 
-- by adding a file named `server` containing the server URL in `%appdata%/Speckle`
+- by adding a file named `server` containing the server URL in `%appdata%/Speckle/` (or equivalent Speckle folder in your system)
 - by adding an Environment Variable `SPECKLE_SERVER` containing the server URL
 
 ## Uninstalling Manager
