@@ -61,9 +61,9 @@ If the server address is **blocked by a corporate firewall, proxy or VPN**, kind
 
 - **\*.speckle.xyz (critical)**
 - **\*.speckle.dev (critical)**
+- **speckle.systems (critical)**
 - speckle-excel.netlify.app (critical for the Excel connector)
 - speckle-releases.ams3.digitaloceanspaces.com
-- speckle.systems
 - speckle.community
 
 Make sure you can also receive emails from `*@speckle.systems`, eg. `no-reply@speckle.systems`. Some IT departments might block this sender address - without it invites and other features will not work.
