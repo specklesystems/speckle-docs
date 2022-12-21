@@ -66,8 +66,13 @@ And receive them in a Revit a project that has the needed types and levels:
 | -------------- | -------------- |
 | Extrusion      | Wall           |
 | Mesh           | DirectShape    |
+| Mesh           | Topography     |
 | Brep           | DirectShape    |
 | Point          | FamilyInstance |
 | Block          | FamilyInstance |
+| Surface        | Floor          |
 | Line           | Beam           |
 | Line           | Brace          |
+| Line           | Pipe           |
+| Line           | Duct           |
+| Line           | Column         |
