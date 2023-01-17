@@ -284,12 +284,12 @@ The Blender Connector is still a work in progress and, as such, the conversions 
 | Type                                     | Send |   Receive    |    Status     |
 | ---------------------------------------- | :--: | :----------: | :-----------: |
 | Arc                                      |      | approximated | `In Progress` |
-| Brep                                     |      |   as mesh    | `In Progress` |
+| Brep                                     |      |   as mesh    | `Completed` |
 | Curve (Nurbs, Bezier, Ngons as Polyline) |  ✅  |      ✅      | `In Progress` |
-| Mesh                                     |  ✅  |      ✅      | `In Progress` |
+| Mesh                                     |  ✅  |      ✅      | `Completed` |
 | Polycurve                                |      |      ✅      | `In Progress` |
 | Polyline                                 |  ✅  |      ✅      | `In Progress` |
-| Render Material                          |  ✅  |      ✅      | `In Progress` |
+| Render Material                          |  ✅  |      ✅      | `Principle Shader Only` |
 
 ## Unity
 
