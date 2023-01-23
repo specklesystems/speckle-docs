@@ -87,7 +87,14 @@ This allows for nested property names to not have a prefix (i.e. the level name 
 
 :::
 
+### Experimental: Fetching the commit data in a structured way
+
+As of version `0.0.15`, you can fetch the commit data while preserving the structure of the data that was sent.
+
+This new function does not output the user functions
 ### Accessing Private Streams 🔒
+
+#### With a Personal Access Token
 
 If you're having issues connecting to your private stream, make sure you set an `Access Token` on your Profile. This is how you do it:
 
@@ -105,17 +112,29 @@ If you're having issues connecting to your private stream, make sure you set an 
 
    ![image](https://user-images.githubusercontent.com/51519350/198579710-17e33e8f-a61c-47b1-8a20-68a03d1e49db.png)
 
-6) Go to **Global Permissions** and select your Speckle server.
+6. Go to **Global Permissions** and select your Speckle server.
 
    ![image](https://user-images.githubusercontent.com/51519350/198579769-5116f628-c0bd-4226-98d5-878815251d4e.png)
 
-7) After selecting server, follow **Edit Permissions > Edit > Private Stream.** Paste your *Token* into `Personal Access Token` input.
+7. After selecting server, follow **Edit Permissions > Edit > Private Stream.** Paste your *Token* into `Personal Access Token` input.
 
    ![cdaf98266d5cc4ba2e82776bc54ba8a367a83232](https://user-images.githubusercontent.com/51519350/198579885-cbc6bed1-5659-42b9-80dd-6a4afd53321e.gif)
 
-8) That’s it. It should work now.
+8. That’s it. It should work now.
 
 If you have trouble seeing your server under Data sources, simply delete existing servers. Go back to Speckle connector and try to receive the same stream/branch/commit. You’ll have the option to add it from there.
+
+#### Logging in using your Speckle account
+
+As of version `0.0.15`, user's of our public server <https://speckle.xyz> can now also login directly using their Speckle account.
+
+To do so, you must select the `Speckle.XYZ` option in the credentials pop-up:
+
+![Selecting Speckle.XYZ in the credentials pop-up]()
+
+Then press the `Login with Speckle` button. This will open a pop-up window prompting you to log into your account and allow the PowerBI app to access your user data. This just grants `read-only` access, as recommended by PowerBI guidelines.
+
+Once the app has been granted access, PowerBI will continue with the process of fetching the data.
 
 ## Speckle 3D Viewer Visual
 
@@ -123,11 +142,11 @@ If you have trouble seeing your server under Data sources, simply delete existin
 
 ![PowerBI rooms report](./img-powerbi/powerbi-rooms.gif)
 
-The _3D Viewer Visual_ allows for the visualisation of Speckle data in a 3D environment inside your PowerBI reports. It is compatible with PowerBI Desktop and can also be used in PowerBI.com for online visualization.
+The _3D Viewer Visual_ allows for the visualization of Speckle data in a 3D environment inside your PowerBI reports. It is compatible with PowerBI Desktop and can also be used in PowerBI.com for online visualization.
 
 ### Features
 
-The current version enables basic visualisation, filtering and coloring features, as well as some basic camera and color controls:
+The current version enables basic visualization, filtering and coloring features, as well as some basic camera and color controls:
 
 - Load individual objects that were fetched with the PowerBI Data Connector
 - Highlight objects in the 3D viewer that were selected on a different table in the report.
@@ -140,7 +159,7 @@ You can install the Speckle 3D Viewer Visual manually by following these steps:
 1. Download the latest `.pbiviz` package from our [Github repo](https://github.com/specklesystems/speckle-powerbi-visuals/releases).
 2. Open your report in Power BI Desktop or Power BI service.
 3. Select the ellipsis from the visualizations pane.
-   ![Ellipsis visualisation menu](./img-powerbi/ellipsis.png)
+   ![Ellipsis visualization menu](./img-powerbi/ellipsis.png)
 4. Select Import a visual from a file from the menu.
    ![Import from file dropdown](./img-powerbi/import-from-file.png)
 5. If you get a message cautioning you about importing custom files, select Import if you trust the source of the file.
@@ -205,7 +224,7 @@ The camera controls settings allow for:
 
 ![Color settings](./img-powerbi/settings-color.png)
 
-The filtering/coloring feature available when connecting a data field into the `Object Data` section can be customised by selecting a 3-color gradient on the visual settings.
+The filtering/coloring feature available when connecting a data field into the `Object Data` section can be customized by selecting a 3-color gradient on the visual settings.
 
 This will affect the color pallette that is used when **coloring objects by a number based field**. When connecting a text based field into the `Object Data` input, the color will be computed automatically and the color pallette in the settings will be ignored.
 
