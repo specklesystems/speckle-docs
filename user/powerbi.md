@@ -45,7 +45,7 @@ If the `Custom Connectors` folder doesn't exist, you can create it at the path i
 
 ### Using Speckle Power BI
 
-Once the connector is installed, you'll find a `Speckle (beta)` option in the `Get data` interface, under the `Other` category.
+Once the connector is installed, you'll find a `Speckle - Get by URL (beta)` option in the `Get data` interface, under the `Other` category.
 
 ![Data connector](./img-powerbi/get-data.gif)
 
@@ -87,11 +87,62 @@ This allows for nested property names to not have a prefix (i.e. the level name 
 
 :::
 
-### Experimental: Fetching the commit data in a structured way
+### Fetching the commit data in a structured way
+
+::: warning
+
+This feature is experimental and may change in future releases.
+
+:::
 
 As of version `0.0.15`, you can fetch the commit data while preserving the structure of the data that was sent.
 
-This new function does not output the user functions
+This new function can be found under the `Get Data -> Other` as `Speckle - Get By URL [Structured]`.
+
+This new function allows for much faster interactions with your Speckle data, as it no longer requires to pull every single object as a flat list. There's a small downside to this, as you will no longer get the data with the expected columns to connect it directly to the _Speckle PowerBI Visual_.
+
+> A tutorial to cover this topic will be published soon!
+
+### Making your own API requests
+
+::: warning
+
+This feature is experimental and may change in future releases.
+
+:::
+
+As of version `0.0.15`, you can make your own GraphQL API requests to any Speckle server.
+
+> This is not currently exposed as an available Data Source in `Get Data`, but you can access it while in the Query editor.
+
+This can be used to craft your own interactions with Speckle, unlocking un-supported features such as:
+
+- Fetching comments
+- Read receipts
+- Admin data such as server stats.
+- Any other feature available through our API.
+
+![GraphQL API Request]()
+
+**Inputs:**
+
+- **Server URL**: The url of the Speckle server you want to connect to
+- **Query**: The raw text GraphQL query
+- **Variables**: A record containing a key for each variable in the GraphQL query and it's value. Nested records are allowed.
+
+**Outputs**
+
+A record containing the response, following the same structure as any GraphQL query.
+
+::: tip
+
+We recommend experimenting with our GraphQL explorer to construct your queries, as it will provide auto-complete and error checking out of the box.
+
+https://speckle.xyz/explorer
+
+Once you're happy with you're query, you can move it to PowerBI with little effort.
+
+:::
 
 ### Accessing Private Streams 🔒
 
