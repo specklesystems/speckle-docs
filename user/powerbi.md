@@ -92,6 +92,7 @@ This allows for nested property names to not have a prefix (i.e. the level name 
 As of version `0.0.15`, you can fetch the commit data while preserving the structure of the data that was sent.
 
 This new function does not output the user functions
+
 ### Accessing Private Streams 🔒
 
 #### With a Personal Access Token
@@ -199,6 +200,18 @@ Once both the fields are added, the Viewer would start to load the objects into 
 In order to enable highlighting across report visuals, connect a field on the **Object Data**. This could be any field in your data source (the object id, volume, level name, beam type...)
 
 Once a field has been added, any objects highlighted in another visual (such as a Table, Matrix, Slicer...) will be filtered out in the viewer, showing any other objects _ghosted out (gray transparent material)_
+
+This also works in reverse order: Selecting something on the visual will filter it on any other visual in the report that is configured to do so.
+
+#### Object tooltips
+
+When an object is selected in the PowerBI viewer, a tooltip will be displayed showing the object's properties and values.
+
+The tooltip's position will be updated as the camera moves through the model.
+
+#### Context-menu
+
+When an object is `double-clicked`, the context menu for that object will appear. This allows for easy object exclusion/isolation from the viewer in an interactive way.
 
 #### Coloring objects by category
 
