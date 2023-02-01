@@ -45,7 +45,7 @@ If the `Custom Connectors` folder doesn't exist, you can create it at the path i
 
 ### Using Speckle Power BI
 
-Once the connector is installed, you'll find a `Speckle (beta)` option in the `Get data` interface, under the `Other` category.
+Once the connector is installed, you'll find a `Speckle - Get by URL (beta)` option in the `Get data` interface, under the `Other` category.
 
 ![Data connector](./img-powerbi/get-data.gif)
 
@@ -87,7 +87,66 @@ This allows for nested property names to not have a prefix (i.e. the level name 
 
 :::
 
+### Fetching the commit data in a structured way
+
+::: warning
+
+This feature is experimental and may change in future releases.
+
+:::
+
+As of version `0.0.15`, you can fetch the commit data while preserving the structure of the data that was sent.
+
+This new function can be found under the `Get Data -> Other` as `Speckle - Get By URL [Structured]`.
+
+This new function allows for much faster interactions with your Speckle data, as it no longer requires to pull every single object as a flat list. There's a small downside to this, as you will no longer get the data with the expected columns to connect it directly to the _Speckle PowerBI Visual_.
+
+> A tutorial to cover this topic will be published soon!
+
+### Making your own API requests
+
+::: warning
+
+This feature is experimental and may change in future releases.
+
+:::
+
+As of version `0.0.15`, you can make your own GraphQL API requests to any Speckle server.
+
+> This is not currently exposed as an available Data Source in `Get Data`, but you can access it while in the Query editor.
+
+This can be used to craft your own interactions with Speckle, unlocking un-supported features such as:
+
+- Fetching comments
+- Read receipts
+- Admin data such as server stats.
+- Any other feature available through our API.
+
+![GraphQL API Request]()
+
+**Inputs:**
+
+- **Server URL**: The url of the Speckle server you want to connect to
+- **Query**: The raw text GraphQL query
+- **Variables**: A record containing a key for each variable in the GraphQL query and it's value. Nested records are allowed.
+
+**Outputs**
+
+A record containing the response, following the same structure as any GraphQL query.
+
+::: tip
+
+We recommend experimenting with our GraphQL explorer to construct your queries, as it will provide auto-complete and error checking out of the box.
+
+https://speckle.xyz/explorer
+
+Once you're happy with you're query, you can move it to PowerBI with little effort.
+
+:::
+
 ### Accessing Private Streams 🔒
+
+#### With a Personal Access Token
 
 If you're having issues connecting to your private stream, make sure you set an `Access Token` on your Profile. This is how you do it:
 
@@ -105,17 +164,29 @@ If you're having issues connecting to your private stream, make sure you set an 
 
    ![image](https://user-images.githubusercontent.com/51519350/198579710-17e33e8f-a61c-47b1-8a20-68a03d1e49db.png)
 
-6) Go to **Global Permissions** and select your Speckle server.
+6. Go to **Global Permissions** and select your Speckle server.
 
    ![image](https://user-images.githubusercontent.com/51519350/198579769-5116f628-c0bd-4226-98d5-878815251d4e.png)
 
-7) After selecting server, follow **Edit Permissions > Edit > Private Stream.** Paste your *Token* into `Personal Access Token` input.
+7. After selecting server, follow **Edit Permissions > Edit > Private Stream.** Paste your *Token* into `Personal Access Token` input.
 
    ![cdaf98266d5cc4ba2e82776bc54ba8a367a83232](https://user-images.githubusercontent.com/51519350/198579885-cbc6bed1-5659-42b9-80dd-6a4afd53321e.gif)
 
-8) That’s it. It should work now.
+8. That’s it. It should work now.
 
 If you have trouble seeing your server under Data sources, simply delete existing servers. Go back to Speckle connector and try to receive the same stream/branch/commit. You’ll have the option to add it from there.
+
+#### Logging in using your Speckle account
+
+As of version `0.0.15`, user's of our public server <https://speckle.xyz> can now also login directly using their Speckle account.
+
+To do so, you must select the `Speckle.XYZ` option in the credentials pop-up:
+
+![Selecting Speckle.XYZ in the credentials pop-up]()
+
+Then press the `Login with Speckle` button. This will open a pop-up window prompting you to log into your account and allow the PowerBI app to access your user data. This just grants `read-only` access, as recommended by PowerBI guidelines.
+
+Once the app has been granted access, PowerBI will continue with the process of fetching the data.
 
 ## Speckle 3D Viewer Visual
 
@@ -123,11 +194,11 @@ If you have trouble seeing your server under Data sources, simply delete existin
 
 ![PowerBI rooms report](./img-powerbi/powerbi-rooms.gif)
 
-The _3D Viewer Visual_ allows for the visualisation of Speckle data in a 3D environment inside your PowerBI reports. It is compatible with PowerBI Desktop and can also be used in PowerBI.com for online visualization.
+The _3D Viewer Visual_ allows for the visualization of Speckle data in a 3D environment inside your PowerBI reports. It is compatible with PowerBI Desktop and can also be used in PowerBI.com for online visualization.
 
 ### Features
 
-The current version enables basic visualisation, filtering and coloring features, as well as some basic camera and color controls:
+The current version enables basic visualization, filtering and coloring features, as well as some basic camera and color controls:
 
 - Load individual objects that were fetched with the PowerBI Data Connector
 - Highlight objects in the 3D viewer that were selected on a different table in the report.
@@ -140,7 +211,7 @@ You can install the Speckle 3D Viewer Visual manually by following these steps:
 1. Download the latest `.pbiviz` package from our [Github repo](https://github.com/specklesystems/speckle-powerbi-visuals/releases).
 2. Open your report in Power BI Desktop or Power BI service.
 3. Select the ellipsis from the visualizations pane.
-   ![Ellipsis visualisation menu](./img-powerbi/ellipsis.png)
+   ![Ellipsis visualization menu](./img-powerbi/ellipsis.png)
 4. Select Import a visual from a file from the menu.
    ![Import from file dropdown](./img-powerbi/import-from-file.png)
 5. If you get a message cautioning you about importing custom files, select Import if you trust the source of the file.
@@ -167,19 +238,69 @@ The 3D Viewer Visual was designed to work alongside our _PowerBI Data Connector_
 
 > Other columns may be present, and can be user generated, but are not relevant for this section.
 
+#### Landing page
+
+When you initially drop the Speckle PowerBI visual, you'll see a landing page with some basic instructions on how to proceed
+
+![Landing page](./img-powerbi/powerbi-visual-landing.png)
+
 #### Loading objects
 
 In order to load the objects from the table into the viewer, just add the fields `Stream URL` and `Object ID` onto their respective inputs in the visual.
 
 ![Visual inputs](./img-powerbi/visual-inputs.png)
 
+![Connecting inputs](./img-powerbi/powerbi-visual-addinputs.gif)
+
 Once both the fields are added, the Viewer would start to load the objects into the scene. The **Object Data** input is optional, and is only used to enable highlight/coloring functions.
+
+::: tip
+
+The `Stream URL` and `Object ID` columns will exist on the resulting query when using `Get by URL` function.
+
+If you're using the new (experimental) `Get by URL [Structured]` function, you'll be required to generate the `Stream URL` and `Object ID` columns in your final query table.
+
+:::
 
 #### Highlighting objects across visuals
 
 In order to enable highlighting across report visuals, connect a field on the **Object Data**. This could be any field in your data source (the object id, volume, level name, beam type...)
 
 Once a field has been added, any objects highlighted in another visual (such as a Table, Matrix, Slicer...) will be filtered out in the viewer, showing any other objects _ghosted out (gray transparent material)_
+
+This also works in reverse order: Selecting something on the visual will filter it on any other visual in the report that is configured to do so.
+
+![Visual selection affects other visuals in the report](./img-powerbi/powerbi-visual-bidirectional-selection.gif)
+
+#### Object tooltips
+
+::: warning
+
+This feature is experimental and may change in future releases.
+
+In particular, there are plans to allow customization of the tooltip data based on user-defined inputs, and removing the need of clicking the object to display the tooltip.
+
+:::
+
+When an object is selected in the PowerBI viewer, a tooltip will be displayed showing the object's properties and values.
+
+![PowerBI Visual tooltip](./img-powerbi/powerbi-visual-tooltip.gif)
+
+The tooltip's position will be updated as the camera moves through the model.
+
+#### Context-menu
+
+::: warning
+
+This feature is experimental and may change in future releases.
+
+In particular, there are plans to move the context-menu to the the right-click mouse button in an upcoming release.
+
+:::
+
+When an object is `double-clicked`, the context menu for that object will appear. This allows for easy object exclusion/isolation from the viewer in an interactive way.
+
+![PowerBI visuals context-menu](./img-powerbi/powerbi-visual-doubleclick-exclude.gif)
 
 #### Coloring objects by category
 
@@ -189,6 +310,8 @@ The way an object is colored depends on the type of field you connected:
 
 - Text based fields: The colors will be automatically generated by unique value.
 - Number based fields: The colors will be generated using the 3-color gradient in the Viewer Settings, assuming the first color represents the minimum value and the last color represents the maximum value.
+
+![Coloring objects](./img-powerbi/powerbi-visual-addfilter.gif)
 
 ### Visual Settings
 
@@ -205,7 +328,7 @@ The camera controls settings allow for:
 
 ![Color settings](./img-powerbi/settings-color.png)
 
-The filtering/coloring feature available when connecting a data field into the `Object Data` section can be customised by selecting a 3-color gradient on the visual settings.
+The filtering/coloring feature available when connecting a data field into the `Object Data` section can be customized by selecting a 3-color gradient on the visual settings.
 
 This will affect the color pallette that is used when **coloring objects by a number based field**. When connecting a text based field into the `Object Data` input, the color will be computed automatically and the color pallette in the settings will be ignored.
 
