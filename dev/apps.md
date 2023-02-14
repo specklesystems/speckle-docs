@@ -2,9 +2,9 @@
 
 ![Creating your own Speckle app](./img/apps-guide/app-guide-main-img.jpg)
 
-Welcome to **Part 1** this multi-part guide on how to `Create your own App` using Speckle. It's geared towards an audience that is familiar with Javascript and web development, or at least not scared by it!
+Welcome to this guide on how to `Create your own App` using Speckle. It's geared towards an audience that is familiar with Javascript and web development, or at least not scared by it!
 
-In this first part, we'll be creating a very simple web app capable of:
+In this example, we'll be creating a very simple web app capable of:
 
 - Authenticating a user through a Speckle server OAuth.
 - Search for stream's available to the user.
@@ -1305,7 +1305,7 @@ That's it! If you visit your netlify url, you should see your app running smooth
 
 ## Wrapping it up
 
-We've covered quite a lot on this guide, but this was only **Part 1**! Stay tuned for our following releases, where we'll also use our web viewer, fetch the data inside commits, receive notifications from the server, and more!
+We've covered quite a lot on this guide, but this was only a small example of interacting with Speckle streams and commits. Expanding on this further can move onto using the Speckle Viewer, fetch the data inside commits, receive notifications from the server, and more!
 
 :::tip Code Repository
 
