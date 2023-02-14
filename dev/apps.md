@@ -2,9 +2,9 @@
 
 ![Creating your own Speckle app](./img/apps-guide/app-guide-main-img.jpg)
 
-Welcome to **Part 1** this multi-part guide on how to `Create your own App` using Speckle. It's geared towards an audience that is familiar with Javascript and web development, or at least not scared by it!
+Welcome to this guide on how to `Create your own App` using Speckle. It's geared towards an audience that is familiar with Javascript and web development, or at least not scared by it!
 
-In this first part, we'll be creating a very simple web app capable of:
+In this example, we'll be creating a very simple web app capable of:
 
 - Authenticating a user through a Speckle server OAuth.
 - Search for stream's available to the user.
@@ -118,10 +118,10 @@ vue add vuetify
 
 When asked for a preset, choose **Default**.
 
-We'll also need to add a couple of handy dependencies such as `vuex-persist` for state storage, `vue-timeago` to display user-friendly dates and `debounce`. For this, run the following command:
+We'll also need to add a couple of handy dependencies such as `vuex-persist` for state storage, `vue2-timeago` to display user-friendly dates and `debounce`. For this, run the following command:
 
 ```bash
-npm i vuex-persist vue-timeago debounce
+npm i vuex-persist vue2-timeago debounce
 ```
 
 ### Run your app for the first time
@@ -175,8 +175,12 @@ For those of you who wonder, frontend applications that integrate with the Speck
 Vue will automatically read any `.env` files in the root of your project and load the variables accordingly, but will also replace all references with the actual value of the variable on compilation (which we **do not want**). We can tell `vue.js` to not do this by creating a file named `.env.local` instead. The contents should look like this 👇🏼 (remember to replace your ID and Secret appropriately).
 
 ```env
-VUE_APP_SPECKLE_ID=YOUR_APP_ID # The Speckle Application Id
-VUE_APP_SPECKLE_SECRET=YOUR_APP_SECRET # The Speckle Application Secret
+# The Speckle Application Id
+VUE_APP_SPECKLE_ID=YOUR_APP_ID 
+
+# The Speckle Application Secret
+VUE_APP_SPECKLE_SECRET=YOUR_APP_SECRET
+
 VUE_APP_SERVER_URL=https://speckle.xyz
 VUE_APP_SPECKLE_NAME="Speckle Demo App"
 ```
@@ -367,7 +371,11 @@ export default {
 }
 </script>
 ```
+:::
 
+:::tip Following along?
+
+If you are following this step by step and not working with a clone of the final code, you should now add the image referenced in the code above to the `src/assets/img.png` path. You can grab just that file [here](https://raw.githubusercontent.com/specklesystems/speckle-demo-app/master/src/assets/img.png).
 :::
 
 Notice there's an `isAuthenticated` computed property that defaults to `false` for now (we'll update it later). There's also a pair of `v-btn` buttons linked to this boolean value. When there is no user authenticated, we'll show the login button, and when there is a user authenticated, we'll show the Log Out button.
@@ -404,6 +412,9 @@ We can implement a `beforeEach` handler, that will allow us to run some code rig
 Open your `src/router/index.js` file and add this code right above the `export default router` line.
 
 ```js
+// This import can go at the top of the file
+import store from '@/store'
+
 router.beforeEach(async (to, from, next) => {
   if (to.query.access_code) {
     // If the route contains an access code, exchange it
@@ -594,7 +605,9 @@ router.beforeEach(async (to, from, next) => {
 })
 ```
 
-That should do it! Now, if you refresh the page you should see a welcome message with your user name and the server name you connected to, as well as the `Log Out` button.
+That should do it! Now, if you refresh the page you should see a welcome message with your user name and the server name you connected to, as well as the `Log Out` button:
+
+![Search bar and selection](./img/apps-guide/app-guide-user-fetch.gif)
 
 ## Searching for streams
 
@@ -618,9 +631,12 @@ export const streamSearchQuery = search => `query {
     }`
 ```
 
-Then add the following function to `speckleUtils.js`. We'll use it to fetch the search results in our `SpeckleSearch` component (2 steps bellow)
+Then add the following function to `speckleUtils.js`. We'll use it to fetch the search results in our `SpeckleSearch` component (2 steps below)
 
 ```js
+// Update the import to include the streamSearchQuery
+import { userInfoQuery, streamSearchQuery } from "@/speckleQueries"
+
 export const searchStreams = e => speckleFetch(streamSearchQuery(e))
 ```
 
@@ -691,8 +707,7 @@ export default new Vuex.Store({
     },
     handleStreamSelection(context, stream) {
       context.commit("setCurrentStream", stream)
-
-    }
+    },
     clearStreamSelection(context) {
       context.commit("setCurrentStream", null)
     }
@@ -706,9 +721,9 @@ export default new Vuex.Store({
 
 ### Create child components
 
-Now we'll create a new component called `SpeckleSearch.vue` to handle all the search UI in one place.
+Now we'll create a new component called `StreamSearch.vue` to handle all the search UI in one place.
 
-:::details SpeckleSearch.vue
+:::details StreamSearch.vue
 
 ```vue
 <template>
@@ -732,7 +747,7 @@ Now we'll create a new component called `SpeckleSearch.vue` to handle all the se
     append-icon=""
     @update:search-input="debounceInput"
   >
-    <template #item="{ item }" color="background">
+    <template #item="{ item }">
       <v-list-item-content>
         <v-list-item-title>
           <v-row class="pa-0 ma-0">
@@ -743,7 +758,7 @@ Now we'll create a new component called `SpeckleSearch.vue` to handle all the se
         </v-list-item-title>
         <v-list-item-subtitle class="caption">
           Updated
-          <timeago :datetime="item.updatedAt"></timeago>
+          <time-ago :datetime="item.updatedAt"></time-ago>
         </v-list-item-subtitle>
       </v-list-item-content>
     </template>
@@ -753,6 +768,7 @@ Now we'll create a new component called `SpeckleSearch.vue` to handle all the se
 <script>
 import { debounce } from "debounce"
 import { searchStreams } from "@/speckleUtils"
+import { TimeAgo } from 'vue2-timeago'
 
 export default {
   name: "StreamSearch",
@@ -761,6 +777,7 @@ export default {
     streams: { items: [] },
     selectedSearchResult: null
   }),
+  components: { TimeAgo },
   watch: {
     selectedSearchResult(val) {
       this.search = ""
@@ -856,14 +873,16 @@ Modify the `Home.vue` view.
 
 <script>
 import StreamSearch from "@/components/StreamSearch"
+import WelcomeView from "@/views/WelcomeView"
 
 export default {
-  name: "Home",
+  name: "HomeView",
   components: { WelcomeView, StreamSearch },
   data: () => {
+    return {
       serverUrl: process.env.VUE_APP_SERVER_URL
     }
-  }
+  },
   methods: {},
   computed: {
     selectedStream: function() {
@@ -878,17 +897,15 @@ export default {
 
 ### Update `App.vue`
 
-In `App.vue` there is a commented line referencing the `<router-view/>. Uncomment it.
+In `App.vue` there is a commented line referencing the `<router-view/>`. Uncomment it.
 
 ### Preview results
 
-After making these changes, your app should display a welcome message when not logged in and the search bar and selection text when logged in:
-
-<!-- ![Search bar and selection](./img/apps-guide/app-guide-user-fetch.gif) -->
+After making these changes, your app should display a welcome message when not logged in and the search bar and selection text when logged in.
 
 Introducing some text into the search bar should display a list of results in a dropdown. Selecting one of the result items will change the selection text from `No stream selected` to display the selected Stream name and id, as well as 2 buttons. The first one will take you to the stream page in the server, while the second one will clear the selection in the app state.
 
-![Search and selection functionality](https://i.imgur.com/dgrCpUn.gif)
+![Search and selection functionality](./img/apps-guide/app-guide-stream-search.gif)
 
 ## Displaying stream commits
 
@@ -943,12 +960,11 @@ We basically need modify the state to be able to:
 - Add mutations to modify individually each of these state properties (note that `previousCursors` is a list, so we added two mutations: one to push a new value and another to replace the entire list)
 - Add `getCommits` action, and update `logout`, `handleStreamSelection` and `clearStreamSelection` to also deal with these new props.
 
-:::details router/index.js
+:::details store/index.js
 
 ```js
 import Vue from "vue"
 import Vuex from "vuex"
-import VuexPersistence from "vuex-persist"
 
 import {
   APP_NAME,
@@ -961,13 +977,7 @@ import {
 
 Vue.use(Vuex)
 
-const vuexLocal = new VuexPersistence({
-  storage: window.localStorage,
-  key: `${APP_NAME}.vuex`
-})
-
 export default new Vuex.Store({
-  plugins: [vuexLocal.plugin],
   state: {
     user: null,
     serverInfo: null,
@@ -1144,7 +1154,7 @@ import StreamSearch from "@/components/StreamSearch"
 import WelcomeView from "@/components/WelcomeView"
 
 export default {
-  name: "Home",
+  name: "HomeView",
   components: { WelcomeView, StreamSearch },
   data: () => {
     return {
@@ -1295,7 +1305,7 @@ That's it! If you visit your netlify url, you should see your app running smooth
 
 ## Wrapping it up
 
-We've covered quite a lot on this guide, but this was only **Part 1**! Stay tuned for our following releases, where we'll also use our web viewer, fetch the data inside commits, receive notifications from the server, and more!
+We've covered quite a lot on this guide, but this was only a small example of interacting with Speckle streams and commits. Expanding on this further can move onto using the Speckle Viewer, fetch the data inside commits, receive notifications from the server, and more!
 
 :::tip Code Repository
 
