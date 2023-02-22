@@ -39,12 +39,24 @@ Once the package has installed, you must follow the steps in [Project Setup](uni
 ## Editor Time Sending and Receiving
 
 ### Receiving
+To receive data directly from the editor, just add the `SpeckleReceiver.cs` compoennt to a GameObject, in the inspector you'll now be able to select accounts, streams, branches and commits.
 
-To receive data directly from the editor, just add the `SpeckleManager.cs` script to a GameObject, in the inspector you'll now be able to select accounts, streams, branches and commits.
+<center><img src="./img-unity/unity_stream_manager_inspector.png" width="50%" alt="Screenshot of SpeckleReceiver component inspector" /></center>
 
-Please note this feature is in early release and might be a bit unstable.
+The `Generate Asset` option, when enabled, will generate Mesh, Material, and Prefab assets in the `Resource` folder.
 
-![StreamManager](https://user-images.githubusercontent.com/2679513/123954157-fb0ea300-d99f-11eb-8507-724676d4717c.png)
+
+### Sending 
+
+To Send data directly from the editor, just add the `SpeckleSender.cs` compoennt to a GameObject.
+
+<center><img src="./img-unity/unity_stream_manager_inspector_sender.png" width="50%" alt="Screenshot of SpeckleSender component inspector" /></center>
+
+With the Selection dropdown, you can switch between sending:
+- **Children**: All children of this GameObject.
+- **Selection**: Editor Selection (may want to lock the inspector to stop it switching away).
+- **All (excl. disabled)**: All enabled objects in the current scene.
+- **All (incl. disabled)**: All objects in the current scene.
 
 ## Game Time Sending and Receiving
 
