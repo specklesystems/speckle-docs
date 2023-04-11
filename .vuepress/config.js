@@ -113,6 +113,7 @@ module.exports = {
             "bentley",
             "teklastructures",
             "archicad",
+            "navisworks",
             "ifc",
             "mapping-tool",
             "support-tables",

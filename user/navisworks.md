@@ -1,7 +1,3 @@
----
-typora-copy-images-to: img-navisworks
----
-
 # Navisworks
 
 ::: tip
@@ -73,9 +69,9 @@ Navisworks produces a lot of data, and the Speckle Navisworks Connector is still
 - [Navisworks Support Tables](/user/support-tables.html#navisworks)
 
 
-### Levels
+### Levels and Collections
 
-Where a Navisworks model has levels differentiated these will be found in the Speckle commits as a collection as any other type of collection. There is no coallescing of levels will be performed across other collections. This is because Navisworks does not have a strong concept of levels. Essentially the hierachy of the Speckle data will match the hierachy of the selected elements.
+Where a Navisworks model has levels differentiated these will be found in the Speckle commits as a collection as any other type of collection. There is no coallescing of levels performed across collections. This is because Navisworks does not have a strong concept of levels. Essentially the hierachy of the Speckle data will match the hierachy of the selected elements.
 
 ## Navisworks & BIM Data
 
