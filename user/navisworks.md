@@ -18,7 +18,7 @@ To install the Navisworks Connector and add your Speckle account, proceed by fol
 
 Once installed, you can find the Navisworks connector in the ribbon menu under the **Speckle** tab like so:
 
-![speckle-ribbon-revit](https://user-images.githubusercontent.com/51519350/186413456-3c2f0f5c-f5f4-4f40-a8cf-1ed53ee0ae39.png)
+![speckle-ribbon-navisworks](https://user-images.githubusercontent.com/760691/231277506-a539c3e0-17e2-43a7-8b1e-2d01909ec77b.png)
 
 ## User Interface
 
@@ -34,15 +34,20 @@ To help you select which elements will be to sent to Speckle, we've built variou
 
 _Please Note: Elements are only sent if they are visible._
 
-![Revit_rlKM6e6qTn](https://user-images.githubusercontent.com/51519350/186396184-be4fd296-8be2-4657-89b8-943170be4304.png)
+![navisworks-selection-filters](https://user-images.githubusercontent.com/760691/231277784-667e4899-e1f8-4753-a23c-96d9e5557c9a.png)
+
+On opening a stream card, any selected objects by default become the elements destined for send. This can be reset.
+![navisworks-setselection](https://user-images.githubusercontent.com/760691/231278189-3a228391-d16b-4048-b383-3d8d4b784674.png)
 
 #### Saved View Filter
 
 The view filter works similarly to the category one, and lets you include all elements visible in one or more views.
 
+![navisworks-savedview-filter](https://user-images.githubusercontent.com/760691/231277894-c74ecec6-c18b-41eb-8758-be42aeac2c56.png)
+
 This will only be visible if your model has saved views with Hide/Required selected.
 
-![Revit_j4qto03sVu](https://user-images.githubusercontent.com/51519350/186414397-d7493ee9-2177-406d-908c-dc986f1772d5.gif)
+![navisworks-valid-savedview](https://user-images.githubusercontent.com/760691/231278551-50625f13-4a2f-467e-a638-526c3b07497f.png)
 
 #### Selection Set Filter
 
@@ -50,7 +55,7 @@ The selection set filter lets you select one or more selection sets or saved sea
 
 This will only be visible if your model has selection sets or saved searches.
 
-![Revit_tqN7o2tYxY](https://user-images.githubusercontent.com/51519350/186414641-21225e10-122b-44cd-bf4d-322ecc80f53b.gif)
+![navisworks-selectionset-filter](https://user-images.githubusercontent.com/760691/231278069-23ad3ec5-429d-46fb-bd53-54459b39aa5a.png)
 
 ### Receive Modes
 
@@ -92,7 +97,7 @@ To easily explore on object's data and parameters, our [Speckle Web App](/user/w
 
 The `Advanced Settings` page allows you to customize the way Speckle behaves "per-stream".
 
-![Advanced settings page](./img-revit/revit-advancedSettings-view.png)
+![navisworks-advanced-settings](https://user-images.githubusercontent.com/760691/231278734-bd54c648-eef5-456d-a035-ddb046e896eb.png)
 
 ### Reference point
 
@@ -103,6 +108,8 @@ Available options are:
 - **Model Origin** (the default option)
 - The **Project Base coordinate**
 - The **Bounding Box origin**
+
+The XY Coordinate inputs are valid for defining the Project Base coordinate option.
 
 ### Coordinate Units
 
