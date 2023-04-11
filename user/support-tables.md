@@ -499,3 +499,16 @@ The Archicad connector is still in early Alpha and is still being developed. Geo
 | Wall                |  🟨  |   🟨    | `In Progress` |       Nested elements are not yet supported       |
 | Room (Zone)         |  ✅  |   🟨    | `In Progress` |                                                   |
 | Beam                |  ✅  |   ✅    |  `Complete`   |                                                   |
+
+## Navisworks
+
+### Supported Elements
+
+The Navisworks connector is still in early Alpha and is still being developed. Geometry and mesh based support is pretty comprehensive, but built element support is non existant. Let us know what elements or properties you see as missing and would be particularly useful to you!
+
+| Type                | Send | Receive |    Status     |                       Notes                       |
+| ------------------- | :--: | :-----: | :-----------: | :-----------------------------------------------: |
+| "Solid" Geometry    |  ✅  |         |  `Complete`   | All 3d elements will be sent as as meshes |
+| Line Geometry        |  ✅  |         |  `Complete`   | 2D and 2.5D Linework is sent as many lines as "dissolved" by Navisworks according to its facetting                                               |
+| Point                | 🟨  |         | `In Progress` |             |
+| Text         |    |         | `Unsupported` |                                                   |
