@@ -208,7 +208,7 @@ If non supported elements are received in this connector, no errors are thrown.
 | Rectangle      |  As Polyline  |      ✅       | `Complete` |
 | Spline         |      ✅       |      ✅       | `Complete` |
 | Solid          |               |               |  `To do`   |
-| Brep           |      ✅       |      ✅       | `Complete` |
+| Brep           |       As Mesh      |      As Mesh      | `Complete` |
 | Mesh           |      ✅       |      ✅       | `Complete` |
 | Revit Elements | x<sup>β</sup> |               | `Complete` |
 
