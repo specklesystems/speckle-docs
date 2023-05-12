@@ -46,7 +46,7 @@ Using Manager to handle your accounts and [Connectors](/#connectors) is the reco
 
 To manually add an account you first need to [generate a token for your account](/dev/tokens).
 
-Then you can proceed to create a `.json` file in `%appdata%\Speckle\Accounts\` with the following data structure:
+Then you can proceed to create a `.json` file with the following data structure:
 
 ```json
 {
@@ -63,6 +63,11 @@ Then you can proceed to create a `.json` file in `%appdata%\Speckle\Accounts\` w
   }
 }
 ```
+
+Place the file:
+- on Windows, under:  `%appdata%\Speckle\Accounts\` 
+- on Mac, under: `~/.config/Speckle/Accounts`
+- on Linux, under `~/.local/share/Speckle/Accounts`
 
 ## Installing Connectors
 
