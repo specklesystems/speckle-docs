@@ -915,3 +915,26 @@ Creates a connection to a specific file in the computer's disk, where the data w
 ![Memory transport](./img-gh/nodes-transport-memory.png)
 
 Creates a connection to in-memory storage.
+
+#### Flatten Collection
+
+> Introduced in 2.14
+
+![Flatten collection](./img-gh/gh-collections-flatten-node.png)
+
+Returns a flat list of any deeply nested collections within an existing collection/model.
+
+This node makes it easier to obtain the geometry elements within complex commit object structures (such as Rhino nested layers or Navisworks tree structure).
+
+::: tip Example
+
+For a given layer structure in Rhino you can easily extract the information from all the layers in grasshopper
+
+![Rhino nested layers](./img-gh/gh-collection-rhinoExample.png)
+![Grasshopper flattened rhino model](./img-gh/gh-collection-receive-and-flatten.png)
+
+Finally, the output collections can be expanded to expose their inner properties:
+
+![Accessing the elements geometry](./img-gh/gh-collection-geometry-elements.png)
+
+:::
