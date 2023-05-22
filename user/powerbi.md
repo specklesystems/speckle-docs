@@ -55,6 +55,7 @@ The result of that query will be a table with the following columns:
 
 - Stream URL
 - URL Type
+- Commit Object ID (**new!**)
 - Object ID
 - speckle_type
 - data
@@ -81,9 +82,12 @@ This process can be done several times in a row until you reach the property val
 
 ::: tip
 
-We recommend that you uncheck the `Use original column name as prefix` option **only** when expanding the initial `data` column.
+As of the latest `alpha8` version of the Speckle PowerBI 3D Visual, you can rename your expanded columns at will.
+Data Connector and Visual are no longer required to keep the names of the columns for the coloring to work.
 
-This allows for nested property names to not have a prefix (i.e. the level name of a room would be `level.name` instead of `data.level.name`
+More info, see XXXXX
+
+<!-- ADD LINK TO COLORING SECTION IN POWERBI VISUAL -->
 
 :::
 
@@ -178,9 +182,9 @@ If you have trouble seeing your server under Data sources, simply delete existin
 
 #### Logging in using your Speckle account
 
-As of version `0.0.15`, user's of our public server <https://speckle.xyz> can now also login directly using their Speckle account.
+As of version `^0.0.17`, you can now login with **any account of any Speckle server** using your own speckle account.
 
-To do so, you must select the `Speckle.XYZ` option in the credentials pop-up:
+To do so, you must select the `Speckle Login` option in the credentials pop-up:
 
 ![Selecting Speckle.XYZ in the credentials pop-up]()
 
@@ -234,6 +238,7 @@ The 3D Viewer Visual was designed to work alongside our _PowerBI Data Connector_
 
 - `data`: A column of records containing the data belonging to each speckle object.
 - `Stream URL`: The stream url this object was fetched from
+- `Commit Object Id`: The id of the root object each individual object came from. For streams/branches/commits it will be the referenced commit object. For object urls it will match the object id on the url.
 - `Object ID`: The id of each speckle object in the table (this was extracted from the `data` records).
 
 > Other columns may be present, and can be user generated, but are not relevant for this section.
@@ -246,91 +251,104 @@ When you initially drop the Speckle PowerBI visual, you'll see a landing page wi
 
 #### Loading objects
 
-In order to load the objects from the table into the viewer, just add the fields `Stream URL` and `Object ID` onto their respective inputs in the visual.
+In order to load the objects from the table into the viewer, just add the fields `Stream URL`, `Commit Object ID` and `Object ID` onto their respective inputs in the visual.
 
 ![Visual inputs](./img-powerbi/visual-inputs.png)
 
-![Connecting inputs](./img-powerbi/powerbi-visual-addinputs.gif)
+![Connecting inputs](./img-powerbi/powerbi-visual-required-inputs.png)
 
-Once both the fields are added, the Viewer would start to load the objects into the scene. The **Object Data** input is optional, and is only used to enable highlight/coloring functions.
+Once both the fields are added, the Viewer would start to load the objects into the scene.
+
+There are two extra optional fields:
+
+- `Color By`: will define how the objects get grouped to be assigned colors.
+- `Tooltip data`: will define the information that is shown on the tooltip when selecting an object.
 
 ::: tip
 
-The `Stream URL` and `Object ID` columns will exist on the resulting query when using `Get by URL` function.
+The `Stream URL`, `Commit Object ID` and `Object ID` columns will exist on the resulting query when using `Get by URL` function.
 
-If you're using the new (experimental) `Get by URL [Structured]` function, you'll be required to generate the `Stream URL` and `Object ID` columns in your final query table.
-
+If you're using the new (experimental) `Get by URL [Structured]` function, you'll be required to generate the these columns in your final query table. The information is attached to the table as a `META` that can be queried in your Query Editor.
 :::
 
 #### Highlighting objects across visuals
 
-In order to enable highlighting across report visuals, connect a field on the **Object Data**. This could be any field in your data source (the object id, volume, level name, beam type...)
+In order to enable highlighting across report visuals, connect a field on the **Color By** or **Tooltip Data**. This could be any field in your data source (the object id, volume, level name, beam type...)
 
 Once a field has been added, any objects highlighted in another visual (such as a Table, Matrix, Slicer...) will be filtered out in the viewer, showing any other objects _ghosted out (gray transparent material)_
 
 This also works in reverse order: Selecting something on the visual will filter it on any other visual in the report that is configured to do so.
 
-![Visual selection affects other visuals in the report](./img-powerbi/powerbi-visual-bidirectional-selection.gif)
+![Visual selection affects other visuals in the report](./img-powerbi/powerbi-visual-selection-fromVisual.gif)
+![Visual selection in other visuals affects 3D visual](./img-powerbi/powerbi-visual-selection-toVisual.gif)
 
 #### Object tooltips
 
-::: warning
-
-This feature is experimental and may change in future releases.
-
-In particular, there are plans to allow customization of the tooltip data based on user-defined inputs, and removing the need of clicking the object to display the tooltip.
-
-:::
-
 When an object is selected in the PowerBI viewer, a tooltip will be displayed showing the object's properties and values.
+
+The information displayed will be extracted from the **Tooltip Data** input. You should be able to add as many as necessary.
 
 ![PowerBI Visual tooltip](./img-powerbi/powerbi-visual-tooltip.gif)
 
 The tooltip's position will be updated as the camera moves through the model.
 
-#### Context-menu
+::: tip
 
-::: warning
-
-This feature is experimental and may change in future releases.
-
-In particular, there are plans to move the context-menu to the the right-click mouse button in an upcoming release.
+These tooltip values are no longer bound to Speckle data; meaning you can now merge other data sources into your query and display "non-speckle data" in your Speckle object's tooltips.
 
 :::
 
-When an object is `double-clicked`, the context menu for that object will appear. This allows for easy object exclusion/isolation from the viewer in an interactive way.
+#### Context-menu
 
-![PowerBI visuals context-menu](./img-powerbi/powerbi-visual-doubleclick-exclude.gif)
+::: tip
+
+As of the latest `alpha8` version of the Speckle PowerBI 3D Visual, the context menu has been moved to work when right-clicking an object. Previously, it worked when double-clicking.
+
+:::
+
+When an object is `right-clicked`, the context menu for that object will appear. This allows for easy object exclusion/isolation from the viewer in an interactive way.
+
+::: tip
+
+The context menu is provided by PowerBI and there are still some features that haven't been implemented in depth. More work will be done to improve context-menu functionality in the coming releases.
+
+:::
+
+![PowerBI visuals context-menu](./img-powerbi/powerbi-visual-context-menu-exclude.gif)
 
 #### Coloring objects by category
 
-Coloring objects works in the same way that highlighting. Once a field has been added to **Object Data** the viewer will color the data by the field that was provided, when available.
+Coloring objects works in the same way that highlighting. Once a field has been added to **Color By** the viewer will color the data by the field that was provided, when available.
 
-The way an object is colored depends on the type of field you connected:
+The objects colors will be automatically generated and assigned using the PowerBI dashboard color palette.
 
-- Text based fields: The colors will be automatically generated by unique value.
-- Number based fields: The colors will be generated using the 3-color gradient in the Viewer Settings, assuming the first color represents the minimum value and the last color represents the maximum value.
+![Coloring objects](./img-powerbi/powerbi-visual-coloring.gif)
 
-![Coloring objects](./img-powerbi/powerbi-visual-addfilter.gif)
+::: tip Aligning the colors across visuals
+
+You may notice that, initially, the colors of your visual don't match the other colors assigned in other visuals of your report.
+
+You can fix this by aligning the sorting of the 3D visual to match the sorting performed by other visuals.
+
+Objects get assigned by PowerBI in order, so if the order of your visual matches the others, the colors should too.
+
+![Wrong visual colors](./img-powerbi/powerbi-visual-coloring-wrongColors.gif)
+
+!![Sorting the visual from top-right dropdown menu](./img-powerbi/powerbi-visual-sorting.png)
+
+:::
+
+In the coming releases, we'll also add conditional formatting and user customization to the visual.
 
 ### Visual Settings
 
-#### Camera controls
+::: warning
 
-![Camera settings](./img-powerbi/settings-camera.png)
+We're redoing this entire section of the visual. Next release will allow for better color/camera/lighting settings, but as of `0.0.16`, the prior settings panel is considered Obsolete.
 
-The camera controls settings allow for:
+We apologize for the inconvenience. Do reach out if you want to give us feedback on this feature at https://speckle.community
 
-- Orthogonal or perspective mode
-- Setting the view that would be shown when first loaded (top, front, back, left, right)
-
-#### Colors
-
-![Color settings](./img-powerbi/settings-color.png)
-
-The filtering/coloring feature available when connecting a data field into the `Object Data` section can be customized by selecting a 3-color gradient on the visual settings.
-
-This will affect the color pallette that is used when **coloring objects by a number based field**. When connecting a text based field into the `Object Data` input, the color will be computed automatically and the color pallette in the settings will be ignored.
+:::
 
 ## Feedback
 
