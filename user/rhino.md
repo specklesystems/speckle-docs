@@ -73,13 +73,13 @@ You may also notice the overlapping received objects(gray) with the original obj
 
 - [Rhino Support Tables](/user/support-tables.html#rhino)
 
-# Rhino Mapper
+## Rhino Mapper
 
 Speckle 2.0 lets you tag Rhino geometry as Speckle BIM elements, so you can send objects like lines and surfaces as beams and floors! This means you can bring in your Rhino geometry directly as native Revit family elements 💥
 
 ![RhinoMapper](https://user-images.githubusercontent.com/51519350/187174018-fe346d28-3ab2-49ec-b9e6-c3c3d193cfa9.gif)
 
-## Getting Started
+### Getting Started
 
 Open the Rhino Mapper panel by clicking on the Speckle Mapper button on the Speckle toolbar, or by using the `SpeckleMappings` command. 
 
@@ -91,7 +91,7 @@ If this is your first time installing the Speckle connector, you may need to loa
 
 :::
 
-## Features
+### Features
 
 Assigning or removing Speckle BIM tags from geometry objects is easy:
 
@@ -113,7 +113,7 @@ If no mapping options appear when you select a geometry object, that means there
 
 :::
 
-### Creating walls
+#### Creating walls
 
 Walls can be mapped with three different options, depending on the type of surface geometry you've selected:
 
@@ -123,39 +123,39 @@ Walls can be mapped with three different options, depending on the type of surfa
 
 - The default wall option will generate a wall schema by the surface's base curve.
 
-### Creating Floors
+#### Creating Floors
 
 Floors can be mapped to _xy planar surfaces_. Any interior trims in these surfaces will be mapped as voids in the floor.
 
-### Creating Columns
+#### Creating Columns
 
 Columns can be mapped to any _linear curve_.
 
-### Creating Beams
+#### Creating Beams
 
 Beams can be mapped to any _curve_.
 
-### Creating Pipes
+#### Creating Pipes
 
 Pipes can be mapped to any _linear curve_.
 
-### Creating Ducts
+#### Creating Ducts
 
 Ducts can be mapped to any _linear curve_.
 
-### Creating Topography
+#### Creating Topography
 
 Topography can be mapped to _open meshes_.
 
-### Creating Direct Shapes
+#### Creating Direct Shapes
 
 Direct Shapes can be mapped to _breps_ and _meshes_.
 
-### Creating Freeform Elements
+#### Creating Freeform Elements
 
 Freeform elements can be mapped to _breps_ and _meshes_.
 
-### Creating Family Instances
+#### Creating Family Instances
 
 Family instances can be mapped to _block instances_, using their insertion point and transform for the received revit family instance.
 
