@@ -108,7 +108,7 @@ Steps to receive the data:
 ![Receiving data](./img-qgis/QGIS_05_receiving.gif)
 
 
-## Transformations
+### Transformations
 From 2.14 version onwards there is a new functionality helping to send a full 3d context maps for the further use in CAD, BIM or any 3D software. This can be applied by clicking "Apply transformations on Send" before sending the data. 
 ![transforms_intro](./img-qgis/transforms_intro.PNG)
 
