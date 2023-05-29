@@ -107,6 +107,50 @@ Steps to receive the data:
 
 ![Receiving data](./img-qgis/QGIS_05_receiving.gif)
 
+
+### Transformations
+From 2.14 version onwards there is a new functionality helping to send a full 3d context maps for the further use in CAD, BIM or any 3D software. This can be applied by clicking "Apply transformations on Send" before sending the data. 
+![transforms_intro](./img-qgis/transforms_intro.png)
+
+At the moment, 4 types of transformations are available: 
+
+- **Creating a mesh from Digital Elevation Model:** converting a sigle-band raster layer to a 3d mesh. 
+- **Using a raster layer as a texture for a 3d mesh:** mapping the raster image onto a 3d elevation (requires pre-selected Elevation layer). 
+- **Extruding polygons:** using a random value or a numeric/text attribute field of the layer. 
+- **Projecting polygons onto 3d elevation:** move the lowest point of the polygon to the lowest point of the surrounding terrain (requires pre-selected Elevation layer). 
+![transforms_types](./img-qgis/transforms_types.png)
+
+Additionally: 
+- **Setting a layer as Elevation layer:** will be used as a base for several transformations, such as texturing and projecting on a terrain. 
+![transforms_elevation_layer](./img-qgis/transforms_elevation_layer.png)
+
+You can add and remove transformations using + and - buttons above and under the list with applied transformations: 
+![transforms_add](./img-qgis/transforms_add.png)
+
+
+Each transformations type is targeting a specific layer type, e.g. only polygon layers or only raster layers. Extrusion transformation will offer additional parameter - choice of the attribute to use for the extrusion value. If you choose the option "populate NULL values", you will be able to set a "Random height" as a value. 
+![transforms_extrusion_attributes](./img-qgis/transforms_extrusion_attributes.png)
+
+Add "Log Messages Panel" to your QGIS interface to see more info and warnings about your transformations. 
+
+### Examples
+
+**Elevation to a 3d mesh**
+![2 14-changelog-01-elevation](./img-qgis/2.14-changelog-01-elevation.gif)
+
+**Texture for 3d mesh**
+![2 14-changelog-02-texture](./img-qgis/2.14-changelog-02-texture_over_elevation.gif)
+
+**Polygon extrusions**
+![2 14-changelog-03-extrusion](./img-qgis/2.14-changelog-03-extrusion.gif)
+
+**Extrusing and projecting on a terrain**
+![2 14-changelog-04-projecting](./img-qgis/2.14-changelog-04-extrude_and_project_smaller_smaller.gif)
+
+**Combination of the transformations**
+![2 14-changelog-05-all-transforms](./img-qgis/2.14-changelog-05-altogether_smaller.gif)
+
+
 ## Feedback
 
 We're really interested in your feedback regarding the integration between QGIS and Speckle! You can always reach us at our [Community Forum](https://speckle.community)
