@@ -87,7 +87,7 @@ First enable support for linked models when sending from the _Send tab_ > click 
 Then use the selection filters as you would normally would and any relevant item from the linked models will be sent as well.
 For instance: _Everything_ will send all the models, _Category_ filters will work in conjunction with any linked model elements and _Selection_ too.
 
-![linkedmodels](https://user-images.githubusercontent.com/2679513/169900594-52826070-6071-430d-9caf-8a97d3d39b64.gif)
+![linkedmodels](https://github.com/specklesystems/speckle-sharp/assets/2679513/0307dd6f-afe1-498b-8717-1d1a0c61e818)
 
 ### Receiving Linked Models
 
