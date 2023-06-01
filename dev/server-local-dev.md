@@ -7,9 +7,10 @@ If you plan to give others access to your Server instance, consider running it w
 ## TL;DR
 
 Assuming you have:
-* git with ssh key auth
-* nodejs 16
-* docker and docker-compose
+
+* [git with ssh key auth](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+* [Node 18](https://nodejs.org/en).
+* [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/install/).
 
 Also don't worry if you don't have all of these, the detailed instructions provide more info on alternative ways to achieve the same thing.
 This is a high efficiency getting started step list.
@@ -58,25 +59,18 @@ Don't forget to set up the variables in the `.env` & `.env.test` files according
 ## Components
 
 To run a barebones Speckle Server, you need to run:
-- the `frontend` package (see [the readme.md file in the git repo](https://github.com/specklesystems/speckle-server/tree/main/packages/frontend))
-- the `server` package (see [the readme.md file in the git repo](https://github.com/specklesystems/speckle-server/tree/main/packages/server))
+
+* the `frontend` package (see [the readme.md file in the git repo](https://github.com/specklesystems/speckle-server/tree/main/packages/frontend))
+* the `server` package (see [the readme.md file in the git repo](https://github.com/specklesystems/speckle-server/tree/main/packages/server))
 
 Optionally, to enable extra functionality, microservices should be run separately. For more information, check their `README.md` file in the git repository:
-- the `preview-service` package generates preview images for streams (see [the readme.md file in the git repo](https://github.com/specklesystems/speckle-server/tree/main/packages/preview-service))
-- the `webhook-service` package is responsible with calling the configured webhooks
-- the `fileimport-service` package parses and imports uploaded files into Speckle.
+
+* the `preview-service` package generates preview images for streams (see [the readme.md file in the git repo](https://github.com/specklesystems/speckle-server/tree/main/packages/preview-service))
+* the `webhook-service` package is responsible with calling the configured webhooks
+* the `fileimport-service` package parses and imports uploaded files into Speckle.
 
 Detailed instructions for running them locally are kept up to date in their respective `readme.md` files.
 
 In this deployment type, the frontend Vue app will listen by default on the local interface (not available over the network) on `port 8080`, but will have no knowledge about the `server` component, and thus **should not be accessed directly**.
 
 The server component will listen on the local interface (not available over the network) on `port 3000`, and will proxy the frontend requests to the frontend component (as configured in .env file).
-
-
-
-
-
-
-
-
-
