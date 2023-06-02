@@ -52,40 +52,52 @@ As prerequisites, you only need a Linux VM with at least 4 GB of RAM and have [D
 
 #### Step 2: Copy and paste this into a file named `docker-compose.yml` in your directory:
 ```yaml
-version: "2"
+version: '3.9'
+name: 'speckle-server'
+
 services:
   ####
   # Speckle Server dependencies
   #######
   postgres:
-    image: "postgres:13.1-alpine"
+    image: 'postgres:14.5-alpine'
     restart: always
     environment:
       POSTGRES_DB: speckle
       POSTGRES_USER: speckle
       POSTGRES_PASSWORD: speckle
     volumes:
-      - ./postgres-data:/var/lib/postgresql/data/
-    ports:
-      - "127.0.0.1:5432:5432"
+      - postgres-data:/var/lib/postgresql/data/
+    healthcheck:
+      # the -U user has to match the POSTGRES_USER value
+      test: ["CMD-SHELL", "pg_isready -U speckle"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
 
   redis:
-    image: "redis:6.0-alpine"
+    image: 'redis:6.0-alpine'
     restart: always
     volumes:
-      - ./redis-data:/data
-    ports:
-      - "127.0.0.1:6379:6379"
+      - redis-data:/data
+    healthcheck:
+      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+      interval: 5s
+      timeout: 5s
+      retries: 30
 
   minio:
-    image: "minio/minio"
+    image: 'minio/minio'
     command: server /data --console-address ":9001"
     restart: always
     volumes:
-      - ./minio-data:/data
-    ports:
-      - "127.0.0.1:9000:9000"
-      - "127.0.0.1:9001:9001"
+      - minio-data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s -o /dev/null http://127.0.0.1:9000/minio/index.html"]
+      interval: 5s
+      timeout: 30s
+      retries: 30
+      start_period: 10s
 
   ####
   # Speckle Server
@@ -94,77 +106,104 @@ services:
     image: speckle/speckle-frontend:2
     restart: always
     ports:
-      - "0.0.0.0:80:8080"
+      - '0.0.0.0:8080:8080'
     environment:
       FILE_SIZE_LIMIT_MB: 100
 
   speckle-server:
     image: speckle/speckle-server:2
     restart: always
-    command: ["bash", "-c", "/wait && node bin/www"]
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('node:http').request({headers: {'Content-Type': 'application/json'}, port:3000, hostname:'127.0.0.1', path:'/graphql?query={serverInfo{version}}', method: 'GET' }, (res) => { body = ''; res.on('data', (chunk) => {body += chunk;}); res.on('end', () => {process.exit(res.statusCode != 200 || body.toLowerCase().includes('error'));}); }).end();"]
+      interval: 10s
+      timeout: 3s
+      retries: 30
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
     environment:
       # TODO: Change this to the URL of the speckle server, as accessed from the network
-      CANONICAL_URL: "http://localhost"
+      CANONICAL_URL: 'http://127.0.0.1:8080'
+      SPECKLE_AUTOMATE_URL: 'http://127.0.0.1:3030'
 
-      # TODO: Change this to a unique secret for this server
-      SESSION_SECRET: "TODO:ReplaceWithLongString"
+      # TODO: Change thvolumes:
+      REDIS_URL: 'redis://redis'
 
-      STRATEGY_LOCAL: "true"
-      DEBUG: "speckle:*"
-
-      POSTGRES_URL: "postgres"
-      POSTGRES_USER: "speckle"
-      POSTGRES_PASSWORD: "speckle"
-      POSTGRES_DB: "speckle"
-
-      REDIS_URL: "redis://redis"
-      
-      S3_ENDPOINT: "http://minio:9000"
-      S3_ACCESS_KEY: "minioadmin"
-      S3_SECRET_KEY: "minioadmin"
-      S3_BUCKET: "speckle-server"
-      S3_CREATE_BUCKET: "true"
+      S3_ENDPOINT: 'http://minio:9000'
+      S3_ACCESS_KEY: 'minioadmin'
+      S3_SECRET_KEY: 'minioadmin'
+      S3_BUCKET: 'speckle-server'
+      S3_CREATE_BUCKET: 'true'
 
       FILE_SIZE_LIMIT_MB: 100
-      
-      WAIT_HOSTS: postgres:5432, redis:6379, minio:9000
+
+      # TODO: Change this to a unique secret for this server
+      SESSION_SECRET: 'TODO:ReplaceWithLongString'
+
+      STRATEGY_LOCAL: 'true'
+      DEBUG: 'speckle:*'
+
+      POSTGRES_URL: 'postgres'
+      POSTGRES_USER: 'speckle'
+      POSTGRES_PASSWORD: 'speckle'
+      POSTGRES_DB: 'speckle'
+      ENABLE_MP: 'false'
 
   preview-service:
     image: speckle/speckle-preview-service:2
     restart: always
-    mem_limit: "1000m"
-    memswap_limit: "1000m"
-    command: ["bash", "-c", "/wait && node bin/www"]
+    depends_on:
+      speckle-server:
+        condition: service_healthy
+    mem_limit: '1000m'
+    memswap_limit: '1000m'
     environment:
-      DEBUG: "preview-service:*"
-      PG_CONNECTION_STRING: "postgres://speckle:speckle@postgres/speckle"
-      WAIT_HOSTS: postgres:5432
+      DEBUG: 'preview-service:*'
+      PG_CONNECTION_STRING: 'postgres://speckle:speckle@postgres/speckle'
 
   webhook-service:
     image: speckle/speckle-webhook-service:2
     restart: always
-    command: ["bash", "-c", "/wait && node main.js"]
+    depends_on:
+      speckle-server:
+        condition: service_healthy
     environment:
-      DEBUG: "webhook-service:*"
-      PG_CONNECTION_STRING: "postgres://speckle:speckle@postgres/speckle"
+      DEBUG: 'webhook-service:*'
+      PG_CONNECTION_STRING: 'postgres://speckle:speckle@postgres/speckle'
       WAIT_HOSTS: postgres:5432
 
   fileimport-service:
     image: speckle/speckle-fileimport-service:2
     restart: always
-    command: ["bash", "-c", "/wait && node src/daemon.js"]
+    depends_on:
+      speckle-server:
+        condition: service_healthy
     environment:
-      DEBUG: "fileimport-service:*"
-      PG_CONNECTION_STRING: "postgres://speckle:speckle@postgres/speckle"
+      DEBUG: 'fileimport-service:*'
+      PG_CONNECTION_STRING: 'postgres://speckle:speckle@postgres/speckle'
       WAIT_HOSTS: postgres:5432
 
-      S3_ENDPOINT: "http://minio:9000"
-      S3_ACCESS_KEY: "minioadmin"
-      S3_SECRET_KEY: "minioadmin"
-      S3_BUCKET: "speckle-server"
+      S3_ENDPOINT: 'http://minio:9000'
+      S3_ACCESS_KEY: 'minioadmin'
+      S3_SECRET_KEY: 'minioadmin'
+      S3_BUCKET: 'speckle-server'
 
-      SPECKLE_SERVER_URL: "http://speckle-server:3000"
-      
+      SPECKLE_SERVER_URL: 'http://speckle-server:3000'
+
+networks:
+  default:
+    name: automate-speckle-server
+
+volumes:
+  postgres-data:
+  redis-data:
+  minio-data:
+
 ```
 
 #### Step 3: Edit the fields marked with `TODO`
@@ -209,7 +248,7 @@ The server also supports some other environment variables. You can see them in o
   ```yaml
 
     speckle-frontend:
-      image: speckle/speckle-frontend:latest
+      image: speckle/speckle-frontend:2
       restart: always
       labels:
         - "traefik.http.routers.speckle-frontend.rule=Host(`{example.com}`)"
@@ -255,6 +294,11 @@ services:
   speckle-server:
     image: speckle/speckle-server:2
     restart: always
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('node:http').request({headers: {'Content-Type': 'application/json'}, port:3000, hostname:'127.0.0.1', path:'/graphql?query={serverInfo{version}}', method: 'GET' }, (res) => { body = ''; res.on('data', (chunk) => {body += chunk;}); res.on('end', () => {process.exit(res.statusCode != 200 || body.toLowerCase().includes('error'));}); }).end();"]
+      interval: 10s
+      timeout: 3s
+      retries: 30
     environment:
       # TODO: Change this to the URL of the speckle server, as accessed from the network
       CANONICAL_URL: "http://localhost"
@@ -283,6 +327,9 @@ services:
   preview-service:
     image: speckle/speckle-preview-service:2
     restart: always
+    depends_on:
+      speckle-server:
+        condition: service_healthy
     mem_limit: "1000m"
     memswap_limit: "1000m"
     environment:
@@ -294,6 +341,9 @@ services:
   webhook-service:
     image: speckle/speckle-webhook-service:2
     restart: always
+    depends_on:
+      speckle-server:
+        condition: service_healthy
     environment:
       DEBUG: "webhook-service:*"
       
@@ -303,6 +353,9 @@ services:
   fileimport-service:
     image: speckle/speckle-fileimport-service:2
     restart: always
+    depends_on:
+      speckle-server:
+        condition: service_healthy
     environment:
       DEBUG: "fileimport-service:*"
       SPECKLE_SERVER_URL: "http://speckle-server:3000"
