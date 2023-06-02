@@ -11,6 +11,12 @@ This is the home of [Speckle.Guide](https://speckle.guide/) - the home of our us
 
 ## Developing & Debugging
 
+### Requirements
+
+- Node 18
+
+### Setup
+
 This repo is a vuepress site. To get up and running, just run:
 
 1. `npm install`
