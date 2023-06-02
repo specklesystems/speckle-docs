@@ -9,12 +9,13 @@
   },
   "repository": "https://github.com/specklesystems/speckle-docs",
   "scripts": {
-    "dev": "vuepress dev",
-    "build": "vuepress build"
+    "dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev",
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build"
   },
   "license": "MIT",
   "devDependencies": {
     "@vuepress/plugin-medium-zoom": "^1.8.0",
+    "cross-env": "^7.0.3",
     "vuepress": "^1.8.2"
   },
   "dependencies": {
