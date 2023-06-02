@@ -10,7 +10,8 @@
   "repository": "https://github.com/specklesystems/speckle-docs",
   "scripts": {
     "dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev",
-    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build"
+    "dev:build": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build",
+    "build": "vuepress build"
   },
   "license": "MIT",
   "devDependencies": {
