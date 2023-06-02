@@ -21,9 +21,11 @@ This is a high efficiency getting started step list.
 2. `$ corepack enable`
 3. `$ yarn`
 4. `$ yarn build`
-5. `$ docker-compose -f docker-compose-deps.yml up -d`
+5. `$ yarn dev:docker:up`
 6. `$ cp packages/server/.env-example packages/server/.env`
 7. `$ cp packages/server/.env.test-example packages/server/.env.test`
+7. `$ cp packages/frontend-2/.env.example packages/frontend-2/.env`
+7. `$ cp packages/dui3/.env.example packages/dui3/.env`
 8. `$ yarn dev`
 
 Wait for the frontend to build, and voila, you have a fully functional Speckle Server running at [http://localhost:3000](http://localhost:3000).
@@ -50,7 +52,11 @@ If you are not running these dependencies via docker-compose, please make sure, 
 1. In this step the provided example file is copied to a `.env` file with keeping the default values.
 Here again we are providing a set of sensible defaults that work out of the box if you follow this guide, but do make sure to reflect any changes you make in you environment.
 1. Similarly to the last step, we're providing sensible defaults for env variables that are applied when running tests or running the server in test mode
-1. Just like above, we use yarn to run the `dev` script in each package. This is probably not the most efficient way, since it starts more package in development mode, than needed, but its the easiest command that gets a server up and running. When developing, you probably want to run each component separately.
+1. Similarly to the last step, we're providing sensible defaults for env variables that are applied to the new frontend
+1. Similarly to the last step, we're providing sensible defaults for env variables that are applied to dui3
+1. Just like above, we use yarn to run the `dev` script in each package. This is probably not the most efficient way, since it starts more packages in development mode, than needed, but its the easiest command that gets a server up and running. When developing, you probably want to run each component separately. A good enough setup might be to just run the server and the preferred frontend (run `yarn dev` only in those individual package directories).
+
+When running `yarn dev` for all packages you might see errors relating to `@speckle/shared` being missing, but this is only temporarily because `@speckle/shared` is also being re-built at that point in time. Once its finished building all of the other packages should pick up on it and work fine. You might also see GraphQL Codegen errors, which also are temporary, because they rely on the speckle server being up and running.
 
 ::: tip IMPORTANT
 Don't forget to set up the variables in the `.env` & `.env.test` files according to your deployment

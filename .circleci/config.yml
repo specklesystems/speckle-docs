@@ -9,8 +9,8 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/node:16.18.0
+      - image: cimg/node:18.16.0
     steps:
       - checkout
       - run:
-          command: yarn && yarn build
+          command: yarn && yarn dev:build
