@@ -127,9 +127,9 @@ For instance, you could create 10 new lines with the data below:
 
 ![image](https://user-images.githubusercontent.com/2679513/119196439-17085600-ba7e-11eb-8273-6fdf60e91894.png)
 
-## Schedule Updater
+## Parameter Updater (Sync Revit Schedules and other data)
 
-The Speckle Revit connector enable you to easily update Revit Schedules from Excel.
+The Speckle Revit connector enables you to easily update Revit Schedules from Excel.
 
 Step 1 is to send your schedule from Revit to Speckle using the Speckle Revit connector. Select the desired schedule using the "Schedule" option in the selection menu on the connector as shown below.
 
@@ -146,7 +146,7 @@ From this point you are able to sort and edit your schedule any way that you wou
 ![image](./img-excel/update-in-revit.gif)
 
 ::: tip LIMITATIONS
-Currently the Schedule Updater cannot update parameter values that corrospond to other elements. These values can often be identified in Revit by having a dropdown selection in the Revit Schedule. Adding support for updating this type of parameter is currently on our backlog.
+Currently the Parameter  Updater cannot update parameter values that correspond to other elements. These values can often be identified in Revit by having a dropdown selection in the Revit Schedule. Adding support for updating this type of parameter is currently on our backlog.
 :::
 
 ## Advanced workflows
