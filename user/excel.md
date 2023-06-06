@@ -157,29 +157,6 @@ Currently the Schedule Updater cannot update parameter values that corrospond to
 
 More advanced workflows are possible, similarly to how our [Grasshopper Schema Builder](/user/grasshopper.html#schema-builder) works, you can **create BIM elements** directly from Excel and **update Revit elements** too.
 
-### Updating Revit Parameters
-
-To update Revit parameters from Excel, just copy paste the sample table below and update it with your element ids and values.
-**We are working to make this flow simpler and more intuitive, it might change in the future**
-
-| elementId | parameters.speckle_type | parameters.ALL_MODEL_INSTANCE_COMMENTS.value | parameters.ALL_MODEL_INSTANCE_COMMENTS.units | parameters.ALL_MODEL_INSTANCE_COMMENTS.speckle_type | speckle_type                                 |
-| --------- | ----------------------- | -------------------------------------------- | -------------------------------------------- | --------------------------------------------------- | -------------------------------------------- |
-| 198694    | Base                    | My sample comment 1                          | m                                            | Objects.BuiltElements.Revit.Parameter               | Objects.BuiltElements.Revit.ParameterUpdater |
-| 198749    | Base                    | My sample comment 2                          | m                                            | Objects.BuiltElements.Revit.Parameter               | Objects.BuiltElements.Revit.ParameterUpdater |
-| 234869    | Base                    | My sample comment 3                          | m                                            | Objects.BuiltElements.Revit.Parameter               | Objects.BuiltElements.Revit.ParameterUpdater |
-| 418079    | Base                    | My sample comment 4                          | m                                            | Objects.BuiltElements.Revit.Parameter               | Objects.BuiltElements.Revit.ParameterUpdater |
-
-Here's a breakdown of what each column means:
-
-- **elementId** the Revit `ElementId` or `UniqueId`
-- **parameters.speckle_type** always set to `Base`
-- **parameters.BUILT_IN_PARAM_NAME.value** the value to set on the parameter, where `BUILT_IN_PARAM_NAME` should be replaced with the BuiltInParameter name from Revit
-- **parameters.BUILT_IN_PARAM_NAME.units** the unit of the parameter, only used in case of linear units, see supported values [here](https://github.com/specklesystems/speckle-sharp/blob/745b3d9bb4694b88fec722be7d7d92859fc74459/Core/Core/Kits/Units.cs#L8-L16)
-- **parameters.BUILT_IN_PARAM_NAME.speckle_type** always set to `Objects.BuiltElements.Revit.Parameter`
-- **speckle_type** always set to `Objects.BuiltElements.Revit.ParameterUpdater`
-
-You can also **update multiple parameters** for each Revit element, to do so, just add more `parameters.BUILT_IN_PARAM_NAME` columns.
-
 ## Support
 
 For any feedback and support requests please visit our [community forum](https://speckle.community/).
