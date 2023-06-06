@@ -132,6 +132,10 @@ Levels in Revit are updated following the logic described above with just one mi
 For example, you receive `Level 03` which is at 9000mm, in a file that has `3rd Floor` at 9000mm => `3rd Floor` will be renamed and used (we use a tolerance of 5mm for matching levels by elevation).
 NOTE: Levels are _not matched by name_ as this could end up with undesired results.
 
+### Schedules
+
+Information on the Schedule Updater can be found in the [Excel Docs](/user/excel.html#schedule-updater)
+
 ## Revit & BIM Data
 
 When sending from Revit, Speckle takes care of converting the data to a Speckle friendly format. If you're curious about how this data is being structured, please have a look at our [Objects Kit class definitions](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects/BuiltElements).
@@ -189,11 +193,12 @@ In some cases, you may just want to receive the exact geometry some other user s
 In these cases, `Receive objects as Direct Meshes` will force all objects to be `DirectShape` instances.
 
 ### Custom object type mapping
+
 ![Mapping](./img-revit/revit-advancedSettings-mapping.png)
 
-By default, Speckle will attempt to match your incoming Speckle objects with native Revit objects. It does this by trying to match the category, family, and type properties of the Speckle object. This works well if you are importing standardized objects such as structural sections. 
+By default, Speckle will attempt to match your incoming Speckle objects with native Revit objects. It does this by trying to match the category, family, and type properties of the Speckle object. This works well if you are importing standardized objects such as structural sections.
 
-For example, Speckle will easily be able to tell that an incoming object with a type "W12x19" will match to a type of the same name in the Wide Flange family (assuming that family type is loaded into the project). If there isn't a family type loaded into Revit of the correct category that is an exact match of the type property, then Speckle will have to make it's best guess of which object type to match to. 
+For example, Speckle will easily be able to tell that an incoming object with a type "W12x19" will match to a type of the same name in the Wide Flange family (assuming that family type is loaded into the project). If there isn't a family type loaded into Revit of the correct category that is an exact match of the type property, then Speckle will have to make it's best guess of which object type to match to.
 
 To avoid this, you can take advantage of the object type mapping setting.
 
@@ -202,23 +207,22 @@ To avoid this, you can take advantage of the object type mapping setting.
 Availible options are:
 
 - Never
-    
-    Speckle will do all the mapping for you.
+  Speckle will do all the mapping for you.
 - Always
-    
-    Everytime a Speckle commit is received, you will see a table of all the incoming object types and get the chance to set a mapped native Revit type to each incoming type.
+  Everytime a Speckle commit is received, you will see a table of all the incoming object types and get the chance to set a mapped native Revit type to each incoming type.
 - For New Types
-    
-    When a stream is first received, you will see a table of all incoming types and map them to types in the Revit application (exactly the same as the above option). 
 
-    When you receive from the same stream a second time, however, the mapping dialog will only appear if there are new incoming types that have not previously been mapped by the user. 
-    
-    If the next commit received contains the same objects as the first commit, then the previous custom mapping will be used and you will not be asked to remap all of the incoming types.
+  When a stream is first received, you will see a table of all incoming types and map them to types in the Revit application (exactly the same as the above option).
+
+  When you receive from the same stream a second time, however, the mapping dialog will only appear if there are new incoming types that have not previously been mapped by the user.
+
+  If the next commit received contains the same objects as the first commit, then the previous custom mapping will be used and you will not be asked to remap all of the incoming types.
 
 #### Import types
+
 ![Import Types](./img-revit/revit-advancedSettings-importTypes.png)
 
-If you find yourself in the mapping dialog and realize that you are about to import some object types, but you don't have those Revit types loaded into the project, you can click the "Import Types" button to pull up the Import Family Types dialog. 
+If you find yourself in the mapping dialog and realize that you are about to import some object types, but you don't have those Revit types loaded into the project, you can click the "Import Types" button to pull up the Import Family Types dialog.
 
 It will first open a file dialog where you can open one or more Revit family files. From there you can sift through all the types and import the ones that you want. If a toggle is grayed out, then it means that type is already loaded into the project.
 
