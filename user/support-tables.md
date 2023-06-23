@@ -490,7 +490,7 @@ The Tekla Structures connector is still in early Alpha and therefore will still 
 
 ### Supported Elements
 
-The Archicad connector is still in Alpha and being developed. Geometry and mesh based support is comprehensive, almost all of the built elements are support. Let us know what would be particularly useful to you and we will make sure to prioritise them!
+The Archicad connector is still in Alpha and being developed. Geometry and mesh based support is comprehensive and almost all of the built elements are supported. Let us know what would be particularly useful to you and we will make sure to prioritise them!
 
 | Type                | Send | Receive |    Status     |                       Notes                       |
 | ------------------- | :--: | :-----: | :-----------: | :-----------------------------------------------: |
