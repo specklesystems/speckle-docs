@@ -502,9 +502,9 @@ The Archicad connector is still in Alpha and being developed. Geometry and mesh 
 | Column              |  ✅  |   ✅    |  `Complete`   |                                                   |
 | Roof                |  ✅  |   ✅    |  `Complete`   |                                                   |
 | Shell               |  ✅  |   ✅    |  `Complete`   |                                                   |
-| Door                |  🟨  |   🟨    | `In progres`  | GDL parameters are not exported                   |
-| Window              |  🟨  |   🟨    | `In progres`  | GDL parameters are not exported                   |
-| Skylight            |  🟨  |   🟨    | `In progres`  | GDL parameters are not exported                   |
+| Door                |  🟨  |   🟨    | `In Progres`  | GDL parameters are not exported                   |
+| Window              |  🟨  |   🟨    | `In Progres`  | GDL parameters are not exported                   |
+| Skylight            |  🟨  |   🟨    | `In Progres`  | GDL parameters are not exported                   |
 | Mesh                |  ✅  |   ✅    |  `Complete`   |                                                   |
 | Morhp               |  ✅  |   ✅    |  `Complete`   |                                                   |
 | Object              |  ✅  |   ✅    |  `Complete`   | GDL parameters are not exported                   |
