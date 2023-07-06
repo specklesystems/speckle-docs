@@ -19,8 +19,9 @@ This is the home of [Speckle.Guide](https://speckle.guide/) - the home of our us
 
 This repo is a vuepress site. To get up and running, just run:
 
-1. `npm install`
-1. `npm run dev`
+1. `yarn install` or `npm install`
+1. `yarn dev` or `npm run dev`
+
 
 ## Contributing
 
