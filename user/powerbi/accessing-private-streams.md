@@ -24,6 +24,11 @@ Once the app has been granted access, Power BI will continue fetching the data.
 
 Another way of authenticating is with a “Personal Access Token”. Tokens are a form of authentication to grant users secure access to their projects and models. Here is how you do it:
 
+<video autoplay muted loop>
+  <source src="./img-powerbi/16-token-access.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 1. Go to your profile on your Speckle server. We’ll use Speckle’s free server: https://speckle.xyz/profile
 2. Under Developer Settings, Create a `New Token`.
 3. Give it a descriptive name (such as Power BI Connector), check every option under Scopes, and click `Save`.

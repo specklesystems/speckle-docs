@@ -223,6 +223,7 @@ module.exports = {
     "@vuepress/plugin-back-to-top",
     "@vuepress/plugin-medium-zoom",
     "@vuepress/html-redirect",
+    "@vuepress/plugin-register-components",
     [
       "vuepress-plugin-matomo",
       {
