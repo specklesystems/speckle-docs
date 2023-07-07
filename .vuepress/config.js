@@ -121,6 +121,20 @@ module.exports = {
                 "./powerbi/using-powerbi-connector",
               ],
             },
+            {
+              title: "Power BI Visual",
+              collapsable: true,
+              children: [
+                "./powerbi-visual/introduction", 
+                "./powerbi-visual/installation",
+                "./powerbi-visual/basic-usage",
+                "./powerbi-visual/coloring",
+                "./powerbi-visual/object-tooltip",
+                "./powerbi-visual/visual-settings",
+                "./powerbi-visual/general-settings",
+
+              ],
+            },
             "bentley",
             "teklastructures",
             "archicad",
