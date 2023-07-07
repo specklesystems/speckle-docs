@@ -29,6 +29,10 @@ body .navbar .site-name, h1, h2
 
 video 
   max-width: 100%
+  border-radius: 10px
+  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.4)
+  margin-top: 20px
+  margin-bottom: 20px
 
 .navbar
   box-shadow: 0 3px 8px 0 rgba(116, 129, 141, 0.1)
@@ -111,6 +115,25 @@ video
 
   li a.sidebar-link
     padding-left: 1.2rem
+
+.sidebar-group.is-sub-group > p.sidebar-heading
+  text-transform: inherit
+  color: #3b454e !important
+  opacity: 1 !important
+  letter-spacing: normal
+  padding-left: 1.2rem
+  border-left: 0
+  font-weight: 500
+  cursor: pointer !important
+
+.sidebar-group.is-sub-group
+  margin-bottom: 0
+
+.sidebar-group.is-sub-group > p.sidebar-heading:hover
+  color: #3b454e
+  background-color: #e6ecf1 !important
+
+
 
 .sidebar-links
   a.sidebar-link

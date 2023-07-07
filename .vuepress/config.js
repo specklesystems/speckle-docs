@@ -109,7 +109,18 @@ module.exports = {
             "sketchup",
             "qgis",
             "arcgis",
-            "powerbi",
+            {
+              title: "Power BI",
+              collapsable: true,
+              children: [
+                "./powerbi/introduction", 
+                "./powerbi/installation",
+                "./powerbi/configuration",
+                "./powerbi/accessing-private-streams",
+                "./powerbi/uninstallation",
+                "./powerbi/using-powerbi-connector",
+              ],
+            },
             "bentley",
             "teklastructures",
             "archicad",
@@ -197,6 +208,7 @@ module.exports = {
   plugins: [
     "@vuepress/plugin-back-to-top",
     "@vuepress/plugin-medium-zoom",
+    "@vuepress/html-redirect",
     [
       "vuepress-plugin-matomo",
       {
