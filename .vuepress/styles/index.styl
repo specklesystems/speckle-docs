@@ -157,6 +157,18 @@ video
     background-color: inherit
     border-color: transparent
 
+// Override Custom Block colors
+
+.custom-block
+  border-radius: 4px
+  outline: solid #e2e8f0
+  outline-width: thin;
+  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);
+  &.tip, &.warning, &.danger
+    border-left-width: none
+  &.tip
+    border-color: $speckleBlue
+
 // H1
 
 h1
@@ -217,3 +229,11 @@ h1
 // MAIN PAGE
 #main-title
   display: none
+
+// rounded corners and dropshadow effects
+.rounded-dropshadow {
+  border-radius: 10px; /* Adjust the value as per your preference */
+  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.4);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
