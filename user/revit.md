@@ -69,7 +69,7 @@ To access the Filters feature, follow these steps:
 
 3. Send the elements filer by selection `Filters` with name filter created.
 
-![](img-revit/revit-send-filters.gif)
+![Send Filters](https://raw.githubusercontent.com/specklesystems/speckle-docs/58187955e68193755c35c7a2370834b570afff39/user/img-revit/revit-send-filters.gif)
 
 ### Receive Modes
 
