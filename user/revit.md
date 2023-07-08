@@ -53,17 +53,23 @@ The project info filter lets you add non physical elements, such as levels, view
 
 ![Revit_tqN7o2tYxY](https://user-images.githubusercontent.com/51519350/186414641-21225e10-122b-44cd-bf4d-322ecc80f53b.gif)
 
-#### Parameter Filter
+#### Filters
 
-The parameter filter will filter all model elements that satisfy the logical conditions defined by you. For example, in the image below, Speckle will send all elements whose `Base Cosntraint` value is equal to "GF".
+Filters are used to selectively extract specific model elements based on predefined logical conditions. In the given image, for instance, Speckle will identify and send all room elements that have a Level value matching "Level 1".
 
-:::tip 📝 NOTE
+To access the Filters feature, follow these steps:
 
-The list of available parameters comes from the current elements in the model. If the model is empty, no parameters will be available.
+1. Navigate to the "View" tab on the Ribbon and locate the "Filters" button in the Graphics panel. Click on it. Create a filters with category is `Rooms` and Parameter filter is `Level` equal `Level 1`.
 
-:::
+![Create Filters](./img-revit/revit-createfilters.png)
 
-![Revit_Rm4mEZvBCX](https://user-images.githubusercontent.com/51519350/186415474-50b778cb-7d4d-4a1d-996a-ac2024c43431.gif)
+2. Switch to the "Speckle" tab on the Ribbon and select the "Revit Connector" button.
+
+![Speckle Tab](./img-revit/image-20210303191815524.png)
+
+3. Send the elements filer by selection `Filters` with name filter created.
+
+![](img-revit/revit-send-filters.gif)
 
 ### Receive Modes
 
