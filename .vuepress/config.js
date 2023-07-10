@@ -119,6 +119,7 @@ module.exports = {
                 "./powerbi/accessing-private-streams",
                 "./powerbi/uninstallation",
                 "./powerbi/using-powerbi-connector",
+                "./powerbi/working-with-records",
               ],
             },
             {
