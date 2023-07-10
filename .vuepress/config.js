@@ -122,7 +122,7 @@ module.exports = {
               ],
             },
             {
-              title: "Power BI Visual",
+              title: "Power BI 3D Viewer",
               collapsable: true,
               children: [
                 "./powerbi-visual/introduction", 
@@ -223,12 +223,6 @@ module.exports = {
     "@vuepress/plugin-back-to-top",
     "@vuepress/plugin-medium-zoom",
     "@vuepress/html-redirect",
-    [
-      "register-components",
-      {
-        componentsDir: "./components/",
-      }
-    ],
     [
       "vuepress-plugin-matomo",
       {
