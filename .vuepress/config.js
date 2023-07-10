@@ -13,22 +13,12 @@ module.exports = {
       });
     },
   },
-  chainWebpack: (config, isServer) => { // Enables mp4 embed
+  chainWebpack: (config, isServer) => { // to enable mp4 embedding
     config.module
       .rule('mp4')
       .test(/\.mp4$/)
       .use('file-loader')
       .loader('file-loader')
-      .options({
-        name: '[path][name].[ext]', // Preserve the directory structure
-        publicPath: (resourcePath, context) => {
-          // Calculate the relative path from the Markdown file to the MP4 file
-          const markdownDir = path.dirname(context);
-          const mp4Dir = path.relative(markdownDir, path.dirname(resourcePath));
-          const publicPath = `/${mp4Dir}/`;
-          return publicPath;
-        },
-      })
       .end();
   },
   base: "/",
