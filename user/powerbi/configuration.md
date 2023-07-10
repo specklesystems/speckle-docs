@@ -2,10 +2,10 @@
 
 After installing the Speckle Connector for Power BI, you must make a configuration change in the Power BI Options. Here’s how:
 
-<!-- <video autoplay muted loop>
+<video autoplay muted loop>
   <source src=".\img-powerbi\2-configuration.mp4" type="video/mp4">
   Your browser does not support the video tag.
-</video> -->
+</video>
 
 1. Launch Power BI on your computer.
 2. Click on "**File**" in the top-left corner of the application window, then select "**Options and settings**>**Options**".
