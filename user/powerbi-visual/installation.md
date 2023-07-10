@@ -2,10 +2,10 @@
 
 You can install the Speckle 3D Viewer Visual manually by following these steps:
 
-<video autoplay muted loop>
+<!-- <video autoplay muted loop>
   <source src="./img-powerbi-visual/8-installing-3d-viewer-visual.mp4" type="video/mp4">
   Your browser does not support the video tag.
-</video>
+</video> -->
 
 1. Download the latest **`.pbiviz`** package from our **[GitHub repo](https://github.com/specklesystems/speckle-powerbi-visuals/releases)**.
 2. Open your report in Power BI Desktop or Power BI service.
