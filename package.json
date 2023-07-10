@@ -24,6 +24,8 @@
   },
   "dependencies": {
     "markdown-it-html5-embed": "^1.0.0",
+    "vue": "^2.7.14",
+    "vue-server-renderer": "^2.7.14",
     "vuepress-plugin-matomo": "^1.0.2"
   }
 }
