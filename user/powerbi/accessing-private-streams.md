@@ -9,10 +9,10 @@ Once you complete the installation and configuration steps, you can receive “p
 
 You can now log in with **any account of any Speckle server**. Here’s how you do it:
 
-<video autoplay muted loop>
+<!-- <video autoplay muted loop>
   <source src="./img-powerbi/3-login.mp4" type="video/mp4">
   Your browser does not support the video tag.
-</video>
+</video> -->
 
 1. First, paste the URL of Private Stream you want to receive and click “OK”.
 2. Select the ”Server URL” option in the credentials pop-up. In our case, it is “**Speckle.xyz**”.
@@ -24,10 +24,10 @@ Once the app has been granted access, Power BI will continue fetching the data.
 
 Another way of authenticating is with a “Personal Access Token”. Tokens are a form of authentication to grant users secure access to their projects and models. Here is how you do it:
 
-<video autoplay muted loop>
+<!-- <video autoplay muted loop>
   <source src="./img-powerbi/16-token-access.mp4" type="video/mp4">
   Your browser does not support the video tag.
-</video>
+</video> -->
 
 1. Go to your profile on your Speckle server. We’ll use Speckle’s free server: https://speckle.xyz/profile
 2. Under Developer Settings, Create a `New Token`.
