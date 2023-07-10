@@ -13,6 +13,14 @@ module.exports = {
       });
     },
   },
+  chainWebpack: (config, isServer) => { // to enable mp4 embedding
+    config.module
+      .rule('mp4')
+      .test(/\.mp4$/)
+      .use('file-loader')
+      .loader('file-loader')
+      .end();
+  },
   base: "/",
   title: "Speckle Docs",
 
