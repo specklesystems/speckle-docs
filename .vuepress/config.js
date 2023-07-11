@@ -109,7 +109,33 @@ module.exports = {
             "sketchup",
             "qgis",
             "arcgis",
-            "powerbi",
+            {
+              title: "Power BI",
+              collapsable: true,
+              children: [
+                "./powerbi/introduction", 
+                "./powerbi/installation",
+                "./powerbi/configuration",
+                "./powerbi/accessing-private-streams",
+                "./powerbi/uninstallation",
+                "./powerbi/using-powerbi-connector",
+                "./powerbi/working-with-records",
+              ],
+            },
+            {
+              title: "Power BI 3D Viewer",
+              collapsable: true,
+              children: [
+                "./powerbi-visual/introduction", 
+                "./powerbi-visual/installation",
+                "./powerbi-visual/basic-usage",
+                "./powerbi-visual/coloring",
+                "./powerbi-visual/object-tooltip",
+                "./powerbi-visual/visual-settings",
+                "./powerbi-visual/general-settings",
+
+              ],
+            },
             "bentley",
             "teklastructures",
             "archicad",
@@ -197,6 +223,7 @@ module.exports = {
   plugins: [
     "@vuepress/plugin-back-to-top",
     "@vuepress/plugin-medium-zoom",
+    "@vuepress/html-redirect",
     [
       "vuepress-plugin-matomo",
       {
