@@ -42,7 +42,7 @@ If you look at the values of the data column, you’d see it is full of Records.
 
 In the case of Speckle, where objects are essentially JSON objects with key-value pairs, these objects are converted into Record objects in Power BI when received. This conversion enables the representation of the complex data structures from Speckle as Records within Power BI.
 
-### Speckle - Get Stream by URL [Structured](beta)
+### Speckle - Get Stream by URL [Structured] \(beta\)
 
 :::warning ⚠️WARNING
 This feature is experimental and may change in future releases.
