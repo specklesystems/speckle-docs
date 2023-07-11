@@ -2,10 +2,10 @@
 
 The Speckle Connector for Power BI is in beta development and requires manual installation. Follow the steps below to install the connector:
 
-<!-- <video autoplay muted loop>
+<video autoplay muted loop>
   <source src="./img-powerbi/1-installing-powerbi-connector.mp4" type="video/mp4">
   Your browser does not support the video tag.
-</video> -->
+</video>
 
 1. Go to **[Speckle Power BI GitHub repository](https://github.com/specklesystems/speckle-powerbi)**.
 2. Go to the "**Releases**" tab to find the released versions of the Speckle Connector.
