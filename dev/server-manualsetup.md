@@ -134,7 +134,6 @@ services:
       CANONICAL_URL: 'http://127.0.0.1:8080'
       SPECKLE_AUTOMATE_URL: 'http://127.0.0.1:3030'
 
-      # TODO: Change thvolumes:
       REDIS_URL: 'redis://redis'
 
       S3_ENDPOINT: 'http://minio:9000'
@@ -269,8 +268,8 @@ The server also supports some other environment variables. You can see them in o
 ### Step 5: Start the Server and the dependencies
 
 ```bash
-# cd /opt/speckle
-# docker-compose up -d
+cd /opt/speckle
+docker-compose up -d
 ```
 
 This will:
