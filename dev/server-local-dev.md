@@ -17,16 +17,16 @@ This is a high efficiency getting started step list.
 
 ### Steps
 
-1. `$ git clone https://github.com/specklesystems/speckle-server.git`
-2. `$ corepack enable`
-3. `$ yarn`
-4. `$ yarn build`
-5. `$ yarn dev:docker:up`
-6. `$ cp packages/server/.env-example packages/server/.env`
-7. `$ cp packages/server/.env.test-example packages/server/.env.test`
-7. `$ cp packages/frontend-2/.env.example packages/frontend-2/.env`
-7. `$ cp packages/dui3/.env.example packages/dui3/.env`
-8. `$ yarn dev`
+1. `git clone https://github.com/specklesystems/speckle-server.git`
+2. `corepack enable`
+3. `yarn`
+4. `yarn build`
+5. `yarn dev:docker:up`
+6. `cp packages/server/.env-example packages/server/.env`
+7. `cp packages/server/.env.test-example packages/server/.env.test`
+8. `cp packages/frontend-2/.env.example packages/frontend-2/.env`
+9. `cp packages/dui3/.env.example packages/dui3/.env`
+10. `yarn dev`
 
 Wait for the frontend to build, and voila, you have a fully functional Speckle Server running at [http://localhost:3000](http://localhost:3000).
 
@@ -41,10 +41,10 @@ You can use https based auth too, and can also gather some bonus points by using
 1. Nodejs versions ^16 now come with a package manager manager bundled named `corepack`. It enables us to use yarn without actually installing anything.
 1. The monorepo is managed by [yarn workspaces](https://yarnpkg.com/features/workspaces).
 This way the package manager handles dependencies of the monorepo and the proper connections between the different packages.
-Running `$ yarn` a shorthand for `$ yarn install` bootstraps the repo.
+Running `yarn` a shorthand for `yarn install` bootstraps the repo.
 1. Some of the local packages (viewer, object loader) has to be built the first time so that all packages are linked properly. 
 This can be done easily with a yarn script, where the yarn command will execute the given build script in all packages where it exists.
-So running `$ yarn build` triggers all available build commands.
+So running `yarn build` triggers all available build commands.
 1. In this step, all the required services are started via docker-compose.
 The `docker-compose-deps.yml` file contains a sensible default setup of all the required non Speckle developed services.
 This config by no means meant to be used in production.
