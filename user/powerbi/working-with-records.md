@@ -10,10 +10,10 @@ This page shows you some basic techniques to access your data from the record ob
 
 If you want to extract the value of a specific field from the received objects, you can use the lookup operator “[ ]”. Here’s how you do it:
 
-<!-- <video autoplay muted loop>
+<video autoplay muted loop>
   <source src="./img-powerbi/17-record-field.mp4" type="video/mp4">
   Your browser does not support the video tag.
-</video> -->
+</video>
 
 1. Go to “**Add Column**” tab and click on “**Custom Column**”. A dialog box will appear, where you can enter a _name_ and a _formula_ for your new column.
 2. Enter a name for your new column, we’ll name it _“category”_.
@@ -29,10 +29,10 @@ If you want to extract the value of a specific field from the received objects, 
 
 ### Nested Records
 
-<!-- <video autoplay muted loop>
+<video autoplay muted loop>
   <source src="./img-powerbi/18-record-nested-field.mp4" type="video/mp4">
   Your browser does not support the video tag.
-</video> -->
+</video>
 
 Most of the time, your data will have nested records. Accessing the fields of nested records is not much harder. Let’s say you have a parameters record that stores all the parameters and you want to get the value of one parameter.
 
