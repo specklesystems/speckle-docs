@@ -214,7 +214,7 @@ Make sure to edit the file and change:
 - `CANONICAL_URL` to the url used to access this speckle server. This can be `http://[PUBLIC_IP]` or `http://[DOMAIN_NAME]`
 - For added security, change the `SESSION_SECRET` to a unique secret value for this deployment.
 
-The server also supports some other environment variables. You can see them in our [.env-example file from the git repo](https://github.com/specklesystems/speckle-server/blob/main/packages/server/.env-example).  
+The server also supports some other environment variables. You can see them in our [.env-example file from the git repo](https://github.com/specklesystems/speckle-server/blob/main/packages/server/.env-example).
 
 ### Step 4: Optionally add easy TLS certificate
 
@@ -379,8 +379,11 @@ services:
 
 ## Update the server to new versions
 
-This deployment mechanism doesn't provide an automatic update mechanism, 
+This deployment mechanism doesn't provide an automatic update mechanism,
 so from time to time server operators need to manually update the deployment.
+
+We recommend first backing up your data prior to modifying or updating the
+server. You can find instructions on how to do that [here](./server-database-migration.md).
 
 To do that:
 
