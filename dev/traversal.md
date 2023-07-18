@@ -59,7 +59,7 @@ In general, a Connector considers an object to be either:
 
 Different connectors will have **different definitions of a “convertible” object**. There is no definitive list of “convertible” Speckle types. Connector-specific flexibility allows for **targeted interop** workflows and allows for the **intricacies of each host application**.
 
-As part of the default traversal rules, we selectively traverse the properties of “convertible” objects. Only traversing `"elements"` (and its alias `"@elements"`) and any dynamic properties.
+As part of the default traversal rules, we selectively traverse the properties of “convertible” objects. Only traversing `"elements"` (and its alias `"@elements"`).
 
 All other non-”convertible” objects will be traversed blindly (i.e. they have all properties traversed).
 
@@ -119,27 +119,27 @@ The `TraversalRule` builder provides a means to construct a set of rules for how
 
 `GraphTraversal.Traverse(Base)` will perform a depth-first traversal of the provided commit object, adding objects into an internal stack. Rules are executed in order for the current `Base` object. The first rule, whose predicated function holds true, determines which members of said `Base` object are traversed (added to the stack). 
 
-The `DefaultTraversal` contains two simple rules. A rule is triggered for convertible objects (objects either convertible directly through the converter or through the existence of a `displayValue` property). For these objects, we only traverse `"elements"` (alias’ such as `"@elements"`) and dynamic members. We also explicitly ignore some properties here, notably `"displayValue"` and its aliases.
+The `DefaultTraversal` contains two simple rules.
+A rule is triggered for convertible objects (objects either convertible directly through the converter or through the existence of a `displayValue` property).
+For these objects, we only traverse `"elements"` (and `"@elements"`).
 
-The second rule, the default rule, is used for all other objects (i.e. non-convertible objects); it traverses all properties on an object (with the exception of `Obsolete` and `SchemaIgnore` members)
+The second rule, the default rule, is used for all other objects (i.e. non-convertible objects);
+it traverses all properties on an object (with the exception of `Obsolete` and `SchemaIgnore` members)
 
 ```csharp
 // Implementation of the default traversal function, simplified for brevity
 public static GraphTraversal CreateTraverseFunc(ISpeckleConverter converter)
 {
-    var convertableRule = TraversalRule.NewTraversalRule()
+    var convertibleRule = TraversalRule.NewTraversalRule()
         .When(converter.CanConvertToNative) //NOTE: only one `When` clause needs to evaluate true, for this rule to hold true 
         .When(HasDisplayValue)
-        .ContinueTraversing(b =>
-        {
-            return new[] {"elements", "@elements"}
-        });
+        .ContinueTraversing(ElementsAliases);
 
     var defaultRule = TraversalRule.NewTraversalRule()
-        .When(_ => true) //Allways evaluates true
-        .ContinueTraversing(b => GetMembers(b)); //GetMembers returns all non-obsolete members (instance & dynamic)
+        .When(_ => true) //Always evaluates true
+        .ContinueTraversing(AllMembers); //AllMembers returns all non-obsolete members (instance & dynamic)
 
-    return new GraphTraversal(convertableRule, defaultRule);
+    return new GraphTraversal(convertibleRule, defaultRule);
 }
 ```
 
@@ -148,34 +148,35 @@ Inside the `DefaultTraversal` class, you will find another traversal function re
 ```csharp
   public static GraphTraversal CreateRevitTraversalFunc(ISpeckleConverter converter)
   {
-    var convertableRule = TraversalRule.NewTraversalRule()
+    var convertibleRule = TraversalRule.NewTraversalRule()
       .When(converter.CanConvertToNative)
       .ContinueTraversing(None);
 
     var displayValueRule = TraversalRule.NewTraversalRule()
       .When(HasDisplayValue)
-      .ContinueTraversing(b =>
-      {
-          return new[] {"elements", "@elements"}
-      });
+      .ContinueTraversing(ElementsAliases);
 
     var defaultRule = TraversalRule.NewTraversalRule()
       .When(_ => true)
-      .ContinueTraversing(b => GetMembers(b));
+      .ContinueTraversing(AllMembers);
 
-    return new GraphTraversal(convertableRule, displayValueRule, defaultRule);
+    return new GraphTraversal(convertibleRule, displayValueRule, defaultRule);
   }
 ```
 
 ### What if I don’t need to use a converter
 
-These functions were designed for Speckle Connectors, which by design, do not reference the `Objects` assembly. Thus is unaware of specific object models designed to be convertible/geometry objects. Thus we use the `ISpeckleConverter` interface to avoid coupling of Converter and Connector projects.
+These functions were designed for Speckle Connectors, which by design, do not reference the `Objects` assembly.
+Because of this, the functions are unaware of the specific object models designed to be convertible.
+Thus we use the `ISpeckleConverter` interface to avoid coupling of Converter and Connector code projects.
 
-However, other use cases may require consuming speckle data outside of a connector/converter’s software architecture. Fear not! the traversal functions are flexible in achieving desirable behaviour.
-
+However, other use cases may require consuming speckle data outside of a connector/converter’s software architecture.
+Fear not! the traversal functions are flexible in achieving desirable behaviour.
 Adapting the `CreateTraverseFunction` function or engineering custom rules to achieve the desired result is possible.
 
-As a quick workaround, you could substitute the `converter.CanConvertToNative` function with a simple `b => b.speckle_type.contains("Objects.Geometry")`, this should handle raw geometry, and the `HasDisplayValue` predicate should handle all other types of convertible geometry. This should give you similar results to our converter’s, though there may be some edge cases where this behaves differently.
+As a quick workaround, you could substitute the `converter.CanConvertToNative` function with a simple `b => b.speckle_type.contains("Objects.Geometry")`. 
+This should handle raw geometry, and the `HasDisplayValue` predicate should handle all other types of convertible geometry.
+This should give you similar results to our converter’s, though there may be some edge cases where this behaves differently.
 
 ### What if I want custom traversal behaviour
 
@@ -201,7 +202,7 @@ def get_default_traversal_func(can_convert_to_native: Callable[[Base], bool]) ->
 		Traversal func for traversing a speckle commit object
 		"""
 
-    convertable_rule = TraversalRule(
+    convertible_rule = TraversalRule(
     [can_convert_to_native],
     lambda _: {"elements", "@elements"},
     )
@@ -211,7 +212,7 @@ def get_default_traversal_func(can_convert_to_native: Callable[[Base], bool]) ->
     lambda o: o.get_member_names(),
     )
 
-    return GraphTraversal([convertable_rule, default_rule])
+    return GraphTraversal([convertible_rule, default_rule])
 ```
 
 ### What about JS?
