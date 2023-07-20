@@ -183,6 +183,7 @@ module.exports = {
             "connectors-dev",
             "kits-dev",
             "transports-dev",
+            "traversal",
           ],
         },
         {

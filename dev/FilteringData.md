@@ -3,7 +3,7 @@
 ::: tip
 Make sure you read the [introduction to .NET](/dev/dotnet) before you dive in here! The most important sections you need to cover first are: 
 
-- [Structuring Data](dev/dotnet.html#structuring-your-data)
+- [Structuring Data](/dev/dotnet.html#structuring-your-data)
 - [Receiving](/dev/dotnet.html#receiving-data)
 
 :::
