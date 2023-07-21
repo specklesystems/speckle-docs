@@ -7,7 +7,7 @@ title: Getting Started
 SketchUp connector currently supports SketchUp 2020, 2021, 2022 and 🆕2023.
 
 :::tip
-SketchUp Connector is currently in beta and only available on **Windows**! If you'd like to try installing on a different platform or for a different version, you can do a manual installation(page link here).
+SketchUp Connector is currently in beta and only available on **Windows**! If you'd like to try installing on a different platform or for a different version, you can do a [manual installation](/user/sketchup/manual-installation).
 :::
 
 As this connector is still in heavy development, see the **[repo](https://github.com/specklesystems/speckle-sketchup)** for the latest updates.
@@ -18,7 +18,7 @@ As this connector is still in heavy development, see the **[repo](https://githu
 
 To install the SketchUp connector, it’s assumed you have:
 
-- Speckle Account (you can get one **for free🎉** at **https://speckle.xyz/**)
+- Speckle Account (you can get one **for free🎉** at **[https://speckle.xyz/](https://speckle.xyz/)**)
 - Manager for Speckle. You can download it from **[here](https://speckle.systems/download/)** and add your Speckle account.
 
 Once Manager is installed and your account is set, you can continue with the installation.
@@ -51,6 +51,6 @@ If you want to stay on the cutting edge of the SketchUp connector, then you can 
 
 To install pre-releases for the SketchUp connector, follow these steps:
 
-1. Inside the connector page, switch to the “Versions” tab.
-2. Inside the "Versions" tab, toggle on the "Show Pre-releases" option.
-3. From this list, select the desired version you wish to install and click on the “Install” button next to it.
+1. Inside the connector page, switch to the “**Versions**” tab.
+2. Inside the "**Versions**" tab, toggle on the "**Show Pre-releases**" option.
+3. From this list, select the desired version you wish to install and click on the “**Install**” button next to it.

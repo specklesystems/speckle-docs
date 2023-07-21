@@ -44,8 +44,8 @@ Note that if you sent SketchUp groups to a stream, they will be received as comp
 Creating a new stream is also really easy.
 
 1. Click on the "**Create New Stream**" button.
-2. A dialog box will appear. Provide a name for your stream and an optional description.
-3. To make your stream private, use the toggle option.
+2. A dialog box will appear. Provide a **name** for your stream and an optional **description**.
+3. To make your stream **private**, use the toggle option.
 4. Click on the "**Create**" button to finalize and create your stream.
 
 That's it! Your new stream is now successfully created.
