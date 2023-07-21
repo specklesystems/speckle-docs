@@ -112,7 +112,8 @@ module.exports = {
               children: [
                 "./sketchup/getting-started", 
                 "./sketchup/basic-usage",
-                "./sketchup/advanced-settings",                
+                "./sketchup/advanced-settings",
+                "./sketchup/manual-installation",                
               ],
             },
             "qgis",
