@@ -106,7 +106,16 @@ module.exports = {
             "blender",
             "excel",
             "csi",
-            "sketchup",
+            {
+              title: "SketchUp",
+              collapsable: true,
+              children: [
+                "./sketchup/getting-started", 
+                "./sketchup/basic-usage",
+                "./sketchup/advanced-settings",
+                "./sketchup/manual-installation",                
+              ],
+            },
             "qgis",
             "arcgis",
             {
