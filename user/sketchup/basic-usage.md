@@ -8,7 +8,10 @@ In this page, we’ll show some basic operations you can do using SketchUp conne
 
 ## Sending Data
 
-[GIF here]
+<video autoplay muted loop>
+  <source src="./img-sketchup/sending.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 For the moment, there is only one send mode: **Selection**.
 
@@ -20,7 +23,10 @@ To send data:
 
 ## Receiving Data
 
-[GIF here]
+<video autoplay muted loop>
+  <source src="./img-sketchup/receiving.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 Receiving streams in SketchUp is as simple as clicking the "**Receive**" cube. As with sending, you can switch the targeted branch and the particular commit to receive.
 
@@ -30,7 +36,10 @@ Note that if you sent SketchUp groups to a stream, they will be received as comp
 
 ## Creating a New Stream
 
-[GIF here]
+<video autoplay muted loop>
+  <source src="./img-sketchup/create-stream.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 Creating a new stream is also really easy.
 
@@ -43,7 +52,10 @@ That's it! Your new stream is now successfully created.
 
 ## Creating a Branch
 
-[GIF here]
+<video autoplay muted loop>
+  <source src="./img-sketchup/create-branch.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 To create a new branch:
 
@@ -55,13 +67,19 @@ The newly created branch will become active, ready for you to start working on i
 
 ## Adding a Stream by URL
 
-[GIF here]
+<video autoplay muted loop>
+  <source src="./img-sketchup/add-by-id.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 If you have the URL of the data you want to receive, you can easily add it using the "**Add By ID or URL**" button. Paste the URL of the data you want to receive and click “**Add**”. A Stream Card will be added, with the branch and commit selected from the pasted URL.
 
 ## Switching Accounts
 
-[GIF here]
+<video autoplay muted loop>
+  <source src="./img-sketchup/switching-accounts.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 Your Speckle accounts should be added via **[Speckle Manager](https://speckle.guide/user/manager)**.
 
