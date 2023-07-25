@@ -55,7 +55,7 @@ mkdir /opt/speckle/
 ### Step 2: Copy and paste this into a file named `docker-compose.yml` in your directory
 
 ```yaml
-version: '3.9'
+version: '2.3'
 name: 'speckle-server'
 
 services:
