@@ -109,7 +109,7 @@ services:
     image: speckle/speckle-frontend:2
     restart: always
     ports:
-      - '0.0.0.0:8080:8080'
+      - '0.0.0.0:80:8080'
     environment:
       FILE_SIZE_LIMIT_MB: 100
 
