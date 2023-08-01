@@ -51,6 +51,10 @@ Speckle's preferred method of backing up and restoring data in a Postgres databa
         ports:
           - '127.0.0.1:16543:80'
 
+    networks:
+      default:
+        name: speckle-server
+
     volumes:
       pgadmin-data:
     ```
