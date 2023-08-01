@@ -199,7 +199,7 @@ services:
 
 networks:
   default:
-    name: automate-speckle-server
+    name: speckle-server
 
 volumes:
   postgres-data:
