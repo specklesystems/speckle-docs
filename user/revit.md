@@ -269,3 +269,21 @@ Currently the following triggers are available:
 
 Click "Save", and that's it! Every time you save your file, for instance, the sender will send data to Speckle.
 _NOTE_: currently only one scheduler can be set per file, in the future we will enable multiple scheduler and let you set them up from the main Connector interface.
+
+## Design Options
+
+The Connector also supports Revit design options and you can publish different version of you model to Speckle. 
+
+If the selection filter is set to **Everything**, the Connector sends the **Main Model** and any objects that are part of a **primary** design option by default. To publish other options with the Main Model, simply select any other option from the Design Options drop-down. 
+
+![Design Options](./img-revit/revit-desing-options.png)
+
+### 3D Views
+
+You can also set up a view in Revit and associate desired options with it in the **Visibility/Graphic Overrides**, see **Design Options** tab.
+
+![Visibility Settings](./img-revit/revit-visibility-settings.png)
+
+Then choose **View** selection filter in the Connector and pick a view. Only objects visible in this view will be sent to Speckle, which allows you to organise your Revit model for quick and easy publishing. 
+
+![Connector Selection Filter](./img-revit/connector-selection-view.png)
