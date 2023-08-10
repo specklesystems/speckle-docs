@@ -187,16 +187,13 @@ private RevitBeam BeamToSpeckle(DB.FamilyInstance revitBeam)
 
 ## Instances
 
-<aside>
-🔗 [GitHub: Speckle Instance Class](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/Instance.cs)
-
-</aside>
+Check out the [Instance class in speckle-sharp](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/Instance.cs).
 
 Speckle supports object instancing across many connectors, using an abstract `Objects` class that allows for conversions between block instances in Rhino and AutoCAD, family instances in Revit, collections and geometry instances in Blender, instances in Sketchup, and more.
 
-<aside>
-💡 In Speckle, an **instance** is a single **transformation** of a detached, typed **definition** object containing *transformable geometry*.
-</aside>
+::: tip Definition
+In Speckle, an **instance** is a single **transformation** of a detached, typed **definition** object containing *transformable geometry*.
+:::
 
 Speckle instances live in the `Objects.Other` namespace and are comprised of two main parts:
 
@@ -205,16 +202,17 @@ Speckle instances live in the `Objects.Other` namespace and are comprised of two
 
 Concretions of the `Instance` class can contain instance-specific properties outside of the shared definition. When scoping your own concretion, keep in mind that any properties which will be shared across instances of the same definition should belong in the `definition` class, and any properties which are specific to a single instance should be on the `Instance` class.
 
+### Receiving Instances in applications that do not support instancing
+
+Our abstract `Instance` class also contains virtual `GetTransformableGeometry()` and `GetTransformedGeometry()` methods which should be overridden in concretions. These methods determine how to retrieve the transformable geometry inside the `definition` and transforms their vertices with the instance transform for use in applications which do not natively support instancing.
+
 ## Transforms
 
-<aside>
-🔗 [GitHub: Speckle Transform Class](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/Transform.cs)
-
-</aside>
+Check out the [Transform class in speckle-sharp](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/Transform.cs).
 
 Speckle instance transformations are stored in a `System.Numerics.Matrix4x4` typed 4x4 matrix. We are following a column-dominant transform matrix convention, where the 3x3 sub-matrix contains scaling and rotation transforms and the 4th column is the translation vector.
 
-![transform1.jpg](img/objects/transform1.jpg)
+![transform1.jpg|690x195](./img/objects/transform1.jpg)
 
 ```bash
 		**RS**	                Rotation and Scale Matrix
@@ -224,7 +222,7 @@ Speckle instance transformations are stored in a `System.Numerics.Matrix4x4` typ
 
 When retrieving the row-dominant array value of the `System.Numerics.Matrix4x4` matrix, we expect the the **transformation basis x, y, and z vectors** to be represented by the 1st, 2nd, and 3rd columns of the 3x3 sub-matrix, respectively. The 4th column still represents translation.
 
-![transform2.jpg](img/objects/transform2.jpg)
+![transform2.jpg|690x195](./img/objects/transform2.jpg)
 
 ```bash
 		**[M0, M4, M8]**	      Basis X vector
@@ -237,10 +235,10 @@ When retrieving the row-dominant array value of the `System.Numerics.Matrix4x4` 
 
 In some applications, instance definitions can contain other instances of other definitions. This is called **instance nesting**, ****where the transform of a nested instance is the **local transformation** of that nested instance relative to the parent definition. 
 
-<aside>
+::: warning
 ⚠️ When calculating the total transformation of a nested instance, multiply its transform by all of the transforms of its parent instances.
 
-</aside>
+:::
 
 ```bash
 // An instance of a definition containing two nested instances
@@ -270,10 +268,10 @@ In some applications, instance definitions can contain other instances of other 
 
 Applications such as Blender and Revit also allow for element hosting behavior, where the **hosted** element is linked to a **host** element such that moving the host element in the native application also moves the hosted element. In general, hosted elements in Speckle are stored in the detatched `elements` property on the host Speckle object: this is true for `Instance` objects that function as hosts for other objects as well.
 
-<aside>
+::: warning
 ⚠️ When calculating the total transformation of a hosted instance, **do not** apply its host instance’s transform.
 
-</aside>
+:::
 
 ```bash
 // An instance that is hosting another instance, sharing the same definition
@@ -290,10 +288,6 @@ Applications such as Blender and Revit also allow for element hosting behavior, 
 // total transformation of **myInstance1**: **myTransform1**.matrix
 // total transformation of **myInstance2**: **myTransform2**.matrix
 ```
-
-### Receiving Instances in applications that do not support instancing
-
-Our abstract `Instance` class also contains virtual `GetTransformableGeometry()` and `GetTransformedGeometry()` methods which should be overridden in concretions. These methods determine how to retrieve the transformable geometry inside the `definition` and transforms their vertices with the instance transform for use in applications which do not natively support instancing.
 
 ## Definitions
 
