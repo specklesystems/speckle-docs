@@ -184,3 +184,168 @@ private RevitBeam BeamToSpeckle(DB.FamilyInstance revitBeam)
   return speckleBeam;
 }
 ```
+
+## Instances
+
+<aside>
+🔗 [GitHub: Speckle Instance Class](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/Instance.cs)
+
+</aside>
+
+Speckle supports object instancing across many connectors, using an abstract `Objects` class that allows for conversions between block instances in Rhino and AutoCAD, family instances in Revit, collections and geometry instances in Blender, instances in Sketchup, and more.
+
+<aside>
+💡 In Speckle, an **instance** is a single **transformation** of a detached, typed **definition** object containing *transformable geometry*.
+</aside>
+
+Speckle instances live in the `Objects.Other` namespace and are comprised of two main parts:
+
+1. A detached `definition` object, which contains transformable geometry including other instances. 
+2. A `transform` matrix indicating the transformations to be applied to the geometry inside the definition.
+
+Concretions of the `Instance` class can contain instance-specific properties outside of the shared definition. When scoping your own concretion, keep in mind that any properties which will be shared across instances of the same definition should belong in the `definition` class, and any properties which are specific to a single instance should be on the `Instance` class.
+
+## Transforms
+
+<aside>
+🔗 [GitHub: Speckle Transform Class](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/Transform.cs)
+
+</aside>
+
+Speckle instance transformations are stored in a `System.Numerics.Matrix4x4` typed 4x4 matrix. We are following a column-dominant transform matrix convention, where the 3x3 sub-matrix contains scaling and rotation transforms and the 4th column is the translation vector.
+
+![transform1.jpg](img/objects/transform1.jpg)
+
+```bash
+		**RS**	                Rotation and Scale Matrix
+		**0**	                  Identity Row
+		[**Tx, Ty, Tz, Tw]**    Translation Vector with homogeneous scaling factor Tw
+```
+
+When retrieving the row-dominant array value of the `System.Numerics.Matrix4x4` matrix, we expect the the **transformation basis x, y, and z vectors** to be represented by the 1st, 2nd, and 3rd columns of the 3x3 sub-matrix, respectively. The 4th column still represents translation.
+
+![transform2.jpg](img/objects/transform2.jpg)
+
+```bash
+		**[M0, M4, M8]**	      Basis X vector
+		**[M1, M5, M9]**        Basis Y vector
+		**[M2, M6, M10]**       Basis Z vector
+		**[M3, M7, M11]**       Translation vector
+```
+
+### Nested Instance Transforms
+
+In some applications, instance definitions can contain other instances of other definitions. This is called **instance nesting**, ****where the transform of a nested instance is the **local transformation** of that nested instance relative to the parent definition. 
+
+<aside>
+⚠️ When calculating the total transformation of a nested instance, multiply its transform by all of the transforms of its parent instances.
+
+</aside>
+
+```bash
+// An instance of a definition containing two nested instances
+**myInstance** {
+	transform: **myTransform**,
+	definition: **myDefinition**
+}
+**myDefinition** {
+	geometry: { **myChildInstance1**, **myChildInstance2** }
+}
+
+// Nested instances, sharing the same definition but with different transforms
+**myChildInstance1** {
+	transform: **myTransform1**,
+	definition: **myChildDefinition**
+}
+**myChildInstance2** {
+	transform: **myTransform2**,
+	definition: **myChildDefinition**
+}
+
+// total transformation of myChildInstance1: **myTransform**.matrix * **myTransform1**.matrix
+// total transformation of myChildInstance2: **myTransform**.matrix * **myTransform2**.matrix
+```
+
+### Instance Hosting Transforms
+
+Applications such as Blender and Revit also allow for element hosting behavior, where the **hosted** element is linked to a **host** element such that moving the host element in the native application also moves the hosted element. In general, hosted elements in Speckle are stored in the detatched `elements` property on the host Speckle object: this is true for `Instance` objects that function as hosts for other objects as well.
+
+<aside>
+⚠️ When calculating the total transformation of a hosted instance, **do not** apply its host instance’s transform.
+
+</aside>
+
+```bash
+// An instance that is hosting another instance, sharing the same definition
+**myInstance1** {
+	transform: **myTransform1**,
+	definition: **myDefinition**
+	elements: { **myInstance2** }
+}
+**myInstance2** {
+	transform: **myTransform2**
+	definition: **myDefinition**
+}
+
+// total transformation of **myInstance1**: **myTransform1**.matrix
+// total transformation of **myInstance2**: **myTransform2**.matrix
+```
+
+### Receiving Instances in applications that do not support instancing
+
+Our abstract `Instance` class also contains virtual `GetTransformableGeometry()` and `GetTransformedGeometry()` methods which should be overridden in concretions. These methods determine how to retrieve the transformable geometry inside the `definition` and transforms their vertices with the instance transform for use in applications which do not natively support instancing.
+
+## Definitions
+
+The abstract implementation of our instance definition property allows for any object inheriting `Base` to be used as a definition. The simplest implementation would be a generic `Base` object with some displayable `displayValue` property:
+
+```csharp
+// An instance class with definition of type Base
+public class BaseInstance: Instance<Base>
+{
+	// We're expecting transformable geometry to be in the `displayValue` property
+  protected override IEnumerable<Base> GetTransformableGeometry()
+  {
+		var display = typedDefinition["displayValue"] as List<Base>;
+    var allChildren = display ?? new List<Base>();
+    return allChildren;
+  }
+
+  [SchemaComputed("transformedGeometry")]
+  public override IEnumerable<ITransformable> GetTransformedGeometry()
+  {
+    var transformed = base.GetTransformedGeometry().ToList();
+    return transformed;
+  }
+}
+
+// A base with two meshes as its displayValue
+var definition = new Base();
+definition["displayValue"] = new List<Mesh>(){ mesh1, mesh2 };
+
+// an instance of this base
+var instance = new BaseInstance();
+instance.definition = definition;
+instance.transform = new Transform(matrix1, units);
+
+```
+
+### Connector Implementations
+
+Our Objects Kit contains definition classes that are used by our sharp connectors. The Speckle `Objects.Other.Instance : Base` class is implemented as follows:
+
+| Connector | Speckle Instance Class | Speckle Definition Class GitHub Link |
+| --- | --- | --- |
+| Rhino, AutoCAD, Sketchup, Blender | BlockInstance : Instance < BlockDefinition > | https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/Block.cs |
+| Revit | RevitInstance : Instance < RevitSymbolElementType > | https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/BuiltElements/Revit/RevitElementType.cs |
+
+### Revit
+
+Revit elements are parametric instances, and we use the `RevitInstance` class to send elements where (1) **no direct conversions exist** and (2) are **point-based family instances**. 
+
+When sending or receiving models in Revit using the **Reference Point setting**, and when sending elements in **linked models**, the transformations of the linked model  and/or reference point is applied to the top-level family instance transform only.
+
+**Limitations of Revit API and Instancing**
+
+- Revit cannot natively support **scaling** operations in transforms. When receiving non-revit instances in Revit, we convert the transformed geometry directly and create **groups** from the converted geometry.
+- Due to the parametric nature of Revit elements, some instance parameters result in **changes to the definition geometry**. Since we use the `displayValue` property to create Revit elements in most of our other connectors, this means that we are currently creating `RevitSymbolElementType` definitions with varying `displayValue`s to capture these geometry changes where they occur.
