@@ -185,15 +185,17 @@ private RevitBeam BeamToSpeckle(DB.FamilyInstance revitBeam)
 }
 ```
 
-## Instances
-
-Check out the [Instance class in speckle-sharp](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/Instance.cs).
+## Instances, Transforms, and Definitions
 
 Speckle supports object instancing across many connectors, using an abstract `Objects` class that allows for conversions between block instances in Rhino and AutoCAD, family instances in Revit, collections and geometry instances in Blender, instances in Sketchup, and more.
 
-::: tip Definition
+::: tip What is an instance?
 In Speckle, an **instance** is a single **transformation** of a detached, typed **definition** object containing *transformable geometry*.
 :::
+
+### Instances
+
+Check out the [Instance class in speckle-sharp](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/Instance.cs).
 
 Speckle instances live in the `Objects.Other` namespace and are comprised of two main parts:
 
@@ -202,69 +204,75 @@ Speckle instances live in the `Objects.Other` namespace and are comprised of two
 
 Concretions of the `Instance` class can contain instance-specific properties outside of the shared definition. When scoping your own concretion, keep in mind that any properties which will be shared across instances of the same definition should belong in the `definition` class, and any properties which are specific to a single instance should be on the `Instance` class.
 
-### Receiving Instances in applications that do not support instancing
+**What about receiving Instances in applications that do not support instancing?**
 
 Our abstract `Instance` class also contains virtual `GetTransformableGeometry()` and `GetTransformedGeometry()` methods which should be overridden in concretions. These methods determine how to retrieve the transformable geometry inside the `definition` and transforms their vertices with the instance transform for use in applications which do not natively support instancing.
 
-## Transforms
+### Transforms
 
 Check out the [Transform class in speckle-sharp](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/Transform.cs).
 
 Speckle instance transformations are stored in a `System.Numerics.Matrix4x4` typed 4x4 matrix. We are following a column-dominant transform matrix convention, where the 3x3 sub-matrix contains scaling and rotation transforms and the 4th column is the translation vector.
 
-![transform1.jpg|690x195](./img/objects/transform1.jpg)
+<p align="center">
+  <img src="./img/objects/transform1.jpg" height="200" />
+</p>
 
-```bash
-		**RS**	                Rotation and Scale Matrix
-		**0**	                  Identity Row
-		[**Tx, Ty, Tz, Tw]**    Translation Vector with homogeneous scaling factor Tw
-```
+
+		RS                 Rotation and Scale Matrix
+		0                  Identity Row
+		[Tx, Ty, Tz]       Translation Vector with homogeneous scaling factor Tw
+
 
 When retrieving the row-dominant array value of the `System.Numerics.Matrix4x4` matrix, we expect the the **transformation basis x, y, and z vectors** to be represented by the 1st, 2nd, and 3rd columns of the 3x3 sub-matrix, respectively. The 4th column still represents translation.
 
-![transform2.jpg|690x195](./img/objects/transform2.jpg)
+<p align="center">
+  <img src="./img/objects/transform2.jpg" height="200" />
+</p>
 
-```bash
-		**[M0, M4, M8]**	      Basis X vector
-		**[M1, M5, M9]**        Basis Y vector
-		**[M2, M6, M10]**       Basis Z vector
-		**[M3, M7, M11]**       Translation vector
-```
 
-### Nested Instance Transforms
+		[M0, M4, M8]       Basis X vector
+		[M1, M5, M9]       Basis Y vector
+		[M2, M6, M10]      Basis Z vector
+		[M3, M7, M11]      Translation vector
 
-In some applications, instance definitions can contain other instances of other definitions. This is called **instance nesting**, ****where the transform of a nested instance is the **local transformation** of that nested instance relative to the parent definition. 
+
+#### Nested Instance Transforms
+
+In some applications, instance definitions can contain other instances of other definitions. This is called **instance nesting**, where the transform of a nested instance is the **local transformation** of that nested instance relative to the parent definition. 
 
 ::: warning
 ⚠️ When calculating the total transformation of a nested instance, multiply its transform by all of the transforms of its parent instances.
-
 :::
 
-```bash
-// An instance of a definition containing two nested instances
-**myInstance** {
-	transform: **myTransform**,
-	definition: **myDefinition**
-}
-**myDefinition** {
-	geometry: { **myChildInstance1**, **myChildInstance2** }
-}
+```csharp
+// create two instances of the same definition
+Transform transform1;
+Transform transform2;
+var childDefinition = new BlockDefinition(){ geometry = myGeometry };
 
-// Nested instances, sharing the same definition but with different transforms
-**myChildInstance1** {
-	transform: **myTransform1**,
-	definition: **myChildDefinition**
-}
-**myChildInstance2** {
-	transform: **myTransform2**,
-	definition: **myChildDefinition**
-}
+var myInstance1 = new BlockInstance(){ 
+  transform = transform1, 
+  definition = childDefinition };
 
-// total transformation of myChildInstance1: **myTransform**.matrix * **myTransform1**.matrix
-// total transformation of myChildInstance2: **myTransform**.matrix * **myTransform2**.matrix
+var myInstance2 = new BlockInstance(){ 
+  transform = transform2, 
+  definition = childDefinition };
+
+// use these two instances in the definition of a parent instance
+Transform parentTransform;
+var parentDefinition = new BlockDefinition(){ geometry = new List<Base>(){myInstance1, myInstance2} };
+
+var parentInstance = new BlockInstance() {
+  transform = parentTransform, 
+  definition = parentDefinition };
+
+// total transformations of the geometry inside myInstance1 and myInstance2
+var totalTransform1 = transform1.matrix * parentTransform.Matrix;
+var totalTransform2 = transform2.matrix * parentTransform.Matrix;
 ```
 
-### Instance Hosting Transforms
+#### Host Instance Transforms
 
 Applications such as Blender and Revit also allow for element hosting behavior, where the **hosted** element is linked to a **host** element such that moving the host element in the native application also moves the hosted element. In general, hosted elements in Speckle are stored in the detatched `elements` property on the host Speckle object: this is true for `Instance` objects that function as hosts for other objects as well.
 
@@ -273,23 +281,18 @@ Applications such as Blender and Revit also allow for element hosting behavior, 
 
 :::
 
-```bash
-// An instance that is hosting another instance, sharing the same definition
-**myInstance1** {
-	transform: **myTransform1**,
-	definition: **myDefinition**
-	elements: { **myInstance2** }
-}
-**myInstance2** {
-	transform: **myTransform2**
-	definition: **myDefinition**
-}
+```csharp
+// using the same instances as above, let's host the second instance on the first
+BlockInstance myInstance1;
+BlockInstance myInstance2;
+myInstance1["elements"] = new List<Base>(){ myInstance2 };
 
-// total transformation of **myInstance1**: **myTransform1**.matrix
-// total transformation of **myInstance2**: **myTransform2**.matrix
+// total transformations of the geometry inside myInstance1 and myInstance2
+var totalTransform1 = transform1.matrix;
+var totalTransform2 = transform2.matrix;
 ```
 
-## Definitions
+### Definitions
 
 The abstract implementation of our instance definition property allows for any object inheriting `Base` to be used as a definition. The simplest implementation would be a generic `Base` object with some displayable `displayValue` property:
 
@@ -324,16 +327,16 @@ instance.transform = new Transform(matrix1, units);
 
 ```
 
-### Connector Implementations
+#### Connector Implementations
 
 Our Objects Kit contains definition classes that are used by our sharp connectors. The Speckle `Objects.Other.Instance : Base` class is implemented as follows:
 
 | Connector | Speckle Instance Class | Speckle Definition Class GitHub Link |
 | --- | --- | --- |
-| Rhino, AutoCAD, Sketchup, Blender | BlockInstance : Instance < BlockDefinition > | https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/Block.cs |
-| Revit | RevitInstance : Instance < RevitSymbolElementType > | https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/BuiltElements/Revit/RevitElementType.cs |
+| Rhino, AutoCAD, Sketchup, Blender | `BlockInstance : Instance <BlockDefinition>` | [BlockDefinition](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/Block.cs) |
+| Revit | `RevitInstance : Instance <RevitSymbolElementType>` | [RevitSymbolElementType](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/BuiltElements/Revit/RevitElementType.cs) |
 
-### Revit
+##### Revit
 
 Revit elements are parametric instances, and we use the `RevitInstance` class to send elements where (1) **no direct conversions exist** and (2) are **point-based family instances**. 
 
