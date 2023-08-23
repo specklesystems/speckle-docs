@@ -89,6 +89,14 @@ For instance: _Everything_ will send all the models, _Category_ filters will wor
 
 ![linkedmodels](https://github.com/specklesystems/speckle-sharp/assets/2679513/0307dd6f-afe1-498b-8717-1d1a0c61e818)
 
+:::tip IMPORTANT
+
+If sending by **view**, the linked model support works as follows:
+- in Revit 2024, only elements of the linked models visible in the selcted view(s) will be sent
+- in previous versions of Revit, the whole linked model is sent, unless it is not visible in the selected view(s). This is a limitation of the Revit API.
+
+:::
+
 ### Receiving Linked Models
 
 First enable support for linked models when receiving from the _Receive tab_ > click on _Advanced Settings_ > _Receive Linked Models_.
@@ -96,8 +104,7 @@ On receiving we do not attempt to modify in any way linked model files, but when
 
 ### Current Limitations
 
-Additional transformations applied to Linked Models after they have been imported are not taken into account.
-Please always ensure your Revit Models are aligned without the need for any additional transformations when working with Speckle.
+Multiple instances of the same linked model are currently not supported on sending.
 
 ## Supported Elements
 
