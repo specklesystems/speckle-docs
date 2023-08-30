@@ -131,7 +131,7 @@ services:
         condition: service_healthy
     environment:
       # TODO: Change this to the URL of the speckle server, as accessed from the network
-      CANONICAL_URL: 'http://127.0.0.1:8080'
+      CANONICAL_URL: 'http://127.0.0.1'
       SPECKLE_AUTOMATE_URL: 'http://127.0.0.1:3030'
 
       REDIS_URL: 'redis://redis'
