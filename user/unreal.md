@@ -3,7 +3,7 @@
 Our Unreal Engine Connector is in an **beta** stage of development. <br/>
 Currently, we only support **receiving geometry** (sending support is on our roadmap). <br/>
 
-We officially support Unreal Engine 4.26, 4.27, and 5.0 on Windows, Mac, and Linux platforms (other platforms untested).
+We officially support Unreal Engine 4.27 and newer 5.X versions on Windows, Mac, and Linux platforms (other platforms untested).
 
 Make sure to check out (and star :star: ) our Github repository: [https://github.com/specklesystems/speckle-unreal](https://github.com/specklesystems/speckle-unreal)
 If you have any thoughts or suggestions about this plugin, you're welcome to [discuss them in our forum](https://speckle.community/).
@@ -161,7 +161,8 @@ Out of the box, the plugin provides converters for the following conversions:
 | [`Objects.Geometry.Mesh`](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Geometry/Mesh.cs) | → | [Static Mesh Component](https://docs.unrealengine.com/4.27/en-US/API/Runtime/Engine/Components/UStaticMeshComponent/) /<br/> [Procedural Mesh Component](https://docs.unrealengine.com/4.27/en-US/API/Plugins/ProceduralMeshComponent/UProceduralMeshComponent/) |
 | [`Objects.Geometry.PointCloud`](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Geometry/Pointcloud.cs) | → | [LiDAR Point Cloud](https://docs.unrealengine.com/4.27/en-US/WorkingWithContent/LidarPointCloudPlugin/LidarPointCloudPluginReference/) |
 | [`Objects.Other.BlockInstance`](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/Other/Block.cs) | → | Actor with Transform |
-
+| [`Objects.BuiltElements.View`](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Objects/BuiltElements/View.cs) | → | Camera |
+| [`Speckle.Core.Models.Collection`](https://github.com/specklesystems/speckle-sharp/blob/main/Core/Core/Models/Collection.cs) | → | EmptyActor |
 
 > `StaticMeshConverter` and `ProceduralMeshConverter` are mutually exclusive, and for most users we recommend using static meshes (default).
 
