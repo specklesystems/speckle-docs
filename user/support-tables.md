@@ -490,15 +490,24 @@ The Tekla Structures connector is still in early Alpha and therefore will still 
 
 ### Supported Elements
 
-The Archicad connector is still in early Alpha and is still being developed. Geometry and mesh based support is pretty comprehensive, but built element support is still limited. Let us know what elements would be particularly useful to you and we will make sure to prioritise them!
+The Archicad connector is still in Alpha and being developed. Geometry and mesh based support is comprehensive and almost all of the built elements are supported. Let us know what would be particularly useful to you and we will make sure to prioritise them!
 
 | Type                | Send | Receive |    Status     |                       Notes                       |
 | ------------------- | :--: | :-----: | :-----------: | :-----------------------------------------------: |
 | Mesh / Direct Shape |  ✅  |   ✅    |  `Complete`   | All unsupported elements will go in/out as meshes |
 | Floor (Slab)        |  ✅  |   ✅    |  `Complete`   |                                                   |
-| Wall                |  🟨  |   🟨    | `In Progress` |       Nested elements are not yet supported       |
-| Room (Zone)         |  ✅  |   🟨    | `In Progress` |                                                   |
+| Wall                |  ✅  |   ✅    |  `Complete`   |                                                   |
+| Room (Zone)         |  ✅  |   ✅    |  `Complete`   |                                                   |
 | Beam                |  ✅  |   ✅    |  `Complete`   |                                                   |
+| Column              |  ✅  |   ✅    |  `Complete`   |                                                   |
+| Roof                |  ✅  |   ✅    |  `Complete`   |                                                   |
+| Shell               |  ✅  |   ✅    |  `Complete`   |                                                   |
+| Door                |  🟨  |   🟨    | `In Progres`  | GDL parameters are not exported                   |
+| Window              |  🟨  |   🟨    | `In Progres`  | GDL parameters are not exported                   |
+| Skylight            |  🟨  |   🟨    | `In Progres`  | GDL parameters are not exported                   |
+| Mesh                |  ✅  |   ✅    |  `Complete`   |                                                   |
+| Morhp               |  ✅  |   ✅    |  `Complete`   |                                                   |
+| Object              |  ✅  |   ✅    |  `Complete`   | GDL parameters are not exported                   |
 
 ## Navisworks
 
