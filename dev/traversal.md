@@ -1,4 +1,6 @@
-# Consuming Structured Data
+# Traversing Structured Data
+
+Before understanding traversal, it's crucial to recognize the challenges posed by handling structured data in Speckle. Without a method to navigate through complex, hierarchical data structures, you might end up with partial or incorrect data representations. Traversal provides a systematic way to explore Speckle data while capturing the relational context between objects.
 
 The most basic way to consume Speckle objects is simply **[by flattening the Speckle data](/dev/FilteringData.html)**, and consuming objects one by one.
 For many use cases, this is all that is required, but often it is necessary to consume Speckle objects **while capturing the hierarchical context of objects**.
@@ -9,7 +11,7 @@ In these cases, we are converting more than just objects one by one, but also **
 ::: tip So, What is Traversal?
 In practical terms, Traversal is **how we navigate Speckle data** and the relationships between Speckle Objects, to **consume objects with hierarchical context.**
 
-To be concise, traversal aims to transform the [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) topology of a Speckle data **into a pure [tree](https://en.wikipedia.org/wiki/Tree_(graph_theory)) topology**. 
+To be concise, traversal aims to transform the [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) topology (*Think of it as a one-way network of objects; no loops allowed*) of a Speckle data **into a pure [tree](https://en.wikipedia.org/wiki/Tree_(graph_theory)) topology** (*a branching hierarchy*). 
 :::
 
 The structure of a Speckle data (e.g. from a Commit/Version) differs depending on the data sent and from which Connector.
@@ -80,15 +82,23 @@ The below case demonstrates the `DefaultTraversal` implementation and how it can
 ```csharp
 async Task Foo(string myStream, ISpeckleConverter myConverter)
 {
+    // Initialize traversal function with the given converter
     var traversalFunc = DefaultTraversal.CreateTraverseFunc(myConverter);
 
+    // Receive commit object from the stream
     Base commitObject = await Helpers.Receive(myStream);
 
+    // Traverse the commit object
     foreach (TraversalContext context in traversalFunc.Traverse(commitObject))
     {
-        Base current = context.current; //Current object
-        TraversalContext? parent = context.parent; //Direct parent node in the graph
+        // Get the current object in traversal
+        Base current = context.current;
 
+        // Get the parent of the current object
+        TraversalContext? parent = context.parent;
+
+        // Perform some operation on the current object
+        // Replace `DoWork` with your actual functionality
         DoWork(current);
     }
 }
@@ -117,8 +127,15 @@ List<Base> smallThings = traversalFunc
 
 ## The Traversal Rule Builder
 
+Before we delve into customizing traversal rules, let's establish the default rules that are applied during traversal:
 
-The `TraversalRule` builder provides a means to construct a set of rules for how Speckle objects should be traversed. Each rule defines which properties of a Speckle object should be traversed and predicate criteria for when the rule is active for a given Speckle object. 
+**Default Traversal Rules:**
+
+1. For Convertible Objects: Only the "elements" and its alias "@elements" properties are traversed.
+2. For Non-Convertible Objects: All properties are traversed, with no exceptions.
+3. For Collections: The "elements" property is the only one traversed, to avoid inconsistent behavior.
+
+Now that we understand the default behavior, let's explore how you can create custom rules using the Traversal Rule Builder. The `TraversalRule` builder provides a means to construct a set of rules for how Speckle objects should be traversed. Each rule defines which properties of a Speckle object should be traversed and predicate criteria for when the rule is active for a given Speckle object. 
 
 `GraphTraversal.Traverse(Base)` will perform a depth-first traversal of the provided commit object, adding objects into an internal stack. Rules are executed in order for the current `Base` object. The first rule, whose predicated function holds true, determines which members of said `Base` object are traversed (added to the stack). 
 
@@ -206,18 +223,18 @@ The same Traversal rules are coming to SpecklePy very soon. They are already bei
 
 ```python
 def get_default_traversal_func(can_convert_to_native: Callable[[Base], bool]) -> GraphTraversal:
-		"""
-		Traversal func for traversing a speckle commit object
-		"""
-
+    """
+    Initialize traversal function for traversing a speckle commit object.
+    """
+    # Rule for convertible objects
     convertible_rule = TraversalRule(
-    [can_convert_to_native],
-    lambda _: {"elements", "@elements"},
+      [can_convert_to_native],
+      lambda _: {"elements", "@elements"},
     )
 
     default_rule = TraversalRule(
-    [lambda _: True],
-    lambda o: o.get_member_names(),
+      [lambda _: True],
+      lambda o: o.get_member_names(),
     )
 
     return GraphTraversal([convertible_rule, default_rule])
@@ -225,4 +242,4 @@ def get_default_traversal_func(can_convert_to_native: Callable[[Base], bool]) ->
 
 ### What about JS?
 
-Right now, **we are not planning to implement this any time soon**. Our Speckle Viewer does perform a similar traversal process with roughly equivalent behaviour, but not in a flexible rule builder pattern. However, we have goals to support easier consumption of Speckle data in JS, so you may see this function (or something similar) eventually come to JS/TS. **Let us know on our forums** if this would be useful to you, as this could influence our prioritisation.
+As of now, there's **no immediate pla**n to bring this traversal feature to JS/TS. However, we're keen on enhancing Speckle data consumption in JS/TS in the future. If you're interested in this functionality, your feedback can influence our development priorities. Stay connected through our [forum](https://speckle.community) for updates and to share your thoughts.
