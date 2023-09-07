@@ -68,6 +68,10 @@ In our example, each Level can hold, in a _detachable_ property, all its walls, 
 
 ![thinks|690x174](https://speckle.community/uploads/default/original/1X/3ea9d660024d5f3545933133165737e063fa87d5.png)
 
+::: tip Collections
+The most generic class used in Speckle is the `Collection` class. The `Collection` class is a `Base` class that has the `elements` property, which is a `List<Base>`. This means that any object that inherits from `Base` can be stored in a `Collection` object. This is a very powerful concept, as it allows us to store arbitrary data structures in Speckle, without paying any penalties. While it is mostly used for representing parent-child relationships, those children can be of any type, and because `elements` is detached they can also be stored in multiple collections.
+
+:::
 ### Dynamic Detachment
 
 Let's illustrate this through an example that also demonstrates how dynamically added properties can be detached. We'll assume that we will dynamically set `topSlab` and `bottomSlab` properties to each level in our imaginary object model:

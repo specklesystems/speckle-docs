@@ -583,6 +583,9 @@ var converter = kit.LoadConverter(APP_NAME);
 
 The converter, as you might have seen above should have implemented other handy methods such as `CanConvertToSpeckle`
 
+For more information on how to implement the send/receive bindings,
+use our Connectors' implementations as reference, and (for receive) see [Traversal docs](../dev/traversal.html).
+
 ## Publishing the Connector
 
 We currently don't have mechanisms to publish third party connectors via Manager, but if you'd like to do so please write on the [community forum](https://speckle.community/) and we'll work out a solution! You are of course free to develop your own installer / deployment mechanism.
