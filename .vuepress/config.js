@@ -96,7 +96,14 @@ module.exports = {
             "manager",
             "ui2",
             "ui",
-            "revit",
+            {
+              title: "Revit",
+              collapsable: true,
+              children: [
+                "./revit/intro",             
+                "./revit/installing-updating-the-connector",
+              ],
+            },
             "rhino",
             "autocadcivil",
             "grasshopper",
