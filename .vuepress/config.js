@@ -102,6 +102,7 @@ module.exports = {
               children: [
                 "./revit/intro",             
                 "./revit/installing-updating-the-connector",
+                "./revit/sending-models",
               ],
             },
             "rhino",
