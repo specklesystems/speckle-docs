@@ -31,60 +31,58 @@ To launch the connector:
 
 ## Sending Models
 
-:::warning
-ADD IMAGE HERE
-:::
+<img class="rounded-dropshadow" src="./img-revit/sending-from-revit.gif">
 
 Sending your Revit model takes only **4** steps:
 
-1. **Select (or create) a Speckle Project (Stream).**
-2. **Select (or create) a Speckle Model (Branch)** to send to.
-3. **Select what you want to send.**
+1. **Select (or create) a Speckle Project**.
+2. **Select (or create) a Speckle Model** to send to.
+3. **Select what you want to send**.
 4. Click **Send**.
 
 Let’s expand on these.
 
-## Selecting a Speckle Project (Stream) & Model (Branch)
+## Selecting a Speckle Project & Model
 
-Before sending data from Revit, it is important to determine where you want to send the data. You can create a Speckle Project (Stream) & Model (Branch) using the web interface or the Revit connector UI. We’ll cover how to create those using the Connector UI.
+Before sending data from Revit, it is important to determine where you want to send the data. You can create a Speckle Project & Model using the web interface or the Revit connector UI. We’ll cover how to create those using the Connector UI.
 
-### Create a Speckle Project (Stream)
+### Create a Speckle Project
 
-<img class="rounded-dropshadow" src="./img-revit/create-speckle-project.png" width=300>
+<img class="rounded-dropshadow" src="./img-revit/create-speckle-project.png" width=350>
 
-To create a Speckle Project (Stream):
+To create a Speckle Project:
 
 1. Click the **Create New Stream(Project)** button.
-2. Provide a **Name** for your Project (Stream) and an optional **Description**.
+2. Provide a **Name** for your Project and an optional **Description**.
 3. Use the toggle, to make your project **Private** or **Link Shareable**.
 4. Click **Create**.
 
 :::tip IMPORTANT
-It's not necessary to create a Speckle project every time. You can also select an existing project (stream) and send data to it.
+It's not necessary to create a Speckle project every time. You can also select an existing project and send data to it.
 :::
 
-You can also create a Speckle Project (Stream) using Speckle’s web interface.
+You can also create a Speckle Project using Speckle’s web interface.
 
-### Create a Speckle Model (Branch)
+### Create a Speckle Model
 
-<img class="rounded-dropshadow" src="./img-revit/create-speckle-model.png" width=600 display=block>
+<img class="rounded-dropshadow" src="./img-revit/create-speckle-model.png" width=700 display=block>
 
 To create a Speckle model:
 
-1. Expand the **Branch(Model)** dropdown.
-2. Select **Add New Branch.**
+1. Expand the **Branch (Model)** dropdown.
+2. Select **Add New Branch (Model).**
 3. Provide a **Name** and an optional **Description**.
 4. Click **Create**.
 
 :::tip IMPORTANT
-Again, you can also select an existing model (branch) and send data to it.
+Again, you can also select an existing model and send data to it.
 :::
 
-You can also create a Speckle Model (Branch) using Speckle’s web interface.
+You can also create a Speckle Model using Speckle’s web interface.
 
 ## Selecting What to Send
 
-Next, you need to decide what you want to send from Revit. To help you select which elements will be sent to Speckle, we've built various filters into our Revit connector. Once a filter is set, just click **Send** and all objects passing the filter will be sent to your Stream.
+Next, you need to decide what you want to send from Revit. To help you select which elements will be sent to Speckle, we've built various filters into our Revit connector. Once a filter is set, just click **Send** and all objects passing the filter will be sent to your Project.
 
 Let's review each of filter.
 
@@ -114,7 +112,7 @@ The view filter works similarly to the category filter and lets you include all 
 
 ### 5. Schedule
 
-Sends the selected Revit Schedule as a **DataTable** to Speckle. Learn more about DataTables and their usage in Parameter Updater.
+Sends the selected Revit Schedule as a **DataTable** to Speckle. Learn more about DataTables and their usage in [Parameter Updater](/user/excel.html#parameter-updater-sync-revit-schedules-and-other-data).
 
 <img class="rounded-dropshadow" src="./img-revit/filter-schedule.png" width=350>
 
@@ -128,9 +126,7 @@ Filters are used to selectively extract specific model elements based on predefi
 
 Selects all elements belonging to the selected workset.
 
-:::warning
-ADD IMAGE HERE
-:::
+<img class="rounded-dropshadow" src="./img-revit/filter-worksets.png" width=350>
 
 ### 8. Project Information
 
