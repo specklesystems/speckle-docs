@@ -157,3 +157,44 @@ For example, When receiving **BIM types** like `Wall`, `Floor`, `Beam`, etc into
 The `displayValue` property is expected to be either an **object inheriting `Base`** or a **`List` of objects inheriting `Base`**.
 Ideally, these types **should be simple geometry types** like `Mesh` or `Polyline` as these can be converted in all (or almost all) receiving applications (However, this rule isn't enforced for custom `Base` objects, and in theory, any type inheriting `Base` can be used .)
 
+
+## Collections
+
+Whether to represent Layers, Categories, Tags, Collections, Groups, or hierarchical containers,
+it is common to see a natural grouping of objects within a 3D model.
+The `Collection` type provides a unified way to represent hierarchical collections of Speckle objects
+in a queryable, filterable way and is useful for interoperability between applications.
+
+A collection object only has three properties (in addition to those inherited from the `Base` Speckle object)
+and is completely kit/domain agnostic.
+
+
+> `name` - Any (non-empty) human-readable `string` name, one not necessarily unique.
+>
+> `collectionType` - Any `string` value describing the type of collection, used for convenience, and specific interop.
+>
+> `elements` - A `List<Base>` representing child objects, may include nested `Collection` objects. 
+
+
+---
+
+Our new front-end (fe2) is designed to display `Collection` in the scene explorer.
+
+![Collections in frontend 2](../dev/img/core/fe2-collections.gif)
+
+Suppose we look at how Collection objects are used inside Speckle Commits (Versions).
+We see within the Collection’s `elements` property; we can expect any objects to be nested, including sub-collections.
+
+Importantly, however, we only see `Collection` objects nested under other `Collections`.
+Unlike other speckle objects which may form any [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) structure,
+Collections must be in a true directed tree structure.
+
+> ![collection-tree-structure](../dev/img/core/collection-tree-structure.png)
+>
+> Diagram of collections within a Speckle commit, illustrating collections can contain both sub-collections and other objects under the `elements` property. While the `elements` property of geometry objects do not contain Collections
+
+With the exception of the Revit connector, connectors will send `Collection`s from the layer/tag/collection structure. 
+
+| Rhino | Blender | Sketchup |
+| -- | -- | -- |
+| ![Screenshot of collections in Rhino](../dev/img/core/rhino-collections.png) | ![Screenshot of collections in blender](../dev/img/core/blend-collections.png) |![Screenshot of collections in Sketchup](../dev/img/core/skp-collections.png) |

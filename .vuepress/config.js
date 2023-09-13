@@ -196,6 +196,7 @@ module.exports = {
           children: [
             "dotnet",
             "FilteringData",
+            "traversal",
             "objects",
             "connectors-dev",
             "kits-dev",
