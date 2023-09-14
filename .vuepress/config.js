@@ -105,6 +105,7 @@ module.exports = {
                 "./revit/sending-models",
                 "./revit/receiving-models",
                 "./revit/advanced-settings",
+                "./revit/support-table",
               ],
             },
             "rhino",
