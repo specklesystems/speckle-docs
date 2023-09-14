@@ -103,6 +103,7 @@ module.exports = {
                 "./revit/intro",             
                 "./revit/installing-updating-the-connector",
                 "./revit/sending-models",
+                "./revit/receiving-models",
               ],
             },
             "rhino",
