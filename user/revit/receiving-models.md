@@ -17,15 +17,14 @@ We are renaming the core concepts in Speckle to be more widely understandable.
 
 ## Receiving a Speckle Model
 
-:::warning
-ADD GIF
-:::
+<img class="rounded-dropshadow" src="./img-revit/receiving-model.gif">
 
 To receive a Speckle Model:
 
 1. Select a **Speckle Project.**
-2. Select a **Speckle Model** to receive from
-3. Click **Receive**.
+2. Switch to **Receive** tab.
+3. Select a **Speckle Model** to receive from
+4. Click **Receive**.
 
 That’s it! You will have the latest version of the selected model received.
 
