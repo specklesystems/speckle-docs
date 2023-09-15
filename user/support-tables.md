@@ -39,10 +39,11 @@ Almost all geometric elements are supported by the Rhino connector. This include
 | View         |  ✅  |    ✅    | `Complete` |
 | ModelCurve   |      | As Curve | `Complete` |
 | DirectShape  |      | As Mesh  | `Complete` |
+| Level        |      | As Named Construction Plane  | `Complete` |
 
 | Other           | Send | Receive |    Status     |
 | --------------- | :--: | :-----: | :-----------: |
-| RenderMaterial  |  ✅  |         | `In Progress` |
+| RenderMaterial  |  ✅  |   ✅    |  `Complete`  |
 | BlockInstance   |  ✅  |   ✅    |  `Complete`   |
 | BlockDefinition |  ✅  |   ✅    |  `Complete`   |
 | PointCloud      |  ✅  |   ✅    |  `Complete`   |
