@@ -1,5 +1,5 @@
 ---
-title: Connector Settings
+title: Settings
 ---
 
 # Connector Settings
