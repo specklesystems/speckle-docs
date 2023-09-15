@@ -76,12 +76,6 @@ The Revit connector also works in the Family Editor. Refer to the list below for
 
 - **[Revit Support Tables](/user/support-tables.html#revit)**
 
-## Block to Family
-
-:::warning
-Ask Alan for this section
-:::
-
 ## Linked Models
 
 The Revit connector supports Linked Models, here's how it works.
