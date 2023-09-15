@@ -107,6 +107,7 @@ module.exports = {
                 "./revit/advanced-settings",
                 "./revit/features",
                 "./revit/support-table",
+                "./revit/faq",
               ],
             },
             "rhino",
