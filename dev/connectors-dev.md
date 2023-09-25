@@ -1,4 +1,4 @@
-# Writing Your Own Connector
+# Writing Your Own Connector (Outdated)
 
 ![img](./img/connectors-dev/connectors.png)
 
@@ -11,9 +11,8 @@ We are very enthusiastic about community connectors and would love to help you b
 Before you begin writing your own connector, we encourage you to follow the steps below:
 
 1. **make sure you are comfortable** writing plugins for the host application you are planning to target, otherwise the guide below will not be of great help 😅
-2. **check our [roadmap](https://www.notion.so/speckle/28be414411934168af2a262fd5289fbe?v=42772fc697d6411bb348e6969366885b)** and see if we might be already working on it or planning to
 3. **post on the [community forum](https://speckle.community/)** announcing what you are planning to develop and how
-4. **consider** that if you make your connector publicly available it's going to be your own responsibility to maintain it
+4. **consider** that if you make your connector publicly available, it's going to be your own responsibility to maintain it
 5. **check whether the [objects](https://github.com/specklesystems/speckle-sharp/tree/master/Objects) kit is fit** to support your future connector, if it might need to be extended or if you might want to develop a new kit as well
 6. **read** our [dev docs on Base object, Kits, Transports](/dev/base.html) etc...
 
