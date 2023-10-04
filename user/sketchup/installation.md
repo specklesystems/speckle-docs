@@ -32,10 +32,6 @@ That's it! You're all set to use the Speckle connector for SketchUp.
 
 If you want to stay on the cutting edge of the SketchUp connector, then you can install pre-releases of it.
 
-:::warning
-⚠️ Please keep in mind that these early versions are not intended for production work and may have some untested features.
-:::
-
 <video autoplay muted loop>
   <source src="./img-sketchup/pre-releases.mp4" type="video/mp4">
   Your browser does not support the video tag.
@@ -46,3 +42,7 @@ To install pre-releases for the SketchUp connector, follow these steps:
 1. Inside the connector page, switch to the “**Versions**” tab.
 2. Inside the "**Versions**" tab, toggle on the "**Show Pre-releases**" option.
 3. From this list, select the desired version you wish to install and click on the “**Install**” button next to it.
+
+:::warning
+⚠️ Please keep in mind that these early versions are not intended for production work and may have some untested features.
+:::
