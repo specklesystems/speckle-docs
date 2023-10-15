@@ -276,21 +276,55 @@ Labels and tables are not supported, as well as any unlisted element. There is a
 
 ### Supported Elements
 
-The Blender Connector is still a work in progress and, as such, the conversions to and from Speckle are not yet robust. We welcome feedback, requests, edge cases, and contributions!
+The Blender Connector is still a work in progress and, as such, data sent from the Blender connector is a highly lossy exchange.
+Our connectors are ever evolving to facilitate more and more Speckle usecases. We welcome feedback, requests, edge cases, and contributions!
+In addition to geometry data, custom object properties are also converted.
 
-- Meshes are fairy well supported
+**Send (Blender ⟶ Speckle)**
+ - Supported geometry types work well with a few very minor tecnical limitations
+ - Only Principle BSDF and Diffuse BSDF Shader officially supported, other shaders are likley to look different when sent.
+ - Image textures not supported
+ - Modifiers will be baked before send, so Blender -> Blender workflows will be quite lossy
+ - Cameras will be sent as Views, but with no lense/sensor info.
+
+| Blender Type                             | Send                    | Limitations  |
+| ---------------------------------------- | :---------------------: | --- |           
+|  Mesh                                    | ✅ as `Mesh`es         | No Vertex Groups, no Vertex Colors |
+|  Material                                | ✅ as `RenderMaterial` | Principle and Diffuse BSDF Shader Only  | 
+|  Camera                                  | ✅ as `View3D`         | Aproximated; lense/sensor info lossed |
+|  Bézier Curves                           | ✅ as `Curve`          |  |
+|  NURB Curves                             | ✅ as `Curve`          | CU_NURB_BEZIER flag ignored |
+|  Poly Lines                              | ✅ as `PolyLine`       |  |
+|  Empty                                   | ✅ as `Point`          |  |
+|  Collection                              | ✅ as `Collection`     | No collection properties |
+|  Collection Instances                    | ✅ as `Block`          |  |
+|  Lights                                  | ❌                     | Ignored |
+|  Surfaces                                | ❌                     | Ignored |
+|  Metaball                                | ❌                     | Ignored |
+|  Text                                    | ❌                     | Ignored |
+|  Volumes                                 | ❌                     | Ignored |
+|  Armatures                               | ❌                     | Ignored |
+|  Lattices                                | ❌                     | Ignored |
+
+**Receive (Speckle ⟶ Blender)**
+- Mesh based geometries are well supported
 - Breps are imported as meshes using their `displayValue`
-- Curves have limited support
+- Many types of curves are fairly well supported although some have limitations
 
-| Type                                     | Send |   Receive    |    Status     |
-| ---------------------------------------- | :--: | :----------: | :-----------: |
-| Arc                                      |      | approximated | `In Progress` |
-| Brep                                     |      |   as mesh    | `Completed` |
-| Curve (Nurbs, Bezier, Ngons as Polyline) |  ✅  |      ✅      | `In Progress` |
-| Mesh                                     |  ✅  |      ✅      | `Completed` |
-| Polycurve                                |      |      ✅      | `In Progress` |
-| Polyline                                 |  ✅  |      ✅      | `In Progress` |
-| Render Material                          |  ✅  |      ✅      | `Principle Shader Only` |
+| Speckle Type                             | Receive      | Limitations     |
+| ---------------------------------------- | :----------- | :-----------: |
+| Mesh                                     | ✅ as Mesh        |  |
+| Render Material                          | ✅ as Material    | `Principle Shader Only` |
+| Curve                                    | ✅ as Nurbs Curve |  |
+| Brep                                     | 🟨 as Mesh        | Uses mesh `displayValue` |
+| View 3D                                  | ✅ as Camera |  |
+| Collection                               | ✅ as Collection |   |
+| Instances and Block                      | ✅ as Collection Instance or transformed empty  |  |
+| Curve/Polycurve                          | ✅ as Nurbs Curve |   |
+| Line/Polyline                            | ✅ as Polyline |   |
+| Circle/Elipse                            | ✅ as Nurbs Curve  |  |
+| Arc                                      | 🟨 as Nurbs Curve  | No trims |
+| Text                                     | 🟨 as Polyline  | Not as Text |
 
 ## Unity
 
