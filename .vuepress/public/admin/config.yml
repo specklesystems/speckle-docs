@@ -24,3 +24,11 @@ collections:
     fields:
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Title", name: "title", widget: "string" }
+  - name: "automate"
+    label: "Automate"
+    folder: "automate"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string" }

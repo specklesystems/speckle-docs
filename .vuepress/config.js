@@ -237,6 +237,31 @@ module.exports = {
           ],
         },
       ],
+      "/automate/": [
+        {
+          title: "Automate Docs 👩‍💻",
+          collapsable: false,
+          children: [""],
+        },
+        {
+          title: "Working with Automations",
+          collapsable: false,
+          children: [
+            "create-automation",
+            "update-automation",
+          ],
+        },
+        {
+          title: "Developing Functions",
+          collapsable: false,
+          children: [
+            "create-function",
+            "release-function-version",
+            "register-existing-function-repository",
+            "function-specification"
+          ],
+        },
+      ],
     },
   },
 

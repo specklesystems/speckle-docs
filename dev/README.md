@@ -15,7 +15,7 @@ We call Speckle a data platform; but Speckle is also a set of connectors for AEC
 
 That's quite a lot to chew; but you're probably still asking yourself - **what is Speckle**?
 
-> #### Ultimately, Speckle has two distinct parts: the developer platform, and the applications and products built on top of it.
+> ### Ultimately, Speckle has two distinct parts: the developer platform, and the applications and products built on top of it.
 
 So what's what? Simple: if an architect/engineer/aec professional interacts with it, it's a Speckle **product** built on top of Speckle's **developer platform**.
 
@@ -32,7 +32,7 @@ Here's a quick summary of the main repos you'll find there, please make sure to 
 
 <!-- made with https://tree.nathanfriend.io/ -->
 
-```
+```text
 └── speckle-server
     ├── server
     ├── frontend
@@ -43,7 +43,7 @@ Here's a quick summary of the main repos you'll find there, please make sure to 
 
 [Speckle Sharp](https://github.com/specklesystems/speckle-sharp) contains all the C# desktop components including the .NET SDK, the Connectors (Rhino, Revit, Grasshopper, & Dynamo...), and Objects (our default interoperability kit).
 
-```
+```text
 └── speckle-sharp
     ├── core
     ├── connector revit
