@@ -127,10 +127,10 @@ module.exports = {
               title: "SketchUp",
               collapsable: true,
               children: [
-                "./sketchup/getting-started", 
+                "./sketchup/getting-started",
                 "./sketchup/basic-usage",
                 "./sketchup/advanced-settings",
-                "./sketchup/manual-installation",                
+                "./sketchup/manual-installation",
               ],
             },
             "qgis",
