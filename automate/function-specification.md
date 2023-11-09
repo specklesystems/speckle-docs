@@ -29,7 +29,7 @@ An implementation is compliant if it satisfies all the MUST, MUST NOT, REQUIRED,
 
 1. A Function MUST be packaged as an OCI Image, compliant with the [Open Container Initiative Image Format Specification](https://github.com/opencontainers/image-spec/blob/main/spec.md)
 
-1. A Function SHOULD be able to be run in an environment compliant with the [Open Container Initiative Runtime Specification](https://github.com/opencontainers/runtime-spec/blob/main/spec.md).
+1. A Function MUST be able to be run in an environment compliant with the [Open Container Initiative Runtime Specification](https://github.com/opencontainers/runtime-spec/blob/main/spec.md).
 
 1. A Function SHOULD NOT specify an `Entrypoint` in its OCI Image. If an `Entrypoint` is specified it will be ignored. Instead the `Entrypoint` should be provided to Automate as the first values of the Function Version command, which will be passed to the Function when it is run.
 
