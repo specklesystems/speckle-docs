@@ -67,6 +67,10 @@ module.exports = {
         link: "/dev/",
       },
       {
+        text: "Automate Guide",
+        link: "/automate/",
+      },
+      {
         text: "Speckle Website",
         link: "https://speckle.systems",
       },
