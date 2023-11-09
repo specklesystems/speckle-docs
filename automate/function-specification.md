@@ -35,9 +35,7 @@ An implementation is compliant if it satisfies all the MUST, MUST NOT, REQUIRED,
 
 1. A Function SHOULD NOT specify a `Cmd` in its OCI Image. If a `Cmd` is specified it will be ignored. Instead, the `Cmd` should be provided to Automate as the Function Version command, which will pass it to the Function when it is run.
 
-1. A Function MUST expect to be run with [`args` provided as part of the `process`](https://github.com/opencontainers/runtime-spec/blob/main/config.md#process). `args` is an array of strings. The first value in the `args` array MUST be interpreted as the executable to run.
-
-1. A Function SHOULD expect that the `args` provided as part of the `process` will be the Function Version command provided to Automate, followed by three additional arguments.
+1. A Function SHOULD expect that the `args` provided as part of the `process` (see [OCI Runtime Specification](https://github.com/opencontainers/runtime-spec/blob/main/spec.md)) will be the Function Version command provided by the Function author to Automate, followed by three additional arguments in sequential order.
 
 1. The first additional argument provided to `args` SHALL be metadata describing the Automation, the Run of the Automation, and the [Speckle Model](../user/concepts.md) and project which is linked to the Automation. The metdata SHALL be provided as a JSON string and follow the following [json schema](https://json-schema.org/):
 
