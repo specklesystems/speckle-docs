@@ -35,13 +35,11 @@ An implementation is compliant if it satisfies all the MUST, MUST NOT, REQUIRED,
 
 1. A Function SHOULD NOT specify a `Cmd` in its OCI Image. If a `Cmd` is specified it will be ignored. Instead, the `Cmd` should be provided to Automate as the Function Version command, which will pass it to the Function when it is run.
 
-1. A Function MUST allow a `Cmd` to be provided as part of the [process](https://github.com/opencontainers/runtime-spec/blob/main/config.md#process) when it is run. The `Cmd` is an array of strings. The first value in the `Cmd` array MUST be interpreted as the executable to run.
-
-1. A Function MUST expect to be run with [`args` provided as part of the `process`](https://github.com/opencontainers/runtime-spec/blob/main/config.md#process).
+1. A Function MUST expect to be run with [`args` provided as part of the `process`](https://github.com/opencontainers/runtime-spec/blob/main/config.md#process). `args` is an array of strings. The first value in the `args` array MUST be interpreted as the executable to run.
 
 1. A Function SHOULD expect that the `args` provided as part of the `process` will be the Function Version command provided to Automate, followed by three additional arguments.
 
-1. The first additional argument SHALL be metadata describing the Automation, the Run of the Automation, and the [Speckle Model](../user/concepts.md) and project which is linked to the Automation. The metdata SHALL be provided as a JSON string and follow the following [json schema](https://json-schema.org/):
+1. The first additional argument provided to `args` SHALL be metadata describing the Automation, the Run of the Automation, and the [Speckle Model](../user/concepts.md) and project which is linked to the Automation. The metdata SHALL be provided as a JSON string and follow the following [json schema](https://json-schema.org/):
 
     ```json
     {
@@ -114,7 +112,7 @@ An implementation is compliant if it satisfies all the MUST, MUST NOT, REQUIRED,
     }
     ```
 
-1. The third additional argument, and final argument value in the array, SHALL be a token for accessing the Speckle API. This Token SHALL be limited in scope to the Speckle Model which triggered the Function to run as part of an Automation. The token is a string.
+1. The third additional argument, and final argument value in the array of `args`, SHALL be a token for accessing the Speckle API. This Token SHALL be limited in scope to the Speckle Model which triggered the Function to run as part of an Automation. The token is a string.
 
 1. A Function MUST expect to be run as a non-root [Posix-platform user](https://github.com/opencontainers/runtime-spec/blob/main/config.md).
 
