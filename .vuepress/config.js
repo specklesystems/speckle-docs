@@ -123,7 +123,8 @@ module.exports = {
               title: "SketchUp",
               collapsable: true,
               children: [
-                "./sketchup/getting-started", 
+                "./sketchup/introduction", 
+                "./sketchup/installation", 
                 "./sketchup/basic-usage",
                 "./sketchup/advanced-settings",
                 "./sketchup/manual-installation",                

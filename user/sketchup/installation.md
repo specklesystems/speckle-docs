@@ -1,20 +1,8 @@
 ---
-title: Getting Started
+title: Installation
 ---
 
-# SketchUp
-
-SketchUp connector currently supports SketchUp 2020, 2021, 2022 and 🆕2023.
-
-:::tip
-SketchUp Connector is currently in beta and only available on **Windows**! If you'd like to try installing on a different platform or for a different version, you can do a [manual installation](/user/sketchup/manual-installation).
-:::
-
-As this connector is still in heavy development, see the **[repo](https://github.com/specklesystems/speckle-sketchup)** for the latest updates.
-
-<img class="rounded-dropshadow" src="./img-sketchup/featured-image.png">
-
-# Getting Started
+# Installation
 
 To install the SketchUp connector, it’s assumed you have:
 
@@ -23,7 +11,7 @@ To install the SketchUp connector, it’s assumed you have:
 
 Once Manager is installed and your account is set, you can continue with the installation.
 
-## Installation
+## Installing on Windows & Mac
 
 <video autoplay muted loop>
   <source src="./img-sketchup/installing-sketchup-connector.mp4" type="video/mp4">
@@ -34,15 +22,15 @@ Once Manager is installed and your account is set, you can continue with the ins
 2. You should see a list of available connectors. Scroll down until you find the "**SketchUp**" connector or use the search bar to find it.
 3. Click the "**Install**" button next to it.
 
-That's it! You're all set to use the Speckle connector for Sketchup.
+:::warning
+If you are using a Mac with an Apple Silicon chip, you will need to install [Rosetta](https://support.apple.com/en-us/HT211861) before installing the SketchUp connector.
+:::
+
+That's it! You're all set to use the Speckle connector for SketchUp.
 
 ## Installing Pre-Releases
 
 If you want to stay on the cutting edge of the SketchUp connector, then you can install pre-releases of it.
-
-:::warning
-⚠️ Please keep in mind that these early versions are not intended for production work and may have some untested features.
-:::
 
 <video autoplay muted loop>
   <source src="./img-sketchup/pre-releases.mp4" type="video/mp4">
@@ -54,3 +42,7 @@ To install pre-releases for the SketchUp connector, follow these steps:
 1. Inside the connector page, switch to the “**Versions**” tab.
 2. Inside the "**Versions**" tab, toggle on the "**Show Pre-releases**" option.
 3. From this list, select the desired version you wish to install and click on the “**Install**” button next to it.
+
+:::warning
+⚠️ Please keep in mind that these early versions are not intended for production work and may have some untested features.
+:::
