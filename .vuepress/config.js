@@ -67,6 +67,10 @@ module.exports = {
         link: "/dev/",
       },
       {
+        text: "Automate Guide",
+        link: "/automate/",
+      },
+      {
         text: "Speckle Website",
         link: "https://speckle.systems",
       },
@@ -123,11 +127,11 @@ module.exports = {
               title: "SketchUp",
               collapsable: true,
               children: [
-                "./sketchup/introduction", 
-                "./sketchup/installation", 
+                "./sketchup/introduction",
+                "./sketchup/installation",
                 "./sketchup/basic-usage",
                 "./sketchup/advanced-settings",
-                "./sketchup/manual-installation",                
+                "./sketchup/manual-installation",
               ],
             },
             "qgis",
@@ -235,6 +239,31 @@ module.exports = {
             "server-database-migration",
             "tokens",
             "apps",
+          ],
+        },
+      ],
+      "/automate/": [
+        {
+          title: "Automate Docs 👩‍💻",
+          collapsable: false,
+          children: [""],
+        },
+        {
+          title: "Working with Automations",
+          collapsable: false,
+          children: [
+            "create-automation",
+            "update-automation",
+          ],
+        },
+        {
+          title: "Developing Functions",
+          collapsable: false,
+          children: [
+            "create-function",
+            "release-function-version",
+            "register-existing-function-repository",
+            "function-specification"
           ],
         },
       ],

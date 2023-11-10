@@ -8,6 +8,7 @@ This is the home of [Speckle.Guide](https://speckle.guide/) - the home of our us
 
 - `/user`: practical guides for end users
 - `/dev`: developer documentation
+- `/automate`: guides for automating workflows with Speckle
 
 ## Developing & Debugging
 
