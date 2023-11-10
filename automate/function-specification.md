@@ -118,6 +118,10 @@ An implementation is compliant if it satisfies all the MUST, MUST NOT, REQUIRED,
 
 1. A Function MUST expect to be run with [Posix-process `rlimits` set](https://github.com/opencontainers/runtime-spec/blob/main/config.md#process).
 
-1. A Function MUST expect to be run without any allowed Linux [Capabilities](http://man7.org/linux/man-pages/man7/capabilities.7.html) and without the ability to add new privileges.
+1. A Function MUST expect to be run without any allowed Linux [Capabilities](http://man7.org/linux/man-pages/man7/capabilities.7.html) and without the ability to add new privileges. For example, a Function will not have the capability to bind to a port number less than 1024.
 
 1. A Function MUST run on AMD 64-bit architecture.
+
+1. A Function SHOULD NOT expect to accept incoming network connections from outside localhost network. Any incoming network connections will be blocked or ignored by the supporting infrastructure and not routed to the Function. A Function MAY make outbound network connections (within the limitations of Speckle's Terms of Service).
+
+1. A Function MUST comply with Speckle's Terms of Service. Speckle reserve the right to remove or block any Function from its platform for any reason.
