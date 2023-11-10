@@ -144,6 +144,7 @@ Non-geometric elements and any geometric element not listed above, such as text 
 | Pipe                                                    |  ✅  |   ✅    |  `Complete`   |
 | Project Information                                     |  ✅  |         |  `Complete`   |
 | Railing                                                 |  ✅  |   ✅    |  `Complete`   |
+| Rebar                                                   |  ✅  |         | `In Progress` |
 | Roof (Extrusion, Footprint)                             |  ✅  |   ✅    |  `Complete`   |
 | Room                                                    |  ✅  |   ✅    |  `Complete`   |
 | Space                                                   |  ✅  |   ✅    |  `Complete`   |
