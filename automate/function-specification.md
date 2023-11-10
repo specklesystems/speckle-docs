@@ -9,7 +9,7 @@ The specification is designed to be agnostic of the type or purpose of software 
 Several terms are used with frequency in this document and require definition:
 
 - **Speckle**: Speckle is a platform for exchanging data between different software applications, allowing users to collaborate and communicate AEC-related data.
-**AEC**: Architecture, Engineering, and Construction industry.
+- **AEC**: Architecture, Engineering, and Construction industry.
 - **Automate**: Automate is a platform which allows users to run Functions.
 - **Automation**: An Automation is a configuration of a Function which is ready to be run on events from changes in a Speckle Model, or on demand.
 - **Function**: A Function is a small piece of packaged software which performs a specific task. Functions are the building blocks of Automate.
