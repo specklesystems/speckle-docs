@@ -89,10 +89,6 @@ We wish to retain any Function that has been used in an Automation, to ensure th
 
 Provided the licensing terms of the third party library is compatible with being run on a cloud-platform such as Automate, then yes. The library and Function must also comply with Speckle's Terms of Service.
 
-## Does speckle support conda environment?
-
-Yes, Automate supports any docker image that runs on linux os on amd64 architecture; see the [Function specification](./function-specification) for more details.
-
 ## Is it a Function author's responsibility to describe all limitations, e.g. what host application/object types will be accepted for the Function
 
 The Function Author is best suited to understand what their Function is capable of handling and has been tested against. We expect them to label their Function accordingly to set expectations for Automation composers.
