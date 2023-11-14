@@ -254,6 +254,7 @@ module.exports = {
           children: [
             "create-automation",
             "update-automation",
+            "frequently-asked-questions"
           ],
         },
         {
