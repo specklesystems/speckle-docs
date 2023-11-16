@@ -65,6 +65,21 @@ The category filter lets you select one or more of the currently-supported CSI c
 
 This trivial filter allows you to select all the elements that are currently supported by the CSI connector. This will send all geometrical elements and their associated properties.
 
+### Advanced Settings
+
+You can send analysis results from ETABS, and the Connector offers a set of filters that allow you to share either all or only a portion of the results. All filters are multiple choice for flexible and granular control:
+
+- **Load Case Results To Send:** Dead, Live, Modal
+- **Node Results To Send:** Displacements, Forces, Velocities, Accelerations
+- **1D Element Results To Send:** Beam Forces, Brace Forces, Column Forces, Other Forces
+- **2D Element Results To Send:** Forces, Stresses
+
+![ETABS](./img-csi/advanced-settings.png)
+
+`AnalyticalResults` object is attached to an element and contains a list of `resultsByLoadCombination` which are representations of the analytical results that correspond to the different load cases / combinations that a user wants to send.
+
+![ETABS](./img-csi/analytical-results.png)
+
 ## Supported Elements
 
 - [ETABS Support Tables](/user/support-tables.html#etabs)
