@@ -362,7 +362,7 @@ We've only started supporting with an alpha release of ETABS elements, please le
 | Stories                                                                                                                                                                                                   |  ✅  |   ✅    |
 | Springs (Point,Linear,Area)                                                                                                                                                                               |  ✅  |   ✅    |
 | Tendons                                                                                                                                                                                                   |  ✅  |         |
-| GridLines                                                                                                                                                                                                 |  ✅  |         |
+| GridLines                                                                                                                                                                                                 |  ✅  |   ✅    |
 
 ## SAP2000
 
