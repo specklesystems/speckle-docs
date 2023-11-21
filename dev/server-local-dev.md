@@ -66,7 +66,7 @@ Don't forget to set up the variables in the `.env` & `.env.test` files according
 
 To run a barebones Speckle Server, you need to run:
 
-* the `frontend` package (see [the readme.md file in the git repo](https://github.com/specklesystems/speckle-server/tree/main/packages/frontend))
+* the `frontend-2` package (see [the readme.md file in the git repo](https://github.com/specklesystems/speckle-server/tree/main/packages/frontend-2))
 * the `server` package (see [the readme.md file in the git repo](https://github.com/specklesystems/speckle-server/tree/main/packages/server))
 
 Optionally, to enable extra functionality, microservices should be run separately. For more information, check their `README.md` file in the git repository:

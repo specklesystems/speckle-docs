@@ -105,13 +105,18 @@ services:
   ####
   # Speckle Server
   #######
-  speckle-frontend:
-    image: speckle/speckle-frontend:2
+  speckle-ingress:
+    image: speckle/speckle-docker-compose-ingress:2
     restart: always
     ports:
       - '0.0.0.0:80:8080'
     environment:
-      FILE_SIZE_LIMIT_MB: 100
+      FILE_SIZE_LIMIT_MB: '100'
+      NGINX_ENVSUBST_OUTPUT_DIR: '/etc/nginx'
+
+  speckle-frontend-2:
+    image: speckle/speckle-frontend-2:2
+    restart: always
 
   speckle-server:
     image: speckle/speckle-server:2
@@ -252,9 +257,14 @@ The server also supports some other environment variables. You can see them in o
 
   ```yaml
 
-    speckle-frontend:
-      image: speckle/speckle-frontend:2
+    speckle-ingress:
+      image: speckle/speckle-docker-compose-ingress:2
       restart: always
+      ports:
+        - '0.0.0.0:80:8080'
+      environment:
+        FILE_SIZE_LIMIT_MB: '100'
+        NGINX_ENVSUBST_OUTPUT_DIR: '/etc/nginx'
       labels:
         - "traefik.http.routers.speckle-frontend.rule=Host(`{example.com}`)"
         - "traefik.http.routers.speckle-frontend.entrypoints=websecure"
@@ -263,7 +273,6 @@ The server also supports some other environment variables. You can see them in o
   ```
 
 - change `traefik.http.routers.speckle-frontend.rule` replace `{example.com}` with your domain
-- change `CANONICAL_URL` to match `https://yourdomain`
 
 ### Step 5: Start the Server and the dependencies
 
@@ -292,11 +301,18 @@ If you plan to run PostgreSQL, Redis and and S3-compatible object storage servic
 ```yaml
 version: "2.3"
 services:
-  speckle-frontend:
-    image: speckle/speckle-frontend:2
+  speckle-ingress:
+    image: speckle/speckle-docker-compose-ingress:2
     restart: always
     ports:
-      - "0.0.0.0:80:8080"
+      - '0.0.0.0:80:8080'
+    environment:
+      FILE_SIZE_LIMIT_MB: '100'
+      NGINX_ENVSUBST_OUTPUT_DIR: '/etc/nginx'
+
+  speckle-frontend-2:
+    image: speckle/speckle-frontend-2:2
+    restart: always
 
   speckle-server:
     image: speckle/speckle-server:2
@@ -448,8 +464,9 @@ docker-compose -f docker-compose-speckle.yml up --build -d
 
 This will run the following containers, and will automatically launch them at system startup:
 
-- *speckle-frontend*, an nginx container that serves the Vue app build as static files (exposed on port 80 in the VM network) and proxies server requests to the `speckle-server` container
-- *speckle-server*, the `server` component that doesn't expose any port outside the internal docker network.
+- *docker-compose-ingress*, an nginx container that routes traffic to either speckle-frontend-2 or speckle-server as required. This is exposed on port 80 in the VM network.
+- *speckle-frontend-2*, the frontend Vue app. It doesn't expose any port outside the internal docker network. 
+- *speckle-server*, the `server` component. It doesn't expose any port outside the internal docker network.
 - *preview-service*, the component that generates stream previews. Doesn't expose any port outside the internal docker network.
 - *webhook-service*, the component that calls webhooks. Doesn't expose any port.
 - *fileimport-service*, the component that imports uploaded files. Doesn't expose any port.
