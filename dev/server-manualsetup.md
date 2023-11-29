@@ -117,6 +117,10 @@ services:
   speckle-frontend-2:
     image: speckle/speckle-frontend-2:2
     restart: always
+    environment:
+      NUXT_PUBLIC_SERVER_NAME: 'local'
+      NUXT_PUBLIC_API_ORIGIN: 'http://127.0.0.1'
+      NUXT_PUBLIC_BACKEND_API_ORIGIN: 'http://speckle-server:3000'
 
   speckle-server:
     image: speckle/speckle-server:2
@@ -317,6 +321,10 @@ services:
   speckle-frontend-2:
     image: speckle/speckle-frontend-2:2
     restart: always
+    environment:
+      NUXT_PUBLIC_SERVER_NAME: 'local'
+      NUXT_PUBLIC_API_ORIGIN: 'http://127.0.0.1'
+      NUXT_PUBLIC_BACKEND_API_ORIGIN: 'http://speckle-server:3000'
 
   speckle-server:
     image: speckle/speckle-server:2
@@ -328,7 +336,7 @@ services:
       retries: 30
     environment:
       # TODO: Change this to the URL of the speckle server, as accessed from the network
-      CANONICAL_URL: "http://localhost"
+      CANONICAL_URL: "http://127.0.0.1"
 
       # TODO: Change this to a unique secret for this server
       SESSION_SECRET: "TODO:ReplaceWithLongString"
@@ -473,11 +481,11 @@ docker-compose -f docker-compose-speckle.yml up --build -d
 This will run the following containers, and will automatically launch them at system startup:
 
 - *docker-compose-ingress*, an nginx container that routes traffic to either speckle-frontend-2 or speckle-server as required. This is exposed on port 80 in the VM network.
-- *speckle-frontend-2*, the frontend Vue app. It doesn't expose any port outside the internal docker network. 
-- *speckle-server*, the `server` component. It doesn't expose any port outside the internal docker network.
-- *preview-service*, the component that generates stream previews. Doesn't expose any port outside the internal docker network.
-- *webhook-service*, the component that calls webhooks. Doesn't expose any port.
-- *fileimport-service*, the component that imports uploaded files. Doesn't expose any port.
+- *speckle-frontend-2*, the frontend Vue app. It doesn't expose any port outside of the internal docker network.
+- *speckle-server*, the `server` component. It doesn't expose any port outside of the internal docker network.
+- *preview-service*, the component that generates stream previews. Doesn't expose any port outside of the internal docker network.
+- *webhook-service*, the component that calls webhooks. Doesn't expose any port outside of the internal docker network.
+- *fileimport-service*, the component that imports uploaded files. Doesn't expose any port outside of the internal docker network.
 
 ## Run in development mode
 
