@@ -389,9 +389,9 @@ To do that:
 
 - connect to the virtual machine running the Speckle server instance
 - navigate to the folder, where the Speckle server docker-compose file is located
-- run `docker-compose down` (this will take the server offline)
-- run `docker-compose pull`
-- run `docker-compose up -d` (this starts the server stack, and runs it in the background)
+- run `docker compose down` (this will take the server offline)
+- run `docker compose pull`
+- run `docker compose up -d` (this starts the server stack, and runs it in the background)
 
 Your server instance should be back online and updated.
 
@@ -406,14 +406,14 @@ If you set up PostgreSQL, Redis and S3-compatible service outside of this VM (fo
 :::
 
 To get the PostgreSQL, Redis and MinIO dependencies up and running in the VM, our git repo contains 
-[a docker-compose file](https://github.com/specklesystems/speckle-server/blob/main/docker-compose-deps.yml)
+[a docker compose file](https://github.com/specklesystems/speckle-server/blob/main/docker-compose-deps.yml)
 for running these dependencies locally in docker containers.
 
 It also includes `PGAdmin` and `redis-insight` to be able to explore the raw data. If you don't need them, you can safely remove those entries from the `docker-compose-deps.yml` file.
 
 ```bash
 cd [PATH_TO_SPECKLE-SERVER_REPOSITORY]
-docker-compose -f docker-compose-deps.yml up -d
+docker compose -f docker-compose-deps.yml up -d
 ```
 
 This will run the following containers, and will automatically launch them at system startup:
@@ -430,18 +430,18 @@ To use PGAdmin, after login you can configure a server connection to the host `p
 
 To use Redis Insight, you can configure it to connect to the hostname `redis` (port `6379`)
 
-Docker-compose creates named docker volumes for storing data for each of the containers, so data is persisted.
+Docker Compose creates named docker volumes for storing data for each of the containers, so data is persisted.
 You can view existing docker volumes with `docker volume ls` and delete a volume and existing data with `docker volume rm [volume_name]` 
 
 ### Step 2: Build and run your code
 
-The git repository contains [a docker-compose file](https://github.com/specklesystems/speckle-server/blob/main/docker-compose-speckle.yml) for building and running the Speckle server frontend and backend in docker containers.
+The git repository contains [a docker compose file](https://github.com/specklesystems/speckle-server/blob/main/docker-compose-speckle.yml) for building and running the Speckle server frontend and backend in docker containers.
 
 To use it, first edit the variables in the `docker-compose-speckle.yml` file to reflect your environment. Then, you can start them with:
 
 ```bash
 cd [PATH_TO_SPECKLE-SERVER_REPOSITORY]
-docker-compose -f docker-compose-speckle.yml up --build -d
+docker compose -f docker-compose-speckle.yml up --build -d
 ```
 
 (You can safely ignore the warnings about the *orphan containers*)
