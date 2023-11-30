@@ -79,10 +79,12 @@ services:
       retries: 30
 
   redis:
-    image: 'redis:6.0-alpine'
+    image: 'redis:7-alpine'
     restart: always
     volumes:
       - redis-data:/data
+    ports:
+      - '127.0.0.1:6379:6379'
     healthcheck:
       test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
       interval: 5s
