@@ -8,7 +8,8 @@ If you plan to give others access to your Server instance, consider running it w
 
 Assuming you have:
 
-* [git with ssh key auth](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+* [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* _optional_ [GitHub configured with ssh key auth](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
 * [Node 18](https://nodejs.org/en).
 * [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/install/).
 
@@ -17,16 +18,17 @@ This is a high efficiency getting started step list.
 
 ### Steps
 
-1. `git clone https://github.com/specklesystems/speckle-server.git`
-2. `corepack enable`
-3. `yarn`
-4. `yarn build`
-5. `yarn dev:docker:up`
-6. `cp packages/server/.env-example packages/server/.env`
-7. `cp packages/server/.env.test-example packages/server/.env.test`
-8. `cp packages/frontend-2/.env.example packages/frontend-2/.env`
-9. `cp packages/dui3/.env.example packages/dui3/.env`
-10. `yarn dev`
+1. `git clone git@github.com:specklesystems/speckle-server.git` or, alternatively `git clone https://github.com/specklesystems/speckle-server.git`
+1. `cd speckle-server`
+1. `corepack enable`
+1. `yarn`
+1. `yarn build`
+1. `yarn dev:docker:up`
+1. `cp packages/server/.env-example packages/server/.env`
+1. `cp packages/server/.env.test-example packages/server/.env.test`
+1. `cp packages/frontend-2/.env.example packages/frontend-2/.env`
+1. `cp packages/dui3/.env.example packages/dui3/.env`
+1. `yarn dev`
 
 Wait for the frontend to build, and voila, you have a fully functional Speckle Server running at [http://localhost:3000](http://localhost:3000).
 
@@ -38,6 +40,7 @@ Let's step back and see what we did.
 
 1. To clone the repo git with [ssh key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) auth was used.
 You can use https based auth too, and can also gather some bonus points by using the `gh-cli` :D
+1. We change into the cloned repository directory.
 1. Nodejs versions ^16 now come with a package manager manager bundled named `corepack`. It enables us to use yarn without actually installing anything.
 1. The monorepo is managed by [yarn workspaces](https://yarnpkg.com/features/workspaces).
 This way the package manager handles dependencies of the monorepo and the proper connections between the different packages.
@@ -66,7 +69,7 @@ Don't forget to set up the variables in the `.env` & `.env.test` files according
 
 To run a barebones Speckle Server, you need to run:
 
-* the `frontend` package (see [the readme.md file in the git repo](https://github.com/specklesystems/speckle-server/tree/main/packages/frontend))
+* the `frontend-2` package (see [the readme.md file in the git repo](https://github.com/specklesystems/speckle-server/tree/main/packages/frontend-2))
 * the `server` package (see [the readme.md file in the git repo](https://github.com/specklesystems/speckle-server/tree/main/packages/server))
 
 Optionally, to enable extra functionality, microservices should be run separately. For more information, check their `README.md` file in the git repository:
