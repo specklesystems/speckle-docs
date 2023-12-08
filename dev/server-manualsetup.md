@@ -98,11 +98,10 @@ services:
     volumes:
       - minio-data:/data
     healthcheck:
-      test: ["CMD-SHELL", "curl -s -o /dev/null http://127.0.0.1:9000/minio/index.html"]
+      test: ["CMD", "mc", "ready", "local"]
       interval: 5s
-      timeout: 30s
-      retries: 30
-      start_period: 10s
+      timeout: 5s
+      retries: 5
 
   ####
   # Speckle Server
