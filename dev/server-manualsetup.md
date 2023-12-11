@@ -120,6 +120,7 @@ services:
     restart: always
     environment:
       NUXT_PUBLIC_SERVER_NAME: 'local'
+      # TODO: Change NUXT_PUBLIC_API_ORIGIN to the URL of the speckle server, as accessed from the network. This is the same value as should be used for the CANONICAL_URL in the server section below.
       NUXT_PUBLIC_API_ORIGIN: 'http://127.0.0.1'
       NUXT_PUBLIC_BACKEND_API_ORIGIN: 'http://speckle-server:3000'
 
@@ -166,7 +167,7 @@ services:
       POSTGRES_DB: 'speckle'
       ENABLE_MP: 'false'
 
-      USE_FRONTEND_2: true
+      USE_FRONTEND_2: 'true'
       # TODO: Change this to the URL of the speckle server, as accessed from the network
       FRONTEND_ORIGIN: 'http://127.0.0.1'
 
@@ -324,6 +325,7 @@ services:
     restart: always
     environment:
       NUXT_PUBLIC_SERVER_NAME: 'local'
+      # TODO: Change NUXT_PUBLIC_API_ORIGIN to the URL of the speckle server, as accessed from the network. This is the same value as should be used for the CANONICAL_URL in the server section below.
       NUXT_PUBLIC_API_ORIGIN: 'http://127.0.0.1'
       NUXT_PUBLIC_BACKEND_API_ORIGIN: 'http://speckle-server:3000'
 
@@ -360,7 +362,7 @@ services:
       S3_SECRET_KEY: "minioadmin"
       S3_BUCKET: "speckle-server"
 
-      USE_FRONTEND_2: true
+      USE_FRONTEND_2: 'true'
       # TODO: Change this to the URL of the speckle server, as accessed from the network
       FRONTEND_ORIGIN: 'http://127.0.0.1'
 
