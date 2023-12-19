@@ -63,7 +63,7 @@ services:
   # Speckle Server dependencies
   #######
   postgres:
-    image: 'postgres:14.5-alpine'
+    image: 'postgres:14.10-alpine'
     restart: always
     environment:
       POSTGRES_DB: speckle
