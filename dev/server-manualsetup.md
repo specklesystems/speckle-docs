@@ -281,7 +281,7 @@ The server also supports some other environment variables. You can see them in o
       #TODO add these labels
       labels:
         - "traefik.enable=true"
-          #TODO: replace `example.com` (including the curly braces!) with your domain. This should just be the domain, and do not include the protocol (http/https).
+          #TODO: replace `example.com` with your domain. This should just be the domain, and do not include the protocol (http/https).
         - "traefik.http.routers.speckle-ingress.rule=Host(`example.com`)"
         - "traefik.http.routers.speckle-ingress.entrypoints=websecure"
         - "traefik.http.routers.speckle-ingress.tls.certresolver=myresolver"
