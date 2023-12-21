@@ -241,7 +241,7 @@ The server also supports some other environment variables. You can see them in o
   ```yaml
   services:
     reverse-proxy:
-      image: traefik:v2.5
+      image: traefik:v2.10
       command:
         - "--providers.docker=true"
         - "--providers.docker.exposedbydefault=false"
