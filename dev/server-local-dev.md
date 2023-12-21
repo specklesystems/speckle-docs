@@ -6,6 +6,8 @@ If you plan to give others access to your Server instance, consider running it w
 
 ## TL;DR
 
+### Prerequisites
+
 Assuming you have:
 
 * [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
@@ -15,6 +17,12 @@ Assuming you have:
 
 Also don't worry if you don't have all of these, the detailed instructions provide more info on alternative ways to achieve the same thing.
 This is a high efficiency getting started step list.
+
+## Supported platforms
+
+Speckle server has been developed on Linux, Windows WSL2, and MacOS.  It _does not_ work on Windows without WSL2.
+
+On MacOS devices with Apple based chips (M2, M3 etc.) it is possible to run the server as described below, but building and running Dockerfiles takes a lot of time (due to emulation of an x86 platform).
 
 ### Steps
 
