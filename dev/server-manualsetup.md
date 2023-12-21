@@ -294,7 +294,7 @@ The server also supports some other environment variables. You can see them in o
 
 ```bash
 cd /opt/speckle
-docker-compose up -d
+docker compose up -d
 ```
 
 This will:
