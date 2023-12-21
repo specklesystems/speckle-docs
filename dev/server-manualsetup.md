@@ -227,62 +227,68 @@ volumes:
 Make sure to edit the file and change:
 
 - `CANONICAL_URL` to the url used to access this speckle server. This can be `http://[PUBLIC_IP]` or `http://[DOMAIN_NAME]`
+- `NUXT_PUBLIC_API_ORIGIN` to the same value as set for `CANONICAL_URL`
+- `FRONTEND_ORIGIN` to the same value as set for `CANONICAL_URL`
 - For added security, change the `SESSION_SECRET` to a unique secret value for this deployment.
 
 The server also supports some other environment variables. You can see them in our [.env-example file from the git repo](https://github.com/specklesystems/speckle-server/blob/main/packages/server/.env-example).
 
-### Step 4: Optionally add easy TLS certificate
+### Step 4: **Recommended** add a TLS certificate and serve via https
 
-- set up a dns record, that point to the public ip of your VM
+- set up a dns record, that points to the public ip of your VM
 - add a new entry into the services into the previously defined docker-compose.yml
 
   ```yaml
   services:
     reverse-proxy:
-      image: traefik:v2.5
-      command: 
-        - "--providers.docker"
+      image: traefik:v2.10
+      command:
+        - "--providers.docker=true"
+        - "--providers.docker.exposedbydefault=false"
         - "--entrypoints.websecure.address=:443"
         - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+        # To use Let's Encrypt staging server instead of production, uncomment the following line
         #- "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
-
-        # TODO: replace with proper email
-        - "--certificatesresolvers.myresolver.acme.email={your@example.com}"
-
+        # TODO: replace `{your@example.com}` with your actual email
+        - "--certificatesresolvers.myresolver.acme.email=your@example.com"
         - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+        # To enable the Traefik web UI (enabled by --api.insecure=true); this is not recommended as it will expose the Traefik dashboard to the internet
+        #- "--api.insecure=true"
 
       ports:
-        # The HTTP port
+        # The HTTPS port (required for Traefik to listen to HTTPS requests)
         - "443:443"
-        # The Web UI (enabled by --api.insecure=true)
+        # The Traefik Web UI port if enabled by --api.insecure=true
         - "8080:8080"
       volumes:
         - "./letsencrypt:/letsencrypt"
         # So that Traefik can listen to the Docker events
-        - /var/run/docker.sock:/var/run/docker.sock
+        - "/var/run/docker.sock:/var/run/docker.sock:ro"
   ```
 
-- make sure to replace `{your@example.com}` for the `--certificatesresolvers.myresolver.acme.email` with an email, that belongs to you
-- modify the frontend service definition with some extra labels like below:
+- make sure to replace `your@example.com` for the `--certificatesresolvers.myresolver.acme.email` with an email that belongs to you. This is used by Let's Encrypt to notify you about certificate expiration.
+- modify the speckle-ingress service definition by removing all exposed ports
+- modify the speckle-ingress with some extra labels like below:
 
   ```yaml
-
     speckle-ingress:
       image: speckle/speckle-docker-compose-ingress:2
       restart: always
-      ports:
-        - '0.0.0.0:80:8080'
+      ports: [] #TODO remove all exposed ports
       environment:
         FILE_SIZE_LIMIT_MB: '100'
         NGINX_ENVSUBST_OUTPUT_DIR: '/etc/nginx'
+      #TODO add these labels
       labels:
-        - "traefik.http.routers.speckle-frontend.rule=Host(`{example.com}`)"
-        - "traefik.http.routers.speckle-frontend.entrypoints=websecure"
-        - "traefik.http.routers.speckle-frontend.tls.certresolver=myresolver"
-
+        - "traefik.enable=true"
+          #TODO: replace `example.com` with your domain. This should just be the domain, and do not include the protocol (http/https).
+        - "traefik.http.routers.speckle-ingress.rule=Host(`example.com`)"
+        - "traefik.http.routers.speckle-ingress.entrypoints=websecure"
+        - "traefik.http.routers.speckle-ingress.tls.certresolver=myresolver"
+        - "traefik.http.services.speckle-ingress.loadbalancer.server.port=8080"
   ```
 
-- change `traefik.http.routers.speckle-frontend.rule` replace `{example.com}` with your domain
+- change `traefik.http.routers.speckle-ingress.rule` replace `example.com` with your domain
 
 ### Step 5: Start the Server and the dependencies
 
