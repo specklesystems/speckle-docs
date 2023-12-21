@@ -62,7 +62,7 @@ Speckle's preferred method of backing up and restoring data in a Postgres databa
 1. Start the pgAdmin using Docker-Compose:
 
    ```shell
-   docker-compose --file docker-compose-pgadmin.yml up --detach
+   docker compose --file docker-compose-pgadmin.yml up --detach
    ```
 
 1. Verify that pgAdmin is now running:
@@ -236,7 +236,7 @@ If you are not upgrading the Postgres database, you can stop at this step. The f
 1. Deploy the docker-compose file with the updated Postgres version:
 
    ```shell
-   docker-compose -f ./docker-compose-deps.yml up --detach
+   docker compose -f ./docker-compose-deps.yml up --detach
    ```
 
 1. Verify everything is up and running by viewing the status of all containers:

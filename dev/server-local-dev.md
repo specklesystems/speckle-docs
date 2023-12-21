@@ -56,10 +56,10 @@ Running `yarn` a shorthand for `yarn install` bootstraps the repo.
 1. Some of the local packages (viewer, object loader) has to be built the first time so that all packages are linked properly. 
 This can be done easily with a yarn script, where the yarn command will execute the given build script in all packages where it exists.
 So running `yarn build` triggers all available build commands.
-1. In this step, all the required services are started via docker-compose.
+1. In this step, all the required services are started via docker compose.
 The `docker-compose-deps.yml` file contains a sensible default setup of all the required non Speckle developed services.
 This config by no means meant to be used in production.
-If you are not running these dependencies via docker-compose, please make sure, that their configuration options are in line with either the compose file or the individual package configurations.
+If you are not running these dependencies via docker compose, please make sure, that their configuration options are in line with either the compose file or the individual package configurations.
 1. In this step the provided example file is copied to a `.env` file with keeping the default values.
 Here again we are providing a set of sensible defaults that work out of the box if you follow this guide, but do make sure to reflect any changes you make in you environment.
 1. Similarly to the last step, we're providing sensible defaults for env variables that are applied when running tests or running the server in test mode
