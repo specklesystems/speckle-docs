@@ -10,9 +10,8 @@ See [https://speckle.systems/getstarted/](https://speckle.systems/getstarted/) f
 
 If you want to run your own instance, there are multiple ways to achieve this:
 
-- The easiest way is to use our precompiled releases that are available as docker images on Docker Hub.
-- If you want to deploy the Server with your own modifications, you should build your own docker images (instructions below).
-- Also, you can run the Server with local development tools needed for each package (requires development knowledge)
+- The easiest way is to use our precompiled releases that are available as docker images on Docker Hub. This guide provides details on how to do that.
+- If you want to deploy the Server with your own modifications, you should build your own docker images. Please refer to our separate guide on [local development](./server-local-dev).
 
 ## Dependencies
 
