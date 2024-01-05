@@ -71,6 +71,10 @@ module.exports = {
         link: "/automate/",
       },
       {
+        text: "3D Viewer",
+        link: "/viewer/",
+      },
+      {
         text: "Speckle Website",
         link: "https://speckle.systems",
       },
@@ -268,6 +272,24 @@ module.exports = {
           ],
         },
       ],
+      "/viewer/":[
+        {
+          title: "Quickstart 🚀",
+          collapsable: false,
+          children: [
+            "installation",
+            "basic-setup",
+            "advanced-setup"],
+        },
+        {
+          title: "Viewer Concepts",
+          collapsable: false,
+          children: [
+            "overview",
+            ],
+        }
+        
+      ]
     },
   },
 
