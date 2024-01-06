@@ -286,6 +286,7 @@ module.exports = {
           collapsable: false,
           children: [
             "overview",
+            "viewer-data"
             ],
         }
         
