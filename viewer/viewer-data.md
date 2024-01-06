@@ -67,4 +67,18 @@ More details on how to use the RenderTree will be provided later on, but to get 
 ```typescript
 public getRenderTree(subtreeId?: string): RenderTree
 ```
-If not subtreeId is provided, the global RenderTree is returned. An important note here, is that a new render tree does not imply any tree or any kind of duplication. The render tree will use the existing nodes from the world tree that spawned it. Additionally, the world tree caches spawned render trees, so calling `getRenderTree` with the same id multiple times does not incur any performance overhead
+If no subtreeId is provided, the global RenderTree is returned. An important note here, is that a new render tree does not imply any kind of duplication. The render tree will use the existing nodes from the world tree that spawned it. Additionally, the world tree caches spawned render trees, so calling `getRenderTree` with the same id multiple times does not incur any performance overhead
+
+For examples of using our loading system and concrete implementations of `Loader` and `GeometryConverter` you can have a look at :
+
+* [Speckle loader and converter](https://github.com/specklesystems/speckle-server/tree/alex/API2.0/packages/viewer/src/modules/loaders/Speckle)
+* [OBJ loader and converter (geometry only)](https://github.com/specklesystems/speckle-server/tree/alex/API2.0/packages/viewer/src/modules/loaders/OBJ)
+
+Additionally, here is a live sandbox with the OBJLoader in use:
+
+<iframe src="https://codesandbox.io/embed/pydvhz?view=Editor+%2B+Preview&module=%2Fpackage.json&hidenavigation=1"
+     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="Obj Loader"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
