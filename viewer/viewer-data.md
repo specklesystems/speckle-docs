@@ -45,3 +45,26 @@ In order for data to correctly end up in the viewer's store, and all the builtin
 1. Populate the viewer's `WorldTree` with nodes
 2. Convert renderable incoming data into types the viewer can understand
 3. Build a global `RenderTree`
+
+Populating the viewer's tree can be very generic, so the viewer doesn't impose anything in this step. However, traditionally, we make use of a `Converter` which takes in raw data, and builds and adds tree nodes to the tree.
+
+Once the tree is populated, we need a  way to turn renderable information contained in the tree in any form it may be in to something that the viewer understands how to render. This is where the `GeometryConverter` comes in. It's a thin abstract class again and any geometry converter needs to implement the following:
+```typescript
+public abstract getSpeckleType(node: NodeData): SpeckleType
+public abstract convertNodeToGeometryData(node: NodeData): GeometryData
+public abstract disposeNodeGeometryData(node: NodeData): void
+```
+The up to date types the viewer works with can be found [here](https://github.com/specklesystems/speckle-server/blob/631de589c5a78fc9891b3b50dbecb075e0661c90/packages/viewer/src/modules/loaders/GeometryConverter.ts#L4), however internally the viewer doesn't rely that much on these types, and they are mostly relevant at conversion time
+
+The most important function than needs to implemented by any geometry converter is `convertNodeToGeometryData` which takes tree nodes and builds `GeometryData` objects for them, which allow the viewer to render the objects correctly.
+
+Once a geometry converter is implemented, you don't need to call any of it's method on your own. Everything will be called automatically in step 3, where we build the `RenderTree`. A RenderTree is simply a subtree of the WorldTree (or the entirety of it) with added rendering-related functionality. In order to build a RenderTree:
+```typescript
+const geometryConverter = new MyGeometryConverter()
+renderTree.buildRenderTree(geometryConverter)
+```
+More details on how to use the RenderTree will be provided later on, but to get a better idea, to hold of a `RenderTree` instance, you generally use the `WorldTree`
+```typescript
+public getRenderTree(subtreeId?: string): RenderTree
+```
+If not subtreeId is provided, the global RenderTree is returned. An important note here, is that a new render tree does not imply any tree or any kind of duplication. The render tree will use the existing nodes from the world tree that spawned it. Additionally, the world tree caches spawned render trees, so calling `getRenderTree` with the same id multiple times does not incur any performance overhead
