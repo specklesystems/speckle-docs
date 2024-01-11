@@ -1,11 +1,9 @@
-# Viewer Data
+# Data
 
 ## World Tree
 The viewer stores data in a hierarchical fashion inside a tree-like structure which we call `WorldTree`
 
 ![Viewer Data](./img/tree.svg "Viewer Data")
-
-Loading data into the viewer can be 100% customisable, so the structure of the tree is also up to the loader implementation, however when talking about the default Speckle loader, one important aspect of how we store data is that, direct children of `Root` will always be the root of a complete subtree which represents a loaded model.
 
 A node inside the tree looks like the following:
 ```typescript
