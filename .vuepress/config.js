@@ -287,7 +287,8 @@ module.exports = {
           children: [
             "overview",
             "viewer-data",
-            "viewer-rendering"
+            "viewer-rendering",
+            "API-reference"
             ],
         }
         
