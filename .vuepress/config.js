@@ -288,7 +288,22 @@ module.exports = {
             "overview",
             "viewer-data",
             "viewer-rendering",
-            "API-reference"
+            {
+              title: "API Reference",
+              collapsable: true,
+              children: [
+                {
+                  title: "Viewer Core",
+                  collapsable: true,
+                  children: [
+                    "viewer-api",
+                    "world-tree-api",
+                    "speckle-renderer-api"
+                  ],
+                },
+              ],
+            },
+            
             ],
         }
         
