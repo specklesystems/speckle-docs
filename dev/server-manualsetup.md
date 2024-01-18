@@ -54,15 +54,15 @@ mkdir /opt/speckle/
 ### Step 2: Copy and paste this into a file named `docker-compose.yml` in your directory
 
 ```yaml
-version: '2.3'
-name: 'speckle-server'
+version: "2.3"
+name: "speckle-server"
 
 services:
   ####
   # Speckle Server dependencies
   #######
   postgres:
-    image: 'postgres:14.5-alpine'
+    image: "postgres:14.5-alpine"
     restart: always
     environment:
       POSTGRES_DB: speckle
@@ -78,20 +78,20 @@ services:
       retries: 30
 
   redis:
-    image: 'redis:7-alpine'
+    image: "redis:7-alpine"
     restart: always
     volumes:
       - redis-data:/data
     ports:
-      - '127.0.0.1:6379:6379'
+      - "127.0.0.1:6379:6379"
     healthcheck:
-      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
       interval: 5s
       timeout: 5s
       retries: 30
 
   minio:
-    image: 'minio/minio'
+    image: "minio/minio"
     command: server /data --console-address ":9001"
     restart: always
     volumes:
@@ -109,25 +109,32 @@ services:
     image: speckle/speckle-docker-compose-ingress:2
     restart: always
     ports:
-      - '0.0.0.0:80:8080'
+      - "0.0.0.0:80:8080"
     environment:
-      FILE_SIZE_LIMIT_MB: '100'
-      NGINX_ENVSUBST_OUTPUT_DIR: '/etc/nginx'
+      FILE_SIZE_LIMIT_MB: "100"
+      NGINX_ENVSUBST_OUTPUT_DIR: "/etc/nginx"
 
   speckle-frontend-2:
     image: speckle/speckle-frontend-2:2
     restart: always
     environment:
-      NUXT_PUBLIC_SERVER_NAME: 'local'
+      NUXT_PUBLIC_SERVER_NAME: "local"
       # TODO: Change NUXT_PUBLIC_API_ORIGIN to the URL of the speckle server, as accessed from the network. This is the same value as should be used for the CANONICAL_URL in the server section below.
-      NUXT_PUBLIC_API_ORIGIN: 'http://127.0.0.1'
-      NUXT_PUBLIC_BACKEND_API_ORIGIN: 'http://speckle-server:3000'
+      NUXT_PUBLIC_API_ORIGIN: "http://127.0.0.1"
+      NUXT_PUBLIC_BACKEND_API_ORIGIN: "http://speckle-server:3000"
+      NUXT_REDIS_URL: "redis://redis"
 
   speckle-server:
     image: speckle/speckle-server:2
     restart: always
     healthcheck:
-      test: ["CMD", "node", "-e", "try { require('node:http').request({headers: {'Content-Type': 'application/json'}, port:3000, hostname:'127.0.0.1', path:'/graphql?query={serverInfo{version}}', method: 'GET', timeout: 2000 }, (res) => { body = ''; res.on('data', (chunk) => {body += chunk;}); res.on('end', () => {process.exit(res.statusCode != 200 || body.toLowerCase().includes('error'));}); }).end(); } catch { process.exit(1); }"]
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "try { require('node:http').request({headers: {'Content-Type': 'application/json'}, port:3000, hostname:'127.0.0.1', path:'/graphql?query={serverInfo{version}}', method: 'GET', timeout: 2000 }, (res) => { body = ''; res.on('data', (chunk) => {body += chunk;}); res.on('end', () => {process.exit(res.statusCode != 200 || body.toLowerCase().includes('error'));}); }).end(); } catch { process.exit(1); }",
+        ]
       interval: 10s
       timeout: 3s
       retries: 30
@@ -141,34 +148,34 @@ services:
         condition: service_healthy
     environment:
       # TODO: Change this to the URL of the speckle server, as accessed from the network
-      CANONICAL_URL: 'http://127.0.0.1'
-      SPECKLE_AUTOMATE_URL: 'http://127.0.0.1:3030'
+      CANONICAL_URL: "http://127.0.0.1"
+      SPECKLE_AUTOMATE_URL: "http://127.0.0.1:3030"
 
-      REDIS_URL: 'redis://redis'
+      REDIS_URL: "redis://redis"
 
-      S3_ENDPOINT: 'http://minio:9000'
-      S3_ACCESS_KEY: 'minioadmin'
-      S3_SECRET_KEY: 'minioadmin'
-      S3_BUCKET: 'speckle-server'
-      S3_CREATE_BUCKET: 'true'
+      S3_ENDPOINT: "http://minio:9000"
+      S3_ACCESS_KEY: "minioadmin"
+      S3_SECRET_KEY: "minioadmin"
+      S3_BUCKET: "speckle-server"
+      S3_CREATE_BUCKET: "true"
 
       FILE_SIZE_LIMIT_MB: 100
 
       # TODO: Change this to a unique secret for this server
-      SESSION_SECRET: 'TODO:ReplaceWithLongString'
+      SESSION_SECRET: "TODO:ReplaceWithLongString"
 
-      STRATEGY_LOCAL: 'true'
-      DEBUG: 'speckle:*'
+      STRATEGY_LOCAL: "true"
+      DEBUG: "speckle:*"
 
-      POSTGRES_URL: 'postgres'
-      POSTGRES_USER: 'speckle'
-      POSTGRES_PASSWORD: 'speckle'
-      POSTGRES_DB: 'speckle'
-      ENABLE_MP: 'false'
+      POSTGRES_URL: "postgres"
+      POSTGRES_USER: "speckle"
+      POSTGRES_PASSWORD: "speckle"
+      POSTGRES_DB: "speckle"
+      ENABLE_MP: "false"
 
-      USE_FRONTEND_2: 'true'
+      USE_FRONTEND_2: "true"
       # TODO: Change this to the URL of the speckle server, as accessed from the network
-      FRONTEND_ORIGIN: 'http://127.0.0.1'
+      FRONTEND_ORIGIN: "http://127.0.0.1"
 
   preview-service:
     image: speckle/speckle-preview-service:2
@@ -176,11 +183,11 @@ services:
     depends_on:
       speckle-server:
         condition: service_healthy
-    mem_limit: '1000m'
-    memswap_limit: '1000m'
+    mem_limit: "1000m"
+    memswap_limit: "1000m"
     environment:
-      DEBUG: 'preview-service:*'
-      PG_CONNECTION_STRING: 'postgres://speckle:speckle@postgres/speckle'
+      DEBUG: "preview-service:*"
+      PG_CONNECTION_STRING: "postgres://speckle:speckle@postgres/speckle"
 
   webhook-service:
     image: speckle/speckle-webhook-service:2
@@ -189,8 +196,8 @@ services:
       speckle-server:
         condition: service_healthy
     environment:
-      DEBUG: 'webhook-service:*'
-      PG_CONNECTION_STRING: 'postgres://speckle:speckle@postgres/speckle'
+      DEBUG: "webhook-service:*"
+      PG_CONNECTION_STRING: "postgres://speckle:speckle@postgres/speckle"
       WAIT_HOSTS: postgres:5432
 
   fileimport-service:
@@ -200,16 +207,16 @@ services:
       speckle-server:
         condition: service_healthy
     environment:
-      DEBUG: 'fileimport-service:*'
-      PG_CONNECTION_STRING: 'postgres://speckle:speckle@postgres/speckle'
+      DEBUG: "fileimport-service:*"
+      PG_CONNECTION_STRING: "postgres://speckle:speckle@postgres/speckle"
       WAIT_HOSTS: postgres:5432
 
-      S3_ENDPOINT: 'http://minio:9000'
-      S3_ACCESS_KEY: 'minioadmin'
-      S3_SECRET_KEY: 'minioadmin'
-      S3_BUCKET: 'speckle-server'
+      S3_ENDPOINT: "http://minio:9000"
+      S3_ACCESS_KEY: "minioadmin"
+      S3_SECRET_KEY: "minioadmin"
+      S3_BUCKET: "speckle-server"
 
-      SPECKLE_SERVER_URL: 'http://speckle-server:3000'
+      SPECKLE_SERVER_URL: "http://speckle-server:3000"
 
 networks:
   default:
@@ -270,21 +277,21 @@ The server also supports some other environment variables. You can see them in o
 - modify the speckle-ingress with some extra labels like below:
 
   ```yaml
-    speckle-ingress:
-      image: speckle/speckle-docker-compose-ingress:2
-      restart: always
-      ports: [] #TODO remove all exposed ports
-      environment:
-        FILE_SIZE_LIMIT_MB: '100'
-        NGINX_ENVSUBST_OUTPUT_DIR: '/etc/nginx'
-      #TODO add these labels
-      labels:
-        - "traefik.enable=true"
-          #TODO: replace `example.com` with your domain. This should just be the domain, and do not include the protocol (http/https).
-        - "traefik.http.routers.speckle-ingress.rule=Host(`example.com`)"
-        - "traefik.http.routers.speckle-ingress.entrypoints=websecure"
-        - "traefik.http.routers.speckle-ingress.tls.certresolver=myresolver"
-        - "traefik.http.services.speckle-ingress.loadbalancer.server.port=8080"
+  speckle-ingress:
+    image: speckle/speckle-docker-compose-ingress:2
+    restart: always
+    ports: [] #TODO remove all exposed ports
+    environment:
+      FILE_SIZE_LIMIT_MB: "100"
+      NGINX_ENVSUBST_OUTPUT_DIR: "/etc/nginx"
+    #TODO add these labels
+    labels:
+      - "traefik.enable=true"
+      #TODO: replace `example.com` with your domain. This should just be the domain, and do not include the protocol (http/https).
+      - "traefik.http.routers.speckle-ingress.rule=Host(`example.com`)"
+      - "traefik.http.routers.speckle-ingress.entrypoints=websecure"
+      - "traefik.http.routers.speckle-ingress.tls.certresolver=myresolver"
+      - "traefik.http.services.speckle-ingress.loadbalancer.server.port=8080"
   ```
 
 - change `traefik.http.routers.speckle-ingress.rule` replace `example.com` with your domain
@@ -300,7 +307,7 @@ This will:
 
 - Run PostgreSQL inside docker, with data files stored in `/opt/speckle/postgres-data/`
 - Run Redis inside docker, with data files stored in `/opt/speckle/redis-data/`
-- Run MinIO inside docker, with data files stored in `/opt/speckle/minio-data/` 
+- Run MinIO inside docker, with data files stored in `/opt/speckle/minio-data/`
 - Run the Server component, configured for this environment.
 - Run the Frontend component, exposing port 80 to the network the VM is in.
 - Run the other microservices for extending the SpeckleServer functionality ( `preview-service`, `webhook-service`, `fileimport-service` )
@@ -320,25 +327,32 @@ services:
     image: speckle/speckle-docker-compose-ingress:2
     restart: always
     ports:
-      - '0.0.0.0:80:8080'
+      - "0.0.0.0:80:8080"
     environment:
-      FILE_SIZE_LIMIT_MB: '100'
-      NGINX_ENVSUBST_OUTPUT_DIR: '/etc/nginx'
+      FILE_SIZE_LIMIT_MB: "100"
+      NGINX_ENVSUBST_OUTPUT_DIR: "/etc/nginx"
 
   speckle-frontend-2:
     image: speckle/speckle-frontend-2:2
     restart: always
     environment:
-      NUXT_PUBLIC_SERVER_NAME: 'local'
+      NUXT_PUBLIC_SERVER_NAME: "local"
       # TODO: Change NUXT_PUBLIC_API_ORIGIN to the URL of the speckle server, as accessed from the network. This is the same value as should be used for the CANONICAL_URL in the server section below.
-      NUXT_PUBLIC_API_ORIGIN: 'http://127.0.0.1'
-      NUXT_PUBLIC_BACKEND_API_ORIGIN: 'http://speckle-server:3000'
+      NUXT_PUBLIC_API_ORIGIN: "http://127.0.0.1"
+      NUXT_PUBLIC_BACKEND_API_ORIGIN: "http://speckle-server:3000"
+      NUXT_REDIS_URL: "redis://redis"
 
   speckle-server:
     image: speckle/speckle-server:2
     restart: always
     healthcheck:
-      test: ["CMD", "node", "-e", "try { require('node:http').request({headers: {'Content-Type': 'application/json'}, port:3000, hostname:'127.0.0.1', path:'/graphql?query={serverInfo{version}}', method: 'GET', timeout: 2000 }, (res) => { body = ''; res.on('data', (chunk) => {body += chunk;}); res.on('end', () => {process.exit(res.statusCode != 200 || body.toLowerCase().includes('error'));}); }).end(); } catch { process.exit(1); }"]
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "try { require('node:http').request({headers: {'Content-Type': 'application/json'}, port:3000, hostname:'127.0.0.1', path:'/graphql?query={serverInfo{version}}', method: 'GET', timeout: 2000 }, (res) => { body = ''; res.on('data', (chunk) => {body += chunk;}); res.on('end', () => {process.exit(res.statusCode != 200 || body.toLowerCase().includes('error'));}); }).end(); } catch { process.exit(1); }",
+        ]
       interval: 10s
       timeout: 3s
       retries: 30
@@ -367,9 +381,9 @@ services:
       S3_SECRET_KEY: "minioadmin"
       S3_BUCKET: "speckle-server"
 
-      USE_FRONTEND_2: 'true'
+      USE_FRONTEND_2: "true"
       # TODO: Change this to the URL of the speckle server, as accessed from the network
-      FRONTEND_ORIGIN: 'http://127.0.0.1'
+      FRONTEND_ORIGIN: "http://127.0.0.1"
 
   preview-service:
     image: speckle/speckle-preview-service:2
@@ -445,7 +459,7 @@ If you made some changes to the server and want to run those instead of the offi
 If you set up PostgreSQL, Redis and S3-compatible service outside of this VM (for example a managed deployment from a cloud provider), you can skip this step, but remember to set up the correct environment variables later
 :::
 
-To get the PostgreSQL, Redis and MinIO dependencies up and running in the VM, our git repo contains 
+To get the PostgreSQL, Redis and MinIO dependencies up and running in the VM, our git repo contains
 [a docker compose file](https://github.com/specklesystems/speckle-server/blob/main/docker-compose-deps.yml)
 for running these dependencies locally in docker containers.
 
@@ -458,11 +472,11 @@ docker compose -f docker-compose-deps.yml up -d
 
 This will run the following containers, and will automatically launch them at system startup:
 
-- *PostgreSQL v13*, listening only on `127.0.0.1:5432` with default credentials `speckle`:`speckle` and a database named `speckle`.
-- *Redis v6*, listening only on `127.0.0.1:6379`
-- *PGAdmin4*, listening only on `127.0.0.1:16543` with default credentials `admin@localhost` : `admin`
-- *Redis Insight*, listening only on `127.0.0.1:8001`
-- *MinIO*, listening on `127.0.0.1:9000` with the API endpoint and on `127.0.0.1:9001` with the Web Management Interface (default credentials used: `minioadmin`/`minioadmin`)
+- _PostgreSQL v13_, listening only on `127.0.0.1:5432` with default credentials `speckle`:`speckle` and a database named `speckle`.
+- _Redis v6_, listening only on `127.0.0.1:6379`
+- _PGAdmin4_, listening only on `127.0.0.1:16543` with default credentials `admin@localhost` : `admin`
+- _Redis Insight_, listening only on `127.0.0.1:8001`
+- _MinIO_, listening on `127.0.0.1:9000` with the API endpoint and on `127.0.0.1:9001` with the Web Management Interface (default credentials used: `minioadmin`/`minioadmin`)
 
 All of the above containers listen on the local loopback interface (`127.0.0.1`) and are NOT accessible from the local network (for security, since they use default credentials)
 
@@ -471,7 +485,7 @@ To use PGAdmin, after login you can configure a server connection to the host `p
 To use Redis Insight, you can configure it to connect to the hostname `redis` (port `6379`)
 
 Docker Compose creates named docker volumes for storing data for each of the containers, so data is persisted.
-You can view existing docker volumes with `docker volume ls` and delete a volume and existing data with `docker volume rm [volume_name]` 
+You can view existing docker volumes with `docker volume ls` and delete a volume and existing data with `docker volume rm [volume_name]`
 
 ### Step 2: Build and run your code
 
@@ -484,16 +498,16 @@ cd [PATH_TO_SPECKLE-SERVER_REPOSITORY]
 docker compose -f docker-compose-speckle.yml up --build -d
 ```
 
-(You can safely ignore the warnings about the *orphan containers*)
+(You can safely ignore the warnings about the _orphan containers_)
 
 This will run the following containers, and will automatically launch them at system startup:
 
-- *docker-compose-ingress*, an nginx container that routes traffic to either speckle-frontend-2 or speckle-server as required. This is exposed on port 80 in the VM network.
-- *speckle-frontend-2*, the frontend Vue app. It doesn't expose any port outside of the internal docker network.
-- *speckle-server*, the `server` component. It doesn't expose any port outside of the internal docker network.
-- *preview-service*, the component that generates stream previews. Doesn't expose any port outside of the internal docker network.
-- *webhook-service*, the component that calls webhooks. Doesn't expose any port outside of the internal docker network.
-- *fileimport-service*, the component that imports uploaded files. Doesn't expose any port outside of the internal docker network.
+- _docker-compose-ingress_, an nginx container that routes traffic to either speckle-frontend-2 or speckle-server as required. This is exposed on port 80 in the VM network.
+- _speckle-frontend-2_, the frontend Vue app. It doesn't expose any port outside of the internal docker network.
+- _speckle-server_, the `server` component. It doesn't expose any port outside of the internal docker network.
+- _preview-service_, the component that generates stream previews. Doesn't expose any port outside of the internal docker network.
+- _webhook-service_, the component that calls webhooks. Doesn't expose any port outside of the internal docker network.
+- _fileimport-service_, the component that imports uploaded files. Doesn't expose any port outside of the internal docker network.
 
 ## Run in development mode
 
