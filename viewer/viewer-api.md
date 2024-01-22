@@ -9,28 +9,28 @@ background-color: rgba(0, 0, 0, 0.0) !important;
 
 ### <h3>Constructors</h3>
 
-[constructor](/viewer/API-reference.md#constructor)
+[constructor](/viewer/viewer-api.md#constructor)
 
 ### <h3>Accessors</h3>
 |  	| 	| 
 |---	|---
-| [Utils](/viewer/API-reference.md#utils) 	| [World](/viewer/API-reference.md#world) 	
+| [Utils](/viewer/viewer-api.md#utils) 	| [World](/viewer/viewer-api.md#world) 	
 
 ### <h3>Methods</h3>
-|  	| 	| 	| 	|  	|   |   |
-|---	|---	|---	|---	|---	|---	|---    |
-| [cancelLoad](/viewer/API-reference.md#cancelload) 	| [createExtension](/viewer/API-reference.md#createextension) 	| [dispose](viewer/API-reference.md#dispose) 	| [getContainer](/viewer/API-reference.md#getcontainer) 	
-[getExtension](/viewer/API-reference.md#getextension)  | [getObjectProperties](/viewer/API-reference.md#getobjectproperties) | [getRenderer](/viewer/API-reference.md#getrenderer) | [getViews](/viewer/API-reference.md#getviews) 
- [getWorldTree](/viewer/API-reference.md#getworldtree) 	| [init](/viewer/API-reference.md#init) | [loadObject](/viewer/API-reference.md#loadObject) 	| [on](/viewer/API-reference.md#on) 	
- [query](/viewer/API-reference.md#query) | [requestRender](/viewer/API-reference.md#requestrender) 	| [resize](/viewer/API-reference.md#resize) | [screenshot](/viewer/API-reference.md#screenshot) 	
- [setLightConfiguration](/viewer/API-reference.md#setlightconfiguration) 	| [unloadAll](/viewer/API-reference.md#unloadall) 	| [unloadObject](/viewer/API-reference.md#unloadobject)
+|  	| 	| 	| 	| 
+|---	|---	|---	|---
+| [cancelLoad](/viewer/viewer-api.md#cancelload) 	| [createExtension](/viewer/viewer-api.md#createextension) 	| [dispose](/viewer/viewer-api.md#dispose) 	| [getContainer](/viewer/viewer-api.md#getcontainer) 	
+[getExtension](/viewer/viewer-api.md#getextension)  | [getObjectProperties](/viewer/viewer-api.md#getobjectproperties) | [getRenderer](/viewer/viewer-api.md#getrenderer) | [getViews](/viewer/viewer-api.md#getviews) 
+ [getWorldTree](/viewer/viewer-api.md#getworldtree) 	| [init](/viewer/viewer-api.md#init) | [loadObject](/viewer/viewer-api.md#loadObject) 	| [on](/viewer/viewer-api.md#on) 	
+ [query](/viewer/viewer-api.md#query) | [requestRender](/viewer/viewer-api.md#requestrender) 	| [resize](/viewer/viewer-api.md#resize) | [screenshot](/viewer/viewer-api.md#screenshot) 	
+ [setLightConfiguration](/viewer/viewer-api.md#setlightconfiguration) 	| [unloadAll](/viewer/viewer-api.md#unloadall) 	| [unloadObject](/viewer/viewer-api.md#unloadobject)
 
 ### <h3>Typedefs</h3>
-|  	| 	| 	| 	|  	|   |   |
-|---	|---	|---	|---	|---	|---	|---    |
-[LightConfiguration](/viewer/API-reference.md#lightconfiguration) | [ObjectLayers](viewer/API-reference.md#objectlayers)	| [PropertyInfo](/viewer/API-reference.md#propertyinfo) | [SelectionEvent](viewer/API-reference.md#selectionEvent) 
-[SpeckleView](viewer/API-reference.md#speckleview) | [SunLightConfiguration](viewer/API-reference.md#sunlightconfiguration) | [UpdateFlags](/viewer/API-reference.md#updateflags) | [Utils](/viewer/API-reference.md#utilsinterface) 
-[ViewerEvent](/viewer/API-reference.md#viewerevent) | [ViewerParams](/viewer/API-reference.md#viewerparams) |  [World](/viewer/API-reference.md#worldclass) 
+|  	| 	| 	| 	|
+|---	|---	|---	|---
+[LightConfiguration](/viewer/viewer-api.md#lightconfiguration) | [ObjectLayers](/viewer/viewer-api.md#objectlayers)	| [PropertyInfo](/viewer/viewer-api.md#propertyinfo) | [SelectionEvent](/viewer/viewer-api.md#selectionEvent) 
+[SpeckleView](/viewer/viewer-api.md#speckleview) | [SunLightConfiguration](/viewer/viewer-api.md#sunlightconfiguration) | [UpdateFlags](/viewer/viewer-api.md#updateflags) | [Utils](/viewer/viewer-api.md#utilsinterface) 
+[ViewerEvent](/viewer/viewer-api.md#viewerevent) | [ViewerParams](/viewer/viewer-api.md#viewerparams) |  [World](/viewer/viewer-api.md#worldclass) 
 <br><br>
 
 ### <h3>Constructors</h3>
@@ -41,9 +41,9 @@ new Viewer(container: HTMLElement, params: ViewerParams)
 ```
 #### Parameters
  - **container**: [*HTMLElement*](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)
- - **params**: [*ViewerParams*](/viewer/API-reference.md#viewer)
+ - **params**: [*ViewerParams*](/viewer/viewer-api.md#viewer)
 
-#### Returns: [***Viewer***](/viewer/API-reference.md#viewer)
+#### Returns: [***Viewer***](/viewer/viewer-api.md#viewer)
 <br>
 <br>
 
@@ -54,7 +54,7 @@ new Viewer(container: HTMLElement, params: ViewerParams)
 ```ts
 get Utils(): Utils
 ```
-#### Returns: [***Utils***](/viewer/API-reference.md#utilsinterface)
+#### Returns: [***Utils***](/viewer/viewer-api.md#utilsinterface)
 
 <br>
 
@@ -62,7 +62,7 @@ get Utils(): Utils
 ```ts
 get World(): World
 ```
-#### Returns: [***World***](/viewer/API-reference.md#worldclass)
+#### Returns: [***World***](/viewer/viewer-api.md#worldclass)
 
 <br>
 <br>
@@ -120,14 +120,14 @@ Gets the extension of type T registered with the viewer.
 ```ts
   getObjectProperties(resourceURL?: string, bypassCache?: boolean): Promise<PropertyInfo[]>
 ```
-Goes through all objects and builds [*PropertyInfo*](/viewer/API-reference.md#propertyinfo) objects asynchronously.
+Goes through all objects and builds [*PropertyInfo*](/viewer/viewer-api.md#propertyinfo) objects asynchronously.
 ::: warning
 When executing for a very large number of objects, this method can take long to finish
 :::
 #### Parameters
 - **resourceURL**: The id of the node where to start building properties.
 - *(optional)* **bypassCache**: Enabled the use of the property cache. Default *false*
-#### Returns: [*PropertyInfo[]*](/viewer/API-reference.md#propertyinfo) 
+#### Returns: [*PropertyInfo[]*](/viewer/viewer-api.md#propertyinfo) 
 
 <br>
 
@@ -144,8 +144,8 @@ Gets the [*SpeckleRenderer*]() instance associated with the viewer.
 ```ts
 getViews(): SpeckleView[]
 ```
-Gets all the current [*SpeckleView*](/viewer/API-reference.md#speckleview) instances.
-#### Returns: [*SpeckleView[]*](/viewer/API-reference.md#speckleview) 
+Gets all the current [*SpeckleView*](/viewer/viewer-api.md#speckleview) instances.
+#### Returns: [*SpeckleView[]*](/viewer/viewer-api.md#speckleview) 
 
 <br>
 
@@ -183,9 +183,9 @@ Loads objects asynchronously using a [*Loader*]().
 ```ts
 on(eventType: ViewerEvent, handler: (arg) => void)
 ```
-Subscribes handlers to [*ViewerEvent*](/viewer/API-reference.md#viewerevent)s.
+Subscribes handlers to [*ViewerEvent*](/viewer/viewer-api.md#viewerevent)s.
 #### Parameters
-- **eventType**: The [*ViewerEvent*](/viewer/API-reference.md#viewerevent) the handler needs to register to
+- **eventType**: The [*ViewerEvent*](/viewer/viewer-api.md#viewerevent) the handler needs to register to
 - **handler**: The event handler 
 #### Returns: *void*
 
@@ -208,7 +208,7 @@ requestRender(flags?: number): void
 ```
 Requests the viewer to render one or more frames.
 #### Parameters
-- *(optional)* **flags**: [*UpdateFlags*](/viewer/API-reference.md#updateflags). If no flags are provided it defaults to *UpdateFlags.RENDER*.
+- *(optional)* **flags**: [*UpdateFlags*](/viewer/viewer-api.md#updateflags). If no flags are provided it defaults to *UpdateFlags.RENDER*.
 #### Returns: *void*
 
 <br>
@@ -235,7 +235,7 @@ Takes a snapshot of the current viewer camera view and returns it as a base64 en
 ```ts
 setLightConfiguration(config: LightConfiguration): void
 ```
-Applies the provided [*LightConfiguration*](/viewer/API-reference.md#lightconfiguration).
+Applies the provided [*LightConfiguration*](/viewer/viewer-api.md#lightconfiguration).
 #### Returns: *void*
 
 <br>
@@ -299,7 +299,7 @@ enum ObjectLayers {
   MEASUREMENTS = 5
 }
 ```
-All the layers the viewer uses for rendering objects and props. Rendering order generally follows the order of layers values.
+All the layers the viewer uses for rendering objects and props. Rendering order generally follows the order of layers values. The same layers are also used for raycasting, where they are all enabled by default except *STREAM_CONTENT_POINT* which is disabled
 
 <br>
 

@@ -274,6 +274,11 @@ module.exports = {
       ],
       "/viewer/":[
         {
+          title: "Viewer Docs 👩‍💻",
+          collapsable: false,
+          children: [""],
+        },
+        {
           title: "Quickstart 🚀",
           collapsable: false,
           children: [
@@ -303,10 +308,8 @@ module.exports = {
                 },
               ],
             },
-            
-            ],
+          ],
         }
-        
       ]
     },
   },
