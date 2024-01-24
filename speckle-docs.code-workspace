@@ -1,0 +1,23 @@
+{
+  "folders": [
+    {
+      "path": "./dev",
+      "name": "Speckle Developer Guide"
+    },
+    {
+      "path": "./user",
+      "name": "Speckle User Guide"
+    },
+    {
+      "path": ".",
+      "name": "_"
+    }
+  ],
+  "settings": {},
+  "extensions": {
+    "recommendations": [
+      "yzhang.markdown-all-in-one",
+      "titiaiev.vue-docs"
+    ]
+  }
+}
