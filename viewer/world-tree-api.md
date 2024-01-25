@@ -1,4 +1,4 @@
-# World Tree
+# WorldTree
 
 ### <h3>Constructors</h3>
 [constructor](/viewer/world-tree-api.md#constructor)

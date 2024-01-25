@@ -302,8 +302,11 @@ module.exports = {
                   collapsable: true,
                   children: [
                     "viewer-api",
+                    "speckle-renderer-api",
                     "world-tree-api",
-                    "speckle-renderer-api"
+                    "render-tree-api",
+                    "render-view-api"
+                    
                   ],
                 },
               ],

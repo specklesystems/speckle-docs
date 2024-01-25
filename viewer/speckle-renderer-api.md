@@ -22,9 +22,9 @@ td, th{
 |---	|---	|---	|---
 | [addRenderTree](/viewer/speckle-renderer-api.md#addrendertree) 	| [boxFromObjects](/viewer/speckle-renderer-api.md#boxfromobjects) 	| [cancelRenderTree](/viewer/speckle-renderer-api.md#cancelrendertree) 	| [enableLayers](/viewer/speckle-renderer-api.md#enablelayers) 	
 [getBatch](/viewer/speckle-renderer-api.md#getbatch)  | [getBatchMaterial](/viewer/speckle-renderer-api.md#getbatchmaterial) | [getMaterial](/viewer/speckle-renderer-api.md#getmaterial) | [getObject](/viewer/speckle-renderer-api.md#getobject) 
- [getObjects](/viewer/speckle-renderer-api.md#get0bjects) 	| [removeRenderTree](/viewer/speckle-renderer-api.md#removerendertree) | [resetMaterials](/viewer/speckle-renderer-api.md#resetmaterials) 	| [resetPipeline](/viewer/speckle-renderer-api.md#resetpipeline) 	
- [resize](/viewer/speckle-renderer-api.md#resize) | [setMaterial](/viewer/speckle-renderer-api.md#setmaterial) 	| [setSunLightConfiguration](/viewer/speckle-renderer-api.md#setsunlightconfiguration) | [screenshot](/viewer/speckle-renderer-api.md#screenshot) 	
- [setLightConfiguration](/viewer/speckle-renderer-api.md#setlightconfiguration) 	| [updateShadowCatcher](/viewer/speckle-renderer-api.md#updateshadowcatcher) 	
+ [getObjects](/viewer/speckle-renderer-api.md#get0bjects) 	| [removeRenderTree](/viewer/speckle-renderer-api.md#removerendertree) | [renderViewFromIntersection](/viewer/speckle-renderer-api.md#renderviewfromintersection) |   [resetMaterials](/viewer/speckle-renderer-api.md#resetmaterials)
+ [resetPipeline](/viewer/speckle-renderer-api.md#resetpipeline) | [resize](/viewer/speckle-renderer-api.md#resize) | [setMaterial](/viewer/speckle-renderer-api.md#setmaterial) 	| [setSunLightConfiguration](/viewer/speckle-renderer-api.md#setsunlightconfiguration)
+ [screenshot](/viewer/speckle-renderer-api.md#screenshot) | [setLightConfiguration](/viewer/speckle-renderer-api.md#setlightconfiguration) 	| [updateShadowCatcher](/viewer/speckle-renderer-api.md#updateshadowcatcher) 	
 
 ### <h3>Typedefs</h3>
 |  	| 	| 	| 	|
@@ -323,6 +323,18 @@ Removes the specified render tree along with all it's generated objects from the
 - **subtreeId**: The id of the render tree to remove from the scene
 
 #### Returns: *void*
+
+<br>
+
+#### <b>renderViewFromIntersection</b>
+```ts
+renderViewFromIntersection(intersection: ExtendedIntersection): NodeRenderView
+```
+Takes an intersection result produced by [*intersections*](/viewer/speckle-renderer-api.md#intersections) and outputs the intersected [*NodeRenderView*]().
+#### Parameters
+- **intersection**: [*ExtendedIntersection*]()
+
+#### Returns: [*NodeRenderView*]()
 
 <br>
 
