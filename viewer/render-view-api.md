@@ -7,29 +7,17 @@
 |  	|   |   |   |
 |---    |---    |---    |---
 | [aabb](/viewer/render-view-api.md#aabb) | [batchCount](/viewer/render-view-api.md#batchcount) | [batchEnd](/viewer/render-view-api.md#batchend) | [batchId](/viewer/render-view-api.md#batchid)
+| [batchStart](/viewer/render-view-api.md#batchstart) | [geometryType](/viewer/render-view-api.md#geometrytype) | [guid](/viewer/render-view-api.md#guid) | [hasGeometry](/viewer/render-view-api.md#hasgeometry)
+| [batchStart](/viewer/render-view-api.md#batchstart) | [geometryType](/viewer/render-view-api.md#geometrytype) | [guid](/viewer/render-view-api.md#guid) | [hasGeometry](/viewer/render-view-api.md#hasgeometry)
+| [hasMetadata](/viewer/render-view-api.md#hasmetadata) | [renderData](/viewer/render-view-api.md#renderdata) | [renderMaterialHash](/viewer/render-view-api.md#rendermaterialhash) | [speckleType](/viewer/render-view-api.md#hasgeometry)
+| [transparent](/viewer/render-view-api.md#transparent) | [validGeometry](/viewer/render-view-api.md#validgeometry) | [vertEnd](/viewer/render-view-api.md#vertend) | [vertStart](/viewer/render-view-api.md#vertstart)
 
-<!-- aabb
-batchCount
-batchEnd
-batchId
-batchStart
-geometryType
-guid
-hasGeometry
-hasMetadata
-needsSegmentConversion
-renderData
-renderMaterialHash
-speckleType
-transparent
-validGeometry
-vertEnd
-vertStart -->
+
 
 ### <h3>Methods</h3>
 |  	| 	| 	|
 |---	|---	|---
-| [buildRenderTree](/viewer/render-view-api.md#buildRenderTree) 	| [cancelBuild](/viewer/render-view-api.md#cancelbuild) 	| [computeTransform](/viewer/render-view-api.md#computetransform)
+| [setBatchData](/viewer/render-view-api.md#setbatchdata) 	| [cancelBuild](/viewer/render-view-api.md#cancelbuild) 	| [computeTransform](/viewer/render-view-api.md#computetransform)
 [getAtomicParent](/viewer/render-view-api.md#getA=atomicparent) | [getInstances](/viewer/render-view-api.md#getinstances) | [getRenderableNodes](/viewer/render-view-api.md#getrenderablenodes)
 [getRenderableRenderViews](/viewer/render-view-api.md#getrenderablerenderviews) |[getRenderViewNodesForNode](/viewer/render-view-api.md#getrenderviewnodesfornode) | [getRenderViewsForNode](/viewer/render-view-api.md#getrenderviewsfornode)
 [getRenderViewsForNodeId](/viewer/render-view-api.md#getrenderviewsfornodeid) | [purge](/viewer/render-view-api.md#purge) 
@@ -43,38 +31,192 @@ vertStart -->
 ```ts
 constructor(data: NodeRenderData)
 ```
-The recommended way of spawing render trees is via [*getRenderTree*](/viewer/world-tree-api.md#getrendertree) method in [*WorldTree*](/viewer/world-tree-api.md)
+Populates/constructs this node render view
 #### Parameters
-- **tree**: [*WorldTree*](/viewer/world-tree-api.md)
-- **subtreeRoot**: [*TreeNode*](/viewer/world-tree-api.md#treenode)
-#### Returns: [***RenderTree***](/viewer/render-view-api.md)
+- **data**: [*NodeRenderData*]()
+
 <br>
 <br>
 
 
 ### <h3>Accessors</h3>
 
-#### <b>id</b>
+#### <b>aabb</b>
 ```ts
-get id(): string
+get aabb(): Box3
 ```
-Gets the id of the render tree's root node
+Gets the axis aligned box of this render view's geometry.
+:::warning
+The bounds returned do not take any user transformations into account, nor the instance transformations
+:::
+#### Returns: [*Box3*](https://threejs.org/docs/index.html?q=box3#api/en/math/Box3)
+
+<br>
+
+#### <b>batchCount</b>
+```ts
+get batchCount(): number
+```
+Gets the total number of indices inside it's batch
+#### Returns: number
+
+<br>
+
+#### <b>batchEnd</b>
+```ts
+get batchEnd(): number
+```
+Gets the end index inside the batch's index buffer. Equals to `batchStart + batchCount`
+#### Returns: number
+
+<br>
+
+#### <b>batchId</b>
+```ts
+get batchId(): string
+```
+Gets the id of the batch this render viewe belongs to
 #### Returns: string
+
+<br>
+
+#### <b>batchStart</b>
+```ts
+get batchStart(): number
+```
+Gets the start index inside the batch's index buffer
+#### Returns: string
+
+<br>
+
+#### <b>geometryType</b>
+```ts
+get geometryType(): GeometryType
+```
+Gets this render view's [*GeometryType*]()
+#### Returns: [*GeometryType*]()
+
+<br>
+
+#### <b>guid</b>
+```ts
+get guid(): string
+```
+Gets a unique id by concatenating the node's id and the subtree id it's part of
+#### Returns: string
+
+<br>
+
+#### <b>hasGeometry</b>
+```ts
+get hasGeometry(): boolean
+```
+Returns true if this render view has geometry, false otherwise
+#### Returns: boolean
+
+<br>
+
+#### <b>hasMetadata</b>
+```ts
+get hasMetadata(): boolean
+```
+Returns true if this render view has metadata, false otherwise. Metadata is any data that is used to create geometry in a deffered way
+#### Returns: boolean
+
+<br>
+
+#### <b>renderData</b>
+```ts
+get renderData(): NodeRenderData
+```
+Gets the render view's associated [*NodeRenderData*]()
+#### Returns: [*NodeRenderData*]()
+
+<br>
+
+#### <b>renderMaterialHash</b>
+```ts
+get renderMaterialHash(): number
+```
+Gets the render view's computed material hash
+#### Returns: number
+
+<br>
+
+#### <b>speckleType</b>
+```ts
+get speckleType(): SpeckleType
+```
+Gets the render view's render data [*SpeckleType*]()
+#### Returns: [*SpeckleType*]()
+
+<br>
+
+#### <b>transparent</b>
+```ts
+get transparent(): boolean
+```
+Gets whether the render view has a transparent default material
+#### Returns: boolean
+
+<br>
+
+#### <b>validGeometry</b>
+```ts
+get validGeometry(): boolean
+```
+Returns true if the existing geometry is valid. Input data can be invalid, so this checks for that 
+#### Returns: boolean
+
+<br>
+
+#### <b>vertEnd</b>
+```ts
+get vertEnd(): number
+```
+Gets the ending index of this render view's vertex position attribute array inside it's batch 
+#### Returns: number
+
+<br>
+
+#### <b>vertStart</b>
+```ts
+get vertStart(): number
+```
+Gets the starting index of this render view's vertex position attribute array inside it's batch 
+#### Returns: number
+
+<br>
+
 
 <br>
 <br>
 
 ### <h3>Methods</h3>
-#### <b>buildRenderTree</b>
+#### <b>setBatchData</b>
 ```ts
-buildRenderTree(geometryConverter: GeometryConverter): Promise<boolean>
+setBatchData(
+    id: string,
+    start: number,
+    count: number,
+    vertStart?: number,
+    vertEnd?: number
+  )
 ```
-Builds the render tree using the provided [*GeometryConverter*](). Building can be interrupted by calling [*cancelBuild*](/viewer/render-view-api.md#cancelBuild). 'Building' the render tree, means constructing each node's [*NodeRenderView*](), preparing all geometry and materials, and executing any required transformations. This operation should only be carrired out once, as re-building an already built tree is not possible.
+Sets the batch related data to the render view. All render view geometry is contained inside a batch, and the offset + length is being stored at render view level for both indices and position attribute.
+:::warning
+By default, `batchStart` and `batchCount` are dynamic, so *they can change* at runtime. `vertStart` and `vertEnd` are not dynamic by default  
+:::
 
 #### Parameters
-- **geometryConverter**: The [*GeometryConverter*]() to use in building the tree
+- **id**: The id of the batch
+- **start**: Start index of the render view's index array inside the batch's index array
+- **count**: Start length of the render view's index array
+- *optional* **vertStart**: Start index of the render view's position array inside the batch's position array
+- *optional* **vertEnd**: End index of the render view's index array inside the batch's index array
 
-#### Returns: <span style="font-weight:normal">A promise which resolves to a boolean indicating if the building process completed successfully (true) or was interrupted (false)</span>
+
+#### Returns: void
 
 <br>
 
