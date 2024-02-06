@@ -19,16 +19,12 @@
 |---	|---	|---
 | [setBatchData](/viewer/render-view-api.md#setbatchdata) 	| [computeAABB](/viewer/render-view-api.md#computeaabb) 	| [disposeGeometry](/viewer/render-view-api.md#disposegeometry)
 
-<<<<<<< HEAD
 
 ### <h3>Typedefs</h3>
 |  	| 	| 	| 	| 
 |---	|---	|---	|---	|
 [NodeRenderData](/viewer/world-tree-api.md#noderenderdata) | [GeometryData](/viewer/world-tree-api.md#geometrydata)	| [GeometryAttributes](/viewer/world-tree-api.md#geometryattributes) | [GeometryType](/viewer/world-tree-api.md#geometrytype)
 [RenderMaterial](/viewer/world-tree-api.md#rendermaterial)
-=======
- 
->>>>>>> ef2a2dd6256a41c8cfe4cfe8f8b872eddfbffe4e
 
 <br><br>
 
