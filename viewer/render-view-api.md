@@ -19,12 +19,16 @@
 |---	|---	|---
 | [setBatchData](/viewer/render-view-api.md#setbatchdata) 	| [computeAABB](/viewer/render-view-api.md#computeaabb) 	| [disposeGeometry](/viewer/render-view-api.md#disposegeometry)
 
+<<<<<<< HEAD
 
 ### <h3>Typedefs</h3>
 |  	| 	| 	| 	| 
 |---	|---	|---	|---	|
 [NodeRenderData](/viewer/world-tree-api.md#noderenderdata) | [GeometryData](/viewer/world-tree-api.md#geometrydata)	| [GeometryAttributes](/viewer/world-tree-api.md#geometryattributes) | [GeometryType](/viewer/world-tree-api.md#geometrytype)
 [RenderMaterial](/viewer/world-tree-api.md#rendermaterial)
+=======
+ 
+>>>>>>> ef2a2dd6256a41c8cfe4cfe8f8b872eddfbffe4e
 
 <br><br>
 
@@ -210,6 +214,9 @@ Sets the batch related data to the render view. All render view geometry is cont
 :::warning
 By default, `batchStart` and `batchCount` are dynamic, so *they can change* at runtime. `vertStart` and `vertEnd` are not dynamic by default  
 :::
+:::warning
+*Normally*, you have no need overwritting the render view's batch data. It's handled internally by the viewer-core
+:::
 
 #### Parameters
 - **id**: The id of the batch
@@ -223,12 +230,14 @@ By default, `batchStart` and `batchCount` are dynamic, so *they can change* at r
 
 <br>
 
-#### <b>computeAABB</b>
+#### <b>computeAABB()</b>
 ```ts
 computeAABB(): void
 ```
-
-Computes the axis aligned bounding box of the local geometry for this render view.
+Computes this render view's axis aligned bounding box.
+:::warning
+The render view's aabb can be read by using [*aabb*](/viewer/render-view-api.md#aabb), but do note that it does not take user transformations nor instance transformations into account.
+:::
 
 #### Returns: void
 
@@ -317,5 +326,7 @@ enum GeometryType {
 }
 ```
 The formalized geometry types the viewer supports and recognizes.
+
+
 
 
