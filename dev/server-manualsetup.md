@@ -123,6 +123,8 @@ services:
       NUXT_PUBLIC_API_ORIGIN: "http://127.0.0.1"
       NUXT_PUBLIC_BACKEND_API_ORIGIN: "http://speckle-server:3000"
       NUXT_REDIS_URL: "redis://redis"
+      # TODO: Change NUXT_PUBLIC_BASE_URL to the URL of the speckle frontend, as accessed from the network. This is the same value as should be used for the CANONICAL_URL in the server section below.
+      NUXT_PUBLIC_BASE_URL: "http://127.0.0.1"
 
   speckle-server:
     image: speckle/speckle-server:2
@@ -234,6 +236,7 @@ Make sure to edit the file and change:
 
 - `CANONICAL_URL` to the url used to access this speckle server. This can be `http://[PUBLIC_IP]` or `http://[DOMAIN_NAME]`
 - `NUXT_PUBLIC_API_ORIGIN` to the same value as set for `CANONICAL_URL`
+- `NUXT_PUBLIC_BASE_URL` to the same value as set for `CANONICAL_URL`
 - `FRONTEND_ORIGIN` to the same value as set for `CANONICAL_URL`
 - For added security, change the `SESSION_SECRET` to a unique secret value for this deployment.
 
@@ -341,6 +344,9 @@ services:
       NUXT_PUBLIC_API_ORIGIN: "http://127.0.0.1"
       NUXT_PUBLIC_BACKEND_API_ORIGIN: "http://speckle-server:3000"
       NUXT_REDIS_URL: "redis://redis"
+      # TODO: Change NUXT_PUBLIC_BASE_URL to the URL of the speckle frontend, as accessed from the network. This is the same value as should be used for the CANONICAL_URL in the server section below.
+      NUXT_PUBLIC_BASE_URL: "http://127.0.0.1"
+      
 
   speckle-server:
     image: speckle/speckle-server:2
