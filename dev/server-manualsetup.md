@@ -123,8 +123,8 @@ services:
       NUXT_PUBLIC_API_ORIGIN: "http://127.0.0.1"
       NUXT_PUBLIC_BACKEND_API_ORIGIN: "http://speckle-server:3000"
       NUXT_REDIS_URL: "redis://redis"
-      # TODO: For local dev, set NUXT_PUBLIC_BASE_URL to the frontend's local URL (e.g., "http://localhost:8081"). In Docker, use the internal service name and port (e.g., "http://speckle-frontend:8081").
-      NUXT_PUBLIC_BASE_URL: "http://speckle-server:8081"
+      # TODO: Change NUXT_PUBLIC_BASE_URL to the URL of the speckle frontend, as accessed from the network. This is the same value as should be used for the CANONICAL_URL in the server section below.
+      NUXT_PUBLIC_BASE_URL: "http://127.0.0.1"
 
   speckle-server:
     image: speckle/speckle-server:2
@@ -344,8 +344,8 @@ services:
       NUXT_PUBLIC_API_ORIGIN: "http://127.0.0.1"
       NUXT_PUBLIC_BACKEND_API_ORIGIN: "http://speckle-server:3000"
       NUXT_REDIS_URL: "redis://redis"
-      # TODO: For local dev, set NUXT_PUBLIC_BASE_URL to the frontend's local URL (e.g., "http://localhost:8081"). In Docker, use the internal service name and port (e.g., "http://speckle-frontend:8081").
-      NUXT_PUBLIC_BASE_URL: "http://speckle-server:8081"
+      # TODO: Change NUXT_PUBLIC_BASE_URL to the URL of the speckle frontend, as accessed from the network. This is the same value as should be used for the CANONICAL_URL in the server section below.
+      NUXT_PUBLIC_BASE_URL: "http://127.0.0.1"
       
 
   speckle-server:
