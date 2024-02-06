@@ -17,11 +17,14 @@
 ### <h3>Methods</h3>
 |  	| 	| 	|
 |---	|---	|---
-| [setBatchData](/viewer/render-view-api.md#setbatchdata) 	| [cancelBuild](/viewer/render-view-api.md#cancelbuild) 	| [computeTransform](/viewer/render-view-api.md#computetransform)
-[getAtomicParent](/viewer/render-view-api.md#getA=atomicparent) | [getInstances](/viewer/render-view-api.md#getinstances) | [getRenderableNodes](/viewer/render-view-api.md#getrenderablenodes)
-[getRenderableRenderViews](/viewer/render-view-api.md#getrenderablerenderviews) |[getRenderViewNodesForNode](/viewer/render-view-api.md#getrenderviewnodesfornode) | [getRenderViewsForNode](/viewer/render-view-api.md#getrenderviewsfornode)
-[getRenderViewsForNodeId](/viewer/render-view-api.md#getrenderviewsfornodeid) | [purge](/viewer/render-view-api.md#purge) 
- 
+| [setBatchData](/viewer/render-view-api.md#setbatchdata) 	| [computeAABB](/viewer/render-view-api.md#computeaabb) 	| [disposeGeometry](/viewer/render-view-api.md#disposegeometry)
+
+
+### <h3>Typedefs</h3>
+|  	| 	| 	| 	| 
+|---	|---	|---	|---	|
+[NodeRenderData](/viewer/world-tree-api.md#noderenderdata) | [GeometryData](/viewer/world-tree-api.md#geometrydata)	| [GeometryAttributes](/viewer/world-tree-api.md#geometryattributes) | [GeometryType](/viewer/world-tree-api.md#geometrytype)
+[RenderMaterial](/viewer/world-tree-api.md#rendermaterial)
 
 <br><br>
 
@@ -33,7 +36,7 @@ constructor(data: NodeRenderData)
 ```
 Populates/constructs this node render view
 #### Parameters
-- **data**: [*NodeRenderData*]()
+- **data**: [*NodeRenderData*](/viewer/world-tree-api.md#noderenderdata)
 
 <br>
 <br>
@@ -93,8 +96,8 @@ Gets the start index inside the batch's index buffer
 ```ts
 get geometryType(): GeometryType
 ```
-Gets this render view's [*GeometryType*]()
-#### Returns: [*GeometryType*]()
+Gets this render view's [*GeometryType*](/viewer/world-tree-api.md#geometrytype)
+#### Returns: [*GeometryType*](/viewer/world-tree-api.md#geometrytype)
 
 <br>
 
@@ -129,8 +132,8 @@ Returns true if this render view has metadata, false otherwise. Metadata is any 
 ```ts
 get renderData(): NodeRenderData
 ```
-Gets the render view's associated [*NodeRenderData*]()
-#### Returns: [*NodeRenderData*]()
+Gets the render view's associated [*NodeRenderData*](/viewer/world-tree-api.md#noderenderdata)
+#### Returns: [*NodeRenderData*](/viewer/world-tree-api.md#noderenderdata)
 
 <br>
 
@@ -220,131 +223,99 @@ By default, `batchStart` and `batchCount` are dynamic, so *they can change* at r
 
 <br>
 
-#### <b>cancelBuild</b>
+#### <b>computeAABB</b>
 ```ts
-cancelBuild(): void
+computeAABB(): void
 ```
-Cancel any tree building operations that might be taking place. If no building is taking place, nothing happens.
 
-#### Parameters
-- **subtreeId**: The [*TreeNode*](/viewer/render-view-api.md#treenode) to add as a subtree
+Computes the axis aligned bounding box of the local geometry for this render view.
 
 #### Returns: void
 
 <br>
 
-#### <b>computeTransform</b>
+#### <b>disposeGeometry</b>
 ```ts
-computeTransform(node: TreeNode): Matrix4
+disposeGeometry(): void
 ```
-Computes the final world space transformation for the given [*TreeNode*](/viewer/world-tree-api.md#treenode)
+Disposes of the individual geometry of this render view. After batching, the individual geometry of render views becomes redundant, so we can dispose of it to reduce memory footprint
 
 
-#### Parameters
-- **node**: [*TreeNode*](/viewer/world-tree-api.md#treenode) 
-
-#### Returns: [*Matrix4*](https://threejs.org/docs/index.html?q=matrix#api/en/math/Matrix4)
-
-<br>
-
-#### <b>getAtomicParent</b>
-```ts
-getAtomicParent(node: TreeNode): TreeNode
-```
-Gets the closest atomic parent of the provided node. An atomic node represents a standalone object. E.g a door, a window, rather than pieces of a standalone object E.g the door's handle, the window's frame 
-
-#### Parameters
-- **node**: [*TreeNode*](/viewer/world-tree-api.md#treenode)
-
-#### Returns: [*TreeNode*](/viewer/render-view-api.md#treenode)[]
-
-<br>
-
-#### <b>getInstances</b>
-```ts
-getInstances(): { [id: string]: Record<string, TreeNode> }
-```
-Calls the underlying WorldTree [*getInstances*](/viewer/world-tree-api.md#getinstances) with the render tree's id as the argument
-
-#### Returns: <span style="font-weight:normal">A dictionary where each instance id holds a record of [*TreeNode*](/viewer/render-view-api.md#treenode) grouped by their instance unique id.</span>
-
-<br>
-
-#### <b>getRenderableNodes</b>
-```ts
-getRenderableNodes(...types: SpeckleType[]): TreeNode[]
-```
-Gets all renderable nodes of the specified [*SpeckleType*]()s.
-
-#### Parameters
-- **types**: Variable number of [*SpeckleType*]() values
-
-#### Returns: [*TreeNode[]*](/viewer/render-view-api.md#treenode)
-
-<br>
-
-#### <b>getRenderableRenderViews</b>
-```ts
-getRenderableRenderViews(...types: SpeckleType[]): NodeRenderView[]
-```
-Same as [*getRenderableNodes*](/viewer/render-view-api.md#getrenderablerenderviews), but returns the mapped [*NodeRenderView*]()s of the renderable nodes
-
-#### Parameters
-- **node**: Variable number of [*SpeckleType*]() values
-
-#### Returns: [*NodeRenderView[]*]()
-
-<br>
-
-#### <b>getRenderViewNodesForNode</b>
-```ts
-getRenderViewNodesForNode(node: TreeNode): TreeNode[]
-```
-Returns all [*TreeNode*]()s that have a displayable [*NodeRenderView*]() descending from *node*
-
-#### Parameters
-- **node**: [*TreeNode*](/viewer/render-view-api.md#treenode)
-
-
-#### Returns: [*TreeNode[]*](/viewer/render-view-api.md#treenode)
-
-<br>
-
-#### <b>getRenderViewsForNode</b>
-```ts
-getRenderViewsForNode(node: TreeNode): NodeRenderView[]
-```
-Gets all displayable [*RenderView*]()s descending from *node*
-
-#### Parameters
-- **node**: [*TreeNode*](/viewer/render-view-api.md#treenode)
-
-
-#### Returns: [*RenderView[]*]()
-
-<br>
-
-#### <b>getRenderViewsForNodeId</b>
-```ts
-getRenderViewsForNodeId(id: string): NodeRenderView[]
-```
-Gets all displayable [*RenderView*]()s descending from the node with the provided *id*
-
-#### Parameters
-- **id**: Id of the node to gather [*RenderView*]()s for
-
-
-#### Returns: [*RenderView[]*]()
-
-<br>
-
-#### <b>purge</b>
-```ts
-purge(): void
-```
-Purges the render tree
-:::warning
-Purges render trees are no longer usable
-:::
 #### Returns: void
+
+
+<br>
+<br>
+
+### <h3>Typedefs</h3>
+
+<br>
+
+#### <b>NodeRenderData</b>
+```ts
+interface NodeRenderData {
+  id: string
+  subtreeId: number
+  speckleType: SpeckleType
+  geometry: GeometryData
+  renderMaterial: RenderMaterial
+  displayStyle: DisplayStyle
+}
+```
+This is the bare bones data representation of anything renderable in the viewer. The [*NodeRenderView*](/viewer/render-view-api.md#constructor) is more or less a wrapper around this data that adds some shorthands and some extra functionality
+- **id**: The id of the object. For speckle data, this would be the speckle id
+- **subtreeId**: The id of the subtree of the host node
+- **speckleType**: [*SpeckleType*]()
+- **geometry**: Raw geometry information stored as [*GeometryData*](/viewer/world-tree-api.md#geometrydata)
+- **renderMaterial**: Raw material information stored as [*RenderMaterial*]()
+- **DisplayStyle**: Raw line material information stored as [*DisplayStyle*]()
+
+<br>
+
+#### <b>GeometryData</b>
+```ts
+interface GeometryData {
+  attributes: Partial<Record<GeometryAttributes, number[]>>
+  bakeTransform: Matrix4
+  transform: Matrix4
+  metaData?: Record<string, any>
+  instanced?: boolean
+}
+```
+Raw geometry information, explicit and/or implicit.
+- **attributes**: [*GeometryAttributes*]() Vertex attribute arrays
+- **bakeTransform**: [*Matrix4*](https://threejs.org/docs/index.html?q=matri#api/en/math/Matrix4) transformation that will get baked into the geometry
+- **transform**: [*Matrix4*](https://threejs.org/docs/index.html?q=matri#api/en/math/Matrix4) the object's transformation. As per the default implementation, instances use this as the per instance transform attribute. Non-instances have it baked in their geometries
+- **metaData**: Implicit geometry data which the viewer uses at runtime to create geometry. Text is a good example of implicit geometry
+- **instanced**: Whether this geometry data is instanced or not
+
+<br>
+
+#### <b>GeometryAttributes</b>
+```ts
+enum GeometryAttributes {
+  POSITION = 'POSITION',
+  COLOR = 'COLOR',
+  NORMAL = 'NORMAL',
+  UV = 'UV',
+  TANGENT = 'TANGENT',
+  INDEX = 'INDEX'
+}
+```
+Defined attributes that the viewer supports
+
+<br>
+
+#### <b>GeometryType</b>
+```ts
+enum GeometryType {
+  MESH,
+  LINE,
+  POINT,
+  POINT_CLOUD,
+  TEXT
+}
+```
+The formalized geometry types the viewer supports and recognizes.
+
 
