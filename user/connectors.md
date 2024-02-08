@@ -59,6 +59,12 @@ Note: the version of Speckle Manager is unrelated to the versions of the Connect
 
 :::
 
+## Troubleshooting
+
+Having issues with one of our connectors? Please follow the steps below to help us assist you:
+- Post a detailed description of the issue on our [Community Forum](https://speckle.community/c/help/8). Make sure to provide as much information as possible and to attach any source files that could help us replicate it 
+- Share with us any logs relevant to the Connector, you can find them in: `%appdata%/Speckle/Logs` (just copy paste that address in your windows explorer)
+
 ## Units
 
 The connectors take care of unit conversions for geometric objects so you don't have to worry about that. For example, if you're sending a 1 foot long line from Rhino to an AutoCAD document in mm it will measure exactly 304.8mm.
