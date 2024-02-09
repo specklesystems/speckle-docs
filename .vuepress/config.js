@@ -291,7 +291,14 @@ module.exports = {
           collapsable: false,
           children: [
             "overview",
-            "viewer-data",
+            {
+              title: "Viewer Data",
+              collapsable: true,
+              children: [
+                "viewer-data",
+                "loaders"
+              ],
+            },
             "viewer-rendering",
             {
               title: "API Reference",
@@ -305,8 +312,9 @@ module.exports = {
                     "speckle-renderer-api",
                     "world-tree-api",
                     "render-tree-api",
-                    "render-view-api"
-                    
+                    "render-view-api",
+                    "loader-api",
+                    "geometry-converter-api"
                   ],
                 },
               ],

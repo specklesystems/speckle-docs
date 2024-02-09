@@ -8,7 +8,6 @@
 |---    |---    |---    |---
 | [aabb](/viewer/render-view-api.md#aabb) | [batchCount](/viewer/render-view-api.md#batchcount) | [batchEnd](/viewer/render-view-api.md#batchend) | [batchId](/viewer/render-view-api.md#batchid)
 | [batchStart](/viewer/render-view-api.md#batchstart) | [geometryType](/viewer/render-view-api.md#geometrytype) | [guid](/viewer/render-view-api.md#guid) | [hasGeometry](/viewer/render-view-api.md#hasgeometry)
-| [batchStart](/viewer/render-view-api.md#batchstart) | [geometryType](/viewer/render-view-api.md#geometrytype) | [guid](/viewer/render-view-api.md#guid) | [hasGeometry](/viewer/render-view-api.md#hasgeometry)
 | [hasMetadata](/viewer/render-view-api.md#hasmetadata) | [renderData](/viewer/render-view-api.md#renderdata) | [renderMaterialHash](/viewer/render-view-api.md#rendermaterialhash) | [speckleType](/viewer/render-view-api.md#hasgeometry)
 | [transparent](/viewer/render-view-api.md#transparent) | [validGeometry](/viewer/render-view-api.md#validgeometry) | [vertEnd](/viewer/render-view-api.md#vertend) | [vertStart](/viewer/render-view-api.md#vertstart)
 
@@ -23,8 +22,7 @@
 ### <h3>Typedefs</h3>
 |  	| 	| 	| 	| 
 |---	|---	|---	|---	|
-[NodeRenderData](/viewer/world-tree-api.md#noderenderdata) | [GeometryData](/viewer/world-tree-api.md#geometrydata)	| [GeometryAttributes](/viewer/world-tree-api.md#geometryattributes) | [GeometryType](/viewer/world-tree-api.md#geometrytype)
-[RenderMaterial](/viewer/world-tree-api.md#rendermaterial)
+[NodeRenderData](/viewer/render-view-api.md#noderenderdata) | [GeometryData](/viewer/render-view-api.md#geometrydata)	| [GeometryAttributes](/viewer/render-view-api.md#geometryattributes) | [GeometryType](/viewer/render-view-api.md#geometrytypeenum)
 
 <br><br>
 
@@ -36,7 +34,7 @@ constructor(data: NodeRenderData)
 ```
 Populates/constructs this node render view
 #### Parameters
-- **data**: [*NodeRenderData*](/viewer/world-tree-api.md#noderenderdata)
+- **data**: [*NodeRenderData*](/viewer/render-view-api.md#noderenderdata)
 
 <br>
 <br>
@@ -96,8 +94,8 @@ Gets the start index inside the batch's index buffer
 ```ts
 get geometryType(): GeometryType
 ```
-Gets this render view's [*GeometryType*](/viewer/world-tree-api.md#geometrytype)
-#### Returns: [*GeometryType*](/viewer/world-tree-api.md#geometrytype)
+Gets this render view's [*GeometryType*](/viewer/render-view-api.md#geometrytypeenum)
+#### Returns: [*GeometryType*](/viewer/render-view-api.md#geometrytypeenum)
 
 <br>
 
@@ -132,8 +130,8 @@ Returns true if this render view has metadata, false otherwise. Metadata is any 
 ```ts
 get renderData(): NodeRenderData
 ```
-Gets the render view's associated [*NodeRenderData*](/viewer/world-tree-api.md#noderenderdata)
-#### Returns: [*NodeRenderData*](/viewer/world-tree-api.md#noderenderdata)
+Gets the render view's associated [*NodeRenderData*](/viewer/render-view-api.md#noderenderdata)
+#### Returns: [*NodeRenderData*](/viewer/render-view-api.md#noderenderdata)
 
 <br>
 
@@ -271,7 +269,7 @@ This is the bare bones data representation of anything renderable in the viewer.
 - **id**: The id of the object. For speckle data, this would be the speckle id
 - **subtreeId**: The id of the subtree of the host node
 - **speckleType**: [*SpeckleType*]()
-- **geometry**: Raw geometry information stored as [*GeometryData*](/viewer/world-tree-api.md#geometrydata)
+- **geometry**: Raw geometry information stored as [*GeometryData*](/viewer/render-view-api.md#geometrydata)
 - **renderMaterial**: Raw material information stored as [*RenderMaterial*]()
 - **DisplayStyle**: Raw line material information stored as [*DisplayStyle*]()
 
@@ -311,7 +309,7 @@ Defined attributes that the viewer supports
 
 <br>
 
-#### <b>GeometryType</b>
+#### <b>GeometryType enum</b>
 ```ts
 enum GeometryType {
   MESH,
