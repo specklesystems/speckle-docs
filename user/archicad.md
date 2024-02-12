@@ -38,11 +38,11 @@ This connector uses our shared Desktop UI. Read up on general guidelines for usa
 
 Currently, sending is just supported through selection.
 
-After launching the connector, either create a new stream or select an existing one.
+After launching the connector, either create a new project or select an existing one.
 
 Next, select the objects you want to send from within the model viewer. Then in the send menu, click "Add selection".
 
-You can then write a commit message and click send. Once the send is complete, you'll be able to click the popup to view it in the browser.
+You can then write a message to label the version and click send. Once the send is complete, you'll be able to click the popup to view it in the browser.
 
 ![gif of the launch and send procedure in archicad](./img-archicad/archicad-send-process.gif)
 
@@ -50,7 +50,7 @@ You can then write a commit message and click send. Once the send is complete, y
 
 #### Into Archicad
 
-To receive data into Archicad, simply select a stream and click receive! Note that receiving into Archicad is currently not well supported. This is still an alpha and thus very work in progress!
+To receive data into Archicad, simply select a project and click receive! Note that receiving into Archicad is currently not well supported. This is still an alpha and thus very work in progress!
 
 Feel free to drop suggestions and ideas about how you would like to use this connector on the [forum](https://speckle.community/) to help guide the development of this connector 🚀
 
@@ -58,15 +58,15 @@ Feel free to drop suggestions and ideas about how you would like to use this con
 
 Receiving Archicad models in other geometry focussed connectors (eg SketchUp, Rhino, Blender) is pretty well supported. Check out the images below for some examples!
 
-**Blender**
+##### Blender
 
 ![archicad to blender](./img-archicad/archicad-to-blender.png)
 
-**Rhino**
+##### Rhino
 
 ![archicad to rhino](./img-archicad/archicad-to-rhino.png)
 
-**SketchUp**
+##### SketchUp
 
 ![archicad to sketchup](./img-archicad/archicad-to-sketchup.png)
 
