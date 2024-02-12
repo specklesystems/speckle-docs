@@ -23,7 +23,7 @@ The following component categories are intended for all users:
 
 - Send/Receive nodes
 - Account category, holding all account related nodes.
-- Stream category, holding all stream related nodes.
+- Project category, holding all project related nodes.
 
 We've also built a few components designed for advanced users and developers:
 
@@ -53,22 +53,23 @@ Just go to `Speckle 2 -> Tabs` and enable the ones you do need. By default, all 
 **Changes to this settings will take effect after Restarting Rhino**.
 :::
 
-## Streams and URLs
+## Projects and URLs
 
-In visual programming environments, Speckle Streams are identified by their URLs. Across our Dynamo and Grasshopper connectors you'll see URLs in 4 different formats:
+Speckle Projects are identified by their URLs.
+Across our Dynamo and Grasshopper connectors you'll see URLs in 3 different formats:
 
-- `https://speckle.xyz/streams/3073b96e86` points to the `main` branch on Stream `3073b96e86`
-- `https://speckle.xyz/streams/3073b96e86/branches/dev` points to a branch named `dev` on Stream `3073b96e86`
-- `https://speckle.xyz/streams/3073b96e86/commits/604bea8cc6` points to a specific commit `604bea8cc6` on Stream `3073b96e86`
-- `https://speckle.xyz/streams/3073b96e86/globals/d227da61c1` points to the [globals](/user/web.html#globals) at `d227da61c1` on Stream `3073b96e86` (the globals id is optional)
+- `https://app.speckle.systems/projects/3073b96e86` points to the `main` model on project `3073b96e86`
+- `https://app.speckle.systems/projects/3073b96e86/models/$main` points to a model named `main` on project `3073b96e86`
+- `https://app.speckle.systems/projects/3073b96e86/models/0fe47c9dca@604bea8cc6` points to a specific version `604bea8cc6` on project `3073b96e86`
+- `https://app.speckle.systems/projects/3073b96e86/models/df7b8bafccefa791d82939dd36541189` points to a specific object `df7b8bafccefa791d82939dd36541189` on project `3073b96e86`
 
 ::: tip
-Unsure what _commits_ and _branches_ are? 🤔
+Unsure what _versions_ and _models_ are? 🤔
 
 No worries, you don't need to know what they are to use Speckle! But if you're curious, you can read about them in [concepts](/user/concepts).
 :::
 
-We'll see how branch and commit URLs are used in the following sections.
+We'll see how model and version URLs are used in the following sections.
 
 ## Sending Data
 
@@ -76,40 +77,40 @@ Let's look at how we would send some data in grasshopper. First, start by creati
 
 ![image-20210322180706379](./img-gh/image-20210322180706379.png)
 
-To select the stream you want send data to,just pass in its URL as a string to the stream port.
+To select the project you want send data to,just pass in its URL as a string to the project port.
 
 ![image-20210322181425413](./img-gh/image-20210322181425413.png)
 
-Alternatively, you can also use one of the following nodes to create or retrieve existing streams:
+Alternatively, you can also use one of the following nodes to create or retrieve existing projects:
 
-- [Create Stream](/user/grasshopper.md#create-stream)
-- [Get Stream](/user/grasshopper.md#get-stream)
-- [List Streams](/user/grasshopper.md#list-streams)
+- [Create Project](/user/grasshopper.md#create-project)
+- [Get Project](/user/grasshopper.md#get-project)
+- [List Projects](/user/grasshopper.md#list-projects)
 
 :::tip NOTE
-While you can send data to streams and branches, you cannot send data to a specific commit. This is because commits represent your stream in a specific point in time. Therefore, everything that gets sent to Speckle is already a commit.
+While you can send data to projects and models, you cannot send data to a specific version. This is because versions represent your project in a specific point in time. Therefore, everything that gets sent to Speckle is already a version.
 
-Want to edit an old commit? Just re-send the data and use the new commit instead.
+Want to edit an old version? Just re-send the data and use the new version instead.
 :::
 
 #### Adding Objects
 
 In order to select which objects to send in grasshopper, we just need to connect the desired nodes to the `Data` input in the `Send` node. The sender supports any type of data, in any structure (item, list, datatree), and will convert any supported Rhino objects into a Speckle-compatible format where necessary.
 
-#### Adding a Commit Message
+#### Adding a Version Message
 
-While not required, it's good practice to add a "commit message" whenever you send you data, especially if working with others. This message should briefly describe the changes being pushed.
-You can add a commit message by passing some text to the `message` port.
-The commit message will be visible in Speckle Web (where you will also be able to edit it).
+While not required, it's good practice to add a "version message" whenever you send you data, especially if working with others. This message should briefly describe the changes being pushed.
+You can add a version message by passing some text to the `message` port.
+The version message will be visible in Speckle Web (where you will also be able to edit it).
 
 #### Sending
 
-Once you've lined up your objects (and optionally written a commit message) the only thing left to do is to press the **Send button**.
+Once you've lined up your objects (and optionally written a version message) the only thing left to do is to press the **Send button**.
 
 ![gh-send](./img-gh/gh-send.gif)
 
 ::: tip
-To view the data you just sent in Grasshopper, right-click the `Send` node and select the `View commit ...` option. This should open a new browser window loading the _stream url_. You can share that url with any collaborators so they can receive the data.
+To view the data you just sent in Grasshopper, right-click the `Send` node and select the `View version ...` option. This should open a new browser window loading the _project url_. You can share that url with any collaborators so they can receive the data.
 
 ![image-20210322182801307](./img-gh/image-20210322182801307.png)
 
@@ -121,45 +122,45 @@ By right-clicking on the node, you can enable/disable auto sending. If enabled, 
 
 ![image](https://user-images.githubusercontent.com/2679513/139331715-86d102dd-fa0b-4854-bc75-764e005b0559.png)
 
-### Sending to a Specific Branch
+### Sending to a Specific Model
 
-When referring to a stream by its URL, the `main` branch is used to send and receive data by default.
+When referring to a project by its URL, the `main` model is used to send and receive data by default.
 
-To target a specific branch, simply use the branch URL, such as: `https://speckle.xyz/streams/3073b96e86/branches/dev`.
+To target a specific model, simply use the model URL, such as: `https://app.speckle.systems/projects/3073b96e86/models/0fe47c9dca`.
 
 ## Receiving Data
 
-Receiving data is very simple. You just need a `Receive` node, and a stream URL.
+Receiving data is very simple. You just need a `Receive` node, and a project URL.
 
 ![gh-receive](./img-gh/gh-receive.gif)
 
-When new data is pushed to this stream a notification will appear on the receive node, highlighting this fact.
+When new data is pushed to this project a notification will appear on the receive node, highlighting this fact.
 
 ### Auto Receiving
 
-By right-clicking on the node, you can enable/disable auto receiving. If enabled, new data pushed to this stream will be pulled automatically as it becomes available.
+By right-clicking on the node, you can enable/disable auto receiving. If enabled, new data pushed to this project will be pulled automatically as it becomes available.
 
 ![image-20210322183400126](./img-gh/image-20210322183400126.png)
 
-### Receiving a Specific Branch
+### Receiving a Specific Model
 
-When referring to a stream by its URL, the `main` branch is used to send and receive data by default.
+When referring to a project by its URL, the `main` model is used to send and receive data by default.
 
-To receive from a specific branch, simply use the branch URL, such as: `https://speckle.xyz/streams/3073b96e86/branches/dev`.
+To receive from a specific model, simply use the model URL, such as: `https://app.speckle.systems/projects/3073b96e86/models/0fe47c9dca`.
 
-### Receiving a Specific Commit
+### Receiving a Specific Version
 
-As we've seen, you can retrieve data from both the 'stream' and 'branch' level. It goes deeper - it's possible to retrieve data from specific commits. To do so, simply use the commit URL, such as: `https://speckle.xyz/streams/3073b96e86/commits/604bea8cc6`
+As we've seen, you can retrieve data from both the 'project' and 'model' level. It goes deeper - it's possible to retrieve data from specific versions. To do so, simply use the version URL, such as: `https://app.speckle.systems/projects/3073b96e86/models/0fe47c9dca@604bea8cc6`
 
 ::: tip NOTE
 
-When receiving from a commit, the node will stop showing notifications about new activity on such stream and the auto receive toggle will be disabled.
+When receiving from a version, the node will stop showing notifications about new activity on such project and the auto receive toggle will be disabled.
 
 :::
 
 ### Receiving a Specific Object
 
-Finally, you can also receive just a specific object in a commit, to do so simply use the commit URL, ie: `https://speckle.xyz/streams/3073b96e86/objects/df7b8bafccefa791d82939dd36541189`. Objects can't be edited, so the data received using such a URL will always be consistent.
+Finally, you can also receive just a specific object in a version, to do so simply use the version URL, ie: `https://app.speckle.systems/projects/3073b96e86/models/df7b8bafccefa791d82939dd36541189`. Objects can't be edited, so the data received using such a URL will always be consistent.
 You can find the ID of an object from the Speckle Web interface:
 
 ![image-20210322185007725](./img-dyn/image-20210322185007725.png)
@@ -337,7 +338,7 @@ This option allows you to switch between generating `Speckle BIM` elements direc
 - When targeting exclusively BIM applications, it makes sense to use the _default setting_ (`Convert as Schema Object`), as the data will be organised in a way that is relatable to BIM users (such as beams, columns, slabs, etc...)
 - When your data is going to be consumed primarily as geometry in other applications, but needs to play nice in some BIM application as well, then it may make more sense to treat this objects as **geometry first**, and attach the BIM information to that geometry.
 
-They will both be received as **native BIM elements** in any target BIM application, so essentially, there is no difference between the two in the way they will behave, and you can even have both types of objects mixed in the same commit.
+They will both be received as **native BIM elements** in any target BIM application, so essentially, there is no difference between the two in the way they will behave, and you can even have both types of objects mixed in the same version.
 
 When the **Convert `Geometry` with `Schema` attached** option is enabled, the output will display a visual hint to indicate to the user this behavior is occurring, and allow to distinguish between nodes with different state options active:
 
@@ -511,13 +512,13 @@ The **Send Node** performs sending operations, usually to a Speckle Server, but 
 
 #### Input
 
-- _Stream_: Supports any generated stream from within the `Stream` component category, but also _stream urls_ in text format.
-- _Message_: The message you want to attach to the _commit_ when you send the data. Defaults to `"Grasshopper push"`.
+- _Project_: Supports any generated project from within the `project` component category, but also _project urls_ in text format.
+- _Message_: The message you want to attach to the _version_ when you send the data. Defaults to `"Grasshopper push"`.
 - _Data_: This port will accept almost anything you give it. If the objects provided are not `Base` objects, it will also perform the conversion to Speckle automatically.
 
 #### Output
 
-- _Stream_: The _commit url_ pointing to the objects in the Speckle server.
+- _Project_: The _version url_ pointing to the objects in the Speckle server.
 
 #### Extra options
 
@@ -545,17 +546,17 @@ You can find a more detailed explanation of this option [here](#detachdo-not-det
 
 ![Receive node](./img-gh/nodes-receive.png)
 
-The **Receive Node** fetches data from a specified `Stream` or any other valid `Transport`. Whenever possible, the receiver node will try to convert all Speckle objects into Rhino-compatible objects.
+The **Receive Node** fetches data from a specified `project` or any other valid `Transport`. Whenever possible, the receiver node will try to convert all Speckle objects into Rhino-compatible objects.
 
 <!-- > This node is capable of [Kit Selection](#object-conversion-and-kits) -->
 
 #### Inputs
 
-- _Stream_: Supports any generated stream from within the `Stream` component category, but also _stream urls_ in text format.
+- _Project_: Supports any generated project from within the `project` component category, but also _project urls_ in text format.
 
 #### Outputs
 
-- _Data_: The data that was received from the stream.
+- _Data_: The data that was received from the project.
 
 #### Extra options
 
@@ -575,9 +576,9 @@ Similar to the `Do not convert` option in `Create Speckle Object` node, it will 
 
 ##### Receive automatically
 
-There is also an option to set the node to automatically send every time there is a new commit on the stream. You will find this option in the right-click menu of the node.
+There is also an option to set the node to automatically send every time there is a new version on the project. You will find this option in the right-click menu of the node.
 
-This option is not available when the input stream url points to a specific `commit` or an `object`.
+This option is not available when the input project url points to a specific `version` or an `object`.
 
 ### Local Send Node
 
@@ -622,12 +623,12 @@ The **Synchronous Send** node performs receive operations in the same way as the
 #### Input
 
 - _Data_: This port will accept almost anything you give it. If the objects provided are not `Base` objects, it will also perform the conversion to Speckle automatically.
-- _Stream_: Supports any generated stream from within the `Stream` component category, but also _stream urls_ in text format.
-- _Message_: The message you want to attach to the _commit_ when you send the data. Defaults to `"Grasshopper push"`.
+- _Project_: Supports any generated project from within the `Project` component category, but also _project urls_ in text format.
+- _Message_: The message you want to attach to the _version_ when you send the data. Defaults to `"Grasshopper push"`.
 
 #### Output
 
-- _Stream_: The _commit url_ pointing to the objects in the Speckle server.
+- _Project_: The _version url_ pointing to the objects in the Speckle server.
 
 ### Synchronous Receive Node
 
@@ -639,11 +640,11 @@ The **Synchronous Receive** node performs receive operations in the same way as 
 
 #### Inputs
 
-- _Stream_: Supports any generated stream from within the `Stream` component category, but also _stream urls_ in text format.
+- _Project_: Supports any generated project from within the `Project` component category, but also _project urls_ in text format.
 
 #### Outputs
 
-- _Data_: The data that was received from the stream.
+- _Data_: The data that was received from the project.
 
 ### Create Speckle Object
 
@@ -663,7 +664,7 @@ This node will create a new Speckle object using a list of `Keys` to be used as 
 
 ![Creating an object with keys and values as lists](./img-gh/nodes-create-keyval-list.png)
 
-> Notice when creating list items, the data structure must match. Meaning, the keys and values for each object must start with the same branch index.
+> Notice when creating list items, the data structure must match. Meaning, the keys and values for each object must start with the same model index.
 
 ### Deconstruct Speckle Object
 
@@ -752,13 +753,13 @@ The **Accounts** node provides a fast way of selecting different Speckle account
 
 > Accounts must be set-up in your computer using the **Speckle Manager**. If no accounts are shown after setting up the solution
 
-### Create Stream
+### Create Project
 
-![alt](./img-gh/nodes-create-stream.png)
+![alt](./img-gh/nodes-create-project.png)
 
-The **Create Stream** node allows for the quick creation of a new stream. This stream will have default name and description, so it may be a good idea to edit that at some point.
+The **Create Project** node allows for the quick creation of a new project. This project will have default name and description, so it may be a good idea to edit that at some point.
 
-Once an account has been provided, the node will generate a new stream and remember it for as long as the node exists in the canvas. This means the only way to create another new stream is to use a new `Create Stream` component.
+Once an account has been provided, the node will generate a new project and remember it for as long as the node exists in the canvas. This means the only way to create another new project is to use a new `Create Project` component.
 
 #### Inputs
 
@@ -766,83 +767,83 @@ Once an account has been provided, the node will generate a new stream and remem
 
 #### Outputs
 
-- _Stream_: A `Stream` object pointing to the newly created stream.
+- _Project_: A `Project` object pointing to the newly created project.
 
-### Get Stream
+### Get Project
 
-![Stream get node](./img-gh/nodes-stream-get.png)
+![Project get node](./img-gh/nodes-project-get.png)
 
-The **Get Stream** node will try to find an existing `Stream`, given its unique `id` (or its `stream url`) and a specific account to access that stream with.
+The **Get Project** node will try to find an existing `Project`, given its unique `id` (or its `project url`) and a specific account to access that project with.
 
 ::: tip
-You can also use a stream URL copied from your browser instead of using this node.
+You can also use a project URL copied from your browser instead of using this node.
 :::
 
 #### Inputs
 
-- _Stream_: Supports any generated stream from within the `Stream` component category, but also _stream urls_ in text format.
+- _Project_: Supports any generated project from within the `Project` component category, but also _project urls_ in text format.
 - _Account_: A Speckle account, provided by the **Accounts Node**. If no account is provided, the _default account_ will be used.
 
 #### Outputs
 
-- _Stream_: A `Stream` object. If the stream doesn't exist, an error will be shown.
+- _Project_: A `Project` object. If the project doesn't exist, an error will be shown.
 
-### List Streams
+### List Projects
 
-![Stream list node](./img-gh/nodes-stream-list.png)
+![Project list node](./img-gh/nodes-project-list.png)
 
-The **List Streams** node returns a specified amount of streams available in an account. For performance reasons, it has been limited to fetching a maximum of 20 streams.
+The **List Projects** node returns a specified amount of projects available in an account. For performance reasons, it has been limited to fetching a maximum of 20 projects.
 
 ::: tip
-You can also use a stream URL copied from your browser instead of using this node
+You can also use a project URL copied from your browser instead of using this node
 :::
 
 #### Inputs
 
 - _Account_: A Speckle account, provided by the **Accounts Node**. If no account is provided, the _default account_ will be used.
-- _Limit_: The number of streams to fetch from the server.
+- _Limit_: The number of projects to fetch from the server.
 
 #### Outputs
 
-- _Streams_: List of `Stream` objects available to the specified account.
+- _projects_: List of `Project` objects available to the specified account.
 
-### Stream details
+### Project details
 
-![Stream details node](./img-gh/nodes-stream-details.png)
+![Project details node](./img-gh/nodes-project-details.png)
 
-The **Stream Details** node returns all relevant information related to a specific `Stream`.
-
-#### Inputs
-
-- _Stream_: Supports any generated stream from within the `Stream` component category, but also _stream urls_ in text format.
-
-#### Output
-
-- _Stream ID_: The unique `id` that identifies the stream.
-- _Name_: The name of the stream.
-- _Description_: The description of the stream.
-- _Created at_: The date this stream was created.
-- _Updated at_: The date marking the last time the stream was updated.
-- _Public_: Boolean value indicating if the stream has _link sharing_ enabled.
-- _Collaborators_: A list of collaborators that have access to this stream, as well as their roles.
-- _Branches_: A list of available branches for this stream.
-
-### Stream Update
-
-![Stream update node](./img-gh/nodes-stream-update.png)
-
-The **Stream Update** node allows for updating the _name_, _description_ and _link sharing_ (which will make your data publicly available to read by anyone with the _stream url_)
+The **Project Details** node returns all relevant information related to a specific `Project`.
 
 #### Inputs
 
-- _Stream_: Supports any generated stream from within the `Stream` component category, but also _stream urls_ in text format.
-- _Name (optional)_: Text string with the new name for the stream.
-- _Description (optional)_: Text string with the new description for the stream.
-- _Public_: Boolean value to activate/deactivate this stream's _link sharing_.
+- _Project_: Supports any generated project from within the `Project` component category, but also _project urls_ in text format.
 
 #### Output
 
-- _Stream ID_: A `Stream` url pointing to the updated stream.
+- _project ID_: The unique `id` that identifies the project.
+- _Name_: The name of the project.
+- _Description_: The description of the project.
+- _Created at_: The date this project was created.
+- _Updated at_: The date marking the last time the project was updated.
+- _Public_: Boolean value indicating if the project has _link sharing_ enabled.
+- _Collaborators_: A list of collaborators that have access to this project, as well as their roles.
+- _Branches_: A list of available models for this project.
+
+### Project Update
+
+![Project update node](./img-gh/nodes-project-update.png)
+
+The **Project Update** node allows for updating the _name_, _description_ and _link sharing_ (which will make your data publicly available to read by anyone with the _project url_)
+
+#### Inputs
+
+- _Project_: Supports any generated project from within the `Project` component category, but also _project urls_ in text format.
+- _Name (optional)_: Text string with the new name for the project.
+- _Description (optional)_: Text string with the new description for the project.
+- _Public_: Boolean value to activate/deactivate this project's _link sharing_.
+
+#### Output
+
+- _project ID_: A `Project` url pointing to the updated project.
 
 ### Developer Tools
 

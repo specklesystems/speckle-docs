@@ -40,7 +40,7 @@ Once the package has installed, you must follow the steps in [Project Setup](uni
 
 ### Receiving
 
-To receive data directly from the editor, just add the `SpeckleManager.cs` script to a GameObject, in the inspector you'll now be able to select accounts, streams, branches and commits.
+To receive data directly from the editor, just add the `SpeckleManager.cs` script to a GameObject, in the inspector you'll now be able to select accounts, projects, models and versions.
 
 Please note this feature is in early release and might be a bit unstable.
 
@@ -56,7 +56,7 @@ To receive data please refer to the [`Receiver.cs`](https://github.com/specklesy
 
 ```csharp
 var receiver = myGameObject.AddComponent<Receiver>();
-receiver.Init(streamId);
+receiver.Init(projectId);
 receiver.Receive();
 ```
 
@@ -68,7 +68,7 @@ To send data please refer to the [`Sender.cs`](https://github.com/specklesystems
 
 ```csharp
 var sender = myGameObject.AddComponent<Sender>();
-sender.Send(streamId, objs);
+sender.Send(projectId, objs);
 ```
 
 The `Send()` method accepts additional optional arguments to use different accounts, report progress and errors etc. Please check the [source code](https://github.com/specklesystems/speckle-unity/blob/main/Assets/Speckle%20Connector/Sender.cs) for a complete list.

@@ -58,7 +58,7 @@ Once you've found the equivalent for your OS / SketchUp version, copy the `speck
 
 For the moment, there is only one send mode: selection.
 
-Simply select all the objects you would like to send, then click the "Send" cube. To switch the targeted branch, click the currently selected branch and find the branch from the dropdown menu.
+Simply select all the objects you would like to send, then click the "Send" cube. To switch the targeted model, click the currently selected model and find the model from the dropdown menu.
 
 ![sending-with-sketchup-img](./img-sketchup/sketchup-send.png)
 
@@ -68,9 +68,9 @@ See the gif below for the full process.
 
 ### Receiving Data
 
-Receiving streams in SketchUp is as simple as clicking the "Receive" cube. As with sending, you can switch the targeted branch and the particular commit to receive.
+Receiving projects in SketchUp is as simple as clicking the "Receive" cube. As with sending, you can switch the targeted model and the particular version to receive.
 
-Note that if you sent SketchUp groups to a stream, they will be received as component instances rather than groups.
+Note that if you sent SketchUp groups to a project, they will be received as component instances rather than groups.
 
 ![receiving-with-sketchup-img](./img-sketchup/sketchup-receive.png)
 

@@ -95,7 +95,7 @@ Of course, as an end user, you have full control and visibility on the apps you 
 - revoke access to any of the above,
 - check out any publicly listed apps on this server (optional at this stage)
 
-### Extras on app types:
+### Extras on app types
 
 Note: broadly speaking, there are two type of apps:
 

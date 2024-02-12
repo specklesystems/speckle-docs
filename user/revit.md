@@ -29,7 +29,7 @@ This connector uses our shared Desktop UI. Read up on general guidelines for usa
 
 ### Selection Filters
 
-To help you select which elements will be to sent to Speckle, we've built various filters into our Revit connector. Once a filter is set, just click **Send** and all objects passing the filter will be sent to your Stream.
+To help you select which elements will be to sent to Speckle, we've built various filters into our Revit connector. Once a filter is set, just click **Send** and all objects passing the filter will be sent to your project.
 
 _Please Note: Elements are sent regardless of whether they are visible or if they were created after setting up the filter._
 
@@ -67,7 +67,7 @@ The list of available parameters comes from the current elements in the model. I
 
 ### Receive Modes
 
-When receiving from a Stream that has been received before, you might want to update, create or ignore elements that were already created before.
+When receiving from a project that has been received before, you might want to update, create or ignore elements that were already created before.
 This is when the **Receive Mode** setting comes in! This is how it works:
 
 - update: updates elements if they already exist and creates missing ones (current behavior in Revit)
@@ -116,13 +116,13 @@ The connector takes care of updating received elements automatically where possi
 Elements are updated under these two circumstances:
 
 - If the element was created in another project/software and had been received previously: for example, BuiltElements that were created in Rhino or Grasshopper
-- If the element was created in the same project you're working on: for example, if you send some walls to Speckle, edit them, and receive them again from the same stream
+- If the element was created in the same project you're working on: for example, if you send some walls to Speckle, edit them, and receive them again from the same project
 
 Here are some technical details if you're curious about what's happening behind the scenes:
 
 - BuiltElements have a property called `applicationId`, this is different from the `id/hash` property on them, and represents the id of such element in the host application in which it was first created. If the element was created in Revit it’s the `UniqueId`, if coming from Grasshopper/Rhino an analogous field
-- When a stream is received in Revit the `applicationIds` of all BuiltElements created are cached in the receiver
-- When receiving a second time from the same stream, if the received elements have the same `applicationId` of something that was previously received (and it still exists in the document), the connector will attempt to modify them instead of creating new ones. If the update fails (or is not permitted by the API), it’ll delete them and create new ones
+- When a project is received in Revit the `applicationIds` of all BuiltElements created are cached in the receiver
+- When receiving a second time from the same project, if the received elements have the same `applicationId` of something that was previously received (and it still exists in the document), the connector will attempt to modify them instead of creating new ones. If the update fails (or is not permitted by the API), it’ll delete them and create new ones
 - If no cached element is found, but there is an element in the document with a matching `applicationId` that is used for the update (this is the case of someone restoring changes previously sent, in the same project)
 - If an element being received doesn’t have an `applicationId` no update mechanism will happen (this could be the case of BuiltElements created in Python if no `applicationIds` are generated manually)
 
@@ -156,9 +156,9 @@ To easily explore on object's data and parameters, our [Speckle Web App](/user/w
 
 ![web-bim-data](https://user-images.githubusercontent.com/51519350/186416982-15eb496a-18fc-4782-b1d2-a6df01e9a5ed.png)
 
-## Stream Advanced Settings
+## Project Advanced Settings
 
-The `Advanced Settings` page allows you to customize the way Speckle behaves "per-stream".
+The `Advanced Settings` page allows you to customize the way Speckle behaves "per-project".
 
 ![Advanced settings page](./img-revit/revit-advancedSettings-view.png)
 
@@ -206,14 +206,14 @@ Availible options are:
     Speckle will do all the mapping for you.
 - Always
     
-    Everytime a Speckle commit is received, you will see a table of all the incoming object types and get the chance to set a mapped native Revit type to each incoming type.
+    Everytime a Speckle version is received, you will see a table of all the incoming object types and get the chance to set a mapped native Revit type to each incoming type.
 - For New Types
     
-    When a stream is first received, you will see a table of all incoming types and map them to types in the Revit application (exactly the same as the above option). 
+    When a project is first received, you will see a table of all incoming types and map them to types in the Revit application (exactly the same as the above option). 
 
-    When you receive from the same stream a second time, however, the mapping dialog will only appear if there are new incoming types that have not previously been mapped by the user. 
+    When you receive from the same project a second time, however, the mapping dialog will only appear if there are new incoming types that have not previously been mapped by the user. 
     
-    If the next commit received contains the same objects as the first commit, then the previous custom mapping will be used and you will not be asked to remap all of the incoming types.
+    If the next version received contains the same objects as the first version, then the previous custom mapping will be used and you will not be asked to remap all of the incoming types.
 
 #### Import types
 ![Import Types](./img-revit/revit-advancedSettings-importTypes.png)
@@ -253,7 +253,7 @@ Make sure to select the filter you intent to use when the scheduler is triggered
 
 ![image](https://user-images.githubusercontent.com/2679513/159046830-a40b6dc0-46f1-4681-9de1-fb094c8d41ff.png)
 
-Now that your sender stream is saved you can open the Scheduler and select it, together with the intended trigger:
+Now that your sender project is saved you can open the Scheduler and select it, together with the intended trigger:
 
 ![image](https://user-images.githubusercontent.com/2679513/159047256-1971295a-782e-439e-be61-c92d712ae1fd.png)
 

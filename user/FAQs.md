@@ -31,17 +31,17 @@ Speckle is licensed as Apache 2 so you are free to study, modify, redistribute a
 
 This means that you can totally deploy your own Speckle server without ever having to depend on us!
 
-## What is a Stream?
+## What is a Project?
 
-**Streams** are collections of data inside Speckle. You can see a stream as a folder, a project or a repository.
+**Projects** are collections of data inside Speckle. You can see a Project as a folder or a repository.
 
-## What is a Commit?
+## What is a Version?
 
-Data in a stream is stored in **commits**, which are snapshots of data in time. Every time you send to Speckle from a connector, a commit is created.
+Data in a Project is stored in **Versions**, which are snapshots of data in time. Every time you send to Speckle from a connector, a Version is created.
 
-## What is a Branch?
+## What is a Model?
 
-Commits can also be organized in **branches**, for instance, to have multiple design options or to store data by discipline. The default branch is called _main_.
+Versions can also be organized in **Models**, for instance, to have multiple design options or to store data by discipline. If a Project has only one Model and has no name it can be referred to as _main_.
 
 ## What is a Connector?
 
@@ -74,17 +74,17 @@ For any more questions about this, feel free to [contact us](https://speckle.sys
 
 Check our [troubleshooting section](/user/manager.html#troubleshooting) for Speckle Manager.
 
-## How do I merge two branches in Speckle
+## How do I merge two Models in Speckle
 
-Currently, commits, branches or streams cannot be merged via Speckle, but you can do so in most authoring software supported by Speckle. For instance, you can manually merge two branches (or even streams) easily in Grasshopper.
+Currently, Versions, Models or Projects cannot be merged via Speckle, but you can do so in most authoring software supported by Speckle or progammaticaly using our SDKs. For instance, you can manually merge two Models (or even Projects) easily in Grasshopper.
 
 ## Why can't I see anything in the 3D Viewer?
 
-Our 3D Viewer only supports visualizing geometry. If you're sending any data that doesn't have a supported geometrical representation it will not be visible, for example when sending a list of Levels or Revit Family and Type names. You'll always be able to explore the raw data of a Stream in the commit page, however.
+Our 3D Viewer only supports visualizing geometry. If you're sending any data that doesn't have a supported geometrical representation it will not be visible, for example when sending a list of Levels or Revit Family and Type names. You'll always be able to explore the raw data of a Project in the Version page, however.
 
 ## I forgot my password 🤔
 
-This time over, we've got you covered: just go to the [password reset page](https://speckle.xyz/authn/resetpassword)!
+This time over, we've got you covered: just go to the [password reset page](https://app.speckle.systems/authn/resetpassword)!
 
 ## More questions?
 

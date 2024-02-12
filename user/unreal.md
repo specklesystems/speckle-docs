@@ -67,23 +67,23 @@ Here is how to use it:
 
 3. There are **two ways to import objects** using the `Speckle Unreal Manager` actor.
 
-::: tip Import <b>a specific object</b> id, by specifying a <i>Server URL</i> + <i>Stream id</i> + <i>Object id</i>
+::: tip Import <b>a specific object</b> id, by specifying a <i>Server URL</i> + <i>Project id</i> + <i>Object id</i>
 
 <p><details>
 <summary>Expand</summary>
 
->**1.** Firstly, ensure the **"specify by object id" checkbox is checked**, and the **Sever URL** matches the Speckle server you are using (default [`https://speckle.xyz`](https://speckle.xyz))
+>**1.** Firstly, ensure the **"specify by object id" checkbox is checked**, and the **Sever URL** matches the Speckle server you are using (default [`https://app.speckle.systems`](https://app.speckle.systems))
 
->**2.** Enter the **Stream ID**. This can be copied from the url of your stream, and pasted into the "Stream ID" property of your `Speckle Unreal Manager`.
-><center><img src="./img-unreal/finding_stream_id.png" width="75%" alt="screenshot of a speckle stream url https://speckle.xyz/streams/76c45cdb32, with the stream id 76c45cdb32 highlighted"/></center>
+>**2.** Enter the **Project ID**. This can be copied from the url of your project, and pasted into the "Project ID" property of your `Speckle Unreal Manager`.
+><center><img src="./img-unreal/finding_stream_id.png" width="75%" alt="screenshot of a speckle project url https://app.speckle.systems/streams/76c45cdb32, with the project id 76c45cdb32 highlighted"/></center>
 
 
 >**3.** Enter the  **Object ID** of the object you want to receive.
->You can explore the objects in a stream by using the [Speckle Web App](/user/web) for the Speckle server that you use.
-><center><img src="./img-unreal/finding_object_id.png" width="75%" alt="screenshot of the property panel of a Speckle commit,> highlighting the object ID of the selected (root) object"/></center>
+>You can explore the objects in a project by using the [Speckle Web App](/user/web) for the Speckle server that you use.
+><center><img src="./img-unreal/finding_object_id.png" width="75%" alt="screenshot of the property panel of a Speckle version,> highlighting the object ID of the selected (root) object"/></center>
 
 >**4. If the stream is private**, you will need to generate an **auth token**.
->To do so, head to your profile page [https://speckle.xyz/profile](https://speckle.xyz/profile), and generate a new Access Token (with all scopes)
+>To do so, head to your profile page [https://app.speckle.systems/profile](https://app.speckle.systems/profile), and generate a new Access Token (with all scopes)
 ><center><img src="./img-unreal/generate_auth_token.png" width="75%" alt="screen shot of profile page, with arrow pointing towards the new token button"/></center>
 
 </details></p>
@@ -93,22 +93,22 @@ Here is how to use it:
 
 <center><b>OR</b></center>
 
-::: tip Import <b>a speckle commit</b>, by specifying a <i>Server URL</i> + <i>Auth Token</i>, and then select a <i>Stream</i> + <i>Branch</i> + <i>Commit</i> from the drop down menu.
+::: tip Import <b>a speckle version</b>, by specifying a <i>Server URL</i> + <i>Auth Token</i>, and then select a <i>project</i> + <i>model</i> + <i>version</i> from the drop down menu.
 <p><details>
 <summary>Expand</summary>
 
 >**1.** First, you must authenticate your Speckle account.<br/>
 > Currently, this can only be done via an **auth token** (aka personal access token).<br/>
-> To generate one, head to your profile page <a href="https://speckle.xyz/profile">https://speckle.xyz/profile</a>, and under "Access Token", generate a new token **with all scopes**.
+> To generate one, head to your profile page <a href="https://app.speckle.systems/profile">https://app.speckle.systems/profile</a>, and under "Access Token", generate a new token **with all scopes**.
 ><center><img src="./img-unreal/generate_auth_token.png" width="75%" alt="screen shot of profile page, with arrow pointing towards the new token button"/></center>
 
 >**2.** Paste the auth token into your `Speckle Unreal Manager` actor (also, ensure the `ServerUrl` is correct)
 
->**3.** Deselect the "specify by object id" option, and, assuming the url + token is valid, the drop down selections for `Stream`, `Branch`, and `Commit` will be available.
+>**3.** Deselect the "specify by object id" option, and, assuming the url + token is valid, the drop down selections for `project`, `model`, and `version` will be available.
 >
 ><center><video width="66%" loop controls autoplay muted><source src="./img-unreal/stream.branch.commit.selection.mp4" type="video/mp4">Your browser does not support the video tag.</video></center>
 
-> (optional notes) The number of stream/branch/commits is capped, by default at 15, but this value can be adjusted under the advanced settings `options limit` value.
+> (optional notes) The number of project/model/versions is capped, by default at 15, but this value can be adjusted under the advanced settings `options limit` value.
 > If no options appear, then try deselecting, and reselecting the actor, and check the `Output Log` for warnings.
 
 </details></p>
@@ -142,7 +142,7 @@ It fetches JSON objects from the server, which are then stored in a local `Memor
 An example of this process in Blueprint is provided in the `Plugins\speckle-unreal\Content\Examples` directory and looks like this:
 <center><img src="./img-unreal/receiving_bp.png" width="100%" /></center>
 
-Additionally, a number of Blueprint macro nodes are provided to fetch details about streams/branch/commits/users.
+Additionally, a number of Blueprint macro nodes are provided to fetch details about project/model/version/users.
 Checkout our [dedicated tutorial on the topic](https://speckle.systems/tutorials/unreal-engine-blueprint-nodes-fetch-stream-branch-commit-info-and-more/), covering how to use the provided GraphQL nodes, and also how to easily develop your own query macros.
 
 

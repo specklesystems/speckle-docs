@@ -14,14 +14,14 @@ The Power BI connector is in `beta` development and still requires manual instal
 
 ### Features
 
-The Power BI beta connector allows you to import your Speckle stream, branch, commit, or object data using the corresponding URL from your Speckle server stream. The following data will be retrieved depending on which type of URL you use:
+The Power BI beta connector allows you to import your Speckle Project, Model, Version, or object data using the corresponding URL from your Speckle Project. The following data will be retrieved depending on which type of URL you use:
 
-- Stream URL -> the most recent commit on the main branch of this stream
-- Branch URL -> the most recent commit on this branch
-- Commit URL -> this commit
+- Project URL -> the most recent Version on the main Model of this Project
+- Model URL -> the most recent Version on this Model
+- Version URL -> this Version
 - Object URL -> this object
 
-If you're having issues connecting to your stream, make sure the stream is either set to `Public` or your local account has access to the private stream.
+If you're having issues connecting to your Project, make sure the Project is either set to `Link Shared` or your local account has access to the private Project.
 
 ### Installation
 
@@ -49,11 +49,11 @@ Once the connector is installed, you'll find a `Speckle - Get by URL (beta)` opt
 
 ![Data connector](./img-powerbi/get-data.gif)
 
-Select the Speckle connector and click `Connect` - a window will open where you can input your Speckle stream, branch, commit, or object URL!
+Select the Speckle connector and click `Connect` - a window will open where you can input your Speckle Project, Model, Version, or object URL!
 
 The result of that query will be a table with the following columns:
 
-- Stream URL
+- Project URL
 - URL Type
 - Object ID
 - speckle_type
@@ -63,7 +63,7 @@ The result of that query will be a table with the following columns:
 
 ::: tip
 
-Stream URL and Object ID columns were added to facilitate loading data into the new [Speckle PowerBI 3D Viewer](#speckle-3d-viewer-visual)
+Project URL and Object ID columns were added to facilitate loading data into the new [Speckle PowerBI 3D Viewer](#speckle-3d-viewer-visual)
 
 :::
 
@@ -87,7 +87,7 @@ This allows for nested property names to not have a prefix (i.e. the level name 
 
 :::
 
-### Fetching the commit data in a structured way
+### Fetching the Version data in a structured way
 
 ::: warning
 
@@ -95,7 +95,7 @@ This feature is experimental and may change in future releases.
 
 :::
 
-As of version `0.0.15`, you can fetch the commit data while preserving the structure of the data that was sent.
+As of version `0.0.15`, you can fetch the Version data while preserving the structure of the data that was sent.
 
 This new function can be found under the `Get Data -> Other` as `Speckle - Get By URL [Structured]`.
 
@@ -124,13 +124,13 @@ This can be used to craft your own interactions with Speckle, unlocking un-suppo
 
 ![GraphQL API Request]()
 
-**Inputs:**
+#### Inputs
 
 - **Server URL**: The url of the Speckle server you want to connect to
 - **Query**: The raw text GraphQL query
 - **Variables**: A record containing a key for each variable in the GraphQL query and it's value. Nested records are allowed.
 
-**Outputs**
+#### Outputs
 
 A record containing the response, following the same structure as any GraphQL query.
 
@@ -138,19 +138,19 @@ A record containing the response, following the same structure as any GraphQL qu
 
 We recommend experimenting with our GraphQL explorer to construct your queries, as it will provide auto-complete and error checking out of the box.
 
-https://speckle.xyz/explorer
+[app.speckle.systems/explorer](https://app.speckle.systems/explorer)
 
 Once you're happy with you're query, you can move it to PowerBI with little effort.
 
 :::
 
-### Accessing Private Streams 🔒
+### Accessing Private Projects 🔒
 
 #### With a Personal Access Token
 
-If you're having issues connecting to your private stream, make sure you set an `Access Token` on your Profile. This is how you do it:
+If you're having issues connecting to your private Project, make sure you set an `Access Token` on your Profile. This is how you do it:
 
-1. Go to you Profile on Speckle server. [https://speckle.xyz/profile](https://speckle.xyz/profile)
+1. Go to you Profile on Speckle server. [https://app.speckle.systems/profile](https://app.speckle.systems/profile)
 2. Under Developer Setting Create a `New Token`
 
    ![image](https://user-images.githubusercontent.com/51519350/198557652-abd6f63b-4260-4ef8-aeb9-bac03bf2f7e1.png)
@@ -168,21 +168,21 @@ If you're having issues connecting to your private stream, make sure you set an 
 
    ![image](https://user-images.githubusercontent.com/51519350/198579769-5116f628-c0bd-4226-98d5-878815251d4e.png)
 
-7. After selecting server, follow **Edit Permissions > Edit > Private Stream.** Paste your *Token* into `Personal Access Token` input.
+7. After selecting server, follow **Edit Permissions > Edit > Private Project.** Paste your _Token_ into `Personal Access Token` input.
 
    ![cdaf98266d5cc4ba2e82776bc54ba8a367a83232](https://user-images.githubusercontent.com/51519350/198579885-cbc6bed1-5659-42b9-80dd-6a4afd53321e.gif)
 
 8. That’s it. It should work now.
 
-If you have trouble seeing your server under Data sources, simply delete existing servers. Go back to Speckle connector and try to receive the same stream/branch/commit. You’ll have the option to add it from there.
+If you have trouble seeing your server under Data sources, simply delete existing servers. Go back to Speckle connector and try to receive the same Project/Model/Version. You’ll have the option to add it from there.
 
 #### Logging in using your Speckle account
 
-As of version `0.0.15`, user's of our public server <https://speckle.xyz> can now also login directly using their Speckle account.
+As of version `0.0.15`, user's of our general availabilty public server <https://app.speckle.systems> can now also login directly using their Speckle account.
 
-To do so, you must select the `Speckle.XYZ` option in the credentials pop-up:
+To do so, you must select the `app.speckle.systems` option in the credentials pop-up:
 
-![Selecting Speckle.XYZ in the credentials pop-up]()
+![Selecting app.speckle.systems in the credentials pop-up]()
 
 Then press the `Login with Speckle` button. This will open a pop-up window prompting you to log into your account and allow the PowerBI app to access your user data. This just grants `read-only` access, as recommended by PowerBI guidelines.
 
@@ -233,7 +233,7 @@ If you want the visual to remain on the visualization pane so you can use it in 
 The 3D Viewer Visual was designed to work alongside our _PowerBI Data Connector_ (version 0.10 or above). The _data connector_ will output a table containing the following columns:
 
 - `data`: A column of records containing the data belonging to each speckle object.
-- `Stream URL`: The stream url this object was fetched from
+- `Project URL`: The Project url this object was fetched from
 - `Object ID`: The id of each speckle object in the table (this was extracted from the `data` records).
 
 > Other columns may be present, and can be user generated, but are not relevant for this section.
@@ -246,7 +246,7 @@ When you initially drop the Speckle PowerBI visual, you'll see a landing page wi
 
 #### Loading objects
 
-In order to load the objects from the table into the viewer, just add the fields `Stream URL` and `Object ID` onto their respective inputs in the visual.
+In order to load the objects from the table into the viewer, just add the fields `Project URL` and `Object ID` onto their respective inputs in the visual.
 
 ![Visual inputs](./img-powerbi/visual-inputs.png)
 
@@ -256,9 +256,9 @@ Once both the fields are added, the Viewer would start to load the objects into 
 
 ::: tip
 
-The `Stream URL` and `Object ID` columns will exist on the resulting query when using `Get by URL` function.
+The `Project URL` and `Object ID` columns will exist on the resulting query when using `Get by URL` function.
 
-If you're using the new (experimental) `Get by URL [Structured]` function, you'll be required to generate the `Stream URL` and `Object ID` columns in your final query table.
+If you're using the new (experimental) `Get by URL [Structured]` function, you'll be required to generate the `Project URL` and `Object ID` columns in your final query table.
 
 :::
 

@@ -22,7 +22,7 @@ Once installed, you can find the Tekla Structures connector in the Application a
 
 ### Recieving in Tekla Structures
 
-Save the Tekla Structures model as a file first before attempting to recieve streams into your Tekla Structures model.
+Save the Tekla Structures model as a file first before attempting to recieve projects into your Tekla Structures model.
 
 ## User Interface
 
@@ -30,13 +30,13 @@ Save the Tekla Structures model as a file first before attempting to recieve str
 
 This connector uses our shared Desktop UI2. Read up on general guidelines for usage in the [Desktop UI2 section](https://speckle.community/t/new-desktopui-in-alpha-testing/1851/2).
 
-**Streams are saved to a textfile that will appear in your model folder titled "Speckle". Do not delete this folder.**
+**Projects are saved to a textfile that will appear in your model folder titled "Speckle". Do not delete this folder.**
 
 :::
 
 ### Filters
 
-To help you select which elements will be to sent to Speckle, we've built various filters into our Tekla Structures connector. Once a filter is set, just click **Send** and all objects passing the filter will be sent to your Stream. Section properties and materials defined within the model will always be sent.
+To help you select which elements will be to sent to Speckle, we've built various filters into our Tekla Structures connector. Once a filter is set, just click **Send** and all objects passing the filter will be sent to your Project. Section properties and materials defined within the model will always be sent.
 
 _Please Note: Elements are sent regardless of whether they are visible or if they were created after setting up the filter._
 
@@ -64,7 +64,7 @@ This trivial filter allows you to select all the elements that are currently sup
 
 ## Updating Elements
 
-The connector does not take care of updating existing elements within the stream.
+The connector does not take care of updating existing elements within the project.
 
 ## Revit & BIM Data to Tekla Structures
 

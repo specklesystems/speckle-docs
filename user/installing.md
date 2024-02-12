@@ -4,7 +4,7 @@ Manager for Speckle is the best way to get (almost) all our Connectors installed
 
 ::: tip 🙌 IMPORTANT
 This guide assumes you have a **Speckle Account**.
-If you don't, just register on our [free XYZ Speckle server](https://speckle.xyz).
+If you don't, just register on our [General Availability Speckle server](https://app.speckle.systems).
 :::
 
 ## Download
