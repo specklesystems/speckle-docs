@@ -25,19 +25,19 @@ Once installed, you can find the connector in the `Speckle 2` ribbon. Click on t
 
 > This connector uses our shared Desktop UI. Read up on general guidelines for usage in the [Desktop UI section](/user/ui) or give our [new Desktop UI (alpha)](/user/ui2.md) a try.
 
-Once the Desktop UI panel is open, go ahead and create a new stream (or add an existing one) to the current file. Once the Microstation, OpenRoads, OpenRail, or OpenBuildings file is saved, the streams associated with that file will be saved too.
+Once the Desktop UI panel is open, go ahead and create a new project (or add an existing one) to the current file. Once the Microstation, OpenRoads, OpenRail, or OpenBuildings file is saved, the projects associated with that file will be saved too.
 
 ### Sending
 
 To send objects to Speckle, you'll first need to specify which objects are to be sent.
 This can be done in two ways:
 
-* The simpler way involves manually selecting elements in Microstation, OpenRoads, OpenRail, or OpenBuildings. 
-* The more powerful way is to use filtering logic to select elements.
+- The simpler way involves manually selecting elements in Microstation, OpenRoads, OpenRail, or OpenBuildings.
+- The more powerful way is to use filtering logic to select elements.
 
 For the simpler selection method, follow the steps below:
 
-1. First, ensure the stream you want to send data to is in _Sender_ mode.
+1. First, ensure the project you want to send data to is in _Sender_ mode.
 2. Select the objects you want to send, and left-click the button that says `0 objects` in the Speckle Panel. A drop-down will appear; choose `Set Selection`.
 3. The same button should now display the total count of objects that were selected.
 4. You're ready to send! Press the `Send` button. You should see a progress bar and, once completed, a success message.
@@ -53,13 +53,13 @@ All geometric elements are organized by `Level` when they are sent to Speckle: e
 
 ### Receiving
 
-In order to receive data from a Speckle stream, you'll first need to add that stream to your Speckle streams panel. If the stream already exists on the server it will automatically be added in _Receiver_ mode.
+In order to receive data from a Speckle project, you'll first need to add that Project to your Speckle projects panel. If the project already exists on the server it will automatically be added in _Receiver_ mode.
 
-Once the stream has been added, go ahead and hit the `Receive` button. This will display a progress bar (just like the sending operation) and, if successful, will add the received objects to the current document.
+Once the project has been added, go ahead and hit the `Receive` button. This will display a progress bar (just like the sending operation) and, if successful, will add the received objects to the current document.
 
 ## Supported Elements
 
-* [Bentley Support Tables](/user/support-tables.html#microstation)
+- [Bentley Support Tables](/user/support-tables.html#microstation)
 
 ## Feedback
 
