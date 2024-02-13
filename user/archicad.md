@@ -1,6 +1,6 @@
-# Archicad (Alpha) 🛠️
+# Archicad
 
-The Speckle Archicad Connector currently supports Archicad 25 and 26🆕. It is available both on Windows and Mac.
+The Speckle Archicad Connector currently supports Archicad 25, 26 and 27🆕. It is available both on Windows and Mac.
 
 ::: tip 💡 TIP
 
@@ -10,7 +10,7 @@ Check out our dedicated tutorial on [how to get started with Archicad](https://s
 
 ## Getting Started
 
-Please note that this connector is still in Alpha and is thus not fully featured. Keep in mind that sending out to geometry applications is well supported, but receiving back into BIM applications is not fully supported. See the support table linked at the bottom of this guide for specifics on what is and isn't supported.
+Sending out to geometry applications is well supported, but receiving back into BIM applications is not fully supported. See the support table linked at the bottom of this guide for specifics on what is and isn't supported.
 
 Feel free to reach out on the forum regarding your potential use cases and we will try to prioritise what you need in the development of this connector!
 
@@ -36,8 +36,6 @@ This connector uses our shared Desktop UI. Read up on general guidelines for usa
 
 ### Sending Data
 
-Currently, sending is just supported through selection.
-
 After launching the connector, either create a new stream or select an existing one.
 
 Next, select the objects you want to send from within the model viewer. Then in the send menu, click "Add selection".
@@ -50,7 +48,7 @@ You can then write a commit message and click send. Once the send is complete, y
 
 #### Into Archicad
 
-To receive data into Archicad, simply select a stream and click receive! Note that receiving into Archicad is currently not well supported. This is still an alpha and thus very work in progress!
+To receive data into Archicad, simply select a stream and click receive!
 
 Feel free to drop suggestions and ideas about how you would like to use this connector on the [forum](https://speckle.community/) to help guide the development of this connector 🚀
 
