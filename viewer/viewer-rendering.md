@@ -46,3 +46,17 @@ viewer.setMaterial(rvs, materialData)
 
 
 It's important to note that you should always get the minimum render tree for your needs. As in, it's probably easiest to just get the whole render tree each time, but keep in mind that if you're going through the tree, fetching render views, it's always better for that tree to be as small as possible
+
+
+## Batching
+The viewer will automatically attempt to batch together any renderables you provide within a `loadObject` cycle. In order for batching to take place, the following conditions need to met:
+- Objects need to be of the same  [*GeometryType*](/viewer/render-view-api.md#geometrytypeenum)
+- Objects need to belong to the same subtree i.e loaded from within the same `loadObject` call
+
+Additional aspects of batching are:
+- Instances are rendered as hardware instances
+- Instances of a type will not batch together with non-instances, nor with other types of instances
+- Batches are limited to a maximum of 500,000 vertices
+- Batches have a maximum object count limited by the platform's `Max Vertex Uniform Vectors` count
+
+Batching improves overall performance significantly by drastically reducing the number of draw calls needed, especially in typical AEC scenarios where you can easily reach tens of thousands, or even more, individual objects that need to get drawn. Regardless, batching does not restrict manipulating objects individually in any way. This is achieved using [*BatchObject*](/viewer/batch-object-api.md)s
