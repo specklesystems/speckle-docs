@@ -1,27 +1,27 @@
-# BatchObject
+# AccelerationStructure
 
 ### <h3>Constructors</h3>
 |  	| 
 |---   
-| [constructor](/viewer/batch-object-api.md#constructor)
+| [constructor](/viewer/acceleration-structure.md#constructor)
 
 ### <h3>Accessors</h3>
-|  	|   |   |   |
-|---    |---    |---    |---
-| [aabb](/viewer/batch-object-api.md#aabb) | [accelerationStructure](/viewer/batch-object-api.md#accelerationstructure) | [batchIndex](/viewer/batch-object-api.md#batchindex) | [localOrigin](/viewer/batch-object-api.md#localorigin) 
-| [renderView](/viewer/batch-object-api.md#renderview)
+|  	|   |
+|---    |---  
+| [bvh](/viewer/acceleration-structure.md#bvh) | [geometry](/viewer/acceleration-structure.md#geometry) 
 
 
 
 ### <h3>Methods</h3>
-|  	| 	|
-|---	|---
-| [buildAccelerationStructure](/viewer/batch-object-api.md#buildaccelerationstructure) 	| [transformTRS](/viewer/batch-object-api.md#transformtrs) 	
+|  	| 	|   |   |
+|---	|---    |---    |---
+| [buildBVH](/viewer/acceleration-structure.md#buildbvh) 	| [getBoundingBox](/viewer/acceleration-structure.md#getboundingbox) | [getVertexAtIndex](/viewer/acceleration-structure.md#getvertexatindex) | [raycast](/viewer/acceleration-structure.md#raycast)
+| [raycastFirst](/viewer/acceleration-structure.md#raycastfirst) 	| [shapecast](/viewer/acceleration-structure.md#shapecast) | [transformInput](/viewer/acceleration-structure.md#transforminput) | [transformOutput](/viewer/acceleration-structure.md#transformoutput)
 
 ### <h3>Typedefs</h3>
 |  	| 
 |---	
-| [VectorLike](/viewer/batch-object-api.md#vectorlike) 
+| [VectorLike](/viewer/acceleration-structure.md#vectorlike) 
 <br><br>
 
 ### <h3>Constructors</h3>

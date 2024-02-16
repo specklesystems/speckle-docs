@@ -314,7 +314,8 @@ module.exports = {
                     "render-tree-api",
                     "render-view-api",
                     "loader-api",
-                    "geometry-converter-api"
+                    "geometry-converter-api",
+                    "batch-object-api"
                   ],
                 },
               ],
