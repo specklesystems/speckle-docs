@@ -284,24 +284,26 @@ In addition to geometry data, custom object properties are also converted, inclu
 
 **Send (Blender ⟶ Speckle)**
  - Supported geometry types work well with a few very minor tecnical limitations
- - Only Principle BSDF and Diffuse BSDF Shader officially supported, other shaders are likley to look different when sent.
- - Image textures not supported
+ - Only Principle BSDF, Diffuse BSDF, and the basic non-node based shaders are officially supported, other shaders are likley to look different when sent.
+ - Image and procedural textures are not supported
  - Modifiers and Transform data (translation, rotation, scale) are baked before sending, so Blender -> Blender workflows will be quite lossy
 
 | Blender Type                             | Send                    | Limitations  |
 | ---------------------------------------- | :---------------------- | --- |           
-|  Mesh                                    | ✅ as `Mesh`(es)         | No Vertex Groups, no Vertex Colors |
+|  Mesh                                    | ✅ as `Mesh`(es)        | No Vertex Groups, Vertex Colors, or Vertex Normals |
 |  Material                                | ✅ as `RenderMaterial` | Principle and Diffuse BSDF Shader Only  | 
-|  Camera                                  | ✅ as `View3D`         | Aproximated; lense/sensor info lossed |
 |  Bézier Curves                           | ✅ as `Curve`          | Sent as nurbs curve |
 |  NURB Curves                             | ✅ as `Curve`          | `CU_NURB_BEZIER` flag ignored |
 |  Poly Lines                              | ✅ as `PolyLine`       |  |
-|  Empty                                   | ✅ as `Point`          |  |
 |  Collection                              | ✅ as `Collection`     | No collection properties |
 |  Collection Instances                    | ✅ as `Block`          |  |
+|  Empty                                   | 🟨 as `Point`          | Position only, No Axis type |
+|  Camera                                  | 🟨 as `View3D`         | Aproximated; lense/sensor info lossed |
+|  Surfaces                                | 🟨 as `Mesh`(es)       | Converted as mesh |
+|  Metaball                                | 🟨 as `Mesh`(es)       | Converted as mesh |
+|  Text                                    | 🟨 as `Mesh`(es)       | Converted as mesh |
 |  Lights                                  | ❌                     | Ignored |
-|  Surfaces                                | ❌                     | Ignored |
-|  Text                                    | ❌                     | Ignored |
+|  Light Probes                            | ❌                     | Ignored |
 |  Armatures                               | ❌                     | Ignored |
 
 **Receive (Speckle ⟶ Blender)**
