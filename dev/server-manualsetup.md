@@ -299,7 +299,11 @@ The server also supports some other environment variables. You can see them in o
 
 - change `traefik.http.routers.speckle-ingress.rule` replace `example.com` with your domain
 
-### Step 5: Start the Server and the dependencies
+### Step 5: Configure the logging driver for Docker
+
+By default, Docker will log output from Speckle to a file on the host machine. For legacy reasons Docker defaults to a logging driver which does not manage logs well and will quickly fill up disk space with logs. Docker recommends configuring Docker to use a different logging driver, such as `local`, to prevent this problem. Please follow the instructions in [Docker's documentation](https://docs.docker.com/config/containers/logging/configure) to amend your Docker settings.
+
+### Step 6: Start the Server and the dependencies
 
 ```bash
 cd /opt/speckle
@@ -445,13 +449,14 @@ so from time to time server operators need to manually update the deployment.
 We recommend first backing up your data prior to modifying or updating the
 server. You can find instructions on how to do that [here](./server-database-migration.md).
 
-To do that:
+To update Speckle:
 
-- connect to the virtual machine running the Speckle server instance
-- navigate to the folder, where the Speckle server docker-compose file is located
-- run `docker compose down` (this will take the server offline)
-- run `docker compose pull`
-- run `docker compose up -d` (this starts the server stack, and runs it in the background)
+1. connect to the virtual machine running the Speckle server instance
+1. navigate to the folder, where the Speckle server docker-compose file is located
+1. run `docker compose down` (this will take the server offline)
+1. review the latest changes in this guide against your `docker-compose.yml` file, and amend as necessary.
+1. run `docker compose pull` (this will retrieve the latest images)
+1. run `docker compose up -d` (this starts the server stack, and runs it in the background)
 
 Your server instance should be back online and updated.
 
