@@ -176,19 +176,15 @@ git clone https://github.com/specklesystems/specklepy
 cd ./speckle-blender
 ```
 
-2. Run the following commands to **export the dev dependencies**
+2. Run the following commands to create a local environment
 ```sh
 poetry lock --no-update
-poetry export -f requirements.txt --with dev --without-hashes > requirements.txt
-python -m pip install -r requirements.txt -t "./modules"
+poetry install --with dev
 ```
-> or, if you don't care about dev dependencies, you can simply run
-> ```sh
-> sh export_dependencies.sh
-> ```
-3. **Open the project folder** in VSCode and run the **`Blender: Build and Start`** command.
+3. Run the `export_dependencies.sh` script to export the requirements.txt file for the runtime dependencies
+4. **Open the project folder** in VSCode and run the **`Blender: Build and Start`** command.
 > Or, if not using VSCode, the you can must **copy** (or symlink) the `bpy_speckle` and `modules` folders into `%appdata%/Blender Foundation/Blender/{ver}/scripts/addons/`. (Creating `scripts/addons` if needed). Then start blender.
-4. From `Edit -> Preferences -> Add-ons`, **enable the `Speckle Blender` plugin**.
-5. A **restart of Blender** may be required upon first launch.
+5. From `Edit -> Preferences -> Add-ons`, **enable the `Speckle Blender` plugin**.
+6. A **restart of Blender** may be required upon first launch.
 
 > Feel free to reachout to us on [the forums](https://speckle.community/) if you're having any difficulties, or suggestions on better dev setups!
