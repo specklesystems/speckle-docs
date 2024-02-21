@@ -315,7 +315,9 @@ module.exports = {
                     "render-view-api",
                     "loader-api",
                     "geometry-converter-api",
-                    "batch-object-api"
+                    "batch-object-api",
+                    "acceleration-structure-api",
+                    "top-level-acceleration-structure-api"
                   ],
                 },
               ],
