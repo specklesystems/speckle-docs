@@ -317,7 +317,8 @@ module.exports = {
                     "geometry-converter-api",
                     "batch-object-api",
                     "acceleration-structure-api",
-                    "top-level-acceleration-structure-api"
+                    "top-level-acceleration-structure-api",
+                    "batch-api"
                   ],
                 },
               ],
