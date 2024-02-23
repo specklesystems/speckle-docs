@@ -4,13 +4,13 @@ We recommend backing up your database regularly, and especially prior to upgradi
 
 ## TL;DR
 
-Speckle's preferred method of backing up and restoring data in a Postgres database is with [pgAdmin](https://www.pgadmin.org/). This guide assumes you are running Speckle via Docker-Compose, based on [manual setup](./server-manualsetup.md).
+Speckle's preferred method of backing up and restoring data in a Postgres database is with [pgAdmin](https://www.pgadmin.org/). This guide assumes you are running Speckle via Docker-Compose, based on [our guide](./server-manualsetup.md).
 
 ## Using pgAdmin
 
 ### Prerequisites
 
-#### For Docker-Compose ('manual setup') deployments
+#### For Docker-Compose deployments
 
 1. Docker should be [installed and running](https://docs.docker.com/get-docker/).
 1. We expect you to have followed the instructions for [manual installation](./server-manualsetup.md)
@@ -198,7 +198,7 @@ If you are not upgrading the Postgres database, you can stop at this step. The f
 
 #### Upgrading Postgres
 
-1. If you installed Postgres using a manual setup, please log into the machine in which you installed it.
+1. If you installed Postgres using Docker Compose, please log into the machine in which you installed it.
 
 1. Using `git`, clone the Speckle Server repository. More details instructions are available in GitHub's documentation.
 
