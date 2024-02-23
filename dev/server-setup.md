@@ -1,9 +1,9 @@
-# Deploying a Server - DigitalOcean Marketplace App
+# (deprecated) Deploying a Server - DigitalOcean Marketplace App
 
 ::: tip IMPORTANT
-As of March 2024 Speckle has sunsetted the DigitalOcean Marketplace App. We instead recommend following our [deployment guide using Docker Compose](./server-manualsetup.md).
+As of March 2024 Speckle has deprecated the DigitalOcean Marketplace App. We instead recommend following our [deployment guide using Docker Compose](./server-manualsetup.md).
 
-If you need help deploying a production server, [we can help](https://speckle.systems/getstarted/)!
+If you need help exploring your options for running and managing a Speckle server, [we can help](https://speckle.systems/getstarted/)!
 :::
 
 The following provides details on how to maintain an existing DigitalOcean Marketplace App deployment.
