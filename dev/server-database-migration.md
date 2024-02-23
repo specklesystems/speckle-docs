@@ -4,16 +4,11 @@ We recommend backing up your database regularly, and especially prior to upgradi
 
 ## TL;DR
 
-Speckle's preferred method of backing up and restoring data in a Postgres database is with [pgAdmin](https://www.pgadmin.org/). This guide assumes you are running Speckle via Docker-Compose, perhaps a [manual setup](./server-manualsetup.md) or a [DigitalOcean 1-click](./server-setup.md) setup.
+Speckle's preferred method of backing up and restoring data in a Postgres database is with [pgAdmin](https://www.pgadmin.org/). This guide assumes you are running Speckle via Docker-Compose, based on [manual setup](./server-manualsetup.md).
 
 ## Using pgAdmin
 
 ### Prerequisites
-
-#### For DigitalOcean 1-click deployments
-
-1. Log in to DigitalOcean and find your Droplet which is running Speckle
-1. Connect to your DigitalOcean Droplet, full instructions can be found in [DigitalOcean's documentation](https://docs.digitalocean.com/products/droplets/how-to/connect-with-ssh/).
 
 #### For Docker-Compose ('manual setup') deployments
 
@@ -90,16 +85,6 @@ Speckle's preferred method of backing up and restoring data in a Postgres databa
 
 1. Open the [pgAdmin dashboard](http://127.0.0.1:16543/) in your browser. If you have changed the configuration of pgAdmin, you can find how to access it by running `docker ps --filter name='pgadmin'` and making a note of the host and port it is being served on.
 
-#### Connecting to pgAdmin running in a DigitalOcean 1-click Droplet
-
-1. From your local machine, create an SSH tunnel to your DigitalOcean droplet. Replace `DROPLET_USERNAME` with the username for your droplet, and `DROPLET_IP_ADDRESS` with the IP address of your Droplet; more information on how to find these can be found in [DigitalOcean's documentation](https://docs.digitalocean.com/products/droplets/how-to/connect-with-ssh/).
-
-    ```shell
-    ssh -L 16543:localhost:16543 DROPLET_USERNAME@DROPLET_IP_ADDRESS
-    ```
-
-For those who are interested, more information about SSH tunnels can be found in [DigitalOcean's Documentation](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-tunneling-on-a-vps)
-
 ### Connecting pgAdmin to Postgres
 
 1. The user name and password can be found next to `PGADMIN_DEFAULT_EMAIL` and `PGADMIN_DEFAULT_PASSWORD` in your configuration file for pgAdmin.
@@ -116,7 +101,7 @@ For those who are interested, more information about SSH tunnels can be found in
    - for the `Host name/addresses` enter the name of the Postgres container, in our example it is `speckle-server-postgres-1`
        - the name of the Postgres container can be found with `docker ps --filter name='postgres'`
    - for `port`, use `5432` (or the value discovered when running `docker ps --filter name='postgres'`, see instructions above).
-   - for `database`, `username`, and `password` use the values in your configuration assigned to the respective `POSTGRES_DB`, `POSTGRES_USER`, and `POSTGRES_PASSWORD` keys. If installed with Speckle's manual installation or DigitalOcean 1-click, by default the value of these are all `speckle`.
+   - for `database`, `username`, and `password` use the values in your configuration assigned to the respective `POSTGRES_DB`, `POSTGRES_USER`, and `POSTGRES_PASSWORD` keys. If installed with Speckle's manual installation, by default the value of these are all `speckle`.
 1. (optional) For some databases, but not the default database provided by Speckle, you may also have to provide a Certificate.
     1. Copy this certificate into the pgadmin container with `docker cp ./local/path/to/my/certificate.crt speckle-server-pgadmin-1:/var/lib/pgadmin/storage/admin_localhost.com/` (assuming the default pgadmin user is `admin@localhost.com` and `speckle-server-pgadmin-1` is the name of the pgAdmin container.)
     1. In the dialog box in the `SSL` tab, select the certificate within the `Root Certificate` input.
@@ -213,7 +198,7 @@ If you are not upgrading the Postgres database, you can stop at this step. The f
 
 #### Upgrading Postgres
 
-1. If you installed Speckle via a  [DigitalOcean 1-click setup](./server-setup.md), please SSH into the Droplet (instructions in section above). If you installed Docker using a manual setup, please log into the machine in which you installed it.
+1. If you installed Postgres using a manual setup, please log into the machine in which you installed it.
 
 1. Using `git`, clone the Speckle Server repository. More details instructions are available in GitHub's documentation.
 
