@@ -4,7 +4,7 @@ Speckle server, frontend and viewer are hosted in our [speckle-server](https://g
 
 To set up a local Speckle server for development, check out the Readme files in the git repo for a quick start, or the [Local Setup](/dev/server-local-dev) page for detailed instructions.
 
-To deploy a Speckle server on a non-production cloud environment, checkout the guide for deploying to [Kubernetes](/dev/server-setup-k8s) or for deploying a [DigitalOcean Droplet](/dev/server-setup).
+To deploy a Speckle server on a non-production cloud environment, checkout the guide for deploying to [Kubernetes](/dev/server-setup-k8s) or for deploying to Docker with [Docker Compose](/dev/server-manualsetup).
 
 ## Server API
 
