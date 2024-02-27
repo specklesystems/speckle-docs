@@ -24,7 +24,7 @@ Once Enabled, a restart of blender may be required.
 
 > Feel free to reachout to us on the [forums](https://speckle.community/) if you're having any difficulties.
 
-### Manual Installation 
+### Manual Installation
 
 Installation through Speckle Manager is recommended  for most users,
 however, for users looking to install the blender connector on **unsupported platforms or Blender versions**,
@@ -38,32 +38,29 @@ However, you will still need to add your accounts, either through [Speckle Manag
     <img src="./img-blender/manual-installer.png" width="33.33%" alt="Screenshot of speckle-blender releases tab, showing manual installer highlighted in the drop-down menu"/>
 </center>
 
-2. Open Blender, and **navigate to the Add-ons menu**, under `Edit -> Preferences`
-3. Press the `Install` button in the top right, and select the downloaded zip.
-4. Once enabled, a restart of blender may be required.
-
-
+1. Open Blender, and **navigate to the Add-ons menu**, under `Edit -> Preferences`
+2. Press the `Install` button in the top right, and select the downloaded zip.
+3. Once enabled, a restart of blender may be required.
 
 ## User Interface
 
 The Blender Connector lives in the 3D viewport toolbar (N) under the Speckle tab. It contains three main panels:
 
 - **User Panel** for switching between different local accounts.
-- **Streams Panel** for browsing your existing streams, creating new streams, or deleting old streams.
-- **Active Stream Panel** for sending and receiving data to and from Speckle.
+- **Projects Panel** for browsing your existing Projects, creating new projects, or deleting old projects.
+- **Active Project Panel** for sending and receiving data to and from Speckle.
 
 ![panels overview](./img-blender/sidebar-menu.png)
 
-The **Streams Panel** shows a list of your most recent streams, which you can search through by name. You can add new streams with the "+" button, delete streams with the "-" button, and refresh the streams with the refresh button.
+The **Projects Panel** shows a list of your most recent projects, which you can search through by name. You can add new projects with the "+" button, delete projects with the "-" button, and refresh the projects with the refresh button.
 
 ![add by url](./img-blender/add-by-url.png)
 
-From version 2.1.9, you can also add existing streams by their URL. You can use the URL to a stream, a specific branch, or a specific commit. Simply paste it into the popup and the correct account, stream, branch, and commit will get selected for you.
+From version 2.1.9, you can also add existing projects by their URL. You can use the URL to a project, a specific model, or a specific version. Simply paste it into the popup and the correct account, project, model, and version will get selected for you.
 
-The **Active Stream Panel** will show more details about the stream you've selected in the Streams Panel. From here, you can change the active branch and commit. You can also Send and Receive any items you have selected in Blender. Under the Send and Receive buttons, you can use the dropdown menus to select a script to run on all elements during the send / receive process.
+The **Active Project Panel** will show more details about the project you've selected in the Projects Panel. From here, you can change the active model and version. You can also Send and Receive any items you have selected in Blender. Under the Send and Receive buttons, you can use the dropdown menus to select a script to run on all elements during the send / receive process.
 
-At the very bottom of the panel (not pictured), you'll find a button that will open the stream in the [Speckle Web App](/user/web).
-
+At the very bottom of the panel (not pictured), you'll find a button that will open the project in the [Speckle Web App](/user/web).
 
 ## Clean Meshes
 
@@ -83,7 +80,7 @@ Clean Mesh option can be accessed from the dialog that pops up after clicking th
 
 There is currently some limited support for [BlenderBIM](https://blenderbim.org/), though this is intended as an export and does not work coming back. To take advantage of this, simply open an IFC using BlenderBIM then use the Speckle Connector to send to Speckle.
 
-<iframe src="https://speckle.xyz/embed?stream=c51120a7f7&commit=767b7288ee" width=600 height=400 />
+<iframe title="Speckle" src="https://app.speckle.systems/projects/c51120a7f7/models/d57e0b6bc8@767b7288ee#embed=%7B%22isEnabled%22%3Atrue%7D" width="600" height="400" frameborder="0"></iframe>
 
 There are a few things to keep in mind when sending an IFC to Speckle using BlenderBIM:
 
@@ -104,8 +101,6 @@ This allows for customisation of how objects are sent/receiveed. For example
 - Applying blender mesh operations to received geometry,
 - Assigning custom properties to objects,
 - Custom behaviours triggered after receive/before send.
-
-
 
 ### Receive Scripts
 1. From the `Scripting` workspace, create a new python file.
@@ -154,22 +149,21 @@ def execute_for_all(context, objects):
 Send scripts are slightly less featured than receive scripts.
 They are mostly useful for filtering which objects to send, although any 
 
-
 -->
 
 ## Developing/Debugging Locally
 
-
-For developers looking **test WIP branches**, or **develop ontop of/contribute to Speckle Blender**,
+For developers looking **test WIP Models**, or **develop ontop of/contribute to Speckle Blender**,
 this is the recommended development setup for the [speckle-blender](https://github.com/specklesystems/speckle-blender) repository.
 
 ::: tip Pre-requisites
 [Git](https://git-scm.com/), [Poetry](https://python-poetry.org/docs/), and the [Python](https://www.python.org/) version used by the desired Blender version </br>(e.g. Python 3.10 for Blender ≥3.0).
 
 Also recommended: [VSCode](https://code.visualstudio.com/) with the [Blender Development Addon for VSCode](https://marketplace.visualstudio.com/items?itemName=JacquesLucke.blender-development) (allows debugging, and automatically symlinks `scripts/addons`)
-::: 
+:::
 
 1. **Git clone** the [speckle-blender](https://github.com/specklesystems/speckle-blender) and [specklepy](https://github.com/specklesystems/specklepy) repositories into the a folder somewhere on your system.
+
 ```sh
 git clone https://github.com/specklesystems/speckle-blender
 git clone https://github.com/specklesystems/specklepy
