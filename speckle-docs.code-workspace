@@ -13,11 +13,18 @@
       "name": "_"
     }
   ],
-  "settings": {},
+  "settings": {
+    "markdownlint": {
+      "config": {
+        "MD033": false, // allow inline html
+        "MD024": { "siblings_only": true }, // allow single heading
+      }
+    }
+  },
   "extensions": {
     "recommendations": [
       "yzhang.markdown-all-in-one",
-      "titiaiev.vue-docs"
+      "titiaiev.vue-docs",
     ]
   }
 }
