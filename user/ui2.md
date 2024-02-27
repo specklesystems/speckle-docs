@@ -18,44 +18,44 @@ Let's go on a quick graphical tour of the shared user interface to get you famil
 
 ## Main View
 
-When launching a Connector for the first time inside a document, you'll first see a list with the latest streams available in **all your account**:
+When launching a Connector for the first time inside a document, you'll first see a list with the latest projects available in **all your account**:
 
 ![dui2](https://user-images.githubusercontent.com/2679513/159477337-7df363f5-4d72-419f-9a67-c880b84242e6.gif)
 
-In this same view you'll also be able to search streams, create a new stream or to add one from a URL.
+In this same view you'll also be able to search projects, create a new project or to add one from a URL.
 
-### Selecting a Stream
+### Selecting a Project
 
-You can select a stream in various ways. If you have access to it and it's been used recently you should see it in the main list.
-We have also added a button to quickly view the stream online.
+You can select a project in various ways. If you have access to it and it's been used recently you should see it in the main list.
+We have also added a button to quickly view the project online.
 
 Alternatively you can search for it (by name or ID), or add it by URL.
 
-Adding a stream by URL is very useful when you want to receive from a public stream of which you are not a collaborator.
+Adding a project by URL is very useful when you want to receive from project of which you are not a team member but is Link Shared.
 
-## Stream View
+## Project View
 
-After selecting a stream, you'll see the Stream View.
+After selecting a project, you'll see the Project View.
 
-At the top you'll be able to see all the recent send & receive activity for the stream.
+At the top you'll be able to see all the recent send & receive activity for the project.
 
 At the bottom, you can select whether you want to send or receive from it.
 
-![dui2-stream](https://user-images.githubusercontent.com/2679513/159477977-6468748a-e73b-4be6-924b-00cb08121efb.gif)
+![dui2-project](https://user-images.githubusercontent.com/2679513/159477977-6468748a-e73b-4be6-924b-00cb08121efb.gif)
 
 ### Sending
 
-When sending to a stream, you'll be able to decide which branch to use and what elements to send.
+When sending to a project, you'll be able to decide which model to use and what elements to send.
 Each connector has built in filters to help you select elements in ways that make the most sense for the application you're using.
 
 ![Revit_rlKM6e6qTn](https://user-images.githubusercontent.com/51519350/186396184-be4fd296-8be2-4657-89b8-943170be4304.png)
 
-#### Branch Selection
+#### Model Selection
 
-Data in a stream can be organized in branches, for instance, to have multiple design options or to store data by discipline.
-The default branch is called main, you can select the branch you want to send to by using the dropdown.
+Data in a project can be organized in models, for instance, to have multiple design options or to store data by discipline.
+The default model is called main, you can select the model you want to send to by using the dropdown.
 
-If you want to create a new branch, you can do so from the [web](./web) interface.
+If you want to create a new model, you can do so from the [web](./web) interface.
 
 ![Revit_nNrp8zDlw1](https://user-images.githubusercontent.com/51519350/186396455-838408eb-039b-4615-a2ab-2401b18b5099.png)
 
@@ -73,10 +73,10 @@ For instance in Revit you can send:
 
 ![dui2-send-filter](https://user-images.githubusercontent.com/2679513/139485797-bd26ef1c-9366-43a2-b14b-9c6f14dbb9bd.gif)
 
-#### Commit Message
+#### Version Message
 
 When sending to Speckle, it's always good to include a message describing what you're sending or explaining the changes applied since the last send operation.
-The commit message is saved and re-used in future sends.
+The version message is saved and re-used in future sends.
 
 ![Revit_NKzJqG4NoT](https://user-images.githubusercontent.com/51519350/186397873-1c889e61-2a06-467c-a073-d38ae6c0b345.gif)
 
@@ -86,29 +86,29 @@ You can now click "Save 💾" and these options will be saved locally in the cur
 
 ![image](https://user-images.githubusercontent.com/51519350/186397368-5e6ed7ec-c32c-40dd-a8f4-685325406d33.png)
 
-If instead you want to send already, just click on "Send", the stream will also be saved.
+If instead you want to send already, just click on "Send", the project will also be saved.
 
 ### Receiving
 
 Similarly to sending data, the Receiving comes with a few options.
 
-#### Branch Selection
+#### Model Selection
 
-Data in a stream can be organized in branches, for instance, to have multiple design options or to store data by discipline.
-The default branch is called main, you can select the branch you want to receive from by using the dropdown.
+Data in a project can be organized in models, for instance, to have multiple design options or to store data by discipline.
+The default model is called main, you can select the model you want to receive from by using the dropdown.
 
 ![image](https://user-images.githubusercontent.com/51519350/186398225-d9759a2d-6695-4aa6-a857-ae152b77eb5b.png)
 
-If a branch has no data in it, you will not be able to use it.
+If a model has no data in it, you will not be able to use it.
 
-#### Commit Selection
+#### Version Selection
 
-A commit is a snapshot in time of the data inside a branch. Every time you send to Speckle from a connector, a commit is created.
-With the commit selection dropdown you can specify whether to receive a specific commit, or to always get the latest available for the selected branch.
+A version is a snapshot in time of the data inside a model. Every time you send to Speckle from a connector, a version is created.
+With the version selection dropdown you can specify whether to receive a specific version, or to always get the latest available for the selected model.
 
-If you choose to stay on the "latest" commit, you'll get a notification every time new data is sent to that branch.
+If you choose to stay on the "latest" version, you'll get a notification every time new data is sent to that model.
 
-If a preview is available it will be displayed when selecting a commit.
+If a preview is available it will be displayed when selecting a version.
 
 ![Revit_WrPYfd3bxG](https://user-images.githubusercontent.com/51519350/186398705-112a5491-78a9-4cbd-b311-d3b60ff109b0.gif)
 
@@ -120,9 +120,9 @@ You can now click "Save" and these options will be saved locally in the current 
 
 If instead you are ready to receive, just click on "Receive".
 
-## Saved Streams
+## Saved Projects
 
-Saved streams will show up under a "Saved Streams" list.
+Saved projects will show up under a "Saved Projects" list.
 
 ![dui2-saved](https://user-images.githubusercontent.com/2679513/159479002-ea661bad-4f43-46f9-a810-8a4780c8a056.gif)
 
