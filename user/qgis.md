@@ -18,6 +18,7 @@ Go to the `All` tab and search for `Speckle`. You should see the plugin appear i
 ![Speckle panel](./img-qgis/qgis-specklePluginView.png)
 
 You can also install the plugin from Speckle Desktop Manager: 
+
 ![Installation from Manager](./img-qgis/02_install_manager.png)
 ![Installation from Manager](./img-qgis/02_install_manager1.png)
 
@@ -26,9 +27,11 @@ You can also install the plugin from Speckle Desktop Manager:
 
  - The plugin allows you to select several layers in your project and send their geometry and attributes to a Speckle server.
 
- - You can received Speckle geometry sent from other software. Properties of the objects upon receiving are stored in the layer attribute table.
+ - You can receive Speckle geometry sent from other software. Properties of the objects upon receiving are stored in the layer attribute table.
 
- - You can send you data from QGIS and receive it in CAD in a CAD-friendly location, thanks to option to create custom Coordinate Reference System (CRS) in QGIS. To do this, you will be required to enter geographic coordinates of the point representing the origin point (0, 0) in your CAD project.
+ - You can send you data from QGIS and receive it in CAD in a CAD-friendly location, thanks to the option to create custom Coordinate Reference System (CRS) in QGIS. To do this, you will be required to enter geographic coordinates of the point representing the origin point (0, 0) in your CAD project.
+
+  - You can transform the polygons and topography (single-band raster layers) from 2d to 3d upon sending. Refer to the "Transformations" section below. 
 
 ### Using Speckle QGIS
 
@@ -38,11 +41,11 @@ Once the plugin is installed, you'll find a new toolbar button in QGIS that will
 
 #### Adding a stream to the project
 
-First, you need to search and add a stream to the QGIS project. For that, you can press the Search button near the `Streams` panel. This will open a new pop-up window that will allow you to search for a specific stream and add it to QGIS project.
-
-From the list of streams in the dropdown list, you can select one to make it the **current active stream**. This will be the stream used for sending/receiving data. When an active stream is selected, the `Branch` dropdown will be populated with all available branches from that stream.
+First, you need to search and add a stream to the QGIS project. For that, you can press the Search button near the `Stream` panel. This will open a new pop-up window that will allow you to search for a specific stream and add it to QGIS project.
 
 ![Search stream panel](./img-qgis/add_stream_img.png)
+
+From the list of streams in the dropdown list, you can select one to make it the **current active stream**. This will be the stream used for sending/receiving data. When an active stream is selected, the `Branch` dropdown will be populated with all available branches from that stream.
 
 And here's a short gif of the process 👇🏼
 
