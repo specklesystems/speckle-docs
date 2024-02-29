@@ -99,7 +99,6 @@ module.exports = {
             "connectors",
             "manager",
             "ui2",
-            "ui",
             {
               title: "Revit",
               collapsable: true,

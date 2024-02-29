@@ -140,6 +140,10 @@ This menu is customizable, and every Connector will have slightly different acti
 
 ## Accounts
 
-From Speckle 2.5.0 onwards it is possible to log into Speckle and manage your accounts directly from this user interface.
+It is possible to log into Speckle and manage your accounts directly from this user interface.
 
 ![dui2-account](https://user-images.githubusercontent.com/2679513/159479841-3cb0f858-4107-4550-bde8-abbeb1415924.gif)
+
+## Legacy Terminology
+
+In the past, we used to call "streams" what we now call "projects". We've updated the terminology to make it more intuitive for new users. If you are using a legacy server, we have retained an option to switch the terminology used in the user interface to "streams", "branches" and "commits".
