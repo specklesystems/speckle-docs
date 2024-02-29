@@ -1,13 +1,9 @@
 # QGIS
 
-![QGIS connector](./img-qgis/qgis-main.png)
+![QGIS connector](./img-qgis/01_main.png)
 
-::: tip
 
-The QGIS connector is in early stages of development and it is released as _experimental_. This means there's an extra step to installing it. Once we're out of `beta`, this step will no longer be necessary.
-:::
-
-The Speckle 2.0 connector for QGIS currently supports QGIS versions 3.0.0 and upwards.
+The Speckle 2.0 connector for QGIS currently supports QGIS versions 3.28.15 and upwards.
 
 ## Getting started
 
@@ -17,84 +13,72 @@ You can find Speckle QGIS in the QGIS `Plugins -> Manage and install plugins` me
 
 ![Plugins dropdown](./img-qgis/qgis-pluginsMenu.png)
 
-The plugin is currently published as experimental, so make sure you go to `Settings` and activate the `Show also experimental plugins` checkbox.
-
-![Experimental option](./img-qgis/qgis-pluginsExperimentalOption.png)
-
-Then go to the `All` tab and search for `Speckle`. You should see the plugin appear in the list:
+Go to the `All` tab and search for `Speckle`. You should see the plugin appear in the list:
 
 ![Speckle panel](./img-qgis/qgis-specklePluginView.png)
 
-> You can also install it manually by either using the `Install from zip` option, or following the manual installation instructions in our [repo's readme](https://github.com/specklesystems/speckle-qgis).
->
-> ![Install from zip](./img-qgis/qgis-installFromZip.png)
+You can also install the plugin from Speckle Desktop Manager: 
+
+![Installation from Manager](./img-qgis/02_install_manager.png)
+![Installation from Manager](./img-qgis/02_install_manager1.png)
+
 
 ### Features
 
-The plugin allows you to select several layers in your project, and send their geometry (as well as their contained metadata), to a Speckle server.
+ - The plugin allows you to select several layers in your project and send their geometry and attributes to a Speckle server.
 
-Only vector and raster based layers are supported. We're looking to improve support for other types of layers in the future.
+ - You can receive Speckle geometry sent from other software. Properties of the objects upon receiving are stored in the layer attribute table.
 
-The geometry will be reprojected and sent in a `Project CRS` of your QGIS project. If the chosen Coordinate Reference System is of Geographic type with non-linear units, they will be treated as Meters in other software that do not support such units.
+ - You can send you data from QGIS and receive it in CAD in a CAD-friendly location, thanks to the option to create custom Coordinate Reference System (CRS) in QGIS. To do this, you will be required to enter geographic coordinates of the point representing the origin point (0, 0) in your CAD project.
 
-You can received Speckle geometry sent from other software. Currently supported Speckle types for receiving: Point, Line, Polyline, Arc, Circle, Polycurve. 
-
-Properties of the objects upon receiving are stored in the layer attribute table.
-
-You can send you data from QGIS and receive it in CAD in a CAD-friendly location, thanks to option to create custom CRS in QGIS. To do this, you will be required to enter geographic coordinates of the point representing origin point (0, 0, 0) in your CAD project.
+  - You can transform the polygons and topography (single-band raster layers) from 2d to 3d upon sending. Refer to the "Transformations" section below. 
 
 ### Using Speckle QGIS
 
-Once the plugin is installed, you'll find a new toolbar button in QGIS that will open the `SpeckleQGIS` panel.
+Once the plugin is installed, you'll find a new toolbar button in QGIS that will open the `SpeckleQGIS` panel. The panel contains a very simple interface:
 
-![Plugin view](./img-qgis/qgis-panelView.png)
-
-The panel contains a very simple UI interface:
-
-![The Speckle QGIS panel](./img-qgis/qgis-specklePanel.png)
+![Plugin view](./img-qgis/03_open_plugin.png)
 
 #### Adding a stream to the project
 
-First, you need to search and add a stream to the project. For that, you can press the `+` button under the `Project Streams` panel. This will open a new pop-up window that will allow you to search for a specific stream.
+First, you need to search and add a stream to the QGIS project. For that, you can press the Search button near the `Stream` panel. This will open a new pop-up window that will allow you to search for a specific stream and add it to QGIS project.
 
-![Search stream panel](./img-qgis/qgis-searchPopUp.png)
+![Search stream panel](./img-qgis/add_stream_img.png)
+
+From the list of streams in the dropdown list, you can select one to make it the **current active stream**. This will be the stream used for sending/receiving data. When an active stream is selected, the `Branch` dropdown will be populated with all available branches from that stream.
 
 And here's a short gif of the process 👇🏼
 
-![Adding a stream to the project](./img-qgis/qgis-addingStream.gif)
+![Adding a stream to the project](./img-qgis/add_stream_gif.gif)
 
-> Once a stream is added to the project, it is saved along with it so the streams will still be available after restarting QGIS.
-
-#### Selecting the active stream
-
-From the list of streams in the **Project streams** panel, you can select one to make it the **current active stream**. This will be the stream used for sending/receiving data. When an active stream is selected, `Active Stream` field will display the name, and the `Branch` dropdown will be populated with all available branches from that stream.
-
-![alt](./img-qgis/qgis-activeStream.gif)
+> Once a stream is added to the QGIS project, it is saved along with it so the streams will still be available after restarting QGIS.
 
 #### Sending data
 
-In order to send some data, just follow these steps:
+In order to send your data, just follow these steps:
 
-1. Select a stream so it becomes **active**
+1. Select a stream from the dropdown list.
 2. Specify a specific branch to send data to using the dropdown menu.
 3. Select the layers in the file that you wish to send.
 4. (optional) Write a commit message.
-5. (optional) If you want to receive it in a non-GIS software or view in the browser, make sure you set your project to CRS of projected type using Meters as units.
-5. Send the selected layers.
+5. (optional) If you want to receive it in a non-GIS software or view in the browser, make sure you set your project to CRS of projected type (e.g. using Meters as units).
+5. Send the data.
+
+The geometry will be reprojected and sent in a `Project CRS` of your QGIS project (shown in the bottom right corner in QGIS panel). If the chosen Coordinate Reference System is of Geographic type with non-linear units, they will be treated as Meters in other software that do not support such units.
 
 Here's a quick walkthrough of the process.
 
-![Sending data from QGIS](./img-qgis/QGIS_03_sending.gif)
+![Sending data from QGIS](./img-qgis/send.gif)
 
-If you want to receive the layers later in a non-GIS software at the exact location (e.g. receive a context for your building in London), you can create a custom CRS in QGIS, that will match the global coordinate system from QGIS with the local coordinate system in CAD. Simply enter the geographic coordinates (Lat, Lon) of the point which is the origin (0,0,0) of your CAD environment. 
+If you want to receive the layers later in a non-GIS software at the exact location (e.g. receive a context for your building in London), you can create a custom CRS in QGIS, that will match the global coordinate system from QGIS with the local coordinate system in CAD. Simply enter the geographic coordinates (Lat, Lon) of the point which is the origin (0,0) of your CAD environment. 
 
-![Matching coordinates with CAD](./img-qgis/QGIS_04_matching_CAD_coordinates.gif)
+![Matching coordinates with CAD](./img-qgis/custom_crs.gif)
 
 #### Viewing the result
 
-Once data has been sent to Speckle, you can view the result by going to your Speckle's server Url (our public one is https://speckle.xyz). Here's an example of some QGIS data:
+Once data has been sent to Speckle, you can view the result by going to your Speckle's server Url (our public one is https://app.speckle.systems/). Here's an example of some QGIS data:
 
-<iframe src="https://speckle.xyz/embed?stream=389eec5d8d&commit=13f1ff032c" width=600 height=400></iframe>
+<iframe title="Speckle" src="https://app.speckle.systems/projects/55a29f3e9d/models/e9f320ca1c@1f8b3ca162#embed=%7B%22isEnabled%22%3Atrue%7D" width="600" height="400" frameborder="0"></iframe>
 
 #### Receiving data
 
@@ -105,7 +89,7 @@ Steps to receive the data:
 3. Select specific commit (by default the latest one)
 4. Find the received layers in the new layer group named after stream, branch and commit
 
-![Receiving data](./img-qgis/QGIS_05_receiving.gif)
+![Receiving data](./img-qgis/receive.gif)
 
 
 ### Custom project center
@@ -120,13 +104,13 @@ You can choose to use the existing Coordinate Reference System (Project CRS) and
 
 For example, if you use a projected CRS (e.g. EPSG:32631) without the offsets and send the Eiffel Tower outline to Speckle, when receiving in Rhino geometry will be located thousands kilometers away from the origin. But if before sending you set the offsets Lat(y) as 5411939.08 and Lon(x) as 448253.52, you will receive the Eiffel Tower right in the middle of your Rhino canvas, while still preserving the required CRS (e.g. EPSG:32631). 
 
-Lat(y) and Lon(x) offsets should be specified in the units of the current Project CRS, and in the correct order. Note, that when you copy the coordinates from QGIS canvas, the Lat/Lon order might be different depending on the CRS used (Lat is usually marked with N-North, and Lon is marked with E-East, both values can be positive or negative). 
+Lat(y) and Lon(x) offsets should be specified in the units of the current Project CRS, and in the correct order. Note, that when you copy the coordinates from QGIS canvas using right-click, the Lat/Lon order might be different depending on the CRS used (Lat is usually marked with N-North, and Lon is marked with E-East, both values can be positive or negative). 
 
 #### Creating custom CRS
 Create a custom Coordinate Reference System, based on Traverse Mercator if you don't have to use a specific CRS and want to have minimal size and shape distortions. Specify the origin Lat, Lon in geographic coordinates to create a custom CRS with the required origin and change your Project CRS. 
 
 #### Adding angle to the True North
-You can also add an angle to the True North if your non-GIS application require so. It will only affect Speckle object properties during Send/Receive operations and will not be visible in QGIS project.
+You can also add an angle to the True North to either of the above options if your non-GIS application require so. It will only affect Speckle object properties during Send/Receive operations and will not be visible in QGIS project.
 
 ### Transformations
 From 2.14 version onwards there is a new functionality helping to send a full 3d context maps for the further use in CAD, BIM or any 3D software. This can be applied by clicking "Apply transformations on Send" before sending the data. 
