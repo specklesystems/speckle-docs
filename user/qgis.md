@@ -53,21 +53,21 @@ The panel contains a very simple UI interface:
 
 ![The Speckle QGIS panel](./img-qgis/qgis-specklePanel.png)
 
-#### Adding a stream to the project
+#### Adding a Speckle project to the QGIS project
 
-First, you need to search and add a stream to the project. For that, you can press the `+` button under the `Project Streams` panel. This will open a new pop-up window that will allow you to search for a specific stream.
+First, you need to search and add a Speckle project to the QGIS project. For that, you can press the `+` button under the `Project projects` panel. This will open a new pop-up window that will allow you to search for a specific Speckle project.
 
-![Search stream panel](./img-qgis/qgis-searchPopUp.png)
+![Search project panel](./img-qgis/qgis-searchPopUp.png)
 
 And here's a short gif of the process 👇🏼
 
-![Adding a stream to the project](./img-qgis/qgis-addingStream.gif)
+![Adding a Speckle project to the QGIS project](./img-qgis/qgis-addingStream.gif)
 
-> Once a stream is added to the project, it is saved along with it so the streams will still be available after restarting QGIS.
+> Once a Speckel project is added to the QGIS project, it is saved along with it so the Speckle projects will still be available after restarting QGIS.
 
-#### Selecting the active stream
+#### Selecting the active project
 
-From the list of streams in the **Project streams** panel, you can select one to make it the **current active stream**. This will be the stream used for sending/receiving data. When an active stream is selected, `Active Stream` field will display the name, and the `Branch` dropdown will be populated with all available branches from that stream.
+From the list of projects in the **Speckle projects** panel, you can select one to make it the **current active project**. This will be the project used for sending/receiving data. When an active project is selected, `Active project` field will display the name, and the `Model` dropdown will be populated with all available Models from that project.
 
 ![alt](./img-qgis/qgis-activeStream.gif)
 
@@ -75,10 +75,10 @@ From the list of streams in the **Project streams** panel, you can select one to
 
 In order to send some data, just follow these steps:
 
-1. Select a stream so it becomes **active**
-2. Specify a specific branch to send data to using the dropdown menu.
+1. Select a project so it becomes **active**
+2. Specify a specific model to send data to using the dropdown menu.
 3. Select the layers in the file that you wish to send.
-4. (optional) Write a commit message.
+4. (optional) Write a version message.
 5. (optional) If you want to receive it in a non-GIS software or view in the browser, make sure you set your project to CRS of projected type using Meters as units.
 5. Send the selected layers.
 
@@ -92,18 +92,18 @@ If you want to receive the layers later in a non-GIS software at the exact locat
 
 #### Viewing the result
 
-Once data has been sent to Speckle, you can view the result by going to your Speckle's server Url (our public one is https://speckle.xyz). Here's an example of some QGIS data:
+Once data has been sent to Speckle, you can view the result by going to your Speckle's server Url (our general availability public one is https://app.speckle.systems). Here's an example of some QGIS data:
 
-<iframe src="https://speckle.xyz/embed?stream=389eec5d8d&commit=13f1ff032c" width=600 height=400></iframe>
+<iframe src="https://app.speckle.systems/projects/389eec5d8/models/57249e2af6@13f1ff032c" width=600 height=400></iframe>
 
 #### Receiving data
 
 Steps to receive the data:
 
-1. Select the stream to receive data from
-2. Select the branch
-3. Select specific commit (by default the latest one)
-4. Find the received layers in the new layer group named after stream, branch and commit
+1. Select the project to receive data from
+2. Select the model
+3. Select specific version (by default the latest one)
+4. Find the received layers in the new layer group named after project, model and version
 
 ![Receiving data](./img-qgis/QGIS_05_receiving.gif)
 
