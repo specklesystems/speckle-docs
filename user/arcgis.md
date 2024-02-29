@@ -84,7 +84,7 @@ If you want to receive the layers later in a non-GIS software at the exact locat
 
 Once data has been sent to Speckle, you can view the result by going to your Speckle's server Url (our public one is https://app.speckle.systems/). Here is the example of [data](https://www.diva-gis.org/gdata) sent from ArcGIS: 
 
-<iframe title="Speckle" src="https://app.speckle.systems/projects/55a29f3e9d/models/e9f320ca1c@1f8b3ca162#embed=%7B%22isEnabled%22%3Atrue%7D" width="600" height="400" frameborder="0"></iframe>
+<iframe title="Speckle" src="https://app.speckle.systems/projects/96b54620e8/models/4fa6817f3e#embed=%7B%22isEnabled%22%3Atrue%7D" width="600" height="400" frameborder="0"></iframe>
 
 #### Receiving data
 
