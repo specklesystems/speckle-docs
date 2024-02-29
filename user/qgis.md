@@ -35,7 +35,7 @@ You can also install the plugin from Speckle Desktop Manager:
 
 ### Using Speckle QGIS
 
-Once the plugin is installed, you'll find a new toolbar button in QGIS that will open the `SpeckleQGIS` panel. The panel contains a very simple UI interface:
+Once the plugin is installed, you'll find a new toolbar button in QGIS that will open the `SpeckleQGIS` panel. The panel contains a very simple interface:
 
 ![Plugin view](./img-qgis/03_open_plugin.png)
 
@@ -61,8 +61,8 @@ In order to send your data, just follow these steps:
 2. Specify a specific branch to send data to using the dropdown menu.
 3. Select the layers in the file that you wish to send.
 4. (optional) Write a commit message.
-5. (optional) If you want to receive it in a non-GIS software or view in the browser, make sure you set your project to CRS of projected type using Meters as units.
-5. Send the selected layers.
+5. (optional) If you want to receive it in a non-GIS software or view in the browser, make sure you set your project to CRS of projected type (e.g. using Meters as units).
+5. Send the data.
 
 The geometry will be reprojected and sent in a `Project CRS` of your QGIS project (shown in the bottom right corner in QGIS panel). If the chosen Coordinate Reference System is of Geographic type with non-linear units, they will be treated as Meters in other software that do not support such units.
 
