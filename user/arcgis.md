@@ -1,6 +1,6 @@
 # ArcGIS
 
-![ArcGIS connector](./img-arcgis/arcgis-main.png)
+![ArcGIS connector](./img-arcgis/main.png)
 
 ::: tip
 
@@ -42,23 +42,20 @@ In case you are using a custom conda environment for your project, or if install
 
 Once the plugin is installed, you'll find a new toolbox in Geoprocessing tools, with Speckle script tool inside. Double click will open the `Speckle` panel. The panel contains a very simple interface: 
 
-![Speckle panel](./img-arcgis/arcgis-ui0.png)
+![Speckle panel](./img-arcgis/interface.png)
 
-![Speckle panel](./img-arcgis/arcgis-add-streams.png)
-
-![Speckle panel](./img-arcgis/arcgis-create-sr.png)
 
 #### Adding a stream to the project
 
 First, you need to search and add a stream to the ArcGIS project. For that, you can press the Search button near the `Stream` panel. This will open a new pop-up window that will allow you to search for a specific stream and add it to ArcGIS project.
 
-![Search stream panel](./img-qgis/add_stream_img.png)
+![Search stream panel](./img-arcgis/add_stream_img.png)
 
 From the list of streams in the dropdown list, you can select one to make it the **current active stream**. This will be the stream used for sending/receiving data. When an active stream is selected, the `Branch` dropdown will be populated with all available branches from that stream.
 
 And here's a short gif of the process 👇🏼
 
-![Adding a stream to the project](./img-qgis/add_stream_gif.gif)
+![Adding a stream to the project](./img-arcgis/add_stream_gif.gif)
 
 > Once a stream is added to the ArcGIS project, it is saved along with it so the streams will still be available after restarting ArcGIS.
 
@@ -77,11 +74,11 @@ The geometry will be reprojected and sent in the Spatial Reference of your Activ
 
 Here's a quick walkthrough of the process.
 
-![Sending data from ArcGIS](./img-qgis/send.gif)
+![Sending data from ArcGIS](./img-arcgis/send.gif)
 
 If you want to receive the layers later in a non-GIS software at the exact location (e.g. receive a context for your building in London), you can create a custom SR in ArcGIS, that will match the global coordinate system from ArcGIS with the local coordinate system in CAD. Simply enter the geographic coordinates (Lat, Lon) of the point which is the origin (0,0) of your CAD environment. 
 
-![Matching coordinates with CAD](./img-qgis/custom_crs.gif)
+![Matching coordinates with CAD](./img-arcgis/custom_sr.gif)
 
 #### Viewing the result
 
@@ -98,7 +95,7 @@ Steps to receive the data:
 3. Select specific commit (by default the latest one)
 4. Find the received layers in the new layer group named after stream, branch and commit
 
-![Receiving data](./img-qgis/receive.gif)
+![Receiving data](./img-arcgis/receive.gif)
 
 
 ### Custom project center
