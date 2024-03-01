@@ -1,6 +1,6 @@
-# Accessing Private Streams
+# Accessing Private Models
 
-Once you complete the installation and configuration steps, you can receive “public” streams from Speckle. To receive your private streams, you need to complete authentication. There are two authentication methods:
+Once you complete the installation and configuration steps, you can receive “public” models from Speckle. To receive your private models, you need to complete authentication. There are two authentication methods:
 
 - Log in using your Speckle Account.
 - With a Personal Access Token.
@@ -14,7 +14,7 @@ You can now log in with **any account of any Speckle server**. Here’s how you
   Your browser does not support the video tag.
 </video>
 
-1. First, paste the URL of Private Stream you want to receive and click “OK”.
+1. First, paste the URL of Private Model you want to receive and click “OK”.
 2. Select the ”Server URL” option in the credentials pop-up. In our case, it is “**Speckle.xyz**”.
 3. Then press the ”**Sign in”** button. This will open a pop-up window prompting you to log into your account and allow the Power BI app to access your user data. This grants `read-only` access, as recommended by Power BI guidelines.
 
@@ -35,11 +35,11 @@ Another way of authenticating is with a “Personal Access Token”. Tokens are 
 4. This will create a token for you. Make sure you copy it. It is the first and last time you’ll be able to see this token. Treat it as a _Password,_ and do not share it with anyone.
 5. Go to **Power BI > Options and Settings > Data source settings.**
 6. Go to **Global Permissions** and select your Speckle server.
-7. After selecting a server, follow **Edit Permissions > Edit > Private Stream.** Paste your *Token* into `Personal Access Token` input.
+7. After selecting a server, follow **Edit Permissions > Edit > Private Model.** Paste your *Token* into `Personal Access Token` input.
 
 That’s it! Now, Power BI will continue fetching your private data from the Speckle server.
 
 :::tip 📌IMPORTANT
-Delete existing servers if you have trouble seeing your server under Data sources. Return to the Speckle Connector and try to receive the same stream/branch/commit. You’ll have the option to add it from there.
+Delete existing servers if you have trouble seeing your server under Data sources. Return to the Speckle Connector and try to receive the same model/version. You’ll have the option to add it from there.
 
 :::

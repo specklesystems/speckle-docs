@@ -52,13 +52,13 @@ The connector takes care of updating received elements automatically where possi
 **Elements are updated under these two circumstances:**
 
 - If the element was created in another project/software and had been received previously: for example, BuiltElements that were created in Rhino or Grasshopper.
-- If the element was created in the same project you're working on: for example, if you send some walls to Speckle, edit them, and receive them again from the same stream
+- If the element was created in the same project you're working on: for example, if you send some walls to Speckle, edit them, and receive them again from the same model
 
 Here are some technical details if you're curious about what's happening behind the scenes:
 
 - BuiltElements have a property called `applicationId`, this is different from the `id/hash` property on them, and represents the id of such element in the host application in which it was first created. If the element was created in Revit it’s the `UniqueId`, if coming from Grasshopper/Rhino an analogous field
-- When a stream is received in Revit the `applicationIds` of all BuiltElements created are cached in the receiver
-- When receiving a second time from the same stream, if the received elements have the same `applicationId` of something that was previously received (and it still exists in the document), the connector will attempt to modify them instead of creating new ones. If the update fails (or is not permitted by the API), it’ll delete them and create new ones
+- When a model is received in Revit the `applicationIds` of all BuiltElements created are cached in the receiver
+- When receiving a second time from the same model, if the received elements have the same `applicationId` of something that was previously received (and it still exists in the document), the connector will attempt to modify them instead of creating new ones. If the update fails (or is not permitted by the API), it’ll delete them and create new ones
 - If no cached element is found, but there is an element in the document with a matching `applicationId` that is used for the update (this is the case of someone restoring changes previously sent, in the same project)
 - If an element being received doesn’t have an `applicationId` no update mechanism will happen (this could be the case of BuiltElements created in Python if no `applicationIds` are generated manually)
 
