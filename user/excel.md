@@ -53,26 +53,26 @@ Currently, **only accounts on servers managed by us are supported**, this is bec
 
 :::
 
-### Adding Streams
+### Adding Projects
 
-Just click the top left menu > Add stream > click on a stream to add to the document. **The stream will be saved in the document and available whenever you return to it.**
+Just click the top left menu > Add Project > click on a Project to add to the document. **The Project will be saved in the document and available whenever you return to it.**
 
 ![excel-add](https://user-images.githubusercontent.com/2679513/119180828-b4588f80-ba68-11eb-8ac3-0aa8f9d5158f.gif)
 
-By default, streams are added as receivers but you can easily switch them to sender mode.
+By default, Projects are added as receivers but you can easily switch them to sender mode.
 
 ![image](https://user-images.githubusercontent.com/2679513/119181346-61330c80-ba69-11eb-9100-7f1b0f9ec82c.png)
 
 ## Receiving Data
 
-Receiving data in excel is quite different than in other connectors, and this is because we need to "flatten" it so to represent it in a table format. In general, a stream will either contain:
+Receiving data in Excel is quite different than in other connectors, and this is because we need to "flatten" it so to represent it in a table format. In general, a Project will either contain:
 
 - Simple values like numbers, text etc
 - Complex data structures (objects) like a Revit Wall or a Grasshopper Line. Objects are identified by a `{}` symbol.
 
 The Excel connector works best when receiving lists of either simple values or objects of the same type. Lists are identified by a `[]` symbol.
 
-Since a commit can contain a variety of data types, after clicking the **receive button**, you'll have the possibility to expand and select which data inside it to actually pull and write to your Excel file. You don't have to receive an entire commit each time!
+Since a Version can contain a variety of data types, after clicking the **receive button**, you'll have the possibility to expand and select which data inside it to actually pull and write to your Excel file. You don't have to receive an entire Version each time!
 
 ![image-20210521205817594](https://user-images.githubusercontent.com/2679513/119197116-2b991e00-ba7f-11eb-8e70-6d7e962361d5.png)
 
@@ -95,7 +95,7 @@ We recommend receiving lists of objects that have the same underlying data struc
 
 ![image](https://user-images.githubusercontent.com/2679513/119189886-88dba200-ba74-11eb-8066-cd98972a88dd.png)
 
-Nested objects are flattened as well and their properties delimited by a period `.`. See the example below where 10 lines have been streamed from Dynamo to Excel:
+Nested objects are flattened as well and their properties delimited by a period `.`. See the example below where 10 lines have been sent from Dynamo and received in Excel:
 
 ![image](https://user-images.githubusercontent.com/2679513/119195280-4e760300-ba7c-11eb-8601-3ed72a6b0813.png)
 
@@ -135,7 +135,7 @@ Step 1 is to send your schedule from Revit to Speckle using the Speckle Revit co
 
 ![image](./img-excel/revit-schedule.png)
 
-The next step is to receive the commit in excel. There is some preprocessing magic that is done in the background to identify that you are trying to receive a schedule. The result of this preprocessing is that you won't be prompted to filter and receive data as you normally would.
+The next step is to receive the version in Excel. There is some preprocessing magic that is done in the background to identify that you are trying to receive a schedule. The result of this preprocessing is that you won't be prompted to filter and receive data as you normally would.
 
 ![image](./img-excel/receive-schedule.gif)
 

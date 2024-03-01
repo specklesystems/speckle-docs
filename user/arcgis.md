@@ -32,9 +32,7 @@ In case you are using a custom conda environment for your project, or if install
 ### Features
 
 - The plugin allows you to select several layers in your project and send their geometry and attributes to a Speckle server.
-
 - You can receive Speckle geometry sent from other software. Properties of the objects upon receiving are stored in the layer attribute table.
-
 - You can send you data from ArcGIS and receive it in CAD in a CAD-friendly location, thanks to the option to create custom Spatial Reference (SR) in ArcGIS. To do this, you will be required to enter geographic coordinates of the point representing the origin point (0, 0) in your CAD project.
 
 ### Using Speckle ArcGIS
@@ -43,26 +41,26 @@ Once the plugin is installed, you'll find a new toolbox in Geoprocessing tools, 
 
 ![Speckle panel](./img-arcgis/interface.png)
 
-#### Adding a stream to the project
+#### Adding a Speckle project to the ArcGIS project
 
-First, you need to search and add a stream to the ArcGIS project. For that, you can press the Search button near the `Stream` panel. This will open a new pop-up window that will allow you to search for a specific stream and add it to ArcGIS project.
+First, you need to search and add a project to the ArcGIS project. For that, you can press the Search button near the `Project` panel. This will open a new pop-up window that will allow you to search for a specific project and add it to ArcGIS project.
 
-![Search stream panel](./img-arcgis/add_stream_img.png)
+![Search project panel](./img-arcgis/add_stream_img.png)
 
-From the list of streams in the dropdown list, you can select one to make it the **current active stream**. This will be the stream used for sending/receiving data. When an active stream is selected, the `Branch` dropdown will be populated with all available branches from that stream.
+From the list of projects in the dropdown list, you can select one to make it the **current active project**. This will be the project used for sending/receiving data. When an active project is selected, the `Model` dropdown will be populated with all available models from that project.
 
 And here's a short gif of the process 👇🏼
 
-![Adding a stream to the project](./img-arcgis/add_stream_gif.gif)
+![Adding a project to the project](./img-arcgis/add_stream_gif.gif)
 
-> Once a stream is added to the ArcGIS project, it is saved along with it so the streams will still be available after restarting ArcGIS.
+> Once a project is added to the ArcGIS project, it is saved along with it so the projects will still be available after restarting ArcGIS.
 
 #### Sending data
 
-1. Select a stream from the dropdown list.
-2. Specify a specific branch to send data to using the dropdown menu.
+1. Select a project from the dropdown list.
+2. Specify a specific model to send data to using the dropdown menu.
 3. Make visible the layers in the file that you wish to send.
-4. (optional) Write a commit message.
+4. (optional) Write a version message.
 5. (optional) If you want to receive it in a non-GIS software or view in the browser, make sure you the SR of your Active Map is of projected type (e.g. using Meters as units).
 6. Send the data.
 
@@ -86,10 +84,37 @@ Once data has been sent to Speckle, you can view the result by going to your Spe
 
 Steps to receive the data:
 
-1. Select the stream to receive data from
-2. Select the branch
-3. Select specific commit (by default the latest one)
-4. Find the received layers in the new layer group named after stream, branch and commit
+1. Select the project to receive data from
+2. Select the model
+3. Select specific version (by default the latest one)
+4. Find the received layers in the new layer group named after project, model and version
+
+![Receiving data](./img-arcgis/receive.gif)
+
+### Custom project center
+
+Modifying project center is useful when you need to:
+
+- Send data (so you can receive correctly in a non-GIS application)
+- Receive data (if data was sent from non-GIS application).
+
+You have several options to choose in order to set the custom project center.
+
+#### Adding offsets
+
+You can choose to use the existing Spatial Reference (SR of our Active Map) and modify it's Speckle properties by adding X- and Y- offsets. This option will only be affecting Speckle properties on Send/Receive and will not change anything for you while you are working on a ArcGIS project. Use this option when your project requires a use of a specific SR.
+
+For example, if you use a projected SR (e.g. EPSG:32631) without the offsets and send the Eiffel Tower outline to Speckle, when receiving in Rhino geometry will be located thousands kilometers away from the origin. But if before sending you set the offsets Lat(y) as 5411939.08 and Lon(x) as 448253.52, you will receive the Eiffel Tower right in the middle of your Rhino canvas, while still preserving the required SR (e.g. EPSG:32631).
+
+Lat(y) and Lon(x) offsets should be specified in the units of the Active Map SR, and in the correct order. Note, that when you copy the coordinates from ArcGIS canvas using right-click, the Lat/Lon order might be different depending on the SR used (Lat is usually marked with N-North, and Lon is marked with E-East, both values can be positive or negative).
+
+#### Creating custom SR
+
+Create a custom Spatial Reference, based on Traverse Mercator if you don't have to use a specific SR and want to have minimal size and shape distortions. Specify the origin Lat, Lon in geographic coordinates to create a custom SR with the required origin and change your Active Map SR.
+
+#### Adding angle to the True North
+
+You can also add an angle to the True North to either of the above options if your non-GIS application require so. It will only affect Speckle object properties during Send/Receive operations and will not be visible in ArcGIS project.
 
 ![Receiving data](./img-arcgis/receive.gif)
 

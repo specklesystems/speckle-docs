@@ -15,9 +15,9 @@ Check out our dedicated tutorial on [how to get started with Civil3D](https://sp
 
 To begin, you'll need to install this Connector and add your Speckle account. Follow our instructions in [Speckle Manager](/user/manager) if you haven't already.
 
-Once installed, you can find this connector in the `Add-Ins` tab under `Speckle 2`. Clicking this button will open the Speckle connector interface, which shows a list of all the streams you currently have in the model.
+Once installed, you can find this connector in the `Add-Ins` tab under `Speckle 2`. Clicking this button will open the Speckle connector interface, which shows a list of all the projects you currently have in the model.
 
-![](./img-acad/setup-plugin.gif)
+![Setting up the Plugin](./img-acad/setup-plugin.gif)
 
 ## User Interface
 
@@ -33,15 +33,15 @@ The AutoCAD Civil3D Connector supports selection filtering by layer.
 
 ### Receiving Data
 
-Geometry from streams will be added to AutoCAD / Civil3D layers starting with a prefix with the following format:
+Geometry from projects will be added to AutoCAD / Civil3D layers starting with a prefix with the following format:
 
+```text
+project[ model @ version id ]
 ```
-stream[ branch @ commit id ]
-```
 
-Any layer information from the incoming stream will be appended to the prefix with the standard AutoCAD delimiter `$`. When receiving from applications (like Rhino) with nested layers, the incoming full layer path will replace any default delimiters with `$`.
+Any layer information from the incoming project will be appended to the prefix with the standard AutoCAD delimiter `$`. When receiving from applications (like Rhino) with nested layers, the incoming full layer path will replace any default delimiters with `$`.
 
-![](./img-acad/receiving-layers.png)
+![Screenshot of Layers showing th esource data](./img-acad/receiving-layers.png)
 
 ## Supported Elements
 

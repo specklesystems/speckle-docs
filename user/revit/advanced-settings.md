@@ -83,7 +83,7 @@ To avoid this, you can use the object type mapping setting.
 Available options are:
 
 - **Never**: Speckle automatically handles all the mapping for you.
-- **Always**: Upon receiving a Speckle commit, you'll be presented with a table of incoming object types and the opportunity to assign a Revit type.
+- **Always**: Upon receiving a model version, you'll be presented with a table of incoming object types and the opportunity to assign a Revit type.
 - **For New Types: Upon r**eceiving a model for the first time, you will be presented with a table that displays all incoming types. You can then map these types to the corresponding types in the Revit application, similar to the previous option. However, if you receive a newer version of the same model for a second time, the mapping dialog will only appear if there are new incoming types that the user has not yet mapped.
   If the next version has the same object types as the first, the previous custom mapping will be used, and you won't need to remap incoming types.
 

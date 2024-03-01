@@ -39,7 +39,7 @@ Notably, this registration process might slightly increase the conversion time, 
 
 ## 6. Diffing (experimental)
 
-Diffing feature is currently in the experimental phase. When this setting is enabled, a small triangle icon will appear next to the stream card. Clicking on this icon will display the differences between the version you sent to Speckle and the current version in SketchUp.
+Diffing feature is currently in the experimental phase. When this setting is enabled, a small triangle icon will appear next to the project card. Clicking on this icon will display the differences between the version you sent to Speckle and the current version in SketchUp.
 
 ::: warning
 ⚠️ The feature currently shows only the geometries modified with the push-pull tool between the versions.
