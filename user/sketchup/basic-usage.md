@@ -19,7 +19,7 @@ To send data:
 
 1. Select all the objects you want to send.
 2. Click on the "**Send**" cube.
-3. If you wish to change the target branch, click on the selected branch and choose the desired branch from the dropdown menu.
+3. If you wish to change the target model, click on the selected model and choose the desired model from the dropdown menu.
 
 ## Receiving Data
 
@@ -28,51 +28,51 @@ To send data:
   Your browser does not support the video tag.
 </video>
 
-Receiving streams in SketchUp is as simple as clicking the "**Receive**" cube. As with sending, you can switch the targeted branch and the particular commit to receive.
+Receiving models in SketchUp is as simple as clicking the "**Receive**" cube. As with sending, you can switch the targeted model and the particular version to receive.
 
 ::: warning
-Note that if you sent SketchUp groups to a stream, they will be received as component instances rather than groups.
+Note that if you sent SketchUp groups to a model, they will be received as component instances rather than groups.
 :::
 
-## Creating a New Stream
+## Creating a New Project
 
 <video autoplay muted loop>
   <source src="./img-sketchup/create-stream.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
-Creating a new stream is also really easy.
+Creating a new project is also really easy.
 
-1. Click on the "**Create New Stream**" button.
-2. A dialog box will appear. Provide a **name** for your stream and an optional **description**.
-3. To make your stream **private**, use the toggle option.
-4. Click on the "**Create**" button to finalize and create your stream.
+1. Click on the "**Create New Project**" button.
+2. A dialog box will appear. Provide a **name** for your project and an optional **description**.
+3. To make your project **private**, use the toggle option.
+4. Click on the "**Create**" button to finalize and create your project.
 
-That's it! Your new stream is now successfully created.
+That's it! Your new project is now successfully created.
 
-## Creating a Branch
+## Creating a Model
 
 <video autoplay muted loop>
   <source src="./img-sketchup/create-branch.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
-To create a new branch:
+To create a new model:
 
-1. Hover over the branch button. “**+**” button will appear on the left. Click on it.
-2. A new dialog box will open where you can **name** your branch and optionally provide a **description** for it.
+1. Hover over the model button. “**+**” button will appear on the left. Click on it.
+2. A new dialog box will open where you can **name** your model and optionally provide a **description** for it.
 3. Click on "**Create**".
 
-The newly created branch will become active, ready for you to start working on it.
+The newly created model will become active, ready for you to start working on it.
 
-## Adding a Stream by URL
+## Adding a Project by URL
 
 <video autoplay muted loop>
   <source src="./img-sketchup/add-by-id.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
-If you have the URL of the data you want to receive, you can easily add it using the "**Add By ID or URL**" button. Paste the URL of the data you want to receive and click “**Add**”. A Stream Card will be added, with the branch and commit selected from the pasted URL.
+If you have the URL of the project you want to receive, you can easily add it using the "**Add By ID or URL**" button. Paste the URL of the data you want to receive and click “**Add**”. A Project Card will be added, with the model and version selected from the pasted URL.
 
 ## Switching Accounts
 

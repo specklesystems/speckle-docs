@@ -32,9 +32,7 @@ In case you are using a custom conda environment for your project, or if install
 ### Features
 
 - The plugin allows you to select several layers in your project and send their geometry and attributes to a Speckle server.
-
 - You can receive Speckle geometry sent from other software. Properties of the objects upon receiving are stored in the layer attribute table.
-
 - You can send you data from ArcGIS and receive it in CAD in a CAD-friendly location, thanks to the option to create custom Spatial Reference (SR) in ArcGIS. To do this, you will be required to enter geographic coordinates of the point representing the origin point (0, 0) in your CAD project.
 
 ### Using Speckle ArcGIS
@@ -90,6 +88,33 @@ Steps to receive the data:
 2. Select the model
 3. Select specific version (by default the latest one)
 4. Find the received layers in the new layer group named after project, model and version
+
+![Receiving data](./img-arcgis/receive.gif)
+
+### Custom project center
+
+Modifying project center is useful when you need to:
+
+- Send data (so you can receive correctly in a non-GIS application)
+- Receive data (if data was sent from non-GIS application).
+
+You have several options to choose in order to set the custom project center.
+
+#### Adding offsets
+
+You can choose to use the existing Spatial Reference (SR of our Active Map) and modify it's Speckle properties by adding X- and Y- offsets. This option will only be affecting Speckle properties on Send/Receive and will not change anything for you while you are working on a ArcGIS project. Use this option when your project requires a use of a specific SR.
+
+For example, if you use a projected SR (e.g. EPSG:32631) without the offsets and send the Eiffel Tower outline to Speckle, when receiving in Rhino geometry will be located thousands kilometers away from the origin. But if before sending you set the offsets Lat(y) as 5411939.08 and Lon(x) as 448253.52, you will receive the Eiffel Tower right in the middle of your Rhino canvas, while still preserving the required SR (e.g. EPSG:32631).
+
+Lat(y) and Lon(x) offsets should be specified in the units of the Active Map SR, and in the correct order. Note, that when you copy the coordinates from ArcGIS canvas using right-click, the Lat/Lon order might be different depending on the SR used (Lat is usually marked with N-North, and Lon is marked with E-East, both values can be positive or negative).
+
+#### Creating custom SR
+
+Create a custom Spatial Reference, based on Traverse Mercator if you don't have to use a specific SR and want to have minimal size and shape distortions. Specify the origin Lat, Lon in geographic coordinates to create a custom SR with the required origin and change your Active Map SR.
+
+#### Adding angle to the True North
+
+You can also add an angle to the True North to either of the above options if your non-GIS application require so. It will only affect Speckle object properties during Send/Receive operations and will not be visible in ArcGIS project.
 
 ![Receiving data](./img-arcgis/receive.gif)
 

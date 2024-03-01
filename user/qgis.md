@@ -37,13 +37,16 @@ You can also install the plugin from Speckle Desktop Manager:
 
 Once the plugin is installed, you'll find a new toolbar button in QGIS that will open the `SpeckleQGIS` panel. The panel contains a very simple interface:
 
+
 ![Plugin view](./img-qgis/03_open_plugin.png)
 
 #### Adding a Speckle project to the QGIS project
 
 First, you need to search and add a project to the QGIS project. For that, you can press the Search button near the `Project` panel. This will open a new pop-up window that will allow you to search for a specific project and add it to QGIS project.
 
+
 ![Search project panel](./img-qgis/add_stream_img.png)
+
 
 From the list of projects in the dropdown list, you can select one to make it the **current active project**. This will be the project used for sending/receiving data. When an active project is selected, the `Model` dropdown will be populated with all available models from that project.
 
@@ -52,6 +55,7 @@ And here's a short gif of the process 👇🏼
 ![Adding a project to the QGIS project](./img-qgis/add_stream_gif.gif)
 
 > Once a project is added to the QGIS project, it is saved along with it so the projects will still be available after restarting QGIS.
+
 
 #### Sending data
 
@@ -62,7 +66,7 @@ In order to send your data, just follow these steps:
 3. Select the layers in the file that you wish to send.
 4. (optional) Write a version message.
 5. (optional) If you want to receive it in a non-GIS software or view in the browser, make sure you set your project to CRS of projected type (e.g. using Meters as units).
-5. Send the data.
+6. Send the data.
 
 The geometry will be reprojected and sent in a `Project CRS` of your QGIS project (shown in the bottom right corner in QGIS panel). If the chosen Coordinate Reference System is of Geographic type with non-linear units, they will be treated as Meters in other software that do not support such units.
 
