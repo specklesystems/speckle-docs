@@ -10,11 +10,11 @@ The **Speckle Web App** is our browser-based interface for managing all things S
 - Viewing your data in our 3D model viewer
 - Managing your account
 
-When you first visit your speckle server address (e.g. our default [speckle.xyz server](https://speckle.xyz)), you'll be prompted to log in or register to that server. Servers are independent of each other meaning if you are a part of multiple Speckle Servers, you'll need to create a new account for each one.
+When you first visit your speckle server address (e.g. our default [general availibility server](https://app.speckle.systems)), you'll be prompted to log in or register to that server. Servers are independent of each other meaning if you are a part of multiple Speckle Servers, you'll need to create a new account for each one.
 
 ::: tip 🙌 IMPORTANT
 This guide assumes you have a **Speckle Account**.
-If you don't, register on our [free XYZ Speckle server](https://speckle.xyz).
+If you don't, register on our [General Availabilty Speckle server](https://app.speckle.systems).
 :::
 
 ## Streams
@@ -90,7 +90,7 @@ Use your left mouse button to rotate the view around and use the right mouse but
 
 Try playing with our embedded 3D viewer below to get a feel for navigating a model and inspecting its elements in your browser.
 
-<iframe src="https://speckle.xyz/embed?stream=a632e7a784&branch=roof" width=600 height=400></iframe>
+<iframe src="https://app.speckle.systems/projects/a632e7a784/models/1b47b19207#embed=%7B%22isEnabled%22%3Atrue%7D" width=600 height=400></iframe>
 
 The toolbar at the bottom edge of the viewer allows you to:
 
@@ -104,7 +104,7 @@ The toolbar at the bottom edge of the viewer allows you to:
 You can easily embed any stream, branch, commit or object directly from the **web app**. To do so, just follow these steps:
 
 ::: warning 📌 Please Note
-Your stream must be made **public** in order for the embedded viewer to properly load.
+Your stream must be made **Link Shared** in order for the embedded viewer to properly load.
 :::
 
 1. In the **_web app_**, go to a stream page containing _geometric data_.

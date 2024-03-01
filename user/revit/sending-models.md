@@ -52,7 +52,7 @@ Before sending data from Revit, it is important to determine where you want to s
 
 To create a Speckle Project:
 
-1. Click the **Create New Stream(Project)** button.
+1. Click the **Create New Project** button.
 2. Provide a **Name** for your Project and an optional **Description**.
 3. Use the toggle, to make your project **Private** or **Link Shareable**.
 4. Click **Create**.
