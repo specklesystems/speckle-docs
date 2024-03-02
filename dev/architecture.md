@@ -28,23 +28,23 @@ These applications, in order to talk to each other and make sense of the data th
 
 ## Kits
 
-A Speckle Kit is, essentially, the definition of a common language: a schema. Moreover, a Speckle Kit also contains the translation routines to and from an application's native object model to the kit's schema. Kits are "hot-swappable": Speckle comes with one by default which delivers the core of our interoperability capabilities. Nevertheless, anyone can define their own kit to serve their purpose.
+A Speckle kit is, essentially, the definition of a common language: a schema. Moreover, a Speckle kit also contains the translation routines to and from an application's native object model to the kit's schema. Kits are "hot-swappable": Speckle comes with one by default which delivers the core of our interoperability capabilities. Nevertheless, anyone can define their own kit to serve their purpose.
 
 ![image](./img/architecture/kits.png)
 
-Existing authoring applications, such as Rhino, Revit, Autocad, send and receive data from and to Speckle by passing it through the conversion routines of a given kit. This is handled through **Connectors.** Connectors are plugins that integrate within these host applications (e.g., the Rhino Connector) and allow end-users to select the data they want to send to Speckle, and, behind the scenes, convert it and, lastly, transport it to Speckle. 
+Existing authoring applications, such as Rhino, Revit, Autocad, send and receive data from and to Speckle by passing it through the conversion routines of a given kit. This is handled through **connectors.** Connectors are plugins that integrate within these host applications (e.g., the Rhino Connector) and allow end-users to select the data they want to send to Speckle, and, behind the scenes, convert it and, lastly, transport it to Speckle. 
 
 :::tip Extra Reading
 
-Read more about **Kits** [here](/dev/kits). If curious, you can also follow up with the discussion on [our forum](https://speckle.community/t/introducing-kits-2-0/710).
+Read more about **kits** [here](/dev/kits). If curious, you can also follow up with the discussion on [our forum](https://speckle.community/t/introducing-kits-2-0/710).
 
-We also have a guide on how to write your own **Connector** - [check it out](/dev/connectors-dev.html)!
+We also have a guide on how to write your own **connector** - [check it out](/dev/connectors-dev.html)!
 
 :::
 
 Other applications do not necessarily need to do so: they can directly use a kit's schema - or simply use objects that respect the few low-level constraints that Speckle needs to serve its purpose. These aspects are described below in [Serialisation & Structure](#serialisation-structure). Next, we're going to discuss how the serialisation layer interacts with the storage layer.
 
-## Serialisation & Storage
+## Serialisation and Storage
 
 Once Speckle data is translated or directly created, it needs to be serialised and, lastly, stored. In reverse, data needs to be retrieved from the storage layer and de-serialised to a memory representation that can be used by the application it was received in (either converted back to host application representations, or consumed by the business logic of the app. During the process of serialisation, Speckle also needs to decompose objects into their constituent parts; similarly, it needs to re-compose them during the de-serialisation process. 
 
@@ -60,7 +60,7 @@ Different storage systems have various characteristics that make them better (or
 
 One such transport is the Speckle Server Transport. Another transport is an SQLite Transport. Speckle comes with a couple of other transports too: a MongoDB transport, an In-Memory Transport, as well as a Disk Transport. Other transports, such as an S3 transport, a MySQL transport could easily be developed. 
 
-The Disk Transport writes and reads your Speckle data from files in a location you specify, while the SQLite Transport does the same, but backed by a SQLite database. For example, the latter is used extensively throughout our Connectors as a local cache so as to reduce the dependency on a high-latency transport, namely the one for the Speckle Server. 
+The Disk Transport writes and reads your Speckle data from files in a location you specify, while the SQLite Transport does the same, but backed by a SQLite database. For example, the latter is used extensively throughout our connectors as a local cache so as to reduce the dependency on a high-latency transport, namely the one for the Speckle Server. 
 
 Transports offer developers low-level flexibility in developing, essentially, their own custom back-ends to Speckle, or pushing data to other systems that can do different things - even a whole new Speckle Server. 
 
@@ -74,7 +74,7 @@ A work-in-progress guide on how to write your own transport can be found [here](
 
 :::
 
-## Serialisation & Structure
+## Serialisation and Structure
 
 Before data can be persisted to a storage system, it needs to be serialised. Serialisation is the process by which an object is converted into a state that can be stored or transmitted, and be reconstructed later from (deserialisation). 
 
@@ -106,7 +106,7 @@ Speckle's decomposition api is described in more depth [here](/dev/decomposition
 
 This post covered the low level building blocks of Speckle and how they work together. The key points and concepts that we've covered are: 
 
-- How apps interact with Speckle, and how data can be translated between them: either directly, or through Speckle Kits.
+- How apps interact with Speckle, and how data can be translated between them: either directly, or through Speckle kits.
 - How data gets serialised, and subsequently stored & how these two layers interact.
 - How Speckle treats objects and decomposes them into their constituent parts.
 - What Transports are, and why they're so powerful: they allow completely new backends to Speckle to be written and composed.

@@ -9,7 +9,7 @@ Here's a few examples to get you started.
 First of all we need to create a [Personal Access Token](/dev/tokens), make sure to select the scopes that you'll need for running your queries and mutations.
 As always, treat this token as a password!
 
-## Writing your queries
+## Writing your Queries
 
 To learn how to write queries check out our section on the [Server API](/dev/server-api), and use the GraphQL explorer to make sure your query or mutation works as expected.
 

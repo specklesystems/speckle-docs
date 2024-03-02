@@ -8,7 +8,7 @@ We will assume you have general knowledge of Python and Speckle. If anything tri
 
 If you want to follow along with the code, the repo for this project can be found [here](https://github.com/izzylys/demo-specklepy).
 
-## Receive Objects From The Server
+## Receive Objects from the Server
 
 If you've already been through the [Python examples](/dev/py-examples), you'll already know how to receive objects from the server. As a refresher, you'll need to create a `SpeckleClient` which serves as your entry point to the API. We then authenticate this client using a token from a local account. If you haven't used the [Manager](/user/manager) to add a local account, you can go to `your-server.com/profile` and create a Personal Access Token to use here. We'll then use this client to get the commit we're interested in.
 

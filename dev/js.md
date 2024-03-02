@@ -2,7 +2,7 @@
 
 Note, these are WIP instructions. More details coming soon!
 
-## The Speckle Viewer: Getting started
+## The Speckle Viewer: Getting Started
 
 You can download the package [here](https://github.com/specklesystems/speckle-server/tree/main/packages/viewer)!
 
@@ -24,12 +24,12 @@ npm run build
 
 Syntax and examples for supported API methods. The examples assume a Viewer instance named `v`.
 
-### Load/Unload an object
+### Load/Unload an Object
 `v.loadObject( objectUrl )` / `v.unloadObject( objectUrl )`
 
 Example: `v.loadObject( 'https://speckle.xyz/streams/3073b96e86/objects/e05c5834368931c9d9a4e2087b4da670' )`
 
-### Get properties of loaded objects
+### Get Properties of Loaded Objects
 `v.getObjectsProperties()`
 
 This returns a dictionary with `{ propertyName: propertyInfo }` elements. The property information provided is:
@@ -40,7 +40,7 @@ This returns a dictionary with `{ propertyName: propertyInfo }` elements. The pr
  - `maxValue` - the largest value
  - `uniqueValues` - a dictionary of `{ uniqueValue: occurrenceCount }` elements, specifying how many objects have the property set to that specific value
 
-### Filtering and coloring
+### Filtering and Colouring
 Those calls filter and color the objects loaded in the scene, and drops the previous applied filters (filtering is not additive).
 
 Syntax: `await v.applyFilter( { filterBy, colorBy, ghostOthers } )`

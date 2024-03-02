@@ -7,25 +7,25 @@ Preview images for your stream can be accessed through the `preview` endpoint. Y
 If the stream is public, you can simply take any url (stream, commit, branch, or object) and replace `streams` with `preview` to get a preview image back from that resource. You can try this yourself by simply going to the URL in your browser. If the stream is private, you will need to make an authenticated request in order to get access to the preview.
 
 ::: tip URL Scheme
-Stream preview: `https://speckle.xyz/preview/<YOUR-STREAM-ID>`
+Stream preview: `https://app.speckle.systemns/preview/<YOUR-STREAM-ID>`
 
-Commit preview: `https://speckle.xyz/preview/<YOUR-STREAM-ID>/commits/<YOUR-COMMIT-ID>`
+Commit preview: `https://app.speckle.systemns/preview/<YOUR-STREAM-ID>/commits/<YOUR-COMMIT-ID>`
 
-Branch preview: `https://speckle.xyz/preview/<YOUR-STREAM-ID>/branches/<YOUR-BRANCH-NAME>`
+Branch preview: `https://app.speckle.systemns/preview/<YOUR-STREAM-ID>/branches/<YOUR-BRANCH-NAME>`
 
-Object preview: `https://speckle.xyz/preview/<YOUR-STREAM-ID>/objects/<YOUR-OBJECT-ID>`
+Object preview: `https://app.speckle.systemns/preview/<YOUR-STREAM-ID>/objects/<YOUR-OBJECT-ID>`
 :::
 
 ## Examples
 
-For example, here is a [commit](https://speckle.xyz/streams/3073b96e86/commits/604bea8cc6) preview:
+For example, here is a [commit](https://app.speckle.systemns/streams/3073b96e86/commits/604bea8cc6) preview:
 ```md
-![speckle haus commit](https://speckle.xyz/preview/3073b96e86/commits/604bea8cc6)
+![speckle haus commit](https://app.speckle.systemns/preview/3073b96e86/commits/604bea8cc6)
 ```
-![speckle haus commit](https://speckle.xyz/preview/3073b96e86/commits/604bea8cc6)
+![speckle haus commit](https://app.speckle.systemns/preview/3073b96e86/commits/604bea8cc6)
 
-And here is an [object](https://speckle.xyz/streams/3073b96e86/objects/1a2a5fd7ff5c6e6b2382f513d19eb3d5) preview:
+And here is an [object](https://app.speckle.systemns/streams/3073b96e86/objects/1a2a5fd7ff5c6e6b2382f513d19eb3d5) preview:
 ```md
-![speckle haus object](https://speckle.xyz/preview/3073b96e86/objects/1a2a5fd7ff5c6e6b2382f513d19eb3d5)
+![speckle haus object](https://app.speckle.systemns/preview/3073b96e86/objects/1a2a5fd7ff5c6e6b2382f513d19eb3d5)
 ```
-![speckle haus object](https://speckle.xyz/preview/3073b96e86/objects/1a2a5fd7ff5c6e6b2382f513d19eb3d5)
+![speckle haus object](https://app.speckle.systemns/preview/3073b96e86/objects/1a2a5fd7ff5c6e6b2382f513d19eb3d5)

@@ -182,7 +182,7 @@ Our new front-end (fe2) is designed to display `Collection` in the scene explore
 
 ![Collections in frontend 2](../dev/img/core/fe2-collections.gif)
 
-Suppose we look at how Collection objects are used inside Speckle Commits (Versions).
+Suppose we look at how Collection objects are used inside Speckle versions.
 We see within the Collection’s `elements` property; we can expect any objects to be nested, including sub-collections.
 
 Importantly, however, we only see `Collection` objects nested under other `Collections`.
