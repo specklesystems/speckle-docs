@@ -4,15 +4,15 @@ typora-copy-images-to: img-interop
 
 # User Interface
 
-Most of our Connectors look the same, despite working inside of different applications. Our shared user interface is currently used inside:
+Most of our connectors look the same, despite working inside of different applications. Our shared user interface is currently used inside:
 
 - Rhinoceros
 - Revit
 - Civil3D
 - AutoCAD
-- CSI Connectors
+- CSI connectors
 
-Other Connectors work slightly differently depending on which software they're used in (e.g. Grasshopper and Dynamo use a node-based environment).
+Other connectors work slightly differently depending on which software they're used in (e.g. Grasshopper and Dynamo use a node-based environment).
 
 Let's go on a quick graphical tour of the shared user interface to get you familiar with using Speckle.
 

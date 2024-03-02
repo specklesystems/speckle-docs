@@ -46,7 +46,7 @@ Available options are:
 
 </aside>
 
-## 5. Disallow Join For Elements
+## 5. Disallow Join for Elements
 
 <img class="rounded-dropshadow" src="./img-revit/setting-disallow-join.png" width=350>
 
@@ -89,7 +89,7 @@ Available options are:
 
 <img class="rounded-dropshadow" src="./img-revit/missing-type-notification.png" width=350>
 
-### Importing External Families & Types
+### Importing External Families and Types
 
 ![import-types-dialog](./img-revit/import-types-dialog.png)
 

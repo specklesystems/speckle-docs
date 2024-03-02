@@ -12,7 +12,7 @@ SketchUp Connector has a settings dialog to give you more control on how you wan
 
 ## 1. Color Mode
 
-SketchUp connector supports both Light and Dark mode. To switch between the two, click on “Color Mode”. By default, it is set to Light mode.
+SketchUp Connector supports both Light and Dark mode. To switch between the two, click on “Color Mode”. By default, it is set to Light mode.
 
 ## 2. Combine Faces by Material
 

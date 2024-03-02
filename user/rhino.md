@@ -113,7 +113,7 @@ If no mapping options appear when you select a geometry object, that means there
 
 :::
 
-#### Creating walls
+#### Creating Walls
 
 Walls can be mapped with three different options, depending on the type of surface geometry you've selected:
 
@@ -159,6 +159,6 @@ Freeform elements can be mapped to _breps_ and _meshes_.
 
 Family instances can be mapped to _block instances_, using their insertion point and transform for the received revit family instance.
 
-## Things to keep in mind
+## Things to Keep in Mind
 
 This section is work in progress 🚧 ! Please check back again soon 😃

@@ -1,15 +1,15 @@
 # ArcGIS
 
-![ArcGIS connector](./img-arcgis/main.png)
+![ArcGIS Connector](./img-arcgis/main.png)
 
 ::: tip
 
-The ArcGIS connector is in early stages of development and released as `beta`.
+The ArcGIS Connector is in early stages of development and released as `beta`.
 :::
 
 The Speckle connector for ArcGIS currently supports ArcGIS versions 3.0.0 and upwards.
 
-## Getting started
+## Getting Started
 
 ### Installation
 
@@ -41,7 +41,7 @@ Once the plugin is installed, you'll find a new toolbox in Geoprocessing tools, 
 
 ![Speckle panel](./img-arcgis/interface.png)
 
-#### Adding a Speckle project to the ArcGIS project
+#### Adding a Speckle Project to the ArcGIS Project
 
 First, you need to search and add a project to the ArcGIS project. For that, you can press the Search button near the `Project` panel. This will open a new pop-up window that will allow you to search for a specific project and add it to ArcGIS project.
 
@@ -55,7 +55,7 @@ And here's a short gif of the process 👇🏼
 
 > Once a project is added to the ArcGIS project, it is saved along with it so the projects will still be available after restarting ArcGIS.
 
-#### Sending data
+#### Sending Data
 
 1. Select a project from the dropdown list.
 2. Specify a specific model to send data to using the dropdown menu.
@@ -74,13 +74,13 @@ If you want to receive the layers later in a non-GIS software at the exact locat
 
 ![Matching coordinates with CAD](./img-arcgis/custom_sr.gif)
 
-#### Viewing the result
+#### Viewing the Result
 
 Once data has been sent to Speckle, you can view the result by going to your Speckle's server Url (our public one is https://app.speckle.systems/). Here is the example of [data](https://www.diva-gis.org/gdata) sent from ArcGIS:
 
 <iframe title="Speckle" src="https://app.speckle.systems/projects/96b54620e8/models/4fa6817f3e#embed=%7B%22isEnabled%22%3Atrue%7D" width="600" height="400" frameborder="0"></iframe>
 
-#### Receiving data
+#### Receiving Data
 
 Steps to receive the data:
 
@@ -91,16 +91,16 @@ Steps to receive the data:
 
 ![Receiving data](./img-arcgis/receive.gif)
 
-### Custom project center
+### Custom Project Centre
 
-Modifying project center is useful when you need to:
+Modifying project centre is useful when you need to:
 
 - Send data (so you can receive correctly in a non-GIS application)
 - Receive data (if data was sent from non-GIS application).
 
-You have several options to choose in order to set the custom project center.
+You have several options to choose in order to set the custom project centre.
 
-#### Adding offsets
+#### Adding Offsets
 
 You can choose to use the existing Spatial Reference (SR of our Active Map) and modify it's Speckle properties by adding X- and Y- offsets. This option will only be affecting Speckle properties on Send/Receive and will not change anything for you while you are working on a ArcGIS project. Use this option when your project requires a use of a specific SR.
 
@@ -108,26 +108,26 @@ For example, if you use a projected SR (e.g. EPSG:32631) without the offsets and
 
 Lat(y) and Lon(x) offsets should be specified in the units of the Active Map SR, and in the correct order. Note, that when you copy the coordinates from ArcGIS canvas using right-click, the Lat/Lon order might be different depending on the SR used (Lat is usually marked with N-North, and Lon is marked with E-East, both values can be positive or negative).
 
-#### Creating custom SR
+#### Creating Custom Spatial Reference
 
 Create a custom Spatial Reference, based on Traverse Mercator if you don't have to use a specific SR and want to have minimal size and shape distortions. Specify the origin Lat, Lon in geographic coordinates to create a custom SR with the required origin and change your Active Map SR.
 
-#### Adding angle to the True North
+#### Adding Angle to the True North
 
 You can also add an angle to the True North to either of the above options if your non-GIS application require so. It will only affect Speckle object properties during Send/Receive operations and will not be visible in ArcGIS project.
 
 ![Receiving data](./img-arcgis/receive.gif)
 
-### Custom project center
+### Custom Project Centre
 
-Modifying project center is useful when you need to:
+Modifying project centre is useful when you need to:
 
 - Send data (so you can receive correctly in a non-GIS application)
 - Receive data (if data was sent from non-GIS application).
 
 You have several options to choose in order to set the custom project center.
 
-#### Adding offsets
+#### Adding Offsets
 
 You can choose to use the existing Spatial Reference (SR of our Active Map) and modify it's Speckle properties by adding X- and Y- offsets. This option will only be affecting Speckle properties on Send/Receive and will not change anything for you while you are working on a ArcGIS project. Use this option when your project requires a use of a specific SR.
 
@@ -135,11 +135,11 @@ For example, if you use a projected SR (e.g. EPSG:32631) without the offsets and
 
 Lat(y) and Lon(x) offsets should be specified in the units of the Active Map SR, and in the correct order. Note, that when you copy the coordinates from ArcGIS canvas using right-click, the Lat/Lon order might be different depending on the SR used (Lat is usually marked with N-North, and Lon is marked with E-East, both values can be positive or negative).
 
-#### Creating custom SR
+#### Creating custom Spatial Reference
 
 Create a custom Spatial Reference, based on Traverse Mercator if you don't have to use a specific SR and want to have minimal size and shape distortions. Specify the origin Lat, Lon in geographic coordinates to create a custom SR with the required origin and change your Active Map SR.
 
-#### Adding angle to the True North
+#### Adding Angle to the True North
 
 You can also add an angle to the True North to either of the above options if your non-GIS application require so. It will only affect Speckle object properties during Send/Receive operations and will not be visible in ArcGIS project.
 

@@ -31,23 +31,23 @@ Speckle is licensed as Apache 2 so you are free to study, modify, redistribute a
 
 This means that you can totally deploy your own Speckle server without ever having to depend on us!
 
-## What is a Project?
+## What is a project?
 
-**Projects** are collections of data inside Speckle. You can see a Project as a folder or a repository.
+**Projects** are collections of data inside Speckle. You can see a project as a folder or a repository.
 
-## What is a Version?
+## What is a version?
 
-Data in a Project is stored in **Versions**, which are snapshots of data in time. Every time you send to Speckle from a connector, a Version is created.
+Data in a Project is stored in **versions**, which are snapshots of data in time. Every time you send to Speckle from a connector, a version is created.
 
-## What is a Model?
+## What is a model?
 
-Versions can also be organized in **Models**, for instance, to have multiple design options or to store data by discipline. If a Project has only one Model and has no name it can be referred to as _main_.
+Versions can also be organized in **models**, for instance, to have multiple design options or to store data by discipline. If a project has only one model and has no name it can be referred to as _main_.
 
-## What is a Connector?
+## What is a connector?
 
 **Connectors** are plugins for design and analysis software, they let you exchange geometry and BIM data with Speckle (send and receive it)
 
-## The Speckle Server is unreachable
+## The Speckle server is unreachable
 
 When a Speckle Server is unreachable a few things could be going on.
 
@@ -62,7 +62,7 @@ If the server address is **blocked by a corporate firewall, proxy or VPN**, kind
 - **\*.speckle.xyz (critical)**
 - **\*.speckle.dev (critical)**
 - **\*.speckle.systems (critical)**
-- speckle-excel.netlify.app (critical for the Excel connector)
+- speckle-excel.netlify.app (critical for the Excel Connector)
 - speckle-releases.ams3.digitaloceanspaces.com
 - speckle.community
 
@@ -74,13 +74,13 @@ For any more questions about this, feel free to [contact us](https://speckle.sys
 
 Check our [troubleshooting section](/user/manager.html#troubleshooting) for Speckle Manager.
 
-## How do I merge two Models in Speckle
+## How do I merge two models in Speckle
 
-Currently, Versions, Models or Projects cannot be merged via Speckle, but you can do so in most authoring software supported by Speckle or progammaticaly using our SDKs. For instance, you can manually merge two Models (or even Projects) easily in Grasshopper.
+Currently, versions, models or projects cannot be merged via Speckle, but you can do so in most authoring software supported by Speckle or progammaticaly using our SDKs. For instance, you can manually merge two models (or even projects) easily in Grasshopper or a Jupyter notebook.
 
 ## Why can't I see anything in the 3D Viewer?
 
-Our 3D Viewer only supports visualizing geometry. If you're sending any data that doesn't have a supported geometrical representation it will not be visible, for example when sending a list of Levels or Revit Family and Type names. You'll always be able to explore the raw data of a Project in the Version page, however.
+Our 3D Viewer only supports visualizing geometry. If you're sending any data that doesn't have a supported geometrical representation it will not be visible, for example when sending a list of Levels or Revit Family and Type names. You'll always be able to explore the raw data of a project in the version page, however.
 
 ## I forgot my password 🤔
 

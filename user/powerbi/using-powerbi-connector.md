@@ -22,7 +22,7 @@ The result of that query will be a table with the following columns:
 ![Received Data](./img-powerbi/6-received-data-columns.png)
 
 1. **Model URL**: This is the URL of your model.
-2. **URL Type**: Type or category of the input URL. Its value can be Model, Version, or Object.
+2. **URL Type**: Type or category of the input URL. Its value can be model, version, or object.
 3. **Version Object ID🆕:** The ID of the root object each individual object came from. For model/versions, it will be the referenced version object. For object URLs, it will match the object id on the URL.
 4. **Object ID**: The ID of each speckle object in the table. This was extracted from the `data` records.
 5. **speckle_type:** Speckle Type of each object.

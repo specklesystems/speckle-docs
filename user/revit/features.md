@@ -4,11 +4,11 @@ title: Features
 
 # Features
 
-In this page, we’ll share how Revit connector converts your Revit model into Speckle format and how it handles updating in Revit.
+In this page, we’ll share how Revit Connector converts your Revit model into Speckle format and how it handles updating in Revit.
 
 ## Converting Revit Data to Speckle
 
-When sending from Revit, Speckle takes care of converting the data to a Speckle-friendly format. If you're curious about how this data is being structured, please have a look at our **[Objects Kit class definitions](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects/BuiltElements)**.
+When sending from Revit, Speckle takes care of converting the data to a Speckle-friendly format. If you're curious about how this data is being structured, please have a look at our **[Objects kit class definitions](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects/BuiltElements)**.
 
 For instance, a Revit room will look like this:
 
@@ -72,17 +72,17 @@ Information on the Schedule Updater can be found in the **[Excel Docs](/user/ex
 
 ## Family Editor
 
-The Revit connector also works in the Family Editor. Refer to the list below for supported element types.
+The Revit Connector also works in the Family Editor. Refer to the list below for supported element types.
 
 - **[Revit Support Tables](/user/support-tables.html#revit)**
 
 ## Linked Models
 
-The Revit connector supports Linked Models, here's how it works.
+The Revit Connector supports Linked Models, here's how it works.
 
 ### **Sending Linked Models**
 
-The Revit connector supports sending Linked Models. To enable this feature, go to Advanced Settings and select the option for [Sending Linked Models](/user/revit/advanced-settings.html#_2-send-linked-models) . Once this is done, you can use the selection filters as usual and any relevant items from the linked models will also be sent.
+The Revit Connector supports sending Linked Models. To enable this feature, go to Advanced Settings and select the option for [Sending Linked Models](/user/revit/advanced-settings.html#_2-send-linked-models) . Once this is done, you can use the selection filters as usual and any relevant items from the linked models will also be sent.
 
 For instance: *Everything* will send all the models, *Category* filters will work in conjunction with any linked model elements, and *Selection* too.
 
@@ -100,7 +100,7 @@ Multiple instances of the same linked model are currently not supported on sendi
 
 ### **Receiving Linked Models**
 
-Revit connector also supports receiving Linked Elements. To enable this option, Go to Advanced Settings and check [Receiving Linked Models](/user/revit/advanced-settings.html#_3-receive-linked-models). On receiving we do not attempt to modify linked model files in any way, but when the *Receive Linked Models* setting is turned on, the linked model elements will be received in the current document as any other element.
+Revit Connector also supports receiving Linked Elements. To enable this option, Go to Advanced Settings and check [Receiving Linked Models](/user/revit/advanced-settings.html#_3-receive-linked-models). On receiving we do not attempt to modify linked model files in any way, but when the *Receive Linked Models* setting is turned on, the linked model elements will be received in the current document as any other element.
 
 ## Design Options
 
@@ -108,9 +108,9 @@ The Connector also supports Revit design options and you can publish different o
 
 <img class="rounded-dropshadow" src="./img-revit/features-design-options.png" width=250>
 
-### How does it work?
+### How Does it Work?
 
-If the selection filter is set to **Everything**, the Connector sends the **Main Model** and any objects that are part of a **primary** design option by default. To publish other options with the Main Model, simply select any other option from the Design Options drop-down.
+If the selection filter is set to **Everything**, the Connector sends the **Main model** and any objects that are part of a **primary** design option by default. To publish other options with the Main model, simply select any other option from the Design Options drop-down.
 
 ### Using 3D Views
 
@@ -130,8 +130,8 @@ Before using the Scheduler, you need to **send your model** through the connecto
 
 <img class="rounded-dropshadow" src="./img-revit/scheduler.png" width=350>
 
-1. **Enabled**: When turned on, Scheduler will send the model to selected **Project(Stream)** with the selected **Trigger**)
-2. Select **Stream**: Select the Project (Stream) card you used in the connector interface.
+1. **Enabled**: When turned on, Scheduler will send the model to selected **Project** with the selected **Trigger**)
+2. Select **Project**: Select the project card you used in the connector interface.
 
    <aside>
    💡 Currently, only one scheduler can be set per file. We are planning to enable setting up multiple schedulers from the Main Connector interface.

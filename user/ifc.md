@@ -12,7 +12,7 @@ Once selected, you'll see the IFC Import panel with 2 main sections:
 
 ![IFC Panel Sections](./img-ifc/ifc-panels.png)
 
-## Upload new files
+## Upload New Files
 
 To upload new files, just drag and drop the `.ifc` file from your computer into the panel. A new item will appear bellow the "drag-and-drop" zone indicating the file was successfully added.
 

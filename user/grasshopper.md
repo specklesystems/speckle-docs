@@ -32,7 +32,7 @@ We've also built a few components designed for advanced users and developers:
 
 ### Ribbon tabs
 
-In addition to the nodes in the `Speckle 2` tab, the Speckle Grasshopper connector also comes with a variety of specific nodes create objects for specific industry standards (such as `BIM` and `Structural`) or specific applications (such as `ETABS`, `Revit` or `GSA`). These nodes are organized in independent tabs:
+In addition to the nodes in the `Speckle 2` tab, the Speckle Grasshopper Connector also comes with a variety of specific nodes create objects for specific industry standards (such as `BIM` and `Structural`) or specific applications (such as `ETABS`, `Revit` or `GSA`). These nodes are organized in independent tabs:
 
 - **Speckle 2 BIM**
 - **Speckle 2 Revit**
@@ -174,7 +174,7 @@ There's several different ways to create custom speckle objects using the Grassh
 
 This node is a _variable parameter_ type, meaning if you zoom into the _inputs_ section, you should see a `+/-` sign that will allow you to add/remove properties from the object. Each input you define will represent a new property on the object. You can also modify the name of these properties, as well as their _access type_.
 
-<!-- > This node is capable of [Kit Selection](#object-conversion-and-kits) -->
+<!-- > This node is capable of [kit Selection](#object-conversion-and-kits) -->
 
 #### Modifying the Access Type
 
@@ -361,9 +361,9 @@ This setting will be recorded in your Grasshopper installation, and will only af
 
 ::: tip
 
-The _Schema Builder_ exists to allow the GH connector to read and create _schema objects_ from any available kit.
+The _Schema Builder_ exists to allow the Grasshopper Connector to read and create _schema objects_ from any available kit.
 
-If you're just using the **Objects Kit**, our recommended approach is to use the individual nodes in the `Speckle 2 BIM` and `Speckle 2 Revit` tabs.
+If you're just using the **Objects kit**, our recommended approach is to use the individual nodes in the `Speckle 2 BIM` and `Speckle 2 Revit` tabs.
 
 :::
 
@@ -450,7 +450,7 @@ That said, they **will work** inside your Grasshopper definition, but we heavily
    ![](./img-gh/speckle-gh-script-assemblyMenu.png)
 
 3. A new window will appear. Press the `Add` link to select a new library. You'll need to add **two libraries**:
-   1. Find the location of the Speckle Rhino+Grasshopper connector. It should be in `%appdata%\McNeel\Rhinoceros\7.0\Plug-ins\SpeckleRhino2 (8dd5f30b-a13d-4a24-abdc-3e05c8c87143)` and select `SpeckleCore2.dll` (make sure to use the right Rhino folder based on your installed version).
+   1. Find the location of the Speckle Rhino+Grasshopper Connector. It should be in `%appdata%\McNeel\Rhinoceros\7.0\Plug-ins\SpeckleRhino2 (8dd5f30b-a13d-4a24-abdc-3e05c8c87143)` and select `SpeckleCore2.dll` (make sure to use the right Rhino folder based on your installed version).
    2. Now head to `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\netstandard\v4.0_2.0.0.0__cc7b13ffcd2ddd51` and select `netstandard.dll`
 4. Once done, it should look like this:
 
@@ -573,7 +573,7 @@ Here's a quick animation of the process:
 
 Similar to the `Do not convert` option in `Create Speckle Object` node, it will prevent any conversion from happening and output Speckle objects instead.
 
-##### Receive automatically
+##### Receive Automatically
 
 There is also an option to set the node to automatically send every time there is a new commit on the stream. You will find this option in the right-click menu of the node.
 

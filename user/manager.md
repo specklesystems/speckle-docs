@@ -1,6 +1,6 @@
 # Manager
 
-Manager for Speckle is the best way to get (almost) all our Connectors installed and up to date on your computer, and if you have more than one Speckle accounts you'll be able to manage them there as well.
+Manager for Speckle is the best way to get (almost) all our connectors installed and up to date on your computer, and if you have more than one Speckle accounts you'll be able to manage them there as well.
 
 ## Download
 
@@ -42,7 +42,7 @@ You can also add an account directly from Speckle Web as part of the onboarding 
 
 ### Adding Accounts Manually
 
-Using Manager to handle your accounts and [Connectors](/#connectors) is the recommended way, but if you'd like to do without it a manual flow is also available.
+Using Manager to handle your accounts and [connectors](/#connectors) is the recommended way, but if you'd like to do without it a manual flow is also available.
 
 To manually add an account you first need to [generate a token for your account](/dev/tokens).
 
@@ -83,13 +83,13 @@ Manager also shows you the currently available connectors and allows you to inst
 
 ### Updating Connectors
 
-You will receive a notification in Speckle Manager when updates for your installed connectors are available. You can then update them from the [Connectors](/#connectors) page.
+You will receive a notification in Speckle Manager when updates for your installed connectors are available. You can then update them from the [connectors](/#connectors) page.
 
 ![Manager-Update-Connector](https://user-images.githubusercontent.com/51519350/186390609-8f2967f4-1b85-4d9b-8e4a-a7d53437dacd.gif)
 
 ### Uninstalling Connectors
 
-Just head over the [Connectors](/#connectors) page in Speckle Manager and click **Remove**.
+Just head over the [connectors](/#connectors) page in Speckle Manager and click **Remove**.
 
 ![Manager-Delete-Connector](https://user-images.githubusercontent.com/51519350/186391081-dd70cb38-ec87-43ed-983e-608710c93829.gif)
 
@@ -103,7 +103,7 @@ From here you'll be able to do various things such as changing the default posit
 
 ![Manager-Advanced-Settings-Page](https://user-images.githubusercontent.com/51519350/186392354-f04e2b63-0b8a-44af-9b0d-2ec7add92245.png)
 
-### Resetting the local cache
+### Resetting the Local Cache
 
 The local cache is used when sending and receiving to Speckle to speed up similar operations in the future. If you notice your cache is significantly large, you can delete it from here.
 
@@ -118,7 +118,7 @@ To install early version of our connectors, simply head to the _versions_ tab in
 
 ![Connectors-Install-Beta](https://user-images.githubusercontent.com/51519350/186392925-1263b0d4-48e7-4724-be89-c5d0a01e3506.gif)
 
-### Changing the default Speckle Server address
+### Changing the Default Speckle Server Address
 
 You can change the default address of the Speckle server in two ways:
 
@@ -131,7 +131,7 @@ On Windows, simply head over **Apps & Features**, find **Manager for Speckle** a
 
 ![image](https://user-images.githubusercontent.com/2679513/182909714-1a7f4815-949c-4557-870e-05ede9550f0c.png)
 
-## Preventing Manager from running at Startup
+## Preventing Manager from Running at Startup
 
 On Windows, Manager will automatically launch on startup to check for new updates.
 
@@ -148,7 +148,7 @@ If you want to disable this functionality, you can simply do so:
 Having issues with Speckle Manager? Try the solutions below:
 
 - _Cannot log into your account?_ Check if the [Speckle server might be blocked](https://speckle.guide/user/FAQs.html#the-speckle-server-is-unreachable)
-- _Cannot see any Connectors?_ Check if the [connectors url might be blocked](https://speckle.guide/user/FAQs.html#the-speckle-server-is-unreachable)
+- _Cannot see any connectors?_ Check if the [connectors url might be blocked](https://speckle.guide/user/FAQs.html#the-speckle-server-is-unreachable)
 
 Still having problems? Help us troubleshoot your issues by doing the following:
 

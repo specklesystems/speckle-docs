@@ -1,6 +1,6 @@
 # Introduction
 
-Our Desktop Connectors are plugins for some of the most popular AEC software, including:
+Our desktop connectors are plugins for some of the most popular AEC software, including:
 
 - [Autodesk Revit](/user/revit)
 - [Dynamo](/user/dynamo)
@@ -55,7 +55,7 @@ We might from time to time also make pre-releases of our connectors (see Using [
 
 ::: tip 👮‍♂️ Manager Versions
 
-Note: the version of Speckle Manager is unrelated to the versions of the Connectors. Nevertheless, it's always a good idea to keep Manager updated to the latest stable version.
+Note: the version of Speckle Manager is unrelated to the versions of the connectors. Nevertheless, it's always a good idea to keep Manager updated to the latest stable version.
 
 :::
 
@@ -63,7 +63,7 @@ Note: the version of Speckle Manager is unrelated to the versions of the Connect
 
 Having issues with one of our connectors? Please follow the steps below to help us assist you:
 - Post a detailed description of the issue on our [Community Forum](https://speckle.community/c/help/8). Make sure to provide as much information as possible and to attach any source files that could help us replicate it 
-- Share with us any logs relevant to the Connector, you can find them in: `%appdata%/Speckle/Logs` (just copy paste that address in your windows explorer)
+- Share with us any logs relevant to the connector, you can find them in: `%appdata%/Speckle/Logs` (just copy paste that address in your windows explorer)
 
 ## Units
 

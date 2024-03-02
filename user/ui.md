@@ -9,14 +9,14 @@ Our default User Interface is changing! 🤩
 See our new version [here](./ui2), and add your feedback on the [forum](https://speckle.community/t/new-desktopui-in-alpha-testing/1851)!
 :::
 
-Most of our Connectors look the same, despite working inside of different applications. Our shared user interface is currently used inside:
+Most of our connectors look the same, despite working inside of different applications. Our shared user interface is currently used inside:
 
 - McNeel Rhinoceros
 - Autodesk Revit
 - Autodesk Civil3D
 - Autodesk AutoCAD
 
-Other Connectors work slightly differently depending on which software they're used in (e.g. Grasshopper and Dynamo use a node-based environment).
+Other connectors work slightly differently depending on which software they're used in (e.g. Grasshopper and Dynamo use a node-based environment).
 
 Let's go on a quick graphical tour of the shared user interface to get you familiar with using Speckle.
 
@@ -65,7 +65,7 @@ In order to send data to your project, you'll need to tell Speckle which element
 - A specific layer(s) in Rhino?
 - A specific Revit workset?
 
-The Connectors are built to help you select objects in ways that make the most sense for the application you're using.
+The connectors are built to help you select objects in ways that make the most sense for the application you're using.
 
 _Please Note: The examples we're showing below are a bit Revit-specific._
 

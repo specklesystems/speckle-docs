@@ -35,9 +35,9 @@ The [Speckle Web App](/user/web) lets you manage and coordinate your data direct
 
 ![desktopui-send-stream](https://user-images.githubusercontent.com/51519350/185949603-bdc88a6a-d7e9-416b-9263-ea5b693604c8.gif)
 
-Our desktop [Connectors](/user/connectors) are plugins for some of the most popular construction industry software including Rhino, Revit, Grasshopper, Dynamo, AutoCAD, Sketchup, Civil3D, Unity, Blender (and more). They take care of sending and receiving data in your software (e.g. Rhino) to and from your Speckle server. The Connectors can handle almost any kind of data. Most commonly, this will be CAD and BIM data; essentially, geometry with attached metadata.
+Our desktop [connectors](/user/connectors) are plugins for some of the most popular construction industry software including Rhino, Revit, Grasshopper, Dynamo, AutoCAD, Sketchup, Civil3D, Unity, Blender (and more). They take care of sending and receiving data in your software (e.g. Rhino) to and from your Speckle server. The connectors can handle almost any kind of data. Most commonly, this will be CAD and BIM data; essentially, geometry with attached metadata.
 
-Each time the Connectors send data to your Speckle server, they also take care of transforming it from your software's native format to Speckle's own, neutral format. This makes accessing it from other software extremely easy and fast.
+Each time the connectors send data to your Speckle server, they also take care of transforming it from your software's native format to Speckle's own, neutral format. This makes accessing it from other software extremely easy and fast.
 
 ### Speckle Manager
 

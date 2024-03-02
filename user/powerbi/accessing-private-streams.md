@@ -5,7 +5,7 @@ Once you complete the installation and configuration steps, you can receive “p
 - Log in using your Speckle Account.
 - With a Personal Access Token.
 
-### **Log in using your Speckle Account**
+### **Log-in Using Your Speckle Account**
 
 You can now log in with **any account of any Speckle server**. Here’s how you do it:
 
@@ -14,7 +14,7 @@ You can now log in with **any account of any Speckle server**. Here’s how you
   Your browser does not support the video tag.
 </video>
 
-1. First, paste the URL of Private Model you want to receive and click “OK”.
+1. First, paste the URL of the private model you want to receive and click “OK”.
 2. Select the ”Server URL” option in the credentials pop-up. In our case, it is “**Speckle.xyz**”.
 3. Then press the ”**Sign in”** button. This will open a pop-up window prompting you to log into your account and allow the Power BI app to access your user data. This grants `read-only` access, as recommended by Power BI guidelines.
 
