@@ -11,7 +11,7 @@ Several terms are used with frequency in this document and require definition:
 - **Speckle**: Speckle is a platform for exchanging data between different software applications, allowing users to collaborate and communicate AEC-related data.
 - **AEC**: Architecture, Engineering, and Construction industry.
 - **Automate**: Automate is a platform which allows users to run Functions.
-- **Automation**: An Automation is a configuration of a Function which is ready to be run on events from changes in a Speckle Model, or on demand.
+- **Automation**: An Automation is a configuration of a Function which is ready to be run on events from changes in a Speckle model, or on demand.
 - **Function**: A Function is a small piece of packaged software which performs a specific task. Functions are the building blocks of Automate.
 - **Image**: An Image is a standardised method of packaging and distributing content. An Image is defined by the [Open Container Initiative Image Format Specification](https://github.com/opencontainers/image-spec/blob/main/spec.md).
 - **OCI**: [Open Container Initiative](https://opencontainers.org/). The OCI is a lightweight, open governance structure (project), formed under the auspices of the [Linux Foundation](https://www.linuxfoundation.org/), for the express purpose of creating open industry standards around container formats and runtime.
@@ -31,7 +31,7 @@ An implementation is compliant if it satisfies all the MUST, MUST NOT, REQUIRED,
 
 1. A Function MUST be able to be run in an environment compliant with the [Open Container Initiative Runtime Specification](https://github.com/opencontainers/runtime-spec/blob/main/spec.md).
 
-1. A Function SHOULD NOT specify an `Entrypoint` in its OCI Image. If an `Entrypoint` is specified it will be ignored. Instead the `Entrypoint` should be provided to Automate as the first values of the Function Version command, which will be passed to the Function when it is run.
+1. A Function SHOULD NOT specify an `Entrypoint` in its OCI Image. If an `Entrypoint` is specified it will be ignored. Instead the `Entrypoint` should be provided to Automate as the first values of the function version command, which will be passed to the function when it is run.
 
 1. A Function SHOULD NOT specify a `Cmd` in its OCI Image. If a `Cmd` is specified it will be ignored. Instead, the `Cmd` should be provided to Automate as the Function Version command, which will pass it to the Function when it is run.
 
@@ -51,7 +51,7 @@ An implementation is compliant if it satisfies all the MUST, MUST NOT, REQUIRED,
       "properties": {
         "speckleToken": {
           "type": "string",
-          "description": "The token for accessing the Speckle API. This Token SHALL be limited in scope to the Speckle Model which triggered the Function to run as part of an Automation."
+          "description": "The token for accessing the Speckle API. This Token SHALL be limited in scope to the Speckle model which triggered the Function to run as part of an Automation."
         },
         "functionInputs": {
           "type": "object",
@@ -66,23 +66,23 @@ An implementation is compliant if it satisfies all the MUST, MUST NOT, REQUIRED,
           "properties": {
             "projectId": {
               "type": "string",
-              "description": "The ID of the Speckle Project which contains the Speckle Model which is associated with the Automation."
+              "description": "The ID of the Speckle project which contains the Speckle model which is associated with the Automation."
             },
             "modelId": {
               "type": "string",
-              "description": "The ID of the Speckle Model which is associated with the Automation. A change to this model may have caused the Automation to run."
+              "description": "The ID of the Speckle model which is associated with the Automation. A change to this model may have caused the Automation to run."
             },
             "branchName": {
               "type": "string",
-              "description": "The name of the Speckle Branch. 'Branch' is now known as 'Model' except in the Speckle API, where 'Branch' wording is retained to provide backwards compatibility and ensure ongoing stability of the API."
+              "description": "The name of the Speckle branch. 'Branch' is now known as 'model' except in the Speckle API, where 'branch' wording is retained to provide backwards compatibility and ensure ongoing stability of the API."
             },
             "versionId": {
               "type": "string",
-              "description": "The version of the Speckle Model. This is the version which was created as a result of the change which triggered the Automation to run. Or, in the case of an Automation being manually triggered by a user, it is the current version of the Speckle Model."
+              "description": "The version of the Speckle model. This is the version which was created as a result of the change which triggered the Automation to run. Or, in the case of an Automation being manually triggered by a user, it is the current version of the Speckle model."
             },
             "speckleServerUrl": {
               "type": "string",
-              "description": "The URL of the Speckle Server which contains the Speckle Project and Speckle Model which is associated with the Automation."
+              "description": "The URL of the Speckle Server which contains the Speckle project and Speckle model which is associated with the Automation."
             },
             "automationId": {
               "type": "string",

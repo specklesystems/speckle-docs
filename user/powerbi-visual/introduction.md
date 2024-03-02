@@ -4,7 +4,7 @@ title: Introduction
 
 # Speckle 3D Viewer Visual
 
-**3D Viewer Visual** takes the Power BI connector to a whole new level. With it, you can bring your Speckle data to life by visualizing it in 3D right inside your Power BI reports.
+**3D Viewer Visual** takes the Power BI Connector to a whole new level. With it, you can bring your Speckle data to life by visualizing it in 3D right inside your Power BI reports.
 
 It is compatible with Power BI Desktop and can also be used in [PowerBI.com](http://powerbi.com/) for online visualizations.
 

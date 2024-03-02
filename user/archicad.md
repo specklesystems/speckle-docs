@@ -52,7 +52,7 @@ To receive data into Archicad, simply select a project and click receive! Note t
 
 Feel free to drop suggestions and ideas about how you would like to use this connector on the [forum](https://speckle.community/) to help guide the development of this connector 🚀
 
-#### Into Other Connectors
+#### Into other connectors
 
 Receiving Archicad models in other geometry focussed connectors (eg SketchUp, Rhino, Blender) is pretty well supported. Check out the images below for some examples!
 

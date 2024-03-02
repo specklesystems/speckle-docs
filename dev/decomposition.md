@@ -30,7 +30,7 @@ As opposed to Git, that deals with data structured on your hard drive, Speckle d
 
 There is no right or wrong way to structure design data. Different applications operate with different models, different use-cases require different hierarchies, different disciplines and professionals operate with differently structured ontologies.
 
-Speckle now has a mechanism by which, in the process of specifying an object - either via a strongly typed Kit, or via dynamic properties - developers (and end-users) can decide what gets decomposed and what doesn't.
+Speckle now has a mechanism by which, in the process of specifying an object - either via a strongly typed kit, or via dynamic properties - developers (and end-users) can decide what gets decomposed and what doesn't.
 
 ### Strongly Typed Detachment
 
@@ -127,7 +127,7 @@ In order of preference. Note that they are not exclusive, and they build on top 
 - First, optimise the list property so it's more lightweight
 - Second, chunk the list property
 
-### First port of call: Optimise the list property 🧪
+### First Port of Call: Optimise the List Property 🧪
 
 For example, you might be tempted to define a mesh like this:
 
@@ -152,7 +152,7 @@ public class Mesh : Base
 
 Instead of storing each individual vertex as a point, you store them in a typed array. Serialisation will be much faster and leaner.
 
-### Second port of call: Use the `Chunkable` Attribute 🆕
+### Second Port of Call: Use the `Chunkable` Attribute 🆕
 
 In some cases you might be too lazy to actually optimise the storage of a list property, or it might be too convenient to use the class itself.
 

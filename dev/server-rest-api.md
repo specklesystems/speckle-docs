@@ -5,7 +5,7 @@ When working with uploading and downloading objects, the REST API is preferred.
 
 ## Uploading and Downloading Objects
 
-### Check if the server contains a list of objects
+### Check if the Server Contains a List of Objects
 
 This method is useful for optimizing uploads, so that objects that are already in the stream are not uploaded for every commit.
 
@@ -29,7 +29,7 @@ This method is useful for optimizing uploads, so that objects that are already i
 
 **Output:** A JSON representation of a dictionary, where the keys are the input object ids, and the values are boolean values (whether the server already has that object or not)
 
-### Upload a batch of objects
+### Upload a Batch of Objects
 
 **URL:** `${CANONICAL_URL}/objects/:streamId`
 
@@ -50,7 +50,7 @@ This method is useful for optimizing uploads, so that objects that are already i
 - Maximum size of each individual object: `10 MB` (large objects can be split into multiple objects using `chunkable` properties and `detachable` properties)
 - Maximum size of each request: `50 MB` hard limit
 
-### Downloading a single object
+### Downloading a Single Object
 
 **URL:** `${CANONICAL_URL}/objects/:streamId/:objectId/single`
 
@@ -62,7 +62,7 @@ This method is useful for optimizing uploads, so that objects that are already i
 
 **Output:** The JSON representation of the object
 
-### Downloading a list of objects
+### Downloading a List of Objects
 
 This method is useful when optimizing downloads: Get the root object without children, check the children ids in the local cache and then request only the new objects with this method.
 
@@ -93,7 +93,7 @@ This method is useful when optimizing downloads: Get the root object without chi
 - If `Accept` is `text/plain`, each line of the output contains 1 object in the format: `{object_id}\t{object_content}`
 - If `Accept` is `application/json`, the output is a JSON representation of an array of objects.
 
-### Downloading an object and all its children
+### Downloading an Object and All its Children
 
 **URL:** `${CANONICAL_URL}/objects/:streamId/:objectId`
 

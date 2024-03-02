@@ -1,4 +1,4 @@
-# AutoCAD & Civil 3D
+# AutoCAD and Civil 3D
 
 Speckle currently supports Autodesk® AutoCAD® 2021-2023 and Autodesk® Civil 3D® 2021-2023.
 
@@ -13,7 +13,7 @@ Check out our dedicated tutorial on [how to get started with Civil3D](https://sp
 
 ## Getting Started
 
-To begin, you'll need to install this Connector and add your Speckle account. Follow our instructions in [Speckle Manager](/user/manager) if you haven't already.
+To begin, you'll need to install this connector and add your Speckle account. Follow our instructions in [Speckle Manager](/user/manager) if you haven't already.
 
 Once installed, you can find this connector in the `Add-Ins` tab under `Speckle 2`. Clicking this button will open the Speckle connector interface, which shows a list of all the projects you currently have in the model.
 

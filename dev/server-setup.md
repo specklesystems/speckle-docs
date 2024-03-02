@@ -19,7 +19,7 @@ If you need help deploying a production server, [we can help](https://speckle.sy
 - [Optional] A domain name (to use https encryption)
 - [Optional] An email service provider account of your choice (to allow the server to send emails)
 
-## Step 1: Create the droplet
+## Step 1: Create the Droplet
 
 - Go to your DigitalOcean dashboard and create a new Droplet:
 ![image](./img/oneclick/01_create_droplet.png)
@@ -30,7 +30,7 @@ If you need help deploying a production server, [we can help](https://speckle.sy
 - Configure other options for your droplet, make sure to set up an authentication method, and click the `Create Droplet` button. After the droplet is created and initialized, you should see it in your list of droplets:
 ![image](./img/oneclick/03_droplet_ready.png)
 
-## Step 2: Configure your Server
+## Step 2: Configure Your Server
 
 - Login with `ssh` into the droplet to configure it. When you log in you should see the following greeting, prompting you to enter the configuration values:
 ![image](./img/oneclick/04_ssh_login.png)
@@ -46,12 +46,12 @@ If you need help deploying a production server, [we can help](https://speckle.sy
 - After configuration is done, you should see this success message:
 ![image](./img/oneclick/06_configuration_done.png)
 
-## Step 3: Create an account on your Server
+## Step 3: Create an Account on Your Server
 
 After you configure the server, you should open the url in your browser and `Register` a first user. The first user that registers will be the administrator account for that server.
 ![image](./img/oneclick/07_register.png)
 
-## That's it
+## That's It
 
 You have deployed a Speckle Server that you have full control over.
 

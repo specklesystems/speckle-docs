@@ -4,7 +4,7 @@ Our .NET SDK is called [Core](https://github.com/specklesystems/speckle-sharp/tr
 
 Core and Objects are written in .NET Standard 2.0, they've been tested on Windows and MacOS and are being used by all our .NET based connectors.
 
-## Getting started
+## Getting Started
 
 Before using them [please make sure they are supported by your .NET framework](https://docs.microsoft.com/en-us/dotnet/standard/net-standard#net-implementation-support).
 
@@ -19,7 +19,7 @@ All our NuGets are prefixed by `Speckle.`. Please don't confuse them with the ol
 
 ![image](https://user-images.githubusercontent.com/2679513/113474800-0833f880-946a-11eb-8c90-92b23918a0c8.png)
 
-## How to use
+## How to Use
 
 Here's a quick summary of the main tasks Core helps you with:
 
@@ -151,7 +151,7 @@ var data = await Operations.Receive(
 );
 
 ```
-## Serializing & Deserializing Data
+## Serializing and Deserializing Data
 
 Getting a JSON representation of your data is easy:
 

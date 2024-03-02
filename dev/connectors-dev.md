@@ -1,4 +1,4 @@
-# Writing Your Own Connector (Outdated)
+# Writing your own connector (Outdated)
 
 ![img](./img/connectors-dev/connectors.png)
 
@@ -6,7 +6,7 @@ Have a dream for a connector that doesn't yet exist? We have all the tools ready
 
 We are very enthusiastic about community connectors and would love to help you bring them to life. To get started, check out the guide below. Feel free to reach out with any questions or calls for more contributors to the project on our [forum](https://speckle.community/).
 
-## Before you begin
+## Before you Begin
 
 Before you begin writing your own connector, we encourage you to follow the steps below:
 
@@ -14,9 +14,9 @@ Before you begin writing your own connector, we encourage you to follow the step
 3. **post on the [community forum](https://speckle.community/)** announcing what you are planning to develop and how
 4. **consider** that if you make your connector publicly available, it's going to be your own responsibility to maintain it
 5. **check whether the [objects](https://github.com/specklesystems/speckle-sharp/tree/master/Objects) kit is fit** to support your future connector, if it might need to be extended or if you might want to develop a new kit as well
-6. **read** our [dev docs on Base object, Kits, Transports](/dev/base.html) etc...
+6. **read** our [dev docs on Base object, kits, transports](/dev/base.html) etc...
 
-## Anatomy of a connector
+## Anatomy of a Connector
 
 Connectors are made of the following parts:
 
@@ -27,7 +27,7 @@ Connectors are made of the following parts:
 
 For the purpose of this tutorial, we'll be using a user interface called [DesktopUI](/user/ui) currently in use by our Revit, Rhino, AutoCAD and Civil 3D connectors. But you can of course create your own or use whatever the host application you are integrating with provides - that's the case of visual programming software.
 
-## Getting started
+## Getting Started
 
 To get started, create a C# project in your IDE of choice by following the conventions and requirements for writing plugins for the host application you are targeting. In most cases you'll be creating a .NET Framework class library project.
 
@@ -48,164 +48,9 @@ Then you can proceed to add the following packages from NuGet:
 
 By installing these packages,`Speckle.Core` and other packages will be also added automatically.
 
-## Adding DesktopUI (old)
+## Adding DesktopUI (DUI2)
 
-::: tip IMPORTANT ⚠️
-Our default User Interface is changing! 🤩
-See our new version [here](/user/ui2), and add your feedback on the [forum](https://speckle.community/t/new-desktopui-in-alpha-testing/1851)!
-:::
-
-Assuming the host application you are integrating with provides a way to launch plugins via command or by clicking a button, you can insatiate and launch the DesktopUI with the code below:
-
-```csharp
-public static Bootstrapper Bootstrapper { get; set; }
-
-internal void StartOrShowPanel()
-{
-  if (Bootstrapper != null)
-  {
-    Bootstrapper.ShowRootView();
-    return;
-  }
-
-  Bootstrapper = new Bootstrapper();
-
-  if (Application.Current != null)
-    new StyletAppLoader() { Bootstrapper = Bootstrapper };
-  else
-    new DesktopUI.App(Bootstrapper);
-
-  Bootstrapper.Start(Application.Current);
-}
-
-```
-
-You can see how it's been implemented in [Rhino](https://github.com/specklesystems/speckle-sharp/blob/master/ConnectorRhino/ConnectorRhino/ConnectorRhinoCommand.cs#L80) and [Revit](https://github.com/specklesystems/speckle-sharp/blob/master/ConnectorRevit/ConnectorRevit/Entry/SpeckleRevitCommand.cs#L24).
-
-Now, in your host application, after launching the Speckle plugin you should see this window pop up:
-
-![image-20210427164951074](./img/connectors-dev/image-20210427164951074.png)
-
-### Adding the Bindings
-
-The UI we just launched is quite sleek, but also a bit useless for the time being, as it doesn't have any connection to the host application; so it wouldn't know what to do when the _Send_ button is clicked, when the user wants to change selection or where to load saved streams from etc...
-
-DesktopUI comes with some [DummyBindings](https://github.com/specklesystems/speckle-sharp/blob/master/DesktopUI/DesktopUI/Utils/DummyBindings.cs) so that you can test it, but let's go ahead and write our own.
-
-Create a class named something like `ConnectorBindingsAPP_NAME.cs` and have it implement the abstract class `ConnectorBindings.cs`. It'll look something like the code below:
-
-```csharp
-public class ConnectorBindingsAECApp : ConnectorBindings
-  {
-    public override void AddNewStream(StreamState state)
-    {
-      throw new NotImplementedException();
-    }
-
-    public override string GetActiveViewName()
-    {
-      throw new NotImplementedException();
-    }
-
-    public override string GetDocumentId()
-    {
-      throw new NotImplementedException();
-    }
-
-    public override string GetDocumentLocation()
-    {
-      throw new NotImplementedException();
-    }
-
-    public override string GetFileName()
-    {
-      throw new NotImplementedException();
-    }
-
-    public override string GetHostAppName()
-    {
-      throw new NotImplementedException();
-    }
-
-    public override List<string> GetObjectsInView()
-    {
-      throw new NotImplementedException();
-    }
-
-    public override List<string> GetSelectedObjects()
-    {
-      throw new NotImplementedException();
-    }
-
-    public override List<ISelectionFilter> GetSelectionFilters()
-    {
-      throw new NotImplementedException();
-    }
-
-    public override List<StreamState> GetStreamsInFile()
-    {
-      throw new NotImplementedException();
-    }
-
-    public override void PersistAndUpdateStreamInFile(StreamState state)
-    {
-      throw new NotImplementedException();
-    }
-
-    public override Task<StreamState> ReceiveStream(StreamState state)
-    {
-      throw new NotImplementedException();
-    }
-
-    public override void RemoveStreamFromFile(string streamId)
-    {
-      throw new NotImplementedException();
-    }
-
-    public override void SelectClientObjects(string args)
-    {
-      throw new NotImplementedException();
-    }
-
-    public override Task<StreamState> SendStream(StreamState state)
-    {
-      throw new NotImplementedException();
-    }
-  }
-```
-
-As you might have guessed, we now need to populate these methods with logic that calls the host app API to perform the various actions. You don't have to implement each method as some might not be relevant for your host application, but make sure they are handled gracefully. This is one of the most complicated parts of writing a connector and requires a very good understanding and experience with the host app API.
-
-You can see how that's been done in [Rhino](https://github.com/specklesystems/speckle-sharp/blob/master/ConnectorRhino/ConnectorRhino/UI/ConnectorBindingsRhino.cs) and [Revit](https://github.com/specklesystems/speckle-sharp/tree/master/ConnectorRevit/ConnectorRevit/UI) (where it's split in multiple partial classes).
-
-In this class you might also want to add the logic to handle various events triggered from the host application such as `DocumentOpened` and automatically open the UI if the document has any streams saved.
-
-Once the binding class is complete you need to set it in the Bootstrapper we initialized when launching the UI.
-
-Change:
-
-```csharp
-Bootstrapper = new Bootstrapper();
-```
-
-To something like:
-
-```csharp
- Bootstrapper = new Bootstrapper()
- {
-     Bindings = new ConnectorBindingsAECApp()
- };
-```
-
-You should now see the UI responding to various user actions with your custom binding logic.
-
-## Adding DesktopUI (new)
-
-::: tip IMPORTANT ⚠️
-This new User Interface is currently in beta testing, add your feedback on the [forum](https://speckle.community/t/new-desktopui-in-alpha-testing/1851)!
-:::
-
-Our new DesktopUI is written using [Avalonia](https://avaloniaui.net/), a .NET open source framework for cross-platform UIs.
+Our DesktopUI is written using [Avalonia](https://avaloniaui.net/), a .NET open source framework for cross-platform UIs.
 You can play around with a standalone version of it by opening the solution in `speckle-sharp/DesktopUI2/DesktopUI2.sln`.
 Assuming the host application you are integrating with provides a way to launch plugins via command or by clicking a button, you can insatiate and launch the new DesktopUI with the code below:
 
@@ -359,7 +204,7 @@ To something like:
 
 You should now see the UI responding to various user actions with your custom binding logic.
 
-### Adding support for Reports
+### Adding Support for Reports
 
 Our new DesktopUI has methods to better track what happens during send and receive operations, so that we can present a report to the user to better understand what happened.
 The class being used is `ProgressReport` defined in [Core](https://github.com/specklesystems/speckle-sharp/tree/c413671748d72b236c99177f8f4994ad015da6ba/Core/Core/Models/Extras.cs#L96-L178).
@@ -370,7 +215,7 @@ It has three main methods that you should implement in your conversions and bind
 - `LogConversionError()`: used to track any errors happening [during a conversion](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.Geometry.cs#L949)
 - `LogOperationError()`: used to track [any other error](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/ConnectorRhino/ConnectorRhino/ConnectorRhinoShared/UI/ConnectorBindingsRhino2.cs#L194), while sending or receiving
 
-#### Passing errors from the converter to the UI
+#### Passing Errors from the Converter to the UI
 
 :::tip IMPORTANT
 Don't forget this step! Not doing so will result in incomplete reports.
@@ -380,7 +225,7 @@ Since Speckle kits are hot swappable, the connectors or UI don't have any direct
 
 To make sure your reports include everything, you need to merge the two at the end of a send/receive conversion by calling: `connectorReport.Merge(converterReport);` like demonstrated [here](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/ConnectorRhino/ConnectorRhino/ConnectorRhinoShared/UI/ConnectorBindingsRhino2.cs#L230).
 
-#### Report summary
+#### Report Summary
 
 At the top of a report we're outputting a summary, it only works if some _keywords_ are used in the messages being logged: `converted`, `created`, `updated`, `skipped` ,`failed`; [see the logic here](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/Core/Core/Models/Extras.cs#L103-L124). It might change in the future, but works for now.
 
@@ -392,7 +237,7 @@ Therefore your messages should be formatted like this:
 - "_Skipped_ not supported type: {@object.GetType()}"
 - "_Failed_ to create Floor: ..."
 
-### Adding custom actions
+### Adding Custom Actions
 
 The new UI also offers the possibility of registering custom actions that will show up in the "options menu" of each saved stream:
 ![img](https://user-images.githubusercontent.com/2679513/139488772-80fa5715-7b88-451e-9dcd-326cfe368660.gif)
@@ -422,7 +267,7 @@ public void OpenLink(StreamState state)
 }
 ```
 
-## Implementing telemetry
+## Implementing Telemetry
 
 Telemetry is an optional aspects of a connector, but it massively helps us understand how our tech is being used and if our products are useful or not.
 We encourage everyone adding it (and enabling it) in their connectors. The more usage we see, the more resources the project will get and a Better Speckle will be possible.
@@ -436,11 +281,11 @@ The telemetry service (matomo) is already added as a reference in Core, so you w
 
 Last crucial bit for your connector to work properly is to create a converter. The converter will take care of converting native data and geometry from your host application to Speckle when sending and vice-versa when receiving.
 
-For the purpose of this guide, we'll assume your converter will be extending the [Objects Kit](/dev/objects), but you can also [write your own kit](/dev/kits-dev) if you so wish.
+For the purpose of this guide, we'll assume your converter will be extending the [Objects kit](/dev/objects), but you can also [write your own kit](/dev/kits-dev) if you so wish.
 
 ::: tip IMPORTANT
 
-The Connector **should never have a direct references** to the Converter or Kit. This is because Kits are swappable and having a direct reference would prevent this mechanism from working.
+The connector **should never have a direct references** to the converter or kit. This is because kits are swappable and having a direct reference would prevent this mechanism from working.
 
 :::
 
@@ -455,7 +300,7 @@ Then add references to the following NuGet packages:
 - `Speckle.Objects`
 - Your host app API (preferably as NuGets)
 
-### Adding the Converter logic
+### Adding the Converter Logic
 
 Now create a new class named `ConverterAPP_NAME` and have it implement the `ISpeckleConverter` interface. It'll look something like this:
 
@@ -558,7 +403,7 @@ For any questions feel free to write on the [community forum](https://speckle.co
 
 ### New Objects
 
-If the host app you're targeting uses object types not currently defined in the Objects Kit and you'd like to write conversions for them, we are happy to extend it!
+If the host app you're targeting uses object types not currently defined in the Objects kit and you'd like to write conversions for them, we are happy to extend it!
 
 Please get in touch on the forum before making a PR, then have a look at [how to write new objects](/dev/objects.html#writing-objects).
 
@@ -568,7 +413,7 @@ At some point in your `ConnectorBindings` you'll need to implement the `SendStre
 
 ::: tip IMPORTANT
 
-The Connector **should never have a direct references** to the Converter or Kit. This is because Kits are swappable and having a direct reference would prevent this mechanism from working.
+The connector **should never have a direct references** to the converter or kit. This is because kits are swappable and having a direct reference would prevent this mechanism from working.
 
 :::
 
@@ -583,7 +428,7 @@ var converter = kit.LoadConverter(APP_NAME);
 The converter, as you might have seen above should have implemented other handy methods such as `CanConvertToSpeckle`
 
 For more information on how to implement the send/receive bindings,
-use our Connectors' implementations as reference, and (for receive) see [Traversal docs](../dev/traversal.html).
+use our connectors' implementations as reference, and (for receive) see [Traversal docs](../dev/traversal.html).
 
 ## Publishing the Connector
 

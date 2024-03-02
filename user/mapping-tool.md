@@ -12,7 +12,7 @@ This feature is currently being developed, so please treat it as a very early al
 
 Currently, the Mapping tool is only available for Rhino > Revit workflows; in the future it'll be expanded to others like AutoCAD > Archicad or Civil 3D > Tekla and so on.
 
-## How does it work?
+## How Does it Work?
 
 This feature relies on having some data such as families, types, levels etc, available, and the first step is to send these to Speckle form the BIM tool.
 Then, you will be able to map these to the supported elements from within the CAD tool. And finally, you just need to send the mapped element from the CAD tool to the BIM one.
@@ -46,7 +46,7 @@ The available elements depend on the provided families and types. So, if you Rev
 
 :::
 
-### Mapping Rhino geometry to Revit Elements
+### Mapping Rhino Geometry to Revit Elements
 
 After selecting a mapping source, you just need to select model elements of similar types, and set the respective mappings and properties, then click on Apply.
 

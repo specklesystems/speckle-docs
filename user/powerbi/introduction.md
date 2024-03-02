@@ -26,7 +26,7 @@ Currently, Speckle Connector for Power BI supports **Power BI Desktop only**.
 
 ## Features
 
-Power BI connector allows you to import your Speckle Model, Version, or Object data using the corresponding URL. The following data will be retrieved depending on which type of URL you use:
+Power BI Connector allows you to import your Speckle model, version, or Object data using the corresponding URL. The following data will be retrieved depending on which type of URL you use:
 
 - **Model URL** -> the most recent version on this model
 - **Version URL** -> this version

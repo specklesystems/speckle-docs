@@ -7,11 +7,11 @@ title: Sending
 After successfully installing the Revit connector for Speckle, let’s send your first data from Revit to Speckleverse.
 
 :::tip NOTE✍️
-We are renaming the core concepts in Speckle to be more widely understandable.
+We have renamed some core concepts in Speckle to be more widely understandable.
 
-- *Streams* will be renamed to **Projects**
-- *Branches* will be renamed to **Models**
-- *Commits* will be renamed to **Versions**
+- *Streams* have been renamed to **projects**
+- *Branches* have been renamed to **models**
+- *Commits* have been renamed to **versions**
   :::
 
 ## Launching the Connector
@@ -35,16 +35,16 @@ To launch the connector:
 
 Sending your Revit model takes only **4** steps:
 
-1. **Select (or create) a Speckle Project**.
-2. **Select (or create) a Speckle Model** to send to.
+1. **Select (or create) a Speckle project**.
+2. **Select (or create) a Speckle model** to send to.
 3. **Select what you want to send**.
 4. Click **Send**.
 
 Let’s expand on these.
 
-## Selecting a Speckle Project & Model
+## Selecting a Speckle Project and Model
 
-Before sending data from Revit, it is important to determine where you want to send the data. You can create a Speckle Project & Model using the web interface or the Revit connector UI. We’ll cover how to create those using the Connector UI.
+Before sending data from Revit, it is important to determine where you want to send the data. You can create a Speckle project & model using the web interface or the Revit Connector UI. We’ll cover how to create those using the Connector UI.
 
 ### Create a Speckle Project
 
@@ -69,8 +69,8 @@ You can also create a Speckle Project using Speckle’s web interface.
 
 To create a Speckle model:
 
-1. Expand the **Branch (Model)** dropdown.
-2. Select **Add New Branch (Model).**
+1. Expand the **Model** dropdown.
+2. Select **Add New Model**.
 3. Provide a **Name** and an optional **Description**.
 4. Click **Create**.
 
@@ -78,7 +78,7 @@ To create a Speckle model:
 Again, you can also select an existing model and send data to it.
 :::
 
-You can also create a Speckle Model using Speckle’s web interface.
+You can also create a Speckle model using Speckle’s web interface.
 
 ## Selecting What to Send
 

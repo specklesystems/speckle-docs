@@ -3,7 +3,7 @@
 ---
 # Unity
 
-Our Unity connector differs from the other connectors described in our User Guide; 
+Our Unity Connector differs from the other connectors described in our User Guide; 
 It has only a simple UI, and is missing some of the comforts present in other connectors.
 But it offers several Unity Components to send and receive data from Speckle, and allows developers to easily develop their own
 components and features.
@@ -23,7 +23,7 @@ Check out our dedicated [tutorials on Unity](https://speckle.systems/tag/unity/)
 Before using this connector, you'll need to follow our standard setup instructions to [install Speckle Manager and add a Speckle account](/user/manager). After this, you can proceed to clone the [Speckle Unity repository on GitHub](https://github.com/specklesystems/speckle-unity).
 
 The repo contains a sample scene named `SpecklePlayground` that shows an in-game example of how to send and receive data from your default speckle account.
-The example is minimal, but demonstrates what is possible using the Speckle Unity connector.
+The example is minimal, but demonstrates what is possible using the Speckle Unity Connector.
 
 ## Package Installation
 
@@ -93,7 +93,7 @@ The `Send()` method accepts additional optional arguments to use different accou
 
 * [Unity Support Tables](/user/support-tables.html#unity)
 
-### Metadata and custom properties
+### Metadata and Custom Properties
 
 Geometry alone isn't much fun, that's why we've made it easy to also transfer BIM and custom data with your objects.
 When receiving data, a `SpeckleProperties` component is attached to each object. Inside it there is a `Dictionary<string,object>` called `Data` that contains all the metadata coming from Speckle. This works similarly when sending data; if any objects have a `SpeckleProperties` component attached to them, it will be used.

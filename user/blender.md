@@ -16,7 +16,7 @@ For a quick overview, check out this short video on how to get started sending a
 
 Before using this connector, you'll need to follow our standard setup instructions to [**install Speckle Manager** and **add a Speckle account**](/user/manager).
 
-Once the Blender connector has been **installed through Manager**, you will find it under the **"Add-ons" tab of your Preferences menu**, under the "Scene" category. Activate it by checking the tick box next to the Add-on name.
+Once the Blender Connector has been **installed through Manager**, you will find it under the **"Add-ons" tab of your Preferences menu**, under the "Scene" category. Activate it by checking the tick box next to the Add-on name.
 
 ![activating the Blender Connector](./img-blender/enable-addon.png)
 
@@ -47,7 +47,7 @@ However, you will still need to add your accounts, either through [Speckle Manag
 The Blender Connector lives in the 3D viewport toolbar (N) under the Speckle tab. It contains three main panels:
 
 - **User Panel** for switching between different local accounts.
-- **Projects Panel** for browsing your existing Projects, creating new projects, or deleting old projects.
+- **Projects Panel** for browsing your existing projects, creating new projects, or deleting old projects.
 - **Active Project Panel** for sending and receiving data to and from Speckle.
 
 ![panels overview](./img-blender/sidebar-menu.png)
@@ -76,9 +76,9 @@ Clean Mesh option can be accessed from the dialog that pops up after clicking th
 
 - [Blender Support Tables](/user/support-tables.html#blender)
 
-## Blender BIM
+## BlenderBIM
 
-There is currently some limited support for [BlenderBIM](https://blenderbim.org/), though this is intended as an export and does not work coming back. To take advantage of this, simply open an IFC using BlenderBIM then use the Speckle Connector to send to Speckle.
+There is currently some limited support for [BlenderBIM](https://blenderbim.org/), though this is intended as an export and does not work coming back. To take advantage of this, simply open an IFC using BlenderBIM then use the Speckle connector to send to Speckle.
 
 <iframe title="Speckle" src="https://app.speckle.systems/projects/c51120a7f7/models/d57e0b6bc8@767b7288ee#embed=%7B%22isEnabled%22%3Atrue%7D" width="600" height="400" frameborder="0"></iframe>
 
@@ -92,93 +92,38 @@ There are a few things to keep in mind when sending an IFC to Speckle using Blen
   - Additional IFC properties that aren't stored in Blender are currently not extracted from the IFC and attached. This may be explored as an enhancement in the future.
 - Type: Objects are all sent as meshes and collections are sent as `Base` objects. None of the objects are currently being converted and sent as BIM objects.
 
-<!-- TODO: feature under development
-## Injecting Python Functions to receive/send operations
-
-It is possible to inject your own python functions to the send/receive process.
-
-This allows for customisation of how objects are sent/receiveed. For example
-- Applying blender mesh operations to received geometry,
-- Assigning custom properties to objects,
-- Custom behaviours triggered after receive/before send.
-
-### Receive Scripts
-1. From the `Scripting` workspace, create a new python file.
-
-2. Implement either `execute_for_each` or `execute_for_all` function.
-
-```py
-def execute_for_each(context, blenderObject, speckleObject):
-    '''
-    Executed once per object, immediately after each object is converted
-    
-    :param context: blender context
-    :type context: bpy.types.Context
-    :param blenderObject: converted blender object
-    :type blenderObject: bpy.types.Object
-    :param speckleObject: The speckle object which was converted
-    :type speckleObject: specklepy.objects.Base
-    :rtype: Optional[bpy.types.Object]
-    :return: The blender object to be added to the scene
-    '''
-    # Can modify the blenderObject here
-    # E.g. Attaching extra properties (using the speckleObject) 
-    # E.g. Conditionaly ignoring certain objects (return None)
-    # E.g. Performing other modifications/custom conversion logic
-    
-    # Must return the object for it to be added to the scene
-    return blenderObject
-    
-    
-def execute_for_all(context, objects):
-    '''
-    Executed once per receive operation, immediately after all objects have been converted
-    
-    :param context: blender context
-    :type context: bpy.types.Context
-    :param objects: dictionary of object name to object
-    :type objects: dict[str, bpy.types.Object]
-    '''
-    # For example, You can use this to perform bpy.ops on all received meshes
-    # Or any custom behaviour you want with the given parameters
-
-```
-
-### Send Scripts
-
-Send scripts are slightly less featured than receive scripts.
-They are mostly useful for filtering which objects to send, although any 
-
--->
-
 ## Developing/Debugging Locally
 
-For developers looking **test WIP Models**, or **develop ontop of/contribute to Speckle Blender**,
+
+For developers looking **test WIP branches**, or **develop ontop of/contribute to Speckle Blender**,
 this is the recommended development setup for the [speckle-blender](https://github.com/specklesystems/speckle-blender) repository.
 
 ::: tip Pre-requisites
 [Git](https://git-scm.com/), [Poetry](https://python-poetry.org/docs/), and the [Python](https://www.python.org/) version used by the desired Blender version </br>(e.g. Python 3.10 for Blender ≥3.0).
 
 Also recommended: [VSCode](https://code.visualstudio.com/) with the [Blender Development Addon for VSCode](https://marketplace.visualstudio.com/items?itemName=JacquesLucke.blender-development) (allows debugging, and automatically symlinks `scripts/addons`)
-:::
+::: 
 
 1. **Git clone** the [speckle-blender](https://github.com/specklesystems/speckle-blender) and [specklepy](https://github.com/specklesystems/specklepy) repositories into the a folder somewhere on your system.
-
 ```sh
 git clone https://github.com/specklesystems/speckle-blender
 git clone https://github.com/specklesystems/specklepy
 cd ./speckle-blender
 ```
 
-2. Run the following commands to create a local environment
+2. Run the following commands to **export the dev dependencies**
 ```sh
 poetry lock --no-update
-poetry install --with dev
+poetry export -f requirements.txt --with dev --without-hashes > requirements.txt
+python -m pip install -r requirements.txt -t "./modules"
 ```
-3. Run the `export_dependencies.sh` script to export the requirements.txt file for the runtime dependencies
-4. **Open the project folder** in VSCode and run the **`Blender: Build and Start`** command.
+> or, if you don't care about dev dependencies, you can simply run
+> ```sh
+> sh export_dependencies.sh
+> ```
+3. **Open the project folder** in VSCode and run the **`Blender: Build and Start`** command.
 > Or, if not using VSCode, the you can must **copy** (or symlink) the `bpy_speckle` and `modules` folders into `%appdata%/Blender Foundation/Blender/{ver}/scripts/addons/`. (Creating `scripts/addons` if needed). Then start blender.
-5. From `Edit -> Preferences -> Add-ons`, **enable the `Speckle Blender` plugin**.
-6. A **restart of Blender** may be required upon first launch.
+4. From `Edit -> Preferences -> Add-ons`, **enable the `Speckle Blender` plugin**.
+5. A **restart of Blender** may be required upon first launch.
 
 > Feel free to reachout to us on [the forums](https://speckle.community/) if you're having any difficulties, or suggestions on better dev setups!

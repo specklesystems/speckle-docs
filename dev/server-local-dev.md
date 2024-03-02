@@ -1,4 +1,4 @@
-# Local development environment
+# Local Development Environment
 
 This is the recommended method for developing or debugging the Speckle Server locally.
 
@@ -18,7 +18,7 @@ Assuming you have:
 Also don't worry if you don't have all of these, the detailed instructions provide more info on alternative ways to achieve the same thing.
 This is a high efficiency getting started step list.
 
-## Supported platforms
+## Supported Platforms
 
 Speckle server has been developed on Linux, Windows WSL2, and MacOS.  It _does not_ work on Windows without WSL2.
 

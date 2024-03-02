@@ -6,14 +6,14 @@ You've breezed through our git-based walkthrough guide and have arrived at the h
 A lot of careful thought has gone into planning Speckle v2.0.
 Its architecture has been designed to be modular, swappable and hackable. Nearly every part of Speckle can be disassembled and customised to your heart's content.
 
-Want to write your own Speckle Connector? We wrote a guide to help you with that!
+Want to write your own Speckle connector? We wrote a guide to help you with that!
 Want to run your own Speckle server or embed our Three.js viewer into your Notion document? We've got you covered there, too!
 
 But that's enough talk - let's dive in.
 
 ## The Base Object 🟦
 
-The `Base` object is probably not something you'll have to deal with directly when you're just getting started with Speckle. However, it is a helpful concept to be aware of if you want to get into creating custom Speckle objects, work on your own conversions (AKA Speckle Kits), or building scripts and apps on top of Speckle.
+The `Base` object is probably not something you'll have to deal with directly when you're just getting started with Speckle. However, it is a helpful concept to be aware of if you want to get into creating custom Speckle objects, work on your own conversions (AKA Speckle kits), or building scripts and apps on top of Speckle.
 
 ### What is the Base Object?
 
@@ -25,9 +25,9 @@ A key feature of the `Base` object is **decomposition**. This allows you to flag
 
 For example, if you have several `Beam` and `Wall` elements that all want to reference the same `Level`. Instead of creating multiple copies of this `Level` and storing it within each of the `Beam` and `Wall` objects, you would instead make the `Level` detachable in the `Beam`s and `Wall`s. This allows all the objects to reference the same `Level`, which now only needs to be stored once.
 
-### How do I use the Base object?
+### How Do I Use the Base Object?
 
-When using the connectors to send existing data, you won't really need to think about the `Base` object as all this is taken care of for you behind the scenes. The objects in your model are converted to Speckle `Base` objects and then are nested within a parent `Base` object to create the Version - all when you press the "Send" button.
+When using the connectors to send existing data, you won't really need to think about the `Base` object as all this is taken care of for you behind the scenes. The objects in your model are converted to Speckle `Base` objects and then are nested within a parent `Base` object to create the version - all when you press the "Send" button.
 
 If you are getting into creating your own `Base` objects, our [The Base object](/dev/base) section and the [Decomposition API](/dev/decomposition) are a great way to get started.
 
@@ -37,20 +37,20 @@ For further information on the `Base` object, see our [deep dive](https://speckl
 
 ### What are Speckle Kits?
 
-We said every part of Speckle is hackable. `Speckle Kits` are probably one of the more accessible hacks we've made possible.
+We said every part of Speckle is hackable. `Speckle kits` are probably one of the more accessible hacks we've made possible.
 
 As mentioned previously, Speckle converts all incoming data from various software (Revit, Grasshopper, etc) to its software-agnostic 'Speckle' format. It does this via detailed conversion routines, built to handle each of the support applications' APIs.
 
 However, perhaps you don't like the way Speckle handles `Brep` geometry by default, or you wish we stripped out more data to suit your hyper-fast application. Why not hack one of our translation routines, or (better yet) build your own from scratch?
-If this sounds like you, you'll want to read about creating `Speckle Kits`!
+If this sounds like you, you'll want to read about creating `Speckle kits`!
 
 ::: tip
-In short - Speckle Kits are custom translators to get data to (and from) Speckle's native object model.
+In short - Speckle kits are custom translators to get data to (and from) Speckle's native object model.
 :::
 
 ### How do I use Speckle Kits?
 
-For a detailed overview of Speckle Kits, see our developer section, and our [deep dive](https://speckle.community/t/introducing-kits-2-0/710/37) on the Speckle community forum.
+For a detailed overview of Speckle kits, see our developer section, and our [deep dive](https://speckle.community/t/introducing-kits-2-0/710/37) on the Speckle community forum.
 
 ## Transports 💾
 

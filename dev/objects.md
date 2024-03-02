@@ -1,28 +1,28 @@
-# Objects Kit
+# Objects kit
 
 ## Introduction
 
-Objects Kit is the default [Speckle 2.0 Kit](/dev/kits). It includes geometry and element base classes as well as conversions routines for the AEC applications that we officially support. Objects uses .NET Standard 2.0 and has been tested on Windows and MacOS. You can find the code in [speckle-sharp/Objects](https://github.com/specklesystems/speckle-sharp/tree/master/Objects).
+Objects kit is the default [Speckle kit](/dev/kits). It includes geometry and element base classes as well as conversions routines for the AEC applications that we officially support. Objects uses .NET Standard 2.0 and has been tested on Windows and MacOS. You can find the code in [speckle-sharp/Objects](https://github.com/specklesystems/speckle-sharp/tree/master/Objects).
 
 ::: tip
 Objects is available on NuGet as `Speckle.Objects`.
 All converters are also available under `Speckle.Objects.COnverter.*`.
 :::
 
-While Objects Kit is the default, you are free to develop your own Kit or fork this one to customise it yourself. As of the beta release, easy swapping of kits within the connectors is not fully supported. However, this will be fully supported by the time we officially ship 2.0 🎉
+While the Objects is the default kit, you are free to develop your own kit or fork this one to customise it yourself. As of the beta release, easy swapping of kits within the connectors is not fully supported. However, this will be fully supported by the time we officially ship 2.0 🎉
 
-More info on Objects and Kits in 2.0 can be found in our [Kits section](/dev/kits).
+More info on Objects and kits in 2.0 can be found in our [kits section](/dev/kits).
 
 ## Developing
 
-Objects Kit is just a set of simple Data Transfer Objects that are fairly straightforward to understand. The object model is split into two main parts:
+Objects kit is just a set of simple data transfer objects that are fairly straightforward to understand. The object model is split into two main parts:
 
 - `Geometry`: the basic building blocks such as points, lines, meshes, surfaces, etc
 - `BuiltElements`: higher level elements such as rooms, beams, ducts, openings, topography, etc
 
 ### Writing Objects
 
-If you'd like to contribute more [objects](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects) to the Objects Kit or extend and customise the kit yourself, you can easily do so by creating new classes that inherit from `Base`. You can read more about the `Base` class [here](/dev/base). There are also a few [interfaces](https://github.com/specklesystems/speckle-sharp/blob/master/Objects/Objects/Interfaces.cs) an object can inherit from including `ICurve`, `IHasArea`, `IHasVolume`, and `IHasBoundingBox`.
+If you'd like to contribute more [objects](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects) to the Objects kit or extend and customise the kit yourself, you can easily do so by creating new classes that inherit from `Base`. You can read more about the `Base` class [here](/dev/base). There are also a few [interfaces](https://github.com/specklesystems/speckle-sharp/blob/master/Objects/Objects/Interfaces.cs) an object can inherit from including `ICurve`, `IHasArea`, `IHasVolume`, and `IHasBoundingBox`.
 
 The class itself needs to have an empty constructor for serialisation / deserialisation purposes. You can create as many additional constructors for your own use as makes sense.
 
@@ -67,7 +67,7 @@ In order to better support interop between the various AEC host applications and
 
 For example, [`Objects.BuiltElements.Revit`](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects/BuiltElements/Revit) contains a collection of classes that extend the basic ones with a series of default Revit properties. This is the approach we'll follow with other host applications as well.
 
-#### Adding Schema information attributes to classes
+#### Adding Schema Information Attributes to Classes
 
 In order for these _Host Application specific_ classes to be discoverable in any other host application (such as Grasshopper's `Create Schema Object` node), this objects must contain at least one constructor with the attribute `SchemaInfo`. The attribute allows to provide human-readable names and descriptions that will be used to display to the user.
 
@@ -83,9 +83,9 @@ public Beam([SchemaMainParam] ICurve baseLine)
 }
 ```
 
-#### Handing breaking changes in the Schema model
+#### Handing Breaking Changes in the Schema Model
 
-These information from the `SchemaInfo` attribute is used, among other places, to automatically generate all the Schema Nodes you'll find in the Grasshopper connector.
+These information from the `SchemaInfo` attribute is used, among other places, to automatically generate all the Schema Nodes you'll find in the Grasshopper Connector.
 
 This means that any breaking-change on that object will have unwanted side-effects on the end-user; such as previously existing Schemas dissapearing without warning.
 
@@ -123,7 +123,7 @@ This will ensure that anyone using the previous Schema definition can still do, 
 
 ### Converters
 
-The Objects Kit doesn't just stop at Objects - you need converters as well! These can be found in [Objects/Converters](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Converters). Each converter is a class within the `Objects.Converter` namespace and contains conversion routines to a Speckle object and to the native software equivalent. The two key methods within a converter are predictably:
+The Objects kit doesn't just stop at Objects - you need converters as well! These can be found in [Objects/Converters](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Converters). Each converter is a class within the `Objects.Converter` namespace and contains conversion routines to a Speckle object and to the native software equivalent. The two key methods within a converter are predictably:
 
 - `ConvertToNative`: converts a Speckle object to the native software
 - `ConvertToSpeckle`: converts a native software object to Speckle
@@ -329,7 +329,7 @@ instance.transform = new Transform(matrix1, units);
 
 #### Connector Implementations
 
-Our Objects Kit contains definition classes that are used by our sharp connectors. The Speckle `Objects.Other.Instance : Base` class is implemented as follows:
+Our Objects kit contains definition classes that are used by our sharp connectors. The Speckle `Objects.Other.Instance : Base` class is implemented as follows:
 
 | Connector | Speckle Instance Class | Speckle Definition Class GitHub Link |
 | --- | --- | --- |

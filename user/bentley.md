@@ -15,9 +15,9 @@ The Speckle connector for Bentley software currently supports:
 
 ## Getting Started
 
-To install this Connector and add your Speckle account, follow the instructions in the [Speckle Manager](/user/manager) section.
+To install this connector and add your Speckle account, follow the instructions in the [Speckle Manager](/user/manager) section.
 
-Once installed, you can find the connector in the `Speckle 2` ribbon. Click on the Connector button, and this will open a new pop-up window with the standard [Desktop UI](/user/ui2.md)
+Once installed, you can find the connector in the `Speckle 2` ribbon. Click on the connector button, and this will open a new pop-up window with the standard [Desktop UI](/user/ui2.md)
 
 ![Speckle ribbon](./img-bentley/speckle-ribbon.png)
 

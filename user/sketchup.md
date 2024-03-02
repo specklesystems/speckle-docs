@@ -14,13 +14,13 @@ As this connector is still in heavy development, see the [repo](https://github.c
 
 ## Installation
 
-The easiest way to install the SketchUp Alpha Connector is via the [Speckle Manager](/user/manager). Simply open up manager, find the SketchUp connector, and click "Install".
+The easiest way to install the SketchUp Alpha Connector is via the [Speckle Manager](/user/manager). Simply open up manager, find the SketchUp Connector, and click "Install".
 
 However, this method only works for Windows for SketchUp 2021. If you'd like to try installing on a different platform or for a different version, you can do a manual installation. Note that the connector has been developed for SketchUp 2021 and has not been tested on older versions or on different platforms. There may be issues, so feel free to report them on the [forum](https://speckle.community/).
 
 ### Manual Installation 
 
-#### 1. Clone the repository
+#### 1. Clone the Repository
 
 First, ensure you have [git](https://git-scm.com/downloads) installed.
 

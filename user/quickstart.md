@@ -11,7 +11,7 @@ Before you can use Speckle, you'll need an account!
 
 As you register, a friendly onboarding wizard will take you through some set-up steps.
 
-## Creating your first project
+## Creating your First Project
 
 ![image](https://user-images.githubusercontent.com/2679513/148923228-790246ff-d25a-4c25-966c-e2399b2ea13e.png)
 
@@ -33,11 +33,11 @@ Versions can also be organized in **models**, for instance, to have multiple des
 
 ![newstream](https://user-images.githubusercontent.com/2679513/148924418-4af6e065-97fc-4c9c-b906-5a0d2f0e821a.gif)
 
-## Sending and Receiving data with Connectors
+## Sending and Receiving Data with Connectors
 
 New projects are always empty, in order to get data into them we'll need to use one of the many Speckle connectors
 
-:::tip 💡 What are Connectors
+:::tip 💡 What are connectors
 
 **Connectors** are plugins for design and analysis software, they let you exchange geometry and BIM data directly from the tools you use.
 
@@ -45,11 +45,11 @@ Install our connectors and you'll instantly be able to **share your models and d
 
 :::
 
-You can explore each of our connectors in detail in their docs section: [Connectors](/user/connectors).
+You can explore each of our connectors in detail in their docs section: [connectors](/user/connectors).
 
 ### Installation
 
-Unless otherwise stated, Connectors are installed from a standalone desktop app called [Speckle Manager](/user/manager).
+Unless otherwise stated, connectors are installed from a standalone desktop app called [Speckle Manager](/user/manager).
 
 - [⬇️ Download Speckle Manager](https://speckle.systems/download/)
 
@@ -75,14 +75,14 @@ Finally, there are some more advanced components/nodes for creating and expandin
 
 ### Revit, Rhino, AutoCAD, Civil3D, Bentley etc
 
-Most other Connectors share the same user interface, you can read more about it [in its own section](/user/ui2).
+Most other connectors share the same user interface, you can read more about it [in its own section](/user/ui2).
 
 From it, you can select a project you have previously created and decide whether to send or receive data from it. Pretty simple huh?!
 In case you were wondering what data exchanges are allowed between all the various supported software, we have created a series of [Supported Elements tables](/user/support-tables) that will help you.
 
 ![dui2-select](https://user-images.githubusercontent.com/2679513/139484851-8038b1c3-e0a5-4585-892e-bc870974f422.gif)
 
-## Seeing your models online
+## Seeing Your Models Online
 
 After you've sent something to Speckle (aka you created a version, using Speckle's lingo) you'll be able to see it in our 3D viewer and embed it into almost any other web page.
 Just head to that project in our web app to do so!

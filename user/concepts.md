@@ -14,15 +14,15 @@ To use Speckle you only really need to know what a project is. models and versio
 
 ## Projects
 
-### What are Projects?
+### What are projects?
 
 The main data structure in Speckle is the **project**.
 
 A project is simply a collection of data with some additional information to help you manage and retrieve them. Each project is assigned a `projectId` which uniquely identifies the project on a server. You can also assign a name and description to help keep track of your projects.
 
-A Project also lets you manage permissions: it has a list of collaborators including an owner and additional reviewers and contributors which the owner has chosen to share the Project with.
+A project also lets you manage permissions: it has a list of collaborators including an owner and additional reviewers and contributors which the owner has chosen to share the project with.
 
-### What do Projects contain?
+### What do projects contain?
 
 A project can contain anything from a handful of objects to a whole building. You are free to add as much or as little data to a single project and create as many projects as you'd like. Some examples of what might be contained within a project are:
 
@@ -34,21 +34,20 @@ A project can contain anything from a handful of objects to a whole building. Yo
 
 A project also contains further options for managing your data using **models** and **versions**. Don't worry about these yet - we'll cover them in the following sections.
 
-### Who can I share Projects with?
+### Who Can I Share Projects With?
 
-Projects can be either Private, Link Shared or Discoverable;
+Projects can be either Private or Link Shared;
 
 - **Private**: People need to be added to the project team to access it
 - **Link Shared**: Anyone with the link or `projectId` can view the project
-- **Discoverable**: The project may be offered for discovery via UI or API without knowledge of the `projectId` or specific permissions
 
 Anyone invited as a team member can have one of 3 levels of access to the project, depending on which role you assign them:
 
 - **Owner**: Full access, including deletion rights and editing user permissions.
-- **Editor**: Can edit the project's contents (create new Models and Versions) but cannot edit project details (name and description) or manage permissions.
+- **Editor**: Can edit the project's contents (create new models and versions) but cannot edit project details (name and description) or manage permissions.
 - **Viewer**: View-only access to a project.
 
-### How do I use Projects?
+### How Do I Use Projects?
 
 Projects are the main mechanism by which data is shared between people and applications. For example, you could create a project in Revit and send that data to your server. Then, any of your colleagues with access to that project could view the data in the browser or receive the data in Grasshopper, Rhino, Revit, etc.
 
@@ -62,11 +61,11 @@ To see step-by-step guides on how to send your data between various supported ap
 
 Models give you an extra layer of organisation within a project. Speckle users frequently use models to carry out parallel studies / design options., define different disciplines, or to separate out different parts of a project that may represent different responsibilities or ownership.
 
-All projects start with a single default model, if you do not name this it may be referenced as `main`. If you would like to "model" off from this `main` model and work on multiple different versions of your data in parallel or if you want to segment separate parts of your data from each other, that is where Models come in.
+All projects start with a single default model, if you do not name this it may be referenced as `main`. If you would like to "model" off from this `main` model and work on multiple different versions of your data in parallel or if you want to segment separate parts of your data from each other, that is where models come in.
 
 ![Model menu from the Speckle frontend](https://user-images.githubusercontent.com/7717434/107365334-8dd3a180-6ad4-11eb-8d6f-47bc42b80da4.png)
 
-### How do I use Models?
+### How Do I Use Models?
 
 You can add as many additional models to your projects as you would like. Speckle Web App gives you the option of creating new models and switching between them.
 
@@ -94,7 +93,7 @@ Say goodbye to saving your files as "AM_Project_Design-final", "AM_Project_Desig
 Please Note: Versions aren't editable, you can change their message but not their content. Sent the wrong data? No problem - simply send the correct data and work from that version instead.
 :::
 
-### How do I use Versions?
+### How Do I Use Versions?
 
 If you have used a connector and you've sent data to a project, you've already used them! Each time data is sent to a project, a version is created. To help you keep track of the changes in your project, it is a good idea to add a version message that succinctly describes what the version contains. Some of the connectors pre-populate a default version message for you, but you are still free to write your own to add more detail.
 

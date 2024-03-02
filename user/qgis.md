@@ -5,7 +5,7 @@
 
 The Speckle 2.0 connector for QGIS currently supports QGIS versions 3.28.15 and upwards.
 
-## Getting started
+## Getting Started
 
 ### Installation
 
@@ -40,7 +40,7 @@ Once the plugin is installed, you'll find a new toolbar button in QGIS that will
 
 ![Plugin view](./img-qgis/03_open_plugin.png)
 
-#### Adding a Speckle project to the QGIS project
+#### Adding a Speckle Project to the QGIS Project
 
 First, you need to search and add a project to the QGIS project. For that, you can press the Search button near the `Project` panel. This will open a new pop-up window that will allow you to search for a specific project and add it to QGIS project.
 
@@ -57,7 +57,7 @@ And here's a short gif of the process 👇🏼
 > Once a project is added to the QGIS project, it is saved along with it so the projects will still be available after restarting QGIS.
 
 
-#### Sending data
+#### Sending Data
 
 In order to send your data, just follow these steps:
 
@@ -78,13 +78,13 @@ If you want to receive the layers later in a non-GIS software at the exact locat
 
 ![Matching coordinates with CAD](./img-qgis/custom_crs.gif)
 
-#### Viewing the result
+#### Viewing the Result
 
 Once data has been sent to Speckle, you can view the result by going to your Speckle's server Url (our public one is https://app.speckle.systems/). Here's an example of some QGIS data:
 
 <iframe title="Speckle" src="https://app.speckle.systems/projects/55a29f3e9d/models/e9f320ca1c@1f8b3ca162#embed=%7B%22isEnabled%22%3Atrue%7D" width="600" height="400" frameborder="0"></iframe>
 
-#### Receiving data
+#### Receiving Data
 
 Steps to receive the data:
 
@@ -96,24 +96,23 @@ Steps to receive the data:
 ![Receiving data](./img-qgis/receive.gif)
 
 
-### Custom project center
-Modifying project center is useful when you need to: 
+### Custom Project Centre is useful when you need to: 
  - Send data (so you can receive correctly in a non-GIS application)
  - Receive data (if data was sent from non-GIS application).
 
 You have several options to choose in order to set the custom project center. 
 
-#### Adding offsets
+#### Adding Offsets
 You can choose to use the existing Coordinate Reference System (Project CRS) and modify it's Speckle properties by adding X- and Y- offsets. This option will only be affecting Speckle properties on Send/Receive and will not change anything for you while you are working on a QGIS project. Use this option when your project requires a use of a specific CRS. 
 
 For example, if you use a projected CRS (e.g. EPSG:32631) without the offsets and send the Eiffel Tower outline to Speckle, when receiving in Rhino geometry will be located thousands kilometers away from the origin. But if before sending you set the offsets Lat(y) as 5411939.08 and Lon(x) as 448253.52, you will receive the Eiffel Tower right in the middle of your Rhino canvas, while still preserving the required CRS (e.g. EPSG:32631). 
 
 Lat(y) and Lon(x) offsets should be specified in the units of the current Project CRS, and in the correct order. Note, that when you copy the coordinates from QGIS canvas using right-click, the Lat/Lon order might be different depending on the CRS used (Lat is usually marked with N-North, and Lon is marked with E-East, both values can be positive or negative). 
 
-#### Creating custom CRS
+#### Creating Custom CRS
 Create a custom Coordinate Reference System, based on Traverse Mercator if you don't have to use a specific CRS and want to have minimal size and shape distortions. Specify the origin Lat, Lon in geographic coordinates to create a custom CRS with the required origin and change your Project CRS. 
 
-#### Adding angle to the True North
+#### Adding Angle to the True North
 You can also add an angle to the True North to either of the above options if your non-GIS application require so. It will only affect Speckle object properties during Send/Receive operations and will not be visible in QGIS project.
 
 ### Transformations
