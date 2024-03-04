@@ -24,13 +24,13 @@ td, th{
 [getBatch](/viewer/speckle-renderer-api.md#getbatch)  | [getBatchMaterial](/viewer/speckle-renderer-api.md#getbatchmaterial) | [getMaterial](/viewer/speckle-renderer-api.md#getmaterial) | [getObject](/viewer/speckle-renderer-api.md#getobject) 
  [getObjects](/viewer/speckle-renderer-api.md#get0bjects) 	| [removeRenderTree](/viewer/speckle-renderer-api.md#removerendertree) | [renderViewFromIntersection](/viewer/speckle-renderer-api.md#renderviewfromintersection) |   [resetMaterials](/viewer/speckle-renderer-api.md#resetmaterials)
  [resetPipeline](/viewer/speckle-renderer-api.md#resetpipeline) | [resize](/viewer/speckle-renderer-api.md#resize) | [setMaterial](/viewer/speckle-renderer-api.md#setmaterial) 	| [setSunLightConfiguration](/viewer/speckle-renderer-api.md#setsunlightconfiguration)
- [screenshot](/viewer/speckle-renderer-api.md#screenshot) | [setLightConfiguration](/viewer/speckle-renderer-api.md#setlightconfiguration) 	| [updateShadowCatcher](/viewer/speckle-renderer-api.md#updateshadowcatcher) 	
+ [screenshot](/viewer/speckle-renderer-api.md#screenshot) | [updateShadowCatcher](/viewer/speckle-renderer-api.md#updateshadowcatcher) 	
 
 ### <h3>Typedefs</h3>
 |  	| 	| 	| 	|
 |---	|---	|---	|---
 [DynamicAOPassParams](/viewer/speckle-renderer-api.md#dynamicaopassparams) | [PipelineOptions](/viewer/speckle-renderer-api.md#pipelineoptions)	| [PipelineOutputType](/viewer/speckle-renderer-api.md#pipelineoutputtype) | [RenderingStats](/viewer/speckle-renderer-api.md#renderingstats) 
-[StaticAoPassParams](/viewer/speckle-renderer-api.md#staticaopassparams) | 
+[StaticAoPassParams](/viewer/speckle-renderer-api.md#staticaopassparams) | [SunLightConfiguration](/viewer/speckle-renderer-api.md#sunlightconfiguration)
 
 ### <h3>Constants</h3>
 |  	| 	| 	| 	|
@@ -404,9 +404,9 @@ Sets the filter material to the specified rvs. [*FilterMaterial*](/viewer/speckl
 ```ts
 setSunLightConfiguration(config: SunLightConfiguration): void
 ```
-Sets the provided [*SunLightConfiguration*]()
+Sets the provided [*SunLightConfiguration*](/viewer/speckle-renderer-api.md#sunlightconfiguration)
 #### Parameters
-- **config**: [*SunLightConfiguration*]()
+- **config**: [*SunLightConfiguration*](/viewer/speckle-renderer-api.md#sunlightconfiguration)
 #### Returns: *void*
 
 <br>
@@ -502,6 +502,20 @@ interface StaticAoPassParams {
 - **kernelRadius**: Sampling kernel radius in screen space
 - **kernelSize**: Size of the sampling kernel
 - **bias**: AO bias
+
+<br>
+
+#### <b>SunLightConfiguration</b>
+```ts
+interface SunLightConfiguration extends LightConfiguration {
+  elevation?: number
+  azimuth?: number
+  radius?: number
+}
+```
+- **elevation**: Elevation in polar coordinates
+- **azimuth**: Azimuth in polar coordinates
+- **radius**: Distance from the camera target
 
 <br><br>
 
