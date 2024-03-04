@@ -1,11 +1,11 @@
 # Viewer
 
-<style>
+<!-- <style>
 table, tr, td, th{
 border: none;
 background-color: rgba(0, 0, 0, 0.0) !important;
 }
-</style>
+</style> -->
 
 ### <h3>Constructors</h3>
 
@@ -28,7 +28,7 @@ background-color: rgba(0, 0, 0, 0.0) !important;
 ### <h3>Typedefs</h3>
 |  	| 	| 	| 	|
 |---	|---	|---	|---
-[LightConfiguration](/viewer/viewer-api.md#lightconfiguration) | [ObjectLayers](/viewer/viewer-api.md#objectlayers)	| [PropertyInfo](/viewer/viewer-api.md#propertyinfo) | [SelectionEvent](/viewer/viewer-api.md#selectionEvent) 
+[LightConfiguration](/viewer/viewer-api.md#lightconfiguration) | [ObjectLayers](/viewer/viewer-api.md#objectlayers)	| [PropertyInfo](/viewer/viewer-api.md#propertyinfo) | [SelectionEvent](/viewer/viewer-api.md#selectionevent) 
 [SpeckleView](/viewer/viewer-api.md#speckleview) | [SunLightConfiguration](/viewer/viewer-api.md#sunlightconfiguration) | [UpdateFlags](/viewer/viewer-api.md#updateflags) | [Utils](/viewer/viewer-api.md#utilsinterface) 
 [ViewerEvent](/viewer/viewer-api.md#viewerevent) | [ViewerParams](/viewer/viewer-api.md#viewerparams) |  [World](/viewer/viewer-api.md#worldclass) 
 <br><br>

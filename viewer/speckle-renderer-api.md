@@ -1,10 +1,10 @@
 # SpeckleRenderer
 
-<style>
+<!-- <style>
 td, th{
     border: none;
 }
-</style>
+</style> -->
 
 
 ### <h3>Accessors</h3>
@@ -82,7 +82,7 @@ Sets the texture for indirect image based lighting. Works as per existing three.
 ```ts
 set indirectIBLIntensity(value: number)
 ```
-Sets the [*envMapIntensity*](https://threejs.org/docs/index.html?q=standard#api/en/materials/MeshStandardMaterial.envMapIntensity) for all [*SpeckleStandardMaterial*]()s in the scene
+Sets the [*envMapIntensity*](https://threejs.org/docs/index.html?q=standard#api/en/materials/MeshStandardMaterial.envMapIntensity) for all [*SpeckleStandardMaterial*](/viewer/speckle-material-api.md)s in the scene
 
 <br>
 
@@ -116,7 +116,7 @@ Gets or sets the renderer's [*PipelineOptions*](/viewer/speckle-renderer-api.md#
 ```ts
 get renderer(): SpeckleWebGLRenderer
 ```
-Gets the underlying [*SpeckleWebGLRenderer*]() which is small extension of [*WebGLRenderer*](https://threejs.org/docs/index.html?q=webgl#api/en/renderers/WebGLRenderer)
+Gets the underlying *SpeckleWebGLRenderer* which is small extension of [*WebGLRenderer*](https://threejs.org/docs/index.html?q=webgl#api/en/renderers/WebGLRenderer)
 #### Returns: [***SpeckleWebGLRenderer***](https://threejs.org/docs/index.html?q=webgl#api/en/renderers/WebGLRenderer)
 
 <br>
@@ -180,7 +180,7 @@ Gets the sphere encompasing the entire scene
 get shadowcatcher(): Shadowcatcher
 ```
 Gets *The Shadowcatcher*🛸 instance associated with the renderer
-#### Returns: [***Shadowcatcher***]()
+#### Returns: *Shadowcatcher*
 
 <br>
 
@@ -260,11 +260,11 @@ Enables/Disables [*ObjectLayer*](/viewer/viewer-api.md#objectlayers)s from rende
 ```ts
 getBatch(id: string): Batch
 ```
-Gets a [*Batch*]() by id
+Gets a [*Batch*](/viewer/batch-api.md) by id
 #### Parameters
 - **id**: The id of the batch
 
-#### Returns: [***Batch***]()
+#### Returns: [***Batch***](/viewer/batch-api.md)
 
 <br>
 
@@ -272,9 +272,9 @@ Gets a [*Batch*]() by id
 ```ts
 getBatchMaterial(rv: NodeRenderView): Material
 ```
-Gets the default material of the provided [*NodeRenderView*](). It's originally defined material
+Gets the default material of the provided [*NodeRenderView*](/viewer/render-view-api.md). It's originally defined material
 #### Parameters
-- **rv**: [*NodeRenderView*]()
+- **rv**: [*NodeRenderView*](/viewer/render-view-api.md)
 
 #### Returns: [***Material***](https://threejs.org/docs/index.html?q=mate#api/en/materials/Material)
 
@@ -284,9 +284,9 @@ Gets the default material of the provided [*NodeRenderView*](). It's originally 
 ```ts
 getMaterial(rv: NodeRenderView): Material
 ```
-Gets the current material of the provided [*NodeRenderView*]().
+Gets the current material of the provided [*NodeRenderView*](/viewer/render-view-api.md).
 #### Parameters
-- **rv**: [*NodeRenderView*]()
+- **rv**: [*NodeRenderView*](/viewer/render-view-api.md)
 
 #### Returns: [***Material***](https://threejs.org/docs/index.html?q=mate#api/en/materials/Material)
 
@@ -296,11 +296,11 @@ Gets the current material of the provided [*NodeRenderView*]().
 ```ts
 getObject(rv: NodeRenderView): BatchObject
 ```
-Gets the associated [*BatchObject*]() with the provided [*NodeRenderView*]()
+Gets the associated [*BatchObject*](/viewer/batch-object-api.md) with the provided [*NodeRenderView*](/viewer/render-view-api.md)
 #### Parameters
-- **rv**: [*NodeRenderView*]()
+- **rv**: [*NodeRenderView*](/viewer/render-view-api.md)
 
-#### Returns: [***BatchObject***]()
+#### Returns: [***BatchObject***](/viewer/batch-object-api.md)
 
 <br>
 
@@ -308,9 +308,9 @@ Gets the associated [*BatchObject*]() with the provided [*NodeRenderView*]()
 ```ts
 getObjects(): BatchObject[]
 ```
-Gets all [*BatchObject*]() instances from the renderer
+Gets all [*BatchObject*](/viewer/batch-object-api.md) instances from the renderer
 
-#### Returns: [***BatchObject[]***]()
+#### Returns: [***BatchObject[]***](/viewer/batch-object-api.md)
 
 <br>
 
@@ -330,11 +330,11 @@ Removes the specified render tree along with all it's generated objects from the
 ```ts
 renderViewFromIntersection(intersection: ExtendedIntersection): NodeRenderView
 ```
-Takes an intersection result produced by [*intersections*](/viewer/speckle-renderer-api.md#intersections) and outputs the intersected [*NodeRenderView*]().
+Takes an intersection result produced by [*intersections*](/viewer/speckle-renderer-api.md#intersections) and outputs the intersected [*NodeRenderView*](/viewer/render-view-api.md).
 #### Parameters
-- **intersection**: [*ExtendedIntersection*]()
+- **intersection**: [*ExtendedIntersection*](/viewer/top-level-acceleration-structure-api.md#extendedintersection)
 
-#### Returns: [*NodeRenderView*]()
+#### Returns: [*NodeRenderView*](/viewer/render-view-api.md)
 
 <br>
 
@@ -375,26 +375,26 @@ setMaterial(rvs: NodeRenderView[], material: Material): void
 ```
 Sets the material instance to the specified rvs.
 #### Parameters
-- **rvs**: [*NodeRenderView*]()
-- **material**: The material instance to apply. It can be a vanilla three.js [*Material*](https://threejs.org/docs/index.html?q=mate#api/en/materials/Material) but also a [*SpeckleMaterial*]()
+- **rvs**: [*NodeRenderView*](/viewer/render-view-api.md)
+- **material**: The material instance to apply. It can be a vanilla three.js [*Material*](https://threejs.org/docs/index.html?q=mate#api/en/materials/Material) but also a [*SpeckleMaterial*](/viewer/speckle-material-api.md)
 ```ts
 setMaterial(
     rvs: NodeRenderView[],
     material: RenderMaterial & DisplayStyle & MaterialOptions
 ): void
 ```
-Creates a material based on the intersection between [*RenderMaterial*](), [*DisplayStyle*]() and [*MaterialOptions*](). Because this method does not discriminate based on the render view's geometry type (mesh, lines, points) it needs to be able to build materials suitable for all gometry types.
+Creates a material based on the intersection between [*RenderMaterial*](/viewer/speckle-material-api.md#rendermaterial), [*DisplayStyle*](/viewer/speckle-material-api.md#displaystyle) and [*MaterialOptions*](/viewer/speckle-material-api.md#materialoptions). Because this method does not discriminate based on the render view's geometry type (mesh, lines, points) it needs to be able to build materials suitable for all gometry types.
 #### Parameters
-- **rvs**: [*NodeRenderView*]()
-- **material**: [*RenderMaterial*]() & [*DisplayStyle*]() & [*MaterialOptions*]()
+- **rvs**: [*NodeRenderView*](/viewer/render-view-api.md)
+- **material**: [*RenderMaterial*](/viewer/speckle-material-api.md#rendermaterial) & [*DisplayStyle*](/viewer/speckle-material-api.md#displaystyle) & [*MaterialOptions*](/viewer/speckle-material-api.md#materialoptions)
 #### Returns: *void*
 ```ts
 setMaterial(rvs: NodeRenderView[], material: FilterMaterial): void
 ```
-Sets the filter material to the specified rvs. [*FilterMaterial*]()s are a set of predefined material types which are commonly used. 
+Sets the filter material to the specified rvs. [*FilterMaterial*](/viewer/speckle-material-api.md#filterMmaterial)s are a set of predefined material types which are commonly used. 
 #### Parameters
-- **rvs**: [*NodeRenderView*]()
-- **material**: [*FilterMaterial*]()
+- **rvs**: [*NodeRenderView*](/viewer/render-view-api.md)
+- **material**: [*FilterMaterial*](/viewer/speckle-material-api.md#filterMmaterial)
 
 #### Returns: *void*
 
@@ -460,12 +460,12 @@ interface PipelineOptions {
   depthSide: Side
 }
 ```
-- **pipelineOutput**: [*PipelineOutputType*]().
+- **pipelineOutput**: [*PipelineOutputType*](/viewer/speckle-renderer-api.md#pipelineoutputtype).
 - **accumulationFrames**: Number of frames used for accumulation
 - **dynamicAoEnabled**: Enables dynamic AO
-- **dynamicAoParams**: [*DynamicAOPassParams*]()
+- **dynamicAoParams**: [*DynamicAOPassParams*](viewer/speckle-renderer-api.md#dynamicaopassparams)
 - **staticAoEnabled**: Enables static AO.
-- **staticAoParams**: [*StaticAoPassParams*]()
+- **staticAoParams**: [*StaticAoPassParams*](viewer/speckle-renderer-api.md#staticaopassparams)
 - **depthSide**: Face side when rendering depth
 
 <br>

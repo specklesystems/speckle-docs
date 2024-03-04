@@ -1,4 +1,4 @@
-# Render Tree
+# RenderTree
 
 ### <h3>Constructors</h3>
 [constructor](/viewer/render-tree-api.md#constructor)

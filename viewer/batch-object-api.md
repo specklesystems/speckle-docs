@@ -19,9 +19,9 @@
 | [buildAccelerationStructure](/viewer/batch-object-api.md#buildaccelerationstructure) 	| [transformTRS](/viewer/batch-object-api.md#transformtrs) 	
 
 ### <h3>Typedefs</h3>
-|  	| 
-|---	
-| [VectorLike](/viewer/batch-object-api.md#vectorlike) 
+|  	|   |
+|---	|---
+| [VectorLike](/viewer/batch-object-api.md#vectorlike) | [InstancedBatchObject](/viewer/batch-object-api.md#instancedbatchobject)
 <br><br>
 
 ### <h3>Constructors</h3>
@@ -139,8 +139,13 @@ type VectorLike = { x: number; y: number; z?: number; w?: number }
 ```
 Archtype for Vector2, Vector3 and Vector4
 
+<br>
 
-
+#### <b>InstancedBatchObject</b>
+```ts
+class InstancedBatchObject extends BatchObject
+```
+Child class used for instanced objects. No additional functionality, just some additional required logic wrapped
 
 
 
