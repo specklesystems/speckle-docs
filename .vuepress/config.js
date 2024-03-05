@@ -324,6 +324,17 @@ module.exports = {
                     "world-tree-api",
                   ],
                 },
+                {
+                  title: "Extensions",
+                  collapsable: true,
+                  children: [
+                    "camera-controller-api",
+                    "measurements-tool-api",
+                    "selection-extension-api",
+                    "section-tool-api",
+                    "section-tool-outlines-api"
+                  ],
+                },
               ],
             },
           ],
