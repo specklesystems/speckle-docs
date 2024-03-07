@@ -75,7 +75,7 @@ Removes all measurements, including finished or ongoing now
 <br>
 <br>
 
-### <h3>Typdefs</h3>
+### <h3>Typedefs</h3>
 #### <b>MeasurementOptions</b>
 ```ts
 interface MeasurementOptions {

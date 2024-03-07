@@ -329,6 +329,8 @@ module.exports = {
                   collapsable: true,
                   children: [
                     "camera-controller-api",
+                    "diff-extension-api",
+                    "filtering-extension-api",
                     "measurements-tool-api",
                     "selection-extension-api",
                     "section-tool-api",

@@ -205,7 +205,7 @@ Switches between perspective and orthographic cameras
 <br>
 <br>
 
-### <h3>Typdefs</h3>
+### <h3>Typedefs</h3>
 #### <b>CameraControllerEvent</b>
 ```ts
 enum CameraControllerEvent {
