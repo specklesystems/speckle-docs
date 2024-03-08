@@ -191,7 +191,7 @@ A simplified version of the auth flow with a Speckle Server can be summarised as
 
 1. User clicks the Login button
 2. User is redirected to the auth page in the Speckle server (using the provided url pattern when creating an application)
-3. User will log in and allow the app to access his data (hopefully?).
+3. User will log in and allow the app to access their data (hopefully?).
 4. User is redirected to our specified `Redirect URL`, with an attached `access_code`.
 5. Using that access code, we can exchange it for a pair of `token/refresh token`, which is what allows the app to "talk" to the server as that user. We'll save those in `localStorage`.
 
