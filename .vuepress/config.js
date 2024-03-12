@@ -300,46 +300,54 @@ module.exports = {
               ],
             },
             "viewer-rendering",
+          ],
+        },
+        {
+          title: "API Reference",
+          collapsable: false,
+          children: [
             {
-              title: "API Reference",
+              title: "Viewer Core",
               collapsable: true,
               children: [
-                {
-                  title: "Viewer Core",
-                  collapsable: true,
-                  children: [
-                    "acceleration-structure-api",
-                    "batch-api",
-                    "batch-object-api",
-                    "geometry-converter-api",
-                    "input-api",
-                    "intersections-api",
-                    "loader-api",
-                    "render-view-api",
-                    "render-tree-api",
-                    "speckle-material-api",
-                    "speckle-renderer-api",
-                    "top-level-acceleration-structure-api",
-                    "viewer-api",
-                    "world-tree-api",
-                  ],
-                },
-                {
-                  title: "Extensions",
-                  collapsable: true,
-                  children: [
-                    "camera-controller-api",
-                    "diff-extension-api",
-                    "filtering-extension-api",
-                    "measurements-tool-api",
-                    "selection-extension-api",
-                    "section-tool-api",
-                    "section-tool-outlines-api"
-                  ],
-                },
+                "acceleration-structure-api",
+                "batch-api",
+                "batch-object-api",
+                "geometry-converter-api",
+                "input-api",
+                "intersections-api",
+                "loader-api",
+                "render-view-api",
+                "render-tree-api",
+                "speckle-material-api",
+                "speckle-renderer-api",
+                "top-level-acceleration-structure-api",
+                "viewer-api",
+                "world-tree-api",
+              ],
+            },
+            {
+              title: "Extensions",
+              collapsable: true,
+              children: [
+                "camera-controller-api",
+                "diff-extension-api",
+                "filtering-extension-api",
+                "measurements-tool-api",
+                "selection-extension-api",
+                "section-tool-api",
+                "section-tool-outlines-api"
               ],
             },
           ],
+        },
+        {
+          title: "Examples",
+          collapsable: false,
+          
+          children: [
+            "basic-example"
+          ]
         }
       ]
     },
