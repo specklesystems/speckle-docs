@@ -5,9 +5,9 @@ This extension requires and active ICameraProvider extension implementation
 :::
 
 ### <h3>Accessors</h3>
-|  	|   |  
-|---    |---     
-| [enabled](/viewer/measurements-tool-api.md#enabled) | [options](/viewer/measurements-tool-api.md#options) 
+|  	|   |   |   | 
+|---    |---     |---    |--- 
+| [activeMeasurement](/viewer/measurements-tool-api.md#activemeasurement) | [enabled](/viewer/measurements-tool-api.md#enabled) | [options](/viewer/measurements-tool-api.md#options) | [selectedMeasurement](/viewer/measurements-tool-api.md#selectedmeasurement) 
 
 
 
@@ -18,9 +18,9 @@ This extension requires and active ICameraProvider extension implementation
 
 
 ### <h3>Typedefs</h3>
-|  	| 	| 	
-|---	|---	
-| [MeasurementOptions](/viewer/measurements-tool-api.md#measurementoptions) | [MeasurementType](/viewer/measurements-tool-api.md#measurementtype) 
+|  	| 	|   | 	
+|---	|---	|---
+| [Measurement](/viewer/measurements-tool-api.md#measurement) | [MeasurementOptions](/viewer/measurements-tool-api.md#measurementoptions) | [MeasurementType](/viewer/measurements-tool-api.md#measurementtype) 
 
 
 ### <h3>Constants</h3>
@@ -31,6 +31,16 @@ This extension requires and active ICameraProvider extension implementation
 <br><br>
 
 ### <h3>Accessors</h3>
+
+#### <b>activeMeasurement</b>
+```ts
+get activeMeasurement(): Measurement
+```
+Gets the currently ongoing measurement. Null if there is none
+
+#### Returns: Measurement
+
+<br>
 
 #### <b>enabled</b>
 ```ts
@@ -43,6 +53,7 @@ Enables/disables the extension
 
 <br>
 
+
 #### <b>options</b>
 ```ts
 get options(): MeasurementOptions
@@ -50,6 +61,16 @@ set options(value: MeasurementOptions)
 ```
 Gets and sets the extension options
 #### Returns: [*MeasurementOptions*](/viewer/speckle-renderer-api.md#defaultmeasurementsoptions)
+
+#### <b>selectedMeasurement</b>
+```ts
+get selectedMeasurement(): Measurement
+```
+Gets the currently selected measurement. Null if there is none
+
+#### Returns: [*Measurement*](/viewer/speckle-renderer-api.md#measurement)
+
+<br>
 
 <br>
 <br>
@@ -76,6 +97,14 @@ Removes all measurements, including finished or ongoing now
 <br>
 
 ### <h3>Typedefs</h3>
+#### <b>Measurement</b>
+```ts
+abstract class Measurement extends Object3D 
+```
+Abstract class for all measurement types
+
+<br>
+
 #### <b>MeasurementOptions</b>
 ```ts
 interface MeasurementOptions {
