@@ -21,11 +21,11 @@ The `Batch` is defined as an `interface` and we have several batch types, based 
 ### <h3>Methods</h3>
 |  	| 	|   |   |
 |---	|---    |---    |---
-| [buildBatch](/viewer/batch-api.md#buildbatch) 	| [getCount](/viewer/batch-api.md#getcount) | [getMaterial](/viewer/batch-api.md#getmaterial) | [getMaterialAtIndex](/viewer/batch-api.md#getmaterialatindex)	
-| [getOpaque](/viewer/batch-api.md#getopaque) 	| [getRenderView](/viewer/batch-api.md#getrenderview) | [getStencil](/viewer/batch-api.md#getstencil) | [getTransparent](/viewer/batch-api.md#gettransparent)	
-| [getVisibleRange](/viewer/batch-api.md#getvisiblerange) 	| [onRender](/viewer/batch-api.md#onrender) | [onUpdate](/viewer/batch-api.md#onupdate) | [purge](/viewer/batch-api.md#purge)	
-| [resetDrawRanges](/viewer/batch-api.md#resetdrawranges) 	| [setBatchBuffers](/viewer/batch-api.md#setbatchbuffers) | [setBatchMaterial](/viewer/batch-api.md#setbatchmaterial) | [setDrawRanges](/viewer/batch-api.md#setdrawranges)	
-| [setVisibleRange](/viewer/batch-api.md#setvisiblerange)
+| [buildBatch](/viewer/batch-api.md#buildbatch) 	| [getCount](/viewer/batch-api.md#getcount) | [getDepth](/viewer/batch-api.md#getdepth) | [getMaterial](/viewer/batch-api.md#getmaterial)
+|[getMaterialAtIndex](/viewer/batch-api.md#getmaterialatindex)	| [getOpaque](/viewer/batch-api.md#getopaque) | [getRenderView](/viewer/batch-api.md#getrenderview) | [getStencil](/viewer/batch-api.md#getstencil)
+| [getTransparent](/viewer/batch-api.md#gettransparent)	| [getVisibleRange](/viewer/batch-api.md#getvisiblerange) | [onRender](/viewer/batch-api.md#onrender) | [onUpdate](/viewer/batch-api.md#onupdate)
+| [purge](/viewer/batch-api.md#purge)	| [resetDrawRanges](/viewer/batch-api.md#resetdrawranges) 	| [setBatchBuffers](/viewer/batch-api.md#setbatchbuffers) | [setBatchMaterial](/viewer/batch-api.md#setbatchmaterial)
+| [setDrawRanges](/viewer/batch-api.md#setdrawranges)	| [setVisibleRange](/viewer/batch-api.md#setvisiblerange)
 
 ### <h3>Typedefs</h3>
 |  	|   |   |   |
@@ -184,6 +184,16 @@ getCount(): number
 Gets the batch's primitive count
 
 #### Returns: void
+
+<br>
+
+#### <b>getDepth()</b>
+```ts
+getDepth(): BatchUpdateRange
+```
+Gets the batch's [*BatchUpdateRange*](/viewer/batch-api.md#batchupdaterange) required for the depth pass
+
+#### Returns: [*BatchUpdateRange*](/viewer/batch-api.md#batchupdaterange)
 
 <br>
 

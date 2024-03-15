@@ -25,7 +25,7 @@ It's not meant to be used directly, but rather the already existing implementati
 |  	|   |   |   |
 |---	|---    |---	|---
 | [DisplayStyle](/viewer/speckle-material-api.md#displaystyle) | [FilterMaterial](/viewer/speckle-material-api.md#filtermaterial)  | [FilterMaterialType](/viewer/speckle-material-api.md#filtermaterialtype) | [MaterialOptions](/viewer/speckle-material-api.md#materialoptions) 
-| [RenderMaterial](/viewer/speckle-material-api.md#rendermaterial)
+| [RenderMaterial](/viewer/speckle-material-api.md#rendermaterial) | [StencilOutlineType](/viewer/speckle-material-api.md#stenciloutlinetype)
 
 
 <br><br>
@@ -135,7 +135,7 @@ interface FilterMaterial {
 }
 ```
 Filter materials are pre-defined materials that you can directly apply with as little configuration as possible.
-- **filterType**: [*FilterMaterialType*]()
+- **filterType**: [*FilterMaterialType*](/viewer/speckle-material-api.md#filtermaterialtype)
 - *optional* **rampIndex**: The index of the color in the ramp texture. Applies only for FilterMaterialType.COLORED and FilterMaterialType.GRADIENT
 - *optional* **rampIndexColor**: The actual color from the ramp texture. Applies only for FilterMaterialType.COLORED and FilterMaterialType.GRADIENT
 - *optional* **rampTexture**: The ramp texture. Applies only for FilterMaterialType.COLORED and FilterMaterialType.GRADIENT
@@ -158,13 +158,13 @@ The list of available filter materials
 #### <b>MaterialOptions</b>
 ```ts
 interface MaterialOptions {
-  stencilOutlines?: boolean
+  stencilOutlines?: StencilOutlineType
   pointSize?: number
   depthWrite?: number
 }
 ```
 Custom options for materials
-- *optional* **stencilOutlines**: Displays outlines for material. Only applies to meshes
+- *optional* **stencilOutlines**: [*StencilOutlineType*](/viewer/speckle-material-api.md#stenciloutlinetype). Only applies to meshes
 - *optional* **pointSize**: The point size for point materials. Only applies to points
 - *optional* **depthWrite**: Whether the material should write to depth
 
@@ -188,3 +188,17 @@ Speckle model for material properties of meshes.
 - **roughness**: Roughness
 - **metalness**: Metalness
 - **vertexColors**: Whether the material reads vertex colors
+
+<br>
+
+#### <b>StencilOutlineType</b>
+```ts
+enum StencilOutlineType {
+  NONE,
+  OVERLAY,
+  OUTLINE_ONLY
+}
+```
+- **NONE**: No outlines
+- **OVERLAY**: Outline on top of object
+- **OUTLINE_ONLY**: Outline only, rest of the object is not visible
