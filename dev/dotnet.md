@@ -189,7 +189,7 @@ namespace SpeckleSampleApp
       account.token = "YOUR-PERSONAL-ACCESS-TOKEN";
       account.serverInfo = new ServerInfo
       {
-        url = "https://speckle.xyz/"
+        url = "https://app.speckle.systems/"
       };
 
       var client = new Client(account);
