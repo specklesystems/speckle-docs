@@ -83,14 +83,9 @@ module.exports = {
     sidebar: {
       "/user/": [
         {
-          title: "Quickstart 🏃‍♀️",
-          collapsable: false,
-          children: ["quickstart", "FAQs"],
-        },
-        {
           title: "User Guide 🤷",
           collapsable: false,
-          children: ["", "concepts", "concepts-advanced", "installing", "web"],
+          children: ["", "concepts", "concepts-advanced", "installing","FAQs"],
         },
         {
           title: "Connectors 🔌",

@@ -6,7 +6,7 @@ title: Installation
 
 To install the SketchUp Connector, it’s assumed you have:
 
-- Speckle Account (you can get one **for free🎉** at **[https://speckle.xyz/](https://speckle.xyz/)**)
+- Speckle Account (you can get one **for free🎉** at **[https://app.speckle.systems/](https://app.speckle.systems/)**)
 - Manager for Speckle. You can download it from **[here](https://speckle.systems/download/)** and add your Speckle account.
 
 Once Manager is installed and your account is set, you can continue with the installation.

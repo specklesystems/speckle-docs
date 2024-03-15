@@ -27,9 +27,9 @@ Speckle is made up of several moving parts. Before describing each in detail, le
 
 ### Speckle Web App
 
-![speckle-web-app (1)](https://user-images.githubusercontent.com/51519350/186359062-550b8805-1a43-448b-8153-92695c2307ce.png)
+[![Web App Video](https://img.youtube.com/vi/QI5pVV1GCNs/maxresdefault.jpg)](https://www.youtube.com/watch?v=QI5pVV1GCNs)
 
-The [Speckle Web App](/user/web) lets you manage and coordinate your data directly from your web browser. It includes a management interface to help you administer your various projects and a 3D model viewer to let see your projects.
+The [Speckle Web App](https://app.speckle.systems/) lets you manage and coordinate your data directly from your web browser. It includes a management interface to help you administer your various projects and a 3D model viewer to let see your projects.
 
 ### Connectors
 

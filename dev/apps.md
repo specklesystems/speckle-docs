@@ -147,7 +147,7 @@ For convenience, we're going to isolate all the `speckle` related code into 2 fi
 
 ### Registering an Application on the Speckle Server
 
-In order to be able to talk to our Speckle server, we first need to `Create an App` in that server with an existing account. To do that, visit the server's frontend [https://speckle.xyz](https://speckle.xyz), log in with your account and visit the profile page.
+In order to be able to talk to our Speckle server, we first need to `Create an App` in that server with an existing account. To do that, visit the server's frontend [https://app.speckle.systems](https://app.speckle.systems), log in with your account and visit the profile page.
 
 Scroll down until you see the `Applications` section, and press the `New App` button. A pop-up should appear, fill it in as follows:
 
@@ -156,7 +156,7 @@ Scroll down until you see the `Applications` section, and press the `New App` bu
 - **Redirect url**: `http://localhost:8080`
 - **Description**: My first speckle app
 
-Once accepted, you'll see the `App Id` and `App Secret`, as well as an indication to the url pattern we should use (`https://speckle.xyz/authn/verify/{appId}/{challenge}`).
+Once accepted, you'll see the `App Id` and `App Secret`, as well as an indication to the url pattern we should use (`https://app.speckle.systems/authn/verify/{appId}/{challenge}`).
 
 ::: warning
 Note that the `redirect url` points to our local computer network. When deploying this app to a service like Netlify, we'll have to create a new one pointing to the correct Netlify url.
@@ -181,7 +181,7 @@ VUE_APP_SPECKLE_ID=YOUR_APP_ID
 # The Speckle Application Secret
 VUE_APP_SPECKLE_SECRET=YOUR_APP_SECRET
 
-VUE_APP_SERVER_URL=https://speckle.xyz
+VUE_APP_SERVER_URL=https://app.speckle.systems
 VUE_APP_SPECKLE_NAME="Speckle Demo App"
 ```
 

@@ -10,7 +10,7 @@ In this page, we’ll cover how to install and update Revit Connector for Speckl
 
 To install the Revit Connector, it’s assumed you have:
 
-- **Speckle Account** (you can get one **for free🎉** at **[speckle.xyz](https://speckle.xyz/))**
+- **Speckle Account** (you can get one **for free🎉** at **[app.speckle.systems](https://app.speckle.systems/))**
 - **Manager for Speckle** (download it from **[here](https://speckle.systems/download/)** and add your Speckle account.)
 
 Once Manager is installed and your account is set, you can continue with the installation.

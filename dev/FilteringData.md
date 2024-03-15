@@ -85,7 +85,7 @@ using Speckle.Core.Models;
 
 // Note: some boilerplate code removed.
 
-// Receive a revit commit (note: you will need a local account on speckle.xyz for this to work!)
+// Receive a revit commit (note: you will need a local account on app.speckle.systems for this to work!)
 var data = Helpers.Receive("https://speckle.xyz/streams/0d3cb7cb52/commits/681cdd572c").Result;
 var flatData = data.Flatten().ToList();
 

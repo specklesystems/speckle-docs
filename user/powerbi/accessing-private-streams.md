@@ -15,7 +15,7 @@ You can now log in with **any account of any Speckle server**. Here’s how you
 </video>
 
 1. First, paste the URL of the private model you want to receive and click “OK”.
-2. Select the ”Server URL” option in the credentials pop-up. In our case, it is “**Speckle.xyz**”.
+2. Select the ”Server URL” option in the credentials pop-up. In our case, it is “**app.speckle.systems**”.
 3. Then press the ”**Sign in”** button. This will open a pop-up window prompting you to log into your account and allow the Power BI app to access your user data. This grants `read-only` access, as recommended by Power BI guidelines.
 
 Once the app has been granted access, Power BI will continue fetching the data.
@@ -29,7 +29,7 @@ Another way of authenticating is with a “Personal Access Token”. Tokens are 
   Your browser does not support the video tag.
 </video>
 
-1. Go to your profile on your Speckle server. We’ll use Speckle’s free server: https://speckle.xyz/profile
+1. Go to your profile on your Speckle server. We’ll use Speckle’s free server: https://app.speckle.systems/profile
 2. Under Developer Settings, Create a `New Token`.
 3. Give it a descriptive name (such as Power BI Connector), check every option under Scopes, and click `Save`.
 4. This will create a token for you. Make sure you copy it. It is the first and last time you’ll be able to see this token. Treat it as a _Password,_ and do not share it with anyone.
