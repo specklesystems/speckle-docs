@@ -346,7 +346,8 @@ module.exports = {
           collapsable: false,
           
           children: [
-            "basic-example"
+            "basic-example",
+            "more-extensions-example"
           ]
         }
       ]
