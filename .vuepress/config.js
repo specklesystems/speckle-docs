@@ -347,7 +347,8 @@ module.exports = {
           
           children: [
             "basic-example",
-            "more-extensions-example"
+            "more-extensions-example",
+            "filtering-example"
           ]
         }
       ]
