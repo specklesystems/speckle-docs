@@ -1,6 +1,8 @@
 # Basic Setup
 
-The first thing you'll need is a container for the viewer and a .js/.ts script which will run the viewer code. We'll create a simple HTML and a simple .ts file
+The first thing you'll need is a container for the viewer and a [javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)/[typescript](https://www.typescriptlang.org/) script which will run the viewer code. 
+
+We'll create a simple HTML and a simple typescript file
 ```html
 <!DOCTYPE html>
 <html>
@@ -17,8 +19,10 @@ The first thing you'll need is a container for the viewer and a .js/.ts script w
   </body>
 </html>
 ```
+Now save this HTML snippet as `index.html`
 
-In `index.ts` we'll add
+Next we'll create the typescript file: 
+
 ```typescript
 import { Viewer, DefaultViewerParams, SpeckleLoader } from "@speckle/viewer";
 import { CameraController } from "@speckle/viewer";
@@ -45,8 +49,10 @@ async function main() {
   await viewer.loadObject(loader, 1, true);
 }
 
+/** Call our function, which we named 'main' */
 main();
 ```
+Now save this typescript snippet as`index.ts`
 
 The result:
 
