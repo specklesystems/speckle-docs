@@ -348,7 +348,11 @@ module.exports = {
           children: [
             "basic-example",
             "more-extensions-example",
-            "filtering-example"
+            "filtering-example",
+            "loading-example",
+            "object-manipulation-example",
+            "box-selection-example",
+            "categorize-example"
           ]
         }
       ]
