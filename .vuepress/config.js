@@ -291,15 +291,9 @@ module.exports = {
           collapsable: false,
           children: [
             "overview",
-            {
-              title: "Viewer Data",
-              collapsable: true,
-              children: [
-                "viewer-data",
-                "loaders"
-              ],
-            },
+            "viewer-data",
             "viewer-rendering",
+            "loaders"
           ],
         },
         {

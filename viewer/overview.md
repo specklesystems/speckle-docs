@@ -1,6 +1,6 @@
 # Overview
 
-The speckle viewer is developed on top of [three.js](https://threejs.org/) and for the most part it behaves like a typical three.js application. However, we did implement our own design when it comes to loading and storing data, object interpretation, scenegraph structure, and rendering.
+The speckle viewer is developed on top of [three.js](https://threejs.org/) and for the most part it behaves like a typical three.js application. However, Speckle viewer builds custom functionality on top of three.js when it comes to loading and storing data, object interpretation, scenegraph structure, and rendering.
 
 The Viewer library is organized into `viewer-core` and `extensions`.
 
@@ -10,12 +10,12 @@ The Viewer library is organized into `viewer-core` and `extensions`.
 </p>
 
 
-he `viewer-core` has it's own API and can be used as a standalone to develop applications. If all you want is a barebone web viewer, the viewer core is what you are looking for. Some of the features you'll be getting are:
+The `viewer-core` has it's own API and can be used as a standalone to develop applications. If all you want is a barebone web viewer, the viewer core is what you are looking for. Some of the features you'll be getting are:
  - Automatic object batching
  - Relative to eye rendering
- - Multi level BVHs
- - Automatic instanced rendering
- - Progressive ambient occlusion
+ - Multi level [BVH](https://en.wikipedia.org/wiki/Bounding_volume_hierarchy)s
+ - Automatic [instanced rendering](https://en.wikipedia.org/wiki/Geometry_instancing)
+ - Progressive [ambient occlusion](https://en.wikipedia.org/wiki/Ambient_occlusion)
  - Shadowcatcher
 
 

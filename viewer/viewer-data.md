@@ -4,7 +4,7 @@ The speckle viewer organizes input data into data structures respecting the orig
 The viewer stores data in a hierarchical fashion inside a tree-like structure which we call [*WorldTree*](/viewer/world-tree-api.md#worldtree)
 <br>
 <br>
-![Viewer Data](./img/tree.svg "Viewer Data")
+![Viewer Data](./img/worldtree.png "Viewer Data")
 
 A node inside the tree looks like the following:
 ```typescript

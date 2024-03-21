@@ -30,17 +30,11 @@ The up to date types the viewer works with can be found [here](/viewer/geometry-
 
 The most important function than needs to implemented by any geometry converter is `convertNodeToGeometryData` which takes tree nodes and builds `GeometryData` objects for them, which allow the viewer to render the objects correctly.
 
-Once a geometry converter is implemented, you don't need to call any of it's method on your own. Everything will be called automatically in step 3, where we build the `RenderTree`. A RenderTree is simply a subtree of the WorldTree (or the entirety of it) with added rendering-related functionality. In order to build a RenderTree:
+Once a geometry converter is implemented, you don't need to call any of it's method on your own. Everything will be called automatically in step 3, where we build the `RenderTree`. A [RenderTree](/viewer/viewer-rendering.md#rendertree) is simply a subtree of the WorldTree (or the entirety of it) with added rendering-related functionality. In order to build a RenderTree:
 ```typescript
 const geometryConverter = new MyGeometryConverter()
 renderTree.buildRenderTree(geometryConverter)
 ```
-More details on how to use the RenderTree will be provided later on, but to get a better idea, to hold of a `RenderTree` instance, you generally use the `WorldTree`
-```typescript
-public getRenderTree(subtreeId?: string): RenderTree
-```
-If no subtreeId is provided, the global RenderTree is returned. An important note here, is that a new render tree does not imply any kind of duplication. The render tree will use the existing nodes from the world tree that spawned it. Additionally, the world tree caches spawned render trees, so calling `getRenderTree` with the same id multiple times does not incur any performance overhead
-
 For examples of using our loading system and concrete implementations of `Loader` and `GeometryConverter` you can have a look at :
 
 * [Speckle loader and converter](https://github.com/specklesystems/speckle-server/tree/alex/API2.0/packages/viewer/src/modules/loaders/Speckle)
