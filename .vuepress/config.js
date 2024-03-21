@@ -71,6 +71,10 @@ module.exports = {
         link: "/automate/",
       },
       {
+        text: "3D Viewer",
+        link: "/viewer/",
+      },
+      {
         text: "Speckle Website",
         link: "https://speckle.systems",
       },
@@ -267,6 +271,84 @@ module.exports = {
           ],
         },
       ],
+      "/viewer/":[
+        {
+          title: "Viewer Docs 👩‍💻",
+          collapsable: false,
+          children: [""],
+        },
+        {
+          title: "Quickstart 🚀",
+          collapsable: false,
+          children: [
+            "installation",
+            "basic-setup",
+            "advanced-setup"],
+        },
+        {
+          title: "Viewer Concepts",
+          collapsable: false,
+          children: [
+            "overview",
+            "viewer-data",
+            "viewer-rendering",
+            "loaders"
+          ],
+        },
+        {
+          title: "API Reference",
+          collapsable: false,
+          children: [
+            {
+              title: "Viewer Core",
+              collapsable: true,
+              children: [
+                "acceleration-structure-api",
+                "batch-api",
+                "batch-object-api",
+                "geometry-converter-api",
+                "input-api",
+                "intersections-api",
+                "loader-api",
+                "render-view-api",
+                "render-tree-api",
+                "speckle-material-api",
+                "speckle-renderer-api",
+                "top-level-acceleration-structure-api",
+                "viewer-api",
+                "world-tree-api",
+              ],
+            },
+            {
+              title: "Extensions",
+              collapsable: true,
+              children: [
+                "camera-controller-api",
+                "diff-extension-api",
+                "filtering-extension-api",
+                "measurements-tool-api",
+                "selection-extension-api",
+                "section-tool-api",
+                "section-tool-outlines-api"
+              ],
+            },
+          ],
+        },
+        {
+          title: "Examples",
+          collapsable: false,
+          
+          children: [
+            "basic-example",
+            "more-extensions-example",
+            "filtering-example",
+            "loading-example",
+            "object-manipulation-example",
+            "box-selection-example",
+            "categorize-example"
+          ]
+        }
+      ]
     },
   },
 

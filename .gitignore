@@ -2,6 +2,7 @@
 
 node_modules
 .vuepress/dist/
+.vuepress/.temp
 **/Thumbs.db
 **/Icon
 .vscode/
