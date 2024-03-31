@@ -33,7 +33,7 @@ constructor(renderView: NodeRenderView, batchIndex: number)
 Populates/constructs this batch object
 #### Parameters
 - **renderView**: [*NodeRenderView*](/viewer/viewer/render-view-api.md)
-- **batchIndex**: The object's index within it's batch. Objects are placed in order inside the batch as they get processed 
+- **batchIndex**: The object's index within its batch. Objects are placed in order inside the batch as they get processed 
 
 <br>
 <br>
@@ -66,7 +66,7 @@ Gets the object's bottom level BVH
 ```ts
 get batchIndex(): number
 ```
-Gets the object's index inside it's batch
+Gets the object's index inside its batch
 #### Returns: number
 
 <br>

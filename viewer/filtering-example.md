@@ -6,7 +6,7 @@ All filtering functionality in the viewer is handled by the [`FilteringExtension
 - *Color* objects based on properties
 
 All functions provided by the `FilteringExtension` take object ids as a means to select objects for filtering.
-Like any other extension you need to add it at intialisation time
+Like any other extension you need to add it at initialisation time
 ```ts
 const filteringExtension = viewer.createExtension(FilteringExtension)
 ```
@@ -44,7 +44,7 @@ This filtering operation is different than the ones before as it involves the no
 ```ts
 const properties: PropertyInfo[] = await viewer.getObjectProperties();
 ```
-With properties avaiable, we can now do some color filtering!
+With properties available, we can now do some color filtering!
 ```ts
 /** Find the 'level.name' property info*/
 const propertyInfo: PropertyInfo = properties.find((value) => {
@@ -54,7 +54,7 @@ const propertyInfo: PropertyInfo = properties.find((value) => {
 const filteringState = filtering.setColorFilter(propertyInfo);
 ```
 
-Filters can be combined to a certain extent, but as a general rule of thumb, any particular object in the scene will always look how it's last filter (if any) told it to look. 
+Filters can be combined to a certain extent, but as a general rule of thumb, any particular object in the scene will always look how its last filter (if any) told it to look. 
 
 Here's a code sandbox with all of the above combined in a simple app
 

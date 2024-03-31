@@ -1,7 +1,7 @@
 # Basic Example
-We'll be exploring the most basic speckle viewer example in a step-by-step fashion
+Let's explore the most basic Speckle viewer example, step-by-step.
 
-Before we can do anything, we'll need a html container for the viewer. Let's take the most simple examples
+Before we can do anything, we'll need a html container for the viewer.
 ```html
 <!DOCTYPE html>
 <html>
@@ -40,7 +40,7 @@ const loader = new SpeckleLoader(viewer.getWorldTree(), resource, "");
 /** Load the speckle data */
 await viewer.loadObject(loader, true);
 ```
-Here is the endresult:
+Here is the end result:
 
 <iframe src="https://codesandbox.io/embed/jf4ccn?view=Editor+%2B+Preview&module=%2Fsrc%2Findex.ts&hidenavigation=1"
     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"

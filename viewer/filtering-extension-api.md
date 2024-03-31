@@ -1,5 +1,5 @@
 # FilteringExtension
-The default filtering functionality expose as an extension. The current filtering implementation works by providing an updated [*FilteringState*](/viewer/filtering-extension-api.md#filteringstate) after each call to it's functions. You can use this filtering state to keep track of filtering state
+The default filtering functionality is exposed as an extension. The current filtering implementation works by providing an updated [*FilteringState*](/viewer/filtering-extension-api.md#filteringstate) after each call to its functions. You can use this filtering state to keep track of filtering state
 
 ### <h3>Accessors</h3>
 |  	|   

@@ -19,7 +19,7 @@ async function main() {
 
   /** Add the stock camera controller extension */
   viewer.createExtension(CameraController);
-  /** Addd the measurement tool */
+  /** Add the measurement tool */
   viewer.createExtension(MeasurementsExtension)
 
   /** Create a loader for the speckle stream */
@@ -57,4 +57,4 @@ Here is the complete list of available stock extensions:
 | FilteringExtension    | Filtering functionality    |
 | DiffExtension | Diffing functionality    |
 
-All the available stock extensions are designed to work together, in order to offer the complete set of viewer functionality. For seeing all of them in action, you can checkout our [viewer-sandbox](https://github.com/specklesystems/speckle-server/tree/alex/API2.0/packages/viewer-sandbox) project, or our [speckle frontned](https://latest.speckle.systems/)
+All the available stock extensions are designed to work together, in order to offer the complete set of viewer functionality. To see all of them in action, you can checkout our [viewer-sandbox](https://github.com/specklesystems/speckle-server/tree/alex/API2.0/packages/viewer-sandbox) project, or our [speckle frontend](https://latest.speckle.systems/)

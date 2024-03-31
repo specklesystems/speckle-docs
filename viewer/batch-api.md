@@ -1,7 +1,7 @@
 # Batch
 A batch is the structural component of the viewer's scenegraph. All loaded objects are split and organized into batches. Instead of adding each individual object as an Object3D derived entity to the three.js scene, we split and organize them into batches, which are then added to the three.js scene.
 
-The `Batch` is defined as an `interface` and we have several batch types, based on the geometry type, implemeting it.
+The `Batch` is defined as an `interface`, and is implemented by several batch types based on the geometry type.
 
 ### <h3>Properties</h3>
 |  	|   |   |   |
@@ -41,7 +41,7 @@ The `Batch` is defined as an `interface` and we have several batch types, based 
 ```ts
 batchMaterial: Material
 ```
-The batch's default material, based on which it's objects have been grouped.
+The batch's default material. Batch objects have been grouped by this material.
 #### Returns: [*Material*](https://threejs.org/docs/index.html?q=mater#api/en/materials/Material)
 
 <br>
@@ -305,7 +305,7 @@ Purges the batch by disposing of the associated geometry data and materials
 ```ts
 resetDrawRanges: void
 ```
-Resets the batch to it's default state where there is a single draw group rendered with the [*batchMaterial*](/viewer/batch-api.md#batchmaterial)
+Resets the batch to its default state where there is a single draw group rendered with the [*batchMaterial*](/viewer/batch-api.md#batchmaterial)
 #### Returns: void
 
 <br>
@@ -338,7 +338,7 @@ setDrawRanges(ranges: BatchUpdateRange[]): void
 ```
 Sets materials to specific objects inside the batch by specifying their draw ranges.
 :::tip
-Materials are assigned to objects inside batches by using this method. Normally, the viewer offers a higher level of assigning materials through SpeckleRendere's [*setMaterial*](/viewer/speckle-renderer-api.md#setmaterial) which calls this method internally
+Materials are assigned to objects inside batches by using this method. Normally, the viewer offers a higher level of assigning materials through SpeckleRenderer's [*setMaterial*](/viewer/speckle-renderer-api.md#setmaterial) which calls this method internally
 :::
 #### Parameters
 - **ranges**: [*BatchUpdateRange*](/viewer/batch-api.md#batchupdaterange)
@@ -352,7 +352,7 @@ setVisibleRange(range: BatchUpdateRange[]): void
 ```
 Sets visibility of objects inside the batch. Implementation specific
 :::warning
-Mesh batches currently only allow for contigous visibility between draw ranges. i.e no different visibility gaps. Line batches however are not restricted by this
+Mesh batches currently only allow for contiguous visibility between draw ranges. i.e no different visibility gaps. Line batches however are not restricted by this
 :::
 #### Parameters
 - **ranges**: [*BatchUpdateRange*](/viewer/batch-api.md#batchupdaterange)
@@ -375,7 +375,7 @@ interface BatchUpdateRange {
   materialOptions?: FilterMaterialOptions
 }
 ```
-Represents a region of the batch. Multi purpose. It can represent either a specific object from the batch, either a specific index range in the batch spanning across multiple objects
+Represents a region of the batch. Multi purpose. It can represent either a specific object from the batch, or a specific index range in the batch spanning across multiple objects
 
 <br>
 

@@ -1,5 +1,5 @@
 # CameraController
-The default camera controller extension that comes with the viewer package. Includes toggleable pespective and orthographic camera projections
+The default camera controller extension that comes with the viewer package. Includes toggleable perspective and orthographic camera projections
 
 ### <h3>Accessors</h3>
 |  	|   |   |   |
@@ -53,7 +53,7 @@ Currently it exists for backwards compatibility. Will deprecate in future iterat
 get enabled(): boolean
 set enabled(val: boolean)
 ```
-Gets or sets wether this extension is enabled.
+Gets or sets whether this extension is enabled.
 :::tip
 Extensions typically need to support being turned on/off with no impact on potentially other active extensions
 :::
@@ -131,10 +131,10 @@ Function for un-subscribing from camera events
 ```ts
 setCameraPlanes(targetVolume: Box3, offsetScale: number = 1)
 ```
-Function that addapts the camera's near and far clipping planes according to the current scene's volume.
+Function that adapts the camera's near and far clipping planes according to the current scene's volume.
 #### Parameters
 - **targetVolume**: [*Box3*](https://threejs.org/docs/index.html?q=box#api/en/math/Box3)
-- *optional* **offsetScale**: Works as a linear tolerace to the volume parameter
+- *optional* **offsetScale**: Works as a linear tolerance to the volume parameter
 
 #### Returns: void
 
@@ -144,10 +144,10 @@ Function that addapts the camera's near and far clipping planes according to the
 ```ts
 setCameraView(objectIds: string[], transition: boolean, fit?: number): void
 ```
-Focuses the camera based on the volume defined by the recieved object ids list
+Focuses the camera based on the volume defined by the received object ids list
 #### Parameters
 - **objectIds**: The object ids that make up the volume
-- **transition**: Wether the to make the trasition animated
+- **transition**: Whether or not to make the transition animated
 - *optional* **fit**: Linear tolerance
 ```ts
 setCameraView(
@@ -159,7 +159,7 @@ setCameraView(
 Focuses the camera based on explicit view models provided
 #### Parameters
 - **view**: Explicit view of different possible type: [*CanonicalView*](), [*SpeckleView*](), [*InlineView*]()
-- **transition**: Wether the to make the trasition animated
+- **transition**: Whether or not to make the transition animated
 - *optional* **fit**: Linear tolerance
 ```ts
 setCameraView(bounds: Box3, transition: boolean, fit?: number): void
@@ -167,7 +167,7 @@ setCameraView(bounds: Box3, transition: boolean, fit?: number): void
 Focuses the camera based on explicit volume provided as [*Box3*](https://threejs.org/docs/index.html?q=box#api/en/math/Box3) 
 #### Parameters
 - **bounds**: [*Box3*](https://threejs.org/docs/index.html?q=box#api/en/math/Box3)
-- **transition**: Wether the to make the trasition animated
+- **transition**: Whether or not to make the transition animated
 - *optional* **fit**: Linear tolerance
 
 #### Returns: void
@@ -246,7 +246,7 @@ type CanonicalView =
   | '3d'
   | '3D'
 ```
-Supportd cannonical views 
+Supported cannonical views 
 #### Returns: void
 
 <br>
