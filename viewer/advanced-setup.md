@@ -1,6 +1,6 @@
 # Advanced Setup
 
-The viewer can be extended with functionality via [extensions](/viewer/overview.md#extensions). The package already contains a few stock extensions that offer typical functionality. 
+The viewer can be extended with functionality via [extensions](/viewer/overview.md#extensions). The package already contains a few stock extensions that offer typical functionality.
 
 Using our previous basic example, we can add the measurement tool for example
 
@@ -20,7 +20,7 @@ async function main() {
   /** Add the stock camera controller extension */
   viewer.createExtension(CameraController);
   /** Add the measurement tool */
-  viewer.createExtension(MeasurementsExtension)
+  viewer.createExtension(MeasurementsExtension);
 
   /** Create a loader for the speckle stream */
   const loader = new SpeckleLoader(
@@ -47,14 +47,14 @@ Adding more extensions is easy, and all you need to do is call the viewer's `cre
 
 Here is the complete list of available stock extensions:
 
-| Extension    | Description |
-| -------- | ------- |
-| CameraController  | Provides basic camera orbit controls    |
-| SelectionExtension | Selection/hover effect, focus on objects    |
-| SectionTool    | Adds a customisable section box    |
-| SectionOutlines  | Adds outlines to sectioned objects    |
-| MeasurementsExtension | Provides measurement functionality    |
-| FilteringExtension    | Filtering functionality    |
-| DiffExtension | Diffing functionality    |
+| Extension             | Description                              |
+| --------------------- | ---------------------------------------- |
+| CameraController      | Provides basic camera orbit controls     |
+| SelectionExtension    | Selection/hover effect, focus on objects |
+| SectionTool           | Adds a customisable section box          |
+| SectionOutlines       | Adds outlines to sectioned objects       |
+| MeasurementsExtension | Provides measurement functionality       |
+| FilteringExtension    | Filtering functionality                  |
+| DiffExtension         | Diffing functionality                    |
 
-All the available stock extensions are designed to work together, in order to offer the complete set of viewer functionality. To see all of them in action, you can checkout our [viewer-sandbox](https://github.com/specklesystems/speckle-server/tree/alex/API2.0/packages/viewer-sandbox) project, or our [speckle frontend](https://latest.speckle.systems/)
+All the available stock extensions are designed to work together, in order to offer the complete set of viewer functionality. To see all of them in action, you can checkout our [viewer-sandbox](https://github.com/specklesystems/speckle-server/tree/alex/API2.0/packages/viewer-sandbox) project, or our [speckle frontend](https://app.speckle.systems/)
