@@ -7,18 +7,18 @@ Requires ICameraProvider implementation.
 
 ### <h3>Accessors</h3>
 
-| [enabled](/viewer/selection-extension-api.md#enabled) | [visible](/viewer/selection-extension-api.md#visible) |
+| [enabled](/viewer/section-tool-api.md#enabled) | [visible](/viewer/section-tool-api.md#visible) |
 | ----------------------------------------------------- | ----------------------------------------------------- |
 
 ### <h3>Methods</h3>
 
-| [getBox](/viewer/selection-extension-api.md#getbox) | [on](/viewer/camera-controller-api.md#on) | [removeListener](/viewer/camera-controller-api.md#removelistener) | [setBox](/viewer/selection-extension-api.md#setbox) |
+| [getBox](/viewer/section-tool-api.md#getbox) | [on](/viewer/camera-controller-api.md#on) | [removeListener](/viewer/camera-controller-api.md#removelistener) | [setBox](/viewer/section-tool-api.md#setbox) |
 | :-------------------------------------------------- | :---------------------------------------- | :---------------------------------------------------------------- | :-------------------------------------------------- |
-| [toggle](/viewer/selection-extension-api.md#toggle) |                                           |                                                                   |
+| [toggle](/viewer/section-tool-api.md#toggle) |                                           |                                                                   |
 
 ### <h3>Typedefs</h3>
 
-| [SectionToolEvent](/viewer/selection-extension-api.md#sectiontoolevent) |
+| [SectionToolEvent](/viewer/section-tool-api.md#sectiontoolevent) |
 | ----------------------------------------------------------------------- |
 
 ### <h3>Accessors</h3>
