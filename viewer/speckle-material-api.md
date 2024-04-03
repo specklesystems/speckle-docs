@@ -24,7 +24,7 @@ It's not meant to be used directly, but rather the already existing implementati
 ### <h3>Typedefs</h3>
 
 | [DisplayStyle](/viewer/speckle-material-api.md#displaystyle)     | [FilterMaterial](/viewer/speckle-material-api.md#filtermaterial)         | [FilterMaterialType](/viewer/speckle-material-api.md#filtermaterialtype) | [MaterialOptions](/viewer/speckle-material-api.md#materialoptions) |
-| ---------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| :--------------------------------------------------------------- | :----------------------------------------------------------------------- | :----------------------------------------------------------------------- | :----------------------------------------------------------------- |
 | [RenderMaterial](/viewer/speckle-material-api.md#rendermaterial) | [StencilOutlineType](/viewer/speckle-material-api.md#stenciloutlinetype) |
 
 ### <h3>Accessors</h3>

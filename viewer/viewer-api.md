@@ -19,9 +19,8 @@ background-color: rgba(0, 0, 0, 0.0) !important;
 
 ### <h3>Methods</h3>
 
-|                                                                      |                                                                  |                                                    |                                                    |
-| -------------------------------------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
-| [cancelLoad](/viewer/viewer-api.md#cancelload)                       | [createExtension](/viewer/viewer-api.md#createextension)         | [dispose](/viewer/viewer-api.md#dispose)           | [getContainer](/viewer/viewer-api.md#getcontainer) |
+| [cancelLoad](/viewer/viewer-api.md#cancelload)  | [createExtension](/viewer/viewer-api.md#createextension) | [dispose](/viewer/viewer-api.md#dispose) | [getContainer](/viewer/viewer-api.md#getcontainer) |
+| :------------------------------------------------------------------- | :--------------------------------------------------------------- | :------------------------------------------------- | :------------------------------------------------- |
 | [getExtension](/viewer/viewer-api.md#getextension)                   | [getObjectProperties](/viewer/viewer-api.md#getobjectproperties) | [getRenderer](/viewer/viewer-api.md#getrenderer)   | [getViews](/viewer/viewer-api.md#getviews)         |
 | [getWorldTree](/viewer/viewer-api.md#getworldtree)                   | [init](/viewer/viewer-api.md#init)                               | [loadObject](/viewer/viewer-api.md#loadObject)     | [on](/viewer/viewer-api.md#on)                     |
 | [query](/viewer/viewer-api.md#query)                                 | [requestRender](/viewer/viewer-api.md#requestrender)             | [resize](/viewer/viewer-api.md#resize)             | [screenshot](/viewer/viewer-api.md#screenshot)     |
@@ -29,9 +28,8 @@ background-color: rgba(0, 0, 0, 0.0) !important;
 
 ### <h3>Typedefs</h3>
 
-|                                                                |                                                                      |                                                    |                                                        |
-| -------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------------------ |
-| [LightConfiguration](/viewer/viewer-api.md#lightconfiguration) | [ObjectLayers](/viewer/viewer-api.md#objectlayers)                   | [PropertyInfo](/viewer/viewer-api.md#propertyinfo) | [SelectionEvent](/viewer/viewer-api.md#selectionevent) |
+| [LightConfiguration](/viewer/viewer-api.md#lightconfiguration) | [ObjectLayers](/viewer/viewer-api.md#objectlayers)  | [PropertyInfo](/viewer/viewer-api.md#propertyinfo) | [SelectionEvent](/viewer/viewer-api.md#selectionevent) |
+| :------------------------------------------------------------- | :------------------------------------------------------------------- | :------------------------------------------------- | :----------------------------------------------------- |
 | [SpeckleView](/viewer/viewer-api.md#speckleview)               | [SunLightConfiguration](/viewer/viewer-api.md#sunlightconfiguration) | [UpdateFlags](/viewer/viewer-api.md#updateflags)   | [Utils](/viewer/viewer-api.md#utilsinterface)          |
 | [ViewerEvent](/viewer/viewer-api.md#viewerevent)               | [ViewerParams](/viewer/viewer-api.md#viewerparams)                   | [World](/viewer/viewer-api.md#worldclass)          |
 

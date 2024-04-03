@@ -12,9 +12,8 @@ Requires ICameraProvider implementation.
 
 ### <h3>Methods</h3>
 
-|                                                     |                                           |                                                                   |                                                     |
-| --------------------------------------------------- | ----------------------------------------- | ----------------------------------------------------------------- | --------------------------------------------------- |
 | [getBox](/viewer/selection-extension-api.md#getbox) | [on](/viewer/camera-controller-api.md#on) | [removeListener](/viewer/camera-controller-api.md#removelistener) | [setBox](/viewer/selection-extension-api.md#setbox) |
+| :-------------------------------------------------- | :---------------------------------------- | :---------------------------------------------------------------- | :-------------------------------------------------- |
 | [toggle](/viewer/selection-extension-api.md#toggle) |                                           |                                                                   |
 
 ### <h3>Typedefs</h3>

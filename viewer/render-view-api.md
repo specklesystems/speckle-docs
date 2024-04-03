@@ -8,7 +8,7 @@
 ### <h3>Accessors</h3>
 
 | [aabb](/viewer/render-view-api.md#aabb)               | [batchCount](/viewer/render-view-api.md#batchcount)       | [batchEnd](/viewer/render-view-api.md#batchend)                     | [batchId](/viewer/render-view-api.md#batchid)         |
-| ----------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------------------- |
+| :---------------------------------------------------- | :-------------------------------------------------------- | :------------------------------------------------------------------ | :---------------------------------------------------- |
 | [batchStart](/viewer/render-view-api.md#batchstart)   | [geometryType](/viewer/render-view-api.md#geometrytype)   | [guid](/viewer/render-view-api.md#guid)                             | [hasGeometry](/viewer/render-view-api.md#hasgeometry) |
 | [hasMetadata](/viewer/render-view-api.md#hasmetadata) | [renderData](/viewer/render-view-api.md#renderdata)       | [renderMaterialHash](/viewer/render-view-api.md#rendermaterialhash) | [speckleType](/viewer/render-view-api.md#hasgeometry) |
 | [transparent](/viewer/render-view-api.md#transparent) | [validGeometry](/viewer/render-view-api.md#validgeometry) | [vertEnd](/viewer/render-view-api.md#vertend)                       | [vertStart](/viewer/render-view-api.md#vertstart)     |

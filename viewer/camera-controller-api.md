@@ -4,24 +4,21 @@ The default camera controller extension that comes with the viewer package. Incl
 
 ### <h3>Accessors</h3>
 
-|                                                                     |                                                       |                                                     |                                                             |
-| ------------------------------------------------------------------- | ----------------------------------------------------- | --------------------------------------------------- | ----------------------------------------------------------- |
-| [aspect](/viewer/camera-controller-api.md#aspect)                   | [controls](/viewer/camera-controller-api.md#controls) | [enabled](/viewer/camera-controller-api.md#enabled) | [fieldOfView](/viewer/camera-controller-api.md#fieldofview) |
+| [aspect](/viewer/camera-controller-api.md#aspect) | [controls](/viewer/camera-controller-api.md#controls) | [enabled](/viewer/camera-controller-api.md#enabled) | [fieldOfView](/viewer/camera-controller-api.md#fieldofview) |
+| :------------------------------------------------------------------ | :---------------------------------------------------- | :-------------------------------------------------- | :---------------------------------------------------------- |
 | [renderingCamera](/viewer/camera-controller-api.md#renderingcamera) |                                                       |                                                     |                                                             |
 
 ### <h3>Methods</h3>
 
-|                                                                       |                                                                     |                                                                       |                                                                                   |
-| --------------------------------------------------------------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| [disableRotations](/viewer/camera-controller-api.md#disablerotations) | [enableRotations](/viewer/camera-controller-api.md#enablerotations) | [on](/viewer/camera-controller-api.md#on)                             | [removeListener](/viewer/camera-controller-api.md#removelistener)                 |
+| [disableRotations](/viewer/camera-controller-api.md#disablerotations) | [enableRotations](/viewer/camera-controller-api.md#enablerotations) | [on](/viewer/camera-controller-api.md#on) | [removeListener](/viewer/camera-controller-api.md#removelistener) |
+| :-------------------------------------------------------------------- | :------------------------------------------------------------------ | :-------------------------------------------------------------------- | :-------------------------------------------------------------------------------- |
 | [setCameraPlanes](/viewer/camera-controller-api.md#setcameraplanes)   | [setCameraView](/viewer/camera-controller-api.md#setcameraview)     | [setOrthoCameraOn](/viewer/camera-controller-api.md#setorthocameraon) | [setPerspectiveCameraOn](/viewer/camera-controller-api.md#setperspectivecameraon) |
 | [toggleCameras](/viewer/camera-controller-api.md#togglecameras)       |                                                                     |                                                                       |
 
 ### <h3>Typedefs</h3>
 
-|                                                                                 |                                                                       |                                                                 |                                                           |
-| ------------------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------- |
 | [CameraControllerEvent](/viewer/camera-controller-api.md#cameracontrollerevent) | [CameraProjection](/viewer/camera-controller-api.md#cameraprojection) | [CanonicalView](/viewer/camera-controller-api.md#canonicalview) | [InlineView](/viewer/camera-controller-api.md#inlineview) |
+| :------------------------------------------------------------------------------ | :-------------------------------------------------------------------- | :-------------------------------------------------------------- | :-------------------------------------------------------- |
 | [PolarView](/viewer/camera-controller-api.md#polarview)                         |                                                                       |                                                                 |
 
 ### <h3>Accessors</h3>

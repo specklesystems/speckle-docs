@@ -12,18 +12,16 @@
 
 ### <h3>Methods</h3>
 
-|                                                        |                                                        |                                                          |                                            |
-| ------------------------------------------------------ | ------------------------------------------------------ | -------------------------------------------------------- | ------------------------------------------ |
-| [addNode](/viewer/world-tree-api.md#addnode)           | [addSubtree](/viewer/world-tree-api.md#addsubtree)     | [findAll](/viewer/world-tree-api.md#findall)             | [findId](/viewer/world-tree-api.md#findid) |
+| [addNode](/viewer/world-tree-api.md#addnode)  | [addSubtree](/viewer/world-tree-api.md#addsubtree) | [findAll](/viewer/world-tree-api.md#findall)  | [findId](/viewer/world-tree-api.md#findid) |
+| :----------------------------------------------------- | :----------------------------------------------------- | :------------------------------------------------------- | :----------------------------------------- |
 | [getAncestors](/viewer/world-tree-api.md#getancestors) | [getInstances](/viewer/world-tree-api.md#getinstances) | [getRenderTree](/viewer/world-tree-api.md#getrendertree) | [isRoot](/viewer/world-tree-api.md#isroot) |
 | [parse](/viewer/world-tree-api.md#parse)               | [purge](/viewer/world-tree-api.md#purge)               | [removeNode](/viewer/world-tree-api.md#removenode)       | [walk](/viewer/world-tree-api.md#walk)     |
 | [walkAsync](/viewer/world-tree-api.md#walkasync)       |
 
 ### <h3>Typedefs</h3>
 
-|                                                      |                                                                          |                                                      |                                                            |
-| ---------------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------- | ---------------------------------------------------------- |
-| [NodeData](/viewer/world-tree-api.md#nodedata)       | [SearchPredicate](/viewer/world-tree-api.md#searchpredicate)             | [TreeNode](/viewer/world-tree-api.md#treenode)       | [SelectionEvent](/viewer/world-tree-api.md#selectionEvent) |
+| [NodeData](/viewer/world-tree-api.md#nodedata) | [SearchPredicate](/viewer/world-tree-api.md#searchpredicate) | [TreeNode](/viewer/world-tree-api.md#treenode) | [SelectionEvent](/viewer/world-tree-api.md#selectionEvent) |
+| :--------------------------------------------------- | :----------------------------------------------------------------------- | :--------------------------------------------------- | :--------------------------------------------------------- |
 | [SpeckleView](/viewer/world-tree-api.md#speckleview) | [SunLightConfiguration](/viewer/world-tree-api.md#sunlightconfiguration) | [UpdateFlags](/viewer/world-tree-api.md#updateflags) | [Utils](/viewer/world-tree-api.md#utilsinterface)          |
 | [ViewerEvent](/viewer/world-tree-api.md#viewerevent) | [ViewerParams](/viewer/world-tree-api.md#viewerparams)                   | [World](/viewer/world-tree-api.md#worldclass)        |
 

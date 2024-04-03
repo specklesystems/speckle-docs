@@ -7,19 +7,19 @@ The `Batch` is defined as an `interface`, and is implemented by several batch ty
 ### <h3>Properties</h3>
 
 | [batchMaterial](/viewer/batch-api.md#batchmaterial) | [geometryType](/viewer/batch-api.md#geometrytype) | [id](/viewer/batch-api.md#id) | [renderObject](/viewer/batch-api.md#renderobject) |
-| --------------------------------------------------- | ------------------------------------------------- | ----------------------------- | ------------------------------------------------- |
+| :-------------------------------------------------- | :------------------------------------------------ | :---------------------------- | :------------------------------------------------ |
 | [renderViews](/viewer/batch-api.md#renderviews)     | [subtreeId](/viewer/batch-api.md#subtreeid)       |
 
 ### <h3>Accessors</h3>
 
-| [bounds](/viewer/batch-api.md#bounds)             | [drawCalls](/viewer/batch-api.md#drawcalls) | [groups](/viewer/batch-api.md#groups)       | [materials](/viewer/batch-api.md#materials) |
-| ------------------------------------------------- | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| [bounds](/viewer/batch-api.md#bounds) | [drawCalls](/viewer/batch-api.md#drawcalls) | [groups](/viewer/batch-api.md#groups) | [materials](/viewer/batch-api.md#materials) |
+| :------------------------------------------------ | :------------------------------------------ | :------------------------------------------ | :------------------------------------------ |
 | [minDrawCalls](/viewer/batch-api.md#mindrawcalls) | [triCount](/viewer/batch-api.md#tricount)   | [vertCount](/viewer/batch-api.md#vertcount) |
 
 ### <h3>Methods</h3>
 
 | [buildBatch](/viewer/batch-api.md#buildbatch)                 | [getCount](/viewer/batch-api.md#getcount)               | [getDepth](/viewer/batch-api.md#getdepth)               | [getMaterial](/viewer/batch-api.md#getmaterial)           |
-| ------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | --------------------------------------------------------- |
+| :------------------------------------------------------------ | :------------------------------------------------------ | :------------------------------------------------------ | :-------------------------------------------------------- |
 | [getMaterialAtIndex](/viewer/batch-api.md#getmaterialatindex) | [getOpaque](/viewer/batch-api.md#getopaque)             | [getRenderView](/viewer/batch-api.md#getrenderview)     | [getStencil](/viewer/batch-api.md#getstencil)             |
 | [getTransparent](/viewer/batch-api.md#gettransparent)         | [getVisibleRange](/viewer/batch-api.md#getvisiblerange) | [onRender](/viewer/batch-api.md#onrender)               | [onUpdate](/viewer/batch-api.md#onupdate)                 |
 | [purge](/viewer/batch-api.md#purge)                           | [resetDrawRanges](/viewer/batch-api.md#resetdrawranges) | [setBatchBuffers](/viewer/batch-api.md#setbatchbuffers) | [setBatchMaterial](/viewer/batch-api.md#setbatchmaterial) |
@@ -28,7 +28,7 @@ The `Batch` is defined as an `interface`, and is implemented by several batch ty
 ### <h3>Typedefs</h3>
 
 | [BatchUpdateRange](/viewer/batch-api.md#batchupdaterange) | [DrawGroup](/viewer/batch-api.md#drawgroup)   | [LineBatch](/viewer/batch-api.md#linebatch) | [MeshBatch](/viewer/batch-api.md#meshbatch)                   |
-| --------------------------------------------------------- | --------------------------------------------- | ------------------------------------------- | ------------------------------------------------------------- |
+| :-------------------------------------------------------- | :-------------------------------------------- | :------------------------------------------ | :------------------------------------------------------------ |
 | [InstancedMeshBatch](/viewer/batch-api.md#meshbatch)      | [PointBatch](/viewer/batch-api.md#pointbatch) | [TextBatch](/viewer/batch-api.md#textbatch) | [InstancedMeshBatch](/viewer/batch-api.md#instancedmeshbatch) |
 
 ### <h3>Properties</h3>

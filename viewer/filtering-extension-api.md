@@ -9,9 +9,8 @@ The default filtering functionality is exposed as an extension. The current filt
 
 ### <h3>Methods</h3>
 
-|                                                                         |                                                                     |                                                                               |                                                                                     |
-| ----------------------------------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| [hideObjects](/viewer/filtering-extension-api.md#hideobjects)           | [isolateObjects](/viewer/filtering-extension-api.md#isolateobjects) | [removeColorFilter](/viewer/filtering-extension-api.md#removecolorfilter)     | [removeUserObjectColors](/viewer/filtering-extension-api.md#removeuserobjectcolors) |
+| [hideObjects](/viewer/filtering-extension-api.md#hideobjects) | [isolateObjects](/viewer/filtering-extension-api.md#isolateobjects) | [removeColorFilter](/viewer/filtering-extension-api.md#removecolorfilter) | [removeUserObjectColors](/viewer/filtering-extension-api.md#removeuserobjectcolors) |
+| :---------------------------------------------------------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------- | :---------------------------------------------------------------------------------- |
 | [resetFilters](/viewer/filtering-extension-api.md#resetfilters)         | [setColorFilter](/viewer/filtering-extension-api.md#setcolorfilter) | [setUserObjectColors](/viewer/filtering-extension-api.md#setuserobjectColors) | [showObjects](/viewer/filtering-extension-api.md#showobjects)                       |
 | [unIsolateObjects](/viewer/filtering-extension-api.md#unisolateobjects) |                                                                     |                                                                               |                                                                                     |
 

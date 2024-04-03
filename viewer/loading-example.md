@@ -1,4 +1,4 @@
-# Loading
+# Loading Data
 
 You can load data into the speckle viewer virtually from any source as long as you provide an appropriate loader suite.
 

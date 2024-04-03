@@ -17,7 +17,7 @@ The speckle viewer uses a dual level BVH for optimal acceleration. The Accelerat
 ### <h3>Methods</h3>
 
 | [buildBVH](/viewer/acceleration-structure-api.md#buildbvh)         | [getBoundingBox](/viewer/acceleration-structure-api.md#getboundingbox) | [getVertexAtIndex](/viewer/acceleration-structure-api.md#getvertexatindex) | [raycast](/viewer/acceleration-structure-api.md#raycast)                 |
-| ------------------------------------------------------------------ | ---------------------------------------------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| :----------------------------------------------------------------- | :--------------------------------------------------------------------- | :------------------------------------------------------------------------- | :----------------------------------------------------------------------- |
 | [raycastFirst](/viewer/acceleration-structure-api.md#raycastfirst) | [shapecast](/viewer/acceleration-structure-api.md#shapecast)           | [transformInput](/viewer/acceleration-structure-api.md#transforminput)     | [transformOutput](/viewer/acceleration-structure-api.md#transformoutput) |
 
 ### <h3>Typedefs</h3>

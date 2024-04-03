@@ -8,9 +8,9 @@ td, th{
 
 ### <h3>Accessors</h3>
 
-|                                                                              |                                                                    |                                                                  |                                                                    |
-| ---------------------------------------------------------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------- | ------------------------------------------------------------------ |
-| [allObjects](/viewer/speckle-renderer-api.md#allobjects)                     | [clippingPlanes](/viewer/speckle-renderer-api.md#clippingplanes)   | [clippingVolume](/viewer/speckle-renderer-api.md#clippingvolume) | [indirectIBL](/viewer/speckle-renderer-api.md#indirectibl)         |
+
+| [allObjects](/viewer/speckle-renderer-api.md#allobjects) | [clippingPlanes](/viewer/speckle-renderer-api.md#clippingplanes)   | [clippingVolume](/viewer/speckle-renderer-api.md#clippingvolume) | [indirectIBL](/viewer/speckle-renderer-api.md#indirectibl)   |
+| :--------------------------------------------------------------------------- | :----------------------------------------------------------------- | :--------------------------------------------------------------- | :----------------------------------------------------------------- |      
 | [indirectIBLIntensity](/viewer/speckle-renderer-api.md#indirectiblintensity) | [intersections](/viewer/speckle-renderer-api.md#intersections)     | [needsRender](/viewer/speckle-renderer-api.md#needsrender)       | [pipelineOptions](/viewer/speckle-renderer-api.md#pipelineoptions) |
 | [renderer](/viewer/speckle-renderer-api.md#renderer)                         | [renderingCamera](/viewer/speckle-renderer-api.md#renderingcamera) | [renderingStats](/viewer/speckle-renderer-api.md#renderingstats) | [scene](/viewer/speckle-renderer-api.md#scene)                     |
 | [sceneBox](/viewer/speckle-renderer-api.md#scenebox)                         | [sceneCenter](/viewer/speckle-renderer-api.md#scenecenter)         | [sceneSphere](/viewer/speckle-renderer-api.md#scenesphere)       | [shadowcatcher](/viewer/speckle-renderer-api.md#shadowcatcher)     |
@@ -18,9 +18,9 @@ td, th{
 
 ### <h3>Methods</h3>
 
-|                                                                |                                                                            |                                                                                          |                                                                                      |
-| -------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| [addRenderTree](/viewer/speckle-renderer-api.md#addrendertree) | [boxFromObjects](/viewer/speckle-renderer-api.md#boxfromobjects)           | [cancelRenderTree](/viewer/speckle-renderer-api.md#cancelrendertree)                     | [enableLayers](/viewer/speckle-renderer-api.md#enablelayers)                         |
+
+| [addRenderTree](/viewer/speckle-renderer-api.md#addrendertree) | [boxFromObjects](/viewer/speckle-renderer-api.md#boxfromobjects)  | [cancelRenderTree](/viewer/speckle-renderer-api.md#cancelrendertree)  | [enableLayers](/viewer/speckle-renderer-api.md#enablelayers)  |
+| :------------------------------------------------------------- | :------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------- |
 | [getBatch](/viewer/speckle-renderer-api.md#getbatch)           | [getBatchMaterial](/viewer/speckle-renderer-api.md#getbatchmaterial)       | [getMaterial](/viewer/speckle-renderer-api.md#getmaterial)                               | [getObject](/viewer/speckle-renderer-api.md#getobject)                               |
 | [getObjects](/viewer/speckle-renderer-api.md#get0bjects)       | [removeRenderTree](/viewer/speckle-renderer-api.md#removerendertree)       | [renderViewFromIntersection](/viewer/speckle-renderer-api.md#renderviewfromintersection) | [resetMaterials](/viewer/speckle-renderer-api.md#resetmaterials)                     |
 | [resetPipeline](/viewer/speckle-renderer-api.md#resetpipeline) | [resize](/viewer/speckle-renderer-api.md#resize)                           | [setMaterial](/viewer/speckle-renderer-api.md#setmaterial)                               | [setSunLightConfiguration](/viewer/speckle-renderer-api.md#setsunlightconfiguration) |
@@ -28,16 +28,14 @@ td, th{
 
 ### <h3>Typedefs</h3>
 
-|                                                                            |                                                                                |                                                                          |                                                                  |
-| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ---------------------------------------------------------------- |
-| [DynamicAOPassParams](/viewer/speckle-renderer-api.md#dynamicaopassparams) | [PipelineOptions](/viewer/speckle-renderer-api.md#pipelineoptions)             | [PipelineOutputType](/viewer/speckle-renderer-api.md#pipelineoutputtype) | [RenderingStats](/viewer/speckle-renderer-api.md#renderingstats) |
+| [DynamicAOPassParams](/viewer/speckle-renderer-api.md#dynamicaopassparams) | [PipelineOptions](/viewer/speckle-renderer-api.md#pipelineoptions)  | [PipelineOutputType](/viewer/speckle-renderer-api.md#pipelineoutputtype) | [RenderingStats](/viewer/speckle-renderer-api.md#renderingstats) |
+| :------------------------------------------------------------------------- | :----------------------------------------------------------------------------- | :----------------------------------------------------------------------- | :--------------------------------------------------------------- |
 | [StaticAoPassParams](/viewer/speckle-renderer-api.md#staticaopassparams)   | [SunLightConfiguration](/viewer/speckle-renderer-api.md#sunlightconfiguration) |
 
 ### <h3>Constants</h3>
 
-|                                                                                  |                                                                                          |                                                                                        |     |
-| -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | --- |
 | [DefaultPipelineOptions](/viewer/speckle-renderer-api.md#defaultpipelineoptions) | [DefaultDynamicAOPassParams](/viewer/speckle-renderer-api.md#defaultdynamicaopassparams) | [DefaultStaticAoPassParams](/viewer/speckle-renderer-api.md#defaultstaticaopassparams) |
+| :------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------- |
 
 ### <h3>Accessors</h3>
 
