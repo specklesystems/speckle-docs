@@ -82,6 +82,30 @@ Currently, versions, models or projects cannot be merged via Speckle, but you ca
 
 Our 3D Viewer only supports visualizing geometry. If you're sending any data that doesn't have a supported geometrical representation it will not be visible, for example when sending a list of Levels or Revit Family and Type names. You'll always be able to explore the raw data of a project in the version page, however.
 
+## How do I solve a DLL conflict?
+If a Speckle connector and another plugin you have installed in your host application (Revit, Rhino, AutoCAD etc) use similar packages, you might have conflicts which could make either plugin unusable. This manifests usually with a dialog similar to the following at startup:
+
+![Revit dll conflict](https://speckle.community/uploads/default/original/2X/c/c9633fc3de90cc9620350125b7a6cba33792ed0e.jpeg)
+
+To resolve the issue, you need to remove the conflicting plugin. 
+1. To find it, read the error message carefully. The one above, for example, clearly mentions a conflict with a package called `Serilog`. Other times we have seen conflicts with `Sentry`. 
+2. Look inside each plugin folder until you find one containing a `*.dll` file with that name. The windows search functionality can help here.
+3. Temporarily remove that plugin, reload your host application and see if the problem is solved. Otherwise try with another one.
+
+### Revit plugin locations
+In Revit, plugins can be installed in multiple locations, we recommend searching through all of them:
+
+```
+%appdata%\Autodesk\Revit\Addins\                 NOTE: the variable "%appdata%"" can be copy/pasted in your windows explorer window
+%appdata%\Autodesk\ApplicationPlugins\
+C:\ProgramData\Autodesk\Revit\Addins\
+C:\ProgramData\Autodesk\ApplicationPlugins\
+C:\Program Files\Autodesk\Revit 20XX\AddIns\
+%appdata%\Dynamo\Dynamo Revit\2.XX\packages\     NOTE: dynamo plugins can conflict too!
+```
+
+
+
 ## I forgot my password 🤔
 
 This time over, we've got you covered: just go to the [password reset page](https://app.speckle.systems/authn/resetpassword)!
