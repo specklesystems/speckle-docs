@@ -1,190 +1,199 @@
 # RenderTree
 
 ### <h3>Constructors</h3>
-[constructor](/viewer/render-tree-api.md#constructor)
+
+| [constructor](/viewer/render-tree-api.md#constructor) |
+| ----------------------------------------------------- |
 
 ### <h3>Accessors</h3>
-|  	|
-|---
+
 | [id](/viewer/render-tree-api.md#id)
+|---|
 
 ### <h3>Methods</h3>
-|  	| 	| 	|
-|---	|---	|---
-| [buildRenderTree](/viewer/render-tree-api.md#buildRenderTree) 	| [cancelBuild](/viewer/render-tree-api.md#cancelbuild) 	| [computeTransform](/viewer/render-tree-api.md#computetransform)
-[getAtomicParent](/viewer/render-tree-api.md#getA=atomicparent) | [getInstances](/viewer/render-tree-api.md#getinstances) | [getRenderableNodes](/viewer/render-tree-api.md#getrenderablenodes)
-[getRenderableRenderViews](/viewer/render-tree-api.md#getrenderablerenderviews) |[getRenderViewNodesForNode](/viewer/render-tree-api.md#getrenderviewnodesfornode) | [getRenderViewsForNode](/viewer/render-tree-api.md#getrenderviewsfornode)
-[getRenderViewsForNodeId](/viewer/render-tree-api.md#getrenderviewsfornodeid) | [purge](/viewer/render-tree-api.md#purge) 
- 
 
-<br><br>
+| [buildRenderTree](/viewer/render-tree-api.md#buildRenderTree)                   | [cancelBuild](/viewer/render-tree-api.md#cancelbuild)                             | [computeTransform](/viewer/render-tree-api.md#computetransform)           |
+| ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| [getAtomicParent](/viewer/render-tree-api.md#getA=atomicparent)                 | [getInstances](/viewer/render-tree-api.md#getinstances)                           | [getRenderableNodes](/viewer/render-tree-api.md#getrenderablenodes)       |
+| [getRenderableRenderViews](/viewer/render-tree-api.md#getrenderablerenderviews) | [getRenderViewNodesForNode](/viewer/render-tree-api.md#getrenderviewnodesfornode) | [getRenderViewsForNode](/viewer/render-tree-api.md#getrenderviewsfornode) |
+| [getRenderViewsForNodeId](/viewer/render-tree-api.md#getrenderviewsfornodeid)   | [purge](/viewer/render-tree-api.md#purge)                                         |                                                                           |
 
 ### <h3>Constructors</h3>
 
 #### <b>constructor</b>
+
 ```ts
 constructor(tree: WorldTree, subtreeRoot: TreeNode)
 ```
-The recommended way of spawing render trees is via [*getRenderTree*](/viewer/world-tree-api.md#getrendertree) method in [*WorldTree*](/viewer/world-tree-api.md)
-#### Parameters
-- **tree**: [*WorldTree*](/viewer/world-tree-api.md)
-- **subtreeRoot**: [*TreeNode*](/viewer/world-tree-api.md#treenode)
-#### Returns: [***RenderTree***](/viewer/render-tree-api.md)
-<br>
-<br>
 
+The recommended way of spawing render trees is via [_getRenderTree_](/viewer/world-tree-api.md#getrendertree) method in [_WorldTree_](/viewer/world-tree-api.md).
+
+**Parameters**
+
+- **tree**: [_WorldTree_](/viewer/world-tree-api.md)
+- **subtreeRoot**: [_TreeNode_](/viewer/world-tree-api.md#treenode)
+
+**Returns**: [**_RenderTree_**](/viewer/render-tree-api.md)
 
 ### <h3>Accessors</h3>
 
 #### <b>id</b>
+
 ```ts
 get id(): string
 ```
-Gets the id of the render tree's root node
-#### Returns: string
 
-<br>
-<br>
+Gets the id of the render tree's root node.
+
+**Returns**: string
 
 ### <h3>Methods</h3>
+
 #### <b>buildRenderTree</b>
+
 ```ts
 buildRenderTree(geometryConverter: GeometryConverter): Promise<boolean>
 ```
-Builds the render tree using the provided [*GeometryConverter*](). Building can be interrupted by calling [*cancelBuild*](/viewer/render-tree-api.md#cancelBuild). 'Building' the render tree, means constructing each node's [*NodeRenderView*](), preparing all geometry and materials, and executing any required transformations. This operation should only be carrired out once, as re-building an already built tree is not possible.
 
-#### Parameters
-- **geometryConverter**: The [*GeometryConverter*]() to use in building the tree
+Builds the render tree using the provided [_GeometryConverter_](). Building can be interrupted by calling [_cancelBuild_](/viewer/render-tree-api.md#cancelBuild). 'Building' the render tree, means constructing each node's [_NodeRenderView_](), preparing all geometry and materials, and executing any required transformations. This operation should only be carrired out once, as re-building an already built tree is not possible.
 
-#### Returns: <span style="font-weight:normal">A promise which resolves to a boolean indicating if the building process completed successfully (true) or was interrupted (false)</span>
+**Parameters**
 
-<br>
+- **geometryConverter**: The [_GeometryConverter_]() to use in building the tree
+
+**Returns**: <span style="font-weight:normal">A promise which resolves to a boolean indicating if the building process completed successfully (true) or was interrupted (false)</span>
 
 #### <b>cancelBuild</b>
+
 ```ts
 cancelBuild(): void
 ```
+
 Cancel any tree building operations that might be taking place. If no building is taking place, nothing happens.
 
-#### Parameters
-- **subtreeId**: The [*TreeNode*](/viewer/render-tree-api.md#treenode) to add as a subtree
+**Parameters**
 
-#### Returns: void
+- **subtreeId**: The [_TreeNode_](/viewer/render-tree-api.md#treenode) to add as a subtree
 
-<br>
+**Returns**: void
 
 #### <b>computeTransform</b>
+
 ```ts
 computeTransform(node: TreeNode): Matrix4
 ```
-Computes the final world space transformation for the given [*TreeNode*](/viewer/world-tree-api.md#treenode)
 
+Computes the final world space transformation for the given [_TreeNode_](/viewer/world-tree-api.md#treenode).
 
-#### Parameters
-- **node**: [*TreeNode*](/viewer/world-tree-api.md#treenode) 
+**Parameters**
 
-#### Returns: [*Matrix4*](https://threejs.org/docs/index.html?q=matrix#api/en/math/Matrix4)
+- **node**: [_TreeNode_](/viewer/world-tree-api.md#treenode)
 
-<br>
+**Returns**: [_Matrix4_](https://threejs.org/docs/index.html?q=matrix#api/en/math/Matrix4)
 
 #### <b>getAtomicParent</b>
+
 ```ts
 getAtomicParent(node: TreeNode): TreeNode
 ```
-Gets the closest atomic parent of the provided node. An atomic node represents a standalone object. E.g a door, a window, rather than pieces of a standalone object E.g the door's handle, the window's frame 
 
-#### Parameters
-- **node**: [*TreeNode*](/viewer/world-tree-api.md#treenode)
+Gets the closest atomic parent of the provided node. An atomic node represents a standalone object. E.g a door, a window, rather than pieces of a standalone object E.g the door's handle, the window's frame.
 
-#### Returns: [*TreeNode*](/viewer/render-tree-api.md#treenode)[]
+**Parameters**
 
-<br>
+- **node**: [_TreeNode_](/viewer/world-tree-api.md#treenode)
+
+**Returns**: [_TreeNode_](/viewer/render-tree-api.md#treenode)[]
 
 #### <b>getInstances</b>
+
 ```ts
 getInstances(): { [id: string]: Record<string, TreeNode> }
 ```
-Calls the underlying WorldTree [*getInstances*](/viewer/world-tree-api.md#getinstances) with the render tree's id as the argument
 
-#### Returns: <span style="font-weight:normal">A dictionary where each instance id holds a record of [*TreeNode*](/viewer/render-tree-api.md#treenode) grouped by their instance unique id.</span>
+Calls the underlying WorldTree [_getInstances_](/viewer/world-tree-api.md#getinstances) with the render tree's id as the argument.
 
-<br>
+**Returns**: <span style="font-weight:normal">A dictionary where each instance id holds a record of [_TreeNode_](/viewer/render-tree-api.md#treenode) grouped by their instance unique id.</span>
 
 #### <b>getRenderableNodes</b>
+
 ```ts
 getRenderableNodes(...types: SpeckleType[]): TreeNode[]
 ```
-Gets all renderable nodes of the specified [*SpeckleType*]()s.
 
-#### Parameters
-- **types**: Variable number of [*SpeckleType*]() values
+Gets all renderable nodes of the specified [_SpeckleType_]()s.
 
-#### Returns: [*TreeNode[]*](/viewer/render-tree-api.md#treenode)
+**Parameters**
 
-<br>
+- **types**: Variable number of [_SpeckleType_]() values
+
+**Returns**: [_TreeNode[]_](/viewer/render-tree-api.md#treenode)
 
 #### <b>getRenderableRenderViews</b>
+
 ```ts
 getRenderableRenderViews(...types: SpeckleType[]): NodeRenderView[]
 ```
-Same as [*getRenderableNodes*](/viewer/render-tree-api.md#getrenderablerenderviews), but returns the mapped [*NodeRenderView*]()s of the renderable nodes
 
-#### Parameters
-- **node**: Variable number of [*SpeckleType*]() values
+Same as [_getRenderableNodes_](/viewer/render-tree-api.md#getrenderablerenderviews), but returns the mapped [_NodeRenderView_]()s of the renderable nodes.
 
-#### Returns: [*NodeRenderView[]*]()
+**Parameters**
 
-<br>
+- **node**: Variable number of [_SpeckleType_]() values
+
+**Returns**: [_NodeRenderView[]_]()
 
 #### <b>getRenderViewNodesForNode</b>
+
 ```ts
 getRenderViewNodesForNode(node: TreeNode): TreeNode[]
 ```
-Returns all [*TreeNode*]()s that have a displayable [*NodeRenderView*]() descending from *node*
 
-#### Parameters
-- **node**: [*TreeNode*](/viewer/render-tree-api.md#treenode)
+Returns all [_TreeNode_]()s that have a displayable [_NodeRenderView_]() descending from _node_.
 
+**Parameters**
 
-#### Returns: [*TreeNode[]*](/viewer/render-tree-api.md#treenode)
+- **node**: [_TreeNode_](/viewer/render-tree-api.md#treenode)
 
-<br>
+**Returns**: [_TreeNode[]_](/viewer/render-tree-api.md#treenode)
 
 #### <b>getRenderViewsForNode</b>
+
 ```ts
 getRenderViewsForNode(node: TreeNode): NodeRenderView[]
 ```
-Gets all displayable [*RenderView*]()s descending from *node*
 
-#### Parameters
-- **node**: [*TreeNode*](/viewer/render-tree-api.md#treenode)
+Gets all displayable [_RenderView_]()s descending from _node_.
 
+**Parameters**
 
-#### Returns: [*RenderView[]*]()
+- **node**: [_TreeNode_](/viewer/render-tree-api.md#treenode)
 
-<br>
+**Returns**: [_RenderView[]_]()
 
 #### <b>getRenderViewsForNodeId</b>
+
 ```ts
 getRenderViewsForNodeId(id: string): NodeRenderView[]
 ```
-Gets all displayable [*RenderView*]()s descending from the node with the provided *id*
 
-#### Parameters
-- **id**: Id of the node to gather [*RenderView*]()s for
+Gets all displayable [_RenderView_]()s descending from the node with the provided _id_.
 
+**Parameters**
 
-#### Returns: [*RenderView[]*]()
+- **id**: Id of the node to gather [_RenderView_]()s for
 
-<br>
+**Returns**: [_RenderView[]_]()
 
 #### <b>purge</b>
+
 ```ts
 purge(): void
 ```
-Purges the render tree
-:::warning
-Purges render trees are no longer usable
-:::
-#### Returns: void
 
+Purges the render tree.
+:::warning
+Purges render trees are no longer usable.
+:::
+
+**Returns**: void

@@ -1,71 +1,73 @@
 # AccelerationStructure
-The viewer is using [*three-mesh-bvh*](https://github.com/gkjohnson/three-mesh-bvh) as the backbone for it's BVH implementation. The AccelerationStructure class is a thin wrapper around the library's [*MeshBVH*](https://threejs.org/docs/index.html?q=box#api/en/math/Box3) class with some additional specific functionality.
 
-The speckle viewer uses a dual level BVH for optimal acceleration. The AccelerationStructure is the functional element of the *bottom-level* acceleration structure. Each individual object will have it's own BVH, encapsulated by an AccelerationStructure object
+The viewer is using [_three-mesh-bvh_](https://github.com/gkjohnson/three-mesh-bvh) as the backbone for it's BVH implementation. The AccelerationStructure class is a thin wrapper around the library's [_MeshBVH_](https://threejs.org/docs/index.html?q=box#api/en/math/Box3) class with some additional specific functionality.
+
+The speckle viewer uses a dual level BVH for optimal acceleration. The AccelerationStructure is the functional element of the _bottom-level_ acceleration structure. Each individual object will have it's own BVH, encapsulated by an AccelerationStructure object.
+
 ### <h3>Constructors</h3>
-|  	| 
-|---   
-| [constructor](/viewer/acceleration-structure-api.md#constructor)
+
+| [constructor](/viewer/acceleration-structure-api.md#constructor) |
+| ---------------------------------------------------------------- |
 
 ### <h3>Accessors</h3>
-|  	|   |
-|---    |---  
-| [bvh](/viewer/acceleration-structure-api.md#bvh) | [geometry](/viewer/acceleration-structure-api.md#geometry) 
 
-
+| [bvh](/viewer/acceleration-structure-api.md#bvh) | [geometry](/viewer/acceleration-structure-api.md#geometry) |
+| ------------------------------------------------ | ---------------------------------------------------------- |
 
 ### <h3>Methods</h3>
-|  	| 	|   |   |
-|---	|---    |---    |---
-| [buildBVH](/viewer/acceleration-structure-api.md#buildbvh) 	| [getBoundingBox](/viewer/acceleration-structure-api.md#getboundingbox) | [getVertexAtIndex](/viewer/acceleration-structure-api.md#getvertexatindex) | [raycast](/viewer/acceleration-structure-api.md#raycast)
-| [raycastFirst](/viewer/acceleration-structure-api.md#raycastfirst) 	| [shapecast](/viewer/acceleration-structure-api.md#shapecast) | [transformInput](/viewer/acceleration-structure-api.md#transforminput) | [transformOutput](/viewer/acceleration-structure-api.md#transformoutput)
+
+| [buildBVH](/viewer/acceleration-structure-api.md#buildbvh)         | [getBoundingBox](/viewer/acceleration-structure-api.md#getboundingbox) | [getVertexAtIndex](/viewer/acceleration-structure-api.md#getvertexatindex) | [raycast](/viewer/acceleration-structure-api.md#raycast)                 |
+| ------------------------------------------------------------------ | ---------------------------------------------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| [raycastFirst](/viewer/acceleration-structure-api.md#raycastfirst) | [shapecast](/viewer/acceleration-structure-api.md#shapecast)           | [transformInput](/viewer/acceleration-structure-api.md#transforminput)     | [transformOutput](/viewer/acceleration-structure-api.md#transformoutput) |
 
 ### <h3>Typedefs</h3>
-|  	| 
-|---	
-| [VectorLike](/viewer/acceleration-structure-api.md#vectorlike) 
-<br><br>
+
+| [VectorLike](/viewer/acceleration-structure-api.md#vectorlike) |
+| -------------------------------------------------------------- |
 
 ### <h3>Constructors</h3>
 
-#### <b>constructor</b>
+#### <h4>constructor</h4>
+
 ```ts
 constructor(bvh: MeshBVH)
 ```
-Populates/constructs this acceleration structure with the backing BVH
-#### Parameters
-- **bvh**: The backing BVH as a [*MeshBVH*](https://github.com/gkjohnson/three-mesh-bvh/blob/master/src/core/MeshBVH.js)
 
-<br>
-<br>
+Populates/constructs this acceleration structure with the backing BVH.
 
+**Parameters**
+
+- **bvh**: The backing BVH as a [_MeshBVH_](https://github.com/gkjohnson/three-mesh-bvh/blob/master/src/core/MeshBVH.js)
 
 ### <h3>Accessors</h3>
 
 #### <b>bvh</b>
+
 ```ts
 get bvh(): MeshBVH
 ```
-Gets the backing BVH
-#### Returns: [*MeshBVH*](https://github.com/gkjohnson/three-mesh-bvh/blob/master/src/core/MeshBVH.js)
 
-<br>
+Gets the backing BVH.
+
+**Returns**: [_MeshBVH_](https://github.com/gkjohnson/three-mesh-bvh/blob/master/src/core/MeshBVH.js)
 
 #### <b>geometry</b>
+
 ```ts
 get geometry(): BufferGeometry
 ```
-Gets the three.js geometry associated to the BVH. 
+
+Gets the three.js geometry associated to the BVH.
 :::tip
 When building a BVH, three-mesh-bvh library needs a three.js geometry as input. This is that geometry. We don't use it for rendering.
 :::
-#### Returns: [*BufferGeometry*](https://threejs.org/docs/index.html?q=buffer#api/en/core/BufferGeometry)
 
-<br>
-<br>
+**Returns**: [_BufferGeometry_](https://threejs.org/docs/index.html?q=buffer#api/en/core/BufferGeometry)
 
 ### <h3>Methods</h3>
+
 #### <b>buildBVH</b>
+
 ```ts
 static buildBVH(
     indices: number[],
@@ -74,76 +76,84 @@ static buildBVH(
     transform?: Matrix4
 ): MeshBVH
 ```
+
 Build a BVH using the provided geometry data.
-#### Parameters
+
+**Parameters**
+
 - **indices**: Geometry indices
 - **position**: Geometry vertex positions
-- **options**: [*BVHOptions*]()
-- *optional* **transform**: A [*Matrix4*](https://threejs.org/docs/index.html?q=matri#api/en/math/Matrix4) that transforms the geometry data before building the BVH
+- **options**: [_BVHOptions_]()
+- _optional_ **transform**: A [_Matrix4_](https://threejs.org/docs/index.html?q=matri#api/en/math/Matrix4) that transforms the geometry data before building the BVH
 
-
-#### Returns: [*MeshBVH*](https://github.com/gkjohnson/three-mesh-bvh/blob/master/src/core/MeshBVH.js)
-
-<br>
+**Returns**: [_MeshBVH_](https://github.com/gkjohnson/three-mesh-bvh/blob/master/src/core/MeshBVH.js)
 
 #### <b>getBoundingBox</b>
+
 ```ts
 getBoundingBox(target?: Box3): Box3
 ```
-Gets the aabb of the entire BVH
-#### Parameters
-- *optional* **target**: [*Box3*](https://threejs.org/docs/index.html?q=box3#api/en/math/Box3)
 
-#### Returns: [*Box3*](https://threejs.org/docs/index.html?q=box3#api/en/math/Box3)
+Gets the aabb of the entire BVH.
 
-<br>
+**Parameters**
+
+- _optional_ **target**: [_Box3_](https://threejs.org/docs/index.html?q=box3#api/en/math/Box3)
+
+**Returns**: [_Box3_](https://threejs.org/docs/index.html?q=box3#api/en/math/Box3)
 
 #### <b>getVertexAtIndex</b>
+
 ```ts
 getVertexAtIndex(index: number): Vector3
 ```
-Gets position value of a vertex at the given index inside the BVH vertex position array
-#### Parameters
+
+Gets position value of a vertex at the given index inside the BVH vertex position array.
+
+**Parameters**
+
 - **index**: number
 
-#### Returns: [*Vector3*](https://threejs.org/docs/index.html?q=vec#api/en/math/Vector3)
-
-
-<br>
+**Returns**: [_Vector3_](https://threejs.org/docs/index.html?q=vec#api/en/math/Vector3)
 
 #### <b>raycast</b>
+
 ```ts
 raycast(
     ray: Ray,
     materialOrSide: Side | Material | Material[] = FrontSide
 ): Intersection<Object3D<Event>>[]
 ```
+
 Wrapper over three-mesh-bvh raycast function. Keeps original behavior,but makes sure input and output spaces are correct.
-#### Parameters
-- **ray**: [*Ray*](https://threejs.org/docs/index.html?q=ray#api/en/math/Ray) to intersect with
-- **materialOrSide**: [*Side*](https://threejs.org/docs/index.html?q=Materia#api/en/constants/Materials) | [*Material*](https://threejs.org/docs/index.html?q=Materia#api/en/materials/Material) | [*Material[]*](https://threejs.org/docs/index.html?q=Materia#api/en/materials/Material)
 
-#### Returns: [*Intersection*](https://threejs.org/docs/index.html?q=rayc#api/en/core/Raycaster.intersectObject)
+**Parameters**
 
-<br>
+- **ray**: [_Ray_](https://threejs.org/docs/index.html?q=ray#api/en/math/Ray) to intersect with
+- **materialOrSide**: [_Side_](https://threejs.org/docs/index.html?q=Materia#api/en/constants/Materials) | [_Material_](https://threejs.org/docs/index.html?q=Materia#api/en/materials/Material) | [_Material[]_](https://threejs.org/docs/index.html?q=Materia#api/en/materials/Material)
+
+**Returns**: [_Intersection_](https://threejs.org/docs/index.html?q=rayc#api/en/core/Raycaster.intersectObject)
 
 #### <b>raycastFirst</b>
+
 ```ts
 raycastFirst(
     ray: Ray,
     materialOrSide: Side | Material | Material[] = FrontSide
 ): Intersection<Object3D<Event>>[]
 ```
-Identical to `raycast` but stops at first intersection found
-#### Parameters
-- **ray**: [*Ray*](https://threejs.org/docs/index.html?q=ray#api/en/math/Ray) to intersect with
-- **materialOrSide**: [*Side*](https://threejs.org/docs/index.html?q=Materia#api/en/constants/Materials) | [*Material*](https://threejs.org/docs/index.html?q=Materia#api/en/materials/Material) | [*Material[]*](https://threejs.org/docs/index.html?q=Materia#api/en/materials/Material)
 
-#### Returns: [*Intersection*](https://threejs.org/docs/index.html?q=rayc#api/en/core/Raycaster.intersectObject)
+Identical to `raycast` but stops at first intersection found.
 
-<br>
+**Parameters**
+
+- **ray**: [_Ray_](https://threejs.org/docs/index.html?q=ray#api/en/math/Ray) to intersect with
+- **materialOrSide**: [_Side_](https://threejs.org/docs/index.html?q=Materia#api/en/constants/Materials) | [_Material_](https://threejs.org/docs/index.html?q=Materia#api/en/materials/Material) | [_Material[]_](https://threejs.org/docs/index.html?q=Materia#api/en/materials/Material)
+
+**Returns**: [_Intersection_](https://threejs.org/docs/index.html?q=rayc#api/en/core/Raycaster.intersectObject)
 
 #### <b>shapecast</b>
+
 ```ts
 shapecast(
     callbacks: {
@@ -178,59 +188,57 @@ shapecast(
     )
   ): boolean
 ```
-Generic mechanism to intersect the BVH with various shapes/objects. The callbacks provide granular access to several stages of the BVH intersection process
-#### Parameters
-- **callbacks**: More details [*here*](https://github.com/gkjohnson/three-mesh-bvh/tree/master?tab=readme-ov-file#shapecast)
 
-#### Returns: boolean
+Generic mechanism to intersect the BVH with various shapes/objects. The callbacks provide granular access to several stages of the BVH intersection process.
 
-<br>
+**Parameters**
+
+- **callbacks**: More details [_here_](https://github.com/gkjohnson/three-mesh-bvh/tree/master?tab=readme-ov-file#shapecast)
+
+**Returns**: boolean
 
 #### <b>transformInput</b>
+
 ```ts
 transformInput<T extends Vector3 | Ray | Box3>(input: T): T
 ```
-Transform input vector, ray or box from world space into the acceleration structure's space
-:::warning
-All the AccelerationStructure methods that deal with querying the BVH: [getBoundingBox](/viewer/acceleration-structure-api.md#getboundingbox), [getVertexAtIndex](/viewer/acceleration-structure-api.md#getvertexatindex), [raycast](/viewer/acceleration-structure-api.md#raycast), [raycastFirst](/viewer/acceleration-structure-api.md#raycastfirst), [shapecast](/viewer/acceleration-structure-api.md#shapecast) already call this function implicitly
-:::
-#### Parameters
-- **input**: [*Vector3*](https://threejs.org/docs/index.html?q=vec#api/en/math/Vector3) | [*Ray*](https://threejs.org/docs/index.html?q=ray#api/en/math/Ray) | [*Box3*](https://threejs.org/docs/index.html?q=box#api/en/math/Box3)
 
-#### Returns: [*Vector3*](https://threejs.org/docs/index.html?q=vec#api/en/math/Vector3) | [*Ray*](https://threejs.org/docs/index.html?q=ray#api/en/math/Ray) | [*Box3*](https://threejs.org/docs/index.html?q=box#api/en/math/Box3)
+Transform input vector, ray or box from world space into the acceleration structure's space.
+:::warning
+All the AccelerationStructure methods that deal with querying the BVH: [getBoundingBox](/viewer/acceleration-structure-api.md#getboundingbox), [getVertexAtIndex](/viewer/acceleration-structure-api.md#getvertexatindex), [raycast](/viewer/acceleration-structure-api.md#raycast), [raycastFirst](/viewer/acceleration-structure-api.md#raycastfirst), [shapecast](/viewer/acceleration-structure-api.md#shapecast) already call this function implicitly.
+:::
+
+**Parameters**
+
+- **input**: [_Vector3_](https://threejs.org/docs/index.html?q=vec#api/en/math/Vector3) | [_Ray_](https://threejs.org/docs/index.html?q=ray#api/en/math/Ray) | [_Box3_](https://threejs.org/docs/index.html?q=box#api/en/math/Box3)
+
+**Returns**: [_Vector3_](https://threejs.org/docs/index.html?q=vec#api/en/math/Vector3) | [_Ray_](https://threejs.org/docs/index.html?q=ray#api/en/math/Ray) | [_Box3_](https://threejs.org/docs/index.html?q=box#api/en/math/Box3)
 
 <br>
 
 #### <b>transformOutput</b>
+
 ```ts
 transformOutput<T extends Vector3 | Ray | Box3>(output: T): T
 ```
-Transform input vector, ray or box from the acceleration structure's space into world space
-#### Parameters
-- **input**: [*Vector3*](https://threejs.org/docs/index.html?q=vec#api/en/math/Vector3) | [*Ray*](https://threejs.org/docs/index.html?q=ray#api/en/math/Ray) | [*Box3*](https://threejs.org/docs/index.html?q=box#api/en/math/Box3)
-:::warning
-All the AccelerationStructure methods that deal with querying the BVH: [getBoundingBox](/viewer/acceleration-structure-api.md#getboundingbox), [getVertexAtIndex](/viewer/acceleration-structure-api.md#getvertexatindex), [raycast](/viewer/acceleration-structure-api.md#raycast), [raycastFirst](/viewer/acceleration-structure-api.md#raycastfirst), [shapecast](/viewer/acceleration-structure-api.md#shapecast) already call this function implicitly
-:::
-#### Returns: [*Vector3*](https://threejs.org/docs/index.html?q=vec#api/en/math/Vector3) | [*Ray*](https://threejs.org/docs/index.html?q=ray#api/en/math/Ray) | [*Box3*](https://threejs.org/docs/index.html?q=box#api/en/math/Box3)
 
+Transform input vector, ray or box from the acceleration structure's space into world space.
 
+**Parameters**
 
-<br>
-<br>
+- **input**: [_Vector3_](https://threejs.org/docs/index.html?q=vec#api/en/math/Vector3) | [_Ray_](https://threejs.org/docs/index.html?q=ray#api/en/math/Ray) | [_Box3_](https://threejs.org/docs/index.html?q=box#api/en/math/Box3)
+  :::warning
+  All the AccelerationStructure methods that deal with querying the BVH: [getBoundingBox](/viewer/acceleration-structure-api.md#getboundingbox), [getVertexAtIndex](/viewer/acceleration-structure-api.md#getvertexatindex), [raycast](/viewer/acceleration-structure-api.md#raycast), [raycastFirst](/viewer/acceleration-structure-api.md#raycastfirst), [shapecast](/viewer/acceleration-structure-api.md#shapecast) already call this function implicitly.
+  :::
+
+**Returns**: [_Vector3_](https://threejs.org/docs/index.html?q=vec#api/en/math/Vector3) | [_Ray_](https://threejs.org/docs/index.html?q=ray#api/en/math/Ray) | [_Box3_](https://threejs.org/docs/index.html?q=box#api/en/math/Box3)
 
 ### <h3>Typedefs</h3>
-
-<br>
 
 #### <b>VectorLike</b>
 
 ```ts
-type VectorLike = { x: number; y: number; z?: number; w?: number }
+type VectorLike = { x: number; y: number; z?: number; w?: number };
 ```
-Archtype for Vector2, Vector3 and Vector4
 
-
-
-
-
-
+Archtype for Vector2, Vector3 and Vector4.
