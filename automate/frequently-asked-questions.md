@@ -5,7 +5,7 @@
 1. Simply create an account on [latest.speckle.systems](http://latest.speckle.systems), if you don’t have one already.
 1. Join our [beta testing group](https://forms.gle/15NHa9h8sYvUHG2e6).
 1. Wait patiently!
-1. Once you receive an early access invitation, you can log in to Automate at [automate.speckle.dev](http://automate.speckle.dev) using a [latest.speckle.systems](http://latest.speckle.systems) account (latest.speckle.systems is our beta platform, separate from speckle.xyz).
+1. Once you receive an early access invitation, you can log in to Automate at [automate.speckle.dev](http://automate.speckle.dev) using a [latest.speckle.systems](http://latest.speckle.systems) account (latest.speckle.systems is our beta platform, separate from app.speckle.systems).
 1. Check out [our guide](https://speckle.guide/automate/) for more information on how to get started!
 
 ## How much does it cost? Is Automate included in my subscription?

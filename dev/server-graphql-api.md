@@ -13,13 +13,13 @@ Any queries and mutations that you execute through the explorer will use the act
 
 :::
 
-Simply head to `CANONICAL_URL/explorer` or to [https://speckle.xyz/explorer](https://speckle.xyz/explorer), and on the right panel you'll be able to see the API docs and schemas. After logging in you'll also be able to execute queries and mutations as the logged in user.
+Simply head to `CANONICAL_URL/explorer` or to [https://app.speckle.systems/explorer](https://app.speckle.systems/explorer), and on the right panel you'll be able to see the API docs and schemas. After logging in you'll also be able to execute queries and mutations as the logged in user.
 
 ![graphql-explorer](../dev/img/graphql-explorer.png)
 
 ### Classic GraphQL Explorer
 
-Alternatively, the classic GraphQL explorer is also available at `CANONICAL_URL/graphql` or [https://speckle.xyz/graphql](https://speckle.xyz/graphql).
+Alternatively, the classic GraphQL explorer is also available at `CANONICAL_URL/graphql` or [https://app.speckle.systems/graphql](https://app.speckle.systems/graphql).
 
 ![graphql-explorer](../dev/img/graphql-explorer-2.png)
 
