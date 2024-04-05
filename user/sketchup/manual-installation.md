@@ -6,7 +6,7 @@ title: Manual Installation
 
 If you'd like to try installing on a different platform or for a different version, you can do a manual installation. Note that the connector has not been tested on older versions or on different platforms. There may be issues, so feel free to report them on the forum.
 
-## 1. Clone the repository
+## 1. Clone the Repository
 
 First, ensure you have [git](https://git-scm.com) installed.
 

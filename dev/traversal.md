@@ -5,7 +5,7 @@ Before understanding traversal, it's crucial to recognize the challenges posed b
 The most basic way to consume Speckle objects is simply **[by flattening the Speckle data](/dev/FilteringData.html)**, and consuming objects one by one.
 For many use cases, this is all that is required, but often it is necessary to consume Speckle objects **while capturing the hierarchical context of objects**.
 
-**In Connectors**, this means traversing received Speckle data **to find convertible objects and their children**.
+**In connectors**, this means traversing received Speckle data **to find convertible objects and their children**.
 In these cases, we are converting more than just objects one by one, but also **preserving the hierarchical tree** of parent/child relationships.
 
 ::: tip So, What is Traversal?
@@ -14,11 +14,11 @@ In practical terms, Traversal is **how we navigate Speckle data** and the relati
 To be concise, traversal aims to transform the [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) topology (*Think of it as a one-way network of objects; no loops allowed*) of a Speckle data **into a pure [tree](https://en.wikipedia.org/wiki/Tree_(graph_theory)) topology** (*a branching hierarchy*). 
 :::
 
-The structure of a Speckle data (e.g. from a Commit/Version) differs depending on the data sent and from which Connector.
-While it is possible to write code that manually traverses a specific Commit, by **hardcoding assumptions** its structure, it is often desirable to **write code that can consume any Speckle data, sent from any Connector**.
-For this, it is necessary to understand the common **rules for how the Connectors structure data**, and how this data can be traversed.
+The structure of a Speckle data (e.g. from a version) differs depending on the data sent and from which connector.
+While it is possible to write code that manually traverses a specific version, by **hardcoding assumptions** its structure, it is often desirable to **write code that can consume any Speckle data, sent from any connector**.
+For this, it is necessary to understand the common **rules for how the connectors structure data**, and how this data can be traversed.
 
-This concept is most useful in Connectors when receiving and converting data,
+This concept is most useful in connectors when receiving and converting data,
 but the concept of traversal applies for any use case with the need to preserve and transform the structure of data.
 
 Simply iterating through all Speckle objects and consuming them individually is insufficient. Many types of **objects contain several representations** and reference geometry objects that are part of their definition (rather than separate displayable objects). 
@@ -50,26 +50,26 @@ For these objects, it is necessary to be **selective about which properties shou
 
 ![A wall is a convertible object; the `baseLine` and `displayValue` representations should be ignored from being traversed.](../dev/img/core/selective-traversal.png)
 
-Within the Speckle Connectors, **A `Wall` object is considered a convertible object**; the `baseLine` and `displayValue` representations **should be ignored** from being traversed.
+Within the Speckle connectors, **A `Wall` object is considered a convertible object**; the `baseLine` and `displayValue` representations **should be ignored** from being traversed.
 
-This is where traversal functions come into play. These functions **encode the “rules” for which properties should be traversed**. And provides a convenient way to traverse Speckle data without making Connector-specific assumptions about its structure.
+This is where traversal functions come into play. These functions **encode the “rules” for which properties should be traversed**. And provides a convenient way to traverse Speckle data without making connector-specific assumptions about its structure.
 
-The **Default Traversal Function** provides a de jure method of traversing Speckle objects, designed around a Speckle Converter. This function is used by most of our Connectors (with slight deviation) when receiving Speckle objects.
+The **Default Traversal Function** provides a de jure method of traversing Speckle objects, designed around a Speckle converter. This function is used by most of our connectors (with slight deviation) when receiving Speckle objects.
 
-In general, a Connector considers an object to be either:
+In general, a connector considers an object to be either:
 
 - Convertible directly through a `ToNative` function
 - Convertible using displayValue (through a fall-back display value)
 - Convertible indirectly (through another conversion, as is the case for, say, `RenderMaterial`)
 - Not convertible at all
 
-Different Connectors will have **different definitions of a “convertible” object**. There is no definitive list of “convertible” Speckle types. Connector-specific flexibility allows for **targeted interop** workflows and allows for the **intricacies of each host application**.
+Different connectors will have **different definitions of a “convertible” object**. There is no definitive list of “convertible” Speckle types. Connector-specific flexibility allows for **targeted interop** workflows and allows for the **intricacies of each host application**.
 
 As part of the default traversal rules, we selectively traverse the properties of “convertible” objects. Only traversing `"elements"` (and its alias `"@elements"`).
 
 All other non-”convertible” objects will be traversed blindly (i.e. they have all properties traversed).
 
-Collections are a special case, As we handle them slightly differently depending on the Connector. Some Connectors (on receive) ignore all collection structures and convert objects the best way the native application allows. Others will use them to construct Layers, Tags, Collections, Groups etc. 
+Collections are a special case, As we handle them slightly differently depending on the connector. Some connectors (on receive) ignore all collection structures and convert objects the best way the native application allows. Others will use them to construct Layers, Tags, Collections, Groups etc. 
 
 Be careful when dynamically attaching data to `Collection` objects to avoid inconsistent behaviour. We would advise keeping `"elements"` as the only traversed property. This is something we may consider enforcing in a future version of Core. This doesn’t mean you can’t use dynamic properties on collections, but it does avoid dynamically attaching geometry.
 
@@ -184,13 +184,13 @@ Inside the `DefaultTraversal` class, you will find another traversal function re
   }
 ```
 
-### What if I don’t use a converter?
+### What if I Don’t Use a Converter?
 
-These functions were designed for Speckle Connectors, which by design, do not reference the `Objects` assembly.
+These functions were designed for Speckle connectors, which by design, do not reference the `Objects` assembly.
 Because of this, the functions are unaware of the specific object models designed to be convertible.
-Thus we use the `ISpeckleConverter` interface to avoid coupling of Converter and Connector code projects.
+Thus we use the `ISpeckleConverter` interface to avoid coupling of converter and connector code projects.
 
-However, other use cases may require consuming Speckle data outside of a Connector/converter’s software architecture.
+However, other use cases may require consuming Speckle data outside of a connector/converter’s software architecture.
 Fear not! the traversal functions are flexible in achieving desirable behaviour.
 Adapting the `CreateTraverseFunction` function or engineering custom rules to achieve the desired result is possible.
 
@@ -198,7 +198,7 @@ As a quick workaround, you could substitute the `converter.CanConvertToNative` f
 This should handle raw geometry, and the `HasDisplayValue` predicate should handle all other types of convertible geometry.
 This should give you similar results to our converter’s, though there may be some edge cases where this behaves differently.
 
-### What if I want custom traversal behaviour?
+### What if I Want Custom Traversal Behaviour?
 
 The `TraverseRule` builder can be used to create **custom rules** and custom traversal behaviour.
 A rule is formed by specifying a number of predicate functions and a selection function to select which property name should be traversed when the rule evaluates true.
@@ -212,14 +212,14 @@ var myCustomRule = TraversalRule.NewTraversalRule()
         .ContinueTraversing(memberSelectionFunction);
 ```
 
-### What if I want to capture custom context?
+### What if I Want to Capture Custom Context?
 
 The `TraversalContext` and `GraphTraversal` classes are designed to be subclassable.
 This allows developers to capture additional context such as inherited data e.g. transformation matrices, display styles, render materials, etc.
 
-### What about SpecklePy?
+### What About SpecklePy?
 
-The same Traversal rules are coming to SpecklePy very soon. They are already being used in the Blender Connector. The `GraphTraversal` and `ITraversalRule` interface works exactly the same as in Sharp. However, instead of the builder pattern, the constructor args accept `Callable` functions (e.g., regular or lambda expressions).
+The same Traversal rules are coming to SpecklePy very soon. They are already being used in the Blender connector. The `GraphTraversal` and `ITraversalRule` interface works exactly the same as in Sharp. However, instead of the builder pattern, the constructor args accept `Callable` functions (e.g., regular or lambda expressions).
 
 ```python
 def get_default_traversal_func(can_convert_to_native: Callable[[Base], bool]) -> GraphTraversal:
@@ -240,6 +240,6 @@ def get_default_traversal_func(can_convert_to_native: Callable[[Base], bool]) ->
     return GraphTraversal([convertible_rule, default_rule])
 ```
 
-### What about JS?
+### What About Javascript/Typescrip?
 
-As of now, there's **no immediate pla**n to bring this traversal feature to JS/TS. However, we're keen on enhancing Speckle data consumption in JS/TS in the future. If you're interested in this functionality, your feedback can influence our development priorities. Stay connected through our [forum](https://speckle.community) for updates and to share your thoughts.
+As of now, there's **no immediate plan** to bring this traversal feature to JS/TS. However, we're keen on enhancing Speckle data consumption in JS/TS in the future. If you're interested in this functionality, your feedback can influence our development priorities. Stay connected through our [forum](https://speckle.community) for updates and to share your thoughts.

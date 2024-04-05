@@ -6,16 +6,16 @@ title: Basic Usage
 
 The 3D Viewer Visual was designed to work alongside our **Power BI Connector.** The *data connector* will output a table containing the following columns:
 
-- **Stream URL 👈**
+- **Model URL 👈**
 - **URL Type**
-- **Commit Object ID🆕 👈**
+- **Version Object ID🆕 👈**
 - **Object ID 👈**
 - **speckle_type**
 - **data**
 
 ![Visual Columns.png](./img-powerbi-visual/9-visual-columns.png)
 
-**Stream URL**, **Commit Object ID,** and **Object ID** are used to visualize your Speckle data in 3D.
+**Model URL**, **Version Object ID,** and **Object ID** are used to visualize your Speckle data in 3D.
 
 ## Viewing Objects in 3D
 
@@ -23,8 +23,8 @@ The 3D Viewer Visual was designed to work alongside our **Power BI Connector.**
 
 With the Speckle 3D Viewer Visual added, you can now configure the input fields to display your Speckle data.
 
-1. Drag the "**Stream URL**" column from your data into the "`Stream URL`" input field.
-2. Drag the "**Commit Object ID**" column from your data into the "`Commit Object ID`" input field.
+1. Drag the "**Model URL**" column from your data into the "`Model URL`" input field.
+2. Drag the "**Version Object ID**" column from your data into the "`Version Object ID`" input field.
 3. Drag the "**Object ID**" column from your data into the "`Object ID`" input field.
 
 Once all inputs are added, 3D Viewer Visual will load the objects into the scene.
@@ -36,7 +36,7 @@ There are two extra optional fields:
 
 :::tip 📌IMPORTANT
 
-The `Stream URL`, `Commit Object ID`, and `Object ID` columns will exist on the resulting query when using the `Get by URL` function.
+The `Model URL`, `Version Object ID`, and `Object ID` columns will exist on the resulting query when using the `Get by URL` function.
 
 If you're using the new (experimental) `Get by URL [Structured]` function, you must generate these columns in your final query table. The information is attached to the table as a `META` that can be queried in your Query Editor.
 :::

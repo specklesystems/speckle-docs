@@ -1,6 +1,6 @@
 # Introduction
 
-Our Desktop Connectors are plugins for some of the most popular AEC software, including:
+Our desktop connectors are plugins for some of the most popular AEC software, including:
 
 - [Autodesk Revit](/user/revit)
 - [Dynamo](/user/dynamo)
@@ -28,7 +28,7 @@ Our Desktop Connectors are plugins for some of the most popular AEC software, in
 
 ...with more on the way soon!
 
-These Connectors take care of sending and receiving data to your Speckle server, in the form of streams (no need for files or file types!)
+These connectors take care of sending and receiving data to your Speckle server, in the form of projects (no need for files or file types!)
 
 ::: tip 💡 TIP
 
@@ -49,13 +49,13 @@ Every time we make a new release of a connector, with bug fixes and new features
 - the MINOR number is increased with any "substantial" new release, currently we try to ship one every month
 - the PATCH number is increased when we need to release hotfixes to any of our connectors, might happen zero or multiple times during a month
 
-If you are working with multiple Speckle Connectors please ensure their MAJOR and MINOR version is always aligned (for instance Grasshopper Connector v 2.5.0 and Revit Connector at 2.5.2).** This is even more important when having Rhino and Grasshopper or Revit and Dynamo Connectors installed at the same time.**
+If you are working with multiple Speckle connectors please ensure their MAJOR and MINOR version is always aligned (for instance Grasshopper Connector v 2.5.0 and Revit Connector at 2.5.2). **This is even more important when having Rhino and Grasshopper or Revit and Dynamo connectors installed at the same time.**
 
 We might from time to time also make pre-releases of our connectors (see Using [Pre-releases](/user/manager.html#using-beta-versions-of-our-connectors)), these will have a `-something` appended to their names such as `2.5.0-alpha`, `2.7.3-rc1`. these are not fully tested and should be installed at your own risk 😱.
 
 ::: tip 👮‍♂️ Manager Versions
 
-Note: the version of Speckle Manager is unrelated to the versions of the Connectors. Nevertheless, it's always a good idea to keep Manager updated to the latest stable version.
+Note: the version of Speckle Manager is unrelated to the versions of the connectors. Nevertheless, it's always a good idea to keep Manager updated to the latest stable version.
 
 :::
 
@@ -63,7 +63,7 @@ Note: the version of Speckle Manager is unrelated to the versions of the Connect
 
 Having issues with one of our connectors? Please follow the steps below to help us assist you:
 - Post a detailed description of the issue on our [Community Forum](https://speckle.community/c/help/8). Make sure to provide as much information as possible and to attach any source files that could help us replicate it 
-- Share with us any logs relevant to the Connector, you can find them in: `%appdata%/Speckle/Logs` (just copy paste that address in your windows explorer)
+- Share with us any logs relevant to the connector, you can find them in: `%appdata%/Speckle/Logs` (just copy paste that address in your windows explorer)
 
 ## Units
 

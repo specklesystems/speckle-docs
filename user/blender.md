@@ -16,7 +16,7 @@ For a quick overview, check out this short video on how to get started sending a
 
 Before using this connector, you'll need to follow our standard setup instructions to [**install Speckle Manager** and **add a Speckle account**](/user/manager).
 
-Once the Blender connector has been **installed through Manager**, you will find it under the **"Add-ons" tab of your Preferences menu**, under the "Scene" category. Activate it by checking the tick box next to the Add-on name.
+Once the Blender Connector has been **installed through Manager**, you will find it under the **"Add-ons" tab of your Preferences menu**, under the "Scene" category. Activate it by checking the tick box next to the Add-on name.
 
 ![activating the Blender Connector](./img-blender/enable-addon.png)
 
@@ -24,7 +24,7 @@ Once Enabled, a restart of blender may be required.
 
 > Feel free to reachout to us on the [forums](https://speckle.community/) if you're having any difficulties.
 
-### Manual Installation 
+### Manual Installation
 
 Installation through Speckle Manager is recommended  for most users,
 however, for users looking to install the blender connector on **unsupported platforms or Blender versions**,
@@ -38,32 +38,29 @@ However, you will still need to add your accounts, either through [Speckle Manag
     <img src="./img-blender/manual-installer.png" width="33.33%" alt="Screenshot of speckle-blender releases tab, showing manual installer highlighted in the drop-down menu"/>
 </center>
 
-2. Open Blender, and **navigate to the Add-ons menu**, under `Edit -> Preferences`
-3. Press the `Install` button in the top right, and select the downloaded zip.
-4. Once enabled, a restart of blender may be required.
-
-
+1. Open Blender, and **navigate to the Add-ons menu**, under `Edit -> Preferences`
+2. Press the `Install` button in the top right, and select the downloaded zip.
+3. Once enabled, a restart of blender may be required.
 
 ## User Interface
 
 The Blender Connector lives in the 3D viewport toolbar (N) under the Speckle tab. It contains three main panels:
 
 - **User Panel** for switching between different local accounts.
-- **Streams Panel** for browsing your existing streams, creating new streams, or deleting old streams.
-- **Active Stream Panel** for sending and receiving data to and from Speckle.
+- **Projects Panel** for browsing your existing projects, creating new projects, or deleting old projects.
+- **Active Project Panel** for sending and receiving data to and from Speckle.
 
 ![panels overview](./img-blender/sidebar-menu.png)
 
-The **Streams Panel** shows a list of your most recent streams, which you can search through by name. You can add new streams with the "+" button, delete streams with the "-" button, and refresh the streams with the refresh button.
+The **Projects Panel** shows a list of your most recent projects, which you can search through by name. You can add new projects with the "+" button, delete projects with the "-" button, and refresh the projects with the refresh button.
 
 ![add by url](./img-blender/add-by-url.png)
 
-From version 2.1.9, you can also add existing streams by their URL. You can use the URL to a stream, a specific branch, or a specific commit. Simply paste it into the popup and the correct account, stream, branch, and commit will get selected for you.
+From version 2.1.9, you can also add existing projects by their URL. You can use the URL to a project, a specific model, or a specific version. Simply paste it into the popup and the correct account, project, model, and version will get selected for you.
 
-The **Active Stream Panel** will show more details about the stream you've selected in the Streams Panel. From here, you can change the active branch and commit. You can also Send and Receive any items you have selected in Blender. Under the Send and Receive buttons, you can use the dropdown menus to select a script to run on all elements during the send / receive process.
+The **Active Project Panel** will show more details about the project you've selected in the Projects Panel. From here, you can change the active model and version. You can also Send and Receive any items you have selected in Blender. Under the Send and Receive buttons, you can use the dropdown menus to select a script to run on all elements during the send / receive process.
 
-At the very bottom of the panel (not pictured), you'll find a button that will open the stream in the [Speckle Web App](/user/web).
-
+At the very bottom of the panel (not pictured), you'll find a button that will open the project in the [Speckle Web App](/user/web).
 
 ## Clean Meshes
 
@@ -79,11 +76,11 @@ Clean Mesh option can be accessed from the dialog that pops up after clicking th
 
 - [Blender Support Tables](/user/support-tables.html#blender)
 
-## Blender BIM
+## BlenderBIM
 
-There is currently some limited support for [BlenderBIM](https://blenderbim.org/), though this is intended as an export and does not work coming back. To take advantage of this, simply open an IFC using BlenderBIM then use the Speckle Connector to send to Speckle.
+There is currently some limited support for [BlenderBIM](https://blenderbim.org/), though this is intended as an export and does not work coming back. To take advantage of this, simply open an IFC using BlenderBIM then use the Speckle connector to send to Speckle.
 
-<iframe src="https://speckle.xyz/embed?stream=c51120a7f7&commit=767b7288ee" width=600 height=400 />
+<iframe title="Speckle" src="https://app.speckle.systems/projects/c51120a7f7/models/d57e0b6bc8@767b7288ee#embed=%7B%22isEnabled%22%3Atrue%7D" width="600" height="400" frameborder="0"></iframe>
 
 There are a few things to keep in mind when sending an IFC to Speckle using BlenderBIM:
 
@@ -94,68 +91,6 @@ There are a few things to keep in mind when sending an IFC to Speckle using Blen
 - Properties: Custom properties added within Blender are always added to a `properties` field on respective objects. For BlenderBIM objects, this includes the `ifc_definition_id`.
   - Additional IFC properties that aren't stored in Blender are currently not extracted from the IFC and attached. This may be explored as an enhancement in the future.
 - Type: Objects are all sent as meshes and collections are sent as `Base` objects. None of the objects are currently being converted and sent as BIM objects.
-
-<!-- TODO: feature under development
-## Injecting Python Functions to receive/send operations
-
-It is possible to inject your own python functions to the send/receive process.
-
-This allows for customisation of how objects are sent/receiveed. For example
-- Applying blender mesh operations to received geometry,
-- Assigning custom properties to objects,
-- Custom behaviours triggered after receive/before send.
-
-
-
-### Receive Scripts
-1. From the `Scripting` workspace, create a new python file.
-
-2. Implement either `execute_for_each` or `execute_for_all` function.
-
-```py
-def execute_for_each(context, blenderObject, speckleObject):
-    '''
-    Executed once per object, immediately after each object is converted
-    
-    :param context: blender context
-    :type context: bpy.types.Context
-    :param blenderObject: converted blender object
-    :type blenderObject: bpy.types.Object
-    :param speckleObject: The speckle object which was converted
-    :type speckleObject: specklepy.objects.Base
-    :rtype: Optional[bpy.types.Object]
-    :return: The blender object to be added to the scene
-    '''
-    # Can modify the blenderObject here
-    # E.g. Attaching extra properties (using the speckleObject) 
-    # E.g. Conditionaly ignoring certain objects (return None)
-    # E.g. Performing other modifications/custom conversion logic
-    
-    # Must return the object for it to be added to the scene
-    return blenderObject
-    
-    
-def execute_for_all(context, objects):
-    '''
-    Executed once per receive operation, immediately after all objects have been converted
-    
-    :param context: blender context
-    :type context: bpy.types.Context
-    :param objects: dictionary of object name to object
-    :type objects: dict[str, bpy.types.Object]
-    '''
-    # For example, You can use this to perform bpy.ops on all received meshes
-    # Or any custom behaviour you want with the given parameters
-
-```
-
-### Send Scripts
-
-Send scripts are slightly less featured than receive scripts.
-They are mostly useful for filtering which objects to send, although any 
-
-
--->
 
 ## Developing/Debugging Locally
 

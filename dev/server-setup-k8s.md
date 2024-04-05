@@ -24,7 +24,7 @@ If you need help deploying a production server, [we can help](https://speckle.sy
 - [Optional] An authentication service of your choice (to allow the server to authenticate users), otherwise username & password authentication will be used.
 - [Optional] The [DigitalOcean CLI client](https://docs.digitalocean.com/reference/doctl/how-to/install/) installed.
 
-## Step 1: Create the kubernetes cluster
+## Step 1: Create the Kubernetes Cluster
 
 - Go to your DigitalOcean dashboard and [create a new Kubernetes cluster](https://cloud.digitalocean.com/kubernetes/clusters/new).  We provided the cluster a name, but otherwise left configuration as per DigitalOcean's recommended defaults. When prompted to select the node count and size, we selected four nodes. Each node has the default 2 vcpu and 4Gb (`s-2vcpu-4gb`).  While this is a minimum, your usage may vary and we recommend testing under your typical loads and adjusting by deploying new nodes or larger sized machines in new node-pools.
   ![image](./img/k8s/01_select_node_size.png)
@@ -50,11 +50,11 @@ If you need help deploying a production server, [we can help](https://speckle.sy
  - You should see something like the following:
   ![image](./img/k8s/05_kubectl_get_nodes.png)
 
-## Step 2 (optional): Deploy dependent external services
+## Step 2 (Optional): Deploy Dependent External Services
 
 If you already have Redis, Postgres, and Blob storage available, you can skip this step.  You will need the connection details for these services when configuring your deployment in [step 4](#step-4-configure-your-deployment).
 
-### Step 2.a (optional): Configure Redis
+### Step 2.a (Optional): Configure Redis
 
 Speckle requires a Redis database to function. You can provide your own if you have an existing database. Otherwise, follow the following steps to create a new Redis database in DigitalOcean.
 
@@ -67,7 +67,8 @@ Speckle requires a Redis database to function. You can provide your own if you h
 
 - In the Overview tab for your Redis database. Select `connection string` from the dropdown, and copy the displayed Connection String. You will require this when configuring your deployment in [step 4](#step-4-configure-your-deployment).
   ![image](./img/k8s/08_redis_connection_string.png)
-### Step 2.b (optional): Configure Postgres
+
+### Step 2.b (Optional): Configure Postgres
 
 Speckle requires a Postgres database to function. You can provide your own if you have an existing database. Otherwise, follow the following steps to create a new Postgres database in DigitalOcean.
 
@@ -81,7 +82,8 @@ Speckle requires a Postgres database to function. You can provide your own if yo
 
 - In the Overview tab for your Redis database. Select `connection string` from the dropdown, and copy the displayed Connection String. You will require this for when configuring your deployment in [step 4](#step-4-configure-your-deployment).
   ![image](./img/k8s/11_postgres_connection_string.png)
-### Step 2.c (optional): Configure blob storage (DigitalOcean spaces)
+
+### Step 2.c (Optional): Configure Blob Storage (DigitalOcean Spaces)
 Speckle requires blob storage to save files and other similar data.   You can provide your own if you have an existing blob storage which is compatible with the [Amazon S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html). Otherwise follow the following steps to create a new S3-compatible blob storage on DigitalOcean.
 
 - Navigate to the [Create a Space page](https://cloud.digitalocean.com/spaces/new).  Please select a region of your choice, we recommend the same region as you have deployed the cluster.  We did not enable the CDN and we restricted the file listing for security purposes.  Please provide a name for your Space, this has to be unique in the region so please use a different name than our example. Make a note of this name, this is the `bucket` value which we will require when configuring your deployment in [step 4](#step-4-configure-your-deployment). Click on `Create Space`.
@@ -92,8 +94,10 @@ Speckle requires blob storage to save files and other similar data.   You can pr
 
 - Now navigate to the [API page](https://cloud.digitalocean.com/account/api/tokens) in DigitalOcean.  Next to the `Spaces access keys` heading, click `Generate New Key`.  You will only be able to see the Secret value once, so copy the name, the key and the secret and store this securely.
   ![image](./img/k8s/14_spaces_access_key.png)
-## Step 3: Deploy dependencies to Kubernetes
-### Step 3.a: Create a namespace
+
+## Step 3: Deploy Dependencies to Kubernetes
+### Step 3.a: Create a Namespace
+
 - Kubernetes allows applications to be separated into different namespaces.  We can create a namespace in our Kubernetes cluster with the following command.  Replace `${YOUR_CLUSTER_CONTEXT_NAME}` with the name of your cluster.:
 ```shell
 kubectl create namespace speckle --context "${YOUR_CLUSTER_CONTEXT_NAME}"
@@ -297,7 +301,7 @@ EOF
 
 - We can ignore the instructions printed out by the NGINX Helm chart as the required resources will be provided by the Speckle Helm chart.
 
-## Step 4: Configure your deployment
+## Step 4: Configure your Deployment
 
 - [Download the `values.yaml` file from the Helm chart repository](https://raw.githubusercontent.com/specklesystems/helm/main/charts/speckle-server/values.yaml) and save it as `values.yaml` to the current directory on your local machine. We will be editing and using this file in the following steps.
 
@@ -359,7 +363,7 @@ helm list --all-namespaces --kube-context "${YOUR_CLUSTER_CONTEXT_NAME}"
 - You should see something similar to the following:
   ![image](./img/k8s/30_helm_release_verification.png)
 
-## Step 6: Update your domain
+## Step 6: Update your Domain
 Initially accessing Speckle may take some time as DigitalOcean has to create a load balancer and Let's Encrypt sign the Certificate. The DigitalOcean load balancer was automatically requested from the Infrastructure provider (DigitalOcean) by the Ingress controller we deployed earlier.  You can see the progress of the load balancer's deployment on the [Networking page](https://cloud.digitalocean.com/networking/load_balancers) of your DigitalOcean dashboard.
 
 - Once the load balancer has finished creating DigitalOcean will display an externally-accessible IP address for it.  Please make a note of the IP address.

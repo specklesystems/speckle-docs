@@ -25,7 +25,7 @@ Once installed, you can find the connector by running the `Speckle` command in R
 
 > This connector uses our shared Desktop UI. Read up on general guidelines for usage in the [Desktop UI section](/user/ui).
 
-Once the Desktop UI panel is open, go ahead and create a new stream (or add an existing one) to the current file. Once the Rhino `.3dm` file is saved, the streams associated with that file will be saved too.
+Once the Desktop UI panel is open, go ahead and create a new project (or add an existing one) to the current file. Once the Rhino `.3dm` file is saved, the projects associated with that file will be saved too.
 
 ### Sending
 
@@ -35,7 +35,7 @@ Sending objects to Speckle can be done in multiple ways.
   ![Rhino_l5U9dlMIpg](https://user-images.githubusercontent.com/51519350/187154289-8bbb5ff6-8e86-4adc-bd16-110025e2b78a.gif)
 - `Layers` option will send objects on the selected layers.
   ![Rhino_Sv9ZFfjPtS](https://user-images.githubusercontent.com/51519350/187154488-db2a5a2c-ee20-46cc-b115-5bd5c4732622.gif)
-- `Project Information` adds the selected project information as views to the stream.
+- `Project Information` adds the selected project information as views to the project.
   ![Rhino_geo27Qb21a](https://user-images.githubusercontent.com/51519350/187154964-a3d05c4d-2f94-4133-8aac-691d62cf8674.gif)
 - `Selection` sends only the selected objects.
   ![Rhino_e9hP9XMEgx](https://user-images.githubusercontent.com/51519350/187155192-2c85a908-ffba-4e14-8d46-ec4653a92c00.gif)
@@ -44,21 +44,21 @@ For the detail-lovers out there, you'll notice that your Rhino layer structure i
 
 ### Receiving
 
-In order to receive data from a Speckle stream, you'll first need to add that to your active document. If the stream already exists on the server it will automatically be listed. You can also use the search bar to find the stream you are looking for👀.
+In order to receive data from a Speckle project, you'll first need to add that to your active document. If the preoject already exists on the server it will automatically be listed. You can also use the search bar to find the project you are looking for👀.
 
-![rhino-search-stream](https://user-images.githubusercontent.com/51519350/187166411-6759734d-6335-4134-92ad-06010d1af36f.png)
+![rhino-search-project](https://user-images.githubusercontent.com/51519350/187166411-6759734d-6335-4134-92ad-06010d1af36f.png)
 
-Once the stream has been added, switch to the `Receive` mode.
+Once the project has been added, switch to the `Receive` mode.
 
 ![Rhino_zbpyw7DbW5](https://user-images.githubusercontent.com/51519350/187166530-974e37fb-dcc4-48a0-a739-6a134cc94e4f.gif)
 
-From here, you can select the `branch` and the `commit` you want to receive. Once you are done with the selection, go ahead and click on the `🔵 Receive` button. This will display a progress bar (just like the sending operation) and, if successful, will add the received objects to the current document.
+From here, you can select the `model` and the `version` you want to receive. Once you are done with the selection, go ahead and click on the `🔵 Receive` button. This will display a progress bar (just like the sending operation) and, if successful, will add the received objects to the current document.
 
 ![Rhino_R2Ga18NETv](https://user-images.githubusercontent.com/51519350/187166647-a18dd449-faff-4806-a4c4-e59b8a6c57a7.gif)
 
-In order to prevent overriding existing layers/objects in the file, all received objects will be placed in a nested layer structure. This structure will contain all the layers. that the sent objects were placed to, with a parent layer with a name in the format `<STREAM_NAME>: <BRANCH_NAME> @ <COMMIT>`.
+In order to prevent overriding existing layers/objects in the file, all received objects will be placed in a nested layer structure. This structure will contain all the layers. that the sent objects were placed to, with a parent layer with a name in the format `<PROJECT_NAME>: <MODEL_NAME> @ <VERSION>`.
 
-![Commit layers](./img-rhino/rhino-stream-receive-nested-layers.png)
+![Version layers](./img-rhino/rhino-stream-receive-nested-layers.png)
 
 In the screenshot above, you can see the difference between:
 
@@ -96,12 +96,12 @@ If this is your first time installing the Speckle connector, you may need to loa
 Assigning or removing Speckle BIM tags from geometry objects is easy:
 
 1. Select the geometry you would like to map to a BIM element
-2. (Optional) Click `Choose Stream` to select the branch of the Speckle stream that contains your Revit families and levels. If none is selected, a default mapping will be used if available.
+2. (Optional) Click `Choose project` to select the model of the Speckle project that contains your Revit families and levels. If none is selected, a default mapping will be used if available.
 3. Click `Apply Mappings`
 
 ![ui](./img-rhino/BIM/ui.png)
 
-Rhino Mapper manages BIM mappings by assigning geometry objects a `Attribute User Text` property if they have been flagged as BIM elements while sending to a stream. You can see which objects in your model have been mapped at the bottom of the Speckle Mapper UI.
+Rhino Mapper manages BIM mappings by assigning geometry objects a `Attribute User Text` property if they have been flagged as BIM elements while sending to a project. You can see which objects in your model have been mapped at the bottom of the Speckle Mapper UI.
 
 To remove a mapping, click the checkbox next to the existing mapping and then click `Clear Mappings`.
 
@@ -113,7 +113,7 @@ If no mapping options appear when you select a geometry object, that means there
 
 :::
 
-#### Creating walls
+#### Creating Walls
 
 Walls can be mapped with three different options, depending on the type of surface geometry you've selected:
 
@@ -159,6 +159,6 @@ Freeform elements can be mapped to _breps_ and _meshes_.
 
 Family instances can be mapped to _block instances_, using their insertion point and transform for the received revit family instance.
 
-## Things to keep in mind
+## Things to Keep in Mind
 
 This section is work in progress 🚧 ! Please check back again soon 😃

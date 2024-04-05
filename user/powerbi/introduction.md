@@ -26,9 +26,8 @@ Currently, Speckle Connector for Power BI supports **Power BI Desktop only**.
 
 ## Features
 
-Power BI connector allows you to import your Speckle Stream, Branch, Commit, or Object data using the corresponding URL. The following data will be retrieved depending on which type of URL you use:
+Power BI Connector allows you to import your Speckle model, version, or Object data using the corresponding URL. The following data will be retrieved depending on which type of URL you use:
 
-- **Stream URL** -> the most recent commit on the main branch of this stream
-- **Branch URL** -> the most recent commit on this branch
-- **Commit URL** -> this commit
+- **Model URL** -> the most recent version on this model
+- **Version URL** -> this version
 - **Object URL** -> this object

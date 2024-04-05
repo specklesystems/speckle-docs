@@ -1,10 +1,10 @@
-# Installing Connectors
+# Installing connectors
 
-Manager for Speckle is the best way to get (almost) all our Connectors installed and up to date on your computer, and if you have more than one Speckle accounts you'll be able to manage them there as well.
+Manager for Speckle is the best way to get (almost) all our connectors installed and up to date on your computer, and if you have more than one Speckle accounts you'll be able to manage them there as well.
 
 ::: tip 🙌 IMPORTANT
 This guide assumes you have a **Speckle Account**.
-If you don't, just register on our [free XYZ Speckle server](https://speckle.xyz).
+If you don't, just register on our [General Availability Speckle server](https://app.speckle.systems).
 :::
 
 ## Download
@@ -24,7 +24,7 @@ Download Speckle Manager from our:
 
 ## System Wide Installations
 
-By default Manager installs Connectors on Windows under the _local user app data folder_, if you would like to install it for every user on a machine, or roll it out company-wide, we have made things simpler!
+By default Manager installs connectors on Windows under the _local user app data folder_, if you would like to install it for every user on a machine, or roll it out company-wide, we have made things simpler!
 
 ::: tip 📝 NOTE
 We are rolling out this functionality to more connectors, currently it's only been added in Revit, Rhino and Grasshopper

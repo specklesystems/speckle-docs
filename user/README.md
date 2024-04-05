@@ -10,9 +10,9 @@ Organizations all over the world rely on our collaboration, interoperability and
 
 ## What We'll Cover
 
-This guide provides an introduction to the key Speckle concepts you'll need to know. We'll go over what you need to install, how to [create an account](/user/quickstart.html#registration), and how to [send data](/user/ui.html#sending-data) to your first Speckle stream.
+This guide provides an introduction to the key Speckle concepts you'll need to know. We'll go over what you need to install, how to [create an account](/user/quickstart.html#registration), and how to [send data](/user/ui.html#sending-data) to your first Speckle project.
 
-We also have a few [tutorials](https://speckle.systems/tutorials/) which provide step-by-step guidance for several common workflows (e.g. sending data Rhino -> Revit and back).
+We also have a few [tutorials](https://speckle.systems/tutorials/) that provide step-by-step guidance for several common workflows (e.g. sending data Rhino -> Revit and back).
 
 If you're a programmer wanting to learn how to build things with Speckle, head over to our [developer docs](/dev/). If you're after some in-depth reading on how Speckle works under the hood, make sure to check the [core concepts section](/dev/base).
 
@@ -27,17 +27,17 @@ Speckle is made up of several moving parts. Before describing each in detail, le
 
 ### Speckle Web App
 
-![speckle-web-app (1)](https://user-images.githubusercontent.com/51519350/186359062-550b8805-1a43-448b-8153-92695c2307ce.png)
+[![Web App Video](https://img.youtube.com/vi/QI5pVV1GCNs/maxresdefault.jpg)](https://www.youtube.com/watch?v=QI5pVV1GCNs)
 
-The [Speckle Web App](/user/web) lets you manage and coordinate your data directly from your web browser. It includes a management interface to help you administer your various streams and a 3D model viewer to let see your projects.
+The [Speckle Web App](https://app.speckle.systems/) lets you manage and coordinate your data directly from your web browser. It includes a management interface to help you administer your various projects and a 3D model viewer to let see your projects.
 
 ### Connectors
 
 ![desktopui-send-stream](https://user-images.githubusercontent.com/51519350/185949603-bdc88a6a-d7e9-416b-9263-ea5b693604c8.gif)
 
-Our desktop [Connectors](/user/connectors) are plugins for some of the most popular construction industry software including Rhino, Revit, Grasshopper, Dynamo, AutoCAD, Sketchup, Civil3D, Unity, Blender (and more). They take care of sending and receiving data in your software (e.g. Rhino) to and from your Speckle server. The Connectors can handle almost any kind of data. Most commonly, this will be CAD and BIM data; essentially, geometry with attached metadata.
+Our desktop [connectors](/user/connectors) are plugins for some of the most popular construction industry software including Rhino, Revit, Grasshopper, Dynamo, AutoCAD, Sketchup, Civil3D, Unity, Blender (and more). They take care of sending and receiving data in your software (e.g. Rhino) to and from your Speckle server. The connectors can handle almost any kind of data. Most commonly, this will be CAD and BIM data; essentially, geometry with attached metadata.
 
-Each time the Connectors send data to your Speckle server, they also take care of transforming it from your software's native format to Speckle's own, neutral format. This makes accessing it from other software extremely easy and fast.
+Each time the connectors send data to your Speckle server, they also take care of transforming it from your software's native format to Speckle's own, neutral format. This makes accessing it from other software extremely easy and fast.
 
 ### Speckle Manager
 

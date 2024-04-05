@@ -15,7 +15,7 @@ Speckle's preferred method of backing up and restoring data in a Postgres databa
 1. Docker should be [installed and running](https://docs.docker.com/get-docker/).
 1. We expect you to have followed the instructions for [manual installation](./server-manualsetup.md)
 
-### Ensure Postgres and pgAdmin are running
+### Ensure Postgres and pgAdmin are Running
 
 1. Determine if pgAdmin is already installed and running. From your terminal window, request the list of running processes from Docker. Full details of this command can be found in [Docker's documentation](https://docs.docker.com/engine/reference/commandline/ps/).
 
@@ -110,7 +110,7 @@ Speckle's preferred method of backing up and restoring data in a Postgres databa
 
 1. Click `save`.
 
-### Backing up Postgres
+### Backing-up Postgres
 
 1. You can now select the database from the browser window (typically found on the left hand side). Expand `docker-compose` and `databases` to select your database. The default database name for Speckle is `speckle`.
 
@@ -139,7 +139,7 @@ Speckle's preferred method of backing up and restoring data in a Postgres databa
 1. We recommend testing the integrity of the backup at this time. One way of doing this is to install speckle-server on another machine (or modify the name and ports in the file and install a second locally), then upload the backup per the below instructions using pgAdmin. Use pgAdmin or Speckle to check that the information is present.
 1. Store the backup in a safe and secure location. You may wish to copy the backup to multiple secure locations to provide redundancy.
 
-### Backing up a Docker volume (optional)
+### Backing up a Docker Volume (Optional)
 
 As well as creating a Postgres backup, we also recommend a full Docker volume backup. The Docker volume backup can only be used with the current version of Postgres, so is more limited than the Postgres backup created via pgAdmin (the latter allows us to move data between different versions of Postgres, which is useful when upgrading). Generating an additional backup from the Docker volume provides us with additional confidence that we can 
 recover to a previous good working state.
@@ -230,7 +230,7 @@ If you are not upgrading the Postgres database, you can stop at this step. The f
     docker ps
     ```
 
-### Restoring your data to Postgres from pgAdmin backup
+### Restoring your Data to Postgres from pgAdmin Backup
 
 1. If connected via SSH to a DigitalOcean or other virtual or remote machine, you will have to undertake steps to move the file your local machine or storage location to the host machine (Droplet). DigitalOcean [suggest using `scp`](https://www.digitalocean.com/community/questions/how-to-copy-files-from-one-server-to-another-droplet).
 1. Copy the file from the host machine to the pgAdmin container by user Docker. Replace `speckle-server-pgadmin-1` with the name of your pgAdmin container and `BACKUP_FILE_NAME` with the file name you provided in the pgAdmin dialog.

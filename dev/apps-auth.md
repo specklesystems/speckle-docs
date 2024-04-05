@@ -1,4 +1,4 @@
-# Apps & Auth
+# Apps and Auth
 
 This post was originally part of the Making Speckle 2.0 series of posts on the community forum, it's been adapted as part of our dev docs. Check out [the original on our forum](https://speckle.community/t/apps-authn-speckle-2-0/961)!
 

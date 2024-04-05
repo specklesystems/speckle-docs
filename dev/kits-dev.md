@@ -1,6 +1,6 @@
-# Writing Your Own Kit
+# Writing your own kit
 
-Writing your own Kit is a quite simple task, as long as you are not intimidated by the various AEC software APIs 😁.
+Writing your own kit is a quite simple task, as long as you are not intimidated by the various AEC software APIs 😁.
 As mentioned in [this page](/dev/kits), kits are made of:
 
 - an object model
@@ -20,11 +20,11 @@ An Object Model is just a collection _data structures_. These are the types that
 
 There are a few general rules to keep in mind when writing these classes.
 
-#### 1. Always inherit from the `Base` class
+#### 1. Always Inherit from the `Base` Class
 
 This ensures serialisation and deserialisation happen through Speckle, with the default sane serialisation handling that we know we can support. Most importantly, it will enable type name handling and cross-kit legibility. For more on the `Base` class, head to the [Base Object](/dev/base) section.
 
-#### 2. Reference loops will be ignored
+#### 2. Reference Loops will be Ignored
 
 You can always recreate them post deserialisation using a function flagged with the `[OnDeserialized]` attribute like so:
 
@@ -39,11 +39,11 @@ You can always recreate them post deserialisation using a function flagged with 
   }
 ```
 
-#### 3. Keep data structures lean
+#### 3. Keep Data Structures Lean
 
 You should prefer typed arrays over lists of non-primitive values. For example, instead of a `List<Point>` for keeping track of mesh vertices, use a `List<double>`
 
-#### 4. Always include a parameterless constructor
+#### 4. Always Include a Parameterless Constructor
 
 This is for Newtonsoft serialisation / deserialisation. At worst, flag one constructor with the `[JsonConstructor]` attribute. Keep in mind this does indirect magic that can potentially trip you up - eg key names must match argument prop names.
 
@@ -86,7 +86,7 @@ public class Box : Base, IHasVolume, IHasArea, IHasBoundingBox
 
 ## Converters
 
-Converters are the key to interoperability. They include the conversion routines for objects to and from the object model types. You create a new converter for each different application you want to support by inheriting from the [`ISpeckleConverter` interface](https://github.com/specklesystems/speckle-sharp/blob/master/Core/Core/Kits/ISpeckleConverter.cs). All your converters should live together in the same kit alongside your types. You can see how we've implemented converters in our default Objects Kit [here](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Converters).
+Converters are the key to interoperability. They include the conversion routines for objects to and from the object model types. You create a new converter for each different application you want to support by inheriting from the [`ISpeckleConverter` interface](https://github.com/specklesystems/speckle-sharp/blob/master/Core/Core/Kits/ISpeckleConverter.cs). All your converters should live together in the same kit alongside your types. You can see how we've implemented converters in our default Objects kit [here](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Converters).
 
 Converters exist in the `MyKit.Converter` namespace and can either be broken up into smaller partial classes for each supported type (see the Revit Converter) or for each category (eg `ConverterX.Geometry` and `ConverterX.BuiltElements` as in the rest of our converters).
 
@@ -178,9 +178,9 @@ public interface ISpeckleKit
 }
 ```
 
-## Kit Manager
+## KitManager
 
-The Kit Manager is a handy tool for loading up different kits. By default, it looks for the kits in `%AppData%/Speckle/Kits`. To explore all its features, have a look at the code [here](https://github.com/specklesystems/speckle-sharp/blob/master/Core/Core/Kits/KitManager.cs).
+The KitManager is a handy tool for loading up different kits. By default, it looks for the kits in `%AppData%/Speckle/Kits`. To explore all its features, have a look at the code [here](https://github.com/specklesystems/speckle-sharp/blob/master/Core/Core/Kits/KitManager.cs).
 
 See below for a simple example of getting a list of available kits, selecting a specific kit, and loading a converter.
 
@@ -192,7 +192,7 @@ var kits = KitManager.Kits
 var kitByName = KitManager.Kits.FirstOrDefault(kit => kit.Name == "CoreKit");
 var kitFromAssembly = KitManager.GetKit(typeof(CoreKit).Assembly.FullName);
 
-// Load the default Objects Kit and the included Revit converter
+// Load the default Objects kit and the included Revit converter
 var kit = KitManager.GetDefaultKit();
 var converter = kit.LoadConverter(ConnectorRevitUtils.RevitAppName);
 converter.SetContextDocument(CurrentDoc.Document);

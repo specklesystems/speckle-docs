@@ -5,7 +5,7 @@
 1. Simply create an account on [latest.speckle.systems](http://latest.speckle.systems), if you don’t have one already.
 1. Join our [beta testing group](https://forms.gle/15NHa9h8sYvUHG2e6).
 1. Wait patiently!
-1. Once you receive an early access invitation, you can log in to Automate at [automate.speckle.dev](http://automate.speckle.dev) using a [latest.speckle.systems](http://latest.speckle.systems) account (latest.speckle.systems is our beta platform, separate from speckle.xyz).
+1. Once you receive an early access invitation, you can log in to Automate at [automate.speckle.dev](http://automate.speckle.dev) using a [latest.speckle.systems](http://latest.speckle.systems) account (latest.speckle.systems is our beta platform, separate from app.speckle.systems).
 1. Check out [our guide](https://speckle.guide/automate/) for more information on how to get started!
 
 ## How much does it cost? Is Automate included in my subscription?
@@ -16,13 +16,13 @@ At the present moment Automate is available only as a private beta. You can join
 
 The main difference is that clash detection with Automate runs on the background and on as many models you wish. It runs on models from any of our integrations, such as Blender, Sketchup, Grasshopper, Revit, TopSolid etc. - so you only have to work with Automate to get similar results across all your software. That saves you lot of time opening your favourite desktop tool, loading models, running the clash detection and waiting for the results.
 
-The results from the Clash Detection running in Automate are viewable directly in your web browser. You can enable sharing for your Speckle Model, and send that link to your colleagues and clients; or embed our viewer in SharePoint, Notion or a web page. You can view the clash detection results on Mobile, Desktop, or the application of your choice.
+The results from the Clash Detection running in Automate are viewable directly in your web browser. You can enable sharing for your Speckle model, and send that link to your colleagues and clients; or embed our viewer in SharePoint, Notion or a web page. You can view the clash detection results on Mobile, Desktop, or the application of your choice.
 
 The results can then be retrieved from Speckle into any of our [Connectors](https://speckle.systems/features/connectors/) whether that is Revit, Excel, PowerBI etc. Speckle makes it easy for you to use the most appropriate and familiar software to allow you to get the best from your work.
 
 ## Is Automate faster than my desktop workflow?
 
-This is really hard to tell as it depends on complexity of your models, your hardware and so on. However, Automate Function is triggered without human interaction every time you upload a new model version; this alone might result in a faster response. Automate runs in the background, saving you time to focus on more important tasks. It runs on dedicated hardware hosted in the cloud and doesn’t slow down your computer if you are trying to get other things done while it runs.
+This is really hard to tell as it depends on complexity of your models, your hardware and so on. However, Automate function is triggered without human interaction every time you upload a new model version; this alone might result in a faster response. Automate runs in the background, saving you time to focus on more important tasks. It runs on dedicated hardware hosted in the cloud and doesn’t slow down your computer if you are trying to get other things done while it runs.
 
 ## What languages are supported?
 
@@ -49,7 +49,7 @@ We love every product delivering new technology to push the AEC industry forward
   - Automate is intended to automate tedious or difficult tasks. It is intended to run at lower frequency; whenever you send a new version of your model to Speckle. It is designed to run computations that last for many seconds or minutes, allowing for complex (and time-consuming) automations.
 
 - Integrations:
-  - Automate builds on top of Speckle therefore it allows you to integrate with the software you know and love, whether that is SketchUp, Revit, Rhino, Grasshopper, Archicad, Blender, PowerBI, Unity etc. [The list](https://speckle.systems/features/connectors/) is long and growing! Thanks to these Speckle [Connectors](https://speckle.systems/features/connectors/) and other integrations, you can send your model directly from your software of choice, and it will automatically start an Automation on Automate. Once the Automation is complete, you can retrieve the results and view them in your application of choice. This doesn’t have to be the application you sent the original data from; you could, for example, send data from Revit and view the results in Power BI.
+  - Automate builds on top of Speckle therefore it allows you to integrate with the software you know and love, whether that is SketchUp, Revit, Rhino, Grasshopper, Archicad, Blender, PowerBI, Unity etc. [The list](https://speckle.systems/features/connectors/) is long and growing! Thanks to these Speckle [connectors](https://speckle.systems/features/connectors/) and other integrations, you can send your model directly from your software of choice, and it will automatically start an Automation on Automate. Once the Automation is complete, you can retrieve the results and view them in your application of choice. This doesn’t have to be the application you sent the original data from; you could, for example, send data from Revit and view the results in Power BI.
   - Other cloud-based applications do allow data to be saved in files and exported to your software, and some have limited integrations with other applications. However, they do not build upon existing deep integrations with your favorite software, as Speckle does!
   - Automate results can be viewed in the browser, and the viewer can be embedded in many web pages and applications. The Speckle viewer also has an API which allows for extensions and customisation.
 - Languages and existing software:

@@ -21,7 +21,7 @@ You can fix this by aligning the sorting of the 3D visual to match the sorting p
 Currently, 3D Viewer Visual doesn't automatically detect your changes. So you need to manually reload the visual. One way of doing is Ctrl+X -> Ctrl+V.
 :::
 
-## Highlighting Objects Across Visuals
+## Highlighting Objects across Visuals
 
 <img class="rounded-dropshadow" src="./img-powerbi-visual/13-highlight-across-visuals.gif">
 

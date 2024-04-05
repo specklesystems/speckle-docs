@@ -25,7 +25,7 @@ For a quick overview, check out this short video on how to get started sending a
 
 ### Installing
 
-**Our Excel connector is not distributed via the Speckle Manager.**
+**Our Excel Connector is not distributed via the Speckle Manager.**
 
 Instead, you can get it from the Microsoft Office Store.
 
@@ -49,30 +49,30 @@ You'll need to log in to use this connector as it is unable to access your accou
 
 :::tip IMPORTANT 🙌
 
-Currently, **only accounts on servers managed by us are supported**, this is because of limitations on the Microsoft Office Store. To use the Excel connector with a server deployed by you, you'll have to publish it yourself.
+Currently, **only accounts on servers managed by us are supported**, this is because of limitations on the Microsoft Office Store. To use the Excel Connector with a server deployed by you, you'll have to publish it yourself.
 
 :::
 
-### Adding Streams
+### Adding Projects
 
-Just click the top left menu > Add stream > click on a stream to add to the document. **The stream will be saved in the document and available whenever you return to it.**
+Just click the top left menu > Add Project > click on a Project to add to the document. **The Project will be saved in the document and available whenever you return to it.**
 
 ![excel-add](https://user-images.githubusercontent.com/2679513/119180828-b4588f80-ba68-11eb-8ac3-0aa8f9d5158f.gif)
 
-By default, streams are added as receivers but you can easily switch them to sender mode.
+By default, projects are added as receivers but you can easily switch them to sender mode.
 
 ![image](https://user-images.githubusercontent.com/2679513/119181346-61330c80-ba69-11eb-9100-7f1b0f9ec82c.png)
 
 ## Receiving Data
 
-Receiving data in excel is quite different than in other connectors, and this is because we need to "flatten" it so to represent it in a table format. In general, a stream will either contain:
+Receiving data in Excel is quite different than in other connectors, and this is because we need to "flatten" it so to represent it in a table format. In general, a Project will either contain:
 
 - Simple values like numbers, text etc
 - Complex data structures (objects) like a Revit Wall or a Grasshopper Line. Objects are identified by a `{}` symbol.
 
-The Excel connector works best when receiving lists of either simple values or objects of the same type. Lists are identified by a `[]` symbol.
+The Excel Connector works best when receiving lists of either simple values or objects of the same type. Lists are identified by a `[]` symbol.
 
-Since a commit can contain a variety of data types, after clicking the **receive button**, you'll have the possibility to expand and select which data inside it to actually pull and write to your Excel file. You don't have to receive an entire commit each time!
+Since a version can contain a variety of data types, after clicking the **Receive button**, you'll have the possibility to expand and select which data inside it to actually pull and write to your Excel file. You don't have to receive an entire version each time!
 
 ![image-20210521205817594](https://user-images.githubusercontent.com/2679513/119197116-2b991e00-ba7f-11eb-8e70-6d7e962361d5.png)
 
@@ -95,7 +95,7 @@ We recommend receiving lists of objects that have the same underlying data struc
 
 ![image](https://user-images.githubusercontent.com/2679513/119189886-88dba200-ba74-11eb-8066-cd98972a88dd.png)
 
-Nested objects are flattened as well and their properties delimited by a period `.`. See the example below where 10 lines have been streamed from Dynamo to Excel:
+Nested objects are flattened as well and their properties delimited by a period `.`. See the example below where 10 lines have been sent from Dynamo and received in Excel:
 
 ![image](https://user-images.githubusercontent.com/2679513/119195280-4e760300-ba7c-11eb-8601-3ed72a6b0813.png)
 
@@ -129,13 +129,13 @@ For instance, you could create 10 new lines with the data below:
 
 ## Parameter Updater (Sync Revit Schedules and other data)
 
-The Speckle Revit connector enables you to easily update Revit Schedules from Excel.
+The Speckle Revit Connector enables you to easily update Revit Schedules from Excel.
 
-Step 1 is to send your schedule from Revit to Speckle using the Speckle Revit connector. Select the desired schedule using the "Schedule" option in the selection menu on the connector as shown below.
+Step 1 is to send your schedule from Revit to Speckle using the Speckle Revit Connector. Select the desired schedule using the "Schedule" option in the selection menu on the connector as shown below.
 
 ![image](./img-excel/revit-schedule.png)
 
-The next step is to receive the commit in excel. There is some preprocessing magic that is done in the background to identify that you are trying to receive a schedule. The result of this preprocessing is that you won't be prompted to filter and receive data as you normally would.
+The next step is to receive the version in Excel. There is some preprocessing magic that is done in the background to identify that you are trying to receive a schedule. The result of this preprocessing is that you won't be prompted to filter and receive data as you normally would.
 
 ![image](./img-excel/receive-schedule.gif)
 
@@ -149,7 +149,7 @@ From this point you are able to sort and edit your schedule any way that you wou
 Currently the Parameter  Updater cannot update parameter values that correspond to other elements. These values can often be identified in Revit by having a dropdown selection in the Revit Schedule. Adding support for updating this type of parameter is currently on our backlog.
 :::
 
-## Advanced workflows
+## Advanced Workflows
 
 ::: tip IMPORTANT
 🚧 This section is under construction, we will add more documentation and examples on this soon! 🚧

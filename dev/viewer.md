@@ -1,4 +1,4 @@
-# Using our embeddable 3D viewer
+# Using our Embeddable 3D Viewer
 
 This section is currently being built 🚧, please check again later.
 

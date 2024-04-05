@@ -4,11 +4,11 @@ title: Features
 
 # Features
 
-In this page, we’ll share how Revit connector converts your Revit model into Speckle format and how it handles updating in Revit.
+In this page, we’ll share how Revit Connector converts your Revit model into Speckle format and how it handles updating in Revit.
 
 ## Converting Revit Data to Speckle
 
-When sending from Revit, Speckle takes care of converting the data to a Speckle-friendly format. If you're curious about how this data is being structured, please have a look at our **[Objects Kit class definitions](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects/BuiltElements)**.
+When sending from Revit, Speckle takes care of converting the data to a Speckle-friendly format. If you're curious about how this data is being structured, please have a look at our **[Objects kit class definitions](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects/BuiltElements)**.
 
 For instance, a Revit room will look like this:
 
@@ -52,13 +52,13 @@ The connector takes care of updating received elements automatically where possi
 **Elements are updated under these two circumstances:**
 
 - If the element was created in another project/software and had been received previously: for example, BuiltElements that were created in Rhino or Grasshopper.
-- If the element was created in the same project you're working on: for example, if you send some walls to Speckle, edit them, and receive them again from the same stream
+- If the element was created in the same project you're working on: for example, if you send some walls to Speckle, edit them, and receive them again from the same model
 
 Here are some technical details if you're curious about what's happening behind the scenes:
 
 - BuiltElements have a property called `applicationId`, this is different from the `id/hash` property on them, and represents the id of such element in the host application in which it was first created. If the element was created in Revit it’s the `UniqueId`, if coming from Grasshopper/Rhino an analogous field
-- When a stream is received in Revit the `applicationIds` of all BuiltElements created are cached in the receiver
-- When receiving a second time from the same stream, if the received elements have the same `applicationId` of something that was previously received (and it still exists in the document), the connector will attempt to modify them instead of creating new ones. If the update fails (or is not permitted by the API), it’ll delete them and create new ones
+- When a model is received in Revit the `applicationIds` of all BuiltElements created are cached in the receiver
+- When receiving a second time from the same model, if the received elements have the same `applicationId` of something that was previously received (and it still exists in the document), the connector will attempt to modify them instead of creating new ones. If the update fails (or is not permitted by the API), it’ll delete them and create new ones
 - If no cached element is found, but there is an element in the document with a matching `applicationId` that is used for the update (this is the case of someone restoring changes previously sent, in the same project)
 - If an element being received doesn’t have an `applicationId` no update mechanism will happen (this could be the case of BuiltElements created in Python if no `applicationIds` are generated manually)
 
@@ -72,17 +72,17 @@ Information on the Schedule Updater can be found in the **[Excel Docs](/user/ex
 
 ## Family Editor
 
-The Revit connector also works in the Family Editor. Refer to the list below for supported element types.
+The Revit Connector also works in the Family Editor. Refer to the list below for supported element types.
 
 - **[Revit Support Tables](/user/support-tables.html#revit)**
 
 ## Linked Models
 
-The Revit connector supports Linked Models, here's how it works.
+The Revit Connector supports Linked Models, here's how it works.
 
 ### **Sending Linked Models**
 
-The Revit connector supports sending Linked Models. To enable this feature, go to Advanced Settings and select the option for [Sending Linked Models](/user/revit/advanced-settings.html#_2-send-linked-models) . Once this is done, you can use the selection filters as usual and any relevant items from the linked models will also be sent.
+The Revit Connector supports sending Linked Models. To enable this feature, go to Advanced Settings and select the option for [Sending Linked Models](/user/revit/advanced-settings.html#_2-send-linked-models) . Once this is done, you can use the selection filters as usual and any relevant items from the linked models will also be sent.
 
 For instance: *Everything* will send all the models, *Category* filters will work in conjunction with any linked model elements, and *Selection* too.
 
@@ -100,7 +100,7 @@ Multiple instances of the same linked model are currently not supported on sendi
 
 ### **Receiving Linked Models**
 
-Revit connector also supports receiving Linked Elements. To enable this option, Go to Advanced Settings and check [Receiving Linked Models](/user/revit/advanced-settings.html#_3-receive-linked-models). On receiving we do not attempt to modify linked model files in any way, but when the *Receive Linked Models* setting is turned on, the linked model elements will be received in the current document as any other element.
+Revit Connector also supports receiving Linked Elements. To enable this option, Go to Advanced Settings and check [Receiving Linked Models](/user/revit/advanced-settings.html#_3-receive-linked-models). On receiving we do not attempt to modify linked model files in any way, but when the *Receive Linked Models* setting is turned on, the linked model elements will be received in the current document as any other element.
 
 ## Design Options
 
@@ -108,9 +108,9 @@ The Connector also supports Revit design options and you can publish different o
 
 <img class="rounded-dropshadow" src="./img-revit/features-design-options.png" width=250>
 
-### How does it work?
+### How Does it Work?
 
-If the selection filter is set to **Everything**, the Connector sends the **Main Model** and any objects that are part of a **primary** design option by default. To publish other options with the Main Model, simply select any other option from the Design Options drop-down.
+If the selection filter is set to **Everything**, the Connector sends the **Main model** and any objects that are part of a **primary** design option by default. To publish other options with the Main model, simply select any other option from the Design Options drop-down.
 
 ### Using 3D Views
 
@@ -130,8 +130,8 @@ Before using the Scheduler, you need to **send your model** through the connecto
 
 <img class="rounded-dropshadow" src="./img-revit/scheduler.png" width=350>
 
-1. **Enabled**: When turned on, Scheduler will send the model to selected **Project(Stream)** with the selected **Trigger**)
-2. Select **Stream**: Select the Project (Stream) card you used in the connector interface.
+1. **Enabled**: When turned on, Scheduler will send the model to selected **Project** with the selected **Trigger**)
+2. Select **Project**: Select the project card you used in the connector interface.
 
    <aside>
    💡 Currently, only one scheduler can be set per file. We are planning to enable setting up multiple schedulers from the Main Connector interface.

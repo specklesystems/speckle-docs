@@ -16,7 +16,7 @@ Check out our dedicated tutorial on [how to get started with CSI Products](https
 
 To install the any of CSI Connector and add your Speckle account, proceed by following the instructions in [Speckle Manager](/user/manager).
 
-Once installed, you can find the Speckle Connector in the PlugIn menu under the **Tools** tab like so:
+Once installed, you can find the Speckle connector in the PlugIn menu under the **Tools** tab like so:
 
 ![ToolBar](./img-csi/toolbar.png)
 
@@ -29,7 +29,7 @@ If the plugin is not installed properly, you can find the path to the PlugIn in 
 
 ### Receiving in CSI Products
 
-Save the CSI model as a file first before attempting to receive streams into your CSI model.
+Save the CSI model as a file first before attempting to receive projects into your CSI model.
 
 ## User Interface
 
@@ -37,13 +37,13 @@ Save the CSI model as a file first before attempting to receive streams into you
 
 This connector uses our shared Desktop UI2. Read up on general guidelines for usage in the [Desktop UI2 section](https://speckle.community/t/new-desktopui-in-alpha-testing/1851/2).
 
-**Streams are saved to a textfile that will appear in your model folder titled "Speckle". Do not delete this folder.**
+**Projects are saved to a textfile that will appear in your model folder titled "Speckle". Do not delete this folder.**
 
 :::
 
 ### Filters
 
-To help you select which elements will be to sent to Speckle, we've built various filters into our CSI connector. Once a filter is set, just click **Send** and all objects passing the filter will be sent to your Stream. Section properties and materials defined within the model will always be sent.
+To help you select which elements will be to sent to Speckle, we've built various filters into our CSI Connector. Once a filter is set, just click **Send** and all objects passing the filter will be sent to your Project. Section properties and materials defined within the model will always be sent.
 
 _Please Note: Elements are sent regardless of whether they are visible or if they were created after setting up the filter._
 
@@ -55,7 +55,7 @@ The selection filters will send everything that is selected within the CSI displ
 
 #### Group Filters
 
-You can create predefined groups of geometrical elements within CSI products to send already within the CSI group and select based on those groupings of elements for a more precise stream of elements.
+You can create predefined groups of geometrical elements within CSI products to send already within the CSI group and select based on those groupings of elements.
 
 #### Category Filter
 
@@ -63,11 +63,11 @@ The category filter lets you select one or more of the currently-supported CSI c
 
 #### All Filter
 
-This trivial filter allows you to select all the elements that are currently supported by the CSI connector. This will send all geometrical elements and their associated properties.
+This trivial filter allows you to select all the elements that are currently supported by the CSI Connector. This will send all geometrical elements and their associated properties.
 
 ### Advanced Settings
 
-You can send analysis results from ETABS, and the Connector offers a set of filters that allow you to share either all or only a portion of the results. All filters are multiple choice for flexible and granular control:
+You can send analysis results from ETABS, and the connector offers a set of filters that allow you to share either all or only a portion of the results. All filters are multiple choice for flexible and granular control:
 
 - **Load Case Results To Send:** Dead, Live, Modal
 - **Node Results To Send:** Displacements, Forces, Velocities, Accelerations
@@ -89,11 +89,11 @@ You can send analysis results from ETABS, and the Connector offers a set of filt
 
 ## Updating Elements
 
-The connector does not take care of updating existing elements within the stream. However the CSI products does recognize if coincident elements are generated and will not generate new elements that coincide on top of each other.
+The connector does not take care of updating existing elements within the Project. However the CSI products does recognize if coincident elements are generated and will not generate new elements that coincide on top of each other.
 
 ## Revit & BIM Data to CSI Products
 
-When sending from elements from Revit, Speckle takes care of converting the data to a Speckle friendly format. If you're curious about how this data is being structured, please have a look at our [Objects Kit class definitions](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects/BuiltElements).
+When sending from elements from Revit, Speckle takes care of converting the data to a Speckle friendly format. If you're curious about how this data is being structured, please have a look at our [Objects kit class definitions](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects/BuiltElements).
 
 To send elements from Revit specificially into a structural model, use the analytical models generated within a revit model. Currently there is no conversion from the BuiltElement object kits and the Structural object kits, which means that only the analytical models in Revit are supported to be converted into CSI. Give us feedback on this workflow. ![Revit Analytical Model](./img-csi/analytical-model.png)
 
@@ -117,6 +117,6 @@ Building models parametrically in grasshopper with the structural object schema 
 
 ![ETABS property](./img-csi/grasshopper-sections.png)
 
-## Exploring the CSI data
+## Exploring the CSI Data
 
 To easily explore on object's data and parameters, our [Speckle Web App](/user/web.html) interface can be of great help, as well as any other applications that lets you explore the object metadata (eg Grasshopper, Dynamo, Unity, etc).

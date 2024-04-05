@@ -31,23 +31,23 @@ Speckle is licensed as Apache 2 so you are free to study, modify, redistribute a
 
 This means that you can totally deploy your own Speckle server without ever having to depend on us!
 
-## What is a Stream?
+## What is a project?
 
-**Streams** are collections of data inside Speckle. You can see a stream as a folder, a project or a repository.
+**Projects** are collections of data inside Speckle. You can see a project as a folder or a repository.
 
-## What is a Commit?
+## What is a version?
 
-Data in a stream is stored in **commits**, which are snapshots of data in time. Every time you send to Speckle from a connector, a commit is created.
+Data in a Project is stored in **versions**, which are snapshots of data in time. Every time you send to Speckle from a connector, a version is created.
 
-## What is a Branch?
+## What is a model?
 
-Commits can also be organized in **branches**, for instance, to have multiple design options or to store data by discipline. The default branch is called _main_.
+Versions can also be organized in **models**, for instance, to have multiple design options or to store data by discipline. If a project has only one model and has no name it can be referred to as _main_.
 
-## What is a Connector?
+## What is a connector?
 
 **Connectors** are plugins for design and analysis software, they let you exchange geometry and BIM data with Speckle (send and receive it)
 
-## The Speckle Server is unreachable
+## The Speckle server is unreachable
 
 When a Speckle Server is unreachable a few things could be going on.
 
@@ -59,10 +59,10 @@ If you cannot access the server from **your browser** or from **Speckle Manager*
 
 If the server address is **blocked by a corporate firewall, proxy or VPN**, kindly ask your IT department to allowlist the following domains and subdomains that Speckle uses:
 
-- **\*.speckle.xyz (critical)**
+- **\*.app.speckle.systems (critical)**
 - **\*.speckle.dev (critical)**
 - **\*.speckle.systems (critical)**
-- speckle-excel.netlify.app (critical for the Excel connector)
+- speckle-excel.netlify.app (critical for the Excel Connector)
 - speckle-releases.ams3.digitaloceanspaces.com
 - speckle.community
 
@@ -74,17 +74,41 @@ For any more questions about this, feel free to [contact us](https://speckle.sys
 
 Check our [troubleshooting section](/user/manager.html#troubleshooting) for Speckle Manager.
 
-## How do I merge two branches in Speckle
+## How do I merge two models in Speckle
 
-Currently, commits, branches or streams cannot be merged via Speckle, but you can do so in most authoring software supported by Speckle. For instance, you can manually merge two branches (or even streams) easily in Grasshopper.
+Currently, versions, models or projects cannot be merged via Speckle, but you can do so in most authoring software supported by Speckle or progammaticaly using our SDKs. For instance, you can manually merge two models (or even projects) easily in Grasshopper or a Jupyter notebook.
 
 ## Why can't I see anything in the 3D Viewer?
 
-Our 3D Viewer only supports visualizing geometry. If you're sending any data that doesn't have a supported geometrical representation it will not be visible, for example when sending a list of Levels or Revit Family and Type names. You'll always be able to explore the raw data of a Stream in the commit page, however.
+Our 3D Viewer only supports visualizing geometry. If you're sending any data that doesn't have a supported geometrical representation it will not be visible, for example when sending a list of Levels or Revit Family and Type names. You'll always be able to explore the raw data of a project in the version page, however.
+
+## How do I solve a DLL conflict?
+If a Speckle connector and another plugin you have installed in your host application (Revit, Rhino, AutoCAD etc) use similar packages, you might have conflicts which could make either plugin unusable. This manifests usually with a dialog similar to the following at startup:
+
+![Revit dll conflict](https://speckle.community/uploads/default/original/2X/c/c9633fc3de90cc9620350125b7a6cba33792ed0e.jpeg)
+
+To resolve the issue, you need to remove the conflicting plugin. 
+1. To find it, read the error message carefully. The one above, for example, clearly mentions a conflict with a package called `Serilog`. Other times we have seen conflicts with `Sentry`. 
+2. Look inside each plugin folder until you find one containing a `*.dll` file with that name. The windows search functionality can help here.
+3. Temporarily remove that plugin, reload your host application and see if the problem is solved. Otherwise try with another one.
+
+### Revit plugin locations
+In Revit, plugins can be installed in multiple locations, we recommend searching through all of them:
+
+```
+%appdata%\Autodesk\Revit\Addins\                 NOTE: the variable "%appdata%"" can be copy/pasted in your windows explorer window
+%appdata%\Autodesk\ApplicationPlugins\
+C:\ProgramData\Autodesk\Revit\Addins\
+C:\ProgramData\Autodesk\ApplicationPlugins\
+C:\Program Files\Autodesk\Revit 20XX\AddIns\
+%appdata%\Dynamo\Dynamo Revit\2.XX\packages\     NOTE: dynamo plugins can conflict too!
+```
+
+
 
 ## I forgot my password 🤔
 
-This time over, we've got you covered: just go to the [password reset page](https://speckle.xyz/authn/resetpassword)!
+This time over, we've got you covered: just go to the [password reset page](https://app.speckle.systems/authn/resetpassword)!
 
 ## More questions?
 

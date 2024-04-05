@@ -12,7 +12,7 @@ As you know, Speckle data is structured according to the conventions of the host
 
 Generally, working with structured data is a bit more difficult, as you need to parse the "graph", or the tree that describes its structure. Nevertheless, this doesn't need to be so! What if we could access all the data inside a given commit and treat it just as any other list? Well, it's actually super easy! 
 
-## Step 1: Let's Flatten The Data
+## Step 1: Let's Flatten the Data
 
 The extension method below flattens any `Base` object into its constituent parts: it returns a list of all its sub-`Base`s. **Simply add this to your project somewhere and you're good to go.** 
 
@@ -70,7 +70,7 @@ public static class Extensions
 
 ```
 
-## Step 2: Let's Query The Data
+## Step 2: Let's Query the Data
 
 Now that we have our flattening method in place, what can we do? Well - quite a lot! We can now use the power of LINQ to do complex queries on our dataset. For example, let's assume we want to get **all the timber walls** from a given building. How should we do that? Easy: 
 
@@ -85,7 +85,7 @@ using Speckle.Core.Models;
 
 // Note: some boilerplate code removed.
 
-// Receive a revit commit (note: you will need a local account on speckle.xyz for this to work!)
+// Receive a revit commit (note: you will need a local account on app.speckle.systems for this to work!)
 var data = Helpers.Receive("https://speckle.xyz/streams/0d3cb7cb52/commits/681cdd572c").Result;
 var flatData = data.Flatten().ToList();
 
@@ -146,7 +146,7 @@ On level Level 1 Living Rm. there are 14 elements.
 On level Foundation there are 31 elements.
 ```
 
-## Conclusion: Structured Data vs. Flat Data
+## Conclusion: Structured Data versus Flat Data
 
 Both structured data and flattened data have advantages and disadvantages. The latter lends itself for ETL workflows and various classification based exercises, whereas the former allows for a better model. Dealing with structured data doesn't mean that we can't flatten it and benefit from all processing ease of flattened data. You can use this as a basis for quite a few automation exercises, such as: 
 - automatically compiling bills of materials

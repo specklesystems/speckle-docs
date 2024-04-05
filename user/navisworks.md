@@ -12,7 +12,7 @@ The Speckle Navisworks Connector currently supports Autodesk Navisworks 2020, 20
 
 To install the Navisworks Connector and add your Speckle account, proceed by following the instructions in [Speckle Manager](/user/manager).
 
-Once installed, you can find the Navisworks connector in the ribbon menu under the **Speckle** tab like so:
+Once installed, you can find the Navisworks Connector in the ribbon menu under the **Speckle** tab like so:
 
 ![speckle-ribbon-navisworks](https://user-images.githubusercontent.com/760691/231277506-a539c3e0-17e2-43a7-8b1e-2d01909ec77b.png)
 
@@ -26,7 +26,7 @@ This connector uses our shared Desktop UI. Read up on general guidelines for usa
 
 ### Selection Filters
 
-To help you select which elements will be to sent to Speckle, we've built various filters into our Navisworks connector. Once a filter is set, just click **Send** and all objects passing the filter will be sent to your Stream.
+To help you select which elements will be to sent to Speckle, we've built various filters into our Navisworks Connector. Once a filter is set, just click **Send** and all objects passing the filter will be sent to your Speckle project.
 
 _Please Note: Elements are only sent if they are visible._
 
@@ -74,7 +74,7 @@ Navisworks produces a lot of data, and the Speckle Navisworks Connector is still
 
 Where a Navisworks model has levels differentiated these will be found in the Speckle commits as a collection as any other type of collection. There is no coallescing of levels performed across collections. This is because Navisworks does not have a strong concept of levels. Essentially the hierachy of the Speckle data will match the hierachy of the selected elements.
 
-## Navisworks & BIM Data
+## Navisworks and BIM Data
 
 When sending from Navisworks, Speckle will convert all embedded BIM properties alongside metadata generated in the conversion from native formats to Navisworks. This includes file paths, element ids, element types, etc.
 
@@ -90,7 +90,7 @@ To easily explore on object's data and parameters, our [Speckle Web App](/user/w
 
 ![web-bim-data](https://user-images.githubusercontent.com/51519350/186416982-15eb496a-18fc-4782-b1d2-a6df01e9a5ed.png)
 
-## Stream Advanced Settings
+## Advanced Settings
 
 The `Advanced Settings` page allows you to customize the way Speckle behaves "per-stream".
 

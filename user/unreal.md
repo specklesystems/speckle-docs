@@ -23,15 +23,15 @@ _For additional resources, see Unreal's guides on [Installing Unreal Engine](htt
 [Setting Up Visual Studio for Unreal Engine](https://docs.unrealengine.com/4.27/en-US/ProductionPipelines/DevelopmentSetup/VisualStudioSetup/),
 and [Create a New Project](https://docs.unrealengine.com/4.27/en-US/Basics/Projects/Browser/)._
 
-## Installation (marketplace)
+## Installation (Marketplace)
 
-The Unreal connector is packaged as a code plugin on the [Unreal Engine Marketplace](https://www.unrealengine.com/marketplace/en-US/product/speckle-for-unreal-engine). For most users, this installation method is recommended.
+The Unreal Connector is packaged as a code plugin on the [Unreal Engine Marketplace](https://www.unrealengine.com/marketplace/en-US/product/speckle-for-unreal-engine). For most users, this installation method is recommended.
 
 Once installed, it is necessary to **enable the Speckle plugin** for your project from the **`Edit → Plugins`** menu. Once enabled, you should be promoted to restart your project.
 
 **That's It!** Your project can now use the Speckle plugin!
 
-## Installation (git)
+## Installation (Git)
 
 For developers wanting to modify the source code, trial work-in-progress branches, and/or contribute changes back to the speckle-unreal repo, installing through [git](https://git-scm.com/) is prefered.
 
@@ -46,7 +46,7 @@ git clone https://github.com/specklesystems/speckle-unreal
 If you encounter build issues, try building your project from VS/Rider directly. Look at the `Saved\Logs\` files for error messages,
 and don't hesitate to reach out on our [community forums](https://speckle.community) for help!
 
-## Usage (editor)
+## Usage (Editor)
 
 The plugin includes an actor type named `Speckle Unreal Manager` that you can use to import objects from Speckle.
 
@@ -67,23 +67,23 @@ Here is how to use it:
 
 3. There are **two ways to import objects** using the `Speckle Unreal Manager` actor.
 
-::: tip Import <b>a specific object</b> id, by specifying a <i>Server URL</i> + <i>Stream id</i> + <i>Object id</i>
+::: tip Import <b>a specific object</b> id, by specifying a <i>Server URL</i> + <i>Project id</i> + <i>Object id</i>
 
 <p><details>
 <summary>Expand</summary>
 
->**1.** Firstly, ensure the **"specify by object id" checkbox is checked**, and the **Sever URL** matches the Speckle server you are using (default [`https://speckle.xyz`](https://speckle.xyz))
+>**1.** Firstly, ensure the **"specify by object id" checkbox is checked**, and the **Sever URL** matches the Speckle server you are using (default [`https://app.speckle.systems`](https://app.speckle.systems))
 
->**2.** Enter the **Stream ID**. This can be copied from the url of your stream, and pasted into the "Stream ID" property of your `Speckle Unreal Manager`.
-><center><img src="./img-unreal/finding_stream_id.png" width="75%" alt="screenshot of a speckle stream url https://speckle.xyz/streams/76c45cdb32, with the stream id 76c45cdb32 highlighted"/></center>
+>**2.** Enter the **Project ID**. This can be copied from the url of your project, and pasted into the "Project ID" property of your `Speckle Unreal Manager`.
+><center><img src="./img-unreal/finding_stream_id.png" width="75%" alt="screenshot of a speckle project url https://app.speckle.systems/streams/76c45cdb32, with the project id 76c45cdb32 highlighted"/></center>
 
 
 >**3.** Enter the  **Object ID** of the object you want to receive.
->You can explore the objects in a stream by using the [Speckle Web App](/user/web) for the Speckle server that you use.
-><center><img src="./img-unreal/finding_object_id.png" width="75%" alt="screenshot of the property panel of a Speckle commit,> highlighting the object ID of the selected (root) object"/></center>
+>You can explore the objects in a project by using the [Speckle Web App](/user/web) for the Speckle server that you use.
+><center><img src="./img-unreal/finding_object_id.png" width="75%" alt="screenshot of the property panel of a Speckle version,> highlighting the object ID of the selected (root) object"/></center>
 
 >**4. If the stream is private**, you will need to generate an **auth token**.
->To do so, head to your profile page [https://speckle.xyz/profile](https://speckle.xyz/profile), and generate a new Access Token (with all scopes)
+>To do so, head to your profile page [https://app.speckle.systems/profile](https://app.speckle.systems/profile), and generate a new Access Token (with all scopes)
 ><center><img src="./img-unreal/generate_auth_token.png" width="75%" alt="screen shot of profile page, with arrow pointing towards the new token button"/></center>
 
 </details></p>
@@ -93,22 +93,22 @@ Here is how to use it:
 
 <center><b>OR</b></center>
 
-::: tip Import <b>a speckle commit</b>, by specifying a <i>Server URL</i> + <i>Auth Token</i>, and then select a <i>Stream</i> + <i>Branch</i> + <i>Commit</i> from the drop down menu.
+::: tip Import <b>a speckle version</b>, by specifying a <i>Server URL</i> + <i>Auth Token</i>, and then select a <i>project</i> + <i>model</i> + <i>version</i> from the drop down menu.
 <p><details>
 <summary>Expand</summary>
 
 >**1.** First, you must authenticate your Speckle account.<br/>
 > Currently, this can only be done via an **auth token** (aka personal access token).<br/>
-> To generate one, head to your profile page <a href="https://speckle.xyz/profile">https://speckle.xyz/profile</a>, and under "Access Token", generate a new token **with all scopes**.
+> To generate one, head to your profile page <a href="https://app.speckle.systems/profile">https://app.speckle.systems/profile</a>, and under "Access Token", generate a new token **with all scopes**.
 ><center><img src="./img-unreal/generate_auth_token.png" width="75%" alt="screen shot of profile page, with arrow pointing towards the new token button"/></center>
 
 >**2.** Paste the auth token into your `Speckle Unreal Manager` actor (also, ensure the `ServerUrl` is correct)
 
->**3.** Deselect the "specify by object id" option, and, assuming the url + token is valid, the drop down selections for `Stream`, `Branch`, and `Commit` will be available.
+>**3.** Deselect the "specify by object id" option, and, assuming the url + token is valid, the drop down selections for `project`, `model`, and `version` will be available.
 >
 ><center><video width="66%" loop controls autoplay muted><source src="./img-unreal/stream.branch.commit.selection.mp4" type="video/mp4">Your browser does not support the video tag.</video></center>
 
-> (optional notes) The number of stream/branch/commits is capped, by default at 15, but this value can be adjusted under the advanced settings `options limit` value.
+> (optional notes) The number of project/model/versions is capped, by default at 15, but this value can be adjusted under the advanced settings `options limit` value.
 > If no options appear, then try deselecting, and reselecting the actor, and check the `Output Log` for warnings.
 
 </details></p>
@@ -127,7 +127,7 @@ Here is how to use it:
 To set options on how the objects are converted, see the [object-conversion secion](http://localhost:8080/user/unreal.html#object-conversion).
 
 
-## Usage (blueprint)
+## Usage (Blueprint)
 
 Blueprint can be a powerful tool for implementing your own custom behaviours for receiving objects.
 
@@ -142,7 +142,7 @@ It fetches JSON objects from the server, which are then stored in a local `Memor
 An example of this process in Blueprint is provided in the `Plugins\speckle-unreal\Content\Examples` directory and looks like this:
 <center><img src="./img-unreal/receiving_bp.png" width="100%" /></center>
 
-Additionally, a number of Blueprint macro nodes are provided to fetch details about streams/branch/commits/users.
+Additionally, a number of Blueprint macro nodes are provided to fetch details about project/model/version/users.
 Checkout our [dedicated tutorial on the topic](https://speckle.systems/tutorials/unreal-engine-blueprint-nodes-fetch-stream-branch-commit-info-and-more/), covering how to use the provided GraphQL nodes, and also how to easily develop your own query macros.
 
 
@@ -180,7 +180,7 @@ Your browser does not support the video tag.
 
 Out of the box, `SpeckleConverterComponent`s will be setup with a set of default converters.
 For most users, there is no further configuration required.
-However you can create your own instances of specific `ISpeckleConverter`s through the assets in the Content, and then assign them to the Converter Component.
+However you can create your own instances of specific `ISpeckleConverter`s through the assets in the Content, and then assign them to the converter component.
 This can be done by right clicking and creating a new converter of a specified type.
 <center><img src="./img-unreal/create_converter.png" width="66.66%" /></center>
 
@@ -228,7 +228,7 @@ When receiving meshes with a `RenderMaterial`, the `MaterialConverter` will crea
 
 :::
 
-#### How are materials converted
+#### How are Materials Converted
 
 The `MaterialConverter` exposes a few properties for defining the base/parent material of the materials created.
 Opaque materials will be converted as instances of `BaseMeshOpaqueMaterial`.
@@ -282,7 +282,7 @@ We are aware this may cause unexpected behaviour. This issue will be addressed.
 
 #### Limitations
 
-- In order to use textured materials, meshes need to have **Texture coordinates** (UV coordinates). Currently, Texture coordinates are only outputted from Rhino, Blender, and Sketchup connectors. (More connectors will receive support shortly! see [issue](https://github.com/specklesystems/speckle-sharp/issues/797). The Unreal connector does **not** generate texture coordinates for you.
+- In order to use textured materials, meshes need to have **Texture coordinates** (UV coordinates). Currently, Texture coordinates are only outputted from Rhino, Blender, and Sketchup connectors. (More connectors will receive support shortly! see [issue](https://github.com/specklesystems/speckle-sharp/issues/797). The Unreal Connector does **not** generate texture coordinates for you.
   Having UV coordinates also has other advantages for baked lighting.
 - **Textures cannot be sent/received through Speckle**, only flat colours and simple PBR properties. Texture support is on our roadmap, but there are several techincal chalanges to overcome before this is possible.
 
@@ -410,7 +410,7 @@ An optional `CleanUp` method can be implemented, which is used to clear any cach
 
 #### Creating Converters (Blueprint)
 
-In the same way as with C++, Converters can also be implemented using Blueprint.
+In the same way as with C++, converters can also be implemented using Blueprint.
 First create a new Blueprint Inheriting `UObject`
 
 <center><img src="./img-unreal/new_blueprint.png" width="50%" alt="Screenshot of the blueprint creation menu, creating a new blueprint of type UObject"/></center>

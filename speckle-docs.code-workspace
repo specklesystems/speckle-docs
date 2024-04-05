@@ -1,0 +1,30 @@
+{
+  "folders": [
+    {
+      "path": "./dev",
+      "name": "Speckle Developer Guide"
+    },
+    {
+      "path": "./user",
+      "name": "Speckle User Guide"
+    },
+    {
+      "path": ".",
+      "name": "_"
+    }
+  ],
+  "settings": {
+    "markdownlint": {
+      "config": {
+        "MD033": false, // allow inline html
+        "MD024": { "siblings_only": true }, // allow single heading
+      }
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "yzhang.markdown-all-in-one",
+      "titiaiev.vue-docs",
+    ]
+  }
+}

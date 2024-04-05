@@ -16,7 +16,7 @@ If you'd like us to add something specific, let us know on the [Speckle Communit
 
 ### Supported Elements
 
-Almost all geometric elements are supported by the Rhino connector. This includes:
+Almost all geometric elements are supported by the Rhino Connector. This includes:
 
 | Geometry     |  Send   | Receive |   Status   |
 | ------------ | :-----: | :-----: | :--------: |
@@ -55,7 +55,7 @@ Almost all geometric elements are supported by the Rhino connector. This include
 
 Note: If Rhino's unit system is changed by the user, this may result in incorrectly scaled blocks. Make sure blocks are created in the same unit system as they are intended to be sent in.
 
-### Unsupported elements
+### Unsupported Elements
 
 Many non-geometric elements (such as text dots) and any geometric element not listed above are not supported.
 
@@ -63,7 +63,7 @@ Many non-geometric elements (such as text dots) and any geometric element not li
 
 ### Supported Elements
 
-Grasshopper supports the same geometry as the Rhino connector:
+Grasshopper supports the same geometry as the Rhino Connector:
 
 | Geometry     |  Send   | Receive |   Status   |
 | ------------ | :-----: | :-----: | :--------: |
@@ -113,7 +113,7 @@ The **Schema Builder** node also provides additional support for the following b
 
 Refer to the section below for additional information on the **Schema Builder** node.
 
-### Unsupported elements
+### Unsupported Elements
 
 Non-geometric elements and any geometric element not listed above, such as text tags, hatches, etc... are not supported.
 
@@ -277,7 +277,7 @@ Labels and tables are not supported, as well as any unlisted element. There is a
 
 ### Supported Elements
 
-The Blender Connector is still a work in progress and, as such, data sent from the Blender connector is a highly lossy exchange.
+The Blender Connector is still a work in progress and, as such, data sent from the Blender Connector is a highly lossy exchange.
 Our connectors are ever evolving to facilitate more and more Speckle usecases. We welcome feedback, requests, edge cases, and contributions!
 
 In addition to geometry data, custom object properties are also converted, including `ifc_definition_id` (Blender BIM).
@@ -424,7 +424,7 @@ We've only started supporting with an alpha release of SAFE elements, please let
 
 ### Supported Elements
 
-The SketchUp connector is still in early Alpha and is therefore a work in progress. Let us know what else you'd like to see supported or if you would like to contribute!
+The SketchUp Connector is still in early Alpha and is therefore a work in progress. Let us know what else you'd like to see supported or if you would like to contribute!
 
 | Type            | Send | Receive |    Status     |
 | --------------- | :--: | :-----: | :-----------: |
@@ -476,7 +476,7 @@ Breps, pointclouds, blocks, views, and any other element not listed are not supp
 
 ### Supported Elements
 
-In addition to supporting all of the geometry elements that the MicroStation connector supports, OpenRoads and OpenRail also support the following built elements:
+In addition to supporting all of the geometry elements that the MicroStation Connector supports, OpenRoads and OpenRail also support the following built elements:
 
 | BuiltElement |  Send   | Receive |    Status     |
 | ------------ | :-----: | :-----: | :-----------: |
@@ -493,7 +493,7 @@ Profiles, Stations, Featurelines, and anything else not listed are currently not
 
 ### Supported Elements
 
-In addition to supporting all of the geometry elements that the MicroStation connector supports, OpenBuildings also supports the following built elements:
+In addition to supporting all of the geometry elements that the MicroStation Connector supports, OpenBuildings also supports the following built elements:
 
 | BuiltElement |  Send   | Receive |    Status     |
 | ------------ | :-----: | :-----: | :-----------: |
@@ -506,7 +506,7 @@ In addition to supporting all of the geometry elements that the MicroStation con
 
 ### Supported Elements
 
-The Tekla Structures connector is still in early Alpha and therefore will still be developed and worked on. Let us know what else you'd like to see supported or if you would like to contribute to make it finish the alpha phase faster!
+The Tekla Structures Connector is still in early Alpha and therefore will still be developed and worked on. Let us know what else you'd like to see supported or if you would like to contribute to make it finish the alpha phase faster!
 
 | Type                          | Send | Receive |    Status     |
 | ----------------------------- | :--: | :-----: | :-----------: |
@@ -524,7 +524,7 @@ The Tekla Structures connector is still in early Alpha and therefore will still 
 
 ### Supported Elements
 
-The Archicad connector is still in Alpha and being developed. Geometry and mesh based support is comprehensive and almost all of the built elements are supported. Let us know what would be particularly useful to you and we will make sure to prioritise them!
+The Archicad Connector is still in Alpha and being developed. Geometry and mesh based support is comprehensive and almost all of the built elements are supported. Let us know what would be particularly useful to you and we will make sure to prioritise them!
 
 | Type                | Send | Receive |    Status     |                       Notes                       |
 | ------------------- | :--: | :-----: | :-----------: | :-----------------------------------------------: |
@@ -547,11 +547,11 @@ The Archicad connector is still in Alpha and being developed. Geometry and mesh 
 
 ### Supported Elements
 
-The Navisworks connector is still in early Alpha and is still being developed. Geometry and mesh based support is pretty comprehensive, but built element support is non existant. Let us know what elements or properties you see as missing and would be particularly useful to you!
+The Navisworks Connector is still in Alpha and is still being developed. Geometry and mesh based support is pretty comprehensive, but built element (BIM) conversion is non existant. Let us know what elements or properties you see as missing and would be particularly useful to you! Navisworks Connector is send only.
 
 | Type                | Send | Receive |    Status     |                       Notes                       |
 | ------------------- | :--: | :-----: | :-----------: | :-----------------------------------------------: |
-| "Solid" Geometry    |  ✅  |         |  `Complete`   | All 3d elements will be sent as as meshes |
-| Line Geometry        |  ✅  |         |  `Complete`   | 2D and 2.5D Linework is sent as many lines as "dissolved" by Navisworks according to its facetting                                               |
-| Point                | 🟨  |         | `In Progress` |             |
-| Text         |    |         | `Unsupported` |                                                   |
+| "Solid" Geometry    |  ✅  |   ❌    |  `Complete`   | All 3d elements will be sent as as meshes |
+| Line Geometry       |  ✅  |         |  `Complete`   | 2D and 2.5D Linework is sent as many lines as "dissolved" by Navisworks according to its facetting setting on appending                                               |
+| Point               |  🟨  |         | `Partial` |             |
+| Text                |      |         | `Unsupported` |                                                   |

@@ -45,7 +45,7 @@ This is the easiest way to get the Server running.
 
 As prerequisites, you only need a Linux VM with at least 4 GB of RAM and have [Docker](https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script) and [Docker Compose](https://docs.docker.com/compose/install/#install-compose-on-linux-systems) installed.
 
-### Step 1: Create a directory for this deployment on the system
+### Step 1: Create a Directory for this Deployment on the System
 
 ```bash
 mkdir /opt/speckle/
@@ -243,7 +243,7 @@ Make sure to edit the file and change:
 
 The server also supports some other environment variables. You can see them in our [.env-example file from the git repo](https://github.com/specklesystems/speckle-server/blob/main/packages/server/.env-example).
 
-### Step 4: **Recommended** add a TLS certificate and serve via https
+### Step 4: **Recommended** Add a TLS Certificate and Serve Via HTTPS
 
 - set up a dns record, that points to the public ip of your VM
 - add a new entry into the services into the previously defined docker-compose.yml
@@ -300,11 +300,11 @@ The server also supports some other environment variables. You can see them in o
 
 - change `traefik.http.routers.speckle-ingress.rule` replace `example.com` with your domain
 
-### Step 5: Configure the logging driver for Docker
+### Step 5: Configure the Logging Driver for Docker
 
 By default, Docker will log output from Speckle to a file on the host machine. For legacy reasons Docker defaults to a logging driver which does not manage logs well and will quickly fill up disk space with logs. Docker recommends configuring Docker to use a different logging driver, such as `local`, to prevent this problem. Please follow the instructions in [Docker's documentation](https://docs.docker.com/config/containers/logging/configure) to amend your Docker settings.
 
-### Step 6: Start the Server and the dependencies
+### Step 6: Start the Server and the Dependencies
 
 ```bash
 cd /opt/speckle
@@ -324,7 +324,7 @@ All containers, except the frontend, are not accessible from outside the VM.
 
 All containers automatically start at system startup (so if the VM gets rebooted, the Server will automatically start)
 
-## Run in a VM without dependencies
+## Run in a VM without Dependencies
 
 If you plan to run PostgreSQL, Redis and and S3-compatible object storage service separately, for example as managed deployments by a cloud provider (DigitalOcean, AWS, Azure, etc), you can follow the same instructions as above, but with this simplified `docker-compose.yml` file:
 
@@ -442,7 +442,7 @@ services:
       S3_BUCKET: "speckle-server"
 ```
 
-## Update the server to new versions
+## Update the Server to New Versions
 
 This deployment mechanism doesn't provide an automatic update mechanism,
 so from time to time server operators need to manually update the deployment.
@@ -461,11 +461,11 @@ To update Speckle:
 
 Your server instance should be back online and updated.
 
-## Run your speckle-server fork
+## Run Your Speckle-Server Fork
 
 If you made some changes to the server and want to run those instead of the official releases, we created some useful docker-compose.yml files to help with that.
 
-### Step 1: Set up dependencies
+### Step 1: Set up Dependencies
 
 ::: tip
 If you set up PostgreSQL, Redis and S3-compatible service outside of this VM (for example a managed deployment from a cloud provider), you can skip this step, but remember to set up the correct environment variables later
@@ -499,7 +499,7 @@ To use Redis Insight, you can configure it to connect to the hostname `redis` (p
 Docker Compose creates named docker volumes for storing data for each of the containers, so data is persisted.
 You can view existing docker volumes with `docker volume ls` and delete a volume and existing data with `docker volume rm [volume_name]`
 
-### Step 2: Build and run your code
+### Step 2: Build and Run Your Code
 
 The git repository contains [a docker compose file](https://github.com/specklesystems/speckle-server/blob/main/docker-compose-speckle.yml) for building and running the Speckle server frontend and backend in docker containers.
 
@@ -521,6 +521,6 @@ This will run the following containers, and will automatically launch them at sy
 - _webhook-service_, the component that calls webhooks. Doesn't expose any port outside of the internal docker network.
 - _fileimport-service_, the component that imports uploaded files. Doesn't expose any port outside of the internal docker network.
 
-## Run in development mode
+## Run in Development Mode
 
 See the dedicated getting started with speckle server development [page](/dev/server-local-dev).

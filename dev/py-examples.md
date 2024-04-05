@@ -2,7 +2,7 @@
 
 This doc will show you the basics of sending and receiving data and give you an overview of SpecklePy functionality. However, it is not comprehensive. For more examples, please explore the repo's [tests](https://github.com/specklesystems/speckle-py/tree/main/tests).
 
-## Sending & Receiving
+## Sending and Receiving
 
 Let's look at how to send an object to a stream on your server and then receive that object back.
 
@@ -220,7 +220,7 @@ objCreate = client.object.create(stream_id="stream id", objects=[obj])
 received_base = client.object.get("stream id", hash)
 ```
 
-### Base Object & Serialization
+### Base Object and Serialization
 
 #### The Base Object
 

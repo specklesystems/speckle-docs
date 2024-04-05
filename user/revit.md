@@ -15,7 +15,7 @@ Check out our dedicated tutorial on [how to get started with Revit](https://spec
 
 To install the Revit Connector and add your Speckle account, proceed by following the instructions in [Speckle Manager](/user/manager).
 
-Once installed, you can find the Revit connector in the ribbon menu under the **Speckle** tab like so:
+Once installed, you can find the Revit Connector in the ribbon menu under the **Speckle** tab like so:
 
 ![speckle-ribbon-revit](https://user-images.githubusercontent.com/51519350/186413456-3c2f0f5c-f5f4-4f40-a8cf-1ed53ee0ae39.png)
 
@@ -29,7 +29,7 @@ This connector uses our shared Desktop UI. Read up on general guidelines for usa
 
 ### Selection Filters
 
-To help you select which elements will be to sent to Speckle, we've built various filters into our Revit connector. Once a filter is set, just click **Send** and all objects passing the filter will be sent to your Stream.
+To help you select which elements will be to sent to Speckle, we've built various filters into our Revit Connector. Once a filter is set, just click **Send** and all objects passing the filter will be sent to your project.
 
 _Please Note: Elements are sent regardless of whether they are visible or if they were created after setting up the filter._
 
@@ -73,7 +73,7 @@ To access the Filters feature, follow these steps:
 
 ### Receive Modes
 
-When receiving from a Stream that has been received before, you might want to update, create or ignore elements that were already created before.
+When receiving from a project that has been received before, you might want to update, create or ignore elements that were already created before.
 This is when the **Receive Mode** setting comes in! This is how it works:
 
 - update: updates elements if they already exist and creates missing ones (current behavior in Revit)
@@ -83,11 +83,11 @@ This is when the **Receive Mode** setting comes in! This is how it works:
 
 ![receive-modes](https://user-images.githubusercontent.com/51519350/186415788-4e3d9860-22b7-4acf-8fb1-5f19fee0bf1e.png)
 
-## Linked Models
+## Linked Revit Models
 
-The Revit connector supports Linked Models, here's how it works.
+The Revit Connector supports Linked Revit Models, here's how it works.
 
-### Sending Linked Models
+### Sending Linked Revit Models
 
 First enable support for linked models when sending from the _Send tab_ > click on _Advanced Settings_ > _Send Linked Models_.
 Then use the selection filters as you would normally would and any relevant item from the linked models will be sent as well.
@@ -118,7 +118,7 @@ Multiple instances of the same linked model are currently not supported on sendi
 
 ## Family Editor
 
-The Revit connector also works in the Family Editor, refer to the list below for supported element types.
+The Revit Connector also works in the Family Editor, refer to the list below for supported element types.
 
 - [Revit Support Tables](/user/support-tables.html#revit)
 
@@ -129,13 +129,13 @@ The connector takes care of updating received elements automatically where possi
 Elements are updated under these two circumstances:
 
 - If the element was created in another project/software and had been received previously: for example, BuiltElements that were created in Rhino or Grasshopper
-- If the element was created in the same project you're working on: for example, if you send some walls to Speckle, edit them, and receive them again from the same stream
+- If the element was created in the same project you're working on: for example, if you send some walls to Speckle, edit them, and receive them again from the same project
 
 Here are some technical details if you're curious about what's happening behind the scenes:
 
 - BuiltElements have a property called `applicationId`, this is different from the `id/hash` property on them, and represents the id of such element in the host application in which it was first created. If the element was created in Revit it’s the `UniqueId`, if coming from Grasshopper/Rhino an analogous field
-- When a stream is received in Revit the `applicationIds` of all BuiltElements created are cached in the receiver
-- When receiving a second time from the same stream, if the received elements have the same `applicationId` of something that was previously received (and it still exists in the document), the connector will attempt to modify them instead of creating new ones. If the update fails (or is not permitted by the API), it’ll delete them and create new ones
+- When a project is received in Revit the `applicationIds` of all BuiltElements created are cached in the receiver
+- When receiving a second time from the same project, if the received elements have the same `applicationId` of something that was previously received (and it still exists in the document), the connector will attempt to modify them instead of creating new ones. If the update fails (or is not permitted by the API), it’ll delete them and create new ones
 - If no cached element is found, but there is an element in the document with a matching `applicationId` that is used for the update (this is the case of someone restoring changes previously sent, in the same project)
 - If an element being received doesn’t have an `applicationId` no update mechanism will happen (this could be the case of BuiltElements created in Python if no `applicationIds` are generated manually)
 
@@ -149,9 +149,9 @@ NOTE: Levels are _not matched by name_ as this could end up with undesired resul
 
 Information on the Schedule Updater can be found in the [Excel Docs](/user/excel.html#schedule-updater)
 
-## Revit & BIM Data
+## Revit and BIM Data
 
-When sending from Revit, Speckle takes care of converting the data to a Speckle friendly format. If you're curious about how this data is being structured, please have a look at our [Objects Kit class definitions](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects/BuiltElements).
+When sending from Revit, Speckle takes care of converting the data to a Speckle friendly format. If you're curious about how this data is being structured, please have a look at our [Objects kit class definitions](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects/BuiltElements).
 
 For instance, a Revit room will look like this:
 
@@ -173,13 +173,13 @@ To easily explore on object's data and parameters, our [Speckle Web App](/user/w
 
 ![web-bim-data](https://user-images.githubusercontent.com/51519350/186416982-15eb496a-18fc-4782-b1d2-a6df01e9a5ed.png)
 
-## Stream Advanced Settings
+## Project Advanced Settings
 
-The `Advanced Settings` page allows you to customize the way Speckle behaves "per-stream".
+The `Advanced Settings` page allows you to customize the way Speckle behaves "per-project".
 
 ![Advanced settings page](./img-revit/revit-advancedSettings-view.png)
 
-### Reference point
+### Reference Point
 
 Allows the user to specify which reference point should be used when sending or receiving data.
 
@@ -189,7 +189,7 @@ Available options are:
 - The **project base** point
 - The **survey point**
 
-### Send/Receive Linked models
+### Send/Receive Linked Models
 
 ![Linked Models setting](./img-revit/revit-advancedSettings-linkedModels.png)
 
@@ -197,7 +197,7 @@ By default, Speckle will only send data from the current model, without includin
 
 Use this option to control when you want to send all the information (including Linked models) and when to receive it.
 
-### Receive objects as Meshes
+### Receive Objects as Meshes
 
 ![Receive as mesh](./img-revit/revit-advancedSettings-directMesh.png)
 
@@ -205,7 +205,7 @@ In some cases, you may just want to receive the exact geometry some other user s
 
 In these cases, `Receive objects as Direct Meshes` will force all objects to be `DirectShape` instances.
 
-### Custom object type mapping
+### Custom Object Type Mapping
 
 ![Mapping](./img-revit/revit-advancedSettings-mapping.png)
 
@@ -222,16 +222,17 @@ Availible options are:
 - Never
   Speckle will do all the mapping for you.
 - Always
-  Everytime a Speckle commit is received, you will see a table of all the incoming object types and get the chance to set a mapped native Revit type to each incoming type.
+    
+    Everytime a Speckle version is received, you will see a table of all the incoming object types and get the chance to set a mapped native Revit type to each incoming type.
 - For New Types
+    
+    When a project is first received, you will see a table of all incoming types and map them to types in the Revit application (exactly the same as the above option). 
 
-  When a stream is first received, you will see a table of all incoming types and map them to types in the Revit application (exactly the same as the above option).
+    When you receive from the same project a second time, however, the mapping dialog will only appear if there are new incoming types that have not previously been mapped by the user. 
+    
+    If the next version received contains the same objects as the first version, then the previous custom mapping will be used and you will not be asked to remap all of the incoming types.
 
-  When you receive from the same stream a second time, however, the mapping dialog will only appear if there are new incoming types that have not previously been mapped by the user.
-
-  If the next commit received contains the same objects as the first commit, then the previous custom mapping will be used and you will not be asked to remap all of the incoming types.
-
-#### Import types
+#### Import Types
 
 ![Import Types](./img-revit/revit-advancedSettings-importTypes.png)
 
@@ -239,7 +240,7 @@ If you find yourself in the mapping dialog and realize that you are about to imp
 
 It will first open a file dialog where you can open one or more Revit family files. From there you can sift through all the types and import the ones that you want. If a toggle is grayed out, then it means that type is already loaded into the project.
 
-### Disallow join for elements
+### Disallow Join for Elements
 
 ![Disallow join](./img-revit/revit-advancedSettings-disallowJoin.png)
 
@@ -270,7 +271,7 @@ Make sure to select the filter you intent to use when the scheduler is triggered
 
 ![image](https://user-images.githubusercontent.com/2679513/159046830-a40b6dc0-46f1-4681-9de1-fb094c8d41ff.png)
 
-Now that your sender stream is saved you can open the Scheduler and select it, together with the intended trigger:
+Now that your sender project is saved you can open the Scheduler and select it, together with the intended trigger:
 
 ![image](https://user-images.githubusercontent.com/2679513/159047256-1971295a-782e-439e-be61-c92d712ae1fd.png)
 
@@ -287,7 +288,7 @@ _NOTE_: currently only one scheduler can be set per file, in the future we will 
 
 The Connector also supports Revit design options and you can publish different version of you model to Speckle. 
 
-If the selection filter is set to **Everything**, the Connector sends the **Main Model** and any objects that are part of a **primary** design option by default. To publish other options with the Main Model, simply select any other option from the Design Options drop-down. 
+If the selection filter is set to **Everything**, the Connector sends the **Main model** and any objects that are part of a **primary** design option by default. To publish other options with the main model, simply select any other option from the Design Options drop-down. 
 
 ![Design Options](./img-revit/revit-desing-options.png)
 
