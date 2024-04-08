@@ -1,4 +1,4 @@
-# Deploying a Server - Manual Setup
+# Deploying a Server - Docker Compose
 
 ::: tip IMPORTANT
 We offer a free server that you can use straight away (create accounts, etc.).
