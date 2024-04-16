@@ -252,6 +252,7 @@ The server also supports some other environment variables. You can see them in o
   services:
     reverse-proxy:
       image: traefik:v2.10
+      restart: always
       command:
         - "--providers.docker=true"
         - "--providers.docker.exposedbydefault=false"
