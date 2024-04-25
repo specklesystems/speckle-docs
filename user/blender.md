@@ -117,7 +117,7 @@ poetry install --with dev
 ```
 3. Run the `export_dependencies.sh` script to export the requirements.txt file for the runtime dependencies
 4. **Open the project folder** in VSCode and run the **`Blender: Build and Start`** command.
-> Or, if not using VSCode, the you can must **copy** (or symlink) the `bpy_speckle` and `modules` folders into `%appdata%/Blender Foundation/Blender/{ver}/scripts/addons/`. (Creating `scripts/addons` if needed). Then start blender.
+> Or, if not using VSCode, the you can must **copy** (or symlink) the `bpy_speckle` folder into `%appdata%/Blender Foundation/Blender/{ver}/scripts/addons/`. (Creating `scripts/addons` if needed). Then start blender.
 5. From `Edit -> Preferences -> Add-ons`, **enable the `Speckle Blender` plugin**.
 6. A **restart of Blender** may be required upon first launch.
 
