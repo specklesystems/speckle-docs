@@ -104,26 +104,21 @@ this is the recommended development setup for the [speckle-blender](https://gith
 Also recommended: [VSCode](https://code.visualstudio.com/) with the [Blender Development Addon for VSCode](https://marketplace.visualstudio.com/items?itemName=JacquesLucke.blender-development) (allows debugging, and automatically symlinks `scripts/addons`)
 ::: 
 
-1. **Git clone** the [speckle-blender](https://github.com/specklesystems/speckle-blender) and [specklepy](https://github.com/specklesystems/specklepy) repositories into the a folder somewhere on your system.
+1. **Clone** the [speckle-blender](https://github.com/specklesystems/speckle-blender) repository into the a folder somewhere on your system.
 ```sh
 git clone https://github.com/specklesystems/speckle-blender
-git clone https://github.com/specklesystems/specklepy
 cd ./speckle-blender
 ```
 
-2. Run the following commands to **export the dev dependencies**
+2. Run the following commands to create a local environment
 ```sh
 poetry lock --no-update
-poetry export -f requirements.txt --with dev --without-hashes > requirements.txt
-python -m pip install -r requirements.txt -t "./modules"
+poetry install --with dev
 ```
-> or, if you don't care about dev dependencies, you can simply run
-> ```sh
-> sh export_dependencies.sh
-> ```
-3. **Open the project folder** in VSCode and run the **`Blender: Build and Start`** command.
-> Or, if not using VSCode, the you can must **copy** (or symlink) the `bpy_speckle` and `modules` folders into `%appdata%/Blender Foundation/Blender/{ver}/scripts/addons/`. (Creating `scripts/addons` if needed). Then start blender.
-4. From `Edit -> Preferences -> Add-ons`, **enable the `Speckle Blender` plugin**.
-5. A **restart of Blender** may be required upon first launch.
+3. Run the `export_dependencies.sh` script to export the requirements.txt file for the runtime dependencies
+4. **Open the project folder** in VSCode and run the **`Blender: Build and Start`** command.
+> Or, if not using VSCode, the you can must **copy** (or symlink) the `bpy_speckle` folder into `%appdata%/Blender Foundation/Blender/{ver}/scripts/addons/`. (Creating `scripts/addons` if needed). Then start blender.
+5. From `Edit -> Preferences -> Add-ons`, **enable the `Speckle Blender` plugin**.
+6. A **restart of Blender** may be required upon first launch.
 
-> Feel free to reachout to us on [the forums](https://speckle.community/) if you're having any difficulties, or suggestions on better dev setups!
+> Reminder, you can check the console for any errors, and feel free to reachout to us on [the forums](https://speckle.community/) if you're having any difficulties, or suggestions on better dev setups!
