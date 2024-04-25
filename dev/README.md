@@ -54,7 +54,7 @@ Here's a quick summary of the main repos you'll find there, please make sure to 
     ├── desktopui
     └── objects
         ├── objects
-        └── conerters
+        └── converters
             ├── revit
             ├── rhinogh
             ├── dynamo
