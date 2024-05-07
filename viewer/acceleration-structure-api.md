@@ -22,8 +22,8 @@ The speckle viewer uses a dual level BVH for optimal acceleration. The Accelerat
 
 ### <h3>Typedefs</h3>
 
-| [VectorLike](/viewer/acceleration-structure-api.md#vectorlike) |
-| -------------------------------------------------------------- |
+| [VectorLike](/viewer/acceleration-structure-api.md#vectorlike) | [BVHOptions](/viewer/acceleration-structure-api.md#bvhoptions)
+| -------------------------------------------------------------- | -------------------------------------------------------------- |
 
 ### <h3>Constructors</h3>
 
@@ -83,7 +83,7 @@ Build a BVH using the provided geometry data.
 
 - **indices**: Geometry indices
 - **position**: Geometry vertex positions
-- **options**: [_BVHOptions_]()
+- **options**: [_BVHOptions_](/viewer/acceleration-structure-api.md#bvhoptions)
 - _optional_ **transform**: A [_Matrix4_](https://threejs.org/docs/index.html?q=matri#api/en/math/Matrix4) that transforms the geometry data before building the BVH
 
 **Returns**: [_MeshBVH_](https://github.com/gkjohnson/three-mesh-bvh/blob/master/src/core/MeshBVH.js)
@@ -242,3 +242,20 @@ type VectorLike = { x: number; y: number; z?: number; w?: number };
 ```
 
 Archtype for Vector2, Vector3 and Vector4.
+
+#### <b>BVHOptions</b>
+
+```ts
+interface BVHOptions {
+  strategy: SplitStrategy
+  maxDepth: number
+  maxLeafTris: number
+  verbose: boolean
+  useSharedArrayBuffer: boolean
+  setBoundingBox: boolean
+  onProgress?: () => void
+  [SKIP_GENERATION]: boolean
+}
+```
+
+Based off the original options defined in [_three-mesh-bvh_](https://github.com/gkjohnson/three-mesh-bvh/blob/a3a7ca7b2b275606963a616c80ca1262a7e48d7f/src/core/MeshBVH.js#L29)

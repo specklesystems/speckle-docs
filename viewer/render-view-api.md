@@ -158,9 +158,9 @@ Gets the render view's computed material hash.
 get speckleType(): SpeckleType
 ```
 
-Gets the render view's render data [_SpeckleType_]().
+Gets the render view's render data [_SpeckleType_](/viewer/geometry-converter-api.md#speckletype).
 
-**Returns**: [_SpeckleType_]()
+**Returns**: [_SpeckleType_](/viewer/geometry-converter-api.md#speckletype)
 
 #### <b>transparent</b>
 
@@ -276,10 +276,10 @@ This is the bare bones data representation of anything renderable in the viewer.
 
 - **id**: The id of the object. For speckle data, this would be the speckle id
 - **subtreeId**: The id of the subtree of the host node
-- **speckleType**: [_SpeckleType_]()
+- **speckleType**: [_SpeckleType_](/viewer/geometry-converter-api.md#speckletype)
 - **geometry**: Raw geometry information stored as [_GeometryData_](/viewer/render-view-api.md#geometrydata)
-- **renderMaterial**: Raw material information stored as [_RenderMaterial_]()
-- **DisplayStyle**: Raw line material information stored as [_DisplayStyle_]()
+- **renderMaterial**: Raw material information stored as [_RenderMaterial_](/viewer/speckle-material-api.md#rendermaterial)
+- **DisplayStyle**: Raw line material information stored as [_DisplayStyle_](/viewer/speckle-material-api.md#displaystyle)
 
 #### <b>GeometryData</b>
 
@@ -295,7 +295,7 @@ interface GeometryData {
 
 Raw geometry information, explicit and/or implicit.
 
-- **attributes**: [_GeometryAttributes_]() Vertex attribute arrays
+- **attributes**: [_GeometryAttributes_](/viewer/render-view-api.md#geometryattributes) Vertex attribute arrays
 - **bakeTransform**: [_Matrix4_](https://threejs.org/docs/index.html?q=matri#api/en/math/Matrix4) transformation that will get baked into the geometry
 - **transform**: [_Matrix4_](https://threejs.org/docs/index.html?q=matri#api/en/math/Matrix4) the object's transformation. As per the default implementation, instances use this as the per instance transform attribute. Non-instances have it baked in their geometries
 - **metaData**: Implicit geometry data which the viewer uses at runtime to create geometry. Text is a good example of implicit geometry

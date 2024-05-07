@@ -31,7 +31,7 @@ background-color: rgba(0, 0, 0, 0.0) !important;
 | [LightConfiguration](/viewer/viewer-api.md#lightconfiguration) | [ObjectLayers](/viewer/viewer-api.md#objectlayers)  | [PropertyInfo](/viewer/viewer-api.md#propertyinfo) | [SelectionEvent](/viewer/viewer-api.md#selectionevent) |
 | :------------------------------------------------------------- | :------------------------------------------------------------------- | :------------------------------------------------- | :----------------------------------------------------- |
 | [SpeckleView](/viewer/viewer-api.md#speckleview)               | [SunLightConfiguration](/viewer/viewer-api.md#sunlightconfiguration) | [UpdateFlags](/viewer/viewer-api.md#updateflags)   | [Utils](/viewer/viewer-api.md#utilsinterface)          |
-| [ViewerEvent](/viewer/viewer-api.md#viewerevent)               | [ViewerParams](/viewer/viewer-api.md#viewerparams)                   | [World](/viewer/viewer-api.md#worldclass)          |
+| [ViewerEvent](/viewer/viewer-api.md#viewerevent)               | [ViewerParams](/viewer/viewer-api.md#viewerparams)                   | [World](/viewer/viewer-api.md#worldclass)          | [Asset](/viewer/viewer-api.md#asset)
 
 ### <h3>Constructors</h3>
 
@@ -151,9 +151,9 @@ When executing for a very large number of objects, this method can take long to 
 getRenderer(): SpeckleRenderer
 ```
 
-Gets the [_SpeckleRenderer_]() instance associated with the viewer.
+Gets the [_SpeckleRenderer_](/viewer/speckle-renderer-api.md) instance associated with the viewer.
 
-**Returns**: [_SpeckleRenderer_]()
+**Returns**: [_SpeckleRenderer_](/viewer/speckle-renderer-api.md)
 
 #### <b>getViews</b>
 
@@ -171,9 +171,9 @@ Gets all the current [_SpeckleView_](/viewer/viewer-api.md#speckleview) instance
 getWorldTree(): WorldTree
 ```
 
-Gets the [_WorldTree_]() instance associated with the viewer.
+Gets the [_WorldTree_](/viewer/world-tree-api.md) instance associated with the viewer.
 
-**Returns**: [_WorldTree[]_]()
+**Returns**: [_WorldTree[]_](/viewer/world-tree-api.md)
 
 #### <b>init</b>
 
@@ -191,11 +191,11 @@ Initializes the viewer asynchronously and loads required assets.
 loadObject(loader: Loader, zoomToObject?: boolean): Promise<void>
 ```
 
-Loads objects asynchronously using a [_Loader_]().
+Loads objects asynchronously using a [_Loader_](/viewer/loader-api.md).
 
 **Parameters**
 
-- **loader**: The [_Loader_]() instance used in loading.
+- **loader**: The [_Loader_](/viewer/loader-api.md) instance used in loading.
 - _(optional)_ **zoomToObject**: Enabled zooming in on the loaded object after loading finishes. Default _true_
 
 **Returns**: <span style="font-weight:normal">_Promise< void >_</span>
@@ -371,7 +371,7 @@ Payload for _ViewerEvent.ObjectClicked_ and _ViewerEvent.ObjectDoubleClicked_.
 
 - **multiple**: Whether this is a multiple selection or not.
 - **event**: The browser [_PointerEvent_](https://developer.mozilla.org/en-US/docs/Web/API/PointerEvent) piggybacked.
-- **hits**: The array of hits sorted by distance, where closest is first. _node_ is the intersected [_TreeNode_]() and _point_ is it's point of intersection.
+- **hits**: The array of hits sorted by distance, where closest is first. _node_ is the intersected [_TreeNode_](/viewer/world-tree-api.md#treenode) and _point_ is it's point of intersection.
 
 #### <b>SpeckleView</b>
 
@@ -399,7 +399,7 @@ interface SunLightConfiguration extends LightConfiguration {
 
 - **elevation**: Sun elevation in polar coordinates.
 - **azimuth**: Sun azimuth in polar coordinates.
-- **radius**: Sun distance from [_World_]() center.
+- **radius**: Sun distance from [_World_](/viewer/viewer-api.md#worldclass) center.
 
 #### <b>UpdateFlags</b>
 
@@ -458,7 +458,7 @@ All the events the viewer can emit.
 ```ts
 interface ViewerParams {
   showStats: boolean;
-  environmentSrc: Asset | string;
+  environmentSrc: Asset;
   verbose: boolean;
 }
 ```
@@ -466,6 +466,30 @@ interface ViewerParams {
 - **showStats**: Displays a [stats](https://github.com/mrdoob/stats.js) panel.
 - **environmentSrc**: The URL of the image used for indirect IBL.
 - **verbose**: Enables viewer logs.
+
+#### <b>Asset</b>
+
+```ts
+enum AssetType {
+  TEXTURE_8BPP = 'png', 
+  TEXTURE_HDR = 'hdr',
+  TEXTURE_EXR = 'exr',
+  FONT_JSON = 'font-json'
+}
+
+interface Asset {
+  id: string
+  src: string
+  type: AssetType
+}
+```
+
+- **id**: Mandatory id of the asset.
+- **src**: The URL of the asset. Supports inline base64 encoded assets
+- **type**: _AssetType_
+:::warning
+For correct asset caching use need to use unique asset ids!
+:::
 
 #### <b>WorldClass</b>
 

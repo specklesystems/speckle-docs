@@ -2,7 +2,7 @@
 
 Default section tool implementation.
 :::warning
-Requires ICameraProvider implementation.
+This extension requires and active CameraController extension implementation.
 :::
 
 ### <h3>Accessors</h3>
@@ -60,14 +60,14 @@ Gets the current section box bounds.
 #### <b>on</b>
 
 ```ts
-on(e: CameraControllerEvent, handler: (data: boolean) => void)
+on(e: CameraEvent, handler: (data: boolean) => void)
 ```
 
 Function for subscribing to camera events.
 
 **Parameters**
 
-- **e**: [_CameraControllerEvent_]()
+- **e**: [_CameraEvent_](/viewer/camera-controller-api.md#cameraevent)
 - **handler**: The handler for the events
 
 **Returns**: void
@@ -75,14 +75,14 @@ Function for subscribing to camera events.
 #### <b>removeListener</b>
 
 ```ts
-removeListener(e: CameraControllerEvent, handler: (data: unknown) => void)
+removeListener(e: CameraEvent, handler: (data: unknown) => void)
 ```
 
 Function for un-subscribing from camera events.
 
 **Parameters**
 
-- **e**: [_CameraControllerEvent_]()
+- **e**: [_CameraEvent_](/viewer/camera-controller-api.md#cameraevent)
 - **handler**: The handler for the events to unsubscribe
 
 **Returns**: void

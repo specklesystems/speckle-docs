@@ -89,9 +89,9 @@ Sets the [_envMapIntensity_](https://threejs.org/docs/index.html?q=standard#api/
 get intersections(): Intersections
 ```
 
-Gets the [_Intersections_]() instance associated with the renderer.
+Gets the [_Intersections_](/viewer/intersections-api.md) instance associated with the renderer.
 
-**Returns**: [**_Intersections_**]()
+**Returns**: [**_Intersections_**](/viewer/intersections-api.md)
 
 #### <b>needsRender</b>
 

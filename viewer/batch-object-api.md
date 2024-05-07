@@ -58,7 +58,7 @@ get accelerationStructure(): AccelerationStructure
 
 Gets the object's bottom level BVH.
 
-**Returns**: [_AccelerationStructure_]()
+**Returns**: [_AccelerationStructure_](/viewer/acceleration-structure-api.md)
 
 #### <b>batchIndex</b>
 
@@ -98,7 +98,7 @@ Gets the start index inside the batch's index buffer.
 buildAccelerationStructure(bvh?: MeshBVH)
 ```
 
-Build this object's [_AccelerationStructure_]() either from scratch, using the render view's geometry, either by using the optional bvh argument. BVH's can be shared between objects as long as it makes sense like for example for instances.
+Build this object's [_AccelerationStructure_](/viewer/acceleration-structure-api.md) either from scratch, using the render view's geometry, either by using the optional bvh argument. BVH's can be shared between objects as long as it makes sense like for example for instances.
 :::tip
 The speckle viewer uses the [three-mesh-bvh](https://github.com/gkjohnson/three-mesh-bvh) library as the backbone for any BVH related operations.
 :::

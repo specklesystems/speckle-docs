@@ -96,7 +96,7 @@ findAll(predicate: SearchPredicate, node?: TreeNode): TreeNode[]
 
 Goes throught the tree starting at _node_ if provided, otherwise at the tree _root_ and runs the provided predicate for each node. All nodes which satisfy the predicate are returned.
 ::: warning
-Be mindful about the predicate's contents. If the tree is very large this operation can lock the main thread for too long. If you need to execute complex predicates on large trees, [_walkAsync_]() is a better candidate.
+Be mindful about the predicate's contents. If the tree is very large this operation can lock the main thread for too long. If you need to execute complex predicates on large trees, [_walkAsync_](/viewer/world-tree-api.md#walkasync) is a better candidate.
 :::
 
 **Parameters**
@@ -158,13 +158,13 @@ Gets all the instances in the provided subtree id.
 getRenderTree(subtreeId?: string): RenderTree
 ```
 
-Gets the [_RenderTree_]() instance of the provided subtree id. If _subtreeId_ argument is undefined, gets the _RenderTree_ instance for the entire tree.
+Gets the [_RenderTree_](/viewer/render-tree-api.md) instance of the provided subtree id. If _subtreeId_ argument is undefined, gets the _RenderTree_ instance for the entire tree.
 
 **Parameters**
 
 - **subtreeId**: The root subtree id
 
-**Returns**: [_RenderTree_]()
+**Returns**: [_RenderTree_](/viewer/render-tree-api.md)
 
 #### <b>isRoot</b>
 

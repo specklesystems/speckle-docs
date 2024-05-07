@@ -123,7 +123,7 @@ get groups(): DrawGroup[]
 
 Gets the current list of draw groups. A draw group is equivalent to a draw call.
 
-**Returns**: [_DrawGroup[]_]()
+**Returns**: [_DrawGroup[]_](/viewer/batch-api.md#drawgroup)
 
 #### <b>materials</b>
 
@@ -348,7 +348,7 @@ Resets the batch to its default state where there is a single draw group rendere
 setBatchBuffers(range: BatchUpdateRange[]): void
 ```
 
-Updates relevant batch buffers based on the [_MaterialOptions_]() from the provided [_BatchUpdateRange_](/viewer/batch-api.md#batchupdaterange). Implementation specific.
+Updates relevant batch buffers based on the [_MaterialOptions_](/viewer/speckle-material-api.md#materialoptions) from the provided [_BatchUpdateRange_](/viewer/batch-api.md#batchupdaterange). Implementation specific.
 
 **Parameters**
 

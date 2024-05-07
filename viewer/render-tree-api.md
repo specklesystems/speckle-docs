@@ -55,11 +55,11 @@ Gets the id of the render tree's root node.
 buildRenderTree(geometryConverter: GeometryConverter): Promise<boolean>
 ```
 
-Builds the render tree using the provided [_GeometryConverter_](). Building can be interrupted by calling [_cancelBuild_](/viewer/render-tree-api.md#cancelBuild). 'Building' the render tree, means constructing each node's [_NodeRenderView_](), preparing all geometry and materials, and executing any required transformations. This operation should only be carrired out once, as re-building an already built tree is not possible.
+Builds the render tree using the provided [_GeometryConverter_](/viewer/geometry-converter-api.md). Building can be interrupted by calling [_cancelBuild_](/viewer/render-tree-api.md#cancelBuild). 'Building' the render tree, means constructing each node's [_NodeRenderView_](/viewer/render-view-api.md), preparing all geometry and materials, and executing any required transformations. This operation should only be carrired out once, as re-building an already built tree is not possible.
 
 **Parameters**
 
-- **geometryConverter**: The [_GeometryConverter_]() to use in building the tree
+- **geometryConverter**: The [_GeometryConverter_](/viewer/geometry-converter-api.md) to use in building the tree
 
 **Returns**: <span style="font-weight:normal">A promise which resolves to a boolean indicating if the building process completed successfully (true) or was interrupted (false)</span>
 
@@ -121,11 +121,11 @@ Calls the underlying WorldTree [_getInstances_](/viewer/world-tree-api.md#getins
 getRenderableNodes(...types: SpeckleType[]): TreeNode[]
 ```
 
-Gets all renderable nodes of the specified [_SpeckleType_]()s.
+Gets all renderable nodes of the specified [_SpeckleType_](/viewer/geometry-converter-api.md#speckletype)s.
 
 **Parameters**
 
-- **types**: Variable number of [_SpeckleType_]() values
+- **types**: Variable number of [_SpeckleType_](/viewer/geometry-converter-api.md#speckletype) values
 
 **Returns**: [_TreeNode[]_](/viewer/render-tree-api.md#treenode)
 
@@ -135,13 +135,13 @@ Gets all renderable nodes of the specified [_SpeckleType_]()s.
 getRenderableRenderViews(...types: SpeckleType[]): NodeRenderView[]
 ```
 
-Same as [_getRenderableNodes_](/viewer/render-tree-api.md#getrenderablerenderviews), but returns the mapped [_NodeRenderView_]()s of the renderable nodes.
+Same as [_getRenderableNodes_](/viewer/render-tree-api.md#getrenderablerenderviews), but returns the mapped [_NodeRenderView_](/viewer/render-view-api.md)s of the renderable nodes.
 
 **Parameters**
 
-- **node**: Variable number of [_SpeckleType_]() values
+- **node**: Variable number of [_SpeckleType_](/viewer/geometry-converter-api.md#speckletype) values
 
-**Returns**: [_NodeRenderView[]_]()
+**Returns**: [_NodeRenderView[]_](/viewer/render-view-api.md)
 
 #### <b>getRenderViewNodesForNode</b>
 
@@ -149,7 +149,7 @@ Same as [_getRenderableNodes_](/viewer/render-tree-api.md#getrenderablerendervie
 getRenderViewNodesForNode(node: TreeNode): TreeNode[]
 ```
 
-Returns all [_TreeNode_]()s that have a displayable [_NodeRenderView_]() descending from _node_.
+Returns all [_TreeNode_](/viewer/world-tree-api.md#treenode)s that have a displayable [_NodeRenderView_](/viewer/render-view-api.md) descending from _node_.
 
 **Parameters**
 
@@ -163,13 +163,13 @@ Returns all [_TreeNode_]()s that have a displayable [_NodeRenderView_]() descend
 getRenderViewsForNode(node: TreeNode): NodeRenderView[]
 ```
 
-Gets all displayable [_RenderView_]()s descending from _node_.
+Gets all displayable [_NodeRenderView_](/viewer/render-view-api.md)s descending from _node_.
 
 **Parameters**
 
 - **node**: [_TreeNode_](/viewer/render-tree-api.md#treenode)
 
-**Returns**: [_RenderView[]_]()
+**Returns**: [_NodeRenderView[]_](/viewer/render-view-api.md)
 
 #### <b>getRenderViewsForNodeId</b>
 
@@ -177,13 +177,13 @@ Gets all displayable [_RenderView_]()s descending from _node_.
 getRenderViewsForNodeId(id: string): NodeRenderView[]
 ```
 
-Gets all displayable [_RenderView_]()s descending from the node with the provided _id_.
+Gets all displayable [_NodeRenderView_](/viewer/render-view-api.md)s descending from the node with the provided _id_.
 
 **Parameters**
 
-- **id**: Id of the node to gather [_RenderView_]()s for
+- **id**: Id of the node to gather [_NodeRenderView_](/viewer/render-view-api.md)s for
 
-**Returns**: [_RenderView[]_]()
+**Returns**: [_NodeRenderView[]_](/viewer/render-view-api.md)
 
 #### <b>purge</b>
 

@@ -294,6 +294,7 @@ module.exports = {
           title: "API Reference",
           collapsable: false,
           children: [
+            "migration-guide",
             {
               title: "Viewer Core",
               collapsable: true,
