@@ -17,9 +17,9 @@ The default camera controller extension that comes with the viewer package. Incl
 
 ### <h3>Typedefs</h3>
 
-| [CameraControllerEvent](/viewer/camera-controller-api.md#cameracontrollerevent) | [CameraProjection](/viewer/camera-controller-api.md#cameraprojection) | [CanonicalView](/viewer/camera-controller-api.md#canonicalview) | [InlineView](/viewer/camera-controller-api.md#inlineview) |
+| [CameraEvent](/viewer/camera-controller-api.md#cameraevent) | [CameraEventPayload](/viewer/camera-controller-api.md#cameraeventpayload) | [CameraProjection](/viewer/camera-controller-api.md#cameraprojection) | [CanonicalView](/viewer/camera-controller-api.md#canonicalview) |
 | :------------------------------------------------------------------------------ | :-------------------------------------------------------------------- | :-------------------------------------------------------------- | :-------------------------------------------------------- |
-| [PolarView](/viewer/camera-controller-api.md#polarview)                         |                                                                       |                                                                 |
+| [InlineView](/viewer/camera-controller-api.md#inlineview)                         |       [PolarView](/viewer/camera-controller-api.md#polarview)                                                                |                                                                 |
 
 ### <h3>Accessors</h3>
 
@@ -105,14 +105,17 @@ Enables all camera controls rotation capabilities.
 #### <b>on</b>
 
 ```ts
-on(e: CameraControllerEvent, handler: (data: boolean) => void)
+on<T extends CameraEvent>(
+  eventType: T,
+  listener: (arg: CameraEventPayload[T]) => void
+): void
 ```
 
 Function for subscribing to camera events.
 
 **Parameters**
 
-- **e**: [_CameraControllerEvent_]()
+- **eventType**: [_CameraEvent_](/viewer/camera-controller-api.md#cameraevent)
 - **handler**: The handler for the events
 
 **Returns**: void
@@ -120,14 +123,14 @@ Function for subscribing to camera events.
 #### <b>removeListener</b>
 
 ```ts
-removeListener(e: CameraControllerEvent, handler: (data: unknown) => void)
+removeListener(e: CameraEvent, handler: (data: unknown) => void)
 ```
 
 Function for un-subscribing from camera events.
 
 **Parameters**
 
-- **e**: [_CameraControllerEvent_]()
+- **e**: [_CameraEvent_](/viewer/camera-controller-api.md#cameraevent)
 - **handler**: The handler for the events to unsubscribe
 
 **Returns**: void
@@ -172,7 +175,7 @@ Focuses the camera based on explicit view models provided.
 
 **Parameters**
 
-- **view**: Explicit view of different possible type: [_CanonicalView_](), [_SpeckleView_](), [_InlineView_]()
+- **view**: Explicit view of different possible type: [_CanonicalView_](/viewer/camera-controller-api.md#canonicalview), [_SpeckleView_](/viewer/camera-controller-api.md#speckleview), [_InlineView_](/viewer/camera-controller-api.md#inlineview)
 - **transition**: Whether or not to make the transition animated
 - _optional_ **fit**: Linear tolerance
 
@@ -222,20 +225,35 @@ Switches between perspective and orthographic cameras.
 
 ### <h3>Typedefs</h3>
 
-#### <b>CameraControllerEvent</b>
+#### <b>CameraEvent</b>
 
 ```ts
-enum CameraControllerEvent {
-  Stationary,
-  Dynamic,
-  FrameUpdate,
-  ProjectionChanged,
+enum CameraEvent {
+  Stationary = 'stationary',
+  Dynamic = 'dynamic',
+  FrameUpdate = 'frame-update',
+  ProjectionChanged = 'projection-changed'
 }
 ```
 
 Events the camera controller puts out.
 
 **Returns**: void
+
+#### <b>CameraEventPayload</b>
+
+```ts
+interface CameraEventPayload {
+  [CameraEvent.Stationary]: void
+  [CameraEvent.Dynamic]: void
+  [CameraEvent.FrameUpdate]: boolean
+  [CameraEvent.ProjectionChanged]: CameraProjection
+}
+```
+Mapping CameraEvent types to handler argument type
+
+**Returns**: void
+
 
 #### <b>CameraProjection</b>
 

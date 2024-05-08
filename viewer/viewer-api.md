@@ -22,16 +22,17 @@ background-color: rgba(0, 0, 0, 0.0) !important;
 | [cancelLoad](/viewer/viewer-api.md#cancelload)  | [createExtension](/viewer/viewer-api.md#createextension) | [dispose](/viewer/viewer-api.md#dispose) | [getContainer](/viewer/viewer-api.md#getcontainer) |
 | :------------------------------------------------------------------- | :--------------------------------------------------------------- | :------------------------------------------------- | :------------------------------------------------- |
 | [getExtension](/viewer/viewer-api.md#getextension)                   | [getObjectProperties](/viewer/viewer-api.md#getobjectproperties) | [getRenderer](/viewer/viewer-api.md#getrenderer)   | [getViews](/viewer/viewer-api.md#getviews)         |
-| [getWorldTree](/viewer/viewer-api.md#getworldtree)                   | [init](/viewer/viewer-api.md#init)                               | [loadObject](/viewer/viewer-api.md#loadObject)     | [on](/viewer/viewer-api.md#on)                     |
-| [query](/viewer/viewer-api.md#query)                                 | [requestRender](/viewer/viewer-api.md#requestrender)             | [resize](/viewer/viewer-api.md#resize)             | [screenshot](/viewer/viewer-api.md#screenshot)     |
-| [setLightConfiguration](/viewer/viewer-api.md#setlightconfiguration) | [unloadAll](/viewer/viewer-api.md#unloadall)                     | [unloadObject](/viewer/viewer-api.md#unloadobject) |
+| [getWorldTree](/viewer/viewer-api.md#getworldtree)                   | [hasExtension](/viewer/viewer-api.md#hasextension)                               | [init](/viewer/viewer-api.md#init)     | [loadObject](/viewer/viewer-api.md#loadObject)                     |
+| [on](/viewer/viewer-api.md#on)                                 | [query](/viewer/viewer-api.md#query)             | [requestRender](/viewer/viewer-api.md#requestrender)             | [resize](/viewer/viewer-api.md#resize)     |
+| [screenshot](/viewer/viewer-api.md#screenshot) | [setLightConfiguration](/viewer/viewer-api.md#setlightconfiguration)                     | [unloadAll](/viewer/viewer-api.md#unloadall) | [unloadObject](/viewer/viewer-api.md#unloadobject)
 
 ### <h3>Typedefs</h3>
 
-| [LightConfiguration](/viewer/viewer-api.md#lightconfiguration) | [ObjectLayers](/viewer/viewer-api.md#objectlayers)  | [PropertyInfo](/viewer/viewer-api.md#propertyinfo) | [SelectionEvent](/viewer/viewer-api.md#selectionevent) |
+| [Asset](/viewer/viewer-api.md#asset) | [LightConfiguration](/viewer/viewer-api.md#lightconfiguration)  | [ObjectLayers](/viewer/viewer-api.md#objectlayers) | [PropertyInfo](/viewer/viewer-api.md#propertyinfo) |
 | :------------------------------------------------------------- | :------------------------------------------------------------------- | :------------------------------------------------- | :----------------------------------------------------- |
-| [SpeckleView](/viewer/viewer-api.md#speckleview)               | [SunLightConfiguration](/viewer/viewer-api.md#sunlightconfiguration) | [UpdateFlags](/viewer/viewer-api.md#updateflags)   | [Utils](/viewer/viewer-api.md#utilsinterface)          |
-| [ViewerEvent](/viewer/viewer-api.md#viewerevent)               | [ViewerParams](/viewer/viewer-api.md#viewerparams)                   | [World](/viewer/viewer-api.md#worldclass)          |
+| [SelectionEvent](/viewer/viewer-api.md#selectionevent)               | [SpeckleView](/viewer/viewer-api.md#speckleview) | [SunLightConfiguration](/viewer/viewer-api.md#sunlightconfiguration)   | [UpdateFlags](/viewer/viewer-api.md#updateflags)          |
+| [Utils](/viewer/viewer-api.md#utilsinterface)               | [ViewerEvent](/viewer/viewer-api.md#viewerevent)                   | [ViewerEventPayload](/viewer/viewer-api.md#viewereventpayload)          | [ViewerParams](/viewer/viewer-api.md#viewerparams)
+| [World](/viewer/viewer-api.md#worldclass)
 
 ### <h3>Constructors</h3>
 
@@ -151,9 +152,9 @@ When executing for a very large number of objects, this method can take long to 
 getRenderer(): SpeckleRenderer
 ```
 
-Gets the [_SpeckleRenderer_]() instance associated with the viewer.
+Gets the [_SpeckleRenderer_](/viewer/speckle-renderer-api.md) instance associated with the viewer.
 
-**Returns**: [_SpeckleRenderer_]()
+**Returns**: [_SpeckleRenderer_](/viewer/speckle-renderer-api.md)
 
 #### <b>getViews</b>
 
@@ -171,9 +172,20 @@ Gets all the current [_SpeckleView_](/viewer/viewer-api.md#speckleview) instance
 getWorldTree(): WorldTree
 ```
 
-Gets the [_WorldTree_]() instance associated with the viewer.
+Gets the [_WorldTree_](/viewer/world-tree-api.md) instance associated with the viewer.
 
-**Returns**: [_WorldTree[]_]()
+**Returns**: [_WorldTree[]_](/viewer/world-tree-api.md)
+
+#### <b>hasExtension</b>
+
+```ts
+hasExtension<T extends Extension>(type: Constructor<T>): boolean
+```
+
+Returns `true` if specified extension type exists, `false` otherwise
+
+**Returns**: _boolean_
+
 
 #### <b>init</b>
 
@@ -191,11 +203,11 @@ Initializes the viewer asynchronously and loads required assets.
 loadObject(loader: Loader, zoomToObject?: boolean): Promise<void>
 ```
 
-Loads objects asynchronously using a [_Loader_]().
+Loads objects asynchronously using a [_Loader_](/viewer/loader-api.md).
 
 **Parameters**
 
-- **loader**: The [_Loader_]() instance used in loading.
+- **loader**: The [_Loader_](/viewer/loader-api.md) instance used in loading.
 - _(optional)_ **zoomToObject**: Enabled zooming in on the loaded object after loading finishes. Default _true_
 
 **Returns**: <span style="font-weight:normal">_Promise< void >_</span>
@@ -203,7 +215,10 @@ Loads objects asynchronously using a [_Loader_]().
 #### <b>on</b>
 
 ```ts
-on(eventType: ViewerEvent, handler: (arg) => void)
+on<T extends ViewerEvent>(
+  eventType: T,
+  handler: (arg: ViewerEventPayload[T]) => void
+): void
 ```
 
 Subscribes handlers to [_ViewerEvent_](/viewer/viewer-api.md#viewerevent)s.
@@ -371,7 +386,7 @@ Payload for _ViewerEvent.ObjectClicked_ and _ViewerEvent.ObjectDoubleClicked_.
 
 - **multiple**: Whether this is a multiple selection or not.
 - **event**: The browser [_PointerEvent_](https://developer.mozilla.org/en-US/docs/Web/API/PointerEvent) piggybacked.
-- **hits**: The array of hits sorted by distance, where closest is first. _node_ is the intersected [_TreeNode_]() and _point_ is it's point of intersection.
+- **hits**: The array of hits sorted by distance, where closest is first. _node_ is the intersected [_TreeNode_](/viewer/world-tree-api.md#treenode) and _point_ is it's point of intersection.
 
 #### <b>SpeckleView</b>
 
@@ -399,7 +414,7 @@ interface SunLightConfiguration extends LightConfiguration {
 
 - **elevation**: Sun elevation in polar coordinates.
 - **azimuth**: Sun azimuth in polar coordinates.
-- **radius**: Sun distance from [_World_]() center.
+- **radius**: Sun distance from [_World_](/viewer/viewer-api.md#worldclass) center.
 
 #### <b>UpdateFlags</b>
 
@@ -453,12 +468,28 @@ enum ViewerEvent {
 
 All the events the viewer can emit.
 
+#### <b>ViewerEventPayload</b>
+
+```ts
+interface ViewerEventPayload {
+  [ViewerEvent.ObjectClicked]: SelectionEvent | null
+  [ViewerEvent.ObjectDoubleClicked]: SelectionEvent | null
+  [ViewerEvent.LoadComplete]: string
+  [ViewerEvent.UnloadComplete]: string
+  [ViewerEvent.UnloadAllComplete]: void
+  [ViewerEvent.Busy]: boolean
+  [ViewerEvent.FilteringStateSet]: FilteringState
+  [ViewerEvent.LightConfigUpdated]: LightConfiguration
+}
+```
+
+Mapping of viewer events to event handler argument types
 #### <b>ViewerParams</b>
 
 ```ts
 interface ViewerParams {
   showStats: boolean;
-  environmentSrc: Asset | string;
+  environmentSrc: Asset;
   verbose: boolean;
 }
 ```
@@ -466,6 +497,30 @@ interface ViewerParams {
 - **showStats**: Displays a [stats](https://github.com/mrdoob/stats.js) panel.
 - **environmentSrc**: The URL of the image used for indirect IBL.
 - **verbose**: Enables viewer logs.
+
+#### <b>Asset</b>
+
+```ts
+enum AssetType {
+  TEXTURE_8BPP = 'png', 
+  TEXTURE_HDR = 'hdr',
+  TEXTURE_EXR = 'exr',
+  FONT_JSON = 'font-json'
+}
+
+interface Asset {
+  id: string
+  src: string
+  type: AssetType
+}
+```
+
+- **id**: Mandatory id of the asset.
+- **src**: The URL of the asset. Supports inline base64 encoded assets
+- **type**: _AssetType_
+:::warning
+For correct asset caching use need to use unique asset ids!
+:::
 
 #### <b>WorldClass</b>
 
@@ -479,6 +534,7 @@ class World {
   reduceWorld(box: Box3)
   updateWorld()
   resetWorld()
+  getRelativeOffset(offsetAmount: number = 0.001): number
 ```
 
 Utility class for keeping track of the total dimensions of loaded objects. It's mostly used for informative purposes

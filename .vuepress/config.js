@@ -294,6 +294,7 @@ module.exports = {
           title: "API Reference",
           collapsable: false,
           children: [
+            "migration-guide",
             {
               title: "Viewer Core",
               collapsable: true,
@@ -305,6 +306,7 @@ module.exports = {
                 "input-api",
                 "intersections-api",
                 "loader-api",
+                "queries-api",
                 "render-view-api",
                 "render-tree-api",
                 "speckle-material-api",
@@ -318,6 +320,7 @@ module.exports = {
               title: "Extensions",
               collapsable: true,
               children: [
+                "extension-api",
                 "camera-controller-api",
                 "diff-extension-api",
                 "filtering-extension-api",

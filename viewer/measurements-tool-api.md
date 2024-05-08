@@ -2,7 +2,7 @@
 
 This extension provides basic configurable measurement capabilities. The tool is autonomous, and is able to create measurements on it's own.
 :::warning
-This extension requires and active ICameraProvider extension implementation.
+This extension requires and active CameraController extension implementation.
 :::
 
 ### <h3>Accessors</h3>

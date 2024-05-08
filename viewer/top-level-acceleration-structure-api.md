@@ -21,8 +21,8 @@ The speckle viewer uses a dual level BVH for optimal acceleration. The TopLevelA
 
 ### <h3>Typedefs</h3>
 
-| [ExtendedIntersection](/viewer/top-level-acceleration-structure-api.md#extendedintersection) | [ExtendedShapeCastCallbacks](/viewer/top-level-acceleration-structure-api.md#extendedshapecastcallbacks) |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+[ExtendedShapeCastCallbacks](/viewer/top-level-acceleration-structure-api.md#extendedshapecastcallbacks) |
+| -------------------------------------------------------------------------------------------- | 
 
 ### <h3>Constructors</h3>
 
@@ -133,17 +133,6 @@ Generic mechanism to intersect the BVH with various shapes/objects. The callback
 **Returns**: boolean
 
 ### <h3>Typedefs</h3>
-
-#### <b>ExtendedIntersection</b>
-
-```ts
-interface ExtendedIntersection extends Intersection {
-  batchObject?: BatchObject;
-  material?: Material;
-}
-```
-
-Extension of three.js's default Intersection.
 
 #### <b>ExtendedShapeCastCallbacks</b>
 

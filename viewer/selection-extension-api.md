@@ -8,7 +8,7 @@ The extension automatically binds to:
 - `InputEvent.PointerMove` for hover detection
 
 :::warning
-Requires an existing `ICameraProvider` implementation.
+This extension requires and active CameraController extension implementation.
 :::
 
 ### <h3>Accessors</h3>
