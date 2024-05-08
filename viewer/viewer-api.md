@@ -22,16 +22,17 @@ background-color: rgba(0, 0, 0, 0.0) !important;
 | [cancelLoad](/viewer/viewer-api.md#cancelload)  | [createExtension](/viewer/viewer-api.md#createextension) | [dispose](/viewer/viewer-api.md#dispose) | [getContainer](/viewer/viewer-api.md#getcontainer) |
 | :------------------------------------------------------------------- | :--------------------------------------------------------------- | :------------------------------------------------- | :------------------------------------------------- |
 | [getExtension](/viewer/viewer-api.md#getextension)                   | [getObjectProperties](/viewer/viewer-api.md#getobjectproperties) | [getRenderer](/viewer/viewer-api.md#getrenderer)   | [getViews](/viewer/viewer-api.md#getviews)         |
-| [getWorldTree](/viewer/viewer-api.md#getworldtree)                   | [init](/viewer/viewer-api.md#init)                               | [loadObject](/viewer/viewer-api.md#loadObject)     | [on](/viewer/viewer-api.md#on)                     |
-| [query](/viewer/viewer-api.md#query)                                 | [requestRender](/viewer/viewer-api.md#requestrender)             | [resize](/viewer/viewer-api.md#resize)             | [screenshot](/viewer/viewer-api.md#screenshot)     |
-| [setLightConfiguration](/viewer/viewer-api.md#setlightconfiguration) | [unloadAll](/viewer/viewer-api.md#unloadall)                     | [unloadObject](/viewer/viewer-api.md#unloadobject) |
+| [getWorldTree](/viewer/viewer-api.md#getworldtree)                   | [hasExtension](/viewer/viewer-api.md#hasextension)                               | [init](/viewer/viewer-api.md#init)     | [loadObject](/viewer/viewer-api.md#loadObject)                     |
+| [on](/viewer/viewer-api.md#on)                                 | [query](/viewer/viewer-api.md#query)             | [requestRender](/viewer/viewer-api.md#requestrender)             | [resize](/viewer/viewer-api.md#resize)     |
+| [screenshot](/viewer/viewer-api.md#screenshot) | [setLightConfiguration](/viewer/viewer-api.md#setlightconfiguration)                     | [unloadAll](/viewer/viewer-api.md#unloadall) | [unloadObject](/viewer/viewer-api.md#unloadobject)
 
 ### <h3>Typedefs</h3>
 
-| [LightConfiguration](/viewer/viewer-api.md#lightconfiguration) | [ObjectLayers](/viewer/viewer-api.md#objectlayers)  | [PropertyInfo](/viewer/viewer-api.md#propertyinfo) | [SelectionEvent](/viewer/viewer-api.md#selectionevent) |
+| [Asset](/viewer/viewer-api.md#asset) | [LightConfiguration](/viewer/viewer-api.md#lightconfiguration)  | [ObjectLayers](/viewer/viewer-api.md#objectlayers) | [PropertyInfo](/viewer/viewer-api.md#propertyinfo) |
 | :------------------------------------------------------------- | :------------------------------------------------------------------- | :------------------------------------------------- | :----------------------------------------------------- |
-| [SpeckleView](/viewer/viewer-api.md#speckleview)               | [SunLightConfiguration](/viewer/viewer-api.md#sunlightconfiguration) | [UpdateFlags](/viewer/viewer-api.md#updateflags)   | [Utils](/viewer/viewer-api.md#utilsinterface)          |
-| [ViewerEvent](/viewer/viewer-api.md#viewerevent)               | [ViewerParams](/viewer/viewer-api.md#viewerparams)                   | [World](/viewer/viewer-api.md#worldclass)          | [Asset](/viewer/viewer-api.md#asset)
+| [SelectionEvent](/viewer/viewer-api.md#selectionevent)               | [SpeckleView](/viewer/viewer-api.md#speckleview) | [SunLightConfiguration](/viewer/viewer-api.md#sunlightconfiguration)   | [UpdateFlags](/viewer/viewer-api.md#updateflags)          |
+| [Utils](/viewer/viewer-api.md#utilsinterface)               | [ViewerEvent](/viewer/viewer-api.md#viewerevent)                   | [ViewerEventPayload](/viewer/viewer-api.md#viewereventpayload)          | [ViewerParams](/viewer/viewer-api.md#viewerparams)
+| [World](/viewer/viewer-api.md#worldclass)
 
 ### <h3>Constructors</h3>
 
@@ -175,6 +176,17 @@ Gets the [_WorldTree_](/viewer/world-tree-api.md) instance associated with the v
 
 **Returns**: [_WorldTree[]_](/viewer/world-tree-api.md)
 
+#### <b>hasExtension</b>
+
+```ts
+hasExtension<T extends Extension>(type: Constructor<T>): boolean
+```
+
+Returns `true` if specified extension type exists, `false` otherwise
+
+**Returns**: _boolean_
+
+
 #### <b>init</b>
 
 ```ts
@@ -203,7 +215,10 @@ Loads objects asynchronously using a [_Loader_](/viewer/loader-api.md).
 #### <b>on</b>
 
 ```ts
-on(eventType: ViewerEvent, handler: (arg) => void)
+on<T extends ViewerEvent>(
+  eventType: T,
+  handler: (arg: ViewerEventPayload[T]) => void
+): void
 ```
 
 Subscribes handlers to [_ViewerEvent_](/viewer/viewer-api.md#viewerevent)s.
@@ -453,6 +468,22 @@ enum ViewerEvent {
 
 All the events the viewer can emit.
 
+#### <b>ViewerEventPayload</b>
+
+```ts
+interface ViewerEventPayload {
+  [ViewerEvent.ObjectClicked]: SelectionEvent | null
+  [ViewerEvent.ObjectDoubleClicked]: SelectionEvent | null
+  [ViewerEvent.LoadComplete]: string
+  [ViewerEvent.UnloadComplete]: string
+  [ViewerEvent.UnloadAllComplete]: void
+  [ViewerEvent.Busy]: boolean
+  [ViewerEvent.FilteringStateSet]: FilteringState
+  [ViewerEvent.LightConfigUpdated]: LightConfiguration
+}
+```
+
+Mapping of viewer events to event handler argument types
 #### <b>ViewerParams</b>
 
 ```ts
@@ -503,6 +534,7 @@ class World {
   reduceWorld(box: Box3)
   updateWorld()
   resetWorld()
+  getRelativeOffset(offsetAmount: number = 0.001): number
 ```
 
 Utility class for keeping track of the total dimensions of loaded objects. It's mostly used for informative purposes

@@ -18,8 +18,8 @@ This extension requires and active CameraController extension implementation.
 
 ### <h3>Typedefs</h3>
 
-| [SectionToolEvent](/viewer/section-tool-api.md#sectiontoolevent) |
-| ----------------------------------------------------------------------- |
+| [SectionToolEvent](/viewer/section-tool-api.md#sectiontoolevent) | [SectionToolEventPayload](/viewer/section-tool-api.md#sectiontooleventpayload)
+| :----------------------------------------------------------------------- | :---------------------------------------- | 
 
 ### <h3>Accessors</h3>
 
@@ -124,3 +124,15 @@ enum SectionToolEvent {
 ```
 
 Events that the extension can emit.
+
+#### <b>SectionToolEventPayload</b>
+
+```ts
+interface SectionToolEventPayload {
+  [SectionToolEvent.DragStart]: void
+  [SectionToolEvent.DragEnd]: void
+  [SectionToolEvent.Updated]: Plane[]
+}
+```
+
+Mapping SectionToolEvent types to handler argument type

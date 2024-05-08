@@ -155,10 +155,11 @@ Gets all the instances in the provided subtree id.
 #### <b>getRenderTree</b>
 
 ```ts
-getRenderTree(subtreeId?: string): RenderTree
+getRenderTree(): RenderTree
+getRenderTree(subtreeId: string): RenderTree | null
 ```
 
-Gets the [_RenderTree_](/viewer/render-tree-api.md) instance of the provided subtree id. If _subtreeId_ argument is undefined, gets the _RenderTree_ instance for the entire tree.
+Gets the [_RenderTree_](/viewer/render-tree-api.md) instance of the provided subtree id. If the subtree id is not found, `null` is returned. The overloaded version with no argument gets the _RenderTree_ instance for the entire tree, which can never be null. 
 
 **Parameters**
 

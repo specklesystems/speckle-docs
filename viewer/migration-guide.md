@@ -1,6 +1,13 @@
 # Migration Guide
 
-# 2.15.14 → 2.18.15
+# 2.18.15 → 2.18.16
+- `Vector3Like` replaces `VectorLike` in the arguments of `transformTRS` in `BatchObject`
+- `SpeckleLoader` no longer takes a `priority` argument in it’s constructor
+- `addRenderTree` from `SpeckleRenderer` now takes a `RenderTree` as an argument instead of a `RenderTree` id
+- `getRenderTree` is now overloaded with a version with no arguments that never returns null
+- `intersect` and `intersectRay` arguments have been moved around and both are now overloaded
+
+# 2.18.14 → 2.18.15
 - Asset now has a mandatory ```id``` field
 - `getEnvironment` and `getTexture` from `Assets` now only accept `Asset` as argument
 - The concept of `Providers` has been removed entirely

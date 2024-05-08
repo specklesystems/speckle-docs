@@ -7,6 +7,12 @@ Entry point for intersecting and obtaining intersection data from the scene. Acc
 | [intersect](/viewer/intersections-api.md#intersect) | [intersectRay](/viewer/intersections-api.md#intersectray) |
 | --------------------------------------------------- | --------------------------------------------------------- |
 
+### <h3>Typedefs</h3>
+
+| [ExtendedIntersection](/viewer/intersections-api.m#extendedintersection) | [ExtendedMeshIntersection](/viewer/intersections-api.m#extendedmeshintersection)  | [MeshIntersection](/viewer/intersections-api.m#meshintersection) 
+| :------------------------------------------------------------- | :------------------------------------------------------------------- | :------------------------------------------------- | 
+
+
 ### <h3>Methods</h3>
 
 #### <b>intersect</b>
@@ -16,11 +22,21 @@ intersect(
     scene: Scene,
     camera: Camera,
     point: Vector2,
-    nearest = true,
-    bounds: Box3 = null,
-    castLayers: Array<ObjectLayers> = undefined,
-    firstOnly = false
-  ): Array<Intersection>
+    castLayers: ObjectLayers.STREAM_CONTENT_MESH,
+    nearest?: boolean,
+    bounds?: Box3,
+    firstOnly?: boolean
+  ): Array<ExtendedMeshIntersection> | null
+
+intersect(
+    scene: Scene,
+    camera: Camera,
+    point: Vector2,
+    castLayers?: Array<ObjectLayers>,
+    nearest?: boolean,
+    bounds?: Box3,
+    firstOnly?: boolean
+  ): Array<ExtendedIntersection> | null
 ```
 
 Scene intersect function.
@@ -33,9 +49,10 @@ All intersect calls from this class will use the available acceleration structur
 - **scene**: [_Scene_](https://threejs.org/docs/index.html?q=scene#api/en/scenes/Scene)
 - **camera**: [_Camera_](https://threejs.org/docs/index.html?q=camera#api/en/cameras/Camera)
 - **point**: The NDC point to cast the ray from
+- **castLayers**: The [_ObjectLayers_](/viewer/viewer-api.md#objectlayers) enabled on the raycaster 
 - **nearest**: If the results should be sorted by dinstance. i.e nearest first
 - **bounds**: An optional bounds where the intersecting takes place. Everything outside this bounds is disregarded from the result list
-- **castLayers**: The [_ObjectLayers_](/viewer/viewer-api.md#objectlayers) enabled on the raycaster for this cast. Any object outside of these layers is disregarded from intersection
+for this cast. Any object outside of these layers is disregarded from intersection
 - **firstOnly**: When this flag is enabled the acceleration structure will stop traversing after encountering the first intersection. Only applies to meshes
 
 **Returns**: Array< Intersection > Three.js defined intersection
@@ -47,11 +64,20 @@ intersectRay(
     scene: Scene,
     camera: Camera,
     ray: Ray,
-    nearest = true,
-    bounds: Box3 = null,
-    castLayers: Array<ObjectLayers> = undefined,
-    firstOnly = false
-  ): Array<Intersection>
+    castLayers: ObjectLayers.STREAM_CONTENT_MESH,
+    nearest?: boolean,
+    bounds?: Box3,
+    firstOnly?: boolean
+  ): Array<ExtendedMeshIntersection> | null
+intersectRay(
+    scene: Scene,
+    camera: Camera,
+    ray: Ray,
+    castLayers?: Array<ObjectLayers>,
+    nearest?: boolean,
+    bounds?: Box3,
+    firstOnly?: boolean
+  ): Array<ExtendedIntersection> | null
 ```
 
 Scene intersect function using a provided Ray.
@@ -64,9 +90,42 @@ All intersect calls from this class will use the available acceleration structur
 - **scene**: [_Scene_](https://threejs.org/docs/index.html?q=scene#api/en/scenes/Scene)
 - **camera**: [_Camera_](https://threejs.org/docs/index.html?q=camera#api/en/cameras/Camera)
 - **ray**: The ray to use for casting
+- **castLayers**: The [_ObjectLayers_](/viewer/viewer-api.md#objectlayers) enabled on the raycaster 
 - **nearest**: If the results should be sorted by dinstance. i.e nearest first
 - **bounds**: An optional bounds where the intersecting takes place. Everything outside this bounds is disregarded from the result list
-- **castLayers**: The [_ObjectLayers_](/viewer/viewer-api.md#objectlayers) enabled on the raycaster for this cast. Any object outside of these layers is disregarded from intersection
+for this cast. Any object outside of these layers is disregarded from intersection
 - **firstOnly**: When this flag is enabled the acceleration structure will stop traversing after encountering the first intersection. Only applies to meshes
 
 **Returns**: Array< Intersection > Three.js defined intersection
+
+### <h3>Typedefs</h3>
+
+#### <b>ExtendedIntersection</b>
+
+```ts
+interface ExtendedIntersection extends Intersection {
+  batchObject?: BatchObject;
+  pointOnLine?: Material;
+}
+```
+
+Extension of three.js's default Intersection.
+
+#### <b>ExtendedMeshIntersection</b>
+
+```ts
+interface ExtendedMeshIntersection extends MeshIntersection {
+  batchObject: BatchObject
+  object: SpeckleMesh | SpeckleInstancedMesh
+}
+```
+
+#### <b>MeshIntersection</b>
+
+```ts
+interface MeshIntersection extends Intersection {
+  face: Face
+  faceIndex: number
+}
+```
+
