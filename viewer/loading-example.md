@@ -13,9 +13,9 @@ await viewer.loadObject(loader, true);
 ## Other Data Sources
 By creating your own loaders you can load data from various input sources. The viewer library only come with a barebones OBJ loader in addition to the speckle loader. Here's a code sandbox:
 
-<iframe src="https://codesandbox.io/embed/pydvhz?view=Editor+%2B+Preview&module=%2Fsrc%2Findex.ts&hidenavigation=1"
+<iframe src="https://codesandbox.io/embed/q39l8w?view=preview&module=%2Fsrc%2Findex.ts&hidenavigation=1"
      style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="Obj Loader"
+     title="Obj Loader - binary"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
