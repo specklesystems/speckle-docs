@@ -5,6 +5,11 @@
 | [constructor](/viewer/batch-object-api.md#constructor)
 |--- |
 
+### <h3>Properties</h3>
+
+| [transform](/viewer/batch-object-api.md#transform) | [transformInv](/viewer/batch-object-api.md#transforminv) 
+------------------------------------------------------ | ---------------------------------------------------- |
+
 ### <h3>Accessors</h3>
 
 | [aabb](/viewer/batch-object-api.md#aabb) | [accelerationStructure](/viewer/batch-object-api.md#accelerationstructure) | [batchIndex](/viewer/batch-object-api.md#batchindex) | [localOrigin](/viewer/batch-object-api.md#localorigin) | [renderView](/viewer/batch-object-api.md#renderview) |
@@ -34,6 +39,29 @@ Populates/constructs this batch object.
 
 - **renderView**: [_NodeRenderView_](/viewer/viewer/render-view-api.md)
 - **batchIndex**: The object's index within its batch. Objects are placed in order inside the batch as they get processed
+
+### <h3>Properties</h3>
+
+#### <b>transform</b>
+
+```ts
+transform: Matrix4;
+```
+
+The batch object's immediate transformation
+
+**Returns**: [Matrix4](https://threejs.org/docs/index.html?q=matr#api/en/math/Matrix4)
+
+#### <b>transformInv</b>
+
+```ts
+transformInv: Matrix4;
+```
+
+The batch object's immediate inverse transformation
+
+**Returns**: [Matrix4](https://threejs.org/docs/index.html?q=matr#api/en/math/Matrix4)
+
 
 ### <h3>Accessors</h3>
 
