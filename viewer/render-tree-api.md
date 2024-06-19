@@ -84,6 +84,9 @@ computeTransform(node: TreeNode): Matrix4
 ```
 
 Computes the final world space transformation for the given [_TreeNode_](/viewer/world-tree-api.md#treenode).
+:::warning
+For non instanced nodes, this function will return the identity transformation since speckle does not define a local space (yet) and all geometry is in world space. This function **will not** take any runtime user defined transformations into account.
+:::
 
 **Parameters**
 
