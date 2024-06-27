@@ -149,7 +149,7 @@ Function that adapts the camera's near and far clipping planes according to the 
 
 **Returns**: void
 
-#### <b>setCameraPlanes</b>
+#### <b>setCameraView</b>
 
 ```ts
 setCameraView(objectIds: string[], transition: boolean, fit?: number): void
@@ -246,7 +246,7 @@ Events the camera controller puts out.
 interface CameraEventPayload {
   [CameraEvent.Stationary]: void
   [CameraEvent.Dynamic]: void
-  [CameraEvent.FrameUpdate]: boolean
+  [CameraEvent.FrameUpdate]x: boolean
   [CameraEvent.ProjectionChanged]: CameraProjection
 }
 ```
