@@ -25,7 +25,8 @@ intersect(
     castLayers: ObjectLayers.STREAM_CONTENT_MESH,
     nearest?: boolean,
     bounds?: Box3,
-    firstOnly?: boolean
+    firstOnly?: boolean,
+    tasOnly?: boolean
   ): Array<ExtendedMeshIntersection> | null
 
 intersect(
@@ -35,7 +36,8 @@ intersect(
     castLayers?: Array<ObjectLayers>,
     nearest?: boolean,
     bounds?: Box3,
-    firstOnly?: boolean
+    firstOnly?: boolean,
+    tasOnly?: boolean
   ): Array<ExtendedIntersection> | null
 ```
 
@@ -54,7 +56,7 @@ All intersect calls from this class will use the available acceleration structur
 - **bounds**: An optional bounds where the intersecting takes place. Everything outside this bounds is disregarded from the result list
 for this cast. Any object outside of these layers is disregarded from intersection
 - **firstOnly**: When this flag is enabled the acceleration structure will stop traversing after encountering the first intersection. Only applies to meshes
-
+- **tasOnly**: When this flag is enabled, onyl the TAS will be intersected. Can be combined with `firstOnly` if wanted
 **Returns**: Array< Intersection > Three.js defined intersection
 
 #### <b>intersectRay</b>
@@ -67,7 +69,8 @@ intersectRay(
     castLayers: ObjectLayers.STREAM_CONTENT_MESH,
     nearest?: boolean,
     bounds?: Box3,
-    firstOnly?: boolean
+    firstOnly?: boolean,
+    tasOnly?: boolean
   ): Array<ExtendedMeshIntersection> | null
 intersectRay(
     scene: Scene,
@@ -76,7 +79,8 @@ intersectRay(
     castLayers?: Array<ObjectLayers>,
     nearest?: boolean,
     bounds?: Box3,
-    firstOnly?: boolean
+    firstOnly?: boolean,
+    tasOnly?: boolean
   ): Array<ExtendedIntersection> | null
 ```
 
@@ -95,7 +99,7 @@ All intersect calls from this class will use the available acceleration structur
 - **bounds**: An optional bounds where the intersecting takes place. Everything outside this bounds is disregarded from the result list
 for this cast. Any object outside of these layers is disregarded from intersection
 - **firstOnly**: When this flag is enabled the acceleration structure will stop traversing after encountering the first intersection. Only applies to meshes
-
+- **tasOnly**: When this flag is enabled, onyl the TAS will be intersected. Can be combined with `firstOnly` if wanted
 **Returns**: Array< Intersection > Three.js defined intersection
 
 ### <h3>Typedefs</h3>

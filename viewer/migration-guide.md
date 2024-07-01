@@ -1,5 +1,9 @@
 # Migration Guide
 
+# 2.18.16 → 2.19.1
+- Added `tasOnly` as a parameter in all `intersect` variants.
+- The existing `firstHitOnly` option on `Raycaster` now stops on first intersected TAS, asa well as first intersected BAS from that TAS (if `tasOnly` is not set)
+
 # 2.18.15 → 2.18.16
 - `Vector3Like` replaces `VectorLike` in the arguments of `transformTRS` in `BatchObject`
 - `SpeckleLoader` no longer takes a `priority` argument in it’s constructor
