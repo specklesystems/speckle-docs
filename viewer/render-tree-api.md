@@ -14,7 +14,7 @@
 
 | [buildRenderTree](/viewer/render-tree-api.md#buildRenderTree)                   | [cancelBuild](/viewer/render-tree-api.md#cancelbuild)                             | [computeTransform](/viewer/render-tree-api.md#computetransform)           |
 | :------------------------------------------------------------------------------ | :-------------------------------------------------------------------------------- | :------------------------------------------------------------------------ |
-| [getAtomicParent](/viewer/render-tree-api.md#getA=atomicparent)                 | [getInstances](/viewer/render-tree-api.md#getinstances)                           | [getRenderableNodes](/viewer/render-tree-api.md#getrenderablenodes)       |
+| [getAtomicParent](/viewer/render-tree-api.md#getatomicparent)                 | [getInstances](/viewer/render-tree-api.md#getinstances)                           | [getRenderableNodes](/viewer/render-tree-api.md#getrenderablenodes)       |
 | [getRenderableRenderViews](/viewer/render-tree-api.md#getrenderablerenderviews) | [getRenderViewNodesForNode](/viewer/render-tree-api.md#getrenderviewnodesfornode) | [getRenderViewsForNode](/viewer/render-tree-api.md#getrenderviewsfornode) |
 | [getRenderViewsForNodeId](/viewer/render-tree-api.md#getrenderviewsfornodeid)   | [purge](/viewer/render-tree-api.md#purge)                                         |                                                                           |
 

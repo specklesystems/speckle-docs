@@ -327,7 +327,9 @@ module.exports = {
                 "measurements-tool-api",
                 "selection-extension-api",
                 "section-tool-api",
-                "section-tool-outlines-api"
+                "section-tool-outlines-api",
+                "speckle-controls-api",
+                "smooth-orbit-controls-api"
               ],
             },
           ],
