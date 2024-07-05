@@ -1,10 +1,5 @@
 # Introduction
 
-Hello fellow automaters! Welcome to the **Speckle Automate Docs** - a single source of documentation on everything Automate!
-If you're looking for info on how to _use_ Speckle, check our [user guide](/).
-
-> Speckle is the open source data platform for architecture, engineering, and construction. It liberates your data from proprietary file formats and closed source software and puts it back into your hands.
-
-This part of our docs is for anyone who wishes to automate using their data on Speckle. We'll walk you through how to work with Automations and Functions.
-
-We hope to see the great things you'll do with Automate, let's go!
+::: tip IMPORTANT 🙌
+We are in the process of updating these docs, for now, you can find a more up-to-date version [here]([https://speckle.systems/getstarted/](https://speckle.notion.site/Speckle-Automate-Beta-Docs-5003846ac66e44639a0691894e1dc1e3)).
+:::
