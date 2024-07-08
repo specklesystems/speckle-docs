@@ -100,9 +100,6 @@ abstract fromPositionAndTarget(position: Vector3, target: Vector3): void
 ```
 
 Sets the controller's goal position and rotation based on a given location and another location to 'lookAt'. All controls implementation need to be able to position and orient themselves according to these two vectors.
-:::warning
-Both arguments are in a coordinate system where up is `(0, 1, 0)`
-:::
 
 **Parameters**
 
@@ -117,9 +114,6 @@ abstract getPosition(): Vector3
 ```
 
 Gets the current goal position of the control's target camera
-:::warning
-The returned vector is in a coordinate system where up is `(0, 1, 0)`
-:::
 
 **Returns**: [_Vector3_](https://threejs.org/docs/index.html?q=vec#api/en/math/Vector3)
 
@@ -130,9 +124,7 @@ abstract getTarget(): Vector3
 ```
 
 Gets the current goal look position of the control's target camera
-:::warning
-The returned vector is in a coordinate system where up is `(0, 1, 0)`
-:::
+
 
 **Returns**: [_Vector3_](https://threejs.org/docs/index.html?q=vec#api/en/math/Vector3)
 

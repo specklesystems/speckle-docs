@@ -36,14 +36,12 @@ Gets the current display aspect ratio
 #### <b>controls</b>
 
 ```ts
-get controls()
+get controls(): SpeckleControls
 ```
 
-Gets the current underlying camera controller implementation. Typically an external library.
-:::warning
-Currently it exists for backwards compatibility. Will deprecate in future iterations!
-:::
-**Returns**: any
+Gets the current underlying [_SpeckleControls_](/viewer/speckle-controls-api.md) implementation.
+
+**Returns**: [_SpeckleControls_](/viewer/speckle-controls-api.md)
 
 #### <b>enabled</b>
 
@@ -116,7 +114,7 @@ Function for subscribing to camera events.
 **Parameters**
 
 - **eventType**: [_CameraEvent_](/viewer/camera-controller-api.md#cameraevent)
-- **handler**: The handler for the events
+- **listener**: The handler for the events with [_CameraEventPayload_](/viewer/camera-controller-api.md#cameraeventpayload) arguments
 
 **Returns**: void
 
