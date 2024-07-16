@@ -56,7 +56,7 @@ Now save this typescript snippet as`index.ts`
 
 The result:
 
-<iframe src="https://codesandbox.io/embed/63rfsz?view=Editor+%2B+Preview&module=%2Fsrc%2Findex.ts&hidenavigation=1"
+<iframe src="https://stackblitz.com/edit/speckle-basic-setup?embed=1&file=package.json"
      style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
      title="brave-engelbart-63rfsz"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
