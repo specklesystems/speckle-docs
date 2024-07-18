@@ -4,7 +4,7 @@ We recommend to always create a new Function from one of the templates provided 
 
 However, if you do already have a GitHub repository for a Function, you can register that with Automate.
 
-## Registering an existing Function
+### Step by step guide
 
 1. Click your profile icon in the top right corner of the Automate web application and select `API and Dev Info`.
 1. Copy the `API token` and save securely. This token can be used to authenticate with the Speckle Automate API and undertake actions on your behalf. It should be treated as securely as a password.
