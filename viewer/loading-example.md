@@ -5,9 +5,14 @@ You can load data into the speckle viewer virtually from any source as long as y
 ## Speckle Data
 The viewer comes with a builtin speckle loader. Here's an example of how to get things going:
 ```ts
-const objUrl = "https://app.speckle.systems/streams/da9e320dad/objects/31d10c0cea569a1e26809658ed27e281"
-const loader = new SpeckleLoader(viewer.getWorldTree(), objUrl);
-await viewer.loadObject(loader, true);
+const urls = await UrlHelper.getResourceUrls(
+  "https://app.speckle.systems/projects/7591c56179/models/32213f5381"
+);
+for (const url of urls) {
+  const loader = new SpeckleLoader(viewer.getWorldTree(), url, "");
+  /** Load the speckle data */
+  await viewer.loadObject(loader, true);
+}
 ```
 
 ## Other Data Sources
