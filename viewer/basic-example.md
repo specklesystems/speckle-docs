@@ -43,7 +43,7 @@ Finally, let's load in some data from a Speckle model.
 ```ts
 /** Create a loader for the speckle stream */
 const resource =
-  "https://latest.speckle.dev/streams/c43ac05d04/objects/d807f3888a400dbd814529fafd8ccac0";
+  "https://app.speckle.systems/streams/c43ac05d04/objects/d807f3888a400dbd814529fafd8ccac0";
 const loader = new SpeckleLoader(viewer.getWorldTree(), resource, "");
 
 /** Load the speckle data */

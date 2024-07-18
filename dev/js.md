@@ -27,7 +27,7 @@ Syntax and examples for supported API methods. The examples assume a Viewer inst
 ### Load/Unload an Object
 `v.loadObject( objectUrl )` / `v.unloadObject( objectUrl )`
 
-Example: `v.loadObject( 'https://speckle.xyz/streams/3073b96e86/objects/e05c5834368931c9d9a4e2087b4da670' )`
+Example: `v.loadObject( 'https://app.speckle.systems/streams/3073b96e86/objects/e05c5834368931c9d9a4e2087b4da670' )`
 
 ### Get Properties of Loaded Objects
 `v.getObjectsProperties()`
