@@ -5,38 +5,51 @@ The viewer can be extended with functionality via [extensions](/viewer/overview.
 Using our previous basic example, we can add the measurement tool for example
 
 ```typescript
-import { Viewer, DefaultViewerParams, SpeckleLoader } from "@speckle/viewer";
-import { CameraController } from "@speckle/viewer";
+import {
+  Viewer,
+  DefaultViewerParams,
+  SpeckleLoader,
+  UrlHelper,
+  CameraController,
+  MeasurementsExtension
+} from "@speckle/viewer";
+
 
 async function main() {
   /** Get the HTML container */
-  const container = document.getElementById("renderer");
+  const container = document.getElementById("renderer") as HTMLElement;
+
+  /** Configure the viewer params */
+  const params = DefaultViewerParams;
+  params.verbose = true;
 
   /** Create Viewer instance */
-  const viewer = new Viewer(container, DefaultViewerParams);
+  const viewer = new Viewer(container, params);
   /** Initialise the viewer */
   await viewer.init();
 
   /** Add the stock camera controller extension */
   viewer.createExtension(CameraController);
-  /** Add the measurement tool */
-  viewer.createExtension(MeasurementsExtension);
+  /** Add mesurements extension */
+  const measurements = viewer.createExtension(MeasurementsExtension);
 
-  /** Create a loader for the speckle stream */
-  const loader = new SpeckleLoader(
-    viewer.getWorldTree(),
-    "https://latest.speckle.dev/streams/92b620fb17/objects/801360a35cd00c13ac81522851a13341",
-    ""
+  const urls = await UrlHelper.getResourceUrls(
+    "https://app.speckle.systems/projects/7591c56179/models/32213f5381"
   );
-  /** Load the speckle data */
-  await viewer.loadObject(loader, 1, true);
+  for (const url of urls) {
+    const loader = new SpeckleLoader(viewer.getWorldTree(), url, "");
+    /** Load the speckle data */
+    await viewer.loadObject(loader, true);
+  }
+
+  measurements.enabled = true;
 }
 
-/** Call our function, which we named 'main' */
 main();
+
 ```
 
-<iframe src="https://codesandbox.io/embed/frmffj?view=Editor+%2B+Preview&module=%2Fsrc%2Findex.ts&hidenavigation=1"
+<iframe src="https://codesandbox.io/embed/frmffj?view=preview&module=%2Fsrc%2Findex.ts&hidenavigation=1"
      style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
      title="Measurement Tool"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
@@ -57,4 +70,4 @@ Here is the complete list of available stock extensions:
 | FilteringExtension    | Filtering functionality                  |
 | DiffExtension         | Diffing functionality                    |
 
-All the available stock extensions are designed to work together, in order to offer the complete set of viewer functionality. To see all of them in action, you can checkout our [viewer-sandbox](https://github.com/specklesystems/speckle-server/tree/alex/API2.0/packages/viewer-sandbox) project, or our [speckle frontend](https://app.speckle.systems/)
+All the available stock extensions are designed to work together, in order to offer the complete set of viewer functionality. To see all of them in action, you can checkout our [viewer-sandbox](https://github.com/specklesystems/speckle-server/tree/main/packages/viewer-sandbox) project, our [speckle frontend](https://app.speckle.systems/). Alternatively, you can also run the viewer-sandbox [here](https://viewer.speckle.systems/)

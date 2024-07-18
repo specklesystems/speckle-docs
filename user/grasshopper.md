@@ -57,10 +57,10 @@ Just go to `Speckle 2 -> Tabs` and enable the ones you do need. By default, all 
 
 In visual programming environments, Speckle Streams are identified by their URLs. Across our Dynamo and Grasshopper connectors you'll see URLs in 4 different formats:
 
-- `https://speckle.xyz/streams/3073b96e86` points to the `main` branch on Stream `3073b96e86`
-- `https://speckle.xyz/streams/3073b96e86/branches/dev` points to a branch named `dev` on Stream `3073b96e86`
-- `https://speckle.xyz/streams/3073b96e86/commits/604bea8cc6` points to a specific commit `604bea8cc6` on Stream `3073b96e86`
-- `https://speckle.xyz/streams/3073b96e86/globals/d227da61c1` points to the [globals](/user/web.html#globals) at `d227da61c1` on Stream `3073b96e86` (the globals id is optional)
+- `https://app.speckle.systems/streams/3073b96e86` points to the `main` branch on Stream `3073b96e86`
+- `https://app.speckle.systems/streams/3073b96e86/branches/dev` points to a branch named `dev` on Stream `3073b96e86`
+- `https://app.speckle.systems/streams/3073b96e86/commits/604bea8cc6` points to a specific commit `604bea8cc6` on Stream `3073b96e86`
+- `https://app.speckle.systems/streams/3073b96e86/globals/d227da61c1` points to the [globals](/user/web.html#globals) at `d227da61c1` on Stream `3073b96e86` (the globals id is optional)
 
 ::: tip
 Unsure what _commits_ and _branches_ are? 🤔
@@ -125,7 +125,7 @@ By right-clicking on the node, you can enable/disable auto sending. If enabled, 
 
 When referring to a stream by its URL, the `main` branch is used to send and receive data by default.
 
-To target a specific branch, simply use the branch URL, such as: `https://speckle.xyz/streams/3073b96e86/branches/dev`.
+To target a specific branch, simply use the branch URL, such as: `https://app.speckle.systems/streams/3073b96e86/branches/dev`.
 
 ## Receiving Data
 
@@ -145,11 +145,11 @@ By right-clicking on the node, you can enable/disable auto receiving. If enabled
 
 When referring to a stream by its URL, the `main` branch is used to send and receive data by default.
 
-To receive from a specific branch, simply use the branch URL, such as: `https://speckle.xyz/streams/3073b96e86/branches/dev`.
+To receive from a specific branch, simply use the branch URL, such as: `https://app.speckle.systems/streams/3073b96e86/branches/dev`.
 
 ### Receiving a Specific Commit
 
-As we've seen, you can retrieve data from both the 'stream' and 'branch' level. It goes deeper - it's possible to retrieve data from specific commits. To do so, simply use the commit URL, such as: `https://speckle.xyz/streams/3073b96e86/commits/604bea8cc6`
+As we've seen, you can retrieve data from both the 'stream' and 'branch' level. It goes deeper - it's possible to retrieve data from specific commits. To do so, simply use the commit URL, such as: `https://app.speckle.systems/streams/3073b96e86/commits/604bea8cc6`
 
 ::: tip NOTE
 
@@ -159,7 +159,7 @@ When receiving from a commit, the node will stop showing notifications about new
 
 ### Receiving a Specific Object
 
-Finally, you can also receive just a specific object in a commit, to do so simply use the commit URL, ie: `https://speckle.xyz/streams/3073b96e86/objects/df7b8bafccefa791d82939dd36541189`. Objects can't be edited, so the data received using such a URL will always be consistent.
+Finally, you can also receive just a specific object in a commit, to do so simply use the commit URL, ie: `https://app.speckle.systems/streams/3073b96e86/objects/df7b8bafccefa791d82939dd36541189`. Objects can't be edited, so the data received using such a URL will always be consistent.
 You can find the ID of an object from the Speckle Web interface:
 
 ![image-20210322185007725](./img-dyn/image-20210322185007725.png)

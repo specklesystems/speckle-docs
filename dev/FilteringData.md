@@ -86,14 +86,14 @@ using Speckle.Core.Models;
 // Note: some boilerplate code removed.
 
 // Receive a revit commit (note: you will need a local account on app.speckle.systems for this to work!)
-var data = Helpers.Receive("https://speckle.xyz/streams/0d3cb7cb52/commits/681cdd572c").Result;
+var data = Helpers.Receive("https://app.speckle.systems/streams/0d3cb7cb52/commits/681cdd572c").Result;
 var flatData = data.Flatten().ToList();
 
 var timberWalls = flatData.FindAll(obj => obj is Objects.BuiltElements.Revit.RevitWall wall && wall.type == "Wall - Timber Clad");
 
 ```
 
-Check out the [actual filtered timber walls here, in 3D](https://speckle.xyz/streams/0d3cb7cb52/commits/681cdd572c?filter=%7B%22ghostOthers%22%3Atrue,%22filterBy%22%3A%7B%22type%22%3A%5B%22Wall%20-%20Timber%20Clad%22%5D%7D,%22colorBy%22%3Anull%7D&c=%5B8.38909,-14.62227,21.72508,19.02341,-4.21317,7.28914,0,1%5D)!
+Check out the [actual filtered timber walls here, in 3D](https://app.speckle.systems/streams/0d3cb7cb52/commits/681cdd572c?filter=%7B%22ghostOthers%22%3Atrue,%22filterBy%22%3A%7B%22type%22%3A%5B%22Wall%20-%20Timber%20Clad%22%5D%7D,%22colorBy%22%3Anull%7D&c=%5B8.38909,-14.62227,21.72508,19.02341,-4.21317,7.28914,0,1%5D)!
 
 Having fun? Let's try a couple more examples! Here's a query that will return all the **windows**:
 
@@ -103,9 +103,9 @@ var windows = flatData.FindAll(obj => (string)obj["category"] == "Windows");
 
 ```
 
-Here are [the actual elements in our 3D viewer](https://speckle.xyz/streams/0d3cb7cb52/commits/681cdd572c?filter=%7B%22ghostOthers%22%3Atrue,%22filterBy%22%3A%7B%22category%22%3A%5B%22Windows%22%5D%7D,%22colorBy%22%3A%7B%22type%22%3A%22category%22,%22property%22%3A%22category%22%7D%7D&c=%5B-5.7784,-18.86637,18.78367,16.556,-1.104,4.3014,0,1%5D).
+Here are [the actual elements in our 3D viewer](https://app.speckle.systems/streams/0d3cb7cb52/commits/681cdd572c?filter=%7B%22ghostOthers%22%3Atrue,%22filterBy%22%3A%7B%22category%22%3A%5B%22Windows%22%5D%7D,%22colorBy%22%3A%7B%22type%22%3A%22category%22,%22property%22%3A%22category%22%7D%7D&c=%5B-5.7784,-18.86637,18.78367,16.556,-1.104,4.3014,0,1%5D).
 
-For extra fun, let's extract all the [**rooms**](https://speckle.xyz/streams/0d3cb7cb52/commits/681cdd572c?filter=%7B%22ghostOthers%22%3Atrue,%22filterBy%22%3A%7B%22speckle_type%22%3A%5B%22Objects.BuiltElements.Room%22%5D%7D,%22colorBy%22%3Anull%7D&c=%5B-3.83025,-15.78239,24.12586,16.556,-1.104,4.3014,0,1%5D
+For extra fun, let's extract all the [**rooms**](https://app.speckle.systems/streams/0d3cb7cb52/commits/681cdd572c?filter=%7B%22ghostOthers%22%3Atrue,%22filterBy%22%3A%7B%22speckle_type%22%3A%5B%22Objects.BuiltElements.Room%22%5D%7D,%22colorBy%22%3Anull%7D&c=%5B-3.83025,-15.78239,24.12586,16.556,-1.104,4.3014,0,1%5D
 ):
 
 ```csharp

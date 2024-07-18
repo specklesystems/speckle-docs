@@ -24,41 +24,54 @@ Now save this HTML snippet as `index.html`
 Next we'll create the typescript file: 
 
 ```typescript
-import { Viewer, DefaultViewerParams, SpeckleLoader } from "@speckle/viewer";
-import { CameraController } from "@speckle/viewer";
+import {
+  Viewer,
+  DefaultViewerParams,
+  SpeckleLoader,
+  UrlHelper,
+} from "@speckle/viewer";
+import { CameraController, SelectionExtension } from "@speckle/viewer";
 
 async function main() {
   /** Get the HTML container */
   const container = document.getElementById("renderer");
 
+  /** Configure the viewer params */
+  const params = DefaultViewerParams;
+  params.showStats = true;
+  params.verbose = true;
+
   /** Create Viewer instance */
-  const viewer = new Viewer(container, DefaultViewerParams);
+  const viewer = new Viewer(container, params);
   /** Initialise the viewer */
   await viewer.init();
 
   /** Add the stock camera controller extension */
   viewer.createExtension(CameraController);
+  /** Add the selection extension for extra interactivity */
+  viewer.createExtension(SelectionExtension);
 
   /** Create a loader for the speckle stream */
-  const loader = new SpeckleLoader(
-    viewer.getWorldTree(),
-    "https://latest.speckle.dev/streams/92b620fb17/objects/801360a35cd00c13ac81522851a13341",
-    ""
+  const urls = await UrlHelper.getResourceUrls(
+    "https://app.speckle.systems/projects/7591c56179/models/32213f5381"
   );
-  /** Load the speckle data */
-  await viewer.loadObject(loader, 1, true);
+  for (const url of urls) {
+    const loader = new SpeckleLoader(viewer.getWorldTree(), url, "");
+    /** Load the speckle data */
+    await viewer.loadObject(loader, true);
+  }
 }
 
-/** Call our function, which we named 'main' */
 main();
+
 ```
 Now save this typescript snippet as`index.ts`
 
 The result:
 
-<iframe src="https://codesandbox.io/embed/63rfsz?view=Editor+%2B+Preview&module=%2Fsrc%2Findex.ts&hidenavigation=1"
+<iframe src="https://codesandbox.io/embed/jf4ccn?view=preview&module=%2Fsrc%2Findex.ts&hidenavigation=1"
      style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="brave-engelbart-63rfsz"
+     title="Basic Setup"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
+   ></iframe>
