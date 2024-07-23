@@ -13,16 +13,4 @@ Our end goals are:
 - easy to embed in your own react/vue/vanilla web apps
 - easy to customise with your own tree views, etc.
 
-<div id="embed" style="width: 100%; height: 500px;"></div>
-
-<script>
-    const interval = setInterval(() => {
-        if (typeof StackBlitzSDK !== 'undefined') {
-            clearInterval(interval);
-            StackBlitzSDK.embedProjectId('embed', 'css-custom-prop-color-values', {
-                openFile: 'index.ts',
-            });
-        }
-    }, 500);
-
-    </script>
+<Stackblitz id="embed1" projectId="css-custom-prop-color-values" style="width: 100%; height: 500px;"/>
