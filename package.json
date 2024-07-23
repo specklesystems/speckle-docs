@@ -20,7 +20,9 @@
     "vuepress": "^1.9.10"
   },
   "dependencies": {
+    "@stackblitz/sdk": "^1.11.0",
     "markdown-it-html5-embed": "^1.0.0",
     "vuepress-plugin-matomo": "^1.0.2"
-  }
+  },
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
 }

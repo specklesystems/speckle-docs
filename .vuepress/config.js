@@ -36,6 +36,12 @@ module.exports = {
         src: "https://identity.netlify.com/v1/netlify-identity-widget.js",
       },
     ],
+    [
+      "script",
+      {
+        src: "https://unpkg.com/@stackblitz/sdk@1/bundles/sdk.umd.js"
+      }
+    ]
   ],
   /**
    * Theme configuration, here is the default theme configuration for VuePress.
