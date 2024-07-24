@@ -3,12 +3,6 @@
 </template>
 <script>
 
-const generateUniqueId = () => {
-    const part1 = Math.random().toString(36).substring(2, 15);
-    const part2 = Date.now().toString(36);
-    return part1 + part2;
-}
-
 export default {
     props: {
         projectId: {
@@ -20,9 +14,9 @@ export default {
             default: () => ({})
         }
     },
-    data() {
-        return {
-            id: generateUniqueId()
+    computed: {
+        id() {
+            return JSON.stringify({ projectId: this.projectId, embedOptions: this.embedOptions });
         }
     },
     mounted() {
