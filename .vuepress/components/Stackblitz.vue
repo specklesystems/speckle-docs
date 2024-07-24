@@ -2,12 +2,10 @@
     <div :id="id" />
 </template>
 <script>
+import { nanoid } from 'nanoid'
+
 export default {
     props: {
-        id: {
-            type: String,
-            required: true
-        },
         projectId: {
             type: String,
             required: true
@@ -15,6 +13,11 @@ export default {
         embedOptions: {
             type: Object,
             default: () => ({})
+        }
+    },
+    data() {
+        return {
+            id: nanoid()
         }
     },
     mounted() {

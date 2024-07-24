@@ -13,7 +13,7 @@ We'll create a simple HTML and a simple typescript file
   </head>
 
   <body>
-    <div id="renderer" style="width:100%;height:100%;left:0px;top:0px;position:absolute">
+    <div id="renderer" style="width:100%;height:100%;left:0px;top:0px;position:absolute" />
 
     <script src="src/index.ts"></script>
   </body>
@@ -69,13 +69,7 @@ Now save this typescript snippet as`index.ts`
 
 The result:
 
-<Stackblitz id="basic-setup" projectId='speckle-basic-setup' :embedOptions="{ 
-    openFile: 'src/main.ts',
-    view: 'preview',
-    hideExplorer: true,
-    hideNavigation: true }" 
-    style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
-/>
+<Stackblitz projectId="speckle-basic-setup" :embedOptions="{height: 1000}"/>
 
 
 
