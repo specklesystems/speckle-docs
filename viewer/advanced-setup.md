@@ -49,12 +49,12 @@ main();
 
 ```
 
-<Stackblitz id="advanced-setup" projectId='speckle-measurement-tool' :embedOptions="{ 
+<Stackblitz projectId='speckle-measurement-tool' :embedOptions="{ 
+    height: 500,
     openFile: 'src/main.ts',
     view: 'preview',
     hideExplorer: true,
     hideNavigation: true }" 
-    style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
 />
 
 

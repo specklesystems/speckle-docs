@@ -69,7 +69,12 @@ Now save this typescript snippet as`index.ts`
 
 The result:
 
-<Stackblitz projectId="speckle-basic-setup" :embedOptions="{height: 1000}"/>
+<Stackblitz projectId="speckle-basic-setup" :embedOptions="{ 
+    height: 500,
+    openFile: 'src/main.ts',
+    view: 'preview',
+    hideExplorer: true,
+    hideNavigation: true }" />
 
 
 
