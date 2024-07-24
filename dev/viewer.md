@@ -13,4 +13,3 @@ Our end goals are:
 - easy to embed in your own react/vue/vanilla web apps
 - easy to customise with your own tree views, etc.
 
-<Stackblitz projectId="css-custom-prop-color-values" :embedOptions="{height: 1000}"/>
