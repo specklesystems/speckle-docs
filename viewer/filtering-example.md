@@ -64,11 +64,12 @@ const filteringState = filtering.setColorFilter(propertyInfo);
 
 Filters can be combined to a certain extent, but as a general rule of thumb, any particular object in the scene will always look how its last filter (if any) told it to look.
 
-Here's a code sandbox with all of the above combined in a simple app:
+You can run the example live [here](https://stackblitz.com/edit/speckle-filtering?file=index.html) or <VueCustomTooltip label="Embedding works only on chromium based browsers"><ins>embedded</ins></VueCustomTooltip> below
 
-<iframe src="https://codesandbox.io/embed/hz88rs?view=Editor+%2B+Preview&module=%2Fsrc%2Findex.ts&hidenavigation=1"
-     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="Filtering"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
+<Stackblitz projectId='speckle-filtering' :embedOptions="{ 
+    height: 500,
+    openFile: 'src/main.ts',
+    view: 'preview',
+    hideExplorer: true,
+    hideNavigation: true }" 
+/>

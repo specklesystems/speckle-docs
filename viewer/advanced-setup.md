@@ -48,13 +48,17 @@ async function main() {
 main();
 
 ```
+You can run the example live [here](https://stackblitz.com/edit/speckle-measurement-tool) or <VueCustomTooltip label="Embedding works only on chromium based browsers"><ins>embedded</ins></VueCustomTooltip> below
 
-<iframe src="https://codesandbox.io/embed/frmffj?view=preview&module=%2Fsrc%2Findex.ts&hidenavigation=1"
-     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="Measurement Tool"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
+<Stackblitz projectId='speckle-measurement-tool' :embedOptions="{ 
+    height: 500,
+    openFile: 'src/main.ts',
+    view: 'preview',
+    hideExplorer: true,
+    hideNavigation: true }" 
+/>
+
+
 
 Adding more extensions is easy, and all you need to do is call the viewer's `createExtension` function with the extension type you want to add.
 

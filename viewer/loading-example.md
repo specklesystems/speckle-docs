@@ -16,11 +16,28 @@ for (const url of urls) {
 ```
 
 ## Other Data Sources
-By creating your own loaders you can load data from various input sources. The viewer library only come with a barebones OBJ loader in addition to the speckle loader. Here's a code sandbox:
+By creating your own loaders you can load data from various input sources. The viewer library only come with a barebones OBJ loader in addition to the speckle loader. 
 
-<iframe src="https://codesandbox.io/embed/q39l8w?view=preview&module=%2Fsrc%2Findex.ts&hidenavigation=1"
-     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="Obj Loader - binary"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
+```ts
+const objUrl: string = '<your OBJ resource URL>'
+/** Create a loader for the .obj data */
+const loader = new ObjLoader(viewer.getWorldTree(), objUrl);
+/** Load the obj data */
+await viewer.loadObject(loader, true);
+```
+Alternatively, you can load the OBJ from an OBJ file contents as `string` or `ArrayBuffer`
+```ts
+const objData:string | ArrayBuffer = '<your OBJ resource data>'
+/** Create a loader for the .obj data */
+const loader = new ObjLoader(viewer.getWorldTree(), '<user defined id>', objData);
+/** Load the obj data */
+await viewer.loadObject(loader, true);
+```
+You can run the example live [here](https://stackblitz.com/edit/speckle-obj-loader?file=index.html) or <VueCustomTooltip label="Embedding works only on chromium based browsers"><ins>embedded</ins></VueCustomTooltip> below
+
+<Stackblitz projectId="speckle-obj-loader" :embedOptions="{ 
+    height: 500,
+    openFile: 'src/main.ts',
+    view: 'preview',
+    hideExplorer: true,
+    hideNavigation: true }" />

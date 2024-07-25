@@ -19,18 +19,18 @@ sections.toggle();
 
 /** Programatically apply a section box */
 const box = new Box3().copy(viewer.getRenderer().sceneBox);
-box.max.z *= 0.35;
+box.max.z *= 0.6;
 sections.setBox(box);
 ```
 
-Here's a running code sandbox with this use case:
+You can run the example live [here](https://stackblitz.com/edit/speckle-section-planes?file=index.html) or <VueCustomTooltip label="Embedding works only on chromium based browsers"><ins>embedded</ins></VueCustomTooltip> below
 
-<iframe src="https://codesandbox.io/embed/r8fsk3?view=Editor+%2B+Preview&module=%2Fsrc%2Findex.ts&hidenavigation=1"
-     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="Section Planes"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
+<Stackblitz projectId="speckle-section-planes" :embedOptions="{ 
+    height: 500,
+    openFile: 'src/main.ts',
+    view: 'preview',
+    hideExplorer: true,
+    hideNavigation: true }" />
 
 ## Measurements Tool
 
@@ -40,24 +40,26 @@ The default measurement tool provides basic functionality for most measuring nee
 - **Perpendicular**: This measuremente mode allows you to measure the distance along one point on a surface along it's normal to another chosen point.
 - **AutoLazer™**: Double clicking when in perpendicular mode, automatically measures from the current point to the nearest surface along the current point's surface normal
 
-Here's a sandbox example with a small integrated UI for playing around with the measurement tool:
+You can run the example live [here](https://stackblitz.com/edit/speckle-measurement-tool?file=index.html) or <VueCustomTooltip label="Embedding works only on chromium based browsers"><ins>embedded</ins></VueCustomTooltip> below
 
-<iframe src="https://codesandbox.io/embed/frmffj?view=Editor+%2B+Preview&module=%2Fsrc%2FMeasurementsUI.ts&hidenavigation=1"
-     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="Measurement Tool"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
+<Stackblitz projectId='speckle-measurement-tool' :embedOptions="{ 
+    height: 500,
+    openFile: 'src/main.ts',
+    view: 'preview',
+    hideExplorer: true,
+    hideNavigation: true }" 
+/>
 
 ## Differ
 
 The differ provides diffing functionality between models. It can provide a diff data-wise as well as visually. Diffing works by taking a _current_ model and comparing it against an _incoming_ model. The result will contain added/removed/modified/unchanged objects which are colored accordingly (if visual diff is enabled). Diff results are based on object `id`s and `applicationId`s.
 
-Here's an example of the differ running:
+You can run the example live [here](https://stackblitz.com/edit/speckle-differ?file=index.html) or <VueCustomTooltip label="Embedding works only on chromium based browsers"><ins>embedded</ins></VueCustomTooltip> below
 
-<iframe src="https://codesandbox.io/embed/rpnjs5?view=Editor+%2B+Preview&module=%2Fsrc%2Findex.ts&hidenavigation=1"
-     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="Differ"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
+<Stackblitz projectId='speckle-differ' :embedOptions="{ 
+    height: 500,
+    openFile: 'src/main.ts',
+    view: 'preview',
+    hideExplorer: true,
+    hideNavigation: true }" 
+/>

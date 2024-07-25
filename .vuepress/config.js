@@ -36,6 +36,12 @@ module.exports = {
         src: 'https://identity.netlify.com/v1/netlify-identity-widget.js',
       },
     ],
+    [
+      "script",
+      {
+        src: "https://unpkg.com/@stackblitz/sdk@1/bundles/sdk.umd.js"
+      }
+    ]
   ],
   /**
    * Theme configuration, here is the default theme configuration for VuePress.
@@ -373,9 +379,10 @@ module.exports = {
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
   plugins: [
-    '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
-    '@vuepress/html-redirect',
+    "@adamdehaven/vuepress-plugin-custom-tooltip",
+    "@vuepress/plugin-back-to-top",
+    "@vuepress/plugin-medium-zoom",
+    "@vuepress/html-redirect",
     [
       'vuepress-plugin-matomo',
       {

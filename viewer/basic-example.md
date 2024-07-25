@@ -43,7 +43,7 @@ Finally, let's load in some data from a Speckle model. It's easier to use the pr
 ```ts
 /** Create a loader for the speckle stream */
 const urls = await UrlHelper.getResourceUrls(
-  "https://app.speckle.systems/projects/7591c56179/models/32213f5381"
+  "https://app.speckle.systems/projects/24c98619ac/models/38639656b8"
 );
 for (const url of urls) {
   const loader = new SpeckleLoader(viewer.getWorldTree(), url, "");
@@ -52,11 +52,11 @@ for (const url of urls) {
 }
 ```
 
-Here is the end result:
+You can run the example live [here](https://stackblitz.com/edit/speckle-basic-setup?file=index.html) or <VueCustomTooltip label="Embedding works only on chromium based browsers"><ins>embedded</ins></VueCustomTooltip> below
 
-<iframe src="https://codesandbox.io/embed/jf4ccn?view=preview&module=%2Fsrc%2Findex.ts&hidenavigation=1"
-     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="Basic Setup"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
+<Stackblitz projectId="speckle-basic-setup" :embedOptions="{ 
+    height: 500,
+    openFile: 'src/main.ts',
+    view: 'preview',
+    hideExplorer: true,
+    hideNavigation: true }" />

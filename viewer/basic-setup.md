@@ -13,7 +13,7 @@ We'll create a simple HTML and a simple typescript file
   </head>
 
   <body>
-    <div id="renderer" style="width:100%;height:100%;left:0px;top:0px;position:absolute" </div>
+    <div id="renderer" style="width:100%;height:100%;left:0px;top:0px;position:absolute" />
 
     <script src="src/index.ts"></script>
   </body>
@@ -67,11 +67,15 @@ main();
 ```
 Now save this typescript snippet as`index.ts`
 
-The result:
+You can run the example live [here](https://stackblitz.com/edit/speckle-basic-setup?file=index.html) or <VueCustomTooltip label="Embedding works only on chromium based browsers"><ins>embedded</ins></VueCustomTooltip> below
 
-<iframe src="https://codesandbox.io/embed/jf4ccn?view=preview&module=%2Fsrc%2Findex.ts&hidenavigation=1"
-     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="Basic Setup"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
+<Stackblitz projectId="speckle-basic-setup" :embedOptions="{ 
+    height: 500,
+    openFile: 'src/main.ts',
+    view: 'preview',
+    hideExplorer: true,
+    hideNavigation: true }" />
+
+
+
+
