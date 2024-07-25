@@ -7,6 +7,10 @@
     {
       "path": "./user",
       "name": "Speckle User Guide"
+    },    
+    {
+      "path": "./automate",
+      "name": "Speckle Automate Guide"
     },
     {
       "path": ".",
