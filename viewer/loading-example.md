@@ -33,7 +33,7 @@ const loader = new ObjLoader(viewer.getWorldTree(), '<user defined id>', objData
 /** Load the obj data */
 await viewer.loadObject(loader, true);
 ```
-Here's a code sandbox:
+You can run the example live [here](https://stackblitz.com/edit/speckle-obj-loader?file=index.html) or <VueCustomTooltip label="Embedding works only on chromium based browsers"><ins>embedded</ins></VueCustomTooltip> below
 
 <Stackblitz projectId="speckle-obj-loader" :embedOptions="{ 
     height: 500,

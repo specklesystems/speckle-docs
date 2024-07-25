@@ -48,6 +48,7 @@ async function main() {
 main();
 
 ```
+You can run the example live [here](https://stackblitz.com/edit/speckle-measurement-tool) or <VueCustomTooltip label="Embedding works only on chromium based browsers"><ins>embedded</ins></VueCustomTooltip> below
 
 <Stackblitz projectId='speckle-measurement-tool' :embedOptions="{ 
     height: 500,

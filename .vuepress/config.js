@@ -362,6 +362,7 @@ module.exports = {
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
   plugins: [
+    "@adamdehaven/vuepress-plugin-custom-tooltip",
     "@vuepress/plugin-back-to-top",
     "@vuepress/plugin-medium-zoom",
     "@vuepress/html-redirect",

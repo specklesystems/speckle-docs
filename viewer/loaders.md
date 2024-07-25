@@ -48,7 +48,7 @@ For examples of using our loading system and concrete implementations of `Loader
 - [Speckle loader and converter](https://github.com/specklesystems/speckle-server/tree/alex/API2.0/packages/viewer/src/modules/loaders/Speckle)
 - [OBJ loader and converter (geometry only)](https://github.com/specklesystems/speckle-server/tree/alex/API2.0/packages/viewer/src/modules/loaders/OBJ)
 
-Additionally, here is a live sandbox with the OBJLoader in use:
+Additionally, [here](https://stackblitz.com/edit/speckle-obj-loader?file=index.html) is a live sandbox with the OBJLoader in use or <VueCustomTooltip label="Embedding works only on chromium based browsers"><ins>embedded</ins></VueCustomTooltip> below
 
 <Stackblitz projectId="speckle-obj-loader" :embedOptions="{ 
     height: 500,

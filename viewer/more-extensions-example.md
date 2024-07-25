@@ -23,7 +23,7 @@ box.max.z *= 0.6;
 sections.setBox(box);
 ```
 
-Here's a running code sandbox with this use case:
+You can run the example live [here](https://stackblitz.com/edit/speckle-section-planes?file=index.html) or <VueCustomTooltip label="Embedding works only on chromium based browsers"><ins>embedded</ins></VueCustomTooltip> below
 
 <Stackblitz projectId="speckle-section-planes" :embedOptions="{ 
     height: 500,
@@ -40,7 +40,7 @@ The default measurement tool provides basic functionality for most measuring nee
 - **Perpendicular**: This measuremente mode allows you to measure the distance along one point on a surface along it's normal to another chosen point.
 - **AutoLazer™**: Double clicking when in perpendicular mode, automatically measures from the current point to the nearest surface along the current point's surface normal
 
-Here's a sandbox example with a small integrated UI for playing around with the measurement tool:
+You can run the example live [here](https://stackblitz.com/edit/speckle-measurement-tool?file=index.html) or <VueCustomTooltip label="Embedding works only on chromium based browsers"><ins>embedded</ins></VueCustomTooltip> below
 
 <Stackblitz projectId='speckle-measurement-tool' :embedOptions="{ 
     height: 500,
@@ -54,7 +54,7 @@ Here's a sandbox example with a small integrated UI for playing around with the 
 
 The differ provides diffing functionality between models. It can provide a diff data-wise as well as visually. Diffing works by taking a _current_ model and comparing it against an _incoming_ model. The result will contain added/removed/modified/unchanged objects which are colored accordingly (if visual diff is enabled). Diff results are based on object `id`s and `applicationId`s.
 
-Here's an example of the differ running:
+You can run the example live [here](https://stackblitz.com/edit/speckle-differ?file=index.html) or <VueCustomTooltip label="Embedding works only on chromium based browsers"><ins>embedded</ins></VueCustomTooltip> below
 
 <Stackblitz projectId='speckle-differ' :embedOptions="{ 
     height: 500,

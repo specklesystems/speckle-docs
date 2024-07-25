@@ -20,6 +20,7 @@
     "vuepress": "^1.9.10"
   },
   "dependencies": {
+    "@adamdehaven/vuepress-plugin-custom-tooltip": "^1.4.3",
     "markdown-it-html5-embed": "^1.0.0",
     "vuepress-plugin-matomo": "^1.0.2"
   },

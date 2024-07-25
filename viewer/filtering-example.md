@@ -64,7 +64,7 @@ const filteringState = filtering.setColorFilter(propertyInfo);
 
 Filters can be combined to a certain extent, but as a general rule of thumb, any particular object in the scene will always look how its last filter (if any) told it to look.
 
-Here's a code sandbox with all of the above combined in a simple app:
+You can run the example live [here](https://stackblitz.com/edit/speckle-filtering?file=index.html) or <VueCustomTooltip label="Embedding works only on chromium based browsers"><ins>embedded</ins></VueCustomTooltip> below
 
 <Stackblitz projectId='speckle-filtering' :embedOptions="{ 
     height: 500,
