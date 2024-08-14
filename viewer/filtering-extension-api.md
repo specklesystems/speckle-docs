@@ -11,7 +11,7 @@ The default filtering functionality is exposed as an extension. The current filt
 
 | [hideObjects](/viewer/filtering-extension-api.md#hideobjects) | [isolateObjects](/viewer/filtering-extension-api.md#isolateobjects) | [removeColorFilter](/viewer/filtering-extension-api.md#removecolorfilter) | [removeUserObjectColors](/viewer/filtering-extension-api.md#removeuserobjectcolors) |
 | :---------------------------------------------------------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------- | :---------------------------------------------------------------------------------- |
-| [resetFilters](/viewer/filtering-extension-api.md#resetfilters)         | [setColorFilter](/viewer/filtering-extension-api.md#setcolorfilter) | [setUserObjectColors](/viewer/filtering-extension-api.md#setuserobjectColors) | [showObjects](/viewer/filtering-extension-api.md#showobjects)                       |
+| [resetFilters](/viewer/filtering-extension-api.md#resetfilters)         | [setColorFilter](/viewer/filtering-extension-api.md#setcolorfilter) | [setUserObjectColors](/viewer/filtering-extension-api.md#setuserobjectcolors) | [showObjects](/viewer/filtering-extension-api.md#showobjects)                       |
 | [unIsolateObjects](/viewer/filtering-extension-api.md#unisolateobjects) |                                                                     |                                                                               |                                                                                     |
 
 ### <h3>Typedefs</h3>
