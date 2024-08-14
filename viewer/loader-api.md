@@ -17,6 +17,11 @@ Abstract class.
 | [load](/viewer/loader-api.md#load) | [cancel](/viewer/loader-api.md#cancel) | [dispose](/viewer/loader-api.md#dispose) |
 | ---------------------------------- | -------------------------------------- | ---------------------------------------- |
 
+### <h3>Typedefs</h3>
+
+| [LoaderEvent](/viewer/loader-api.md#loaderevent) | [LoaderEventPayload](/viewer/loader-api.md#loadereventpayload) |
+| ---------------------------------- | -------------------------------------- | 
+
 ### <h3>Constructors</h3>
 
 #### <b>constructor</b>
@@ -75,3 +80,28 @@ abstract dispose()
 This function needs to dispose of the loader and it's allocated resources.
 
 **Returns**: void
+
+### <h3>Typedefs</h3>
+
+#### <b>LoaderEvent</b>
+
+```ts
+enum LoaderEvent {
+  LoadProgress = 'load-progress',
+  LoadCancelled = 'load-cancelled',
+  LoadWarning = 'load-warning'
+}
+```
+The basic events any Loader implementation should use. Implemented and used by both `SpeckleLoader` and `ObjLoader` fully or partially.
+
+#### <b>LoaderEventPayload</b>
+
+```ts
+interface LoaderEventPayload {
+  [LoaderEvent.LoadProgress]: { progress: number; id: string }
+  [LoaderEvent.LoadCancelled]: string
+  [LoaderEvent.LoadWarning]: { message: string }
+}
+```
+Mapping of loader events to event handler argument types
+
