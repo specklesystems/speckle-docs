@@ -281,7 +281,7 @@ module.exports = {
             'function-testing',
             'documenting',
             'release-function-version',
-            'register-existing-function-repository',
+            // 'register-existing-function-repository',
           ],
         },
         {
