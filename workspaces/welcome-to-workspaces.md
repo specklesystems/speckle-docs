@@ -69,6 +69,9 @@ Once Workspaces is out of beta in November, you will need to upgrade to the Team
 Here's a quick summary of the new plans coming in November:
 
 - Free:  Keep using Speckle as you always have; there are no changes there. You will be able to test Workspaces and create up to 500 model versions in a Workspace as part of the Free plan.
+
+![limits](./version-limits.png)
+
 - Team: Create a Workspace for your team for £49 per user per month. Ten external collaborators (guests) are included for free, after which you will be charged a small extra fee (£5 for guests with read-only access, £15 for guests with read-and-write access). The Team Plan allows you to have as many model versions as you want.
 - Enterprise: We will tailor a pricing offer for you and your team based on your needs. Let’s talk about what you would like to achieve with Workspaces! Contact us at <office@speckle.systems>
 :::
