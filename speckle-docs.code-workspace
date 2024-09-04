@@ -11,6 +11,10 @@
     {
       "path": "./automate",
       "name": "Speckle Automate Guide"
+    },   
+    {
+      "path": "./workspaces",
+      "name": "Speckle Workspaces Guide"
     },
     {
       "path": ".",
