@@ -373,6 +373,20 @@ module.exports = {
           ],
         },
       ],
+      '/workspaces/': [
+        {
+          sidebarDepth: 0,
+          title: 'Workspace Docs 👩‍🏭',
+          collapsable: false,
+          children: ['', 'welcome-to-workspaces', 'getting-started', 'roles'],
+        },
+
+        {
+          title: 'Resources',
+          collapsable: false,
+          children: ['faqs'],
+        },
+      ],
     },
   },
 
