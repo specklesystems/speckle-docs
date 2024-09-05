@@ -15,7 +15,7 @@ The speckle viewer uses a dual level BVH for optimal acceleration. The TopLevelA
 | ---------------------------------------------------------------------------------------------- |
 
 ### <h3>Methods</h3>
-| [closestPointToPoint](/viewer/camera-controller-api.md#closestpointtopoint) | [raycast](/viewer/top-level-acceleration-structure-api.md#raycast) | [raycastFirst](/viewer/top-level-acceleration-structure-api.md#raycastfirst) | [refit](/viewer/top-level-acceleration-structure-api.md#refit)
+| [closestPointToPoint](/viewer/top-level-acceleration-structure-api.md#closestpointtopoint) | [raycast](/viewer/top-level-acceleration-structure-api.md#raycast) | [raycastFirst](/viewer/top-level-acceleration-structure-api.md#raycastfirst) | [refit](/viewer/top-level-acceleration-structure-api.md#refit)
 | :------------------------------------------------------------------------------ | :-------------------------------------------------------------------- | :-------------------------------------------------------------- | :-------------------------------------------------------- |
  | [shapecast](/viewer/top-level-acceleration-structure-api.md#shapecast) 
 
