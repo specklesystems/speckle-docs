@@ -1,5 +1,12 @@
 # Migration Guide
 
+# 2.19.4 → 2.20.2
+- All input mesh vertex colors are now treated as sRGB
+
+# 2.19.1 → 2.19.4
+- `NearCameraCalculation` type option added to `CameraController` option.
+- `UpdateFlags.RENDER` no longer resets pipeline. Added `UpdateFlags.RENDER_RESET` which forces a pipeline reset
+
 # 2.18.16 → 2.19.1
 - Added `tasOnly` as a parameter in all `intersect` variants.
 - The existing `firstHitOnly` option on `Raycaster` now stops on first intersected TAS, asa well as first intersected BAS from that TAS (if `tasOnly` is not set)

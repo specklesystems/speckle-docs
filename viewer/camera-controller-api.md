@@ -6,7 +6,7 @@ The default camera controller extension that comes with the viewer package. Incl
 
 | [aspect](/viewer/camera-controller-api.md#aspect) | [controls](/viewer/camera-controller-api.md#controls) | [enabled](/viewer/camera-controller-api.md#enabled) | [fieldOfView](/viewer/camera-controller-api.md#fieldofview) |
 | :------------------------------------------------------------------ | :---------------------------------------------------- | :-------------------------------------------------- | :---------------------------------------------------------- |
-| [renderingCamera](/viewer/camera-controller-api.md#renderingcamera) |                                                       |                                                     |                                                             |
+| [options](/viewer/camera-controller-api.md#options) | [renderingCamera](/viewer/camera-controller-api.md#renderingcamera) |                                                       |                                                     |                                                             |
 
 ### <h3>Methods</h3>
 
@@ -17,9 +17,9 @@ The default camera controller extension that comes with the viewer package. Incl
 
 ### <h3>Typedefs</h3>
 
-| [CameraEvent](/viewer/camera-controller-api.md#cameraevent) | [CameraEventPayload](/viewer/camera-controller-api.md#cameraeventpayload) | [CameraProjection](/viewer/camera-controller-api.md#cameraprojection) | [CanonicalView](/viewer/camera-controller-api.md#canonicalview) |
+| [CameraEvent](/viewer/camera-controller-api.md#cameraevent) | [CameraEventPayload](/viewer/camera-controller-api.md#cameraeventpayload) | [CameraControllerOptions](/viewer/camera-controller-api.md#cameracontrolleroptions) | [CameraProjection](/viewer/camera-controller-api.md#cameraprojection)
 | :------------------------------------------------------------------------------ | :-------------------------------------------------------------------- | :-------------------------------------------------------------- | :-------------------------------------------------------- |
-| [InlineView](/viewer/camera-controller-api.md#inlineview)                         |       [PolarView](/viewer/camera-controller-api.md#polarview)                                                                |                                                                 |
+| [CanonicalView](/viewer/camera-controller-api.md#canonicalview) | [InlineView](/viewer/camera-controller-api.md#inlineview) | [PolarView](/viewer/camera-controller-api.md#polarview) 
 
 ### <h3>Accessors</h3>
 
@@ -66,6 +66,19 @@ set fieldOfView(value: number)
 Gets or sets the perspective camera's field of view.
 
 **Returns**: number
+
+
+#### <b>options</b>
+
+```ts
+get options(): CameraControllerOptions
+set options(value: CameraControllerOptions)
+```
+
+Gets or sets the current camera controller options.
+
+**Returns**: [CameraControllerOptions](/viewer/camera-controller-api.md#cameracontrolleroptions)
+
 
 #### <b>renderingCamera</b>
 
@@ -236,7 +249,6 @@ enum CameraEvent {
 
 Events the camera controller puts out.
 
-**Returns**: void
 
 #### <b>CameraEventPayload</b>
 
@@ -250,7 +262,34 @@ interface CameraEventPayload {
 ```
 Mapping CameraEvent types to handler argument type
 
-**Returns**: void
+
+#### <b>CameraControllerOptions</b>
+```ts
+type CameraControllerOptions = SmoothOrbitControlsOptions &
+  { nearPlaneCalculation?: NearPlaneCalculation }
+```
+The camera controller options. Defaults to
+```ts
+export const DefaultOrbitControlsOptions: Required<CameraControllerOptions> = {
+  enableOrbit: true,
+  enableZoom: true,
+  enablePan: true,
+  orbitSensitivity: 1,
+  zoomSensitivity: 1,
+  panSensitivity: 1,
+  inputSensitivity: 1,
+  minimumRadius: 0,
+  maximumRadius: Infinity,
+  minimumPolarAngle: 0,
+  maximumPolarAngle: Math.PI,
+  minimumAzimuthalAngle: -Infinity,
+  maximumAzimuthalAngle: Infinity,
+  infiniteZoom: true,
+  zoomToCursor: true,
+  damperDecay: 30,
+  nearPlaneCalculation: NearPlaneCalculation.EMPIRIC
+}
+```
 
 
 #### <b>CameraProjection</b>
@@ -263,8 +302,6 @@ enum CameraProjection {
 ```
 
 Camera projection types.
-
-**Returns**: void
 
 #### <b>CanonicalView</b>
 
@@ -283,8 +320,6 @@ type CanonicalView =
 ```
 
 Supported cannonical views.
-
-**Returns**: void
 
 #### <b>InlineView</b>
 

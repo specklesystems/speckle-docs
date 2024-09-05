@@ -420,8 +420,10 @@ interface SunLightConfiguration extends LightConfiguration {
 
 ```ts
 enum UpdateFlags {
-  RENDER = 1,
-  SHADOWS = 2,
+  RENDER = 0b1,
+  SHADOWS = 0b10,
+  CLIPPING_PLANES = 0b100,
+  RENDER_RESET = 0b1000
 }
 ```
 

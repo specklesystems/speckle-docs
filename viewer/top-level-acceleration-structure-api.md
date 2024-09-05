@@ -15,9 +15,10 @@ The speckle viewer uses a dual level BVH for optimal acceleration. The TopLevelA
 | ---------------------------------------------------------------------------------------------- |
 
 ### <h3>Methods</h3>
+| [closestPointToPoint](/viewer/camera-controller-api.md#closestpointtopoint) | [raycast](/viewer/top-level-acceleration-structure-api.md#raycast) | [raycastFirst](/viewer/top-level-acceleration-structure-api.md#raycastfirst) | [refit](/viewer/top-level-acceleration-structure-api.md#refit)
+| :------------------------------------------------------------------------------ | :-------------------------------------------------------------------- | :-------------------------------------------------------------- | :-------------------------------------------------------- |
+ | [shapecast](/viewer/top-level-acceleration-structure-api.md#shapecast) 
 
-| [getBoundingBox](/viewer/top-level-acceleration-structure-api.md#getboundingbox) | [raycast](/viewer/top-level-acceleration-structure-api.md#raycast) | [raycastFirst](/viewer/top-level-acceleration-structure-api.md#raycastfirst) | [refit](/viewer/top-level-acceleration-structure-api.md#refit) | [shapecast](/viewer/top-level-acceleration-structure-api.md#shapecast) |
-| -------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------- | -------------------------------------------------------------- | ---------------------------------------------------------------------- |
 
 ### <h3>Typedefs</h3>
 
@@ -54,6 +55,21 @@ The top-level acceleration structure does not have it's own transformation space
 **Returns**: [_AccelerationStructure_](/viewer/acceleration-structure-api.md)
 
 ### <h3>Methods</h3>
+
+#### <b>closestPointToPoint</b>
+
+```ts
+closestPointToPoint(point: Vector3): HitPointInfo | null
+```
+
+Returns the closest point on the BVH to the provided argument
+
+**Parameters**
+
+- **point**: [_Vector3_](https://threejs.org/docs/index.html?q=box3#api/en/math/Vector3) The point in space we want to find the closest point in the BVH to
+
+**Returns**: [_HitPointInfo_](https://github.com/gkjohnson/three-mesh-bvh/blob/be976e6746123f37faa8527b63c13cec9782253c/src/index.d.ts#L17)
+
 
 #### <b>getBoundingBox</b>
 
