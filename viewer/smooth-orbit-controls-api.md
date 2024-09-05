@@ -103,6 +103,48 @@ Sets the origin of the spherical coordinate system
 
 **Returns**: void
 
+### <h3>Typedefs</h3>
+
+#### <b>SmoothOrbitControlsOptions</b>
+
+```ts
+export interface SmoothOrbitControlsOptions {
+  enableOrbit?: boolean
+  enableZoom?: boolean
+  enablePan?: boolean
+  orbitSensitivity?: number
+  zoomSensitivity?: number
+  panSensitivity?: number
+  inputSensitivity?: number
+  minimumRadius?: number
+  maximumRadius?: number
+  minimumPolarAngle?: number
+  maximumPolarAngle?: number
+  minimumAzimuthalAngle?: number
+  maximumAzimuthalAngle?: number
+  infiniteZoom?: boolean
+  zoomToCursor?: boolean
+  damperDecay?: number
+}
+```
+The available options:
+- _optional_ **enableOrbit**: Enables orbiting
+- _optional_ **enableZoom**: Enables zooming
+- _optional_ **enablePan**: Enables panning
+- _optional_ **orbitSensitivity**: Sensitivity of rotating
+- _optional_ **zoomSensitivity**: Sensitivity of zooming
+- _optional_ **panSensitivity**: Sensitivity of panning
+- _optional_ **inputSensitivity**: General Sensitivity
+- _optional_ **minimumRadius**: The closest the camera can be to the target
+- _optional_ **maximumRadius**: The farthest the camera can be from the target
+- _optional_ **minimumPolarAngle**: The minimum angle between model-up and the camera polar position
+- _optional_ **maximumPolarAngle**: The maximum angle between model-up and the camera polar position
+- _optional_ **minimumAzimuthalAngle**: The minimum angle between model-forward and the camera azimuthal position
+- _optional_ **infiniteZoom**: Enables infinite zoom
+- _optional_ **zoomToCursor**: Enables scrolling to cursor
+- _optional_ **damperDecay**: The dampening value for the controller
+
+
 
 
 
