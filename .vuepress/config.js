@@ -378,7 +378,21 @@ module.exports = {
           sidebarDepth: 0,
           title: 'Workspace Docs 👩‍🏭',
           collapsable: false,
-          children: ['', 'welcome-to-workspaces', 'getting-started', 'roles'],
+          children: ['', 'welcome-to-workspaces', 'getting-started'],
+        },
+        {
+          title: 'Refererences',
+          sidebarDepth: 1,
+          collapsable: false,
+          children: [
+            'projects',
+            'members',
+            'roles',
+            'workspaces-for-companies',
+            'billing',
+            'sso',
+            'data-sovereignty',
+          ],
         },
 
         {

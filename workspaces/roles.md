@@ -1,5 +1,5 @@
 
-# Workspace Roles
+# Workspace Member Roles
 
 ## Collaborators and reviewers
 
