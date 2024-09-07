@@ -7,10 +7,14 @@
     {
       "path": "./user",
       "name": "Speckle User Guide"
-    },    
+    },
     {
       "path": "./automate",
       "name": "Speckle Automate Guide"
+    },
+    {
+      "path": "./workspaces",
+      "name": "Speckle Workspaces Guide"
     },
     {
       "path": ".",
@@ -21,9 +25,14 @@
     "markdownlint": {
       "config": {
         "MD033": false, // allow inline html
-        "MD024": { "siblings_only": true }, // allow single heading
+        "MD024": {
+          "siblings_only": true
+        }, // allow single heading
       }
-    }
+    },
+    "files.autoSave": "onWindowChange",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
   },
   "extensions": {
     "recommendations": [

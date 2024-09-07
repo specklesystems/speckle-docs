@@ -37,11 +37,11 @@ module.exports = {
       },
     ],
     [
-      "script",
+      'script',
       {
-        src: "https://unpkg.com/@stackblitz/sdk@1/bundles/sdk.umd.js"
-      }
-    ]
+        src: 'https://unpkg.com/@stackblitz/sdk@1/bundles/sdk.umd.js',
+      },
+    ],
   ],
   /**
    * Theme configuration, here is the default theme configuration for VuePress.
@@ -79,6 +79,10 @@ module.exports = {
       {
         text: '3D Viewer',
         link: '/viewer/',
+      },
+      {
+        text: 'Workspaces',
+        link: '/workspaces/',
       },
       {
         text: 'Speckle Website',
@@ -267,10 +271,7 @@ module.exports = {
         {
           title: 'Working with Automations',
           collapsable: false,
-          children: [
-            'create-automation',
-            'update-automation',
-          ],
+          children: ['create-automation', 'update-automation'],
         },
         {
           title: 'Developing Functions',
@@ -372,6 +373,34 @@ module.exports = {
           ],
         },
       ],
+      '/workspaces/': [
+        {
+          sidebarDepth: 0,
+          title: 'Workspace Docs 👩‍🏭',
+          collapsable: false,
+          children: ['', 'welcome-to-workspaces', 'getting-started'],
+        },
+        {
+          title: 'Refererences',
+          sidebarDepth: 1,
+          collapsable: false,
+          children: [
+            'projects',
+            'members',
+            'roles',
+            'workspaces-for-companies',
+            'billing',
+            'sso',
+            'data-sovereignty',
+          ],
+        },
+
+        {
+          title: 'Resources',
+          collapsable: false,
+          children: ['faqs'],
+        },
+      ],
     },
   },
 
@@ -379,10 +408,10 @@ module.exports = {
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
   plugins: [
-    "@adamdehaven/vuepress-plugin-custom-tooltip",
-    "@vuepress/plugin-back-to-top",
-    "@vuepress/plugin-medium-zoom",
-    "@vuepress/html-redirect",
+    '@adamdehaven/vuepress-plugin-custom-tooltip',
+    '@vuepress/plugin-back-to-top',
+    '@vuepress/plugin-medium-zoom',
+    '@vuepress/html-redirect',
     [
       'vuepress-plugin-matomo',
       {
