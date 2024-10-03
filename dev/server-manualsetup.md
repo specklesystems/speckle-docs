@@ -134,7 +134,7 @@ services:
       test:
         [
           "CMD",
-          "node",
+          "/nodejs/bin/node",
           "-e",
           "try { require('node:http').request({headers: {'Content-Type': 'application/json'}, port:3000, hostname:'127.0.0.1', path:'/graphql?query={serverInfo{version}}', method: 'GET', timeout: 2000 }, (res) => { body = ''; res.on('data', (chunk) => {body += chunk;}); res.on('end', () => {process.exit(res.statusCode != 200 || body.toLowerCase().includes('error'));}); }).end(); } catch { process.exit(1); }",
         ]
@@ -361,7 +361,7 @@ services:
       test:
         [
           "CMD",
-          "node",
+          "/nodejs/bin/node",
           "-e",
           "try { require('node:http').request({headers: {'Content-Type': 'application/json'}, port:3000, hostname:'127.0.0.1', path:'/graphql?query={serverInfo{version}}', method: 'GET', timeout: 2000 }, (res) => { body = ''; res.on('data', (chunk) => {body += chunk;}); res.on('end', () => {process.exit(res.statusCode != 200 || body.toLowerCase().includes('error'));}); }).end(); } catch { process.exit(1); }",
         ]
