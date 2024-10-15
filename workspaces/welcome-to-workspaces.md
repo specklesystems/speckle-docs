@@ -17,7 +17,7 @@ Let’s unpack what’s new together!
 
 Whether using Speckle in teams or solo, you told us how much you value data control and [project management](https://speckle.systems/blog/speckle-project-management-made-easy/).  Speckle is your data hub for data connectivity and your collaborative space for data exchange, communication, and automation. From this point onwards, we made it our mission to improve the AEC industry, which continues today with the launch of **Workspaces**.
 
-<video src="https://speckle.systems/content/media/2024/09/Workpaces-light-dark.mp4" poster="https://img.spacergif.org/v1/4070x2036/0a/spacer.png"  loop="" autoplay="" muted="" playsinline="" preload="metadata" style="background: transparent url('https://speckle.systems/content/images/2024/09/media-thumbnail-ember1466.jpg') 50% 50% / cover no-repeat;"></video>
+<video src="https://v1.speckle.systems/content/media/2024/09/Workpaces-light-dark.mp4" poster="https://img.spacergif.org/v1/4070x2036/0a/spacer.png"  loop="" autoplay="" muted="" playsinline="" preload="metadata" style="background: transparent url('https://v1.speckle.systems/content/images/2024/09/media-thumbnail-ember1466.jpg') 50% 50% / cover no-repeat;"></video>
 
 Workspaces offer you a better and more secure way to manage projects in real time. How? By offering you control over your data, data security, and residency options while making your life—and your team’s lives—easier.
 

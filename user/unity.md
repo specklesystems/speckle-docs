@@ -12,7 +12,7 @@ In addition to this page, you should also take a look at our [.NET SDK section](
 
 ::: tip 
 
-Check out our dedicated [tutorials on Unity](https://speckle.systems/tag/unity/)!
+Check out our dedicated [tutorials on Unity](https://v1.speckle.systems/tag/unity/)!
 
 :::
 
