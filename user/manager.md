@@ -162,4 +162,4 @@ Still having problems? Help us troubleshoot your issues by doing the following:
 ## License
 
 Speckle Manager is free to use and will always be.
-To use it you need to agree to its [End User License Agreement](https://speckle.systems/eula/).
+To use it you need to agree to its [End User License Agreement](https://speckle.systems/policy/terms/).

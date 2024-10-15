@@ -79,4 +79,4 @@ Do any dev work in Revit and want a handy tool for viewing and running unit test
 
 ## Legal stuff
 
-Before using any of our software or websites, please make sure you read and understand our [terms of use](https://speckle.systems/terms/), [privacy policy](https://speckle.systems/privacy/) and [trademark usage policy](https://speckle.systems/trademark/).
+Before using any of our software or websites, please make sure you read and understand our [terms of use](https://speckle.systems/policy/terms/), [privacy policy](https://speckle.systems/policy/privacy/) and [trademark usage policy](https://v1.speckle.systems/trademark/).
