@@ -1,5 +1,8 @@
 # Migration Guide
 
+# 2.20.2 → 2.21.1
+- `Vector3` and `Box3` have been removed from the viewer’s exports. They can now be imported from three.js
+
 # 2.19.4 → 2.20.2
 - All input mesh vertex colors are now treated as sRGB
 
