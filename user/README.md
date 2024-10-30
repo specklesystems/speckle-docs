@@ -18,7 +18,7 @@ If you're a programmer wanting to learn how to build things with Speckle, head o
 
 ::: tip IMPORTANT 🙌
 This guide assumes you have access to a **Speckle Server**.
-If you don't have one provided by your company, you can use our [free Speckle server](https://speckle.systems/getstarted/).
+If you don't have one provided by your company, you can use our [free Speckle server](https://app.speckle.systems/).
 :::
 
 ## Our Tech
