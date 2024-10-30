@@ -91,7 +91,7 @@ module.exports = {
       //this button has custom style in index.styl under `.nav-item:last-child a`
       {
         text: 'Get Started',
-        link: 'https://speckle.systems/getstarted/',
+        link: 'https://app.speckle.systems/',
       },
     ],
     sidebar: {

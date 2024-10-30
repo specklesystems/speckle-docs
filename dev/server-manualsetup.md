@@ -5,7 +5,7 @@ We offer a free server that you can use straight away (create accounts, etc.).
 
 We can also help you manage your Server deployments (setting things up securely, automatic upgrades, support, etc)
 
-See [https://speckle.systems/getstarted/](https://speckle.systems/getstarted/) for more details on our offerings.
+See [https://speckle.systems/pricing/](https://speckle.systems/pricing/) for more details on our offerings.
 :::
 
 If you want to run your own instance, there are multiple ways to achieve this:
@@ -38,7 +38,7 @@ This setup is not recommended for use in production for a few reasons, namely:
 - end-to-end encryption: possibly less of daily concern - we’re offering from encryption at rest, to https security (SSL/TLS certs & renewal) - so whenever data travels between a client and the db it’s always encrypted, inc. inside the datacenter itself.
 - automatic scalability: for example, the preview service can be quite a monster; that setup can eat up all a vm’s resources, and starve other processes causing general system wide instability.
 
-If you need help deploying a production server, [we can help](https://speckle.systems/getstarted/)!
+If you need help deploying a production server, [we can help](https://speckle.systems/pricing/)!
 :::
 
 This is the easiest way to get the Server running.

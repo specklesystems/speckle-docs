@@ -11,7 +11,7 @@ This setup is not recommended for use as-is in production for a few reasons, nam
 - monitoring: this setup does not describe integrations for telemetry, metrics, tracing, or logging. Nor does it describe alerting or response actions.
 - firewall and network hardening: running in production requires additional security hardening measures, particularly protecting the network from intrusion or data exfiltration.
 
-If you need help deploying a production server, [we can help](https://speckle.systems/getstarted/)!
+If you need help deploying a production server, [we can help](https://speckle.systems/pricing/)!
 :::
 
 ## Prerequisites
