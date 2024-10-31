@@ -333,6 +333,14 @@ module.exports = {
                 'queries-api',
                 'render-view-api',
                 'render-tree-api',
+                {
+                  title: 'Rendering Pipeline',
+                  collapsable: true,
+                  children: [
+                    'rendering-pipeline-api/pipeline-api',
+                    'rendering-pipeline-api/progressive-pipeline-api'
+                  ]
+                },
                 'speckle-material-api',
                 'speckle-renderer-api',
                 'top-level-acceleration-structure-api',

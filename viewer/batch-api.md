@@ -93,7 +93,7 @@ The id of the subtree the batch is part of.
 
 **Returns**: number
 
-### <h3>Properties</h3>
+### <h3>Accessors</h3>
 
 #### <b>bounds</b>
 
@@ -182,7 +182,7 @@ Build this batch. The implementation needs to make the batch renderable by:
 
 **Returns**: void
 
-#### <b>getCount()</b>
+#### <b>getCount</b>
 
 ```ts
 getCount(): number
@@ -192,17 +192,8 @@ Gets the batch's primitive count
 
 **Returns**: void
 
-#### <b>getCount()</b>
 
-```ts
-getCount(): number
-```
-
-Gets the batch's primitive count.
-
-**Returns**: void
-
-#### <b>getDepth()</b>
+#### <b>getDepth</b>
 
 ```ts
 getDepth(): BatchUpdateRange
@@ -212,7 +203,7 @@ Gets the batch's [_BatchUpdateRange_](/viewer/batch-api.md#batchupdaterange) req
 
 **Returns**: [_BatchUpdateRange_](/viewer/batch-api.md#batchupdaterange)
 
-#### <b>getMaterial()</b>
+#### <b>getMaterial</b>
 
 ```ts
 getMaterial(renderView: NodeRenderView): Material
@@ -226,7 +217,7 @@ Gets the current material of the provided render view.
 
 **Returns**: [_Material_](https://threejs.org/docs/index.html?q=materi#api/en/materials/Material)
 
-#### <b>getMaterialAtIndex()</b>
+#### <b>getMaterialAtIndex</b>
 
 ```ts
 getMaterialAtIndex(index: number): Material
@@ -240,7 +231,7 @@ Gets the current material of the provided primitive index. Batches that build ac
 
 **Returns**: [_Material_](https://threejs.org/docs/index.html?q=materi#api/en/materials/Material)
 
-#### <b>getOpaque()</b>
+#### <b>getOpaque</b>
 
 ```ts
 getOpaque(): BatchUpdateRange
@@ -250,7 +241,7 @@ Gets the batch's opaque [_BatchUpdateRange_](/viewer/batch-api.md#batchupdateran
 
 **Returns**: [_BatchUpdateRange_](/viewer/batch-api.md#batchupdaterange)
 
-#### <b>getRenderView()</b>
+#### <b>getRenderView</b>
 
 ```ts
 getRenderView(index: number): NodeRenderView
@@ -264,7 +255,7 @@ Gets the render view at the specified index. Batches that build acceleration str
 
 **Returns**: [_NodeRenderView_](/viewer/render-view-api.md)
 
-#### <b>getStencil()</b>
+#### <b>getStencil</b>
 
 ```ts
 getStencil(): BatchUpdateRange
@@ -274,7 +265,7 @@ Gets the batch's stencil [_BatchUpdateRange_](/viewer/batch-api.md#batchupdatera
 
 **Returns**: [_BatchUpdateRange_](/viewer/batch-api.md#batchupdaterange)
 
-#### <b>getTransparent()</b>
+#### <b>getTransparent</b>
 
 ```ts
 getTransparent(): BatchUpdateRange
@@ -284,7 +275,7 @@ Gets the batch's transparent [_BatchUpdateRange_](/viewer/batch-api.md#batchupda
 
 **Returns**: [_BatchUpdateRange_](/viewer/batch-api.md#batchupdaterange)
 
-#### <b>getVisibleRange()</b>
+#### <b>getVisibleRange</b>
 
 ```ts
 getVisibleRange(): BatchUpdateRange
@@ -294,7 +285,7 @@ Gets the batch's visible [_BatchUpdateRange_](/viewer/batch-api.md#batchupdatera
 
 **Returns**: [_BatchUpdateRange_](/viewer/batch-api.md#batchupdaterange)
 
-#### <b>onRender()</b>
+#### <b>onRender</b>
 
 ```ts
 onRender(renderer: WebGLRenderer): void
@@ -308,7 +299,7 @@ Callback for the viewer's render loop.
 
 **Returns**: void
 
-#### <b>onUpdate()</b>
+#### <b>onUpdate</b>
 
 ```ts
 onUpdate(deltaTime: number): void
@@ -322,7 +313,7 @@ Callback for the viewer's update loop.
 
 **Returns**: void
 
-#### <b>purge()</b>
+#### <b>purge</b>
 
 ```ts
 purge(): void
@@ -332,7 +323,7 @@ Purges the batch by disposing of the associated geometry data and materials.
 
 **Returns**: void
 
-#### <b>resetDrawRanges()</b>
+#### <b>resetDrawRanges</b>
 
 ```ts
 resetDrawRanges: void
@@ -342,7 +333,7 @@ Resets the batch to its default state where there is a single draw group rendere
 
 **Returns**: void
 
-#### <b>setBatchBuffers()</b>
+#### <b>setBatchBuffers</b>
 
 ```ts
 setBatchBuffers(range: BatchUpdateRange[]): void
@@ -356,7 +347,7 @@ Updates relevant batch buffers based on the [_MaterialOptions_](/viewer/speckle-
 
 **Returns**: void
 
-#### <b>setBatchMaterial()</b>
+#### <b>setBatchMaterial</b>
 
 ```ts
 setBatchMaterial(material: Material): void
@@ -370,7 +361,7 @@ Sets the default batch material.
 
 **Returns**: void
 
-#### <b>setDrawRanges()</b>
+#### <b>setDrawRanges</b>
 
 ```ts
 setDrawRanges(ranges: BatchUpdateRange[]): void
@@ -387,7 +378,7 @@ Materials are assigned to objects inside batches by using this method. Normally,
 
 **Returns**: void
 
-#### <b>setVisibleRange()</b>
+#### <b>setVisibleRange</b>
 
 ```ts
 setVisibleRange(range: BatchUpdateRange[]): void
