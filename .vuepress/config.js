@@ -338,7 +338,8 @@ module.exports = {
                   collapsable: true,
                   children: [
                     'rendering-pipeline-api/pipeline-api',
-                    'rendering-pipeline-api/progressive-pipeline-api'
+                    'rendering-pipeline-api/progressive-pipeline-api',
+                    'rendering-pipeline-api/g-pass-api'
                   ]
                 },
                 'speckle-material-api',

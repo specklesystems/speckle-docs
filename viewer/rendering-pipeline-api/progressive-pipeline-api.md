@@ -20,7 +20,7 @@ At any given time the pipeline can be in one of these stages. *Dynamic* stage is
 
 | [accumulating](/viewer/rendering-pipeline-api/progressive-pipeline-api.md#accumulating) | [accumulationFrameCount](/viewer/rendering-pipeline-api/progressive-pipeline-api.md#accumulationframecount)   | [accumulationFrameIndex](/viewer/rendering-pipeline-api/progressive-pipeline-api.md#accumulationframeindex) | [dynamicStage](/viewer/rendering-pipeline-api/progressive-pipeline-api.md#dynamicstage)   |
 | :--------------------------------------------------------------------------- | :----------------------------------------------------------------- | :--------------------------------------------------------------- | :----------------------------------------------------------------- |      
-| [passthroughStage](/viewer/speckle-renderer-api.md#passthroughstage) | [progressiveStage](/viewer/speckle-renderer-api.md#progressivestage) 
+| [passthroughStage](/viewer/rendering-pipeline-api/progressive-pipeline-api.md#passthroughstage) | [progressiveStage](/viewer/rendering-pipeline-api/progressive-pipeline-api.md#progressivestage) 
 
 
 
