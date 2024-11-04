@@ -7,15 +7,15 @@ When working with uploading and downloading objects, the REST API is preferred.
 
 ### Check if the Server Contains a List of Objects
 
-This method is useful for optimizing uploads, so that objects that are already in the stream are not uploaded for every commit.
+This method is useful for optimizing uploads, so that objects that are already in the project are not uploaded for every commit.
 
-**URL:** `${CANONICAL_URL}/api/diff/:streamId`
+**URL:** `${CANONICAL_URL}/api/diff/:projectId`
 
 **Method:** <span class="api-chip post">POST</span>
 
 **Authentication:** Token
 
-**Required permissions:** Write permissions on the stream
+**Required permissions:** Write permissions on the project
 
 **Request body schema:** application/json
 
@@ -31,13 +31,13 @@ This method is useful for optimizing uploads, so that objects that are already i
 
 ### Upload a Batch of Objects
 
-**URL:** `${CANONICAL_URL}/objects/:streamId`
+**URL:** `${CANONICAL_URL}/objects/:projectId`
 
 **Method:** <span class="api-chip post">POST</span>
 
 **Authentication:** Token
 
-**Required permissions:** Write permissions on the stream
+**Required permissions:** Write permissions on the project
 
 **Input:** The batch to be inserted is sent as a multipart-encoded file content (filename is ignored) and is a JSON representation of an array of objects to be inserted
 
@@ -52,13 +52,13 @@ This method is useful for optimizing uploads, so that objects that are already i
 
 ### Downloading a Single Object
 
-**URL:** `${CANONICAL_URL}/objects/:streamId/:objectId/single`
+**URL:** `${CANONICAL_URL}/objects/:projectId/:objectId/single`
 
 **Method:** <span class="api-chip get">GET</span>
 
 **Authentication:** Token
 
-**Required permissions:** Read permissions on the stream
+**Required permissions:** Read permissions on the project
 
 **Output:** The JSON representation of the object
 
@@ -66,13 +66,13 @@ This method is useful for optimizing uploads, so that objects that are already i
 
 This method is useful when optimizing downloads: Get the root object without children, check the children ids in the local cache and then request only the new objects with this method.
 
-**URL:** `${CANONICAL_URL}/api/getobjects/:streamId`
+**URL:** `${CANONICAL_URL}/api/getobjects/:projectId`
 
 **Method:** <span class="api-chip post">POST</span>
 
 **Authentication:** Token
 
-**Required permissions:** Read permissions on the stream
+**Required permissions:** Read permissions on the project
 
 **Request body schema:** application/json
 
@@ -95,13 +95,13 @@ This method is useful when optimizing downloads: Get the root object without chi
 
 ### Downloading an Object and All its Children
 
-**URL:** `${CANONICAL_URL}/objects/:streamId/:objectId`
+**URL:** `${CANONICAL_URL}/objects/:projectId/:objectId`
 
 **Method:** <span class="api-chip get">GET</span>
 
 **Authentication:** Token
 
-**Required permissions:** Read permissions on the stream
+**Required permissions:** Read permissions on the project
 
 **Headers:**
 
