@@ -111,7 +111,7 @@ good times \ud83c\udf1e",
 
 There are a few key fields that will always be present in the payload including:
 
-- `streamId`: the id of the stream the webhook was added to
+- `streamId`: the id of the project the webhook was added to
 - `userId`: the id of the user who triggered the event
 - `activityMessage`: a human readable summary about what event has occurred
 - `event`: the event that triggered the message; it will always include the `event_name` and `data`, though the structure of the event `data` will vary depending on the event type
