@@ -11,7 +11,7 @@ td, th{
 
 | [allObjects](/viewer/speckle-renderer-api.md#allobjects) | [clippingPlanes](/viewer/speckle-renderer-api.md#clippingplanes)   | [clippingVolume](/viewer/speckle-renderer-api.md#clippingvolume) | [indirectIBL](/viewer/speckle-renderer-api.md#indirectibl)   |
 | :--------------------------------------------------------------------------- | :----------------------------------------------------------------- | :--------------------------------------------------------------- | :----------------------------------------------------------------- |      
-| [indirectIBLIntensity](/viewer/speckle-renderer-api.md#indirectiblintensity) | [intersections](/viewer/speckle-renderer-api.md#intersections)     | [needsRender](/viewer/speckle-renderer-api.md#needsrender)       | [pipelineOptions](/viewer/speckle-renderer-api.md#pipelineoptions) |
+| [indirectIBLIntensity](/viewer/speckle-renderer-api.md#indirectiblintensity) | [intersections](/viewer/speckle-renderer-api.md#intersections)     | [needsRender](/viewer/speckle-renderer-api.md#needsrender)       | [pipeline](/viewer/speckle-renderer-api.md#pipeline) |
 | [renderer](/viewer/speckle-renderer-api.md#renderer)                         | [renderingCamera](/viewer/speckle-renderer-api.md#renderingcamera) | [renderingStats](/viewer/speckle-renderer-api.md#renderingstats) | [scene](/viewer/speckle-renderer-api.md#scene)                     |
 | [sceneBox](/viewer/speckle-renderer-api.md#scenebox)                         | [sceneCenter](/viewer/speckle-renderer-api.md#scenecenter)         | [sceneSphere](/viewer/speckle-renderer-api.md#scenesphere)       | [shadowcatcher](/viewer/speckle-renderer-api.md#shadowcatcher)     |
 | [shadowMapNeedsUpdate](/viewer/speckle-renderer-api.md#shadowmapneedsupdate) | [sunLight](/viewer/speckle-renderer-api.md#sunlight)               |
@@ -28,14 +28,9 @@ td, th{
 
 ### <h3>Typedefs</h3>
 
-| [DynamicAOPassParams](/viewer/speckle-renderer-api.md#dynamicaopassparams) | [PipelineOptions](/viewer/speckle-renderer-api.md#pipelineoptions)  | [PipelineOutputType](/viewer/speckle-renderer-api.md#pipelineoutputtype) | [RenderingStats](/viewer/speckle-renderer-api.md#renderingstats) |
-| :------------------------------------------------------------------------- | :----------------------------------------------------------------------------- | :----------------------------------------------------------------------- | :--------------------------------------------------------------- |
-| [StaticAoPassParams](/viewer/speckle-renderer-api.md#staticaopassparams)   | [SunLightConfiguration](/viewer/speckle-renderer-api.md#sunlightconfiguration) |
+ [RenderingStats](/viewer/speckle-renderer-api.md#renderingstats) | [SunLightConfiguration](/viewer/speckle-renderer-api.md#sunlightconfiguration)
+| :------------------------------------------------------------------------- | :----------------------------------------------------------------------------- | 
 
-### <h3>Constants</h3>
-
-| [DefaultPipelineOptions](/viewer/speckle-renderer-api.md#defaultpipelineoptions) | [DefaultDynamicAOPassParams](/viewer/speckle-renderer-api.md#defaultdynamicaopassparams) | [DefaultStaticAoPassParams](/viewer/speckle-renderer-api.md#defaultstaticaopassparams) |
-| :------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------- |
 
 ### <h3>Accessors</h3>
 
@@ -101,14 +96,14 @@ set needsRender(value: boolean)
 
 Signals the renderer that it needs to render at least one frame. Assigning a _false_ value has no effect.
 
-#### <b>pipelineOptions</b>
+#### <b>pipeline</b>
 
 ```ts
-get pipelineOptions()
-set pipelineOptions(value: PipelineOptions)
+get pipeline(): Pipeline
+set pipeline(value: Pipeline)
 ```
 
-Gets or sets the renderer's [_PipelineOptions_](/viewer/speckle-renderer-api.md#pipelineoptions).
+Gets or sets the renderer's [_Pipeline_](/viewer/rendering-pipeline-api/pipeline-api.md).
 
 #### <b>renderer</b>
 
@@ -382,7 +377,7 @@ Resets all object materials to their original default.
 resetPipeline(): void
 ```
 
-Resets the rendering pipeline, retriggering the accumulation stage.
+Resets the current rendering pipeline.
 
 **Returns**: _void_
 
@@ -466,54 +461,6 @@ Updates *The Shadowcatcher*🛸.
 
 ### <h3>Typedefs</h3>
 
-#### <b>DynamicAOPassParams</b>
-
-```ts
-interface DynamicAOPassParams {
-  intensity: number;
-  scale: number;
-  kernelRadius: number;
-  bias: number;
-  normalsType: NormalsType;
-  blurEnabled: boolean;
-  blurRadius: number;
-  blurStdDev: number;
-  blurDepthCutoff: number;
-}
-```
-
-- **intensity**: Intensity of dynamic AO
-- **scale**: Scale of dynamic AO
-- **kernelRadius**: Radius of the sampling kernel in screen space
-- **bias**: Dynamic AO bias
-- **normalsType**: Reconstructed normals quality: DEFAULT, IMPROVED = 1, ACCURATE = 2
-- **blurEnabled**: Enables/Disables dynamic AO blue
-- **blurRadius**: Radius of the blur in screen space
-- **blurStdDev**: Blur standard deviation
-- **blurDepthCutoff**: Cutoff value for depth aware blur
-
-#### <b>PipelineOptions</b>
-
-```ts
-interface PipelineOptions {
-  pipelineOutput: PipelineOutputType;
-  accumulationFrames: number;
-  dynamicAoEnabled: boolean;
-  dynamicAoParams: DynamicAOPassParams;
-  staticAoEnabled: boolean;
-  staticAoParams: StaticAoPassParams;
-  depthSide: Side;
-}
-```
-
-- **pipelineOutput**: [_PipelineOutputType_](/viewer/speckle-renderer-api.md#pipelineoutputtype).
-- **accumulationFrames**: Number of frames used for accumulation
-- **dynamicAoEnabled**: Enables dynamic AO
-- **dynamicAoParams**: [_DynamicAOPassParams_](viewer/speckle-renderer-api.md#dynamicaopassparams)
-- **staticAoEnabled**: Enables static AO.
-- **staticAoParams**: [_StaticAoPassParams_](viewer/speckle-renderer-api.md#staticaopassparams)
-- **depthSide**: Face side when rendering depth
-
 #### <b>RenderingStats</b>
 
 ```ts
@@ -534,20 +481,6 @@ interface PipelineOptions {
 
 Details regarding rendering state.
 
-#### <b>StaticAoPassParams</b>
-
-```ts
-interface StaticAoPassParams {
-  intensity?: number
-  kernelRadius?: number
-  kernelSize?: number
-  bias?: number
-```
-
-- **intensity**: Intensity of the static AO.
-- **kernelRadius**: Sampling kernel radius in screen space
-- **kernelSize**: Size of the sampling kernel
-- **bias**: AO bias
 
 #### <b>SunLightConfiguration</b>
 
@@ -563,53 +496,3 @@ interface SunLightConfiguration extends LightConfiguration {
 - **azimuth**: Azimuth in polar coordinates
 - **radius**: Distance from the camera target
 
-### <h3>Constants</h3>
-
-#### <b>DefaultPipelineOptions</b>
-
-```ts
-const DefaultPipelineOptions: PipelineOptions = {
-  pipelineOutput: PipelineOutputType.FINAL,
-  accumulationFrames: 16,
-  dynamicAoEnabled: true,
-  dynamicAoParams: DefaultDynamicAOPassParams,
-  staticAoEnabled: true,
-  staticAoParams: DefaultStaticAoPassParams,
-  depthSide: DoubleSide,
-};
-```
-
-Default values for [_PipelineOptions_](viewer/speckle-renderer-api.md#pipelineoptions).
-
-#### <b>DefaultDynamicAOPassParams</b>
-
-```ts
-const DefaultDynamicAOPassParams: DynamicAOPassParams = {
-  intensity: 1.5,
-  scale: 0,
-  kernelRadius: 5,
-  bias: 0.2,
-  normalsType: NormalsType.ACCURATE,
-  blurEnabled: true,
-  blurRadius: 2,
-  blurStdDev: 4,
-  blurDepthCutoff: 0.007,
-};
-```
-
-Default values for [_DynamicAOPassParams_](viewer/speckle-renderer-api.md#dynamicaopassparams).
-
-#### <b>DefaultStaticAoPassParams</b>
-
-```ts
-const DefaultStaticAoPassParams: StaticAoPassParams = {
-  intensity: 1,
-  kernelRadius: 30, // Screen space
-  kernelSize: 16,
-  bias: 0.01,
-  minDistance: 0,
-  maxDistance: 0.008,
-};
-```
-
-Default values for [_StaticAoPassParams_](viewer/speckle-renderer-api.md#staticaopassparams).

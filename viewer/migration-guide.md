@@ -1,5 +1,17 @@
 # Migration Guide
 
+# 2.21.1 - 2.22.2?
+- Entire rendering pipeline got a massive update and it now allows for free user customization as well as user defined passes
+- `pipeline` accessors added to `SpeckleRenderer`. This allows for user defined rendering pipelines
+- `pipelineOptions` accessors removed from `SpeckleRenderer`
+- `PipelineOutputType` removed. The pipeline’s result now depends on the pipeline’s pass configuration
+- `DynamicAOPassParams`  and it’s default removed
+- `StaticAoPassParams` and it’s default removed and replaced by `ProgressiveAOPassOptions`
+- A series of pre-defined rendering passes as well as entire rendering pipelines have been added
+
+# 2.20.2 → 2.21.1
+- `Vector3` and `Box3` have been removed from the viewer’s exports. They can now be imported from three.js
+
 # 2.19.4 → 2.20.2
 - All input mesh vertex colors are now treated as sRGB
 
