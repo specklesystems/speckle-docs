@@ -103,7 +103,7 @@ get pipeline(): Pipeline
 set pipeline(value: Pipeline)
 ```
 
-Gets or sets the renderer's [_Pipeline_](/viewer/rendering-pipeline-api.md).
+Gets or sets the renderer's [_Pipeline_](/viewer/rendering-pipeline-api/pipeline-api.md).
 
 #### <b>renderer</b>
 
@@ -377,7 +377,7 @@ Resets all object materials to their original default.
 resetPipeline(): void
 ```
 
-Resets the rendering pipeline, retriggering the accumulation stage.
+Resets the current rendering pipeline.
 
 **Returns**: _void_
 
