@@ -18,6 +18,11 @@ Contract for all rendering pass implementations in the speckle viewer. The "G" s
 | [setSize](/viewer/rendering-pipeline-api/g-pass-api.md#setsize)         | [setVisibility](/viewer/rendering-pipeline-api/g-pass-api.md#setvisibility) | [update](/viewer/rendering-pipeline-api/g-pass-api.md#update) 
 
 
+### <h3>Typedefs</h3>
+
+| [ClearFlags](/viewer/rendering-pipeline-api/g-pass-api.md#clearflagsenum) | [ObjectVisibility](/viewer/rendering-pipeline-api/g-pass-api.md#objectvisibility) | [PassOptions](/viewer/rendering-pipeline-api/g-pass-api.md#passoptions)   |
+| :------------------------------------------------------------- | :------------------------------------------------------------------- | :------------------------------------------------- | 
+
 ### <h3>Accessors</h3>
 
 
@@ -98,7 +103,7 @@ Gets the jitter state of the pass. If jitter is enabled, the pipeline will apply
 ```ts
 set options(value: PassOptions)
 ```
-Sets the pass options
+Sets the pass options. [_PassOptions_]()
 
 **Returns**: _void_
 
@@ -147,121 +152,129 @@ Gets the current visibility state for the pass. If `null`, no visibility restric
 
 ### <h3>Methods</h3>
 
-#### <b>createMultipleRenderTarget</b>
+#### <b>onAferRender</b>
 
 ```ts
-static createMultipleRenderTarget(
-    count: number,
-    options?: WebGLRenderTargetOptions,
-    width?: number,
-    height?: number
-  ): WebGLMultipleRenderTargets
+onAferRender: () => void
 ```
-Creates an MRT enabled three.js render target.
-
-::: warning
-The resulting render target will be using a 32 bit depth + stencil _renderbuffer_.
-:::
-
-::: warning
-Because the Speckle viewer is still using an older version of three.js the type `WebGLMultipleRenderTargets` does not exist anymore in their documentation. However it works similarly to the regular `WebGLRenderTarget`
-:::
-
-**Parameters**
-
-- **count**: The number of color attachements to the framebuffer
-- _optional_ **options**: [_WebGLRenderTargetOptions_](https://threejs.org/docs/index.html?q=webgl#api/en/renderers/WebGLRenderTarget)
-- _optional_ **width**: _number_ If none specified it will default to `1`
-- _optional_ **height**: _number_ If none specified it will default to `1`
-
-
-**Returns**: [_WebGLMultipleRenderTargets_](https://threejs.org/docs/index.html?q=webgl#api/en/renderers/WebGLRenderTarget)
-
-#### <b>createRenderTarget</b>
-
-```ts
-static createRenderTarget(
-    options?: WebGLRenderTargetOptions,
-    width?: number,
-    height?: number
-  ): WebGLRenderTarget
-```
-Creates a three.js render target.
-
-::: warning
-The resulting render target will be using a 32 bit depth + stencil _renderbuffer_.
-:::
-
-**Parameters**
-
-- _optional_ **options**: [_WebGLRenderTargetOptions_](https://threejs.org/docs/index.html?q=webgl#api/en/renderers/WebGLRenderTarget)
-- _optional_ **width**: _number_ If none specified it will default to `1`
-- _optional_ **height**: _number_ If none specified it will default to `1`
-
-
-**Returns**: [WebGLRenderTarget](https://threejs.org/docs/index.html?q=webgl#api/en/renderers/WebGLRenderTarget)
-
-#### <b>getPass</b>
-
-```ts
-getPass(name: string): GPass[]
-```
-
-Get's all the passes with the provided name
-
-**Parameters**
-
-- **name**: _string_
-
-**Returns**: [_GPass[]_](/viewer/pipeline-api/gpass-api.md)
-
-
-#### <b>onAfterPipelineRender</b>
-
-```ts
-onAfterPipelineRender(): void 
-```
-
-Callback for before the pipeline starts to render
+Callback for after rendering the pass
 
 **Returns**: _void_
 
-#### <b>onBeforePipelineRender</b>
+#### <b>onBeforeRender</b>
 
 ```ts
-onBeforePipelineRender(): void
+onBeforeRender: () => void
 ```
-
-Callback for before the pipeline has finished rendering
+Callback for before rendering the pass
 
 **Returns**: _void_
-
 
 #### <b>render</b>
 
 ```ts
-render(): boolean
+render(
+    renderer: WebGLRenderer,
+    camera?: PerspectiveCamera | OrthographicCamera | null,
+    scene?: Scene
+  ): boolean
 ```
 
-The pipeline's render loop. The `Pipeline` class offers a complete implementation for the render loop that feeds the required data into the passes. Only very specialized pipelines would require the render function overriden
+The pass's render function
 
-**Returns**: _boolean_ A `true` value indicates that the pipeline needs further rendering. `false` otherwise
+**Parameters**
 
-#### <b>reset</b>
+- **renderer**: The hosting [_WebGLRenderer_](https://threejs.org/docs/index.html?q=webglrend#api/en/renderers/WebGLRenderer)
+- _optional_ **camera**: The rendering camera
+- _optional_ **scene** The scene to be rendered
+
+**Returns**: _boolean_ If `true`, it signals that the pass needs more rendering, `false` otherwise 
+
+
+#### <b>setClearColor</b>
 
 ```ts
-reset(): void
+setClearColor(color: number, alpha: number): void
 ```
-Resets the pipeline
+
+Sets the pass's clear color and alpha. 
+
+:::warning
+Clearing will be executed on whatever the current `outputTarget` value is. If `outputTarget` is `null`, the backbuffer will be cleared!
+:::
+
+**Parameters**
+
+- **color**: The color represented as a number as previously [detailed](/viewer/rendering-pipeline-api/g-pass-api.md#clearcolor)
+- **alpha**: The alpha value in the range of [0,1]
 
 **Returns**: _void_
 
-#### <b>resize</b>
+
+#### <b>setClearFlags</b>
 
 ```ts
-resize(width: number, height: number): void
+setClearFlags(flags: number): void
 ```
-Resizes the pipeline with the provided dimensions. The `width` and `height` are expected to be final values, as in, they should contained any DPR already factored in
+
+Sets the clear flags. The [_ClearFlags_]((/viewer/rendering-pipeline-api/g-pass-api.md#clearflagsenum)) values can be used for ease of use
+
+**Parameters**
+
+- **flags**: The value for the flags as previously [detailed]((/viewer/rendering-pipeline-api/g-pass-api.md#clearflags))
+
+**Returns**: _void_
+
+
+#### <b>setClippingPlanes</b>
+
+```ts
+setClippingPlanes(planes: Plane[]): void
+```
+
+Sets the current clipping planes, if any exist
+
+**Parameters**
+
+- **flags**: The array of [_Planes_](https://threejs.org/docs/index.html?q=plane#api/en/math/Plane)
+
+**Returns**: _void_
+
+
+
+#### <b>setJitter</b>
+
+```ts
+setJitter(value: boolean): void
+```
+Enables/disables jittering for the pass
+
+**Returns**: _void_
+
+
+
+#### <b>setLayers</b>
+
+```ts
+setLayers?(layers: ObjectLayers[]): void
+```
+The the exclusive layers this pass will render. If no layers are set, all layers get rendered
+
+**Parameters**
+
+- **layers**: [_ObjectLayers_](/viewer/viewer-api.md#objectlayers)
+
+**Returns**: _void_
+
+
+
+#### <b>setSize</b>
+
+```ts
+setSize(width: number, height: number): void
+```
+
+Sets the rendering size for this pass. 
 
 **Parameters**
 
@@ -270,18 +283,73 @@ Resizes the pipeline with the provided dimensions. The `width` and `height` are 
 
 **Returns**: _void_
 
-#### <b>setClippingPlanes</b>
+
+
+#### <b>setVisibility</b>
 
 ```ts
-setClippingPlanes(planes: Plane[]): void
+setVisibility(objectVisibility: ObjectVisibility): void
 ```
 
-Propagates clipping planes towards the pipeline's consituent passes
+Sets the exclusive visibility of the pass. Currently just a single visibility option can be set.
 
 **Parameters**
 
-- **planes**: The clipping [_Planes_](https://threejs.org/docs/index.html?q=plane#api/en/math/Plane)
+- **objectVisibility**: [_ObjectVisibility_](/viewer/rendering-pipeline-api/g-pass-api.md#objectvisibility)
 
 **Returns**: _void_
+
+
+#### <b>update</b>
+
+```ts
+update(camera: PerspectiveCamera | OrthographicCamera | null): void
+```
+
+The pass's update function. Generally used for updating pass related data before the render call
+
+**Parameters**
+
+- **camera**: The rendering camera
+
+**Returns**: _void_
+
+
+
+### <h3>Typedefs</h3>
+
+#### <b>ClearFlags</b>
+
+```ts
+enum ClearFlags {
+  COLOR = 0x00000100,
+  DEPTH = 0x00000400,
+  STENCIL = 0x00004000
+}
+```
+
+The WebGL constant values for the clear flags for convenience
+
+
+#### <b>ObjectVisibility</b>
+
+```ts
+enum ObjectVisibility {
+  OPAQUE = 'opaque',
+  TRANSPARENT = 'transparent',
+  DEPTH = 'depth',
+  STENCIL = 'stencil'
+}
+```
+
+An object visibility categorization. Used to restrict pass rendering to only specific object lists
+
+#### <b>PassOptions</b>
+
+```ts
+interface PassOptions {}
+```
+
+This can be virtuall anything, and it's up for the concrete pass implementations to define their own options
 
 
