@@ -402,7 +402,7 @@ module.exports = {
             'workspaces-for-companies',
             'billing',
             'sso',
-            'data-sovereignty',
+            'data-residency',
           ],
         },
 
