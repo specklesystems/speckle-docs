@@ -1,24 +1,38 @@
 # Workspace Projects
 
-Creating a new project in a workspace is the same process as for personal projects, but with a few additional features.
+Creating a new project in a workspace follows the same process as personal projects but with additional features designed for team collaboration and enhanced security.
 
-## Create a project
+## Create a Project
 
-To create a project in a workspace, click the `New Project` button. You can then name the project and select access permissions per normal. By default, your workspace members and admins will be added to the project with View permissions.
+To create a project in a workspace:  
 
-## Viewing projects
+1. Click the `New Project` button.  
+2. Name the project and set access permissions as usual.  
 
-In the workspace settings screen, you can see all the projects in the workspace.
+All workspace members and admins will be added to the project with **View** permissions by default.
 
-In the project pages and model views the Workspace name will be shown as a navigation link as part of the page title. In non-workspace projects, the workspace name will not be shown and instead a link to all Projects list.
+## Viewing Projects
 
-## Restricting access
+In the workspace **Settings** screen, you can view all the projects associated with the workspace.  
 
-Workspaces is designed to increase the security and privacy of your team's projects while giving greater visibility over who can see and access them. If you have a subset of projects that need to be more secure, you can create a second workspace and invite only the team members who need access to those projects.
+On project pages and model views, the **Workspace name** will appear as a navigation link in the page title. For non-workspace projects, the workspace name will not be shown. Instead, a link to the **All Projects** list will be displayed.
 
-## *Migrating projects (Coming soon)*
+## Restricting Access
 
-*You can migrate a project from a personal account to a workspace by selecting Move Project in the Workspace dashboard. This will move the project to the workspace and remove it from your personal account.*
+Workspaces are designed to enhance the security and privacy of your team’s projects while providing greater visibility and control over access permissions.  
 
-*When you move a personal project to a workspace with domain locking in place, all contributors not compliant with the workspace domain policy will be migrated but highlighted as non-compliant in the Members window.*
+If you have projects requiring stricter access control, you can:  
 
+- Create a separate workspace for those projects.  
+- Invite only the necessary team members to ensure access remains limited.  
+
+## Migrating Projects
+
+You can migrate a project from a personal account to a workspace by selecting **Move Project** in the Workspace dashboard. This action will:  
+
+- Transfer the project to the workspace and remove it from your account.  
+- Preserve the data region of the original project.  
+
+### *Data Region Migration (Coming Soon)*
+
+*While migrated projects will currently remain in the data region where they were initially authored, the ability to migrate projects to a data region of your choice is coming soon.*  
