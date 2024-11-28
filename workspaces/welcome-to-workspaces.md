@@ -14,9 +14,9 @@ Workspaces are designed to:
 - Provide **domain-based membership protection** for enhanced security.  
 - Support **team collaboration** with centralised project and user management.  
 - Streamline project workflows and data sharing.
-- Allow for collaboration and team development of automations with Speckle Automate.
+- Allow for collaboration and team development of automations with [Speckle Automate](../automate/).
 
-Explore the ** Plus ** or ** Business ** plans for advanced functionality like Single Sign-On (SSO) or custom data regions.  
+Explore the **Plus** or **Business** plans for advanced functionality like Single Sign-On (SSO) or custom data regions.  
 
 ## Managing Access and Permissions  
 
