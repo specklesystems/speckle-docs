@@ -1,38 +1,52 @@
-# Workspace Projects
+# Workspace Projects  
 
-Creating a new project in a workspace follows the same process as personal projects but with additional features designed for team collaboration and enhanced security.
+Workspace projects are centralised repositories for collaborative workflows, enhanced with features like advanced security, role-based access, and automation integration.
 
-## Create a Project
+## Key Features of Workspace Projects  
 
-To create a project in a workspace:  
+- Centralised project management with **granular access controls**.  
+- Integration with **Speckle Automate** for tailored workflow enhancements.  
+- Advanced options for project migration and data residency.  
 
-1. Click the `New Project` button.  
-2. Name the project and set access permissions as usual.  
+## Automate Integration in Projects  
 
-All workspace members and admins will be added to the project with **View** permissions by default.
+Workspace projects support Speckle Automate, enabling advanced automation workflows:  
 
-## Viewing Projects
+1. **Private Functions**:  
+   - Workspace members and admins can create private automation functions to streamline workflows and enforce standards.  
+   - These functions are visible to all Workspace members.  
 
-In the workspace **Settings** screen, you can view all the projects associated with the workspace.  
+2. **Automations in Projects**:  
+   - Automations (created using private functions) are tied to specific projects and visible to **Project Reviewers** and above.  
+   - Only **Project Owners** and above can create or edit automations.  
 
-On project pages and model views, the **Workspace name** will appear as a navigation link in the page title. For non-workspace projects, the workspace name will not be shown. Instead, a link to the **All Projects** list will be displayed.
+3. **Role-Based Permissions**:  
+   - **Admins and Project Owners**: Full control over automations, including creation and editing.  
+   - **Contributors and Reviewers**: Can execute automations assigned to their projects.  
 
-## Restricting Access
+## Managing Project Access  
 
-Workspaces are designed to enhance the security and privacy of your team’s projects while providing greater visibility and control over access permissions.  
+Workspaces are designed for secure and controlled collaboration. To manage project access:  
 
-If you have projects requiring stricter access control, you can:  
+- Use role-based permissions to define **Contributors** (write access) and **Reviewers** (read-only access).  
+- Leverage workspace-level domain policies to enforce compliance with your organisation's email domains.  
+- For stricter access, create a separate Workspace for sensitive projects and invite only necessary team members.  
 
-- Create a separate workspace for those projects.  
-- Invite only the necessary team members to ensure access remains limited.  
+## Migrating Projects  
 
-## Migrating Projects
+Moving a project from a personal account to a Workspace enables team collaboration and advanced features.  
 
-You can migrate a project from a personal account to a workspace by selecting **Move Project** in the Workspace dashboard. This action will:  
+### How Migration Works:  
+- The project has been transferred to Workspace and removed from your account.  
+- The data region of the original project is preserved.  
 
-- Transfer the project to the workspace and remove it from your account.  
-- Preserve the data region of the original project.  
+### Upcoming Feature: Data Region Migration  
+*In the future, you can move migrated projects to a different data region to comply with regulatory or organisational requirements.*  
 
-### *Data Region Migration (Coming Soon)*
+## Advanced Usage Tips  
 
-*While migrated projects will currently remain in the data region where they were initially authored, the ability to migrate projects to a data region of your choice is coming soon.*  
+- **Automation Across Projects**: Use shared functions to standardise team workflows in multiple projects.  
+- **Access Reviews**: Regularly audit project access and automations for security and compliance.  
+- **Optimising for Large Teams**: Segment projects across multiple Workspaces for more explicit boundaries and easier management.
+
+For additional details on Workspace features, visit the [Speckle Automate Documentation](https://speckle.guide/automate/) or the [Workspaces Overview](./overview.md).  
