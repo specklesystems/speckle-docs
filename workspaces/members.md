@@ -2,6 +2,8 @@
 
 All workspace members can be managed from the **Members** screen in the workspace settings. This screen displays all members added to the workspace, [their role](./roles.md), and the date they were added. You can also see users who have been invited but have not yet accepted the invitation to join the workspace.
 
+---
+
 ## Member Status
 
 Workspace members and guests can have two types of status indicators:  
@@ -17,6 +19,8 @@ Workspace members and guests can have two types of status indicators:
      - The domain policy is changed after a project is created or added.  
    - Non-compliant members and guests will be highlighted in the **Members** window.  
 
+---
+
 ## Adding Members
 
 To add a member to a workspace:  
@@ -30,7 +34,14 @@ You can assign the user a role:
 - `Member`  
 - `Admin`  
 
+### Role-Specific Notes:
+- **Admins** can manage all members, enforce security policies, and control access to private automation functions in Speckle Automate.  
+- **Members** can use Speckle Automate to create private automation functions within the Workspace but cannot invite external users.  
+- **Guests** cannot access Speckle Automate and are limited to the projects to which they are explicitly invited.
+
 If the invited user is not already a Speckle user, they will receive an email invitation to join Speckle and the workspace.
+
+---
 
 ## Removing Members
 
@@ -43,3 +54,10 @@ To remove a member from a workspace:
 Once removed:  
 - The user will no longer have access to the workspace or any of its projects.  
 - This includes projects they had been directly invited to.  
+- Any private automation functions authored by the removed user will remain accessible within the Workspace.
+
+---
+
+## Managing Automation Access
+
+Speckle Automate is integrated with Workspaces, allowing members and admins to author and manage private automation functions. Ensure that members with access to automation functions have appropriate roles and permissions.
