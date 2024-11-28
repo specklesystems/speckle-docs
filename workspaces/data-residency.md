@@ -4,7 +4,7 @@ Data residency is the concept that data is subject to the laws of the country in
 
 ## Why Data Residency?
 
-Data residency is important because it ensures that organizations can comply with local data protection laws and regulations. For example, the GDPR requires that personal data of EU citizens is stored and processed within the EU. By ensuring that data is stored in a specific location, organizations can demonstrate compliance with these regulations.
+Data residency is important because it ensures that organizations can comply with local data protection laws and regulations. For example, while the GDPR requires that personal data of EU citizens is protected to its standards regardless of where it is stored or processed, some jurisdictions, such as Australia, mandate that certain government-related data be stored and processed within the country. By ensuring that data is stored in a specific location, organisations can demonstrate compliance with these regulations.
 
 ## Data Residency in Workspaces
 
