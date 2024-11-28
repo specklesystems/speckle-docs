@@ -1,35 +1,40 @@
-# Billing
+# Billing  
 
-## Workspaces Trial Plan
+Workspaces require a paid subscription to access advanced features, team collaboration tools, and larger-scale operations. This page explains the key billing concepts and operations for managing your Workspace subscription.  
 
-As part of the launch, all Workspaces are currently in a **Trial Plan**, which gives full access to Workspace features for free. During the trial period:  
-- You can evaluate Workspace features without any cost.  
-- A cost estimate based on the number of members in your workspace will be displayed for informational purposes.  
+## Trial Period  
 
-Once the trial ends, Workspaces will transition into a paid subscription model.
+All new Workspaces begin with a **31-day trial**. During the trial:  
+- You can explore all features available in the **Starter Plan**.  
+- No credit card information is required.  
+- At the end of the trial, Workspaces enter **read-only mode** if a subscription is not activated.  
 
-## Subscription Plans
+For more details on trial behaviour, see [Trial Period Overview](./trial-overview.md).  
 
-Once the trial period ends, Workspaces will be available under the following subscription plans:  
+## Subscriptions  
 
-### **Workspace Starter**  
-- **£15 per seat/month**, billed monthly.  
-- Includes:  
-  - Workspace creation  
-  - Role management  
-  - Guest users  
-  - Private Automate functions  
-  - Domain security  
+To continue using a Workspace beyond the trial period, you will need to subscribe to a paid plan. All billing and subscription options are managed directly in the Workspace **Settings > Billing** section.  
 
-### **Workspace Plus**  
-- **£50 per seat/month**, billed monthly.  
-- Includes all features from **Starter**, plus:  
-  - Single Sign-On (SSO)  
+Key points:  
+- Subscription costs are calculated based on the number of active members.  
+- Plans and pricing details are displayed directly in the in-app billing section.  
+- Billing is flexible and supports both monthly and annual payment options.  
 
-### **Workspace Business**  
-- **£75 per seat/month**, billed monthly.  
-- Includes all features from **Plus**, plus:  
-  - Custom data region  
-  - Priority support  
+## Managing Billing  
 
-**Save 20%** with annual billing.
+You can manage your Workspace subscription directly from the in-app billing interface. Available operations include:  
+- **Upgrading or Downgrading Plans**: Switch between available subscription plans as your needs evolve.  
+- **Adding or Removing Members**: Costs adjust dynamically based on the number of active members in your Workspace at the end of the billing period.  
+- **Cancelling a Subscription**: Cancel your subscription to stop future charges. Workspaces will enter **read-only mode** upon cancellation, but all data remains intact.
+
+## Data and Access  
+
+When a subscription lapses:  
+- All Workspace data remains intact and accessible in read-only mode.  
+- You cannot create new versions, add members, or make edits until the subscription is reactivated.  
+
+## Notes  
+
+For detailed pricing and feature comparisons, refer to the in-app billing section. To upgrade, manage members, or adjust your Workspace settings, visit **Settings > Billing** in the Workspace interface.  
+
+If you have questions or require assistance, contact [Speckle Support](mailto:support@speckle.systems).
