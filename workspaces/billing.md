@@ -1,10 +1,35 @@
 # Billing
 
-## Workspaces are free while in beta
+## Workspaces Trial Plan
 
-While Speckle is offering Workspaces for free during the beta phase, it will be a paid feature in the future. This section will detail the billing and subscription information for Workspaces.
+As part of the launch, all Workspaces are currently in a **Trial Plan**, which gives full access to Workspace features for free. During the trial period:  
+- You can evaluate Workspace features without any cost.  
+- A cost estimate based on the number of members in your workspace will be displayed for informational purposes.  
 
-While in beta, the billing system will give a cost estimate based on the number of members in the workspace. This will be updated to a monthly subscription model in the future.
+Once the trial ends, Workspaces will transition into a paid subscription model.
 
-Once the beta period ends, workspaces are still free up to 500 model versions.
-To store more versions across your projects you will need to upgrade to a paid plan.
+## Subscription Plans
+
+Once the trial period ends, Workspaces will be available under the following subscription plans:  
+
+### **Workspace Starter**  
+- **£15 per seat/month**, billed monthly.  
+- Includes:  
+  - Workspace creation  
+  - Role management  
+  - Guest users  
+  - Private Automate functions  
+  - Domain security  
+
+### **Workspace Plus**  
+- **£50 per seat/month**, billed monthly.  
+- Includes all features from **Starter**, plus:  
+  - Single Sign-On (SSO)  
+
+### **Workspace Business**  
+- **£75 per seat/month**, billed monthly.  
+- Includes all features from **Plus**, plus:  
+  - Custom data region  
+  - Priority support  
+
+**Save 20%** with annual billing.
