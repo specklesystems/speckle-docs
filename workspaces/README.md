@@ -1,11 +1,5 @@
-# Speckle Workspaces Beta
+# Speckle Workspaces
 
-::: tip 🚧 NOTE
-Speckle Workspaces is in an accessible beta phase but can be used now on production data. It will be a future paid feature. These docs are a work in progress and are updated regularly.
-:::
+Speckle Workspaces is now live and ready for use with production data. This documentation is designed to assist Workspace Owners and Workspace Members navigate and leverage Workspaces effectively.
 
-This mini documentation is designed to assist beta testers of Workspaces, and should be useful for the **Workspace Owner** and **Workspace Member** personas. Your feedback is essential in refining these roles within the platform, enhancing functionality, and ensuring a user-friendly experience.
-
-We will continuously improve these documentation details as things develop; there may be occasions when development outpaces the documentation. If you have any questions, please reach out to us on the [Speckle Community Forum: Making Speckle](https://speckle.community/c/making-speckle/).
-
-
+Your feedback remains critical to further enhancing functionality and ensuring a seamless user experience. While we continuously improve these docs, there may still be occasions when development progresses faster than updates here. If you have any questions or need assistance, please visit the [Speckle Community Forum: Making Speckle](https://speckle.community/c/making-speckle/) (opens new window).
