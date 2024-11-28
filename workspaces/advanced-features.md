@@ -4,7 +4,7 @@ Speckle Workspaces unlock advanced features for enhanced team collaboration, wor
 
 ## Private Automate Functions  
 
-Workspaces provide access to **[Speckle Automate](../automate/)**, enabling teams to securely create and manage private automation functions within their Workspace.  
+Workspaces provide access to **[Speckle Automate](../automate/)**, enabling teams to create and manage private automation functions securely within their Workspace.  
 
 ### Key Capabilities:  
 - **Private Functions**:  
