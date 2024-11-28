@@ -9,8 +9,6 @@ All new Workspaces begin with a **31-day trial**. During the trial:
 - No credit card information is required.  
 - At the end of the trial, Workspaces enter **read-only mode** if a subscription is not activated.  
 
-For more details on trial behaviour, see [Trial Period Overview](./trial-overview.md).  
-
 ## Subscriptions  
 
 To continue using a Workspace beyond the trial period, you will need to subscribe to a paid plan. All billing and subscription options are managed directly in the Workspace **Settings > Billing** section.  
@@ -31,10 +29,10 @@ You can manage your Workspace subscription directly from the in-app billing inte
 
 When a subscription lapses:  
 - All Workspace data remains intact and accessible in read-only mode.  
-- You cannot create new versions, add members, or make edits until the subscription is reactivated.  
+- You cannot create new versions, add members, or edit until the subscription is reactivated.  
 
 ## Notes  
 
-For detailed pricing and feature comparisons, refer to the in-app billing section. To upgrade, manage members, or adjust your Workspace settings, visit **Settings > Billing** in the Workspace interface.  
+The in-app billing section provides detailed pricing and feature comparisons. To upgrade, manage members, or adjust your Workspace settings, visit Settings > Billing in the Workspace interface.  
 
 If you have questions or require assistance, contact [Speckle Support](mailto:support@speckle.systems).
