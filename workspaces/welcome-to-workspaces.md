@@ -5,73 +5,89 @@ title: Introducing Workspaces
 
 ## Introducing Workspaces: Speckle for Teams
 
-From the Great Rename to the New Web App and Automate, this year has been full of product announcements and development. Today, we’re announcing one more product development. This could be the most important one yet… You don't want to miss out!
+What began as a simple Grasshopper plugin for sharing 3D models has evolved into a transformative open-source platform addressing key pain points in the AEC industry. With this latest development, Speckle becomes **AEC’s first collaborative data hub**: your go-to solution for data connectivity, real-time collaboration, and workflow automation.
 
-From what began as a simple Grasshopper plugin for sharing 3D models, Speckle evolved into a transformative open-source project that addresses critical pain points in the AEC industry. Today, with its latest development, Speckle is AEC’s first collaborative data hub, your go-to partner for data connectivity, real-time collaboration, and workflow automation.
+Being your AEC data hub means bringing your **tech stack**, **team**, and **projects** into one secure, centralised space—now with advanced project management features.
 
-Being your AEC data hub means bringing together your tech stack, team, and projects in one central place with more advanced project management features.
-
-Let’s unpack what’s new together!
+Let’s unpack what’s new!
 
 ### It’s Time to Gain More Control Over Your Projects
 
-Whether using Speckle in teams or solo, you told us how much you value data control and [project management](https://speckle.systems/blog/speckle-project-management-made-easy/).  Speckle is your data hub for data connectivity and your collaborative space for data exchange, communication, and automation. From this point onwards, we made it our mission to improve the AEC industry, which continues today with the launch of **Workspaces**.
+Whether you’re using Speckle solo or in teams, you’ve told us how much you value **data control** and [project management](https://speckle.systems/blog/speckle-project-management-made-easy/). Speckle is your data hub for connectivity and collaboration, offering a shared space for **data exchange**, **communication**, and **automation**. Now, we’re taking this even further with the launch of **Workspaces**.
 
-<video src="https://v1.speckle.systems/content/media/2024/09/Workpaces-light-dark.mp4" poster="https://img.spacergif.org/v1/4070x2036/0a/spacer.png"  loop="" autoplay="" muted="" playsinline="" preload="metadata" style="background: transparent url('https://v1.speckle.systems/content/images/2024/09/media-thumbnail-ember1466.jpg') 50% 50% / cover no-repeat;"></video>
+<video src="https://v1.speckle.systems/content/media/2024/09/Workpaces-light-dark.mp4" poster="https://img.spacergif.org/v1/4070x2036/0a/spacer.png"  loop autoplay muted playsinline preload="metadata" style="background: transparent url('https://v1.speckle.systems/content/images/2024/09/media-thumbnail-ember1466.jpg') 50% 50% / cover no-repeat;"></video>
 
-Workspaces offer you a better and more secure way to manage projects in real time. How? By offering you control over your data, data security, and residency options while making your life—and your team’s lives—easier.
+Workspaces provide a more secure and streamlined way to manage projects in real time. How? By giving you **control over your data**, **enhanced security**, and **data residency options**—while making life easier for you and your team.
 
-If you thought Speckle was all about collaboration, you haven’t met Workspaces yet.
+If you thought Speckle was all about collaboration, you haven’t seen what Workspaces can do.
 
 ### Workspaces: A Deep Dive
 
-We’re inviting you to try this [new product](https://app.speckle.systems/) with a fresh pair of eyes. Workspaces are built for teams and designed to make you more productive as a group while benefiting from higher security, better permission management, and stronger collaboration.
+We invite you to explore this [new product](https://app.speckle.systems/) with a fresh perspective. Workspaces are built for teams, designed to enhance group productivity with features like **improved security**, **granular permission management**, and **stronger collaboration**.
 
-Before Workspaces, you could only get this level of security by creating your own server or joining our old enterprise plan. With Workspaces, you are one click away from reaching higher data security and privacy, more data control, and better project management in AEC.
+Previously, this level of functionality was only available by creating your own server or subscribing to our enterprise plan. With Workspaces, it’s just one click away.
 
-#### Workspaces: why it’s important for your team
+#### Workspaces: Why It’s Important for Your Team
 
-Workspaces are your virtual Speckle home, where you can thrive as a group by securely organising your projects as you see fit.
+Workspaces are your virtual Speckle home, enabling your team to securely organise projects as needed.
 
-#### Higher control over project accessibility
+#### Higher Control Over Project Accessibility
 
-Gaining visibility and control over your projects helps you be more productive. This is why workspace admins have full visibility and control over members and projects inside a workspace. Admins can add members to a workspace, allowing them to access all projects. They can also invite external collaborators to join a workspace as guests, whose access will be limited to a certain set of projects.
+Workspace admins have complete visibility and control over members and projects. Admins can:
+
+- Add members to a workspace, granting them access to all projects.
+- Invite external collaborators as **guests**, with access limited to specific projects.
 
 ![members](./members.png)
 
-#### More productive…and secure
+#### More Productive…and Secure
 
-Workspaces can link with organisation’s email domains, unlocking membership access and ensuring team members are in the right space right away!
+Workspaces can link with your organisation’s email domain, ensuring team members are automatically added to the right workspace.  
 
-In addition, if a workspace has domain-based membership protection enabled, only users whose emails comply with the policy can become members of that workspace. Non-compliant users can still be invited as guests, reinforcing secure collaboration.
+If **domain-based membership protection** is enabled, only users with compliant email addresses can become workspace members. Non-compliant users can still be invited as guests for secure collaboration.
 
 ![security](./security.png)
 
-#### Your projects and peers, all in one place
+#### Your Projects and Peers, All in One Place
 
-Did you create a Speckle account with your personal email and want to join a workspace with your work email? No problem! You can now add multiple email addresses to your account.
+Have a personal Speckle account but want to join a workspace with your work email? No problem! You can now link **multiple email addresses** to your Speckle account.
 
-![dadhboard](./dashboard.png)
+![dashboard](./dashboard.png)
 
-Based on your email and workspace domain, you can easily find your allocated team’s workspace. No more wasting time working in a silo, do it all together in a shared - and safe - space. You don’t need to share a new project with the relevant people, and you don’t have to update permission when someone leaves.
+Using your email and workspace domain, you’ll easily find your allocated team workspace. This eliminates silos and saves time. Workspaces also automatically handle permissions, so you don’t need to worry about updating access when someone joins or leaves the team.
 
-#### Enterprise-Ready (coming soon)
+---
 
-In the coming months, we plan to introduce data security-centric features that will satisfy your IT Security team’s requirements. Workspaces is free to test whilst in beta;  teams and managers will progressively gain access to even more advanced features such as:
+### Enterprise-Ready Features (Coming Soon)
 
-- Data residency compliance: you will be able to decide in which region or country your data is hosted so as to comply with even the most stringent project requirements
-- Service Legal Agreement (SLA)
-- Security Assertion Markup Language (SAML) / Single Sign On (SSO)
+In the coming months, we’ll introduce enterprise-grade features to meet stringent IT security requirements. These will include:
+
+- **Data residency compliance**: Choose where your data is hosted to meet regulatory demands.
+- **Service Level Agreements (SLA)**: Offering uptime guarantees and dedicated support.
+- **SAML/Single Sign-On (SSO)**: Simplify login and access control.
 
 ::: tip
-Once Workspaces is out of beta in November, you will need to upgrade to the Team Plan to use it, but for now, it’s free!
+Workspaces are free to test while in beta. Once out of beta in November, you’ll need to upgrade to the Team Plan to continue using Workspaces.  
+Here’s a summary of the plans launching in November:
+:::
 
-Here's a quick summary of the new plans coming in November:
-
-- Free:  Keep using Speckle as you always have; there are no changes there. You will be able to test Workspaces and create up to 500 model versions in a Workspace as part of the Free plan.
+#### Free Plan
+- Keep using Speckle as always—no changes here.
+- Test Workspaces for free, with up to **500 model versions** included.
 
 ![limits](./version-limits.png)
 
-- Team: Create a Workspace for your team for £49 per user per month. Ten external collaborators (guests) are included for free, after which you will be charged a small extra fee (£5 for guests with read-only access, £15 for guests with read-and-write access). The Team Plan allows you to have as many model versions as you want.
-- Enterprise: We will tailor a pricing offer for you and your team based on your needs. Let’s talk about what you would like to achieve with Workspaces! Contact us at <office@speckle.systems>
-:::
+#### Team Plan
+- Create a Workspace for your team for **£49 per user per month**.
+- Includes **10 external collaborators (guests)** for free. Additional guest pricing:
+  - **£5 per guest** for read-only access.
+  - **£15 per guest** for read-and-write access.
+- Unlimited model versions.
+
+#### Enterprise Plan
+- Custom pricing tailored to your needs.
+- Contact us at <office@speckle.systems> to discuss your requirements.
+
+---
+
+Explore Workspaces today to experience better control, security, and collaboration in your AEC workflows. Visit the [Speckle Community Forum](https://speckle.community) for support and feedback, and let’s take your projects to the next level!
