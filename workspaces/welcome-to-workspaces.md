@@ -13,7 +13,8 @@ Workspaces are designed to:
 - Enable **granular access control** for projects and team members.  
 - Provide **domain-based membership protection** for enhanced security.  
 - Support **team collaboration** with centralised project and user management.  
-- Streamline project workflows and data sharing.  
+- Streamline project workflows and data sharing.
+- Allow for collaboration and team development of automations with Speckle Automate.
 
 Explore the ** Plus ** or ** Business ** plans for advanced functionality like Single Sign-On (SSO) or custom data regions.  
 
@@ -48,7 +49,9 @@ Workspaces make managing project data simple and secure:
 - Members can be assigned as **contributors** (write access) or **reviewers** (read-only access).  
 - All data is encrypted and stored in Speckle's secure infrastructure.  
 
-For organisations with regulatory requirements, **custom data residency** options allow data storage in specific regions.
+For organisations with regulatory requirements, **[custom data residency](./data-residency.md)** options allow data storage in specific regions.
+
+Workspaces also integrate with **[Speckle Automate](../automate/)**, enabling teams to create private automation functions for advanced project workflows.
 
 ## Billing  
 
@@ -61,6 +64,6 @@ To set up a Workspace:
 2. Create a new Workspace or select an existing one.  
 3. Invite team members and assign roles as needed.  
 
-Refer to the relevant sections in this documentation for more advanced operations, such as domain-based access control or integrating SSO.  
+For more advanced operations, such as domain-based access control or integrating SSO, refer to the relevant sections in this documentation.  
 
 If you have questions or need assistance, visit the [Speckle Community Forum](https://speckle.community) or contact support.  
