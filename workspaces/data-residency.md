@@ -28,4 +28,4 @@ Workspaces are designed to enhance the security and privacy of your team's proje
 
 ## Availability  
 
-Data residency is a **premium feature** available on the **Workspace Business** plan.  
+If no region is specified or required, your Personal and Workspace project data is automatically assigned to one of Speckle's default regions, optimised for server efficiency and minimal latency. Data residency is a **premium feature** available on the **Workspace Business** plan.  
