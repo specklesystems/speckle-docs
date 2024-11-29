@@ -11,7 +11,7 @@ All new Workspaces begin with a **30-day trial** of the **Starter Plan**. During
 
 ## Subscriptions  
 
-To continue using a Workspace beyond the trial period, subscribe to a paid plan. All billing and subscription options are managed directly in the Workspace **Settings > Billing** section.  
+Subscribe to a paid plan to continue using a Workspace beyond the trial period. All billing and subscription options are managed directly in the Workspace **Settings > Billing** section.  
 
 Key points:  
 - Subscription costs adjust dynamically as you add and remove members.
@@ -24,7 +24,13 @@ Key points:
 You can manage your Workspace subscription directly from the in-app billing interface. Available operations include:  
 - **Upgrading Plans**: Easily switch to higher-tier plans as your needs evolve.  
 - **Downgrading Plans**: Not yet supported in-app; <a href="'mailto:billing@speckle.systems">contact Speckle Support to downgrade</a>.  
-- **Adding or Removing Members**: Costs adjust dynamically based on the **current member count** at the end of the billing period.  
+- **Adding Members**:
+  - Adding a member **immediately increases the subscription cost** by one seat (if no unoccupied seats are available).  
+  - The cost adjustment is reflected on the next invoice.
+- **Removing Members**:  
+  - Removing a member does not immediately lower the subscription cost.  
+  - The seat count remains unchanged for the current billing cycle, and costs will be adjusted based on the current member count at the start of the next billing cycle.  
+
 - **Cancelling a Subscription**: Cancel your subscription to stop future charges. Workspaces will enter **read-only mode** after the current billing cycle ends, but all data remains intact.  
 
 ## Data and Access  
@@ -37,4 +43,4 @@ When a subscription lapses:
 
 - The in-app billing section provides detailed pricing and feature comparisons.  
 - To upgrade, manage members, or adjust your Workspace settings, visit **Settings > Billing** in the Workspace interface.  
-- For billing-related assistance, contact [Speckle Support](mailto:support@speckle.systems).  
+- For billing-related assistance, contact <a href="'mailto:billing@speckle.systems">Speckle Support</a>.  
