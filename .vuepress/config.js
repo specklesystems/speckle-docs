@@ -389,7 +389,7 @@ module.exports = {
           sidebarDepth: 0,
           title: 'Workspace Docs 👩‍🏭',
           collapsable: false,
-          children: ['', 'welcome-to-workspaces', 'getting-started'],
+          children: ['', 'welcome-to-workspaces', 'getting-started', 'advanced-features'],
         },
         {
           title: 'Refererences',

@@ -1,24 +1,52 @@
-# Workspace Projects
+# Workspace Projects  
 
-Creating a new project in a workspace is the same process as for personal projects, but with a few additional features.
+Workspace projects are centralised repositories for collaborative workflows, enhanced with features like advanced security, role-based access, and automation integration.
 
-## Create a project
+## Key Features of Workspace Projects  
 
-To create a project in a workspace, click the `New Project` button. You can then name the project and select access permissions per normal. By default, your workspace members and admins will be added to the project with View permissions.
+- Centralised project management with **granular access controls**.  
+- Integration with **Speckle Automate** for tailored workflow enhancements.  
+- Advanced options for project migration and data residency.  
 
-## Viewing projects
+## Automate Integration in Projects  
 
-In the workspace settings screen, you can see all the projects in the workspace.
+Workspace projects support Speckle Automate, enabling advanced automation workflows:  
 
-In the project pages and model views the Workspace name will be shown as a navigation link as part of the page title. In non-workspace projects, the workspace name will not be shown and instead a link to all Projects list.
+1. **Private Functions**:  
+   - Workspace members and admins can create private automation functions to streamline workflows and enforce standards.  
+   - These functions are visible to all Workspace members.  
 
-## Restricting access
+2. **Automations in Projects**:  
+   - Automations (created using private functions) are tied to specific projects and visible to **Project Reviewers** and above.  
+   - Only **Project Owners** and above can create or edit automations.  
 
-Workspaces is designed to increase the security and privacy of your team's projects while giving greater visibility over who can see and access them. If you have a subset of projects that need to be more secure, you can create a second workspace and invite only the team members who need access to those projects.
+3. **Role-Based Permissions**:  
+   - **Admins and Project Owners**: Full control over automations, including creation and editing.  
+   - **Contributors and Reviewers**: Can execute automations assigned to their projects.  
 
-## *Migrating projects (Coming soon)*
+## Managing Project Access  
 
-*You can migrate a project from a personal account to a workspace by selecting Move Project in the Workspace dashboard. This will move the project to the workspace and remove it from your personal account.*
+Workspaces are designed for secure and controlled collaboration. To manage project access:  
 
-*When you move a personal project to a workspace with domain locking in place, all contributors not compliant with the workspace domain policy will be migrated but highlighted as non-compliant in the Members window.*
+- Use role-based permissions to define **Contributors** (write access) and **Reviewers** (read-only access).  
+- Leverage workspace-level domain policies to enforce compliance with your organisation's email domains.  
+- For stricter access, create a separate Workspace for sensitive projects and invite only necessary team members.  
 
+## Migrating Projects  
+
+Moving a project from a personal account to a Workspace enables team collaboration and advanced features.  
+
+### How Migration Works:  
+- The project has been transferred to Workspace and removed from your account.  
+- The data region of the original project is preserved.  
+
+### Upcoming Feature: Data Region Migration  
+*In the future, you can move migrated projects to a different data region to comply with regulatory or organisational requirements.*  
+
+## Advanced Usage Tips  
+
+- **Automation Across Projects**: Use shared functions to standardise team workflows in multiple projects.  
+- **Access Reviews**: Regularly audit project access and automations for security and compliance.  
+- **Optimising for Large Teams**: Segment projects across multiple Workspaces for more explicit boundaries and easier management.
+
+For additional details on Workspace features, visit the [Speckle Automate Documentation](https://speckle.guide/automate/) or the [Workspaces Overview](./overview.md).  

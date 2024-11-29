@@ -1,37 +1,43 @@
-
 # Workspace Member Roles
 
-## Collaborators and reviewers
+## Contributors and Reviewers
 
-Workspace admins can invite external users to a workspace as guests. The latter only get access to projects in the workspace to which they are specifically invited. Guests can never own projects in your workspace, but they may become collaborators, which will allow them to write access, or they may be reviewers, which will only grant them read access to the project.
+Workspace admins can invite external users to a workspace as **guests**. Guests only have access to projects in the workspace to which they are specifically invited. Guests cannot own projects in your workspace but may be assigned one of the following roles within a project:
 
-## Roles and permissions
+- **Contributor**: Grants write access to the project.
+- **Reviewer**: Grants read-only access to the project.
 
-### Workspace admin
+## Roles and Permissions
 
-- Full ownership of the workspace, including members, projects, and settings
-- Project owner for all existing and new workspace projects
-- Cannot be removed or have their role changed within a project by non-admins
+### Workspace Admin
 
-### Workspace member
+- Full ownership of the workspace, including management of members, projects, and settings.
+- Automatically the project owner for all existing and new workspace projects.
+- Cannot be removed or have their role changed within a project by non-admins.
+- Can create, manage, and oversee all Speckle Automate functions within the workspace. 
 
-- Project viewer for all existing and new workspace projects
-- Can be removed or have role changed (for project and workspace) by admins
-- Can create and own projects
-- Cannot invite to workspace, can only invite other workspace users to projects
+### Workspace Member
 
-### Workspace read/write guest
+- Project viewer for all existing and new workspace projects.
+- Can be removed or have their role changed (for project and workspace) by admins.
+- Can create and own projects.
+- Cannot invite new users to the workspace but can invite existing workspace members to projects.
+- Can access and use Speckle Automate to create private functions.  
 
-- Guest on workspace (read-only access), but has collaborator access on at least one project
-- By changing an existing user to "guest," they will lose access to existing workspace projects
-- Project owners can change their role or remove them
+### Workspace Read/Write Guest
 
-### Workspace read-only guest
+- Guest on the workspace with no general access but granted **Contributor** access to at least one project.
+- If an existing workspace user is changed to a guest, they will lose access to all workspace projects except those they are explicitly invited to.
+- Project owners can change their role or remove them.
+- Cannot access or create private Speckle Automate functions.  
 
-- Same as the above, but has only view access on the project
-- Giving a read-only guest edit access to at least one project converts them to read/write guests
-- Can I use Workspaces as an individual or are they only for teams?
+### Workspace Read-Only Guest
 
-## Workspaces for individuals
+- Guest on the workspace with no general access and **Reviewer** access to at least one project.
+- If a read-only guest is granted edit access to any project, they are converted to a read/write guest.
+- Project owners can change their role or remove them.
+- Cannot access or use Speckle Automate.  
 
-You can use Workspaces as an individual, although we encourage you to use them as a team as that's how you can experience maximum value with colleagues on various projects.
+## Workspaces for Individuals
+
+You can use Workspaces as an individual, but we encourage using them as part of a team. Workspaces are designed to deliver maximum value when collaborating with colleagues on various projects.
