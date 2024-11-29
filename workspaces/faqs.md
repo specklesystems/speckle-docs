@@ -39,6 +39,9 @@
 - **What are the storage limits for Workspaces?**  
   There are no limits on version storage. File upload limits will increase to 100 TB.
 
+- **Where is my data stored if I’m not using Workspaces?**  
+  For projects outside of Workspaces, data is stored in Speckle's default regions. These are dynamically assigned based on server efficiency and latency to ensure optimal performance for the user creating the project. Specific data residency is not guaranteed outside of Workspaces.
+
 ## Subscription and Billing
 
 - **What is the mechanism if I have 2 members at the start of the month and 5 at the end?**  
