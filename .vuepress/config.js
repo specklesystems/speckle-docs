@@ -261,7 +261,7 @@ module.exports = {
               title: 'Core Functionalities',
               collapsable: true,
               children: [
-                'for-automate-composers',
+                'for-automate-users',
                 'viewing-results',
                 'for-function-authors',
               ],
