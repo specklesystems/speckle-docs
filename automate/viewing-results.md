@@ -1,4 +1,4 @@
-# Viewing Results in Speckle UI
+# Viewing Automation Results
 
 There are two entry points to view Automate results:
 
