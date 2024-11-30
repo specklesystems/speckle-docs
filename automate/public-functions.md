@@ -33,7 +33,7 @@ In the library, you can:
 
 ## Using Public Functions
 
-To use a public function in your workflow, follow the steps outlined in the [Creating Automations](./create-automation.html) page. This guide will walk you through:
+To use a public function in your workflow, follow the steps outlined in the [Creating Automations](./create-automation.md) page. This guide will walk you through:
 
 1. Selecting a public function.  
 2. Configuring its parameters.  
@@ -52,10 +52,10 @@ Here are some examples of public functions that offer high utility for common ta
 
 ## Updates to Public Functions
 
-Their authors maintain Public functions and update them to improve functionality or address issues. When a new version of a public function is released:
+Speckle maintains and updates Public functions to improve functionality or address issues. When a new version of a public function is released:
 
 - Existing automations using the function will not update automatically.  
-- You can manually update your automation to use the latest version. For guidance, refer to the [Update an Automation](./update-automation.html) page.
+- You can manually update your automation to use the latest version. Refer to the [Update an Automation](./update-automation.md) page for guidance.
 
 ## Benefits of Public Functions
 
