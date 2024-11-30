@@ -26,4 +26,4 @@ Speckle-authored demo functions are continually updated to reflect changes to th
 These functions are typically namespaced under `speckle-automate-*` to facilitate discovery and reuse.
 
 Explore the latest Automate functions here:  
-[All Functions - Speckle Automate](https://latest.speckle.systems/functions)
+[All Functions - Speckle Automate](https://app.speckle.systems/functions)
