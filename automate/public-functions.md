@@ -22,7 +22,7 @@ The goal is to create a collaborative and diverse library of functions that addr
 ## How to Access Public Functions
 
 Public functions are accessible through the **Functions Library**, located in the Automations tab of your project.  
-![function-library-view](./img/function-library.png)
+![function-library-view](./img/function-library-card.png)
 
 In the library, you can:
 
