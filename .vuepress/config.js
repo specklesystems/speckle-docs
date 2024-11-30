@@ -262,7 +262,6 @@ module.exports = {
               collapsable: true,
               children: [
                 'for-automate-users',
-                'viewing-results',
                 'for-function-authors',
               ],
             },
@@ -271,7 +270,7 @@ module.exports = {
         {
           title: 'Automations',
           collapsable: false,
-          children: ['create-automation', 'update-automation'],
+          children: ['create-automation', 'update-automation', 'viewing-results'],
         },
         {
           title: 'Functions',
