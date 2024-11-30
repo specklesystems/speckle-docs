@@ -1,10 +1,16 @@
 # For Function Authors
 
-- **[Creating functions](./create-function.html):** Follow our detailed instructions for publishing your first function using the Automate wizard. 
-    
-- **[Updating functions](./release-function-version.html):** After your code's initial release completes your function's publishing, subsequent releases will automatically set the function listing to show the latest revision. Automations already using your function must be edited to point to specific modifications.
-- **APIs and Data Access**: Functions can make external calls or even calls to other Speckle Models using REST via whatever library you choose. Speckle SDKs include a subset of methods specifically to handle Automate data. More details about this are below.
-    
-- **Runtime**: Automate functions run once per trigger; there is a generous execution time for all functions to cope with even intensive computation. This is not intended to allow for deliberately long-running executions with RTC or sockets, etc.
-- **Rate-limits:** Functions CAN cause other functions to run. This could cause infinite execution loops. Speckle has implemented rate limiting as a bulwark against this during beta testing. When Speckle Automate moves to a paid compute, Speckle will have other methods of detecting such loops, but you could still incur an expensive compute cost.
-- **Best Practices**: Do test, test and test your code. Deploying code to Automate the testing on every model version sent is possible but will become tedious. Look into modularising your function so that business logic can be tested locally. Test suites can be executed as part of the GitHub automation for quality CI/CD.
+- **[Creating Functions](./create-function.html):** Follow our detailed instructions for publishing your first function using the Automate wizard.  
+
+- **[Updating Functions](./release-function-version.html):** Once your function is published, subsequent updates automatically set the function listing to display the latest revision. However, automations already using your function must be manually edited to point to specific modifications if required.
+
+- **APIs and Data Access:** Functions can make external API calls or interact with other Speckle Models using REST, leveraging any library of your choice. Speckle SDKs include a subset of methods tailored for handling automation results data. Refer to the API documentation for additional details.
+
+- **Runtime:** Automate functions execute once per trigger and are allocated generous execution time to support computationally intensive processes. However, long-running executions using RTC, sockets, or similar methods are not supported.
+
+- **Rate Limits:** Functions can trigger other functions, which may result in infinite execution loops. Speckle has implemented rate limiting during beta testing to mitigate this risk. Additional safeguards will be introduced once Speckle Automate transitions to a paid compute model, but excessive loops could still lead to significant compute costs.
+
+- **Best Practices:**
+  - **Test Thoroughly:** Ensure your code is thoroughly tested before deployment. Modularise your function so business logic can be tested locally, reducing the need for live testing on every model version.
+  - **Utilise CI/CD Pipelines:** Incorporate automated test suites into GitHub workflows for robust quality assurance.
+  - **Optimise Performance:** Write efficient code to minimise execution time and resource usage, enhancing the overall reliability of your functions.
