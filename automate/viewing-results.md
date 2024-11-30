@@ -4,11 +4,11 @@ There are two entry points to view Automate results:
 
 ### From the Model Scene View
 
-A results "doughnut" icon will appear if automation is running or has been completed. Clicking on this icon reveals all the automations that have reported results for the currently viewed version.
+A results "doughnut" icon will appear if automation registered against that model is running or has been completed. Clicking on this icon reveals all the automations that have reported results for the currently viewed version.
 
 ![Automate results in model scene viewer](./img/scene-viewer-results.png)
 
-Clicking on any of the run cards will expand to show details:
+Clicking on any of the run cards expands to show details:
 
 ![Automation run results card](./img/results-card.png)
 
