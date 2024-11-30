@@ -1,4 +1,4 @@
-# For Automators
+# For Users
 
 ### Designing Automation Workflows
 - **Automation Workflows**: Automations are triggered by new versions published to a given model within a project. Automation will execute a function and pass the published data and any configuration parameters to it.
@@ -41,4 +41,4 @@ Clicking on the details header opens the Automation page, where you can manage a
 
 ### Collaboration
 - **Functions**: By default, functions are source-available. Once created, they can be accessed by anyone with repository permissions. For private functions, access depends on Workspace permissions or the original function author’s GitHub settings.
-- **Automations**: Automations are tied to the Automator's account, which must have the **owner** role for the associated project.
+- **Automations**: Automations are tied to the user's account, which must have the **owner** role for the associated project.
