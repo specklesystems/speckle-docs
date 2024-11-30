@@ -1,8 +1,6 @@
-# Releasing a New Function Version
+# Releasing a New Versions
 
 New versions of a Function are created automatically when a new GitHub release is created.
-
-## Releasing a New Version
 
 For detailed instructions on creating a new GitHub release, refer to [GitHub's documentation](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository).
 
