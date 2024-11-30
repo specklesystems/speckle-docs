@@ -269,14 +269,15 @@ module.exports = {
           ],
         },
         {
-          title: 'Working with Automations',
+          title: 'Automations',
           collapsable: false,
           children: ['create-automation', 'update-automation'],
         },
         {
-          title: 'Developing Functions',
+          title: 'Functions',
           collapsable: false,
           children: [
+            'public-functions',
             'create-function',
             'making-your-function',
             'function-testing',
