@@ -1,4 +1,4 @@
-# Public Functions in Speckle Automate
+# Public Functions
 
 ## What Are Public Functions?
 
