@@ -1,62 +1,69 @@
 # Creating Functions
 
-If you have your verified account on latest.speckle.systems, navigate to [latest.speckle.systems/functions](https://latest.speckle.systems/functions). 
+If you have a verified account on [app.speckle.systems](https://app.speckle.systems), navigate to [app.speckle.systems/functions](https://app.speckle.systems/functions). 
 
-You will now see above the Functions Library. In the top right, there is a new function button:
-
+You will see the Functions Library. In the top right, there is a **New Function** button:  
 ![new function button](./img/new-function-button.png)
 
-This will launch the function creation wizard
+This launches the function creation wizard.
 
-1. **Authorise GitHub:** Required only the first time.
-    
-    ![authorise github](./img/authorise-github.png)
-    
-    ::: tip 💡 Authorized OAuth Apps
-    You will find Speckle Automate in your Github account Authorized OAuth Apps. Access can be revoked at any time, but will be necessary to publish new functions.
-    
-    ![alt text](./img/authorised-applications.png)
-    
-    :::
-    
-2. **Choose a template**: We are launching with Python and C# templates. These reflect our best-supported Speckle SDKs, **speckle-sharp** and **specklepy**. Each of our main SDKs includes the Automate SDK for that language.
-3. **Define your function.** (Some of these details can be edited later)
-    1. **Choose an avatar/logo/icon** [optional]: This will be displayed in the functions list
-    2. **Choose a Name** [required]: This doesn’t need to be unique, but all functions will be a single list during the beta stages. The search filter will use the function name alone; it could be helpful if it identifies you as an author/company and the name/function intent. *e.g. SolarFarmLayout by Solarcorp*
-    3. **Add a description** [required]: This will be the short description used in the function list. The description supports basic Markdown if you wish to add markup.
-    4. **Identify source application data supported** [optional]: This may be helpful when defining Automations
-    5. **Add Tags** [optional]: A list of terms to categorise your function further. Multi-word tags should use _ or - characters. *e.g. Solar_Panels*
-    6. **~~Select a Github Organization** [optional]: This is only relevant if you want to publish as an organization and are a member of one.~~
-    7. **Click Next**: All being well, the wizard will create your function project on GitHub.
-        
-        ::: tip 🧙‍♂️ Wizard Actions
-        You will see that the wizard handles a lot of scaffolding for you. You can navigate to GitHub and see that the template project has been cloned under your repositories:
-        
-        ![alt text](./img/repo-title.png)
-        
-        A GitHub action has been created for you; the specification for it is defined in `.github/workflows/**main.yml**`
-        
-        ![alt text](./img/build-and-deploy.png)
-        
-        It also has injected two environmental variables as repository secrets for the interaction with the Automate API `SPECKLE_FUNCTION_ID` and `SPECKLE_FUNCTION_TOKEN`: 
-        
-        ![alt text](./img/repo-secrets.png)
-        
-        
-        :::
-        
-        ::: tip 💡 Note
-        Choose whatever Project restrictions you wish, but it must be Public for now.
-        :::
-        
-        </aside>
-        
-4. Your function has been created! 🥳 At this point, the template can be edited and amended to suit your own business logic.
-    
-    ![alt text](./img/function-created.png)
-    
-5. You can follow the links provided to:
-    1. **Open the repo:** this is a link to the project on GitHub
-    2. **Open in codespace:** You can get coding immediately in a virtual machine operating in a container at GitHub. Remember that any changes you make must be pushed to your project. 
-    3. **Go to function**: This will navigate you to your functions page within Speckle Automate.
-6. Your function will only appear in the [functions list](https://automate.speckle.dev/functions) once a first Release has been made.
+---
+
+## Steps to Create a Function
+
+1. **Authorise GitHub**  
+   Required only the first time.  
+   ![authorise github](./img/authorise-github.png)
+
+   ::: tip 💡 **Authorized OAuth Apps**  
+   Speckle Automate will appear under your GitHub account's Authorized OAuth Apps. Access can be revoked at any time but will be necessary to publish new functions.  
+   ![authorised applications](./img/authorised-applications.png)  
+   :::
+
+2. **Choose a Template**  
+   We currently offer Python and C# templates, reflecting our best-supported SDKs (**specklepy** and **speckle-sharp**). Each includes the Automate SDK for its respective language.
+
+3. **Define Your Function**  
+   Some details can be edited later:
+   - **Avatar/Logo/Icon** [optional]: Displayed in the functions list.
+   - **Name** [required]: Does not need to be unique. Use a descriptive name to help identify the function and its purpose, e.g., `SolarFarmLayout by SolarCorp`.
+   - **Description** [required]: A short Markdown-supported description used in the functions list.
+   - **Source Application Data Supported** [optional]: Indicate which source applications your function is designed for.
+   - **Tags** [optional]: You can further categorise your function with single or multi-word tags, e.g., `Solar_Panels`.
+   - **Click Next**: The wizard will create your function project on GitHub.
+
+   ::: tip 🧙‍♂️ **Wizard Actions**  
+   The wizard handles scaffolding for you:
+   - Clones the template project into your repositories.  
+     ![repo-title](./img/repo-title.png)  
+   - Creates a GitHub action (`.github/workflows/main.yml`) for build and deployment.  
+     ![build-and-deploy](./img/build-and-deploy.png)  
+   - Injects API interaction environment variables (`SPECKLE_FUNCTION_ID` and `SPECKLE_FUNCTION_TOKEN`).  
+     ![repo-secrets](./img/repo-secrets.png)  
+   :::
+
+4. **Repository Management**  
+   The function wizard creates a GitHub repository under your account.  
+   - **Public vs Private**: Whether to keep this repository public or private depends on your team's open-source or source-available development approach. Speckle Automate supports both public and private repositories.
+   - **Personal or Organisational Accounts**: Depending on your setup and collaboration needs, you can publish functions from either your personal GitHub account or an organisation's account.
+
+   ::: tip 💡 **Important**  
+   Carefully manage repository access based on your team's workflows and requirements.  
+   :::
+
+5. **Finalise Your Function**  
+   Once created, the function template can be edited and tailored to your business logic.  
+   ![function-created](./img/function-created.png)
+
+6. **Next Steps**  
+   From the success page, you can:
+   - **Open the Repository**: View the project on GitHub.  
+   - **Open in Codespace**: Start coding immediately in a virtual environment. Remember to push changes back to GitHub.  
+   - **Go to Function**: Navigate to your function’s page within Speckle Automate.
+
+7. **Make a Release**  
+   After making the first release on GitHub, your function will only appear in the Functions Library.
+
+---
+
+With these steps, your function is ready for further development, automation, and collaboration!
