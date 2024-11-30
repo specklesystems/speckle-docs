@@ -36,18 +36,21 @@ If you encounter issues during deployment:
 - Review the error logs in the **Actions** tab for details.  
 - Search for solutions or ask for assistance on the [Speckle Community Forum](https://speckle.community).
 
-## Customisation for Advanced Scenarios
+---
 
-While the provided defaults (e.g., `Dockerfile`, `workflow.yml`) meet the needs of most use cases, Speckle Automate also supports advanced customisation for unique requirements:
+::: note 💡 Advanced Customisation
+
+While the default deployment setup (e.g., `Dockerfile`, `workflow.yml`) works for most use cases, you can customise these files for advanced scenarios:
 
 1. **Customising the Workflow**:  
-   - Adjust the `workflow.yml` file if you need multipart build steps or additional artefacts.  
+   - Adjust the `workflow.yml` file for multipart build steps or additional artefacts.  
    - Ensure all necessary artefacts (e.g., `functionInputs.json`) are generated.
 
 2. **Customising the Runtime**:  
    - Modify the `Dockerfile` to include additional dependencies, libraries, or specific runtime versions (e.g., a custom-built Python environment).  
    - These adjustments allow you to tailor the execution runtime for your function.
 
-These customisation options are typically unnecessary but demonstrate Speckle Automate's flexibility for specialised use cases.
+Customisation is typically unnecessary but highlights Speckle Automate's flexibility for unique requirements.
+:::
 
-Most authors can deploy their functions effortlessly by leveraging the default setup. For those with specialised requirements, the flexibility to customise workflows and runtimes ensures that Speckle Automate can adapt to a wide range of needs.
+Most authors can deploy their functions effortlessly by leveraging the default setup. Speckle Automate provides the flexibility to adapt workflows and runtimes as needed for those with specialised requirements.
