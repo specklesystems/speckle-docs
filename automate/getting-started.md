@@ -1,20 +1,19 @@
 # Getting Started
 
-## Accounts and Authentications
+## Accounts and Authentication
 
-::: tip 💡 You must verify your account on https://latest.speckle.systems.
-This is done by responding via the email sent to you on sign-up
+::: tip 💡 You must verify your account on [https://app.speckle.systems](https://app.speckle.systems).  
+This is done by responding to the email sent to you upon sign-up.  
 ::: 
 
-To participate in the Speckle Automate beta, you will need:
+To participate in the Speckle Automate public beta, you will need:
 
-- A verified account on [latest.speckle.systems](https://latest.speckle.systems)
-- An account on [github.com](https://github.com)
-- An account on [speckle.community](http://speckle.community)
+- A verified account on [app.speckle.systems](https://app.speckle.systems)  
+- An account on [github.com](https://github.com)  
+- An account on [speckle.community](https://speckle.community)
 
 ## User Interface
 
-As a change from the closed beta experience you may have joined, Automate is now fully integrated into our main Speckle web application interface, and you can find it by clicking on a project that you are the owner of:
+As part of the public beta, Automate is now fully integrated into the main Speckle web application interface. You can access it by navigating to a project that you are the owner of:
 
 ![Automate integrated into the Speckle web application](./img/integrated-ui.png)
-
