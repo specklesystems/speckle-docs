@@ -1,10 +1,15 @@
-# Speckle Automate Beta 
-::: tip 🚧 NOTE
-Speckle Automate is in an accessible beta phase and restricted to the Speckle development server. These docs are a work in progress and are updated regularly.
+# Speckle Automate Public Beta
 
+::: tip 🚧 NOTE  
+Speckle Automate has entered the public beta phase and is now available on the Speckle production server: [app.speckle.systems](https://app.speckle.systems). These docs are a work in progress and are updated regularly to reflect the latest features and improvements.  
 :::
 
+This documentation is designed to assist Speckle Automate users in creating and managing automation. As a Speckle user, you can now act as an **Automator**, leveraging public functions and creating custom workflows to streamline tasks and enhance productivity.
 
-This mini documentation is designed to assist beta testers of Speckle Automate, focusing on the **Function Author** and **Automation Composer** personas. Your feedback is essential in refining these roles within the platform, enhancing functionality, and ensuring a user-friendly experience.
+### Key Highlights:
+- **Public Functions**: Available to all users on [app.speckle.systems](https://app.speckle.systems).  
+- **Private Functions**: Creatable and manageable within Workspaces.  
+- **Unified Hosting**: All data, functions, and automations are hosted on the main Speckle server.  
+- **Collaboration**: Workspace members can use public and private functions to create automations collaboratively.
 
-We will continuously improve these documentation details as things develop; there may be occasions when development outpaces the documentation. If you have any questions, please reach out to us on the [Speckle Community Forum: Automate](https://speckle.community/c/making-speckle/insiders-automate/27).
+We are continuously improving the documentation. As Speckle Automate evolves, there may be occasions when development temporarily outpaces the documentation. If you have any questions, please contact us on the [Speckle Community Forum: Automate](https://speckle.community/c/making-speckle/insiders-automate/27).
