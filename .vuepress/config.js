@@ -261,22 +261,22 @@ module.exports = {
               title: 'Core Functionalities',
               collapsable: true,
               children: [
-                'for-automate-composers',
-                'viewing-results',
+                'for-automate-users',
                 'for-function-authors',
               ],
             },
           ],
         },
         {
-          title: 'Working with Automations',
+          title: 'Automations',
           collapsable: false,
-          children: ['create-automation', 'update-automation'],
+          children: ['create-automation', 'update-automation', 'viewing-results'],
         },
         {
-          title: 'Developing Functions',
+          title: 'Functions',
           collapsable: false,
           children: [
+            'public-functions',
             'create-function',
             'making-your-function',
             'function-testing',

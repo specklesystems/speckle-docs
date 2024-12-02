@@ -2,22 +2,42 @@
 
 ### Your Data
 
-Our development server ([latest.speckle.systems](http://latest.speckle.systems)) has always been flagged as “transient” because we keep the server at the cutting edge of our development branch. While project data is handled exactly like all our stable servers, it comes with the note that we reserve the right to tear down the server and database and build it up again. Your functions will, by nature, be safe in GitHub, but automations, automation runs and results may be lost.
+The development server ([latest.speckle.systems](http://latest.speckle.systems)) is no longer in use. All data, functions, and automations are now hosted on the main production server ([app.speckle.systems](https://app.speckle.systems)). 
 
-At the end of the Beta program, there is no plan to migrate either project data or automations to any other Speckle server.
+While project data is handled with the same level of care and security as all Speckle servers note that:
+- During the beta phase, Speckle reserves the right to modify or reset the Automate Execution Engine, Function library or other enabling parts of the server infrastructure. However, the data held on the server is secured and maintained.
+- Automations, automation runs, and results may be subject to deletion due to infrastructure updates.
+- The end of the Public beta phase will be communicated widely on [Speckle Community](httsp://speckle.community) and in the application.
+- At the end of the beta program, we will announce any mechanisms to migrate project data, automation, or related artefacts that might be required.  
+
+We strongly encourage users to continue to back up their functions in GitHub or other repositories as a safeguard.
 
 ### Your Access
 
-Your access to Speckle Automate beta is at our discretion as we build and test the infrastructure. We have deliberately designed Automate to be highly open and permissive regarding what is possible to build. At the same time, we have some sophisticated tools to check the contents of running containers and WILL find crypto miners, spam email servers, and other nefarious use cases. There is a zero-tolerance policy, and access will be removed instantly.
+Your access to Speckle Automate beta is at our discretion as we build and test the infrastructure. While we have designed Automate to be highly open and permissive regarding what is possible to build, there are strict usage policies:
+- We actively monitor running containers to detect and prevent misuse (e.g., crypto miners, spam email servers, or other nefarious activities).  
+- A **zero-tolerance policy** is enforced. Access will be revoked instantly for violations.  
 
 ### Open by Design
 
-There are no sandbox restrictions on making external calls, limits on dependencies used, or artefact sizes. We will explore the best fit between function needs and compute platform offerings. Speckle does not currently accept inbound calls to its infrastructure. All automations are anticipated to be created, configured, and managed within the Speckle Automate interface.
+Speckle Automate beta encourages open experimentation:
+- No sandbox restrictions exist for making external calls, choosing dependencies, or managing artefact sizes other than restricted to normal Speckle server limits.
+- Functionality is designed to allow flexible automation workflows.  
+
+However, Speckle does not currently accept inbound calls to its infrastructure. All automation must be created, configured, and managed within the Speckle Automate interface.
 
 ### Our Infrastructure
 
-If your code can be defined to run within a container that will run on a Linux machine, then Automate will run it (we hope). We are exploring how to support Windows runtimes and how to offer GPU computing. Speckle Automate beta can be assumed to be CPU execution only until further notice. 
+Automate is designed to run code within containers that execute on Linux machines. During the beta phase:
+- Automations are CPU-only until further notice.  
+- Support for Windows runtimes and GPU computing is under exploration.
+- Support for alternative code repositories than Github is under exploration.
 
-### Our Ethical Use and Privacy
+### Ethical Use and Privacy
 
-Speckle does not use data uploaded to any Speckle server for purposes other than support when invited to join projects. We monitor logs to maintain integrity and server health and can debug problems from there without viewing user data. Function authors acknowledge that their functions are source-available and that they are responsible for their organisation's privacy, intellectual property, and security.
+Speckle adheres to strict ethical use and privacy policies:
+- Speckle does not use or analyse data uploaded to any Speckle server except when invited to join projects for support purposes.  
+- Logs are monitored to maintain integrity and server health; debugging does not require viewing user data.  
+- Function authors acknowledge:
+  - Their functions are source-available.  
+  - They are responsible for ensuring their organisation's privacy, intellectual property, and security.  

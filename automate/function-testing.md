@@ -1,101 +1,85 @@
 # Testing Your Functions
 
-Functions can be tested using your preferred local testing library. We have also introduced the ability to create special “test automations” that provide you with the ability to test:
+Speckle Automate supports robust testing for your functions through local testing setups and **test automations**—sandbox environments designed to validate your function's business logic and results against real project data.
 
-1. how a function’s business logic executes its intended checks against a real Speckle project, and 
-2. how it produces the desired function results.
+## What Are Test Automations?
 
-A test automation is a sandbox environment that allows you to connect your local development environment for testing purposes. It enables you to run your code against project data and submit results directly to the connected test automation. 
+Test automations provide a safe, sandboxed environment for function authors to:
 
-Unlike regular automations, test automations are not triggered by changes to project data. They cannot be started by pushing a new version to a model. Consequently, test automations do not execute published functions.
+1. Test how a function’s business logic interacts with Speckle project data.
+2. Validate that the function produces the desired results.
 
-### How to create test automations
+Unlike regular automations, test automations:
+- Are not triggered by project data changes.
+- Cannot be manually triggered via the UI.
+- Do not execute published functions directly, but allow you to run your function locally while connecting to Speckle data.
 
-1. Visit the new Automations tab on the project page
-    
-    ![alt text](./img/automations-tab.png)
-    
-2. Click the New Automation button
-    
-    ![alt text](./img/new-automation-button.png)
-    
-3. Click Create test automation in the bottom left.
-    
-    ![alt text](./img/create-test-automation.png)
-    
-4. Follow the instructions to configure your test automation
-    
-    ![alt text](./img/configure-test.png)
-    
-5. Congratulations! You now have a test automation against which you can run your automated functions. Uploading new versions of the project’s model(s) will provide you with new data against which to test your functions.
-    
-    ![alt text](./img/my-test-automation.png)
+## How to Create a Test Automation
 
-### How to use test automations
+1. Navigate to the **Automations** tab on your project page.  
+   ![automations-tab](./img/automations-tab.png)
 
-Both the [C# SDK](https://github.com/specklesystems/speckle-sharp/tree/main/Automate/Speckle.Automate.Sdk) and [Python SDK](https://github.com/specklesystems/specklepy/tree/main/src/speckle_automate) provide utilities for interacting with your test automations from local code environments. We also provide an example function in each supported language:
+2. Click the **New Automation** button.  
+   ![new-automation-button](./img/new-automation-button.png)
 
-- [C# example function](https://github.com/specklesystems/SpeckleAutomateDotnetExample)
-- [Python example](https://github.com/specklesystems/specklepy)
+3. Select **Create Test Automation** in the bottom left.  
+   ![create-test-automation](./img/create-test-automation.png)
 
-In either language, the tests can be successfully run once a `.env` file ([in python](https://github.com/specklesystems/speckle_automate_python_example/blob/main/.env.example)) or an `appsettings.json` ([in C#](https://github.com/specklesystems/SpeckleAutomateDotnetExample/blob/main/TestAutomateFunction/appsettings.example.json)) file is configured with the following values:
+4. Follow the instructions to configure your test automation.  
+   ![configure-test](./img/configure-test.png)
 
-- `SPECKLE_TOKEN` - See [Creating Personal Access Tokens](https://speckle.guide/dev/tokens.html)
-- `SPECKLE_SERVER_URL` - The literal url of your Speckle Server, like [`https://latest.speckle.systems/`](https://latest.speckle.systems/)
-- `SPECKLE_PROJECT_ID` - The id for the project with your test automation
-- `SPECKLE_AUTOMATION_ID` - The id of your test automation
+5. Once created, your test automation will appear in the list. Use it to test your function against the project’s data.  
+   ![my-test-automation](./img/my-test-automation.png)
 
-Both the project id and the automation id can be found in the url of your automation’s page in the form of `/projects/[project-id]/automations/[automation-id]`.
+## How to Use Test Automations
 
-Once your environment variables are configured in this way, you can write your test cases and use the test setup utilities provided by your language’s SDK. Happy hacking!
+Both the [C# SDK](https://github.com/specklesystems/speckle-sharp/tree/main/Automate/Speckle.Automate.Sdk) and [Python SDK](https://github.com/specklesystems/specklepy/tree/main/src/speckle_automate) include utilities for interacting with test automations. Example functions are available in both:
 
-### Limitations
+- [C# Example Function](https://github.com/specklesystems/SpeckleAutomateDotnetExample)
+- [Python Example Function](https://github.com/specklesystems/speckle_automate_python_example)
 
-To set up a sandbox automation you will need:
+### Required Environment Variables
 
-- a Speckle project you are an owner of
-- a function you’ve published to the Automate marketplace.
-- the function needs to have minimum 1 release (its a tech limitation for now)
+To run your tests, configure the following in your environment:
 
-Note: We do not currently enforce that test results in a test automation are coming from the author of that function. In the future, we are likely to introduce further restrictions on how and when test automations can be used like requiring the test automation owner to be the same user as the author of the function being tested.
+- **Python**: Use a `.env` file ([example](https://github.com/specklesystems/speckle_automate_python_example/blob/main/.env.example)).  
+- **C#**: Use an `appsettings.json` file ([example](https://github.com/specklesystems/SpeckleAutomateDotnetExample/blob/main/TestAutomateFunction/appsettings.example.json)).
 
+Environment Variables:
+- `SPECKLE_TOKEN`: [Create a Personal Access Token](https://speckle.guide/dev/tokens.html).
+- `SPECKLE_SERVER_URL`: URL of your Speckle Server, e.g., `https://app.speckle.systems/`.
+- `SPECKLE_PROJECT_ID`: The ID of your Speckle project with the test automation.
+- `SPECKLE_AUTOMATION_ID`: The ID of your test automation.
 
-::: tip Notes
-  
-  To create an easy to use yet meaningful testing setup for function authors, we’ve developed a workflow specifically geared towards providing an easy to use yet robust setup.
-  
-  When testing the correctness of an automate function, we want to test:
-  
-  1. how a function’s business logic executes its intended checks against a real Speckle project, and 
-  2. how it produces the desired function results.
-  
-  For this reason we allow the creation of test automations aka automation sandboxes in the automation creation wizard. Test automations may be created on any project, where you are eligible for creating automations.
-  
-  At its core a test automation is a special type of automation, that does not run, even if the trigger conditions are met (not even manual triggers are allowed). What this means in the background we do not associate the automation with any resource in the Automate Execution engine.
-  
-  When creating a sandbox automation, we do not ask for function inputs in the wizard, those are better provided in the development environment.
-  
-  When executing a test run, the automate SDK will hook into the schematically correct test tools to provision a new test automation run, that can be used for the integration test run
-  
-  To set up a sandbox automation you will need:
-  
-  - a Speckle project you are an owner of
-  - a function you’ve published to the Automate marketplace.
-      - the function needs to have minimum 1 release (its a tech limitation for now)
-      - for now, the author match is not enforced, but we will probably turn on a check, that only allows using functions in sandboxes, where the automation composer is the same as the function author
-  
-  Steps:
-  
-  - got to the new automation tab on the project page
-  - click create new automation
-  - select automation dev mode
-  - select function from list
-  - automation created
-  - follow the instructions on the test automation page, to set up the required input values in your development environment
-  - run the cli test command ( npm run test, pytest, dotnet test, etc,) that is relevant for your function setup.
-      - Internally these test commands do the following:
-          - Finds the Test Automation ID, Function ID, & API token stored in the local development environment
-          - Calls the API to request a new Automation run and a function run
-          - Runs the function locally, creating the json file (this can have a uniquely generated file name including timestamp to avoid overwriting previous attempts and allow for later auditing/debugging), updating the input command parameter pointing to the file’s path.
-  - test run results should be visible on the automation page and in the project’s automation status display
+The project and automation IDs are in the URL of your automation page: `/projects/[project-id]/automations/[automation-id]`.
+
+## Running Test Cases
+
+1. Set up your local environment with the required values.  
+2. Run the test command (`pytest`, `dotnet test`, etc.) from your development setup.  
+3. The SDK utilities will:
+   - Connect to the test automation via the API.
+   - Run your function locally, generating results.
+   - Submit the results to the test automation for validation.
+
+Test results will be visible on the automation page and the project’s automation status display.
+
+## Limitations
+
+To set up a test automation, you must:
+- Be an owner of the Speckle project.
+- Have published the function to the Function Library.
+- Ensure the function has at least one release (current technical limitation).
+
+::: note Future Restrictions  
+We may introduce further restrictions, such as requiring the test automation owner to be the author of the function being tested.
 :::
+
+## Key Notes on Test Automations
+
+- Test automations do not ask for function inputs during creation; inputs should be set up in your development environment.  
+- Test automations are sandboxed environments designed to aid in integration testing. They do not execute functions directly within the Automate runtime.  
+- Test runs allow you to debug locally while validating outcomes against Speckle project data.
+
+Happy hacking! 🎉  
+For further assistance, refer to the SDK documentation and example repositories.

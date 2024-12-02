@@ -1,9 +1,10 @@
 # Update an Automation
 
-Automations can be updated to amend the configuration values, or to use a different version of the Function.
+Automations can be updated to amend configuration values or use a different function version.
 
-1. From the home page of the Automate web application, click on `Details` next to the Automation you wish to amend.
-1. Hover over the Function and click the `View and Edit details` button.
-1. Select a new version of the Function from the dropdown menu if you wish.
-1. Amend the configuration values as required.
-1. Click `Save`.
+1. Navigate to the **Automations** tab within your project and locate the Automation you wish to amend.  
+2. Click on `Details` next to the Automation.  
+3. Hover over the function and click the `View and Edit Details` button.  
+4. Select a new version of the function from the dropdown menu if needed.  
+5. Amend the configuration values as required.  
+6. Click `Save` to apply the changes.

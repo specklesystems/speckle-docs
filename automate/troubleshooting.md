@@ -1,12 +1,18 @@
-# Troubleshooting
+# Troubleshooting Automations  
 
-### Failed Automations
+Automations may fail for three key reasons:
 
-Automations may show a FAILED state for three categories of reasons:
+### 1. By Design  (**Failed**)
+The function logic completes successfully but flags the automation as failed due to data not meeting specified checks or analyses.  
+**Solution:** Review the automation run reports in the UI.
 
-- **By design**: a function successfully executes but marks the automation as Failed as part of its logic because the version data has failed the checks or analysis being run. — **Check the automation run reports in the UI**
-- **By code error:** a function has exited unexpectedly early due to code logic errors. — **Check the logs to review the error message**
-- **By platform error**: something in the platform has caused the execution to fail. This could be because:
-    - The function container is incorrectly configured — **Check the logs to review the error message**
-    - The available compute resource for the function container has run out of memory. — **Check the logs to review the error message**
-    - Squirrels have eaten through the wires — **Call animal welfare and request a rehoming**.
+### 2. By Code Error  (**Exception**)
+The function exits prematurely due to errors in the code logic. Speckle Automate flags the automation run with **Exception**. 
+**Solution:** Check the logs to identify and resolve the error.
+
+### 3. By Platform Error  (**Exception**)
+Failures caused by issues in the execution environment:  
+- **Misconfigured Function Container**: Logs will reveal incorrect setup details.  
+- **Insufficient Compute Resources**: Out-of-memory errors will appear in logs.  
+- **External Factors**: Squirrels may have chewed through the wires!  
+  **Solution:** Contact animal welfare to rehome the culprits.
