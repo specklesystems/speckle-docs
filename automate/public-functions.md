@@ -1,10 +1,10 @@
-# Public Functions
+# Public Functions (Coming Soon)
 
 ## What Are Public Functions?
 
-Public functions are reusable, pre-defined operations available to all Speckle Automate users. They are designed to be simple yet powerful, focusing on specific, high-utility use cases. They help streamline workflows without requiring custom development.
+Public functions are reusable, pre-defined operations designed to help all Speckle Automate users streamline their workflows without needing custom development. They focus on specific, high-utility use cases and offer simplicity and efficiency.
 
-Public functions are ideal for:
+Public functions will be ideal for:
 
 - Automating repetitive tasks.  
 - Solving well-defined problems efficiently.  
@@ -12,20 +12,18 @@ Public functions are ideal for:
 
 ## Curated by Speckle
 
-At the start of the public beta, all public functions are curated and developed by Speckle to ensure reliability, simplicity, and quality. Later in the beta, we plan to expand this ecosystem by promoting:
+Public functions are planned for release soon. When introduced, Speckle will curate and develop all public functions to ensure reliability, simplicity, and quality. Over time, the ecosystem will grow to include:
 
 - **Community Contributions**: Functions designed and shared by Speckle users.  
 - **Third-Party Integrations**: Functions tailored to specific use cases, such as connecting with SaaS platforms.
 
 The goal is to create a collaborative and diverse library of functions that address a wide range of automation scenarios.
 
-## How to Access Public Functions
+## Accessing Public Functions
 
-Public functions are accessible through the **Functions Library**, located in the Automations tab of your project.  
+Once released, public functions will be accessible through the **Functions Library** in the Automations tab of your project.  
 
-![function-library-view](./img/function-library-card.png)
-
-In the library, you can:
+In the library, you will be able to:
 
 1. Browse available public functions.  
 2. Review descriptions to understand their purpose and parameters.  
@@ -33,17 +31,17 @@ In the library, you can:
 
 ## Using Public Functions
 
-To use a public function in your workflow, follow the steps outlined in the [Creating Automations](./create-automation.md) page. This guide will walk you through:
+To use a public function, you'll follow these steps (available after release):
 
-1. Selecting a public function.  
-2. Configuring its parameters.  
-3. Assigning it to a model in your project.  
+1. Select a public function.  
+2. Configure its parameters.  
+3. Assign it to a model in your project.  
 
-Refer to the automation pages for details on managing automations and updating configurations as needed.
+The [Creating Automations](./create-automation.md) page will provide detailed guidance on creating automation and configuring functions.
 
-## Examples of Public Functions
+## Planned Examples of Public Functions
 
-Here are some examples of public functions that offer high utility for common tasks:
+Here are examples of public functions planned for release:
 
 - **Render Image**: Produces high-quality rendered images of models.  
 - **Data Validator**: Ensures model data meets predefined standards.  
@@ -52,10 +50,10 @@ Here are some examples of public functions that offer high utility for common ta
 
 ## Updates to Public Functions
 
-Speckle maintains and updates Public functions to improve functionality or address issues. When a new version of a public function is released:
+Speckle will maintain and update public functions to improve functionality or address issues. When a new version of a public function is released:
 
 - Existing automations using the function will not update automatically.  
-- You can manually update your automation to use the latest version. Refer to the [Update an Automation](./update-automation.md) page for guidance.
+- Manual updates can be applied following the [Update an Automation](./update-automation.md) guide.
 
 ## Benefits of Public Functions
 
@@ -64,6 +62,6 @@ Speckle maintains and updates Public functions to improve functionality or addre
 - **Collaborative**: Leverage improvements from Speckle, the community, and third-party developers.  
 - **Efficient**: Save time with pre-configured, reliable workflows.
 
-Public functions empower you to tackle specific challenges easily, offering a straightforward entry point to Speckle Automate's power.
+Public functions aim to empower users to tackle specific challenges easily, providing a straightforward entry point to Speckle Automate's capabilities.
 
 For more information on creating your private functions, visit the [Create Functions](./create-function.md) page.
