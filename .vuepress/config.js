@@ -270,7 +270,7 @@ module.exports = {
         {
           title: 'Automations',
           collapsable: false,
-          children: ['create-automation', 'update-automation', 'viewing-results'],
+          children: ['create-automation', 'update-automation', 'viewing-results', 'troubleshooting'],
         },
         {
           title: 'Functions',
@@ -292,8 +292,6 @@ module.exports = {
             'demos',
             'frequently-asked-questions',
             'feedback',
-            'roadmap',
-            'troubleshooting',
             'known-issues',
           ],
         },
