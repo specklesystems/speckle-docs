@@ -2,7 +2,7 @@
 
 ### Your Data
 
-The development server ([latest.speckle.systems](http://latest.speckle.systems)) is no longer in use. All data, functions, and automations are now hosted on the main production server ([app.speckle.systems](https://app.speckle.systems)). 
+Automate is currently only available on the main production server ([app.speckle.systems](https://app.speckle.systems)). 
 
 While project data is handled with the same level of care and security as all Speckle servers note that:
 - During the beta phase, Speckle reserves the right to modify or reset the Automate Execution Engine, Function library or other enabling parts of the server infrastructure. However, the data held on the server is secured and maintained.
