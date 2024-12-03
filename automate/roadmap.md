@@ -23,7 +23,7 @@ We are now in the Public Beta phase, focusing on validating Automate as a robust
 1. **Full Integration**: Automations are now fully integrated into the Speckle web application ([app.speckle.systems](https://app.speckle.systems)), enabling workflows against live production data.  
 2. **Private Functions**: Secure private function development is now available within Workspaces, addressing the need for tailored organisational workflows.  
 3. **Multi-Model Triggers**: Automations can respond to changes across multiple models, enabling dynamic, interconnected workflows.  
-4. **Discoverable Public Functions**: A curated library of Speckle-authored public functions is now searchable and available to all users.  
+4. **Discoverable Public Functions** [Coming Soon]: A curated library of Speckle-authored public functions is now searchable and available to all users.  
 
 This phase is critical for validating the product’s readiness for broader adoption and addressing the blockers identified in earlier stages.
 
