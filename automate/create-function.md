@@ -1,8 +1,6 @@
 # Creating Functions
 
-If you have a verified account on [app.speckle.systems](https://app.speckle.systems), navigate to [app.speckle.systems/functions](https://app.speckle.systems/functions). 
-
-You will see the Functions Library. In the top right, there is a **New Function** button:  
+If you have a verified account on [app.speckle.systems](https://app.speckle.systems), navigate to a Workspaces-hosted project where you are a collaborator. Go to the Automations tab and select View Functions to see your team's existing functions. To create a new function, click New Function in the top right:
 ![new function button](./img/new-function-button.png)
 
 This launches the function creation wizard.
@@ -16,7 +14,7 @@ This launches the function creation wizard.
    ![authorise github](./img/authorise-github.png)
 
    ::: tip 💡 **Authorized OAuth Apps**  
-   Speckle Automate will appear under your GitHub account's Authorized OAuth Apps. Access can be revoked at any time but will be necessary to publish new functions.  
+   Speckle Automate will appear under your GitHub account's Authorized OAuth Apps. Access can be revoked at any time, but it is necessary to publish new functions.  
    ![authorised applications](./img/authorised-applications.png)  
    :::
 
@@ -30,6 +28,7 @@ This launches the function creation wizard.
    - **Description** [required]: A short Markdown-supported description used in the functions list.
    - **Source Application Data Supported** [optional]: Indicate which source applications your function is designed for.
    - **Tags** [optional]: You can further categorise your function with single or multi-word tags, e.g., `Solar_Panels`.
+   - **Organisation**: Within Github, if your team works within an organisation, you can select that here. 
    - **Click Next**: The wizard will create your function project on GitHub.
 
    ::: tip 🧙‍♂️ **Wizard Actions**  
@@ -43,9 +42,9 @@ This launches the function creation wizard.
    :::
 
 4. **Repository Management**  
-   The function wizard creates a GitHub repository under your account.  
-   - **Public vs Private**: Whether to keep this repository public or private depends on your team's open-source or source-available development approach. Speckle Automate supports both public and private repositories.
-   - **Personal or Organisational Accounts**: Depending on your setup and collaboration needs, you can publish functions from either your personal GitHub account or an organisation's account.
+   The function wizard creates a private GitHub repository under your account.  
+   - **Public vs Private**: Whether you keep this repository private or make it public depends on your team's open-source or source-available development approach. Speckle Automate supports both public and private repositories.
+   - **Personal or Organisational Accounts**: Depending on your setup and collaboration needs, you can publish functions from your GitHub account or an organisation's account. Your published function can also be moved from one to the other.
 
    ::: tip 💡 **Important**  
    Carefully manage repository access based on your team's workflows and requirements.  

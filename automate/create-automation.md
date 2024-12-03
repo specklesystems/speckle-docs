@@ -15,7 +15,7 @@ Automations are created from the **Automations** tab within a project.
 ![the automations tab](./img/automations-tab.png)
 
 ::: tip 💡 **Function Availability**
-The library view includes both public functions and any private functions created for the Workspace if the project is a Workspace project created for your team. This ensures all team-specific and public resources are accessible during automation setup.
+The library view includes both public functions [Coming Soon] and any private functions created for the Workspace if the project is a Workspace project created for your team. This ensures all team-specific and public resources are accessible during automation setup.
 :::
 
 ### Steps to Create an Automation
