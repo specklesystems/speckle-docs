@@ -10,4 +10,4 @@ This section of the documentation explains what the Speckle viewer is and how to
 We use embedded live code sandboxes across the documentation to exemplify and provide live code that you can better understand. Depending on the browser you use and/or any extensions you might have installed, these embeds might fail to work correctly
 :::
 
-🆕 You can now access the viewer sandbox from here: [https://viewer.speckle.systems/]([url](https://viewer.speckle.systems/))
+🆕 You can now access the viewer sandbox from here: [https://viewer.speckle.systems/](https://viewer.speckle.systems/)
