@@ -26,7 +26,6 @@ SpecklePy stores local accounts and object cache databases in the following loca
 - Linux: `$XDG_DATA_HOME/Speckle` or `~/.local/share/Speckle`
 - Mac: `~/.config/Speckle`
 
-
 ## Authentication
 
 Before interacting with a Speckle server, you need to authenticate. Specklepy offers two authentication methods:

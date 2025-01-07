@@ -169,6 +169,7 @@ branch_id = client.branch.create("stream_id", "branch name", "a description of t
 branch = client.branch.get("stream_id", "branch name")
 
 ```
+
 ### Operations and Transports
 
 The `operations` include four main methods:
@@ -248,7 +249,7 @@ base_obj["@nested"] = detached_base
 The `Base` class has a few handy instance methods for identifying your object's typed and dynamic attributes:
 
 - `get_typed_member_names()` gets all of the names of the defined (typed) attributes of the object
-- `get_dynamic_member_names()` gets all of the names of the dynamic attributes of the object 
+- `get_dynamic_member_names()` gets all of the names of the dynamic attributes of the object
 - `get_member_names()` gets a list of all the attributes on the object, dynamic or not
 
 Each `Base` object has an `id` (a unique hash) as it does in the other SDKs. This field is only populated if the `Base` has been previously serialized. If you *really* need the hash, you can get it using the `get_id()` method. Be aware that this call will fully serialize the object to create the `id` if the `id` is not populated! By default, the hash will be generated without decomposing the object. However, you can pass `decompose=True` as an argument if you want the decomposed `id`.

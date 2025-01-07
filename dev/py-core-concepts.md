@@ -1,29 +1,65 @@
 # Core Concepts
 
+Understanding the core concepts in specklepy is essential for working effectively with the platform.
+This guide introduces the fundamental ideas and their practical applications in managing AEC data.
+
 ## Base Objects
 
 Base objects are the fundamental building blocks in Speckle. Every piece of data you work with inherits from the Base class.
+This allows for a flexible and extensible approach to creating, managing, and sharing AEC data.
+
+Why Use Base Objects?
+
+1. Dynamic Properties: Add properties dynamically at runtime to adapt to changing requirements.
+2. Typed Objects: Define specific object types with custom properties.
+3. Custom Type Names: Assign domain-specific type names for better organization and clarity.
 
 ```python
 from specklepy.objects import Base
 
-# Basic object
+# Basic object with dynamic properties
 obj = Base()
-obj.dynamic_property = "value"
+obj.dynamic_property = "value"  # Add properties dynamically
+print(obj.dynamic_property)  # Outputs: value
 
-# Typed object
+# Create a typed object
 class Wall(Base):
     height: float = 0.0
     width: float = 0.0
 
-# Custom type name
+wall = Wall()
+wall.height = 3.0
+wall.width = 0.3
+print(wall.height, wall.width)  # Outputs: 3.0, 0.3
+
+# Define a custom type name
 class Beam(Base, speckle_type="Elements.Structural.Beam"):
     length: float = 0.0
+
+beam = Beam()
+beam.length = 5.0
+print(beam.speckle_type)  # Outputs: Elements.Structural.Beam
 ```
+
+Best Practices:
+
+- Use dynamic properties for flexibility but prefer typed objects for predictable structures.
+- Follow naming conventions for custom types (Namespace.Category.Type) to ensure clarity and consistency.
+- Document expected properties and their units.
+Real-World Application:
+In an AEC workflow, Base objects could represent components like walls, beams, or furniture, allowing teams to iterate and customize data as project requirements evolve.
 
 ## Transport System
 
-Transports move data between applications and storage:
+The transport system in Speckle moves data between applications, local storage, and cloud servers. It is designed for flexibility and scalability, enabling both local workflows and global collaboration.
+
+Why Use Transports?
+
+1. Local Storage: Cache frequently used data for faster access.
+2. Server Communication: Share data with your team or store it long-term.
+3. Hybrid Workflows: Combine multiple transport types for robust workflows.
+
+Example: Sending Data with Transports
 
 ```python
 from specklepy.api import operations
@@ -47,9 +83,27 @@ obj_id = operations.send(
 )
 ```
 
+Best Practices:
+
+- Always include a local transport for caching when using a server transport.
+- Use meaningful transport scopes and names for better organization.
+- Avoid sending large, monolithic models. Use chunking and detaching where appropriate.
+
+Real-World Application:
+Architects can use transports to sync data between local workstations and cloud servers,
+ensuring seamless collaboration across dispersed teams.
+
 ## Units & Geometry
 
-Speckle handles units explicitly to ensure consistency:
+Speckle handles units explicitly to ensure consistency across teams and applications. Geometry in Speckle is unit-aware, enabling automatic conversions during data exchange.
+
+Why Specify Units?
+
+1. Consistency: Ensure measurements are interpreted correctly across different applications.
+2. Flexibility: Convert units dynamically without losing data integrity.
+3. Interoperability: Work seamlessly with collaborators using different unit systems.
+
+Example: Working with Units and Geometry:
 
 ```python
 from specklepy.objects.geometry import Point
@@ -66,8 +120,17 @@ print(pt.units)  # "mm"
 pt.units = Units.m  # Values automatically converted
 ```
 
-Key points about units:
-- Always specify units when creating geometry
-- Units are preserved during transport
-- Supported units: mm, cm, m, km, in, ft, yd, mi
-- Default unit is meters (m)
+Supported Units:
+
+- Metric: mm, cm, m, km
+- Imperial: in, ft, yd, mi
+- Default: Meters (m)
+
+Best Practices:
+
+- Always define units explicitly when creating geometry.
+- Verify units after receiving geometry to avoid misinterpretations.
+- Use consistent units within teams to reduce conversion errors.
+
+Real-World Application:
+When importing a building model created in meters into a project using millimeters, Speckle ensures automatic conversion, saving time and reducing errors.

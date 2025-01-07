@@ -1,5 +1,7 @@
 # Authentication in specklepy
 
+Authentication is the first step in connecting to a Speckle server and managing your AEC data programmatically. This guide covers the available authentication methods and provides practical examples to get you started.
+
 ## Authentication Methods
 
 specklepy offers two main authentication methods:
@@ -16,6 +18,10 @@ specklepy offers two main authentication methods:
    - Best for automation, CI/CD, or headless scripts
 
 ## Using Speckle Manager Account
+
+Speckle Manager simplifies authentication by securely managing your account credentials.
+
+Example:
 
 ```python
 from specklepy.api.client import SpeckleClient
@@ -34,6 +40,10 @@ client.authenticate_with_account(account)
 
 ## Using Personal Access Tokens
 
+Personal Access Tokens provide a flexible, server-specific authentication option.
+
+Example:
+
 ```python
 # Direct token authentication
 client = SpeckleClient(host="speckle.xyz")
@@ -47,14 +57,14 @@ client.authenticate_with_account(account)
 
 ## When to Use Each Method
 
-### Use Account Authentication When:
+### Use Account Authentication When
 
 - Working locally with Speckle Manager installed
 - Needing access to multiple servers
 - Developing desktop applications
 - Want automatic token refresh
 
-### Use Personal Access Tokens When:
+### Use Personal Access Tokens When
 
 - Running automated scripts
 - Setting up CI/CD pipelines
@@ -64,14 +74,15 @@ client.authenticate_with_account(account)
 
 ## Setting Up Personal Access Tokens
 
-1. Log into your Speckle server
-2. Go to Profile Settings > Tokens
-3. Create new token with required scopes:
-   - `profile:read`: User info
-   - `streams:read`: Read access
-   - `streams:write`: Write access
-   - `users:read`: User search
-   - `users:email`: Email access
+1. Log in to your Speckle server.
+2. Navigate to Profile Settings > Tokens.
+3. Create a new token with the required scopes:
+    - `profile:read` for user info.
+    - `streams:read` and `streams:write` for stream access.
+    - `users:read` for searching users.
+    - etc.
+
+Example:
 
 ```python
 # Create token programmatically
@@ -84,14 +95,14 @@ token = client.server.create_token(
 
 ## Security Best Practices
 
-1. Store tokens securely
+1. Store tokens securely: Use environment variables to keep tokens safe:
 
    ```python
    import os
    token = os.environ.get("SPECKLE_TOKEN")
    ```
 
-2. Use minimal scopes
+2. Use minimal scopes: Request only the permissions you need:
 
    ```python
    # For read-only access
@@ -101,14 +112,17 @@ token = client.server.create_token(
    )
    ```
 
-3. Set appropriate token lifespan
-4. Revoke unused tokens
+3. Revoke unused tokens: Revoke tokens no longer in use to minimize security risks:
 
    ```python
    client.server.revoke_token(token)
    ```
+  
+4. Keep Tokens Out of Source Code: Use a `.env` file and add it to `.gitignore`.
 
 ## Error Handling
+
+Robust error handling ensures smooth authentication workflows:
 
 ```python
 try:
