@@ -143,7 +143,6 @@ module.exports = {
               ],
             },
             'qgis',
-            'arcgis',
             {
               title: 'Power BI',
               collapsable: true,
