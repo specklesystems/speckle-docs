@@ -110,7 +110,7 @@ This step assumes you already installed VSCode in your path. If you haven't, the
 
 ### Install other dependencies
 
-For our UI, we'll also be using [Vuetify](TODO) to make our life easier, as it has many useful components. To add it, run:
+For our UI, we'll also be using [Vuetify](https://vuetifyjs.com/en/) to make our life easier, as it has many useful components. To add it, run:
 
 ```bash
 vue add vuetify
