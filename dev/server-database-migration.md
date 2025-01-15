@@ -83,7 +83,7 @@ Speckle's preferred method of backing up and restoring data in a Postgres databa
     465897401a96   dpage/pgadmin4   "/entrypoint.sh"   2 hours ago   Up 2 hours   443/tcp, 127.0.0.1:16543->80/tcp   speckle-server-pgadmin-1
     ```
 
-1. Open the [pgAdmin dashboard](http://127.0.0.1:16543/) in your browser. If you have changed the configuration of pgAdmin, you can find how to access it by running `docker ps --filter name='pgadmin'` and making a note of the host and port it is being served on.
+1. Open the pgAdmin dashboard `http://127.0.0.1:16543/` in your browser. If you have changed the configuration of pgAdmin, you can find how to access it by running `docker ps --filter name='pgadmin'` and making a note of the host and port it is being served on.
 
 ### Connecting pgAdmin to Postgres
 
