@@ -87,7 +87,7 @@ var sender = myGameObject.AddComponent<Sender>();
 sender.Send(projectId, objs);
 ```
 
-The `Send()` method accepts additional optional arguments to use different accounts, report progress and errors etc. Please check the [source code](https://github.com/specklesystems/speckle-unity/blob/main/Assets/Speckle%20Connector/Sender.cs) for a complete list.
+The `Send()` method accepts additional optional arguments to use different accounts, report progress and errors etc. Please check the [source code](https://github.com/specklesystems/speckle-unity/blob/c567228c4d5ad71b48f4911cfae3cada5c2e1c70/Packages/systems.speckle.speckle-unity/Runtime/Components/Deprecated/Sender.cs) for a complete list.
 
 ### Supported Elements
 
