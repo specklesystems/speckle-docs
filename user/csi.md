@@ -8,7 +8,7 @@ These connectors are currently under beta development so please report any bugs 
 
 ::: tip
 
-Check out our dedicated tutorial on [how to get started with CSI Products](https://speckle.systems/tutorials/getting-started-with-speckle-for-csi/)! The following shows examples of ETABS and the relationship between ETABS and Speckle but can be extrapolated to relationships with the other CSI connectors.
+Check out our dedicated tutorial on [how to get started with ETABS](https://www.speckle.systems/tutorials/getting-started-with-speckle-for-etabs)! The following shows examples of ETABS and the relationship between ETABS and Speckle but can be extrapolated to relationships with the other CSI connectors.
 
 :::
 
