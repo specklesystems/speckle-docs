@@ -20,7 +20,7 @@ Contract for all rendering pass implementations in the speckle viewer. The "G" s
 
 ### <h3>Typedefs</h3>
 
-| [ClearFlags](/viewer/rendering-pipeline-api/g-pass-api#clearflagsenum) | [ObjectVisibility](/viewer/rendering-pipeline-api/g-pass-api#objectvisibility) | [PassOptions](/viewer/rendering-pipeline-api/g-pass-api#passoptions)   |
+| [ClearFlags](/viewer/rendering-pipeline-api/g-pass-api#clearflags) | [ObjectVisibility](/viewer/rendering-pipeline-api/g-pass-api#objectvisibility) | [PassOptions](/viewer/rendering-pipeline-api/g-pass-api#passoptions)   |
 | :------------------------------------------------------------- | :------------------------------------------------------------------- | :------------------------------------------------- | 
 
 ### <h3>Accessors</h3>
@@ -205,7 +205,7 @@ Clearing will be executed on whatever the current `outputTarget` value is. If `o
 
 **Parameters**
 
-- **color**: The color represented as a number as previously [detailed](/viewer/rendering-pipeline-api/g-pass-api.md#clearcolor)
+- **color**: The color represented as a number as previously [detailed](/viewer/rendering-pipeline-api/g-pass-api#clearcolor)
 - **alpha**: The alpha value in the range of [0,1]
 
 **Returns**: _void_
@@ -221,7 +221,7 @@ Sets the clear flags. The [_ClearFlags_]((/viewer/rendering-pipeline-api/g-pass-
 
 **Parameters**
 
-- **flags**: The value for the flags as previously [detailed]((/viewer/rendering-pipeline-api/g-pass-api.md#clearflags))
+- **flags**: The value for the flags as previously [detailed](/viewer/rendering-pipeline-api/g-pass-api.md#clearflags)
 
 **Returns**: _void_
 
