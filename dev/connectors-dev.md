@@ -223,7 +223,7 @@ Don't forget this step! Not doing so will result in incomplete reports.
 
 Since Speckle kits are hot swappable, the connectors or UI don't have any direct dependency on them. Therefore, we'd typically have 2 instances of a `ProgressReport` class, one [inside the converter](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.cs#L58) and one in the [connector/UI](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.cs#L20).
 
-To make sure your reports include everything, you need to merge the two at the end of a send/receive conversion by calling: `connectorReport.Merge(converterReport);` like demonstrated [here](https://github.com/specklesystems/speckle-sharp/blob/main/ConnectorRhino/ConnectorRhino/ConnectorRhinoShared/UI/ConnectorBindingsRhino.cs.cs#L230).
+To make sure your reports include everything, you need to merge the two at the end of a send/receive conversion by calling: `connectorReport.Merge(converterReport);` like demonstrated [here](https://github.com/specklesystems/speckle-sharp/blob/main/ConnectorRhino/ConnectorRhino/ConnectorRhinoShared/UI/ConnectorBindingsRhino.cs#L230).
 
 #### Report Summary
 
