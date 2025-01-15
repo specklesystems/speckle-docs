@@ -4,7 +4,7 @@ Contract for all rendering pass implementations in the speckle viewer. The "G" s
 
 ### <h3>Accessors</h3>
 
-| [clearAlpha](/viewer/rendering-pipeline-api/g-pass-api.md#clearalpha)                 | [clearColor](/viewer/rendering-pipeline-api/g-pass-api.md#clearcolor)               | [clearFlags](/viewer/rendering-pipeline-api/g-pass-api.md#clearflags)               | [displayName](/viewer/rendering-pipeline-api/g-pass-api.md#displayname)           |
+| [clearAlpha](/viewer/rendering-pipeline-api/g-pass-api#clearalpha)                 | [clearColor](/viewer/rendering-pipeline-api/g-pass-api#clearcolor)               | [clearFlags](/viewer/rendering-pipeline-api/g-pass-api#clearflags)               | [displayName](/viewer/rendering-pipeline-api/g-pass-api.md#displayname)           |
 | :------------------------------------------------------------ | :------------------------------------------------------ | :------------------------------------------------------ | :-------------------------------------------------------- |
 | [enabled](/viewer/rendering-pipeline-api/g-pass-api.md#enabled) | [jitter](/viewer/rendering-pipeline-api/g-pass-api.md#jitter)             | [options](/viewer/rendering-pipeline-api/g-pass-api.md#options)     | [outputTarget](/viewer/rendering-pipeline-api/g-pass-api.md#outputTarget)             |
 | [overrideBatchMaterial](/viewer/rendering-pipeline-api/g-pass-api.md#overridebatchmaterial)         | [overrideMaterial](/viewer/rendering-pipeline-api/g-pass-api.md#overridematerial) | [visibility](/viewer/rendering-pipeline-api/g-pass-api.md#visibility)  
@@ -14,13 +14,13 @@ Contract for all rendering pass implementations in the speckle viewer. The "G" s
 
 | [onAferRender](/viewer/rendering-pipeline-api/g-pass-api.md#onaferrender)                 | [onBeforeRender](/viewer/rendering-pipeline-api/g-pass-api.md#onbeforerender)               | [render](/viewer/rendering-pipeline-api/g-pass-api.md#render)               | [setClearColor](/viewer/rendering-pipeline-api/g-pass-api.md#setclearcolor)           |
 | :------------------------------------------------------------ | :------------------------------------------------------ | :------------------------------------------------------ | :-------------------------------------------------------- |
-| [setClearFlags](/viewer/rendering-pipeline-api/g-pass-api.md#setclearflags) | [setClippingPlanes](/viewer/rendering-pipeline-api/g-pass-api.md#setclippingplanes)             | [setJitter](/viewer/rendering-pipeline-api/g-pass-api.md#setjitter)     | [setLayers](/viewer/rendering-pipeline-api/g-pass-api.md#setlayers)             |
-| [setSize](/viewer/rendering-pipeline-api/g-pass-api.md#setsize)         | [setVisibility](/viewer/rendering-pipeline-api/g-pass-api.md#setvisibility) | [update](/viewer/rendering-pipeline-api/g-pass-api.md#update) 
+| [setClearFlags](/viewer/rendering-pipeline-api/g-pass-api.md#setclearflags) | [setClippingPlanes](/viewer/rendering-pipeline-api/g-pass-api.md#setclippingplanes)             | [setJitter](/viewer/rendering-pipeline-api/g-pass-api.md#setjitter)     | [setLayers](/viewer/rendering-pipeline-api/g-pass-api#setlayers)             |
+| [setSize](/viewer/rendering-pipeline-api/g-pass-api.md#setsize)         | [setVisibility](/viewer/rendering-pipeline-api/g-pass-api.md#setvisibility) | [update](/viewer/rendering-pipeline-api/g-pass-api#update) 
 
 
 ### <h3>Typedefs</h3>
 
-| [ClearFlags](/viewer/rendering-pipeline-api/g-pass-api.md#clearflagsenum) | [ObjectVisibility](/viewer/rendering-pipeline-api/g-pass-api.md#objectvisibility) | [PassOptions](/viewer/rendering-pipeline-api/g-pass-api.md#passoptions)   |
+| [ClearFlags](/viewer/rendering-pipeline-api/g-pass-api#clearflagsenum) | [ObjectVisibility](/viewer/rendering-pipeline-api/g-pass-api#objectvisibility) | [PassOptions](/viewer/rendering-pipeline-api/g-pass-api#passoptions)   |
 | :------------------------------------------------------------- | :------------------------------------------------------------------- | :------------------------------------------------- | 
 
 ### <h3>Accessors</h3>
@@ -217,7 +217,7 @@ Clearing will be executed on whatever the current `outputTarget` value is. If `o
 setClearFlags(flags: number): void
 ```
 
-Sets the clear flags. The [_ClearFlags_]((/viewer/rendering-pipeline-api/g-pass-api.md#clearflagsenum)) values can be used for ease of use
+Sets the clear flags. The [_ClearFlags_]((/viewer/rendering-pipeline-api/g-pass-api#clearflagsenum)) values can be used for ease of use
 
 **Parameters**
 
