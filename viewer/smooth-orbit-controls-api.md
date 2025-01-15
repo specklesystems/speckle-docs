@@ -1,17 +1,17 @@
 # SmoothOrbitControls
-[_SpeckleControls_](/viewer/speckle-controls-api.md) -> [_SmoothOrbitControls_](/viewer/smooth-orbit-controls-api)
+[_SpeckleControls_](/viewer/speckle-controls-api) -> [_SmoothOrbitControls_](/viewer/smooth-orbit-controls-api)
 
 Orbit camera controls based on Google's model-viewer implementation. Input are the angles and radius of a spherical coordinate system with a configurable origin.
 
 ### <h3>Methods</h3>
 
-| [adjustOrbit](/viewer/smooth-oribt-controls-api#adjustorbit)               | [setDamperDecayTime](/viewer/smooth-oribt-controls-api#setdamperdecaytime)       | [setFieldOfView](/viewer/smooth-oribt-controls-api#setfieldofview)                     | [setOrbit](/viewer/smooth-oribt-controls-api#setorbit)         |
+| [adjustOrbit](/viewer/smooth-oribt-controls-api.html#adjustorbit)               | [setDamperDecayTime](/viewer/smooth-oribt-controls-api#setdamperdecaytime)       | [setFieldOfView](/viewer/smooth-oribt-controls-api#setfieldofview)                     | [setOrbit](/viewer/smooth-oribt-controls-api#setorbit)         |
 | :---------------------------------------------------- | :-------------------------------------------------------- | :------------------------------------------------------------------ | :---------------------------------------------------- |
-| [setRadius](/viewer/smooth-oribt-controls-api.md#setradius)   | [setTarget](/viewer/smooth-oribt-controls-api.md#settarget)  
+| [setRadius](/viewer/smooth-oribt-controls-api#setradius)   | [setTarget](/viewer/smooth-oribt-controls-api#settarget)  
 
 ### <h3>Typedefs</h3>
 
-| [SmoothOrbitControlsOptions](/viewer/smooth-oribt-controls-api.md#smoothorbitcontrolsoptions)  |
+| [SmoothOrbitControlsOptions](/viewer/smooth-oribt-controls-api#smoothorbitcontrolsoptions)  |
 :---------------------------------------------------- | 
 
 </br>
