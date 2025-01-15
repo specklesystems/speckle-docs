@@ -74,7 +74,7 @@ You can send models into Revit and recieve them currently with geometric propert
 
 ## Grasshopper to Tekla Structures
 
-Tekla Structures has it's own grasshopper plugins, but you can always send it through the speckle systems with our schema builders as well. Go to the Tekla Structures specific tab and send beam elements which encompass all geometric elements that are 1D and contour plates which encompasses all geometric elements that are 2D. Defining sections will be defined on a name basis, and therefore as long as the catalog sections is defined in the Tekla catalog by name, it will be imported and built correctly. Refer to an example similar to this in the [ETABS documentation.](/user/etabs.html)
+Tekla Structures has it's own grasshopper plugins, but you can always send it through the speckle systems with our schema builders as well. Go to the Tekla Structures specific tab and send beam elements which encompass all geometric elements that are 1D and contour plates which encompasses all geometric elements that are 2D. Defining sections will be defined on a name basis, and therefore as long as the catalog sections is defined in the Tekla catalog by name, it will be imported and built correctly. Refer to an example similar to this in the [ETABS documentation.](/user/csi)
 
 ## Exploring the Tekla Structures Data
 
