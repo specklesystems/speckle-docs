@@ -68,7 +68,7 @@ With the Selection dropdown, you can switch between sending:
 
 ### Receiving
 
-To receive data please refer to the [`Receiver.cs`](https://github.com/specklesystems/speckle-unity/blob/main/Assets/Speckle%20Connector/Receiver.cs) class in `Assets\Speckle Connector`. This is just a wrapper around methods in [Core](/dev/dotnet), an example usage follows:
+To receive data, please refer to the [`Receiver.cs`](https://github.com/specklesystems/speckle-unity/blob/main/Packages/systems.speckle.speckle-unity/Runtime/Components/Deprecated/Receiver.cs) class in `Assets\Speckle Connector`. This is just a wrapper around methods in [Core](/dev/dotnet), an example usage follows:
 
 ```csharp
 var receiver = myGameObject.AddComponent<Receiver>();
@@ -80,7 +80,7 @@ The `Init()` method accepts additional optional arguments to use different accou
 
 ### Sending
 
-To send data please refer to the [`Sender.cs`](https://github.com/specklesystems/speckle-unity/blob/main/Assets/Speckle%20Connector/Sender.cs) class in `Assets\Speckle Connector`. This is just a wrapper around methods in [Core](/dev/dotnet), an example usage follows:
+To send data, please refer to the [`Sender.cs`](https://github.com/specklesystems/speckle-unity/blob/main/Assets/Speckle%20Connector/Sender.cs) class in `Assets\Speckle Connector`. This is just a wrapper around methods in [Core](/dev/dotnet), an example usage follows:
 
 ```csharp
 var sender = myGameObject.AddComponent<Sender>();
