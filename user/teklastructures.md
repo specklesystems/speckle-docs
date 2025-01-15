@@ -8,7 +8,7 @@ The Speckle Tekla Structures Connector currently supports Tekla Structures 2020 
 
 ::: tip
 
-Check out our dedicated tutorial on [how to get started with Tekla Structures](https://speckle.systems/tutorials/getting-started-with-speckle-for-teklastructures/)!
+Check out our dedicated tutorial on [how to get started with Tekla Structures](https://speckle.systems/tutorials/getting-started-with-tekla-structures)!
 
 :::
 
