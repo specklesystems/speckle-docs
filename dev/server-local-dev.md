@@ -38,7 +38,7 @@ On MacOS devices with Apple based chips (M2, M3 etc.) it is possible to run the 
 1. `cp packages/dui3/.env.example packages/dui3/.env`
 1. `yarn dev`
 
-Wait for the frontend to build, and voila, you have a fully functional Speckle Server running at [http://localhost:3000](http://localhost:3000).
+Wait for the frontend to build, and voila, you have a fully functional Speckle Server running at `http://localhost:3000`.
 
 To run a specific part of the Speckle server stack, go to the [components](#components) section
 
