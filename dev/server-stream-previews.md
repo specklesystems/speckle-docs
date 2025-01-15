@@ -22,10 +22,10 @@ For example, here is a [commit](https://app.speckle.systems/streams/3073b96e86/c
 ```md
 ![speckle haus commit](https://app.speckle.systems/preview/3073b96e86/commits/604bea8cc6)
 ```
-![speckle haus commit](https://app.speckle.systems/preview/3073b96e86/commits/604bea8cc6)
+<img src="https://app.speckle.systems/preview/3073b96e86/commits/604bea8cc6" />
 
 And here is an [object](https://app.speckle.systems/streams/3073b96e86/objects/1a2a5fd7ff5c6e6b2382f513d19eb3d5) preview:
 ```md
 ![speckle haus object](https://app.speckle.systems/preview/3073b96e86/objects/1a2a5fd7ff5c6e6b2382f513d19eb3d5)
 ```
-![speckle haus object](https://app.speckle.systems/preview/3073b96e86/objects/1a2a5fd7ff5c6e6b2382f513d19eb3d5)
+<img src="speckle haus object](https://app.speckle.systems/preview/3073b96e86/objects/1a2a5fd7ff5c6e6b2382f513d19eb3d5" />
