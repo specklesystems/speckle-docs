@@ -1241,7 +1241,7 @@ export default {
 
 ## Preview result
 
-That should cover all the changes needed! Go ahead to [http://localhost:8080](https://localhost:8080). If logged in, your app should be looking like this 👇🏼
+That should cover all the changes needed! Go ahead to `http://localhost:8080`. If logged in, your app should be looking like this 👇🏼
 
 ![Final view with no stream selected](./img/apps-guide/app-guide-full-demo.gif)
 
