@@ -217,7 +217,7 @@ Clearing will be executed on whatever the current `outputTarget` value is. If `o
 setClearFlags(flags: number): void
 ```
 
-Sets the clear flags. The [_ClearFlags_]((/viewer/rendering-pipeline-api/g-pass-api.md#clearflagsenum)) values can be used for ease of use
+Sets the clear flags. The [_ClearFlags_](/viewer/rendering-pipeline-api/g-pass-api.md#clearflagsenum) values can be used for ease of use
 
 **Parameters**
 
