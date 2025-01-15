@@ -14,13 +14,13 @@ Contract for all rendering pass implementations in the speckle viewer. The "G" s
 
 | [onAferRender](/viewer/rendering-pipeline-api/g-pass-api.md#onaferrender)                 | [onBeforeRender](/viewer/rendering-pipeline-api/g-pass-api.md#onbeforerender)               | [render](/viewer/rendering-pipeline-api/g-pass-api.md#render)               | [setClearColor](/viewer/rendering-pipeline-api/g-pass-api.md#setclearcolor)           |
 | :------------------------------------------------------------ | :------------------------------------------------------ | :------------------------------------------------------ | :-------------------------------------------------------- |
-| [setClearFlags](/viewer/rendering-pipeline-api/g-pass-api.md#setclearflags) | [setClippingPlanes](/viewer/rendering-pipeline-api/g-pass-api.md#setclippingplanes)             | [setJitter](/viewer/rendering-pipeline-api/g-pass-api.md#setjitter)     | [setLayers](/viewer/rendering-pipeline-api/g-pass-api#setlayers)             |
-| [setSize](/viewer/rendering-pipeline-api/g-pass-api.md#setsize)         | [setVisibility](/viewer/rendering-pipeline-api/g-pass-api.md#setvisibility) | [update](/viewer/rendering-pipeline-api/g-pass-api#update) 
+| [setClearFlags](/viewer/rendering-pipeline-api/g-pass-api.md#setclearflags) | [setClippingPlanes](/viewer/rendering-pipeline-api/g-pass-api.md#setclippingplanes)             | [setJitter](/viewer/rendering-pipeline-api/g-pass-api.md#setjitter)     | [setLayers](/viewer/rendering-pipeline-api/g-pass-api.md#setlayers)             |
+| [setSize](/viewer/rendering-pipeline-api/g-pass-api.md#setsize)         | [setVisibility](/viewer/rendering-pipeline-api/g-pass-api.md#setvisibility) | [update](/viewer/rendering-pipeline-api/g-pass-api.md#update) 
 
 
 ### <h3>Typedefs</h3>
 
-| [ClearFlags](/viewer/rendering-pipeline-api/g-pass-api#clearflags) | [ObjectVisibility](/viewer/rendering-pipeline-api/g-pass-api#objectvisibility) | [PassOptions](/viewer/rendering-pipeline-api/g-pass-api#passoptions)   |
+| [ClearFlags](/viewer/rendering-pipeline-api/g-pass-api.md#clearflags) | [ObjectVisibility](/viewer/rendering-pipeline-api/g-pass-api.md#objectvisibility) | [PassOptions](/viewer/rendering-pipeline-api/g-pass-api.md#passoptions)   |
 | :------------------------------------------------------------- | :------------------------------------------------------------------- | :------------------------------------------------- | 
 
 ### <h3>Accessors</h3>
