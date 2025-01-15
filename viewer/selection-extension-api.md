@@ -18,7 +18,7 @@ This extension requires and active CameraController extension implementation.
 
 ### <h3>Methods</h3>
 
-| [getSelectedObjects](/viewer/selection-extension-api.md#getselectedobjects) | [getSelectedNodes](viewer/selection-extension-api.md#getselectednodes) | [selectObjects](/viewer/selection-extension-api.md#selectobjects) | [unselectObjects](/viewer/selection-extension-api.md#unselectobjects) |
+| [getSelectedObjects](/viewer/selection-extension-api.md#getselectedobjects) | [getSelectedNodes](viewer/selection-extension-api#getselectednodes) | [selectObjects](/viewer/selection-extension-api.md#selectobjects) | [unselectObjects](/viewer/selection-extension-api#unselectobjects) |
 | --------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------- | --------------------------------------------------------------------- |
 
 ### <h3>Typedefs</h3>
