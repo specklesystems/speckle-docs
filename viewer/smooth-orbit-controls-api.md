@@ -5,7 +5,7 @@ Orbit camera controls based on Google's model-viewer implementation. Input are t
 
 ### <h3>Methods</h3>
 
-| [adjustOrbit](/viewer/smooth-oribt-controls-api.md#adjustorbit)               | [setDamperDecayTime](/viewer/smooth-oribt-controls-api.md#setdamperdecaytime)       | [setFieldOfView](/viewer/smooth-oribt-controls-api.md#setfieldofview)                     | [setOrbit](/viewer/smooth-oribt-controls-api.md#setorbit)         |
+| [adjustOrbit](/viewer/smooth-oribt-controls-api#adjustorbit)               | [setDamperDecayTime](/viewer/smooth-oribt-controls-api#setdamperdecaytime)       | [setFieldOfView](/viewer/smooth-oribt-controls-api#setfieldofview)                     | [setOrbit](/viewer/smooth-oribt-controls-api#setorbit)         |
 | :---------------------------------------------------- | :-------------------------------------------------------- | :------------------------------------------------------------------ | :---------------------------------------------------- |
 | [setRadius](/viewer/smooth-oribt-controls-api.md#setradius)   | [setTarget](/viewer/smooth-oribt-controls-api.md#settarget)  
 
