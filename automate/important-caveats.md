@@ -7,7 +7,7 @@ Automate is currently only available on the main production server ([app.speckle
 While project data is handled with the same level of care and security as all Speckle servers note that:
 - During the beta phase, Speckle reserves the right to modify or reset the Automate Execution Engine, Function library or other enabling parts of the server infrastructure. However, the data held on the server is secured and maintained.
 - Automations, automation runs, and results may be subject to deletion due to infrastructure updates.
-- The end of the Public beta phase will be communicated widely on [Speckle Community](httsp://speckle.community) and in the application.
+- The end of the Public beta phase will be communicated widely on [Speckle Community](https://speckle.community) and in the application.
 - At the end of the beta program, we will announce any mechanisms to migrate project data, automation, or related artefacts that might be required.  
 
 We strongly encourage users to continue to back up their functions in GitHub or other repositories as a safeguard.
