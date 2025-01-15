@@ -5,13 +5,13 @@ Orbit camera controls based on Google's model-viewer implementation. Input are t
 
 ### <h3>Methods</h3>
 
-| [adjustOrbit](/viewer/smooth-orbit-controls-api#adjustorbit)               | [setDamperDecayTime](/viewer/smooth-orbit-controls-api#setdamperdecaytime)       | [setFieldOfView](/viewer/smooth-orbit-controls-api#setfieldofview)                     | [setOrbit](/viewer/smooth-orbit-controls-api#setorbit)         |
+| [adjustOrbit](/viewer/smooth-orbit-controls-api.md#adjustorbit)               | [setDamperDecayTime](/viewer/smooth-orbit-controls-api.md#setdamperdecaytime)       | [setFieldOfView](/viewer/smooth-orbit-controls-api.md#setfieldofview)                     | [setOrbit](/viewer/smooth-orbit-controls-api.md#setorbit)         |
 | :---------------------------------------------------- | :-------------------------------------------------------- | :------------------------------------------------------------------ | :---------------------------------------------------- |
-| [setRadius](/viewer/smooth-orbit-controls-api#setradius)   | [setTarget](/viewer/smooth-orbit-controls-api#settarget)  
+| [setRadius](/viewer/smooth-orbit-controls-api.md#setradius)   | [setTarget](/viewer/smooth-orbit-controls-api.md#settarget)  
 
 ### <h3>Typedefs</h3>
 
-| [SmoothOrbitControlsOptions](/viewer/smooth-orbit-controls-api#smoothorbitcontrolsoptions)  |
+| [SmoothOrbitControlsOptions](/viewer/smooth-orbit-controls-api.md#smoothorbitcontrolsoptions)  |
 :---------------------------------------------------- | 
 
 </br>
