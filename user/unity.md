@@ -76,11 +76,11 @@ receiver.Init(projectId);
 receiver.Receive();
 ```
 
-The `Init()` method accepts additional optional arguments to use different accounts, automatically receive updates, delete the old objects, report progress and errors etc. Please check the [source code](https://github.com/specklesystems/speckle-unity/blob/main/Assets/Speckle%20Connector/Receiver.cs) for a complete list.
+The `Init()` method accepts additional optional arguments to use different accounts, automatically receive updates, delete the old objects, report progress and errors etc. Please check the [source code](https://github.com/specklesystems/speckle-unity/blob/main/Packages/systems.speckle.speckle-unity/Runtime/Components/Deprecated/Receiver.cs) for a complete list.
 
 ### Sending
 
-To send data, please refer to the [`Sender.cs`](https://github.com/specklesystems/speckle-unity/blob/main/Assets/Speckle%20Connector/Sender.cs) class in `Assets\Speckle Connector`. This is just a wrapper around methods in [Core](/dev/dotnet), an example usage follows:
+To send data, please refer to the [`Sender.cs`](https://github.com/specklesystems/speckle-unity/blob/c567228c4d5ad71b48f4911cfae3cada5c2e1c70/Packages/systems.speckle.speckle-unity/Runtime/Components/Deprecated/Sender.cs) class in `Assets\Speckle Connector`. This is just a wrapper around methods in [Core](/dev/dotnet), an example usage follows:
 
 ```csharp
 var sender = myGameObject.AddComponent<Sender>();
