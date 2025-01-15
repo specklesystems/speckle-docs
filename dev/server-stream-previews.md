@@ -18,14 +18,14 @@ Object preview: `https://app.speckle.systemns/preview/<YOUR-STREAM-ID>/objects/<
 
 ## Examples
 
-For example, here is a [commit](https://app.speckle.systemns/streams/3073b96e86/commits/604bea8cc6) preview:
+For example, here is a [commit](https://app.speckle.systems/streams/3073b96e86/commits/604bea8cc6) preview:
 ```md
 ![speckle haus commit](https://app.speckle.systemns/preview/3073b96e86/commits/604bea8cc6)
 ```
-![speckle haus commit](https://app.speckle.systemns/preview/3073b96e86/commits/604bea8cc6)
+![speckle haus commit](https://app.speckle.systems/preview/3073b96e86/commits/604bea8cc6)
 
-And here is an [object](https://app.speckle.systemns/streams/3073b96e86/objects/1a2a5fd7ff5c6e6b2382f513d19eb3d5) preview:
+And here is an [object](https://app.speckle.systems/streams/3073b96e86/objects/1a2a5fd7ff5c6e6b2382f513d19eb3d5) preview:
 ```md
 ![speckle haus object](https://app.speckle.systemns/preview/3073b96e86/objects/1a2a5fd7ff5c6e6b2382f513d19eb3d5)
 ```
-![speckle haus object](https://app.speckle.systemns/preview/3073b96e86/objects/1a2a5fd7ff5c6e6b2382f513d19eb3d5)
+![speckle haus object](https://app.speckle.systems/preview/3073b96e86/objects/1a2a5fd7ff5c6e6b2382f513d19eb3d5)
