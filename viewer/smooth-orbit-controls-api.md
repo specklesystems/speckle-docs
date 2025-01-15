@@ -1,5 +1,5 @@
 # SmoothOrbitControls
-[_SpeckleControls_](/viewer/speckle-controls-api.md) -> [_SmoothOrbitControls_](/viewer/smooth-orbit-controls-api.md)
+[_SpeckleControls_](/viewer/speckle-controls-api.md) -> [_SmoothOrbitControls_](/viewer/smooth-orbit-controls-api)
 
 Orbit camera controls based on Google's model-viewer implementation. Input are the angles and radius of a spherical coordinate system with a configurable origin.
 
