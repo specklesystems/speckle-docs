@@ -4,7 +4,7 @@ Contract for all rendering pass implementations in the speckle viewer. The "G" s
 
 ### <h3>Accessors</h3>
 
-| [clearAlpha](/viewer/rendering-pipeline-api/g-pass-api#clearalpha)                 | [clearColor](/viewer/rendering-pipeline-api/g-pass-api#clearcolor)               | [clearFlags](/viewer/rendering-pipeline-api/g-pass-api#clearflags)               | [displayName](/viewer/rendering-pipeline-api/g-pass-api.md#displayname)           |
+| [clearAlpha](/viewer/rendering-pipeline-api/g-pass-api.md#clearalpha)                 | [clearColor](/viewer/rendering-pipeline-api/g-pass-api.md#clearcolor)               | [clearFlags](/viewer/rendering-pipeline-api/g-pass-api.md#clearflags)               | [displayName](/viewer/rendering-pipeline-api/g-pass-api.md#displayname)           |
 | :------------------------------------------------------------ | :------------------------------------------------------ | :------------------------------------------------------ | :-------------------------------------------------------- |
 | [enabled](/viewer/rendering-pipeline-api/g-pass-api.md#enabled) | [jitter](/viewer/rendering-pipeline-api/g-pass-api.md#jitter)             | [options](/viewer/rendering-pipeline-api/g-pass-api.md#options)     | [outputTarget](/viewer/rendering-pipeline-api/g-pass-api.md#outputTarget)             |
 | [overrideBatchMaterial](/viewer/rendering-pipeline-api/g-pass-api.md#overridebatchmaterial)         | [overrideMaterial](/viewer/rendering-pipeline-api/g-pass-api.md#overridematerial) | [visibility](/viewer/rendering-pipeline-api/g-pass-api.md#visibility)  
@@ -205,7 +205,7 @@ Clearing will be executed on whatever the current `outputTarget` value is. If `o
 
 **Parameters**
 
-- **color**: The color represented as a number as previously [detailed](/viewer/rendering-pipeline-api/g-pass-api#clearcolor)
+- **color**: The color represented as a number as previously [detailed](/viewer/rendering-pipeline-api/g-pass-api.md#clearcolor)
 - **alpha**: The alpha value in the range of [0,1]
 
 **Returns**: _void_
@@ -217,7 +217,7 @@ Clearing will be executed on whatever the current `outputTarget` value is. If `o
 setClearFlags(flags: number): void
 ```
 
-Sets the clear flags. The [_ClearFlags_]((/viewer/rendering-pipeline-api/g-pass-api#clearflagsenum)) values can be used for ease of use
+Sets the clear flags. The [_ClearFlags_]((/viewer/rendering-pipeline-api/g-pass-api.md#clearflagsenum)) values can be used for ease of use
 
 **Parameters**
 
