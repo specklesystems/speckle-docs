@@ -45,8 +45,8 @@ renderTree.buildRenderTree(geometryConverter);
 
 For examples of using our loading system and concrete implementations of `Loader` and `GeometryConverter` you can have a look at :
 
-- [Speckle loader and converter](https://github.com/specklesystems/speckle-server/tree/alex/API2.0/packages/viewer/src/modules/loaders/Speckle)
-- [OBJ loader and converter (geometry only)](https://github.com/specklesystems/speckle-server/tree/alex/API2.0/packages/viewer/src/modules/loaders/OBJ)
+- [Speckle loader and converter](https://github.com/specklesystems/speckle-server/tree/main/packages/viewer/src/modules/loaders/Speckle)
+- [OBJ loader and converter (geometry only)](https://github.com/specklesystems/speckle-server/tree/main/packages/viewer/src/modules/loaders/OBJ)
 
 Additionally, [here](https://stackblitz.com/edit/speckle-obj-loader?file=index.html) is a live sandbox with the OBJLoader in use or <VueCustomTooltip label="Embedding works only on chromium based browsers"><ins>embedded</ins></VueCustomTooltip> below
 
