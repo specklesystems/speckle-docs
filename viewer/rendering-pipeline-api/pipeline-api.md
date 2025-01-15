@@ -56,9 +56,9 @@ The final display size for the pipeline in pixels. DPR is already factored in.
 protected passList: Array<GPass>;
 ```
 
-The pipeline's ordered [_GPass_](/viewer/rendering-pipeline-api/gpass-api.md).
+The pipeline's ordered [_GPass_](/viewer/rendering-pipeline-api/g-pass-api.md).
 
-**Returns**: Array<[_GPass_](/viewer/rendering-pipeline-api/gpass-api.md)>
+**Returns**: Array<[_GPass_](/viewer/rendering-pipeline-api/g-pass-api.md)>
 
 #### <b>speckleRenderer</b>
 
@@ -81,7 +81,7 @@ get passes(): Array<GPass>;
 
 Gets the current ordered pass list
 
-**Returns**: Array<[_GPass_](/viewer/rendering-pipeline-api/gpass-api.md)>
+**Returns**: Array<[_GPass_](/viewer/rendering-pipeline-api/g-pass-api.md)>
 
 
 
@@ -153,7 +153,7 @@ Get's all the passes with the provided name
 
 - **name**: _string_
 
-**Returns**: [_GPass[]_](/viewer/rendering-pipeline-api/gpass-api.md)
+**Returns**: [_GPass[]_](/viewer/rendering-pipeline-api/g-pass-api.md)
 
 
 #### <b>onAfterPipelineRender</b>
