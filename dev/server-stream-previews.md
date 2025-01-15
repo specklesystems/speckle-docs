@@ -28,4 +28,4 @@ And here is an [object](https://app.speckle.systems/streams/3073b96e86/objects/1
 ```md
 ![speckle haus object](https://app.speckle.systems/preview/3073b96e86/objects/1a2a5fd7ff5c6e6b2382f513d19eb3d5)
 ```
-<img src="speckle haus object](https://app.speckle.systems/preview/3073b96e86/objects/1a2a5fd7ff5c6e6b2382f513d19eb3d5" />
+<img src="https://app.speckle.systems/preview/3073b96e86/objects/1a2a5fd7ff5c6e6b2382f513d19eb3d5" />
