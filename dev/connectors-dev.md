@@ -372,7 +372,7 @@ Now create a new class named `ConverterAPP_NAME` and have it implement the `ISpe
 
 You might not need to implement all these methods, it really depends on how you want to handle the conversions and on how complex is the host app you're dealing with.
 
-We'll detail a few of these methods and properties below, and you can see how they have been implemented for [Rhino](https://github.com/specklesystems/speckle-sharp/blob/master/Objects/Converters/ConverterRhinoGh/ConverterRhinoGh.cs) and [Revit](https://github.com/specklesystems/speckle-sharp/blob/master/Objects/Converters/ConverterRevit/ConverterRevitShared/ConverterRevit.cs).
+We'll detail a few of these methods and properties below, and you can see how they have been implemented for [Rhino](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.cs) and [Revit](https://github.com/specklesystems/speckle-sharp/blob/master/Objects/Converters/ConverterRevit/ConverterRevitShared/ConverterRevit.cs).
 
 :::tip IMPORTANT
 
