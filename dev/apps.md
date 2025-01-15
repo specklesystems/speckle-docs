@@ -126,7 +126,7 @@ npm i vuex-persist vue2-timeago debounce
 
 ### Run your app for the first time
 
-If everything went well, running the following command should make the app available at [http://localhost:8080](http://localhost:8080).
+If everything went well, running the following command should make the app available at `http://localhost:8080`.
 
 ```bash
 npm run serve
