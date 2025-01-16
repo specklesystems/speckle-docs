@@ -37,7 +37,7 @@ Populates/constructs this batch object.
 
 **Parameters**
 
-- **renderView**: [_NodeRenderView_](/viewer/viewer/render-view-api.md)
+- **renderView**: [_NodeRenderView_](./render-view-api)
 - **batchIndex**: The object's index within its batch. Objects are placed in order inside the batch as they get processed
 
 ### <h3>Properties</h3>

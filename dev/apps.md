@@ -110,7 +110,7 @@ This step assumes you already installed VSCode in your path. If you haven't, the
 
 ### Install other dependencies
 
-For our UI, we'll also be using [Vuetify](TODO) to make our life easier, as it has many useful components. To add it, run:
+For our UI, we'll also be using [Vuetify](https://vuetifyjs.com/en/) to make our life easier, as it has many useful components. To add it, run:
 
 ```bash
 vue add vuetify
@@ -126,7 +126,7 @@ npm i vuex-persist vue2-timeago debounce
 
 ### Run your app for the first time
 
-If everything went well, running the following command should make the app available at [http://localhost:8080](http://localhost:8080).
+If everything went well, running the following command should make the app available at `http://localhost:8080`.
 
 ```bash
 npm run serve
@@ -1241,7 +1241,7 @@ export default {
 
 ## Preview result
 
-That should cover all the changes needed! Go ahead to [http://localhost:8080](https://localhost:8080). If logged in, your app should be looking like this 👇🏼
+That should cover all the changes needed! Go ahead to `http://localhost:8080`. If logged in, your app should be looking like this 👇🏼
 
 ![Final view with no stream selected](./img/apps-guide/app-guide-full-demo.gif)
 

@@ -211,9 +211,9 @@ The class being used is `ProgressReport` defined in [Core](https://github.com/sp
 
 It has three main methods that you should implement in your conversions and bindings:
 
-- `Log()`: used to log any useful operation, for instance [the converter version being used](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.cs#L51), [successful operations](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.cs#L483) or [skipped elements](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.cs#L255). You should Log as many useful operations as possible, in our connectors every conversion is being logged.
-- `LogConversionError()`: used to track any errors happening [during a conversion](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.Geometry.cs#L949)
-- `LogOperationError()`: used to track [any other error](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/ConnectorRhino/ConnectorRhino/ConnectorRhinoShared/UI/ConnectorBindingsRhino2.cs#L194), while sending or receiving
+- `Log()`: used to log any useful operation, for instance [the converter version being used](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.cs#L51), [successful operations](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.cs#L483) or [skipped elements](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.cs#L255). You should Log as many useful operations as possible, in our connectors every conversion is being logged.
+- `LogConversionError()`: used to track any errors happening [during a conversion](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.cs#L949)
+- `LogOperationError()`: used to track [any other error](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.cs#L194), while sending or receiving
 
 #### Passing Errors from the Converter to the UI
 
@@ -221,13 +221,13 @@ It has three main methods that you should implement in your conversions and bind
 Don't forget this step! Not doing so will result in incomplete reports.
 :::
 
-Since Speckle kits are hot swappable, the connectors or UI don't have any direct dependency on them. Therefore, we'd typically have 2 instances of a `ProgressReport` class, one [inside the converter](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.cs#L58) and one in the [connector/UI](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/DesktopUI2/DesktopUI2/ViewModels/ProgressViewModel.cs#L20).
+Since Speckle kits are hot swappable, the connectors or UI don't have any direct dependency on them. Therefore, we'd typically have 2 instances of a `ProgressReport` class, one [inside the converter](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.cs#L58) and one in the [connector/UI](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.cs#L20).
 
-To make sure your reports include everything, you need to merge the two at the end of a send/receive conversion by calling: `connectorReport.Merge(converterReport);` like demonstrated [here](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/ConnectorRhino/ConnectorRhino/ConnectorRhinoShared/UI/ConnectorBindingsRhino2.cs#L230).
+To make sure your reports include everything, you need to merge the two at the end of a send/receive conversion by calling: `connectorReport.Merge(converterReport);` like demonstrated [here](https://github.com/specklesystems/speckle-sharp/blob/main/ConnectorRhino/ConnectorRhino/ConnectorRhinoShared/UI/ConnectorBindingsRhino.cs#L230).
 
 #### Report Summary
 
-At the top of a report we're outputting a summary, it only works if some _keywords_ are used in the messages being logged: `converted`, `created`, `updated`, `skipped` ,`failed`; [see the logic here](https://github.com/specklesystems/speckle-sharp/blob/c413671748d72b236c99177f8f4994ad015da6ba/Core/Core/Models/Extras.cs#L103-L124). It might change in the future, but works for now.
+At the top of a report we're outputting a summary, it only works if some _keywords_ are used in the messages being logged: `converted`, `created`, `updated`, `skipped` ,`failed`; [see the logic here](https://github.com/specklesystems/speckle-sharp/blob/main/Core/Core/Models/Extras.cs#L103-L124). It might change in the future, but works for now.
 
 Therefore your messages should be formatted like this:
 
@@ -267,6 +267,7 @@ public void OpenLink(StreamState state)
 }
 ```
 
+
 ## Implementing Telemetry
 
 Telemetry is an optional aspects of a connector, but it massively helps us understand how our tech is being used and if our products are useful or not.
@@ -274,8 +275,8 @@ We encourage everyone adding it (and enabling it) in their connectors. The more 
 
 The telemetry service (matomo) is already added as a reference in Core, so you will just need to:
 
-- initialize it with a `Setup.Init()` with the name of your connector as input, [example](https://github.com/specklesystems/speckle-sharp/blob/2a2ac0a6900e8833081b8cc851878b0decffa304/ConnectorGrasshopper/ConnectorGrasshopper/Loader.cs#L25).
-- track the [main actions](https://github.com/specklesystems/speckle-sharp/blob/main/Core/Core/Logging/Tracker.cs#L20-L48) with `Tracker.TrackPageView`, [example](https://github.com/specklesystems/speckle-sharp/blob/2a2ac0a6900e8833081b8cc851878b0decffa304/ConnectorGrasshopper/ConnectorGrasshopper/Ops/Operations.SendComponent.cs#L59)
+- initialize it with a `Setup.Init()` with the name of your connector as input,
+- track the main actions with `Tracker.TrackPageView`, [example](https://github.com/specklesystems/speckle-sharp/blob/main/ConnectorGrasshopper/ConnectorGrasshopperShared/Ops/Deprecated/Operations.SendComponent.cs#L59)
 
 ## Writing the Converter
 
@@ -371,7 +372,7 @@ Now create a new class named `ConverterAPP_NAME` and have it implement the `ISpe
 
 You might not need to implement all these methods, it really depends on how you want to handle the conversions and on how complex is the host app you're dealing with.
 
-We'll detail a few of these methods and properties below, and you can see how they have been implemented for [Rhino](https://github.com/specklesystems/speckle-sharp/blob/master/Objects/Converters/ConverterRhinoGh/ConverterRhinoGh.cs) and [Revit](https://github.com/specklesystems/speckle-sharp/blob/master/Objects/Converters/ConverterRevit/ConverterRevitShared/ConverterRevit.cs).
+We'll detail a few of these methods and properties below, and you can see how they have been implemented for [Rhino](https://github.com/specklesystems/speckle-sharp/blob/main/Objects/Converters/ConverterRhinoGh/ConverterRhinoGhShared/ConverterRhinoGh.cs) and [Revit](https://github.com/specklesystems/speckle-sharp/blob/master/Objects/Converters/ConverterRevit/ConverterRevitShared/ConverterRevit.cs).
 
 :::tip IMPORTANT
 

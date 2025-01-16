@@ -246,7 +246,7 @@ Speckle 2.0 lets you create _Speckle BIM Elements_ from Rhino Geometry, so you c
 
 ::: tip
 
-You'll find the same functionality for Rhino [here](/rhino.html#using-rhino-bim).
+You'll find the same functionality for Rhino, which is now covered not by object types but by using [Speckle Mapper](/user/rhino.html#rhino-mapper).
 
 :::
 

@@ -52,7 +52,7 @@ The `Base` object behaves like a dictionary - with some added Speckle smarts - a
 
 ::: tip
 
-For more advanced usage, check [the tests out](https://github.com/specklesystems/speckle-sharp/blob/master/Core/Tests/BaseTests.cs)!
+For more advanced usage, check [the tests out](https://github.com/specklesystems/speckle-sharp/tree/main/Core/Tests)!
 More on `Base` [can be found here](/dev/base)
 
 :::

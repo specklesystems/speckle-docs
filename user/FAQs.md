@@ -68,7 +68,7 @@ If the server address is **blocked by a corporate firewall, proxy or VPN**, kind
 
 Make sure you can also receive emails from `*@speckle.systems`, eg. `no-reply@speckle.systems`. Some IT departments might block this sender address - without it invites and other features will not work.
 
-For any more questions about this, feel free to [contact us](https://speckle.systems/contact/)!
+For any more questions about this, feel free to [contact us](https://speckle.systems/about/)!
 
 ## I can't add an account in Speckle Manager
 
@@ -108,7 +108,7 @@ C:\Program Files\Autodesk\Revit 20XX\AddIns\
 
 ## I forgot my password 🤔
 
-This time over, we've got you covered: just go to the [password reset page](https://app.speckle.systems/authn/resetpassword)!
+This time over, we've got you covered: just go to the [password reset page](https://app.speckle.systems/authn/forgotten-password)!
 
 ## More questions?
 

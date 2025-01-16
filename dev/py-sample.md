@@ -446,7 +446,7 @@ body {
 </code-block>
 </code-group>
 
-Now all that's left is to run `app.py` and head to [`http://127.0.0.1:8050/`](http://127.0.0.1:8050/) to see your amazing plots.
+Now all that's left is to run `app.py` and head to `http://127.0.0.1:8050/` to see your amazing plots.
 
 ![dashboard using speckle-py, plotly, and dash](https://i.imgur.com/ELzd1NG.gif)
 

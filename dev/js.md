@@ -12,7 +12,7 @@ For development purposes, to start a webpack live reload server run:
 npm run serve
 ```
 
-You can now access the example at [http://localhost:9000/example.html](http://localhost:9000/example.html).
+You can now access the example at `http://localhost:9000/example.html`.
 
 To build the library, you should run:
 

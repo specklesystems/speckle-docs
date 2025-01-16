@@ -124,7 +124,7 @@ Here is how to use it:
 ---
 
 4. After you set up the receive parameters, just click the `Receive` button. The specified object and all its children will be imported as Actors.<br/>
-To set options on how the objects are converted, see the [object-conversion secion](http://localhost:8080/user/unreal.html#object-conversion).
+To set options on how the objects are converted, see the [object-conversion secion](./unreal.html#object-conversion).
 
 
 ## Usage (Blueprint)

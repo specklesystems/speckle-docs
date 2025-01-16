@@ -48,5 +48,3 @@ Moving a project from a personal account to a Workspace enables team collaborati
 - **Automation Across Projects**: Use shared functions to standardise team workflows in multiple projects.  
 - **Access Reviews**: Regularly audit project access and automations for security and compliance.  
 - **Optimising for Large Teams**: Segment projects across multiple Workspaces for more explicit boundaries and easier management.
-
-For additional details on Workspace features, visit the [Speckle Automate Documentation](https://speckle.guide/automate/) or the [Workspaces Overview](./overview.md).  

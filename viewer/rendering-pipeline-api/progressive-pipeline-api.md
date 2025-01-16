@@ -7,7 +7,7 @@ Abstract class that extends the abstract [_Pipeline_](/viewer/rendering-pipeline
 - Progressive
 - Passthrough
 
-Each stage will typically have it's own list of [_GPass_](/viewer/pipeline-api/gpass-api.md), bu they can share pass instances between them if necessary
+Each stage will typically have it's own list of [_GPass_](/viewer/rendering-pipeline-api/g-pass-api.md), bu they can share pass instances between them if necessary
 
 At any given time the pipeline can be in one of these stages. *Dynamic* stage is when the pipeline needs to render dynamic content like for example when the camera is in motion. *Progressive* stage is when the pipeline has reached a stationary point and progressive rendering can start and accumulate. *Passthrough* stage is when the pipeline needs to render, without restarting an already existing progressive result. The progressive rendering resulti is passed through as is.
 
@@ -120,7 +120,7 @@ get passes(): Array<GPass>;
 
 Gets the pipeline's passes by combining all three of it's stages passes in the following order: dynamic, progressive and passthrough.
 
-**Returns**: Array<[_GPass_](/viewer/pipeline-api/gpass-api.md)>
+**Returns**: Array<[_GPass_](/viewer/rendering-pipeline-api/g-pass-api.md)>
 
 
 
