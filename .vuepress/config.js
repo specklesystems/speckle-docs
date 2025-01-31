@@ -227,7 +227,7 @@ module.exports = {
         {
           title: 'Javascript SDK',
           collapsable: false,
-          children: ['js', 'viewer', 'js-app-script'],
+          children: ['js-app-script'],
         },
         {
           title: 'Server API & Apps',
