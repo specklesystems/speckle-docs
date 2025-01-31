@@ -225,11 +225,6 @@ module.exports = {
           children: ['python', 'py-examples', 'py-sample'],
         },
         {
-          title: 'Javascript SDK',
-          collapsable: false,
-          children: ['js', 'viewer', 'js-app-script'],
-        },
-        {
           title: 'Server API & Apps',
           collapsable: false,
           children: [
