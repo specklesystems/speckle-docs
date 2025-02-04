@@ -1,16 +1,22 @@
 # Annotating Function Results
 
-Function results can be attached to objects and versions to provide detailed feedback and analysis outcomes.
+`AutomationContext` provides methods to attach structured annotations to objects, allowing automated analysis and validation 
+workflows to provide meaningful feedback.
 
 ## Object Annotations
 
-### Python
+Object annotations enable attaching different types of messages (errors, warnings, informational notes, and successes) to specific objects within an automation run. This helps in tracking issues, communicating insights, and guiding decision-making.
+
+::: tip Why annotate objects?
+Annotations allow functions to return structured results, making them actionable in dashboards, reports, and workflows.
+:::
+
+Example
 ```python
+from speckle_automate import AutomateContext
+
 def automate_function(runCtx: AutomateContext):
-    # Analyze objects
-    objects_with_issues = []
-    
-    # Add object annotations
+    # Example: Structural validation
     runCtx.attach_error_to_objects(
         "Structural Analysis",
         ["obj_id_1", "obj_id_2"],
@@ -30,11 +36,9 @@ def automate_function(runCtx: AutomateContext):
     )
 ```
 
-### C#
 ```csharp
 public static void Run(AutomationContext context)
 {
-    // Add object annotations
     context.AttachErrorToObjects(
         "Structural Analysis",
         new[] { "obj_id_1", "obj_id_2" },
@@ -55,58 +59,60 @@ public static void Run(AutomationContext context)
 }
 ```
 
-## Version Results
+### Annotation Types
 
-### Python
+| Type    | Method                      | Use Case                                      |
+|---------|-----------------------------|-----------------------------------------------|
+| Error   | attach_error_to_objects()   | Critical issues requiring immediate action    |
+| Warning | attach_warning_to_objects() | Potential concerns needing attention          |
+| Info    | attach_info_to_objects()    | General insights and analysis results         |
+| Success | attach_success_to_objects() | Positive outcomes or validation confirmations |
+
+## Metadata and Customisation
+
+Annotations can be enriched with additional metadata to improve interpretability and visualization.
+
+::: tip Using Metadata in Annotations
+The metadata parameter allows storing arbitrary key-value pairs alongside annotations, making them more descriptive and informative.
+:::
+
+Example:
+
 ```python
-def automate_function(runCtx: AutomateContext):
-    # Create results
-    results = [
-        ObjectResult("obj_id_1", "Error", "Structural failure risk"),
-        ObjectResult("obj_id_2", "Warning", "Load capacity concern"),
-        ObjectResult("obj_id_3", "Info", "Cost optimization applied")
-    ]
-    
-    # Create new version with results
-    runCtx.create_new_version_with_results(
-        objects_with_issues,
-        "Analysis Results",
-        results
-    )
+runCtx.attach_info_to_objects(
+    "Cost Analysis",
+    ["obj_id_4", "obj_id_5"],
+    "Material cost optimized",
+    metadata={"currency": "USD", "cost_saved": 5000}
+)
 ```
 
-### C#
-```csharp
-public static void Run(AutomationContext context)
-{
-    var results = new List<ObjectResult>
-    {
-        new("obj_id_1", "Error", "Structural failure risk"),
-        new("obj_id_2", "Warning", "Load capacity concern"),
-        new("obj_id_3", "Info", "Cost optimization applied")
-    };
-    
-    context.CreateNewVersionWithResults(
-        objectsWithIssues,
-        "Analysis Results",
-        results
-    );
-}
+### Gradient Visualization
+
+Certain metadata keys affect how results are displayed in the model viewer:
+
+- `gradient: Bool`: Enables gradient-based visualization.
+
+- `gradientValues: List[str]`: Specifies values to apply to objects.
+
+Example:
+
+```python
+runCtx.attach_info_to_objects(
+    "Gradient Visualization",
+    all_object_ids,
+    "Values applied to objects in list order",
+    metadata={"gradient": True, "gradientValues": gradient_values}
+)
 ```
-
-## Annotation Types
-
-| Type | Method | Use Case |
-|------|---------|----------|
-| Error | attach_error_to_objects() | Critical issues requiring attention |
-| Warning | attach_warning_to_objects() | Potential issues or concerns |
-| Info | attach_info_to_objects() | General information or updates |
-| Success | attach_success_to_objects() | Positive outcomes or validations |
 
 ## Best Practices
 
-1. Use appropriate annotation types
-2. Group related annotations by category
-3. Provide clear, actionable messages
-4. Include relevant object IDs
-5. Create new versions for major changes
+- Use the appropriate annotation type to convey severity accurately.
+- Group related annotations into categories for better organization.
+- Provide clear, actionable messages to aid decision-making.
+- Include relevant object IDs to maintain traceability.
+- Leverage metadata for richer annotations and better UI integration.
+
+By leveraging these methods, automation functions can provide structured feedback that enhances decision-making and 
+workflow efficiency.
