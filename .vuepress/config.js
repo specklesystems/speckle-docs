@@ -272,11 +272,21 @@ module.exports = {
           children: [
             'public-functions',
             'create-function',
-            'making-your-function',
+            {
+              title:'Making Your Function',
+              collapsable: true,
+              children: [
+                'function-inputs',
+                'function-context',
+                'function-data',
+                'function-success',
+                'function-results',
+                'function-artefacts'
+              ]
+            },
             'function-testing',
             'documenting',
-            'release-function-version',
-            // 'register-existing-function-repository',
+            'release-function-version'
           ],
         },
         {
