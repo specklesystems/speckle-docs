@@ -1,10 +1,10 @@
-# Reporting Function Success
+# Reporting Success
 
-Functions must report their execution status to provide clear feedback about their operation.
+Effective execution reporting ensures visibility, debugging efficiency, and robust automation workflows. 
+Functions must clearly communicate their success or failure states.
 
-## Status Methods
+## Status Reporting Methods
 
-### Python
 ```python
 async def automate_function(runCtx: AutomateContext):
     try:
@@ -22,8 +22,11 @@ async def automate_function(runCtx: AutomateContext):
         await runCtx.mark_run_failed(str(ex))
         raise
 ```
+#### Why?
+- Asynchronous execution supports event-driven workflows.
+- The try-except block ensures errors are caught and reported.
+- Explicit success/failure messages provide clarity.
 
-### C#
 ```csharp
 public static async Task Run(AutomationContext context)
 {
@@ -51,19 +54,36 @@ public static async Task Run(AutomationContext context)
     }
 }
 ```
+#### Why?
 
-## Status Types
+- Uses Task for async execution to integrate with automation workflows.
+- Ensures the function reports status before exiting.
+- Encapsulates logic within try-catch to prevent silent failures.
 
-| Status | Method | Use Case |
-|--------|---------|----------|
-| Success | mark_run_success() | Function completed normally |
-| Failed | mark_run_failed() | Function encountered errors |
-| Exception | mark_run_failed() + raise | Unexpected errors |
+## Status Types and When to Use Them
 
-## Best Practices
 
-1. Always report final status
-2. Include meaningful messages
-3. Use appropriate status type
-4. Include relevant metrics
-5. Handle all error cases
+
+| Status    | Method                    | When to Use                                              |
+|-----------|---------------------------|----------------------------------------------------------|
+| Success   | mark_run_success()        | Function executes correctly and returns expected results |
+| Failed    | mark_run_failed()         | Function completes but results are invalid or not useful |
+| Exception | mark_run_failed() + raise | Function crashes due to unexpected errors                |
+
+#### Why?
+
+- Explicit status codes streamline debugging and monitoring.
+- Differentiates between an expected failure and a catastrophic error.
+- Enables structured logging for automated workflows.
+
+## Best Practices for Execution Reporting
+1. Always Report Final Status
+   - Unreported failures leave automation in limbo.
+2. Use Meaningful Messages
+   - Generic errors like "Process failed" are useless in debugging.
+3. Choose the Right Status Type
+   - A function that runs but produces bad data should be marked as failed, not as an exception.
+4. Include Relevant Metrics
+   - If processing a batch, report counts (e.g., "5 valid elements found").
+5. Handle All Error Cases
+   - Assume the worst: anticipate network failures, malformed data, and external system issues.
