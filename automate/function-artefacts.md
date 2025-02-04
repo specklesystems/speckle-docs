@@ -24,7 +24,7 @@ depending on the desired outcome.
    
 
 
-2Storing a File Artifact
+2. Storing a File Artifact
 
    File artifacts serve as an alternative when the function output is best represented as a document, dataset, or visualization rather than an interactive Speckle model.
 
