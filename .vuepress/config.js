@@ -222,7 +222,20 @@ module.exports = {
         {
           title: 'Python SDK',
           collapsable: false,
-          children: ['python', 'py-examples', 'py-sample'],
+          children: [
+            'py-getting-started',
+            'py-core-concepts',
+            'py-authentication',
+            'py-howto-base-objects',
+            'py-howto-work-with-transports',
+            'py-howto-collaboration',
+            'py-howto-work-with-large-data',
+            'py-howto-realtime',
+            'py-howto-geometry',
+            'py-howto-instances',
+            // 'py-examples',
+            // 'py-sample',
+          ],
         },
         {
           title: 'Server API & Apps',
@@ -254,17 +267,19 @@ module.exports = {
             {
               title: 'Core Functionalities',
               collapsable: true,
-              children: [
-                'for-automate-users',
-                'for-function-authors',
-              ],
+              children: ['for-automate-users', 'for-function-authors'],
             },
           ],
         },
         {
           title: 'Automations',
           collapsable: false,
-          children: ['create-automation', 'update-automation', 'viewing-results', 'troubleshooting'],
+          children: [
+            'create-automation',
+            'update-automation',
+            'viewing-results',
+            'troubleshooting',
+          ],
         },
         {
           title: 'Functions',
@@ -343,8 +358,8 @@ module.exports = {
                     'rendering-pipeline-api/progressive-pipeline-api',
                     'rendering-pipeline-api/g-pass-api',
                     'rendering-pipeline-api/base-g-pass-api',
-                    'rendering-pipeline-api/progressive-g-pass-api'
-                  ]
+                    'rendering-pipeline-api/progressive-g-pass-api',
+                  ],
                 },
                 'speckle-material-api',
                 'speckle-renderer-api',
@@ -391,7 +406,12 @@ module.exports = {
           sidebarDepth: 0,
           title: 'Workspace Docs 👩‍🏭',
           collapsable: false,
-          children: ['', 'welcome-to-workspaces', 'getting-started', 'advanced-features'],
+          children: [
+            '',
+            'welcome-to-workspaces',
+            'getting-started',
+            'advanced-features',
+          ],
         },
         {
           title: 'Refererences',
