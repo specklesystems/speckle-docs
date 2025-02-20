@@ -176,7 +176,6 @@ services:
       POSTGRES_DB: "speckle"
       ENABLE_MP: "false"
 
-      USE_FRONTEND_2: "true"
       # TODO: Change this to the URL of the speckle server, as accessed from the network
       FRONTEND_ORIGIN: "http://127.0.0.1"
 
@@ -393,7 +392,6 @@ services:
       S3_SECRET_KEY: "minioadmin"
       S3_BUCKET: "speckle-server"
 
-      USE_FRONTEND_2: "true"
       # TODO: Change this to the URL of the speckle server, as accessed from the network
       FRONTEND_ORIGIN: "http://127.0.0.1"
 
