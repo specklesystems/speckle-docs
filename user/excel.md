@@ -127,36 +127,6 @@ For instance, you could create 10 new lines with the data below:
 
 ![image](https://user-images.githubusercontent.com/2679513/119196439-17085600-ba7e-11eb-8273-6fdf60e91894.png)
 
-## Parameter Updater (Sync Revit Schedules and other data)
-
-The Speckle Revit Connector enables you to easily update Revit Schedules from Excel.
-
-Step 1 is to send your schedule from Revit to Speckle using the Speckle Revit Connector. Select the desired schedule using the "Schedule" option in the selection menu on the connector as shown below.
-
-![image](./img-excel/revit-schedule.png)
-
-The next step is to receive the version in Excel. There is some preprocessing magic that is done in the background to identify that you are trying to receive a schedule. The result of this preprocessing is that you won't be prompted to filter and receive data as you normally would.
-
-![image](./img-excel/receive-schedule.gif)
-
-You may notice that some of the table columns are shaded gray. That is an indication that those values are computed in Revit and are unable to be set directly in Revit.
-
-From this point you are able to sort and edit your schedule any way that you would like. To send the schedule back to Revit, select the table (or just a portion of it if you only want to send certain data), and send it to Speckle (with or without headers) as described in the [Sending Data](/user/excel.html#sending-data) section. It is important to note that your selection must not contain any cells outside of the table range or receiving your data back in Revit will fail to update the existing schedule.
-
-![image](./img-excel/update-in-revit.gif)
-
-::: tip LIMITATIONS
-Currently the Parameter  Updater cannot update parameter values that correspond to other elements. These values can often be identified in Revit by having a dropdown selection in the Revit Schedule. Adding support for updating this type of parameter is currently on our backlog.
-:::
-
-## Advanced Workflows
-
-::: tip IMPORTANT
-🚧 This section is under construction, we will add more documentation and examples on this soon! 🚧
-:::
-
-More advanced workflows are possible, similarly to how our [Grasshopper Schema Builder](/user/grasshopper.html#schema-builder) works, you can **create BIM elements** directly from Excel and **update Revit elements** too.
-
 ## Support
 
 For any feedback and support requests please visit our [community forum](https://speckle.community/).
