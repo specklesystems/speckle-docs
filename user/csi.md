@@ -4,7 +4,7 @@ typora-copy-images-to: img-csi
 
 # CSI Products (ETABS, CSiBridge, SAP2000, SAFE)
 
-<div class="ribbon">
+<div class="banner-ribbon">
   <span><b>Notice</b>: This user guide is based on V2 connectors.</span>
   <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
 </div>
