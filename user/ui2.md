@@ -4,6 +4,11 @@ typora-copy-images-to: img-interop
 
 # User Interface
 
+<div class="banner-ribbon">
+  <span><b>Important</b>: This tutorial features V2 connectors.</span>
+  <span class="next-gen">Next Gen is on its way, radically changing how connectors look and work!</span>
+</div>
+
 Most of our connectors look the same, despite working inside of different applications. Our shared user interface is currently used inside:
 
 - Rhinoceros
