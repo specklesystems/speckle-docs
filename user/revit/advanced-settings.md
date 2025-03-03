@@ -4,6 +4,11 @@ title: Settings
 
 # Connector Settings
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on the V2 Revit connector.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+</div>
+
 The `Advanced Settings` page allows you to customize the way Speckle behaves "per-project".
 
 <div style="text-align: center;">
