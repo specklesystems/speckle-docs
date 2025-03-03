@@ -4,6 +4,11 @@ title: Sending
 
 # Sending Models from Revit
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on the V2 Revit connector.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+</div>
+
 After successfully installing the Revit connector for Speckle, let’s send your first data from Revit to Speckleverse.
 
 :::tip NOTE✍️
