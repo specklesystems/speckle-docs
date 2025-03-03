@@ -4,6 +4,11 @@ title: Manual Installation
 
 # Manual Installation
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on the V2 Sketchup connector.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+</div>
+
 If you'd like to try installing on a different platform or for a different version, you can do a manual installation. Note that the connector has not been tested on older versions or on different platforms. There may be issues, so feel free to report them on the forum.
 
 ## 1. Clone the Repository
