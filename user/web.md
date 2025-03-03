@@ -1,5 +1,11 @@
 # Web App
 
+<div class="banner-ribbon">
+  <span><b>Important</b>: This guide features legacy web application.</span>
+  <span class="next-gen">The new Speckle web application can be found at https://app.speckle.systems </span>
+</div>
+
+
 ## Introduction
 
 The **Speckle Web App** is our browser-based interface for managing all things Speckle. It is your one stop shop for:
