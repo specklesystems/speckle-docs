@@ -4,6 +4,11 @@ title: Basic Usage
 
 # Using 3D Viewer Visual
 
+<div class="banner-ribbon">
+  <span><b>Important</b>: This tutorial features the V2 PowerBI data connector and model viewer visual.</span>
+  <span class="next-gen">Next Gen is on its way, radically changing how the PowerBI connector works!</span>
+</div>
+
 The 3D Viewer Visual was designed to work alongside our **Power BI Connector.** The *data connector* will output a table containing the following columns:
 
 - **Model URL 👈**
