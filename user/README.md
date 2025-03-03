@@ -4,6 +4,11 @@ permalink: /
 
 # Welcome!
 
+<div class="ribbon">
+  <span><b>Notice</b>: This user guide is based on V2 connectors.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+</div>
+
 Thanks for visiting our user guide! This is the single source of documentation on everything Speckle.
 
 Organizations all over the world rely on our collaboration, interoperability and automation platform to deliver better buildings, faster. Speckle is a platform with endless possibilities, we'll walk you through some of its most common usage scenarios, but ultimately you'll have the flexibility to use Speckle (and your data) however you want.
