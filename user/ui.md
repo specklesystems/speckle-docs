@@ -4,6 +4,12 @@ typora-copy-images-to: img-interop
 
 # User Interface (old)
 
+<div class="banner-ribbon">
+  <span><b>Important</b>: This tutorial features legacy connectors.</span>
+  <span class="next-gen">Next Gen is on its way, radically changing how connectors look and work!</span>
+</div>
+
+
 ::: tip IMPORTANT ⚠️
 Our default User Interface is changing! 🤩
 See our new version [here](./ui2), and add your feedback on the [forum](https://speckle.community/t/new-desktopui-in-alpha-testing/1851)!
