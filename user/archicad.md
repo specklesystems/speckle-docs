@@ -1,5 +1,10 @@
 # Archicad
 
+<div class="ribbon">
+  <span><b>Notice</b>: This user guide is based on the V2 ArchiCAD connector.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+</div>
+
 The Speckle Archicad Connector currently supports Archicad 25, 26 and 27🆕. It is available both on Windows and Mac.
 
 ::: tip 💡 TIP
