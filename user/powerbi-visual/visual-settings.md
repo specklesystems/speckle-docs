@@ -1,5 +1,10 @@
 # Visual Settings
 
+<div class="banner-ribbon">
+  <span><b>Important</b>: This guide features the V2 PowerBI data connector and model viewer visual.</span>
+  <span class="next-gen">Next Gen is on its way, radically changing how the PowerBI connector works!</span>
+</div>
+
 ## Object Display
 
 This setting determines how objects are displayed when not in the input data table.
