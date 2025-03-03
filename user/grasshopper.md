@@ -4,6 +4,11 @@ typora-copy-images-to: ./img-gh
 
 # Grasshopper
 
+<div class="ribbon">
+  <span><b>Notice</b>: This user guide is based on the V2 Grasshopper connector.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+</div>
+
 ::: tip
 
 Check out our dedicated tutorial on [how to get started with Grasshopper](https://speckle.systems/tutorials/getting-started-with-speckle-for-grasshopper/)!
