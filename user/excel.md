@@ -4,7 +4,7 @@ typora-copy-images-to: ./img-excel
 
 # Excel
 
-<div class="ribbon">
+<div class="banner-ribbon">
   <span><b>Notice</b>: This user guide is based on the deprecated V2 Excel connector.</span>
   <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
   <span><b>Acknowledgement</b>: The Excel connector is not yet on the V3 Next Gen roadmap.</span>
