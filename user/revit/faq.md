@@ -4,6 +4,11 @@ title: FAQ
 
 # Frequently Asked Questions - Revit Connector
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on the V2 Revit connector.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+</div>
+
 1. **Can I upload my Revit files to Speckle?**
 
    Speckle has the capability to upload files for certain formats, but unfortunately, we cannot support the Revit file format (.rvt) due to its proprietary nature. Speckle is an open-source project and therefore you need to use our connectors to upload your data onto our platform.
