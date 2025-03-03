@@ -1,5 +1,11 @@
 # Unreal
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on the V2 Unreal connector.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+  <span><b>Acknowledgement</b>: The Unreal connector is not yet on the V3 Next Gen roadmap.</span>
+</div>
+
 Our Unreal Engine Connector is in an **beta** stage of development. <br/>
 Currently, we only support **receiving geometry** (sending support is on our roadmap). <br/>
 
