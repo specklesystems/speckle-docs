@@ -1,6 +1,6 @@
 # Bentley (MicroStation, OpenRoads, OpenRail, and OpenBuildings)
 
-<div class="ribbon">
+<div class="banner-ribbon">
   <span><b>Notice</b>: This user guide is based on the V2 Bentley connectors.</span>
   <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
   <span><b>Acknowledgement</b>: The Bentley connectors are not yet on the V3 Next Gen roadmap.</span>
