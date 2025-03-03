@@ -1,5 +1,11 @@
 # SketchUp (Alpha) 🛠️
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on the V2 Sketchup connector.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+</div>
+
+
 ::: tip IMPORTANT ⚠️
 This connector is currently in alpha with limited functionality - please keep this in mind while testing!
 :::

@@ -4,6 +4,11 @@ title: Features
 
 # Features
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on the V2 Revit connector.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+</div>
+
 In this page, we’ll share how Revit Connector converts your Revit model into Speckle format and how it handles updating in Revit.
 
 ## Converting Revit Data to Speckle

@@ -4,6 +4,11 @@ title: Install & Update
 
 # Installing and Updating the Connector
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on the V2 Revit connector.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+</div>
+
 In this page, we’ll cover how to install and update Revit Connector for Speckle.
 
 ## Prerequisites

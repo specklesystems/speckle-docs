@@ -4,6 +4,11 @@ title: Introduction
 
 # Speckle 3D Viewer Visual
 
+<div class="banner-ribbon">
+  <span><b>Important</b>: This guide features the V2 PowerBI data connector and model viewer visual.</span>
+  <span class="next-gen">Next Gen is on its way, radically changing how the PowerBI connector works!</span>
+</div>
+
 **3D Viewer Visual** takes the Power BI Connector to a whole new level. With it, you can bring your Speckle data to life by visualizing it in 3D right inside your Power BI reports.
 
 It is compatible with Power BI Desktop and can also be used in [PowerBI.com](http://powerbi.com/) for online visualizations.

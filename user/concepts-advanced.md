@@ -1,5 +1,10 @@
 # Advanced Concepts
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on V2 connectors and object models.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+</div>
+
 Congratulations on being an advanced user of Speckle!
 You've breezed through our git-based walkthrough guide and have arrived at the hard stuff.
 

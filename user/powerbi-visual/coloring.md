@@ -4,6 +4,12 @@ title: Coloring
 
 # Coloring Objects in 3D
 
+<div class="banner-ribbon">
+  <span><b>Important</b>: This guide features the V2 PowerBI data connector and model viewer visual.</span>
+  <span class="next-gen">Next Gen is on its way, radically changing how the PowerBI connector works!</span>
+</div>
+
+
 <img class="rounded-dropshadow" src="./img-powerbi-visual/11-coloring-objects.gif">
 
 Once a field has been added to **Color By,** the viewer will color the data by the provided field when available. The objects’ colors will be automatically generated and assigned using the Power BI dashboard color palette.

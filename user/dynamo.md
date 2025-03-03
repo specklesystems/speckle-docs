@@ -4,6 +4,12 @@ typora-copy-images-to: ./img-dyn
 
 # Dynamo
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on the V2 Dynamo connectors.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+  <span><b>Acknowledgement</b>: The Dynamo connector is not yet on the V3 Next Gen roadmap.</span>
+</div>
+
 Speckle's Dynamo Connector currently supports Dynamo versions 2.1 to 2.10 (for Autodesk Revit 2019-2022). All versions of Dynamo Sandbox from 2.1 to 2.10 are also supported.
 
 ::: tip Please Note!

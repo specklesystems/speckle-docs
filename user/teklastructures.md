@@ -4,6 +4,12 @@ typora-copy-images-to: img-teklastructures
 
 # Tekla Structures (Alpha) 🛠️
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on the V2 Tekla connector.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+</div>
+
+
 The Speckle Tekla Structures Connector currently supports Tekla Structures 2020 and 2021. It is currently under alpha development so please report any bugs or feedback to the [community forum](https://speckle.community/).
 
 ::: tip

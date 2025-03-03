@@ -1,5 +1,11 @@
 # Mapping Tool (alpha)
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on the V2 connectors.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+  <span><b>Acknowledgement</b>: Mapper is not yet on the V3 Next Gen roadmap.</span>
+</div>
+
 The Speckle Mapping Tool, is a new feature available in some of our connectors that allows for even greater control when sending CAD data to BIM software as it allows to map simple CAD geometry to native BIM elements.
 
 For example, it allows to receive Rhino lines as beams in Revit, and so on.

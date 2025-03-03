@@ -4,6 +4,11 @@ title: Installation
 
 # Installation
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on the V2 Sketchup connector.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+</div>
+
 To install the SketchUp Connector, it’s assumed you have:
 
 - Speckle Account (you can get one **for free🎉** at **[https://app.speckle.systems/](https://app.speckle.systems/)**)

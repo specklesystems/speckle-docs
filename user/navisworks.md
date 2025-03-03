@@ -1,5 +1,10 @@
 # Navisworks (Alpha) 🛠️
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on the V2 Navisoworks connector.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+</div>
+
 ::: tip
 
 Navisworks Connector is an alpha release, which means that it is still in development and may contain bugs or other issues that could cause unexpected behavior. We advise caution if using this software in a production environment or for critical tasks. It should not damage your data in place but unsaved changes may be lost. This software is intended for testing and evaluation purposes only. Please exercise caution when using this software and report any issues or bugs to the development team. Thank you for helping us improve our software.

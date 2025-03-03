@@ -4,6 +4,11 @@ typora-copy-images-to: img-csi
 
 # CSI Products (ETABS, CSiBridge, SAP2000, SAFE)
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on V2 connectors.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+</div>
+
 These connectors are currently under beta development so please report any bugs or feedback to the [community forum](https://speckle.community/).
 
 ::: tip

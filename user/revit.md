@@ -4,6 +4,12 @@ typora-copy-images-to: img-revit
 
 # Revit
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on the V2 Revit connector.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+</div>
+
+
 The Speckle Revit Connector currently supports Autodesk Revit 2020, 2021, 2022 and 🆕2023.
 ::: tip 💡 TIP
 

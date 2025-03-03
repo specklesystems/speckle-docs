@@ -1,5 +1,10 @@
 # Supported Elements
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on V2 connectors.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+</div>
+
 As Speckle develops, we are able to build further integrations with each of the applications we support. However, each application, and its API, comes with its own limitations that (alas) no programmer can overcome!
 
 The tables below give an per-application indication of which object conversions Speckle is currently able to support, and to what extent.

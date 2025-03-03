@@ -3,6 +3,12 @@
 ---
 # Unity
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on the V2 Unity connector.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+  <span><b>Acknowledgement</b>: The Unity connector is not yet on the V3 Next Gen roadmap.</span>
+</div>
+
 Our Unity Connector differs from the other connectors described in our User Guide; 
 It has only a simple UI, and is missing some of the comforts present in other connectors.
 But it offers several Unity Components to send and receive data from Speckle, and allows developers to easily develop their own

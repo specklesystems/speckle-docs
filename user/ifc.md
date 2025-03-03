@@ -1,5 +1,10 @@
 # IFC Import Service
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on the V2 IFC importer.</span>
+  <span class="next-gen">Next Gen IFC importer is coming soon, bringing significant changes to the documentation and features!</span>
+</div>
+
 Speckle can now process IFC files and store them in your projects. You can then receive them in other applications and access them from the Speckle API.
 
 > This was made possible thanks to the amazing IFC.js Open Source project! 🙌🏼

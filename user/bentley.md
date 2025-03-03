@@ -1,5 +1,11 @@
 # Bentley (MicroStation, OpenRoads, OpenRail, and OpenBuildings)
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on the V2 Bentley connectors.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+  <span><b>Acknowledgement</b>: The Bentley connectors are not yet on the V3 Next Gen roadmap.</span>
+</div>
+
 ::: tip
 
 The Bentley connectors are community-contributed: they were developed by Arup ⭐ This means that major feature updates and supported elements will be dependent on the developers at Arup, but we'll do our best to address any minor bugs and issues.

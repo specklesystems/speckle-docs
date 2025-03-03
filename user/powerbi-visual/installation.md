@@ -1,5 +1,10 @@
 # Installation
 
+<div class="banner-ribbon">
+  <span><b>Important</b>: This guide features the V2 PowerBI data connector and model viewer visual.</span>
+  <span class="next-gen">Next Gen is on its way, radically changing how the PowerBI connector works!</span>
+</div>
+
 You can install the Speckle 3D Viewer Visual manually by following these steps:
 
 <video autoplay muted loop>

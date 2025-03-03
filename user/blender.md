@@ -1,5 +1,10 @@
 # Blender
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on the V2 Blender connector.</span>
+  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+</div>
+
 ::: tip 💡 TIP
 
 Check out our dedicated tutorial on [how to get started with Blender](https://speckle.systems/tutorials/getting-started-with-speckle-for-blender/)!
