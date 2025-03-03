@@ -1,5 +1,10 @@
 # Manager
 
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on the legacy Manager</span>
+  <span class="next-gen">Next gen connectors will soon allow for account management from the connector.</span>
+</div>
+
 Manager for Speckle is the best way to get (almost) all our connectors installed and up to date on your computer, and if you have more than one Speckle accounts you'll be able to manage them there as well.
 
 ## Download
