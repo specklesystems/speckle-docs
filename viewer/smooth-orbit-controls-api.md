@@ -125,6 +125,8 @@ export interface SmoothOrbitControlsOptions {
   infiniteZoom?: boolean
   zoomToCursor?: boolean
   damperDecay?: number
+  orbitAroundCursor?: boolean
+  showOrbitPoint?: boolean
 }
 ```
 The available options:
@@ -143,6 +145,8 @@ The available options:
 - _optional_ **infiniteZoom**: Enables infinite zoom
 - _optional_ **zoomToCursor**: Enables scrolling to cursor
 - _optional_ **damperDecay**: The dampening value for the controller
+- _optional_ **orbitAroundCursor**: Enables rotating around cursor
+- _optional_ **showOrbitPoint**: Enables the display of the orbit's anchor point
 
 
 
