@@ -286,8 +286,10 @@ export const DefaultOrbitControlsOptions: Required<CameraControllerOptions> = {
   maximumAzimuthalAngle: Infinity,
   infiniteZoom: true,
   zoomToCursor: true,
+  orbitAroundCursor: true,
+  showOrbitPoint: true,
   damperDecay: 30,
-  nearPlaneCalculation: NearPlaneCalculation.EMPIRIC
+  nearPlaneCalculation: NearPlaneCalculation.ACCURATE
 }
 ```
 
