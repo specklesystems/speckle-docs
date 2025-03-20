@@ -1,6 +1,12 @@
 # Migration Guide
 
-# 2.21.1 - 2.22.2?
+# 2.23.6 - 2.23.8
+- `Loader`'s `resourceData` changed from `string | ArrayBuffer` to `unknown` to allow each loader to define it’s own resource data type
+
+# 2.21.2 - 2.23.6
+- `SmoothOrbitControls`'s constructor changed. It no longer takes a `Scene` and `Intersections`, but only a `SpeckleRenderer`
+
+# 2.21.1 - 2.22.2
 - Entire rendering pipeline got a massive update and it now allows for free user customization as well as user defined passes
 - `pipeline` accessors added to `SpeckleRenderer`. This allows for user defined rendering pipelines
 - `pipelineOptions` accessors removed from `SpeckleRenderer`
