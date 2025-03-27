@@ -452,10 +452,14 @@ Sets the provided [_SunLightConfiguration_](/viewer/speckle-renderer-api.md#sunl
 #### <b>updateShadowCatcher</b>
 
 ```ts
-updateShadowCatcher(): void
+updateShadowCatcher(force?: boolean): void
 ```
 
 Updates *The Shadowcatcher*🛸.
+
+**Parameters**
+
+- _optional_ **force**: boolean 
 
 **Returns**: _void_
 

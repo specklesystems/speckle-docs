@@ -11,6 +11,10 @@ The extension automatically binds to:
 This extension requires and active CameraController extension implementation.
 :::
 
+:::warning
+Note that this extension will automatically remember the last material for each material that you select **and automatically apply it upon deselection**. This might affect the end result if you are combining selection with other operations like isolating, hiding or coloring.
+:::
+
 ### <h3>Accessors</h3>
 
 | [enabled](/viewer/selection-extension-api.md#enabled) | [options](/viewer/selection-extension-api.md#options) |
