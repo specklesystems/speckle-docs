@@ -459,7 +459,7 @@ Updates *The Shadowcatcher*🛸.
 
 **Parameters**
 
-- _optional_ **force**: boolean  
+- _optional_ **force**: boolean 
 
 **Returns**: _void_
 
