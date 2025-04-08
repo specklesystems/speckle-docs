@@ -2,67 +2,70 @@
 typora-copy-images-to: img-teklastructures
 ---
 
-# Tekla Structures (Alpha) 🛠️
+# Tekla Structures (Legacy Alpha)
 
 <div class="banner-ribbon">
-  <span><b>Notice</b>: This user guide is based on the V2 Tekla connector.</span>
-  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+  <span><b>Notice</b>: This user guide is based on the V2 Tekla Structures connector.</span>
+  <span class="next-gen">Tekla Structures is now fully supported by a stable Next Gen connector. This page refers to the legacy alpha version only.</span>
 </div>
 
+> ⚠️ We recommend using the **Next Gen Tekla Structures connector** for the latest and most reliable experience.  
+> 👉 Download it at [**app.speckle.systems/downloads**](https://app.speckle.systems/downloads)
 
-The Speckle Tekla Structures Connector currently supports Tekla Structures 2020 and 2021. It is currently under alpha development so please report any bugs or feedback to the [community forum](https://speckle.community/).
+
+
+The legacy Tekla connector (V2 alpha) supported Tekla Structures 2020 and 2021.  
+It was community-driven and experimental — no longer actively maintained.
 
 ::: tip
 
-Check out our dedicated tutorial on [how to get started with Tekla Structures](https://speckle.systems/tutorials/getting-started-with-tekla-structures)!
+Check out our updated tutorial:  
+[Getting Started with Tekla Structures](https://speckle.systems/tutorials/getting-started-with-tekla-structures)
 
 :::
 
 ## Getting Started
 
-To install the Tekla Structures Connector and add your Speckle account, proceed by following the instructions in [Speckle Manager](/user/manager).
+To install the legacy connector and add your Speckle account, Speckle Manager was required.  
+This setup is no longer recommended. Please install the modern connector via the link above.
 
-Once installed, you can find the Tekla Structures Connector in the Application and Components tabs :
+Once installed (V2), the connector appeared in the **Applications & Components** panel:
 
 ![ToolBar](./img-teklastructures/toolbar.png)
 
-### Recieving in Tekla Structures
-
-Save the Tekla Structures model as a file first before attempting to recieve projects into your Tekla Structures model.
+> Before receiving data, ensure the model is saved as a `.tekla` file.
 
 ## User Interface
 
-::: tip IMPORTANT 🙌
+::: tip
 
-This connector uses our shared Desktop UI2. Read up on general guidelines for usage in the [Desktop UI2 section](https://speckle.community/t/new-desktopui-in-alpha-testing/1851/2).
-
-**Projects are saved to a textfile that will appear in your model folder titled "Speckle". Do not delete this folder.**
+This connector used our legacy shared UI. Projects were saved in a text file within a `Speckle` folder inside the model directory.  
+Do not delete this folder — it was required for project tracking.
 
 :::
 
-### Filters
+## Filters
 
-To help you select which elements will be to sent to Speckle, we've built various filters into our Tekla Structures Connector. Once a filter is set, just click **Send** and all objects passing the filter will be sent to your Project. Section properties and materials defined within the model will always be sent.
+You can use filters to determine which elements to send to Speckle.
 
-_Please Note: Elements are sent regardless of whether they are visible or if they were created after setting up the filter._
+### Selection Filter
+
+Sends currently selected objects in the Tekla view.
+
+### Phase Filter
+
+Filters objects by Tekla-defined phase and sends associated elements.
+
+### Category Filter
+
+Allows selection of one or more Tekla categories (most granular control).  
+Enables sending of results and non-geometrical elements.
+
+### All Filter
+
+Sends **all supported** geometrical elements and their metadata.
 
 ![Tekla Structures](./img-teklastructures/teklastructures-ui.png)
-
-#### Selection Filters
-
-The selection filters will send everything that is selected within the Tekla Structures display.
-
-#### Phase Filters
-
-The phase filters is going to grab the predefined phases within Tekla Structures that are attached to the objects and send all objects associated with that phase.
-
-#### Category Filter
-
-The category filter lets you select one or more of the currently-supported Tekla Structures categories, this is the most granular filter that will also enable you to send results. Note : Other filters will not enable you to send results or non geometrical elements and properties.
-
-#### All Filter
-
-This trivial filter allows you to select all the elements that are currently supported by the Tekla Structures Connector. This will send all geometrical elements and their associated properties.
 
 ## Supported Elements
 
@@ -70,18 +73,33 @@ This trivial filter allows you to select all the elements that are currently sup
 
 ## Updating Elements
 
-The connector does not take care of updating existing elements within the project.
+This connector did **not** support element updating. Data was always added anew.
 
-## Revit and BIM Data to Tekla Structures
+## Revit → Tekla Structures
 
-When sending from elements from Revit, Speckle takes care of converting the data to a Speckle friendly format. If you're curious about how this data is being structured, please have a look at our [Objects kit class definitions](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects/BuiltElements).
+Sending from Revit to Tekla Structures is possible. Speckle converts elements into a neutral object format.  
+For reference, see the [Objects Kit definitions](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects/BuiltElements).
 
-You can send models into Revit and recieve them currently with geometric properties. We are still working a bit more on this workflow, and it will become a bit more refined as time goes on. Stay tuned for more !
+Incoming data is mostly geometric. Support for BIM-specific conversion was limited in this alpha version.
 
-## Grasshopper to Tekla Structures
+## Grasshopper → Tekla Structures
 
-Tekla Structures has it's own grasshopper plugins, but you can always send it through the speckle systems with our schema builders as well. Go to the Tekla Structures specific tab and send beam elements which encompass all geometric elements that are 1D and contour plates which encompasses all geometric elements that are 2D. Defining sections will be defined on a name basis, and therefore as long as the catalog sections is defined in the Tekla catalog by name, it will be imported and built correctly. Refer to an example similar to this in the [ETABS documentation.](/user/csi)
+Though Tekla has its own Grasshopper plugins, you can also send via Speckle using:
 
-## Exploring the Tekla Structures Data
+- **Beam elements** (1D geometry)
+- **Contour plates** (2D geometry)
 
-To easily explore on object's data and parameters, our [Speckle Web App](/user/web.html) interface can be of great help. As well as any other applications that lets you explore the object metadata (eg Grasshopper, Dynamo, Unity, etc).
+Section names must match entries in Tekla’s local catalog for them to be recognized.
+
+Refer to the [ETABS example](/user/csi) for a similar workflow.
+
+## Exploring Tekla Data in Speckle
+
+You can view and inspect objects sent from or to Tekla using the:
+
+- [Speckle Web App](/user/web.html)
+- Grasshopper
+- Dynamo
+- Unity
+- or any application that supports Speckle metadata
+
