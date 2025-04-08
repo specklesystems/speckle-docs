@@ -1,21 +1,19 @@
 # Navisworks (Alpha) 🛠️
 
 <div class="banner-ribbon">
-  <span><b>Notice</b>: This user guide is based on the V2 Navisoworks connector.</span>
-  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+  <span><b>Notice</b>: This user guide is based on the legacy V2 Navisworks connector.</span>
+  <span class="next-gen">A Next Gen connector is now available from <a href="https://app.speckle.systems/downloads">app.speckle.systems/downloads</a> and includes significant improvements to installation and functionality. Installing this legacy version is not recommended, but still possible if needed.</span>
 </div>
 
 ::: tip
 
-Navisworks Connector is an alpha release, which means that it is still in development and may contain bugs or other issues that could cause unexpected behavior. We advise caution if using this software in a production environment or for critical tasks. It should not damage your data in place but unsaved changes may be lost. This software is intended for testing and evaluation purposes only. Please exercise caution when using this software and report any issues or bugs to the development team. Thank you for helping us improve our software.
+Navisworks Connector is an alpha release, meaning it is still in development and may contain bugs or other issues that could cause unexpected behavior. We advise caution if using this software in a production environment or for critical tasks. It should not damage your data in place but unsaved changes may be lost. This software is intended for testing and evaluation purposes only. Please exercise caution when using this software and report any issues or bugs to the development team. Thank you for helping us improve our software.
 :::
 
 
 The Speckle Navisworks Connector currently supports Autodesk Navisworks 2020, 2021, 2022 and 2023.
 
 ## Getting Started
-
-To install the Navisworks Connector and add your Speckle account, proceed by following the instructions in [Speckle Manager](/user/manager).
 
 Once installed, you can find the Navisworks Connector in the ribbon menu under the **Speckle** tab like so:
 
