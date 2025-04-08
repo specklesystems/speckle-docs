@@ -1,9 +1,12 @@
 # Archicad
 
 <div class="banner-ribbon">
-  <span><b>Notice</b>: This user guide is based on the V2 ArchiCAD connector.</span>
-  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+  <span><b>Notice</b>: This user guide is based on the <b>Legacy</b> v2 Archicad connector.</span>
+  <span class="next-gen">The Next Gen connector no longer requires installation via the legacy Manager. More improvements are on the way!</span>
 </div>
+
+The Speckle Archicad Connector is part of our **Next Gen** platform and supports Archicad 25, 26, and 🆕 27 — on both Windows and macOS.
+
 
 The Speckle Archicad Connector currently supports Archicad 25, 26 and 27🆕. It is available both on Windows and Mac.
 
@@ -22,10 +25,6 @@ Feel free to reach out on the forum regarding your potential use cases and we wi
 <div style="position: relative;padding-bottom: 56.25%;"><iframe width="100%" height="100%" style="position: absolute;" src="https://www.youtube.com/embed/TNJIQHd3vuk" title="Archicad Teaser Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 ## Installation
-
-Before using this connector, you'll need to follow our standard setup instructions to [install Speckle Manager and add a Speckle account](/user/manager).
-
-Note that for this connector, you will need admin permissions on your machine to install it.
 
 Once you've installed the connector, you'll be able to access it from the "Interoperability" menu
 
