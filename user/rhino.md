@@ -1,8 +1,8 @@
 # Rhino
 
 <div class="banner-ribbon">
-  <span><b>Notice</b>: This user guide is based on the V2 Rhino connector.</span>
-  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+  <span><b>Notice</b>: This user guide is based on the legacy V2 Rhino connector.</span>
+  <span class="next-gen">A new Next Gen Rhino connector is available from <a href="https://app.speckle.systems/downloads">app.speckle.systems/downloads</a> with improved installation, performance, and workflows. Installing this version is recommended.</span>
 </div>
 
 
@@ -13,17 +13,18 @@ Prefer watching to reading? Who doesn't!
 
 <div style="position: relative;padding-bottom: 56.25%;"><iframe width="100%" height="100%" style="position: absolute;" src="https://www.youtube.com/embed/v56nxXBbtfI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
-## Getting Started
+Getting Started
+::: tip
 
-::: tip 💡 TIP
-
-Check out our dedicated tutorial on [how to get started with Rhino](https://speckle.systems/tutorials/getting-started-with-speckle-for-rhino/)!
+Check out our dedicated tutorial on how to get started with Rhino!
 
 :::
 
-To install this Connector and add your Speckle account, follow the instructions in the [Speckle Manager](/user/manager) section.
-Speckle currently supports both Rhino 6 and Rhino 7.
+If you're using the legacy V2 connector, it requires installation via Speckle Manager, along with setting up your Speckle account. See legacy installation instructions if needed.
 
+Speckle currently supports Rhino 6 and Rhino 7.
+
+✅ If you're starting fresh, we recommend using the new Rhino connector available from app.speckle.systems/downloads instead of the legacy version described here.
 Once installed, you can find the connector by running the `Speckle` command in Rhino. This should open a new pop-up window with the [Desktop UI](/user/ui.md) (the old version of Speckle used the `SpecklePanel` command for this).
 
 ![Speckle command](./img-rhino/rhino-speckle-command.png)
