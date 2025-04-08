@@ -2,49 +2,73 @@
 title: FAQ
 ---
 
-# Frequently Asked Questions - Revit Connector
+# Frequently Asked Questions – Revit Connector
 
 <div class="banner-ribbon">
   <span><b>Notice</b>: This user guide is based on the V2 Revit connector.</span>
-  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+  <span class="next-gen">A Next Gen Revit connector is available with significant improvements. These FAQs refer to the legacy version only.</span>
 </div>
 
-1. **Can I upload my Revit files to Speckle?**
+> ⚠️ We recommend using the **Next Gen Revit connector** for the latest features and better compatibility.  
+> You can download it from [**app.speckle.systems/downloads**](https://app.speckle.systems/downloads)
 
-   Speckle has the capability to upload files for certain formats, but unfortunately, we cannot support the Revit file format (.rvt) due to its proprietary nature. Speckle is an open-source project and therefore you need to use our connectors to upload your data onto our platform.
+---
 
-2. **Does Revit Connector support materials/textures?**
+### 1. Can I upload my Revit files to Speckle?
 
-   Revit Connector support materials and we are working on supporting textures in the near future. So when you publish your data to Speckle, Revit materials will be included too.
+No. Speckle does not support uploading `.rvt` files directly due to the proprietary nature of the format.  
+To share Revit data on Speckle, use the Revit Connector to send structured geometry and metadata to your Speckle project.
 
-3. **Can I send Linked Models from Revit?**
+---
 
-   Yes, you can. Under **Advanced Settings**, enable “**Send Linked Models**” option. Linked models will be included when sending your model to Speckle. Check [Linked Models](https://speckle.community) section.
+### 2. Does the Revit Connector support materials/textures?
 
-4. **Does Revit Connector support Family Editor?**
+Yes, it supports **materials**.  
+Texture support is limited in V2, but improvements are being introduced in the Next Gen version.
 
-   Yes. Geometry can be sent and received from Family environment in Revit with certain limitations. Refer to the [Support Table](https://speckle.community) for more information.
+---
 
-5. **Does Revit Connector support Design Options?**
+### 3. Can I send Linked Models from Revit?
 
-   Yes. Please refer to [Design Options](https://speckle.community) page for further details.
+Yes. You can enable **"Send Linked Models"** in the **Advanced Settings** panel within the connector UI.  
+Linked models will be included in your send operation.
 
-6. **How do I install Revit Connector for all users?**
-   Manager for Speckle installs connectors for Current user only. Please refer to [System Wide Installations](/user/installing.html#system-wide-installations) page, to learn about installing the Revit Connector for all users.
+---
 
-7. **How to uninstall Revit Connector?**
+### 4. Does the Revit Connector support the Family Editor?
 
-   You can uninstall Revit Connector either using Manager or from the Installed Apps dialog.
+Yes, you can send and receive geometry from within the Family Editor.  
+Some limitations apply — refer to the [Support Tables](/user/support-tables.html#revit) for full details.
 
-   **Deleting via Manager**
+---
 
-   1. Open **Manager**.
-   2. Select **Revit Connector**.
-   3. Click **Uninstall**.
+### 5. Does the Revit Connector support Design Options?
 
-   **Deleting from Installed Apps**
+Yes, design options are supported.  
+Refer to our [Revit support docs](/user/revit) for more details and known caveats.
 
-   1. In the Windows search bar, search and select “**Add or Remove Programs**”.
-   2. Search for **Speckle for Revit.**
-   3. Click on the dots (…) next to it.
-   4. Select **Uninstall**.
+---
+
+### 6. How do I install the Revit Connector for all users?
+
+The V2 connector installed via Speckle Manager only applies to the **current user**.  
+For system-wide deployment instructions, see [System-Wide Installations](/user/installing.html#system-wide-installations).
+
+In the Next Gen version, connectors are installed independently per user. Admin deployments will be addressed in future releases.
+
+---
+
+### 7. How do I uninstall the Revit Connector?
+
+#### If installed via Manager (V2 only):
+
+1. Open **Manager**
+2. Select **Revit Connector**
+3. Click **Uninstall**
+
+#### If installed manually or for Next Gen:
+
+1. Go to **Add or Remove Programs** in Windows
+2. Search for **Speckle for Revit**
+3. Click the `...` menu next to it
+4. Select **Uninstall**
