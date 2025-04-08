@@ -2,13 +2,13 @@
 
 <div class="banner-ribbon">
   <span><b>Notice</b>: This user guide is based on the V2 Bentley connectors.</span>
-  <span class="next-gen">These connectors are currently legacy, but we're exploring options for a Next Gen revival in collaboration with Bentley.</span>
+  <span class="next-gen">These connectors are legacy, but we're exploring options for a Next Gen revival in collaboration with Bentley.</span>
   <span><b>Status</b>: These connectors are not actively maintained and are provided as-is.</span>
 </div>
 
 ::: warning ❗️ Legacy Only (For Now)
 
-The Bentley connectors were originally developed and contributed by **Arup**, but ongoing development has ceased.  
+The Bentley connectors were initially developed and contributed by **Arup**, but ongoing development has ceased.  
 They are provided **as-is**, with no active support or compatibility updates.
 
 We are currently in discussion with **Bentley** about bringing official support to Speckle’s Next Gen connector ecosystem.  
@@ -23,7 +23,7 @@ The legacy Speckle connector for Bentley software supports:
 - OpenRail Designer CE
 - OpenBuildings Designer CE
 
----
+
 
 ## Getting Started
 
@@ -36,14 +36,14 @@ Click the Speckle icon to open the standard Speckle desktop interface.
 
 ![Speckle ribbon](./img-bentley/speckle-ribbon.png)
 
----
+
 
 ## User Interface
 
 When the Speckle panel opens, you can create a new Speckle project or connect to an existing one.  
 Projects are saved with your current DGN file.
 
----
+
 
 ### Sending Data
 
@@ -66,7 +66,7 @@ You can send data by:
 - `Civil Element Type`: available in OpenRoads/OpenRail
 - OpenBuildings gridlines appear under `Grid Systems`
 
----
+
 
 ### Receiving Data
 
@@ -76,13 +76,13 @@ To receive Speckle data:
 2. Click `Receive`
 3. The model will be added to your current file
 
----
+
 
 ## Supported Elements
 
 🔗 [View Bentley Support Tables](/user/support-tables.html#microstation)
 
----
+
 
 ## Feedback & the Future
 
