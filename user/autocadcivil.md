@@ -1,60 +1,71 @@
 # AutoCAD and Civil 3D
 
-
 <div class="banner-ribbon">
-  <span><b>Notice</b>: This user guide is based on the V2 AutoCAD connector.</span>
-  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+  <span><b>Notice</b>: This user guide is based on the V2 AutoCAD and Civil 3D connectors.</span>
+  <span class="next-gen">AutoCAD and Civil 3D are now supported in the Next Gen connector ecosystem. These docs refer to the legacy V2 versions only.</span>
 </div>
 
+> ✅ The Next Gen AutoCAD and Civil 3D connectors are available now at  
+> 👉 [**app.speckle.systems/downloads**](https://app.speckle.systems/downloads)
 
-Speckle currently supports Autodesk® AutoCAD® 2021-2023 and Autodesk® Civil 3D® 2021-2023.
-
-⚠ _This connector is currently in alpha with limited functionality._
+Speckle currently supports Autodesk® AutoCAD® and Autodesk® Civil 3D® (2021–2023) in legacy mode.  
+This V2 connector is considered **alpha** and may be unstable.
 
 ::: tip
 
-Check out our dedicated tutorial on [how to get started with AutoCAD](https://speckle.systems/tutorials/getting-started-with-speckle-for-autocad/)!
-Check out our dedicated tutorial on [how to get started with Civil3D](https://speckle.systems/tutorials/getting-started-with-speckle-for-civil3d/)!
+Check out our dedicated tutorials:  
+- [Getting started with AutoCAD](https://speckle.systems/tutorials/getting-started-with-speckle-for-autocad/)  
+- [Getting started with Civil 3D](https://speckle.systems/tutorials/getting-started-with-speckle-for-civil3d/)
 
 :::
 
 ## Getting Started
 
-To begin, you'll need to install this connector and add your Speckle account. Follow our instructions in [Speckle Manager](/user/manager) if you haven't already.
+This connector is no longer distributed through Speckle Manager.  
+Please refer to [app.speckle.systems/downloads](https://app.speckle.systems/downloads) to install the Next Gen version.
 
-Once installed, you can find this connector in the `Add-Ins` tab under `Speckle 2`. Clicking this button will open the Speckle connector interface, which shows a list of all the projects you currently have in the model.
+Once installed (V2), you’ll find the connector in the **Add-Ins** tab under **Speckle 2**.  
+Clicking the Speckle icon opens the project panel and connector interface.
 
 ![Setting up the Plugin](./img-acad/setup-plugin.gif)
 
 ## User Interface
 
-::: tip IMPORTANT 🙌
+::: tip
 
-This connector uses our shared Desktop UI. Read up on general guidelines for usage in the [Desktop UI section](/user/ui).
+This connector uses Speckle’s shared Desktop UI. See the [Desktop UI guide](/user/ui) for general usage tips.
 
 :::
 
 ### Sending Data
 
-The AutoCAD Civil3D Connector supports selection filtering by layer.
+You can send geometry by selecting elements directly or using **layer-based filtering**.
 
 ### Receiving Data
 
-Geometry from projects will be added to AutoCAD / Civil3D layers starting with a prefix with the following format:
+Received geometry will be placed into AutoCAD/Civil 3D layers with the following prefix:
 
-```text
+```
 project[ model @ version id ]
 ```
 
-Any layer information from the incoming project will be appended to the prefix with the standard AutoCAD delimiter `$`. When receiving from applications (like Rhino) with nested layers, the incoming full layer path will replace any default delimiters with `$`.
+If incoming layers have a hierarchy (e.g. from Rhino), they will be flattened using AutoCAD’s `$` delimiter. For example:
 
-![Screenshot of Layers showing th esource data](./img-acad/receiving-layers.png)
+```
+site$terrain$contours
+```
+
+![Screenshot of Layers showing the source data](./img-acad/receiving-layers.png)
 
 ## Supported Elements
 
 - [AutoCAD Support Tables](/user/support-tables.html#autocad)
 - [Civil 3D Support Tables](/user/support-tables.html#civil-3d)
 
-### Things to keep in mind
+## Notes
 
-The AutoCAD Civil3D connector is very early stages, expect some bugs during use! Your comments, feedback, and suggestions are welcome in the [Speckle Community Forum](https://speckle.community/t/new-speckle-2-0-autocad-civil3d-suggestions/1155)!
+The AutoCAD/Civil3D connector shown here is **early-stage** and no longer actively developed.  
+Please use the [Next Gen connector](https://app.speckle.systems/downloads) for a stable and actively maintained experience.
+
+We still welcome feedback in the [Speckle Community Forum](https://speckle.community/t/new-speckle-2-0-autocad-civil3d-suggestions/1155)
+
