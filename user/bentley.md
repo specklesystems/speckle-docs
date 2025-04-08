@@ -2,69 +2,93 @@
 
 <div class="banner-ribbon">
   <span><b>Notice</b>: This user guide is based on the V2 Bentley connectors.</span>
-  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
-  <span><b>Acknowledgement</b>: The Bentley connectors are not yet on the V3 Next Gen roadmap.</span>
+  <span class="next-gen">These connectors are currently legacy, but we're exploring options for a Next Gen revival in collaboration with Bentley.</span>
+  <span><b>Status</b>: These connectors are not actively maintained and are provided as-is.</span>
 </div>
 
-::: tip
+::: warning ❗️ Legacy Only (For Now)
 
-The Bentley connectors are community-contributed: they were developed by Arup ⭐ This means that major feature updates and supported elements will be dependent on the developers at Arup, but we'll do our best to address any minor bugs and issues.
+The Bentley connectors were originally developed and contributed by **Arup**, but ongoing development has ceased.  
+They are provided **as-is**, with no active support or compatibility updates.
+
+We are currently in discussion with **Bentley** about bringing official support to Speckle’s Next Gen connector ecosystem.  
+📣 **Stay tuned!**
 
 :::
 
-The Speckle connector for Bentley software currently supports:
+The legacy Speckle connector for Bentley software supports:
 
 - MicroStation CONNECT
 - OpenRoads Designer CE
 - OpenRail Designer CE
 - OpenBuildings Designer CE
 
+---
+
 ## Getting Started
 
-To install this connector and add your Speckle account, follow the instructions in the [Speckle Manager](/user/manager) section.
+> ⚠️ These connectors are only available as **legacy installers**.
 
-Once installed, you can find the connector in the `Speckle 2` ribbon. Click on the connector button, and this will open a new pop-up window with the standard [Desktop UI](/user/ui2.md)
+👉 **Download them from the [Legacy Connectors Page](https://releases.speckle.systems/legacy-connectors)**
+
+Once installed, a `Speckle 2` ribbon will appear in your Bentley application.  
+Click the Speckle icon to open the standard Speckle desktop interface.
 
 ![Speckle ribbon](./img-bentley/speckle-ribbon.png)
 
+---
+
 ## User Interface
 
-Once the Speckle panel is open, go ahead and create a new project (or add an existing one) to the current file. Once the Microstation, OpenRoads, OpenRail, or OpenBuildings file is saved, the projects associated with that file will be saved too.
+When the Speckle panel opens, you can create a new Speckle project or connect to an existing one.  
+Projects are saved with your current DGN file.
 
-### Sending
+---
 
-To send objects to Speckle, you'll first need to specify which objects are to be sent.
-This can be done in two ways:
+### Sending Data
 
-- The simpler way involves manually selecting elements in Microstation, OpenRoads, OpenRail, or OpenBuildings.
-- The more powerful way is to use filtering logic to select elements.
+You can send data by:
 
-For the simpler selection method, follow the steps below:
+- Manually selecting elements in your Bentley model
+- Using filters to target specific groups of elements
 
-1. First, ensure the project you want to send data to is in _Sender_ mode.
-2. Select the objects you want to send, and left-click the button that says `0 objects` in the Speckle Panel. A drop-down will appear; choose `Set Selection`.
-3. The same button should now display the total count of objects that were selected.
-4. You're ready to send! Press the `Send` button. You should see a progress bar and, once completed, a success message.
+#### Steps:
 
-The following filters are also available depending on the Bentley application:
+1. Set the current project to **Sender** mode
+2. Select objects → click `Set Selection`
+3. Click `Send`
 
-- `All` (all connectors): sends everything in the model that is supported
-- `Level` (all connectors): sends everything on the selected levels
-- `Element Type` (all connectors): sends all elements of the selected types
-- `Civil Element Type` (OpenRoads, OpenRail): sends all elements of the selected civil types
+#### Filter Options:
 
-All geometric elements are organized by `Level` when they are sent to Speckle: elements that do not have a level will be located in `Unknown`. For Civil elements from OpenRoads and OpenRail are organized by their element type, and in OpenBuildings, if you sent gridlines, they will be located in the `Grid Systems` container.
+- `All`: sends all supported elements
+- `Level`: by level
+- `Element Type`: by object category
+- `Civil Element Type`: available in OpenRoads/OpenRail
+- OpenBuildings gridlines appear under `Grid Systems`
 
-### Receiving
+---
 
-In order to receive data from a Speckle, you'll first need to create a project to your Speckle projects panel. If the project already exists on the server it will automatically be added in _Receiver_ mode.
+### Receiving Data
 
-Once the project has been added, go ahead and hit the `Receive` button. This will display a progress bar (just like the sending operation) and, if successful, will add the received objects to the current document.
+To receive Speckle data:
+
+1. Add a project in **Receiver** mode
+2. Click `Receive`
+3. The model will be added to your current file
+
+---
 
 ## Supported Elements
 
-- [Bentley Support Tables](/user/support-tables.html#microstation)
+🔗 [View Bentley Support Tables](/user/support-tables.html#microstation)
 
-## Feedback
+---
 
-We're really interested in your feedback regarding the integration between QGIS and Speckle! You can always reach us at our [Community Forum](https://speckle.community)
+## Feedback & the Future
+
+We understand the importance of Bentley tools in infrastructure and rail workflows.
+
+💬 If Bentley support matters to you, please let us know on the [Speckle Community Forum](https://speckle.community).  
+We’re working to make this ecosystem sustainable — and your feedback helps shape our roadmap.
+
+> 🛠 Want to help or fork it yourself? The original code is still open source — reach out on the forum for guidance.
