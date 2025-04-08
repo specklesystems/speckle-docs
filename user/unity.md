@@ -26,14 +26,28 @@ Check out our dedicated [tutorials on Unity](https://v1.speckle.systems/tag/unit
 
 ## Getting Started
 
-Before using this connector, you'll need to follow our standard setup instructions to [install Speckle Manager and add a Speckle account](/user/manager). After this, you can proceed to clone the [Speckle Unity repository on GitHub](https://github.com/specklesystems/speckle-unity).
+To get started with the Unity connector:
 
-The repo contains a sample scene named `SpecklePlayground` that shows an in-game example of how to send and receive data from your default speckle account.
-The example is minimal, but demonstrates what is possible using the Speckle Unity Connector.
+1. Clone the [Speckle Unity repository](https://github.com/specklesystems/speckle-unity) on GitHub.
+2. Open the included sample scene `SpecklePlayground`, which demonstrates editor-time send/receive from your default Speckle account.
+
+> This example is intentionally minimal to encourage experimentation and extension.
+
+
+## Authentication Setup
+
+> ⚠️ Speckle Manager is **required** for V2 Unity projects to manage accounts.  
+> This is a legacy requirement — Next Gen connectors do not rely on Manager.
+
+To authenticate:
+
+- Download and install Speckle Manager from the [Legacy Connectors Page](https://releases.speckle.systems/legacy-connectors)
+- Open Manager and [add a Speckle account](/user/manager)
+
 
 ## Package Installation
 
-To install the connector into your own Unity project, rather than using sample project (see above), open the Package Manager (`Windows -> Package Manager`)
+To install the connector into your own Unity project, rather than using the sample project (see above), open the Package Manager (`Windows -> Package Manager`)
 and select **Add Package from git URL**.
 
 <center><img src="./img-unity/unity_install_git.png" width="50%" /></center>
