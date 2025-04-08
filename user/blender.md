@@ -13,55 +13,44 @@ Check out our dedicated tutorial on [how to get started with Blender](https://sp
 
 ## Getting Started
 
-For a quick overview, check out this short video on how to get started sending and receiving data from Blender!
+For a quick overview, check out this short video on how to start sending and receiving data from Blender!
 
 <div style="position: relative;padding-bottom: 56.25%;"><iframe width="100%" height="100%" style="position: absolute;" src="https://www.youtube.com/embed/vy-i6lCdMOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 ## Installation
 
-Before using this connector, you'll need to follow our standard setup instructions to [**install Speckle Manager** and **add a Speckle account**](/user/manager).
+> ⚠️ The Blender connector is currently a **V2 legacy connector**.  
+> A **Next Gen version** is in development and will be available from  
+> 👉 [**app.speckle.systems/downloads**](https://app.speckle.systems/downloads) when released.
 
-Once the Blender Connector has been **installed through Manager**, you will find it under the **"Add-ons" tab of your Preferences menu**, under the "Scene" category. Activate it by checking the tick box next to the Add-on name.
+In the meantime, the current connector must be installed manually using a ZIP file.
+
+👉 **Download the latest Blender plugin ZIP from the [Legacy Connectors Page](https://releases.speckle.systems/legacy-connectors)**
+
+Then:
+
+1. Open Blender and go to `Edit → Preferences → Add-ons`
+2. Click `Install` and select the downloaded `.zip` file
+3. Enable the add-on by ticking the box next to "Speckle Blender"
+4. Restart Blender if needed
 
 ![activating the Blender Connector](./img-blender/enable-addon.png)
-
-Once Enabled, a restart of blender may be required.
-
-> Feel free to reachout to us on the [forums](https://speckle.community/) if you're having any difficulties.
-
-### Manual Installation
-
-Installation through Speckle Manager is recommended  for most users,
-however, for users looking to install the blender connector on **unsupported platforms or Blender versions**,
-the connector can be installed through a manual zip.
-
-However, you will still need to add your accounts, either through [Speckle Manager](/user/manager) (recommended) or [manually](/user/manager.html#adding-accounts-manually)
-
-1. Head to [releases.speckle.systems](https://releases.speckle.systems/) and, under the drop down, **download the latest `manual` installer**.
-
-<center>
-    <img src="./img-blender/manual-installer.png" width="33.33%" alt="Screenshot of speckle-blender releases tab, showing manual installer highlighted in the drop-down menu"/>
-</center>
-
-1. Open Blender, and **navigate to the Add-ons menu**, under `Edit -> Preferences`
-2. Press the `Install` button in the top right, and select the downloaded zip.
-3. Once enabled, a restart of blender may be required.
 
 ## User Interface
 
 The Blender Connector lives in the 3D viewport toolbar (N) under the Speckle tab. It contains three main panels:
 
-- **User Panel** for switching between different local accounts.
-- **Projects Panel** for browsing your existing projects, creating new projects, or deleting old projects.
-- **Active Project Panel** for sending and receiving data to and from Speckle.
+- **User Panel** is used to switch between different local accounts.
+- **Projects Panel** for browsing your existing projects, creating new ones, or deleting old ones.
+- **Active Project Panel** is used to send and receive data to and from Speckle.
 
 ![panels overview](./img-blender/sidebar-menu.png)
 
-The **Projects Panel** shows a list of your most recent projects, which you can search through by name. You can add new projects with the "+" button, delete projects with the "-" button, and refresh the projects with the refresh button.
+The **Projects Panel** lists your most recent projects, which you can search by name. You can add new projects with the "+" button, delete projects with the "-" button, and refresh the projects with the refresh button.
 
 ![add by url](./img-blender/add-by-url.png)
 
-From version 2.1.9, you can also add existing projects by their URL. You can use the URL to a project, a specific model, or a specific version. Simply paste it into the popup and the correct account, project, model, and version will get selected for you.
+From version 2.1.9, you can also add existing projects by their URL. You can use the URL to a project, a specific model, or a specific version. Paste it into the popup and the correct account, project, model, and version will get selected for you.
 
 The **Active Project Panel** will show more details about the project you've selected in the Projects Panel. From here, you can change the active model and version. You can also Send and Receive any items you have selected in Blender. Under the Send and Receive buttons, you can use the dropdown menus to select a script to run on all elements during the send / receive process.
 
