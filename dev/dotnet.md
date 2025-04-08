@@ -1,4 +1,9 @@
-# Introduction
+# .NET SDK (Legacy)
+
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on our V2 .NET SDK, known as "Core".</span>
+  <span><b>Important</b>: This SDK is considered legacy. Future development is focused on Next Gen connectors and new SDKs.</span>
+</div>
 
 Our .NET SDK is called [Core](https://github.com/specklesystems/speckle-sharp/tree/master/Core), and it's part of our [SpeckleSharp repo](https://github.com/specklesystems/speckle-sharp). Together with it you might find useful [Objects](https://github.com/specklesystems/speckle-sharp/tree/master/Objects), our default kit.
 
@@ -167,7 +172,7 @@ var data = Operations.Deserialize(json);
 
 ## Using the .NET SDK without Manager
 
-Core has been designed to be used in conjunction with Manager, that's where the account information is basically pulled from.
+⚠️ Speckle Manager was previously required for account management in V2. You can now bypass this by using a Personal Access Token (PAT) instead.
 
 But you can of course also use Core in environments where Manager is not available, for example in a serverless function.
 To do so (and avoid worrying about authentication), we first need to set up a [personal access token](/dev/tokens).
