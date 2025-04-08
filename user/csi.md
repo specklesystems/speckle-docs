@@ -6,84 +6,63 @@ typora-copy-images-to: img-csi
 
 <div class="banner-ribbon">
   <span><b>Notice</b>: This user guide is based on V2 connectors.</span>
-  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+  <span class="next-gen">The ETABS connector is now available as part of our Next Gen release. Additional CSI products will follow.</span>
 </div>
 
-These connectors are currently under beta development so please report any bugs or feedback to the [community forum](https://speckle.community/).
+> The **ETABS Next Gen connector** is now available from the [Connectors Download Page](https://app.speckle.systems/connectors).  
+> Legacy documentation for SAP2000, SAFE, and CSiBridge remains below for reference until their Next Gen connectors are released.
 
-::: tip
 
-Check out our dedicated tutorial on [how to get started with ETABS](https://www.speckle.systems/tutorials/getting-started-with-speckle-for-etabs)! The following shows examples of ETABS and the relationship between ETABS and Speckle but can be extrapolated to relationships with the other CSI connectors.
 
-:::
+These connectors support:
 
-## Getting Started
+- **ETABS** (Next Gen)
+- SAP2000
+- CSiBridge
+- SAFE
 
-To install the any of CSI Connector and add your Speckle account, proceed by following the instructions in [Speckle Manager](/user/manager).
+## ETABS (Next Gen)
 
-Once installed, you can find the Speckle connector in the PlugIn menu under the **Tools** tab like so:
+The Next Gen ETABS connector offers a new streamlined experience and supports sending and receiving structural data directly into Speckle. Please refer to the [main Connectors page](https://app.speckle.systems/connectors) to download the latest version.
+
+Documentation for the ETABS Next Gen connector is currently in progress.
+
+## Legacy (V2) CSI Connectors
+
+The following documentation refers to the **legacy V2 connectors** for CSI products.
+
+These are no longer actively developed and will not receive further updates. If you still rely on them, please consider migrating to the Next Gen versions as they become available.
+
+
+
+## Getting Started (Legacy)
+
+The V2 CSI connectors were installed via Speckle Manager. Once installed, you could find them under the **Tools > PlugIn** tab in the CSI software.
 
 ![ToolBar](./img-csi/toolbar.png)
 
-::: warning
-If the plugin is not installed properly, you can find the path to the PlugIn in the relative path here : This is the example for SAP2000, but you will see similar install folders to other paths in here.
-
-`\%AppData%\Local\Computers and Structures\SAP2000\Speckle2ETABS`
-
-:::
-
 ### Receiving in CSI Products
 
-Save the CSI model as a file first before attempting to receive projects into your CSI model.
+Save your CSI model before receiving data.
 
-## User Interface
+## User Interface (Legacy Desktop UI)
 
-::: tip IMPORTANT 🙌
+Speckle project references were stored in a local folder named `Speckle` within the model directory. Do not delete this folder if you plan to continue using legacy projects.
 
-This connector uses our shared Desktop UI2. Read up on general guidelines for usage in the [Desktop UI2 section](https://speckle.community/t/new-desktopui-in-alpha-testing/1851/2).
+## Filters (Legacy)
 
-**Projects are saved to a textfile that will appear in your model folder titled "Speckle". Do not delete this folder.**
-
-:::
-
-### Filters
-
-To help you select which elements will be to sent to Speckle, we've built various filters into our CSI Connector. Once a filter is set, just click **Send** and all objects passing the filter will be sent to your Project. Section properties and materials defined within the model will always be sent.
-
-_Please Note: Elements are sent regardless of whether they are visible or if they were created after setting up the filter._
+- **Selection**
+- **Group**
+- **Category**
+- **All**
 
 ![ETABS](./img-csi/etabs-ui.png)
 
-#### Selection Filters
+## Advanced Settings
 
-The selection filters will send everything that is selected within the CSI display.
-
-#### Group Filters
-
-You can create predefined groups of geometrical elements within CSI products to send already within the CSI group and select based on those groupings of elements.
-
-#### Category Filter
-
-The category filter lets you select one or more of the currently-supported CSI categories, this is the most granular filter that will also enable you to send results. Note : Other filters will not enable you to send results or non-geometrical elements and properties.
-
-#### All Filter
-
-This trivial filter allows you to select all the elements that are currently supported by the CSI Connector. This will send all geometrical elements and their associated properties.
-
-### Advanced Settings
-
-You can send analysis results from ETABS, and the connector offers a set of filters that allow you to share either all or only a portion of the results. All filters are multiple choice for flexible and granular control:
-
-- **Load Case Results To Send:** Dead, Live, Modal
-- **Node Results To Send:** Displacements, Forces, Velocities, Accelerations
-- **1D Element Results To Send:** Beam Forces, Brace Forces, Column Forces, Other Forces
-- **2D Element Results To Send:** Forces, Stresses
+The connector supported sending analytical results with filterable options for load cases and element types.
 
 ![ETABS](./img-csi/advanced-settings.png)
-
-`AnalyticalResults` object is attached to an element and contains a list of `resultsByLoadCombination` which are representations of the analytical results that correspond to the different load cases / combinations that a user wants to send.
-
-![ETABS](./img-csi/analytical-results.png)
 
 ## Supported Elements
 
@@ -92,36 +71,13 @@ You can send analysis results from ETABS, and the connector offers a set of filt
 - [SAFE Support Tables](/user/support-tables.html#safe)
 - [CSiBridge Support Tables](/user/support-tables.html#csibridge)
 
-## Updating Elements
+## Grasshopper Integration
 
-The connector does not take care of updating existing elements within the Project. However the CSI products does recognize if coincident elements are generated and will not generate new elements that coincide on top of each other.
-
-## Revit & BIM Data to CSI Products
-
-When sending from elements from Revit, Speckle takes care of converting the data to a Speckle friendly format. If you're curious about how this data is being structured, please have a look at our [Objects kit class definitions](https://github.com/specklesystems/speckle-sharp/tree/master/Objects/Objects/BuiltElements).
-
-To send elements from Revit specificially into a structural model, use the analytical models generated within a revit model. Currently there is no conversion from the BuiltElement object kits and the Structural object kits, which means that only the analytical models in Revit are supported to be converted into CSI. Give us feedback on this workflow. ![Revit Analytical Model](./img-csi/analytical-model.png)
-
-## Grasshopper to CSI Products
-
-The schema for the structural objects is based around our structural pyramid of objects. Refer to the [discourse post](https://speckle.community/t/introducing-structural-classes-for-speckle/1824/8) here if you haven't for all the information about this kit. There are CSI application specific grasshopper components. Check them out and use them to build specific properties like deck sections. If there is no specific CSI component, use the general structural schema to define them.
+Structural objects could be created and sent from Grasshopper using the Speckle Structural kit.
 
 ![ETABS Schema](./img-csi/structural-tool.png)
-
-Everything is encapsulated in the model object from the schema in the end. Therefore make sure you define the model object.
-
 ![ETABS grasshopper model](./img-csi/model.png)
 
-::: tip
 
-It's worth building a CSI model and sending and receiving that object in the software before you attempting building a model from grasshopper directly.
 
-:::
-
-Building models parametrically in grasshopper with the structural object schema is supported with CSI. To build section profiles from catalogue and have material definitions imported into the CSI from scratch, you will have to match the spelling of the catalogue directly as if you were importing it. Look below for an example of the spelling used.
-
-![ETABS property](./img-csi/grasshopper-sections.png)
-
-## Exploring the CSI Data
-
-To easily explore on object's data and parameters, our [Speckle Web App](/user/web.html) interface can be of great help, as well as any other applications that lets you explore the object metadata (eg Grasshopper, Dynamo, Unity, etc).
+> 💬 Questions or feedback? Join the discussion in the [Speckle Community](https://speckle.community/).

@@ -2,77 +2,84 @@
 title: Install & Update
 ---
 
-# Installing and Updating the Connector
+# Installing and Updating the Revit Connector
 
 <div class="banner-ribbon">
   <span><b>Notice</b>: This user guide is based on the V2 Revit connector.</span>
-  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+  <span class="next-gen">This connector has a Next Gen version available, bringing significant changes to features and installation.</span>
 </div>
 
-In this page, we’ll cover how to install and update Revit Connector for Speckle.
+## Installation Options
 
-## Prerequisites
+There are two ways to install the Revit Connector:
 
-To install the Revit Connector, it’s assumed you have:
+- **Recommended**: Use [Speckle Manager](https://speckle.systems/download/) to easily install and manage connectors.
+- **Manual**: Download the installer directly from the [Speckle Releases page](https://releases.speckle.systems) if Manager isn't an option for you.
 
-- **Speckle Account** (you can get one **for free🎉** at **[app.speckle.systems](https://app.speckle.systems/))**
-- **Manager for Speckle** (download it from **[here](https://speckle.systems/download/)** and add your Speckle account.)
+::: warning
+Before beginning installation, please make sure Revit is closed.
+:::
 
-Once Manager is installed and your account is set, you can continue with the installation.
-
-## Installation
+### 1. Installing via Speckle Manager
 
 <video autoplay muted loop>
   <source src="./img-revit/installing-revit-connector.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
-:::warning
-💡 Before you begin the installation process, make sure that Revit is closed.
-:::
+1. Open **Speckle Manager** and go to the "**Connectors**" tab.
+2. Scroll down or search for "**Revit Connector**".
+3. Click **Install**.
 
-1. Open **Manager for Speckle** and click on the "**Connectors**" tab.
-2. You should see a list of available connectors. Scroll down until you find the "**Revit Connector**" or use the **Search Bar** to find it.
-3. Click the "**Install**" button next to it.
+Once installed, launch Revit and look for the Speckle tab in the ribbon.
 
-That's it! You're all set to use the Speckle connector for Revit.
+### 2. Installing without Manager
 
-## Updating Revit Connector
+If you're not using Manager:
+
+1. Visit [releases.speckle.systems](https://releases.speckle.systems).
+2. Download the **Revit Connector** installer for your version of Revit.
+3. Run the installer:
+   - Choose **Install for all users** (requires admin rights), or
+   - Choose **Install for current user only**
+4. Complete the installation.
+
+---
+
+## Updating the Revit Connector
 
 <video autoplay muted loop>
   <source src="./img-revit/updating-revit-connector.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
-1. You will receive a **notification** in **Manager for Speckle** when updates for Revit Connector is available.
-2. Click on the **Update** button to install the latest version.
+If you're using Speckle Manager:
 
-## Installing Early Releases
+1. You'll be notified when a new version is available.
+2. Click the **Update** button next to Revit Connector.
 
-If you want to stay on the cutting edge of the Revit Connector, then you can install pre-releases of it.
+To update manually, download the latest installer from [releases.speckle.systems](https://releases.speckle.systems) and run it again — it will overwrite the existing version.
 
-:::warning
-Please keep in mind that these early versions are not intended for production work and may have some untested features.
-:::
+---
+
+## Installing Early Releases (Pre-Releases)
+
+If you want to try cutting-edge features:
 
 <video autoplay muted loop>
   <source src="./img-revit/installing-revit-prereleases.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
-To install pre-releases for the Revit Connector, follow these steps:
+1. In **Speckle Manager**, go to the Revit Connector page.
+2. Switch to the "**Versions**" tab.
+3. Enable "**Show Pre-releases**".
+4. Pick a version and click **Install**.
 
-1. Inside the "**Revit Connector**" page, switch to the “**Versions**” tab.
-2. Toggle on the "**Show Pre-releases**" option at the top.
-3. From this list, **select the version you wish to install.**
-4. Click on the “**Install**” button next to it.
+::: warning
+These early releases may contain untested features and are not recommended for production use.
+:::
 
-## Installing without Manager
+---
 
-If you can’t install Manager for whatever reason, manual installer of our Revit connector is also available.
-
-1. Download the **Revit connector** installer from [Speckle Releases page](https://releases.speckle.systems).
-2. Double-click the **installer package** you’ve downloaded.
-3. You can either install it **only for your user**, or **for all users**. (_Please note: Installing for all users requires Admin rights._)
-4. Click **Install**.
-5. After successful installation, click **Close** to exit.
+Need help? Visit our [Community Forum](https://speckle.community) for support and feedback.

@@ -6,12 +6,17 @@ typora-copy-images-to: ./img-excel
 
 <div class="banner-ribbon">
   <span><b>Notice</b>: This user guide is based on the deprecated V2 Excel connector.</span>
-  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
-  <span><b>Acknowledgement</b>: The Excel connector is not yet on the V3 Next Gen roadmap.</span>
+  <span class="next-gen">A Next Gen version of the Excel connector is not yet available, but is under consideration. When released, it will appear on the <a href="https://app.speckle.systems/connectors">Connectors page</a>.</span>
 </div>
 
+> ⚠️ The Excel connector is currently not distributed or supported.  
+> If and when it returns, you'll be able to find and install it from [**app.speckle.systems/connectors**](https://app.speckle.systems/connectors)
 
-Speckle currently supports the following versions of Excel:
+---
+
+## Overview (Legacy V2)
+
+Speckle’s Excel connector supported the following platforms:
 
 - Excel on iPad
 - Excel 2016 or later on Mac
@@ -20,120 +25,89 @@ Speckle currently supports the following versions of Excel:
 
 ::: tip
 
-Check out our dedicated tutorial on [how to get started with Excel](https://speckle.systems/tutorials/getting-started-with-speckle-for-excel/)!
+Explore the archived tutorial:  
+[Getting started with Excel](https://speckle.systems/tutorials/getting-started-with-speckle-for-excel/)
 
 :::
 
-## Getting Started
+## Getting Started (Legacy)
 
-For a quick overview, check out this short video on how to get started sending and receiving in Excel!
+<iframe width="100%" height="400px" src="https://www.youtube.com/embed/4viUTvo6BCw" title="Speckle for Excel intro" frameborder="0" allowfullscreen></iframe>
 
-<div style="position: relative;padding-bottom: 56.25%;"><iframe width="100%" height="100%" style="position: absolute;" src="https://www.youtube.com/embed/4viUTvo6BCw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+### Installing (Historical Only)
 
-### Installing
+The V2 Excel connector was not distributed via Speckle Manager.  
+It was installed through the Microsoft Office Add-In Store.
 
-**Our Excel Connector is not distributed via the Speckle Manager.**
+Steps:
 
-Instead, you can get it from the Microsoft Office Store.
+- Open Excel (Desktop or Web)
+- Go to _Insert > Office Add-ins_
+- Search for `Speckle` and click _Add_
 
-To install it:
+Alternatively, visit the archived listing:  
+[Excel Add-In on Microsoft AppSource](https://appsource.microsoft.com/en-us/product/office/WA200002934)
 
-- Open Excel (for Desktop or Web)
-- Click on _Insert > Office Add-Ins_
-- Search for `speckle` and click _Add_
-
-![image](https://user-images.githubusercontent.com/2679513/120383814-3ffdd600-c31d-11eb-8a77-7b34f8a0785f.png)
-
-Alternatively, just visit [https://appsource.microsoft.com/en-us/product/office/WA200002934](https://appsource.microsoft.com/en-us/product/office/WA200002934).
-
-After installing the connector, it should appear in Excel under the Home ribbon like so:
+Once installed, the connector appeared in the **Home ribbon**:
 
 ![image](https://user-images.githubusercontent.com/2679513/119171684-cdf3da00-ba5c-11eb-87a5-bee798f96f90.png)
 
 ### Logging In
 
-You'll need to log in to use this connector as it is unable to access your accounts from Speckle Manager. To do so, simply type your server url click on the log in button and insert your credentials.
+You needed to log in directly within the connector UI by entering the server URL and credentials.  
+Manager accounts were not accessible to the add-in.
 
-:::tip IMPORTANT 🙌
+::: tip
 
-Currently, **only accounts on servers managed by us are supported**, this is because of limitations on the Microsoft Office Store. To use the Excel Connector with a server deployed by you, you'll have to publish it yourself.
+Only **cloud-hosted servers** (e.g. `https://app.speckle.systems`) were supported, due to Microsoft Store limitations.  
+Self-hosted server use required local republishing of the connector.
 
 :::
+
+## Basic Usage (Legacy)
 
 ### Adding Projects
 
-Just click the top left menu > Add Project > click on a Project to add to the document. **The Project will be saved in the document and available whenever you return to it.**
+- Click the top left menu
+- Choose “Add Project”
+- Select a project — it is saved in your Excel document and reloaded automatically
+
+You could toggle between **send** and **receive** modes per project.
 
 ![excel-add](https://user-images.githubusercontent.com/2679513/119180828-b4588f80-ba68-11eb-8ac3-0aa8f9d5158f.gif)
 
-By default, projects are added as receivers but you can easily switch them to sender mode.
+### Receiving Data
 
-![image](https://user-images.githubusercontent.com/2679513/119181346-61330c80-ba69-11eb-9100-7f1b0f9ec82c.png)
+Data was flattened into tabular form to fit Excel's structure.  
+You could selectively receive specific objects or properties from a version.
 
-## Receiving Data
+#### Simple Values
 
-Receiving data in Excel is quite different than in other connectors, and this is because we need to "flatten" it so to represent it in a table format. In general, a Project will either contain:
+Lists of numbers or text were output row-wise. Nested structures were stringified.
 
-- Simple values like numbers, text etc
-- Complex data structures (objects) like a Revit Wall or a Grasshopper Line. Objects are identified by a `{}` symbol.
+#### Objects
 
-The Excel Connector works best when receiving lists of either simple values or objects of the same type. Lists are identified by a `[]` symbol.
-
-Since a version can contain a variety of data types, after clicking the **Receive button**, you'll have the possibility to expand and select which data inside it to actually pull and write to your Excel file. You don't have to receive an entire version each time!
-
-![image-20210521205817594](https://user-images.githubusercontent.com/2679513/119197116-2b991e00-ba7f-11eb-8e70-6d7e962361d5.png)
-
-### Simple Values
-
-When receiving lists (or lists of lists AKA tables) of numbers or text, the data is received without transformations and the values are outputted by default in rows. Therefore, a single list will write data to a single row, a list of lists to multiple rows. If the incoming data has any further levels of nesting, it will be "string-ified".
-
-![image](https://user-images.githubusercontent.com/2679513/119188807-1b7b4180-ba73-11eb-955e-744cf2906e76.png)
-
-### Objects
-
-When receiving lists of objects they are flattened. This means that each object will become a new row and **all its property values (and sub-property values) will become columns**, their names will be the headers.
-Individual objects can be received too, and only one row will be created.
-
-:::tip TIP 🙌
-
-We recommend receiving lists of objects that have the same underlying data structure, i.e. only receiving objects of the same type.
-
-:::
-
-![image](https://user-images.githubusercontent.com/2679513/119189886-88dba200-ba74-11eb-8066-cd98972a88dd.png)
-
-Nested objects are flattened as well and their properties delimited by a period `.`. See the example below where 10 lines have been sent from Dynamo and received in Excel:
-
-![image](https://user-images.githubusercontent.com/2679513/119195280-4e760300-ba7c-11eb-8601-3ed72a6b0813.png)
+Objects were **flattened** into rows with headers derived from property names (e.g. `geometry.length`).  
+This worked best for lists of objects sharing the same schema.
 
 #### Complex Objects
 
-When receiving complex objects (with more than 25 properties or sub-objects), you'll be presented with an additional dialog. This will let you filter which columns are to be received.
+If an object had many nested properties (25+), an extra dialog allowed you to choose which to import.
 
 ![excel-receive](https://user-images.githubusercontent.com/2679513/120610238-e1cf1100-c44a-11eb-88cd-669d18faf0a6.gif)
 
-## Sending Data
+### Sending Data
 
-Similarly to receiving, data can be sent a list of **simple values** or of **objects**.
+You could send:
 
-### Simple Values
+- Simple ranges (as lists of values)
+- Tabular data (as lists of objects)
 
-Just select the range of data you want to send and click "Set range"
+Use “Set range” or “Set range with headers” to define what to send.
 
 ![excel-send](https://user-images.githubusercontent.com/2679513/119195853-30f56900-ba7d-11eb-9ac5-fd057a44ac9f.gif)
 
-This is how it'll look in Speckle.
-
-![image](https://user-images.githubusercontent.com/2679513/119196013-72861400-ba7d-11eb-9258-b10f285a6eba.png)
-
-### Objects
-
-To send objects, just replicate the structure of objects that you have previously received, then select "Set range with headers".
-
-For instance, you could create 10 new lines with the data below:
-
-![image](https://user-images.githubusercontent.com/2679513/119196439-17085600-ba7e-11eb-8273-6fdf60e91894.png)
-
 ## Support
 
-For any feedback and support requests please visit our [community forum](https://speckle.community/).
+The Excel connector is not actively supported.  
+To request or track progress on a future Next Gen release, please visit the [Speckle Community Forum](https://speckle.community/).

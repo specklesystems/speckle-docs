@@ -5,11 +5,15 @@ title: Basic Usage
 # Basic Usage
 
 <div class="banner-ribbon">
-  <span><b>Notice</b>: This user guide is based on the V2 Sketchup connector.</span>
-  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+  <span><b>Notice</b>: This user guide is based on the V2 SketchUp connector.</span>
+  <span class="next-gen">SketchUp is now supported in the Next Gen connector ecosystem. These docs refer to the legacy version only.</span>
 </div>
 
-In this page, we’ll show some basic operations you can do using SketchUp connector.
+> ⚠️ This documentation covers the legacy (V2) SketchUp connector, which is no longer actively developed.  
+> 👉 We recommend trying the new Next Gen connector available at [**app.speckle.systems/downloads**](https://app.speckle.systems/downloads)
+
+
+In this page, we’ll show some basic operations using the legacy V2 SketchUp connector.
 
 ## Sending Data
 
@@ -18,13 +22,13 @@ In this page, we’ll show some basic operations you can do using SketchUp conne
   Your browser does not support the video tag.
 </video>
 
-For the moment, there is only one send mode: **Selection**.
+Sending is based on **Selection** mode only.
 
-To send data:
+Steps:
 
 1. Select all the objects you want to send.
-2. Click on the "**Send**" cube.
-3. If you wish to change the target model, click on the selected model and choose the desired model from the dropdown menu.
+2. Click the "**Send**" cube.
+3. To change the target model, click the current selection and choose a different model from the dropdown.
 
 ## Receiving Data
 
@@ -33,10 +37,10 @@ To send data:
   Your browser does not support the video tag.
 </video>
 
-Receiving models in SketchUp is as simple as clicking the "**Receive**" cube. As with sending, you can switch the targeted model and the particular version to receive.
+Click the "**Receive**" cube to bring in data from a selected model and version.
 
 ::: warning
-Note that if you sent SketchUp groups to a model, they will be received as component instances rather than groups.
+SketchUp groups will be received as component instances, not as groups.
 :::
 
 ## Creating a New Project
@@ -46,14 +50,12 @@ Note that if you sent SketchUp groups to a model, they will be received as compo
   Your browser does not support the video tag.
 </video>
 
-Creating a new project is also really easy.
+To create a new project:
 
-1. Click on the "**Create New Project**" button.
-2. A dialog box will appear. Provide a **name** for your project and an optional **description**.
-3. To make your project **private**, use the toggle option.
-4. Click on the "**Create**" button to finalize and create your project.
-
-That's it! Your new project is now successfully created.
+1. Click "**Create New Project**".
+2. Enter a **name** and optional **description**.
+3. Toggle visibility to make it **private** (if desired).
+4. Click "**Create**".
 
 ## Creating a Model
 
@@ -64,11 +66,11 @@ That's it! Your new project is now successfully created.
 
 To create a new model:
 
-1. Hover over the model button. “**+**” button will appear on the left. Click on it.
-2. A new dialog box will open where you can **name** your model and optionally provide a **description** for it.
-3. Click on "**Create**".
+1. Hover over the model list and click the “**+**” button.
+2. Enter a **name** and optional **description**.
+3. Click "**Create**".
 
-The newly created model will become active, ready for you to start working on it.
+Your new model will now be active and ready for data.
 
 ## Adding a Project by URL
 
@@ -77,7 +79,11 @@ The newly created model will become active, ready for you to start working on it
   Your browser does not support the video tag.
 </video>
 
-If you have the URL of the project you want to receive, you can easily add it using the "**Add By ID or URL**" button. Paste the URL of the data you want to receive and click “**Add**”. A Project Card will be added, with the model and version selected from the pasted URL.
+If you have a URL for a model or version:
+
+1. Click "**Add by ID or URL**".
+2. Paste the full link.
+3. Click "**Add**" to create a project card preloaded with the selected model and version.
 
 ## Switching Accounts
 
@@ -86,6 +92,8 @@ If you have the URL of the project you want to receive, you can easily add it us
   Your browser does not support the video tag.
 </video>
 
-Your Speckle accounts should be added via **[Speckle Manager](https://speckle.guide/user/manager)**.
+This V2 connector relied on accounts added through [**Speckle Manager**](https://speckle.guide/user/manager).  
 
-You can switch between your accounts by clicking on your profile image and selecting it from the popup menu.
+Account switching was done by clicking your profile image and selecting from the available list.
+
+> In the Next Gen version, sign-in is fully integrated into the connector itself — no Manager required.

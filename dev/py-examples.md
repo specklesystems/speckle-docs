@@ -112,7 +112,7 @@ transport = wrapper.get_transport()
 
 ### GraphQL Client
 
-The `SpeckleClient` is the entry point for interacting with the GraphQL API. You'll need to have access to a speckle server to use this. To authenticate, you'll need a token. You can either get one from an account you've already added to your computer using the [Manager](/user/manager), or you can head to `your-server.com/profile` and create a Personal Access Token.
+The `SpeckleClient` is the entry point for interacting with the GraphQL API. You'll need to have access to a speckle server to use this. To authenticate, you'll need a token. You can either get one from an account you've already added to your computer using the Connectors or in the legacy past using [Manager](/user/manager), or you can head to `your-server.com/profile` and create a Personal Access Token.
 
 ```py
 from specklepy.api.client import SpeckleClient
@@ -126,24 +126,6 @@ client = SpeckleClient(host="your-server.com") # or whatever your host is
 
 client.authenticate_with_account(account)
 ```
-
-Interacting with streams is designed to be intuitive and evocative of SpecklePy 1.0
-
-```py
-# get a list of your most recent streams
-stream_list = client.stream.list()
-
-# search your streams
-results = client.stream.search("mech")
-
-# create a stream
-new_stream_id = client.stream.create(name="a shiny new stream")
-
-# get a stream
-new_stream = client.stream.get(id=new_stream_id)
-```
-
-New in 2.0: branches and commits! Here are some basic interactions.
 
 ```py
 # get list of commits

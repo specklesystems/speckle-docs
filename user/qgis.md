@@ -14,18 +14,36 @@ The Speckle 2.0 connector for QGIS currently supports QGIS versions 3.28.15 and 
 
 ### Installation
 
-You can find Speckle QGIS in the QGIS `Plugins -> Manage and install plugins` menu item.
+The recommended way to install the Speckle plugin for QGIS is directly from within QGIS:
+
+#### Option 1: Install via QGIS Plugin Manager (Recommended)
+
+1. Open `Plugins -> Manage and Install Plugins`
+2. Go to the `All` tab and search for `Speckle`
+3. Click **Install** to add the plugin
 
 ![Plugins dropdown](./img-qgis/qgis-pluginsMenu.png)
-
-Go to the `All` tab and search for `Speckle`. You should see the plugin appear in the list:
-
 ![Speckle panel](./img-qgis/qgis-specklePluginView.png)
 
-You can also install the plugin from Speckle Desktop Manager: 
+> This method ensures you're always using the latest stable version, right inside QGIS.
+
+
+#### Option 2: Download from Speckle Connectors Portal
+
+If you prefer a manual installer or are managing multiple tools, you can download the QGIS connector from the Speckle Connectors Portal:
+
+👉 **[Download QGIS Connector](https://app.speckle.systems/connectors)**
+
+
+
+#### Option 3: Legacy Installation via Speckle Manager
+
+If you're using an older version of QGIS or Speckle, the plugin is also available through **Speckle Manager**:
 
 ![Installation from Manager](./img-qgis/02_install_manager.png)
 ![Installation from Manager](./img-qgis/02_install_manager1.png)
+
+> ⚠️ **Note:** Speckle Manager is no longer required. We recommend using the QGIS Plugin Manager whenever possible.
 
 
 ### Features

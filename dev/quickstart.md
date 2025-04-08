@@ -13,11 +13,25 @@ Before you can spin up a local dev server, you'll need to install the following:
 
 ## Manager
 
-Speckle Manager is our desktop application for managing local accounts and connectors. You will need to install it before you can use the Speckle connectors. Get the latest version [here](https://speckle.systems/download/).
+> ⚠️ Speckle Manager is part of our legacy V2 toolchain and is **no longer required** for most workflows.
 
-The Manager allows you to add and remove Speckle accounts to your local environment. Simply head to the "Accounts" page to add your first account. You'll need to enter a server URL (which can just be `http://localhost:3000`) then follow the instructions to log in/register and authorise the Manager. From Manager, you'll also be able to set a Default Account which is the account any desktop connectors will use if you don't specify an account.
+Most modern Speckle connectors now support standalone installation and built-in account sign-in.  
+If you're working with legacy connectors or need to test against a local server, Speckle Manager may still be useful.
 
-The Manager also has a "Connectors" page where you can view, install, update, and uninstall our official desktop connectors.
+🔗 You can download Manager from the [Legacy Connectors Page](https://releases.speckle.systems/legacy-connectors)
+
+
+### What Manager Does (Legacy)
+
+Speckle Manager is a desktop utility that helps manage local Speckle accounts and install older V2 connectors. It allows you to:
+
+- Add accounts via OAuth (e.g., `http://localhost:3000`)
+- Set a **default account** for use in desktop connectors
+- View and install available V2 connectors
+
+> For new development, we recommend using standalone connectors available at  
+> [**app.speckle.systems/downloads**](https://app.speckle.systems/downloads)
+
 
 ## Web
 

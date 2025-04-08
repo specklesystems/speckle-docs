@@ -1,99 +1,87 @@
-# SketchUp (Alpha) 🛠️
+# SketchUp (Alpha)
 
 <div class="banner-ribbon">
-  <span><b>Notice</b>: This user guide is based on the V2 Sketchup connector.</span>
-  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+  <span><b>Notice</b>: This user guide is based on the V2 SketchUp connector.</span>
+  <span class="next-gen">SketchUp is now supported in the Next Gen ecosystem. These docs refer to the legacy alpha connector only.</span>
 </div>
 
-
-::: tip IMPORTANT ⚠️
-This connector is currently in alpha with limited functionality - please keep this in mind while testing!
-:::
+> ⚠️ This connector was an early alpha and is no longer actively maintained.  
+> A fully supported **Next Gen SketchUp connector is now available** at  
+> 👉 [**app.speckle.systems/downloads**](https://app.speckle.systems/downloads)
 
 ![example-send](./img-sketchup/sketchup-hostel-sent.png)
 
 ## Getting Started
 
-Before using this connector, you'll need to follow our standard setup instructions to [install Speckle Manager and add a Speckle account](/user/manager).
+This connector was built as an alpha prototype for SketchUp 2021 on Windows.  
+For newer versions or production workflows, we recommend switching to the [Next Gen connector](https://app.speckle.systems/downloads).
 
-As this connector is still in heavy development, see the [repo](https://github.com/specklesystems/speckle-sketchup) for the latest updates.
+You can still follow the manual steps below to experiment with the legacy code, or explore the [repo](https://github.com/specklesystems/speckle-sketchup).
 
 ## Installation
 
-The easiest way to install the SketchUp Alpha Connector is via the [Speckle Manager](/user/manager). Simply open up manager, find the SketchUp Connector, and click "Install".
+There is no packaged installer for this connector. Installation must be done manually.
 
-However, this method only works for Windows for SketchUp 2021. If you'd like to try installing on a different platform or for a different version, you can do a manual installation. Note that the connector has been developed for SketchUp 2021 and has not been tested on older versions or on different platforms. There may be issues, so feel free to report them on the [forum](https://speckle.community/).
+Note: The connector was developed against SketchUp 2021 on Windows and may not function on other versions or platforms.
 
-### Manual Installation 
+### Manual Installation
 
 #### 1. Clone the Repository
 
-First, ensure you have [git](https://git-scm.com/downloads) installed.
+Ensure you have [git](https://git-scm.com/downloads) installed. Then:
 
-Run the following command in your terminal to clone the repo:
-
-    git clone https://github.com/specklesystems/speckle-sketchup
-
-This will create a `speckle-sketchup` folder with the connector files wherever you run this command.
-
+```bash
+git clone https://github.com/specklesystems/speckle-sketchup
+```
 #### 2. Build the User Interface
-
-Navigate into the `ui/` folder
-
-    cd speckle-sketchup/ui
-
-Then run the following commands
-
-    npm install
-    npm run build
-
-This will create a `html` folder inside the `speckle-sketchup/speckle_connector` folder.
-
+Navigate into the ui/ folder:
+```bash
+cd speckle-sketchup/ui
+npm install
+npm run build
+```
+This generates the UI in the html folder within speckle_connector.
 
 #### 3. Add the Connector to SketchUp
+Locate your SketchUp Plugins directory. For Windows SketchUp 2021:
+```bash
+C:\Users\{YOU}\AppData\Roaming\SketchUp\SketchUp 2021\SketchUp\Plugins
+```
+Copy the following items into that folder:
 
-Find the `Plugins` folder for your SketchUp installation. On Windows for SketchUp 2021, the folder will be at:
+speckle_connector directory
 
-    C:\Users\{YOU}\AppData\Roaming\SketchUp\SketchUp 2021\SketchUp\Plugins
+speckle_connector.rb file
 
-Once you've found the equivalent for your OS / SketchUp version, copy the `speckle_connector` folder and the `speckle_connector.rb` file into the `Plugins` folder.
+User Interface
+Sending Data
+Only selection-based sending is supported.
 
-## User Interface
+Select objects
 
-### Sending Data
+Click the "Send" cube
 
-For the moment, there is only one send mode: selection.
+<video autoplay="autoplay" muted="muted" loop="loop"><source src="/assets/media/sending.0130e219.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
-Simply select all the objects you would like to send, then click the "Send" cube. To switch the targeted model, click the currently selected model and find the model from the dropdown menu.
-
-![sending-with-sketchup-img](./img-sketchup/sketchup-send.png)
-
-See the gif below for the full process.
-
-![sending-with-sketchup-gif](./img-sketchup/sketchup-send.gif)
-
-### Receiving Data
-
-Receiving projects in SketchUp is as simple as clicking the "Receive" cube. As with sending, you can switch the targeted model and the particular version to receive.
-
-Note that if you sent SketchUp groups to a project, they will be received as component instances rather than groups.
-
-![receiving-with-sketchup-img](./img-sketchup/sketchup-receive.png)
-
-See the full process of receiving a Rhino model in this snazzy gif
-
-![sketchup-receive](https://user-images.githubusercontent.com/7717434/140315797-089bb936-fb3d-4c05-9e4b-687e0835bb68.gif)
+Change the model from the dropdown if needed
 
 
-### Accounts
+Receiving Data
+Click the "Receive" cube to bring in selected models and versions.
+SketchUp groups are received as component instances.
 
-Your Speckle accounts should be added via [Speckle Manager](/user/manager).
+![image](https://github.com/user-attachments/assets/3017cc07-adea-4b76-a0b7-6a70f07c106d)
 
-You can switch between your accounts by clicking your profile image and selecting it from the popup menu.
+<video autoplay="autoplay" muted="muted" loop="loop"><source src="/assets/media/receiving.fac2fa42.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
-![sketchup-switch-accounts](https://user-images.githubusercontent.com/7717434/140301242-f4b04004-d1f6-4946-8802-dc95d3245746.gif)
+Accounts
+This alpha connector required accounts to be added via Speckle Manager.
 
+In the Next Gen connector, account sign-in is built directly into the SketchUp interface.
 
-## Supported Elements
-
-See [SketchUp Support Tables](/user/support-tables.html#sketchup)
+Supported Elements
+See the SketchUp Support Tables
