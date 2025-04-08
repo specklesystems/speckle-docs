@@ -2,8 +2,13 @@
 
 <div class="banner-ribbon">
   <span><b>Notice</b>: This user guide is based on V2 connectors.</span>
-  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+  <span class="next-gen">Next Gen connectors are now available and bring significant improvements. These docs refer to legacy V2 connectors only.</span>
 </div>
+
+> Looking to get started with Speckle today?  
+> 👉 Download the latest Next Gen connectors at [**app.speckle.systems/downloads**](https://app.speckle.systems/downloads)
+
+---
 
 Our desktop connectors are plugins for some of the most popular AEC software, including:
 
@@ -31,51 +36,52 @@ Our desktop connectors are plugins for some of the most popular AEC software, in
 - [Tekla Structures](/user/teklastructures)
 - [Autodesk Navisworks](/user/navisworks)
 
-...with more on the way soon!
+These connectors send and/or receive data from your Speckle server, enabling structured project-based data exchange — no files required.
 
-These connectors take care of sending and receiving data to your Speckle server, in the form of projects (no need for files or file types!)
-
-::: tip 💡 TIP
-
-Check out the 👉 [tutorials](https://speckle.systems/tutorials/) on how to use our connectors!
-
+::: tip
+Check out our [tutorials](https://speckle.systems/tutorials/) to see these connectors in action.
 :::
 
 ## Installation
 
-All our connectors (with a few exceptions) are distributed via the [Speckle Manager](/user/manager.html). See our section on [installing connectors](/user/manager.html#installing-connectors) for more details.
+These V2 connectors were primarily distributed via [Speckle Manager](/user/manager.html).
 
-## Versions
+For current projects and supported applications, we strongly recommend downloading the **Next Gen connectors** from  
+[**app.speckle.systems/downloads**](https://app.speckle.systems/downloads)
 
-Every time we make a new release of a connector, with bug fixes and new features, we update its version number. Here's how it works:
+## Versions (Applies to V2 Only)
 
-- we use version with three numbers `MAJOR.MINOR.PATCH`
-- the MAJOR number is currently fixed on 2
-- the MINOR number is increased with any "substantial" new release, currently we try to ship one every month
-- the PATCH number is increased when we need to release hotfixes to any of our connectors, might happen zero or multiple times during a month
+Connector versions follow the format `MAJOR.MINOR.PATCH`. For V2 connectors:
 
-If you are working with multiple Speckle connectors please ensure their MAJOR and MINOR version is always aligned (for instance Grasshopper Connector v 2.5.0 and Revit Connector at 2.5.2). **This is even more important when having Rhino and Grasshopper or Revit and Dynamo connectors installed at the same time.**
+- `MAJOR` is fixed at 2
+- `MINOR` is incremented with new feature releases
+- `PATCH` is used for bug fixes
 
-We might from time to time also make pre-releases of our connectors (see Using [Pre-releases](/user/manager.html#using-beta-versions-of-our-connectors)), these will have a `-something` appended to their names such as `2.5.0-alpha`, `2.7.3-rc1`. these are not fully tested and should be installed at your own risk 😱.
+Ensure that any V2 connectors installed together (e.g., Revit + Dynamo or Rhino + Grasshopper) use **matching MAJOR and MINOR versions**.
 
-::: tip 👮‍♂️ Manager Versions
+You may encounter beta versions marked with `-alpha`, `-rc1`, etc. These are pre-release builds and may be unstable.
 
-Note: the version of Speckle Manager is unrelated to the versions of the connectors. Nevertheless, it's always a good idea to keep Manager updated to the latest stable version.
+::: tip Manager Versions
+
+The version of Speckle Manager is independent of connector versions. For V2 workflows, keeping Manager updated was recommended — but it is no longer required in the Next Gen system.
 
 :::
 
 ## Troubleshooting
 
-Having issues with one of our connectors? Please follow the steps below to help us assist you:
-- Post a detailed description of the issue on our [Community Forum](https://speckle.community/c/help/8). Make sure to provide as much information as possible and to attach any source files that could help us replicate it 
-- Share with us any logs relevant to the connector, you can find them in: `%appdata%/Speckle/Logs` (just copy paste that address in your windows explorer)
+If you're running into issues with a V2 connector:
+
+- Describe your issue in detail on our [Community Forum](https://speckle.community/c/help/8)
+- Include source files or screenshots when possible
+- Share relevant logs from `%appdata%/Speckle/Logs`
 
 ## Units
 
-The connectors take care of unit conversions for geometric objects so you don't have to worry about that. For example, if you're sending a 1 foot long line from Rhino to an AutoCAD document in mm it will measure exactly 304.8mm.
+Connectors automatically convert units between software environments.  
+For example, a 1 ft line in Rhino will appear as 304.8 mm in an AutoCAD document set to millimetres.
 
-Unit conversion also automatically happens on BIM metadata, so if you're sending a Wall [using the Schema Builder](/user/grasshopper.html#schema-builder) node from Grasshopper to Revit the connectors will take care of converting the height for you.
+This applies to BIM parameters as well — values like wall height will be converted when sending between platforms such as Grasshopper and Revit.
 
-::: warning 🙌 IMPORTANT
-Custom metadata and non-linear units are not currently being converted.
+::: warning
+Custom metadata and non-linear unit types are not currently converted.
 :::
