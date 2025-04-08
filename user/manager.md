@@ -37,6 +37,8 @@ Manager works on both Windows and macOS (with some limitations) and updates auto
 
 > 💡 Manager does **not** require admin privileges. Just double-click and run to install.
 
+![image](https://github.com/user-attachments/assets/a35d5a59-f894-4e31-ba3b-2777bc652272)
+
 
 
 ## Logging In & Managing Accounts
