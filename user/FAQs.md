@@ -49,30 +49,42 @@ Versions can also be organized in **models**, for instance, to have multiple des
 
 ## The Speckle server is unreachable
 
-When a Speckle Server is unreachable a few things could be going on.
+When a Speckle Server is unreachable, a few things could be going on.
 
-If you cannot access the server from **your browser** or from **Speckle Manager**:
+If you cannot access the server from your **browser** or from a **connector**:
 
-- Firstly, check you are online by visiting other websites.
-- Make sure the server address is not blocked by a corporate firewall, proxy or VPN, by either trying to access it via a different network (eg mobile network) or by _contacting your IT department_.
-- The server could be down! If it's hosted by us, we're most likely working on it already. If it's hosted by your company, please reach out to them.
+- First, make sure you're online by visiting other websites.
+- Check that the server address isn't being blocked by a corporate firewall, proxy, or VPN — try connecting via a different network (e.g. mobile hotspot), or **contact your IT department**.
+- The server might be down!  
+  - If it's hosted by Speckle, we’re most likely already working on it.
+  - If it's self-hosted by your company, please reach out to your internal support team.
 
-If the server address is **blocked by a corporate firewall, proxy or VPN**, kindly ask your IT department to allowlist the following domains and subdomains that Speckle uses:
+If the server address is **blocked by a firewall or proxy**, please ask your IT department to **allowlist** the following domains:
 
-- **\*.app.speckle.systems (critical)**
-- **\*.speckle.dev (critical)**
-- **\*.speckle.systems (critical)**
-- speckle-excel.netlify.app (critical for the Excel Connector)
-- speckle-releases.ams3.digitaloceanspaces.com
-- speckle.community
+- `*.app.speckle.systems` (critical)
+- `*.speckle.dev` (critical)
+- `*.speckle.systems` (critical)
+- `speckle-excel.netlify.app` (required for the Excel connector)
+- `speckle-releases.ams3.digitaloceanspaces.com`
+- `speckle.community`
 
-Make sure you can also receive emails from `*@speckle.systems`, eg. `no-reply@speckle.systems`. Some IT departments might block this sender address - without it invites and other features will not work.
+Also ensure emails from `*@speckle.systems` (e.g. `no-reply@speckle.systems`) are not blocked, as invites and notifications rely on them.
 
-For any more questions about this, feel free to [contact us](https://speckle.systems/about/)!
+Still having issues? Feel free to [contact us](https://speckle.systems/about/)!
+
+---
 
 ## I can't add an account in Speckle Manager
 
-Check our [troubleshooting section](/user/manager.html#troubleshooting) for Speckle Manager.
+::: 🔄 Note: 
+Speckle Manager is now considered legacy — most issues can be resolved via our Next Gen connectors with built-in sign-in and no need for extra setup.
+👉 [Download connectors here](https://app.speckle.systems/connectors)
+:::
+
+Speckle Manager is no longer required to add accounts. Most Next Gen connectors support **sign-in directly from within the connector**.
+
+If you’re using a legacy setup and still need to troubleshoot Manager, check our [legacy Manager guide](/user/manager.html#troubleshooting).
+
 
 ## How do I merge two models in Speckle
 
