@@ -5,49 +5,55 @@ title: Installation
 # Installation
 
 <div class="banner-ribbon">
-  <span><b>Notice</b>: This user guide is based on the V2 Sketchup connector.</span>
-  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
+  <span><b>Notice</b>: This user guide is based on the V2 SketchUp connector.</span>
+  <span class="next-gen">The SketchUp connector is now available in our Next Gen platform. These installation instructions apply only to the legacy version.</span>
 </div>
 
-To install the SketchUp Connector, it’s assumed you have:
+> 🔁 Looking for the latest version of the SketchUp connector?  
+> 👉 Download it at [**app.speckle.systems/downloads**](https://app.speckle.systems/downloads)
 
-- Speckle Account (you can get one **for free🎉** at **[https://app.speckle.systems/](https://app.speckle.systems/)**)
-- Manager for Speckle. You can download it from **[here](https://speckle.systems/download/)** and add your Speckle account.
+This guide refers to installing the **legacy V2 SketchUp connector**, which relied on Speckle Manager for installation and account setup.
 
-Once Manager is installed and your account is set, you can continue with the installation.
+## Prerequisites (Legacy Only)
 
-## Installing on Windows and Mac
+- A Speckle account: [https://app.speckle.systems/](https://app.speckle.systems/)
+- Speckle Manager (V2 only): [Legacy Manager download](https://releases.speckle.systems/legacy-connectors)
+
+> The Next Gen connector no longer requires Manager and handles sign-in within the connector itself.
+
+## Installing on Windows and Mac (Legacy)
 
 <video autoplay muted loop>
   <source src="./img-sketchup/installing-sketchup-connector.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
-1. Open Manager for Speckle and click on the "**Connectors**" tab.
-2. You should see a list of available connectors. Scroll down until you find the "**SketchUp Connector**" or use the search bar to find it.
-3. Click the "**Install**" button next to it.
+1. Open **Manager for Speckle**
+2. Navigate to the **"Connectors"** tab
+3. Locate the **SketchUp Connector** and click **Install**
 
-:::warning
-If you are using a Mac with an Apple Silicon chip, you will need to install [Rosetta](https://support.apple.com/en-us/HT211861) before installing the SketchUp Connector.
+::: warning
+If you're on a Mac with Apple Silicon, [Rosetta](https://support.apple.com/en-us/HT211861) may be required for this legacy version.
 :::
 
-That's it! You're all set to use the Speckle connector for SketchUp.
+Once installed, you can start using the V2 SketchUp connector within your application.
 
-## Installing Early Releases
+## Installing Early Releases (Legacy)
 
-If you want to stay on the cutting edge of the SketchUp Connector, then you can install pre-releases of it.
+To access pre-release versions in Manager:
 
 <video autoplay muted loop>
   <source src="./img-sketchup/pre-releases.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
-To install pre-releases for the SketchUp Connector, follow these steps:
+1. Click into the SketchUp Connector entry
+2. Switch to the **“Versions”** tab
+3. Enable **“Show Pre-releases”**
+4. Select a version and click **Install**
 
-1. Inside the connector page, switch to the “**Versions**” tab.
-2. Inside the "**Versions**" tab, toggle on the "**Show Pre-releases**" option.
-3. From this list, select the desired version you wish to install and click on the “**Install**” button next to it.
-
-:::warning
-⚠️ Please keep in mind that these early versions are not intended for production work and may have some untested features.
+::: warning
+These versions were for testing purposes only and not recommended for production use.
 :::
+
+> Please note: All future updates and improvements are made in the Next Gen SketchUp connector.
