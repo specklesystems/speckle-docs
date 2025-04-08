@@ -5,10 +5,10 @@ typora-copy-images-to: ./img-dyn
 # Dynamo
 
 <div class="banner-ribbon">
-  <span><b>Notice</b>: This user guide is based on the V2 Dynamo connectors.</span>
-  <span class="next-gen">Next Gen connectors are coming soon, bringing significant changes to the documentation and features!</span>
-  <span><b>Acknowledgement</b>: The Dynamo connector is not yet on the V3 Next Gen roadmap.</span>
+  <span><b>Notice</b>: This user guide is based on the V2 Dynamo connector.</span>
+  <span class="next-gen">The Dynamo connector is not yet on the V3 Next Gen roadmap and remains a legacy connector for now.</span>
 </div>
+
 
 Speckle's Dynamo Connector currently supports Dynamo versions 2.1 to 2.10 (for Autodesk Revit 2019-2022). All versions of Dynamo Sandbox from 2.1 to 2.10 are also supported.
 
@@ -31,6 +31,8 @@ Prefer watching to reading? Who doesn't!
 Check out our dedicated tutorial on [how to get started with Dynamo](https://speckle.systems/tutorials/getting-started-with-speckle-for-dyanmo/)!
 
 :::
+
+> ⚠️ The Dynamo connector is part of our legacy connector suite and must be installed via Speckle Manager (V2). It is not currently distributed via the Package Manager or available in the Next Gen Connectors list.
 
 Our Dynamo Connector takes the form of a node package, which is installed via the Speckle Manager. To install the Dynamo Connector and add your Speckle account, follow the instructions in our [Speckle Manager](/user/manager) section.
 
