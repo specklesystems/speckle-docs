@@ -14,18 +14,18 @@ Organisations can meet these legal requirements and demonstrate compliance by en
 
 ## Data Residency in Workspaces  
 
-Speckle Workspaces supports data residency by allowing organisations to choose where their data is stored. This feature helps organisations comply with local regulations while maintaining complete data storage and processing control.  
+Speckle workspaces supports data residency by allowing organisations to choose where their data is stored. This feature helps organisations comply with local regulations while maintaining complete data storage and processing control.  
 
-- Each Workspace is initially allocated to the default Speckle region.  
-- Organisations can choose a different region for their Workspace to align with compliance needs.  
-- Multiple Workspaces can operate in different regions to meet the requirements of various projects or teams.
+- Each workspace is initially allocated to the default Speckle region.  
+- Organisations can choose a different region for their workspace to align with compliance needs.  
+- Multiple workspaces can operate in different regions to meet the requirements of various projects or teams.
+- Assign multiple data regions to a single workspace with the **Extra data region** add-on for project-level data residency.
 
-## Restricting Access  
+## Available data regions
 
-Workspaces are designed to enhance the security and privacy of your team's projects while clearly displaying who can access them.  
+Data residency is a **premium feature** available on the **Business** plan.
 
-- For projects requiring higher security, you can create a separate Workspace and invite only the team members who need access to those projects.  
+- Choose among EU, UK, North America, or Asia Pacific as the default data region for all your workspace projects.
+- Buy the **Extra data region** add-on if you need additional, or much more specific, data regions for individual projects in your workspace. <a href="'mailto:billing@speckle.systems">Contact us</a> if you are interested.
+- If no region is specified or required, your project data is automatically assigned to one of Speckle's default regions, optimised for server efficiency and minimal latency.
 
-## Availability  
-
-If no region is specified or required, your Personal and Workspace project data is automatically assigned to one of Speckle's default regions, optimised for server efficiency and minimal latency. Data residency is a **premium feature** available on the **Workspace Business** plan.  

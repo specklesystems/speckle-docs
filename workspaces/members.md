@@ -1,23 +1,6 @@
 # Managing Members
 
-All workspace members can be managed from the **Members** screen in the workspace settings. This screen displays all members added to the workspace, [their role](./roles.md), and the date they were added. You can also see users who have been invited but have not yet accepted the invitation to join the workspace.
-
----
-
-## Member Status
-
-Workspace members and guests can have two types of status indicators:  
-
-1. **Verified** and **Unverified**:  
-   - A **verified** user has confirmed ownership of the email address they signed up with.  
-   - A user remains **unverified** until they verify their email address.  
-
-2. **Compliant** and **Non-Compliant**:  
-   - Members whose email addresses do not comply with the workspace domain policy will be marked as **Non-Compliant**.  
-   - Non-compliant status can occur when:  
-     - A project is moved from a personal account to a workspace with domain locking enabled.  
-     - The domain policy is changed after a project is created or added.  
-   - Non-compliant members and guests will be highlighted in the **Members** window.  
+All workspace members can be managed from the **People** page in the workspace settings. This screen displays everyone added to the workspace, [their role and seat type](./roles.md), and the date they were added. You can also see users who have been invited but have not yet accepted the invitation to join the workspace.
 
 ---
 
@@ -25,19 +8,14 @@ Workspace members and guests can have two types of status indicators:
 
 To add a member to a workspace:  
 
-1. Click the **Invite** button in the top-right corner of the **Members** screen.  
-2. Enter the email address of the team member you want to invite.  
-   - If the user is an existing Speckle user, their name will be suggested as you type.  
+1. Click the **Invite** button in the top-right corner of the **People** screen.  
+2. Select if you want the person to join as a `Member` or a `Guest`
+2. Enter the email address of the team member you want to invite.   
 
-You can assign the user a role:  
-- `Guest`  
-- `Member`  
-- `Admin`  
+Inviting is always free. People join your workspace on a free Viewer seat, and you can give them an Editor seat later if they need to contribute to projects beyond viewing and commenting.
 
 ### Role-Specific Notes:
-- **Admins** can manage all members, enforce security policies, and control access to private automation functions in Speckle Automate.  
-- **Members** can use Speckle Automate to create private automation functions within the Workspace but cannot invite external users.  
-- **Guests** cannot access Speckle Automate and are limited to the projects to which they are explicitly invited.
+- Only **Admins** can invite new people to the workspace and enforce access security policies.  
 
 If the invited user is not already a Speckle user, they will receive an email invitation to join Speckle and the workspace.
 
@@ -45,7 +23,7 @@ If the invited user is not already a Speckle user, they will receive an email in
 
 ## Removing Members
 
-To remove a member from a workspace:  
+To remove a person from a workspace:  
 
 1. Click the `...` button next to their name in the **Members** screen.  
 2. Select **Remove user**.  
@@ -55,6 +33,22 @@ Once removed:
 - The user will no longer have access to the workspace or any of its projects.  
 - This includes projects they had been directly invited to.  
 - Any private automation functions authored by the removed user will remain accessible within the Workspace.
+
+---
+
+## Managing Seats
+
+Members and Guests can be assigned either an **Editor seat** or a **Viewer seat**.
+
+For **Members**:
+- Editor seat: Gives a Member permission to create new projects and take on any role in a project.
+- Viewer seat: Gives a Member general access to all projects in the workspace with the **Can view** project role.
+
+For **Guests**:
+- Editor seat: Gives a Guest permission to hold the **Can edit** role in the projects they are invited to.
+- Viewer seat: Gives a Guest permission to hold the **Can view** role in the projects they are invited to.
+
+The Viewer seat is always free while the Editor seat is a paid seat on the Starter and Business plans.
 
 ---
 

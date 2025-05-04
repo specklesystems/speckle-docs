@@ -407,12 +407,6 @@ module.exports = {
             'data-residency',
           ],
         },
-
-        {
-          title: 'Resources',
-          collapsable: false,
-          children: ['faqs'],
-        },
       ],
     },
   },

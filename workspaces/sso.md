@@ -8,4 +8,4 @@ SSO is a more secure way to manage user access across multiple applications. It 
 
 ## SSO for Workspaces
 
-SSO is available for **Workspaces Plus** and **Workspaces Business** plans, ensuring that only users with the correct credentials can access your organisation’s Speckle data.
+SSO is available on the **Business** plan, ensuring that only users with the correct credentials can access your organisation’s Speckle data.

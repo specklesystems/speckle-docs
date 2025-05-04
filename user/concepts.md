@@ -44,8 +44,8 @@ Projects can be either Private or Link Shared;
 Anyone invited as a team member can have one of 3 levels of access to the project, depending on which role you assign them:
 
 - **Owner**: Full access, including deletion rights and editing user permissions.
-- **Editor**: Can edit the project's contents (create new models and versions) but cannot edit project details (name and description) or manage permissions.
-- **Viewer**: View-only access to a project.
+- **Can edit**: Can edit the project's contents (create new models and versions) but cannot edit project details (name and description) or manage permissions.
+- **Can view**: View-only access to a project on web. No connector access.
 
 ### How Do I Use Projects?
 
