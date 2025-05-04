@@ -1,43 +1,64 @@
-# Workspace Member Roles
+# Workspace Roles and Seats
 
-## Contributors and Reviewers
+## Project roles
 
-Workspace admins can invite external users to a workspace as **guests**. Guests only have access to projects in the workspace to which they are specifically invited. Guests cannot own projects in your workspace but may be assigned one of the following roles within a project:
+### Project owner
 
-- **Contributor**: Grants write access to the project.
-- **Reviewer**: Grants read-only access to the project.
+- Full ownership of the project, including managing project members and settings.
+- The user who initially creates a project is automatically the Project owner.
+- Workspace admins are automatically project owners of all projects in a workspace.
+- An Editor seat is required to have the Project owner role.
 
-## Roles and Permissions
+### Can edit
 
-### Workspace Admin
+- Fully contribute to a project including publishing and loading new versions from the connectors.
+- A user can only have the Can edit role in a project if they are assigned an Editor seat.
+- An Editor seat is required to have the Can edit role.
+
+### Can view
+
+- Read-only project access through the Speckle web app including adding comments in the 3D viewer.
+- No permission to publish or load model versions from the Speckle connectors.
+
+## Workspace roles
+
+### Admin
 
 - Full ownership of the workspace, including management of members, projects, and settings.
 - Automatically the project owner for all existing and new workspace projects.
-- Cannot be removed or have their role changed within a project by non-admins.
+- Cannot be removed or have their role changed within a project.
 - Can create, manage, and oversee all Speckle Automate functions within the workspace. 
 
-### Workspace Member
+### Member
 
-- Project viewer for all existing and new workspace projects.
+- By default access to all workspace projects with the *Can view* project role.
+- Can create and own projects if on an Editor seat.
 - Can be removed or have their role changed (for project and workspace) by admins.
-- Can create and own projects.
 - Cannot invite new users to the workspace but can invite existing workspace members to projects.
 - Can access and use Speckle Automate to create private functions.  
 
-### Workspace Read/Write Guest
+### Guests
 
-- Guest on the workspace with no general access but granted **Contributor** access to at least one project.
+- Role meant for external collabators who only need limited access to select projects in the workspace.
+- Can hold the *Can edit* project role if on an Editor seat.
+- Can never create new projects in the workspace.
+- Can never hold the *Project owner* project role.
+- Can join a workspace without adhering to any domain policies or authorizing through SSO.
 - If an existing workspace user is changed to a guest, they will lose access to all workspace projects except those they are explicitly invited to.
-- Project owners can change their role or remove them.
 - Cannot access or create private Speckle Automate functions.  
 
-### Workspace Read-Only Guest
+## Workspace seats
 
-- Guest on the workspace with no general access and **Reviewer** access to at least one project.
-- If a read-only guest is granted edit access to any project, they are converted to a read/write guest.
-- Project owners can change their role or remove them.
-- Cannot access or use Speckle Automate.  
+Members and Guests can be assigned either an Editor seat or a Viewer seat. 
 
-## Workspaces for Individuals
+### Editor seat
 
-You can use Workspaces as an individual, but we encourage using them as part of a team. Workspaces are designed to deliver maximum value when collaborating with colleagues on various projects.
+- Gives Members or Guests permission to have the *Can edit* project role. 
+- Gives Members permission to create new projects in the workspace and become *Project owner*.
+- Is a required seat for Admins.
+- Is a paid seat on the Starter and Business plans.
+
+### Viewer seat
+
+- Gives Members and Guests permissino to have the *Can view* project role.
+- Is always a free seat.
