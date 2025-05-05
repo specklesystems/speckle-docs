@@ -60,5 +60,5 @@ Members and Guests can be assigned either an Editor seat or a Viewer seat.
 
 ### Viewer seat
 
-- Gives Members and Guests permissino to have the *Can view* project role.
+- Gives Members and Guests permission to have the *Can view* project role.
 - Is always a free seat.
