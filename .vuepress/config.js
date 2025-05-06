@@ -106,7 +106,6 @@ module.exports = {
           collapsable: false,
           children: [
             'connectors',
-            'manager',
             'ui2',
             {
               title: 'Revit',
