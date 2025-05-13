@@ -32,7 +32,7 @@ On MacOS devices with Apple based chips (M2, M3 etc.) it is possible to run the 
 1. `yarn`
 1. `yarn build`
 1. `yarn dev:docker:up`
-1. `cp packages/server/.env-example packages/server/.env`
+1. `cp packages/server/.env.example packages/server/.env`
 1. `cp packages/server/.env.test-example packages/server/.env.test`
 1. `cp packages/frontend-2/.env.example packages/frontend-2/.env`
 1. `cp packages/dui3/.env.example packages/dui3/.env`

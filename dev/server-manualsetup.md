@@ -240,7 +240,7 @@ Make sure to edit the file and change:
 - `FRONTEND_ORIGIN` to the same value as set for `CANONICAL_URL`
 - For added security, change the `SESSION_SECRET` to a unique secret value for this deployment.
 
-The server also supports some other environment variables. You can see them in our [.env-example file from the git repo](https://github.com/specklesystems/speckle-server/blob/main/packages/server/.env-example).
+The server also supports some other environment variables. You can see them in our [.env.example file from the git repo](https://github.com/specklesystems/speckle-server/blob/main/packages/server/.env.example).
 
 ### Step 4: **Recommended** Add a TLS Certificate and Serve Via HTTPS
 
