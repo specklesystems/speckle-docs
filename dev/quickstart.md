@@ -44,7 +44,7 @@ lerna bootstrap
 
 3. Create a Postgres db called `speckle2_dev`
 
-4. Copy and fill in an `.env` file in `packages/server` based on the `.env-example`
+4. Copy and fill in an `.env` file in `packages/server` based on the `.env.example`
 
 ### Starting Up
 
