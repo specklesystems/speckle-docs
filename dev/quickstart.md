@@ -8,8 +8,7 @@ Before you can spin up a local dev server, you'll need to install the following:
 
 - Node
 - Postgres
-- Redis
-- Lerna
+- Valkey
 
 ## Manager
 
@@ -21,7 +20,7 @@ The Manager also has a "Connectors" page where you can view, install, update, an
 
 ## Web
 
-[Speckle Web](/dev/web) is a monorepo containing the three web components of Speckle: the Server, the Frontend, and the Viewer. To get started, clone the repo from [here](https://github.com/specklesystems/speckle-server).
+[Speckle Web](/dev/web) is a monorepo containing the multiple components of Speckle: the Server, the Frontend, and the Viewer. To get started, clone the repo from [here](https://github.com/specklesystems/speckle-server).
 
 ### Setting Up
 
@@ -30,16 +29,18 @@ There are a few setup steps to go through after a fresh clone.
 1. Build the Viewer
 
 ```sh
+corepack enable
 cd packages/viewer
-npm install
-npm run build
+yarn install
+yarn build:public
+yarn build
 ```
 
 2. Bootstrap to the Viewer with the Frontend and install packages
 
 ```sh
-cd packages/frontend
-lerna bootstrap
+cd packages/frontend_2
+yarn build
 ```
 
 3. Create a Postgres db called `speckle2_dev`
@@ -50,9 +51,9 @@ lerna bootstrap
 
 Once you've gone through the initial setup, you're just three steps away from spinning up your dev server and exploring the frontend.
 
-1. Start local instances of both Postgres and Redis
-2. In `packages/server`, run `npm run dev`
-3. In `packages/frontend`, run `npm run dev`
+1. Start local instances of Postgres, MinIO, and Valkey
+2. In `packages/server`, run `yarn dev`
+3. In `packages/frontend`, run `yarn dev`
 
 Tada ✨ You should now see the frontend at `localhost:3000`! You can explore the API using the GraphQL Playground at `localhost:3000/graphql`.
 
