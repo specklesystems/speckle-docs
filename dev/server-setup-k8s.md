@@ -52,20 +52,20 @@ If you need help deploying a production server, [we can help](https://speckle.sy
 
 ## Step 2 (Optional): Deploy Dependent External Services
 
-If you already have Redis, Postgres, and Blob storage available, you can skip this step.  You will need the connection details for these services when configuring your deployment in [step 4](#step-4-configure-your-deployment).
+If you already have Valkey, Postgres, and Blob storage available, you can skip this step.  You will need the connection details for these services when configuring your deployment in [step 4](#step-4-configure-your-deployment).
 
-### Step 2.a (Optional): Configure Redis
+### Step 2.a (Optional): Configure Valkey
 
-Speckle requires a Redis database to function. You can provide your own if you have an existing database. Otherwise, follow the following steps to create a new Redis database in DigitalOcean.
+Speckle requires a Valkey cache to function. You can provide your own if you have an existing database. Otherwise, follow the following steps to create a new Valkey database in DigitalOcean.
 
-- We will deploy a managed Redis provided by DigitalOcean. Go to the [new Database creation page](https://cloud.digitalocean.com/databases/new). Firstly, select the same region and VPC as you used when deploying your Kubernetes cluster, and select Redis.  Provide a name, and click `Create Database Cluster`.
+- We will deploy a managed Valkey provided by DigitalOcean. Go to the [new Database creation page](https://cloud.digitalocean.com/databases/new). Firstly, select the same region and VPC as you used when deploying your Kubernetes cluster, and select Valkey.  Provide a name, and click `Create Database Cluster`.
   Again we used the default sizes, but your usage will vary and we recommend testing under your typical loads and adjusting by the database size as necessary.
   ![image](./img/k8s/06_redis_configuration.png)
 
 - From the overview, click on `Secure this database cluster by restricting access.`.  This will take you to the Trusted Sources panel in the Settings tab. Here we will improve the security of your database by only allowing connections from your Kubernetes cluster.  Type the name of your Kubernetes cluster and add it as a Trusted Source.
   ![image](./img/k8s/07_redis_trusted_source.png)
 
-- In the Overview tab for your Redis database. Select `connection string` from the dropdown, and copy the displayed Connection String. You will require this when configuring your deployment in [step 4](#step-4-configure-your-deployment).
+- In the Overview tab for your Valkey database. Select `connection string` from the dropdown, and copy the displayed Connection String. You will require this when configuring your deployment in [step 4](#step-4-configure-your-deployment).
   ![image](./img/k8s/08_redis_connection_string.png)
 
 ### Step 2.b (Optional): Configure Postgres
@@ -80,7 +80,7 @@ Speckle requires a Postgres database to function. You can provide your own if yo
 - From the overview page for your Postgres database, click on `Secure this database cluster by restricting access`.  This will take you to the Trusted Sources panel in the Settings tab. Here we will improve the security of your database by only allowing connections from your Kubernetes cluster.  Type the name of your Kubernetes cluster and add it as a Trusted Source.
   ![image](./img/k8s/10_postgres_trusted_source_edit.png)
 
-- In the Overview tab for your Redis database. Select `connection string` from the dropdown, and copy the displayed Connection String. You will require this for when configuring your deployment in [step 4](#step-4-configure-your-deployment).
+- In the Overview tab for your Valkey database. Select `connection string` from the dropdown, and copy the displayed Connection String. You will require this for when configuring your deployment in [step 4](#step-4-configure-your-deployment).
   ![image](./img/k8s/11_postgres_connection_string.png)
 
 ### Step 2.c (Optional): Configure Blob Storage (DigitalOcean Spaces)

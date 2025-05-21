@@ -18,11 +18,11 @@ If you want to run your own instance, there are multiple ways to achieve this:
 The Speckle server needs these services available over the network:
 
 - PostgreSQL (tested with v12 and v13)
-- Redis
+- Valkey
 - Optional: S3-compatible Object Storage
 
 ::: tip
-PostgreSQL, Redis and MinIO are included in the following deployment instructions, so **you don't need to install them manually**.
+PostgreSQL, Valkey and MinIO are included in the following deployment instructions, so **you don't need to install them manually**.
 
 You can also install them manually or use a managed deployment from a cloud provider (Azure, AWS, DigitalOcean, etc). Setting them up manually is out of scope of this article.
 :::
@@ -78,14 +78,14 @@ services:
       retries: 30
 
   redis:
-    image: "redis:7-alpine"
+    image: "valkey/valkey:8-alpine"
     restart: always
     volumes:
       - redis-data:/data
     ports:
       - "127.0.0.1:6379:6379"
     healthcheck:
-      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      test: ["CMD", "valkey-cli", "--raw", "incr", "ping"]
       interval: 5s
       timeout: 5s
       retries: 30
@@ -314,7 +314,7 @@ docker compose up -d
 This will:
 
 - Run PostgreSQL inside docker, with data files stored in `/opt/speckle/postgres-data/`
-- Run Redis inside docker, with data files stored in `/opt/speckle/redis-data/`
+- Run Valkey inside docker, with data files stored in `/opt/speckle/redis-data/`
 - Run MinIO inside docker, with data files stored in `/opt/speckle/minio-data/`
 - Run the Server component, configured for this environment.
 - Run the Frontend component, exposing port 80 to the network the VM is in.
@@ -326,7 +326,7 @@ All containers automatically start at system startup (so if the VM gets rebooted
 
 ## Run in a VM without Dependencies
 
-If you plan to run PostgreSQL, Redis and and S3-compatible object storage service separately, for example as managed deployments by a cloud provider (DigitalOcean, AWS, Azure, etc), you can follow the same instructions as above, but with this simplified `docker-compose.yml` file:
+If you plan to run PostgreSQL, Valkey, and S3-compatible object storage service separately - for example as managed deployments by a cloud provider (DigitalOcean, AWS, Azure, etc) - you can follow the same instructions as above, but with this simplified `docker-compose.yml` file:
 
 ```yaml
 version: "2.3"
@@ -467,10 +467,10 @@ If you made some changes to the server and want to run those instead of the offi
 ### Step 1: Set up Dependencies
 
 ::: tip
-If you set up PostgreSQL, Redis and S3-compatible service outside of this VM (for example a managed deployment from a cloud provider), you can skip this step, but remember to set up the correct environment variables later
+If you set up PostgreSQL, Valkey and S3-compatible service outside of this VM (for example a managed deployment from a cloud provider), you can skip this step, but remember to set up the correct environment variables later
 :::
 
-To get the PostgreSQL, Redis and MinIO dependencies up and running in the VM, our git repo contains
+To get the PostgreSQL, Valkey and MinIO dependencies up and running in the VM, our git repo contains
 [a docker compose file](https://github.com/specklesystems/speckle-server/blob/main/docker-compose-deps.yml)
 for running these dependencies locally in docker containers.
 
@@ -484,9 +484,9 @@ docker compose -f docker-compose-deps.yml up -d
 This will run the following containers, and will automatically launch them at system startup:
 
 - _PostgreSQL v13_, listening only on `127.0.0.1:5432` with default credentials `speckle`:`speckle` and a database named `speckle`.
-- _Redis v6_, listening only on `127.0.0.1:6379`
+- _Valkey v8_, listening only on `127.0.0.1:6379`
 - _PGAdmin4_, listening only on `127.0.0.1:16543` with default credentials `admin@localhost` : `admin`
-- _Redis Insight_, listening only on `127.0.0.1:8001`
+- _Redis Insight_, listening only on `127.0.0.1:8001`. To provide insights into the Valkey cache.
 - _MinIO_, listening on `127.0.0.1:9000` with the API endpoint and on `127.0.0.1:9001` with the Web Management Interface (default credentials used: `minioadmin`/`minioadmin`)
 
 All of the above containers listen on the local loopback interface (`127.0.0.1`) and are NOT accessible from the local network (for security, since they use default credentials)
