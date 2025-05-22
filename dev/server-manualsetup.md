@@ -189,7 +189,8 @@ services:
     memswap_limit: "1000m"
     environment:
       DEBUG: "preview-service:*"
-      PG_CONNECTION_STRING: "postgres://speckle:speckle@postgres/speckle"
+      REDIS_URL: "redis://redis"
+      PORT: "3001"
 
   webhook-service:
     image: speckle/speckle-webhook-service:2
