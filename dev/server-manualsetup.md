@@ -62,14 +62,14 @@ services:
   # Speckle Server dependencies
   #######
   postgres:
-    image: "postgres:14.5-alpine"
+    image: "postgres:16.9-alpine"
     restart: always
     environment:
       POSTGRES_DB: speckle
       POSTGRES_USER: speckle
       POSTGRES_PASSWORD: speckle
     volumes:
-      - postgres-data:/var/lib/postgresql/data/
+      - ./postgres-data:/var/lib/postgresql/data/
     healthcheck:
       # the -U user has to match the POSTGRES_USER value
       test: ["CMD-SHELL", "pg_isready -U speckle"]
@@ -81,7 +81,7 @@ services:
     image: "valkey/valkey:8-alpine"
     restart: always
     volumes:
-      - redis-data:/data
+      - ./redis-data:/data
     ports:
       - "127.0.0.1:6379:6379"
     healthcheck:
@@ -95,7 +95,7 @@ services:
     command: server /data --console-address ":9001"
     restart: always
     volumes:
-      - minio-data:/data
+      - ./minio-data:/data
     healthcheck:
       test: ["CMD", "mc", "ready", "local"]
       interval: 5s
