@@ -1,3 +1,10 @@
+---
+title: Creating Automations
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Creating Automations
 
 ## **What is an Automation?**

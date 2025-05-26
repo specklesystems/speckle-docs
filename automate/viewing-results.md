@@ -1,3 +1,10 @@
+---
+title: Viewing Automation Results
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Viewing Automation Results
 
 There are two entry points to view Automate results:

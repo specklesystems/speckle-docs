@@ -1,3 +1,10 @@
+---
+title: Creating Functions
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Creating Functions
 
 If you have a verified account on [app.speckle.systems](https://app.speckle.systems), navigate to a Workspaces-hosted project where you are a collaborator. Go to the Automations tab and select View Functions to see your team's existing functions. To create a new function, click New Function in the top right:

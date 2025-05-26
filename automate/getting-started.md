@@ -1,3 +1,10 @@
+---
+title: Getting Started
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Getting Started
 
 ## Accounts and Authentication

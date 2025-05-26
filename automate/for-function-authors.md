@@ -1,3 +1,10 @@
+---
+title: For Function Authors
+deprecationMessages: automate
+---
+
+<Banner />
+
 # For Function Authors
 
 - **[Creating Functions](./create-function.md):** Follow our detailed instructions for publishing your first function using the Automate wizard.  

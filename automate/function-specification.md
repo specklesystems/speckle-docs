@@ -1,3 +1,10 @@
+---
+title: Function Specification
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Function Specification
 
 The Function specification defines an Application Programming Interface (API) to which a Function must comply in order to be used with Automate.

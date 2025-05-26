@@ -1,3 +1,10 @@
+---
+title: Testing Your Functions
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Testing Your Functions
 
 Speckle Automate supports robust testing for your functions through local testing setups and **test automations**—sandbox environments designed to validate your function's business logic and results against real project data.

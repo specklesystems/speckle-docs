@@ -1,3 +1,10 @@
+---
+title: What is Automate?
+deprecationMessages: automate
+---
+
+<Banner />
+
 # What is Automate?
 
 Speckle Automate is a fully fledged CI/CD platform designed to run custom code on Speckle models whenever a new version is available.

@@ -1,3 +1,10 @@
+---
+title: Annotating Function Results
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Annotating Function Results
 
 `AutomationContext` provides methods to attach structured annotations to objects, allowing automated analysis and validation 

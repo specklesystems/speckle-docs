@@ -1,3 +1,10 @@
+---
+title: Handling Data in Functions
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Handling Data in Functions
 
 ## Core Concepts

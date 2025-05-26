@@ -1,3 +1,10 @@
+---
+title: For Users
+deprecationMessages: automate
+---
+
+<Banner />
+
 # For Users
 
 ### Designing Automation Workflows

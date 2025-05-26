@@ -1,3 +1,10 @@
+---
+title: Imoprtant Caveats
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Important Caveats
 
 ### Your Data

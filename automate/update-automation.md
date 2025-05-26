@@ -1,3 +1,10 @@
+---
+title: Update an Automation
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Update an Automation
 
 Automations can be updated to amend configuration values or use a different function version.

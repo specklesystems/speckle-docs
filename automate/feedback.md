@@ -1,3 +1,10 @@
+---
+title: Providing Feedback
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Providing Feedback
 
 As a participant in the Automate public beta, your feedback is crucial to shaping Speckle Automate as we approach its 1.0 release. We welcome your insights on:

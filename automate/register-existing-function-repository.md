@@ -1,3 +1,10 @@
+---
+title: Register Existing Function Repository
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Register an existing function repository
 
 We recommend to always create a new Function from one of the templates provided by Speckle. Even if you wish to create a Function in a different language, you can use any template and modify it later.
