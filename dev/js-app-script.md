@@ -1,6 +1,6 @@
 ---
 Title: Using Google Apps Script
-deprectationMessages: developer
+deprecationMessages: developer
 ---
 
 <Banner />

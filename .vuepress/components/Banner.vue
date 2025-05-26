@@ -41,6 +41,7 @@ export default {
     // look up the actual text from your site config
     message() {
       if (!this.key) return null;
+      console.log(`Deprecation message key: ${this.key}`);
       const msgs = this.$site.themeConfig.deprecationMessages || {};
       return msgs[this.key] || null;
     },

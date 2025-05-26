@@ -1,6 +1,6 @@
 ---
 title: The Base Object
-deprectationMessages: developer
+deprecationMessages: developer
 ---
 
 <Banner />

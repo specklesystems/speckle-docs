@@ -1,7 +1,7 @@
 ---
 permalink: /
 title: Introduction
-deprectationMessages: developer
+deprecationMessages: developer
 ---
 
 <Banner />

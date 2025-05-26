@@ -1,6 +1,6 @@
 ---
 title: Architecture
-deprectationMessages: developer
+deprecationMessages: developer
 ---
 
 <Banner />

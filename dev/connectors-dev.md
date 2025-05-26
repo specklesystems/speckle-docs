@@ -1,6 +1,6 @@
 ---
 title: Writing your own connector (Obsolete)
-deprectationMessages: developer_obsolete
+deprecationMessages: developer_obsolete
 description: Had a dream for a connector that doesn't yet exist? We had all the tools ready for you to start developing your own!
 ---
 

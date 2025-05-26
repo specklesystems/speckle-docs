@@ -1,6 +1,6 @@
 ---
 title: Decomposition
-deprectationMessages: developer
+deprecationMessages: developer
 ---
 
 <Banner />

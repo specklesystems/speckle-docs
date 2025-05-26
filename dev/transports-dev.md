@@ -1,6 +1,6 @@
 ---
 title: Custom Transports
-deprectationMessages: developer
+deprecationMessages: developer
 ---
 
 <Banner />

@@ -1,6 +1,6 @@
 ---
 title: Javascript
-deprectationMessages: developer
+deprecationMessages: developer
 ---
 
 <Banner />

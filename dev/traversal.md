@@ -1,6 +1,6 @@
 ---
 title: Data Traversal
-deprectationMessages: developer
+deprecationMessages: developer
 ---
 
 <Banner />

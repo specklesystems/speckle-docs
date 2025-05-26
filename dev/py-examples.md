@@ -1,6 +1,6 @@
 ---
 title: Examples
-deprectationMessages: sdks
+deprecationMessages: sdks
 ---
 
 <Banner />

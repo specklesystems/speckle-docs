@@ -1,6 +1,6 @@
 ---
 title: Custom Apps
-deprectationMessages: developer
+deprecationMessages: developer
 ---
 
 <Banner />

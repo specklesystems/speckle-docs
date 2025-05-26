@@ -1,6 +1,6 @@
 ---
 title: GraphQL API
-deprectationMessages: sdks
+deprecationMessages: sdks
 ---
 
 # GraphQL API

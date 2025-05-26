@@ -1,6 +1,6 @@
 ---
 title: Introduction
-deprectationMessages: server
+deprecationMessages: server
 ---
 
 # Introduction

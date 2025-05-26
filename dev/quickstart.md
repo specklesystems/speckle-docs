@@ -1,6 +1,6 @@
 ---
 title: Quickstart
-deprectationMessages: developer
+deprecationMessages: developer
 ---
 
 <Banner />
