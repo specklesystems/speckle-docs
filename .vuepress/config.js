@@ -14,7 +14,7 @@ module.exports = {
     },
   },
   base: '/',
-  title: 'Speckle Docs',
+  title: 'Speckle Docs (Legacy)',
 
   description: description,
   head: [
@@ -65,24 +65,20 @@ module.exports = {
     },
     nav: [
       {
-        text: 'User Guide',
-        link: '/',
+        text: '🆕 User Guides',
+        link: 'https://docs.speckle.systems',
       },
       {
-        text: 'Developer Docs',
-        link: '/dev/',
-      },
-      {
-        text: 'Automate',
-        link: '/automate/',
-      },
-      {
-        text: '3D Viewer',
+        text: '✅ 3D Viewer',
         link: '/viewer/',
       },
       {
-        text: 'Workspaces',
-        link: '/workspaces/',
+        text: '⚠️ Automate',
+        link: '/automate/',
+      },
+      {
+        text: '⚠️ Developer Docs',
+        link: '/',
       },
       {
         text: 'Speckle Website',
@@ -95,94 +91,6 @@ module.exports = {
       },
     ],
     sidebar: {
-      '/user/': [
-        {
-          title: 'User Guide 🤷',
-          collapsable: false,
-          children: ['', 'concepts', 'concepts-advanced', 'installing', 'FAQs'],
-        },
-        {
-          title: 'Connectors 🔌',
-          collapsable: false,
-          children: [
-            'connectors',
-            'ui2',
-            {
-              title: 'Revit',
-              collapsable: true,
-              children: [
-                './revit/intro',
-                './revit/installing-updating-the-connector',
-                './revit/sending-models',
-                './revit/receiving-models',
-                './revit/advanced-settings',
-                './revit/features',
-                './revit/support-table',
-                './revit/faq',
-              ],
-            },
-            'rhino',
-            'autocadcivil',
-            'grasshopper',
-            'dynamo',
-            'unity',
-            'unreal',
-            'blender',
-            'excel',
-            'csi',
-            {
-              title: 'SketchUp',
-              collapsable: true,
-              children: [
-                './sketchup/introduction',
-                './sketchup/installation',
-                './sketchup/basic-usage',
-                './sketchup/advanced-settings',
-                './sketchup/manual-installation',
-              ],
-            },
-            'qgis',
-            {
-              title: 'Power BI',
-              collapsable: true,
-              children: [
-                './powerbi/introduction',
-                './powerbi/installation',
-                './powerbi/configuration',
-                './powerbi/accessing-private-streams',
-                './powerbi/uninstallation',
-                './powerbi/using-powerbi-connector',
-                './powerbi/working-with-records',
-              ],
-            },
-            {
-              title: 'Power BI 3D Viewer',
-              collapsable: true,
-              children: [
-                './powerbi-visual/introduction',
-                './powerbi-visual/installation',
-                './powerbi-visual/basic-usage',
-                './powerbi-visual/coloring',
-                './powerbi-visual/object-tooltip',
-                './powerbi-visual/visual-settings',
-                './powerbi-visual/general-settings',
-              ],
-            },
-            'bentley',
-            'teklastructures',
-            'archicad',
-            'navisworks',
-            'ifc',
-            'mapping-tool',
-            'support-tables',
-          ],
-        },
-        {
-          title: 'Tutorials ⚡',
-          collapsable: false,
-          children: ['tutorials'],
-        },
-      ],
       '/dev/': [
         {
           title: 'Developer Docs 👩‍💻',
@@ -253,17 +161,19 @@ module.exports = {
             {
               title: 'Core Functionalities',
               collapsable: true,
-              children: [
-                'for-automate-users',
-                'for-function-authors',
-              ],
+              children: ['for-automate-users', 'for-function-authors'],
             },
           ],
         },
         {
           title: 'Automations',
           collapsable: false,
-          children: ['create-automation', 'update-automation', 'viewing-results', 'troubleshooting'],
+          children: [
+            'create-automation',
+            'update-automation',
+            'viewing-results',
+            'troubleshooting',
+          ],
         },
         {
           title: 'Functions',
@@ -272,7 +182,7 @@ module.exports = {
             'public-functions',
             'create-function',
             {
-              title:'Making Your Function',
+              title: 'Making Your Function',
               collapsable: true,
               children: [
                 'function-inputs',
@@ -280,12 +190,12 @@ module.exports = {
                 'function-data',
                 'function-success',
                 'function-results',
-                'function-artefacts'
-              ]
+                'function-artefacts',
+              ],
             },
             'function-testing',
             'documenting',
-            'release-function-version'
+            'release-function-version',
           ],
         },
         {
@@ -342,8 +252,8 @@ module.exports = {
                     'rendering-pipeline-api/progressive-pipeline-api',
                     'rendering-pipeline-api/g-pass-api',
                     'rendering-pipeline-api/base-g-pass-api',
-                    'rendering-pipeline-api/progressive-g-pass-api'
-                  ]
+                    'rendering-pipeline-api/progressive-g-pass-api',
+                  ],
                 },
                 'speckle-material-api',
                 'speckle-renderer-api',
@@ -382,28 +292,6 @@ module.exports = {
             'object-manipulation-example',
             'box-selection-example',
             'categorize-example',
-          ],
-        },
-      ],
-      '/workspaces/': [
-        {
-          sidebarDepth: 0,
-          title: 'Workspace Docs 👩‍🏭',
-          collapsable: false,
-          children: ['', 'welcome-to-workspaces', 'getting-started', 'advanced-features'],
-        },
-        {
-          title: 'Refererences',
-          sidebarDepth: 1,
-          collapsable: false,
-          children: [
-            'projects',
-            'members',
-            'roles',
-            'workspaces-for-companies',
-            'billing',
-            'sso',
-            'data-residency',
           ],
         },
       ],
