@@ -27,7 +27,7 @@ module.exports = {
     [
       'script',
       {
-        src: '/scripts/scroll-to-hash.js',
+        // src: '/scripts/scroll-to-hash.js',
       },
     ],
     [
@@ -51,7 +51,7 @@ module.exports = {
   themeConfig: {
     repo: 'specklesystems/speckle-docs/',
     docsBranch: 'main',
-    editLinks: true,
+    editLinks: false,
     editLinkText: 'Edit this page',
     docsDir: '',
     sidebarDepth: 2,
@@ -60,8 +60,8 @@ module.exports = {
     logo: '/assets/logo-docs.png',
     deprecationMessages: {
       connectors:
-        '🔗 Heads up! Connector docs have moved to [docs.speckle.systems](https://docs.speckle.systems). This old page will be retired soon—thanks for migrating with us!',
-      sdks: '📦 You’re looking at docs for our older SDKs. New and improved guides are on their way at [docs.speckle.systems](https://docs.speckle.systems)—stay tuned!',
+        '🔗 Heads up! Connector docs have moved to <a href="https://docs.speckle.systems">docs.speckle.systems</a>. This old page will be retired soon—thanks for migrating with us!',
+      sdks: '📦 You’re looking at docs for our older SDKs. New and improved guides are on their way at <a href="https://docs.speckle.systems">docs.speckle.systems</a>—stay tuned!',
       viewer:
         '👀 These Viewer API docs are still valid and will soon be part of our new Developer Docs site. Hang tight!',
       automate:
@@ -71,7 +71,6 @@ module.exports = {
       server:
         '🖥️ These Server docs are still valid but take care to keep up-to-date for full compatibility with v3 connectors. This will soon be part of our new Developer Docs site. Hang tight!',
     },
-
     algolia: {
       appId: 'XOL51LKXOA',
       apiKey: '595b9c5533a46cfa0f999033d4e4ba28',
@@ -83,7 +82,7 @@ module.exports = {
         link: 'https://docs.speckle.systems',
       },
       {
-        text: '✅ 3D Viewer',
+        text: '✅ Viewer API',
         link: '/viewer/',
       },
       {
@@ -91,7 +90,7 @@ module.exports = {
         link: '/automate/',
       },
       {
-        text: '⚠️ Developer Docs',
+        text: '⚠️ Developers',
         link: '/',
       },
       {
@@ -131,6 +130,7 @@ module.exports = {
           collapsable: false,
           children: [],
         },
+        { title: 'GraphQL API', collapsable: false, children: ['graphql-api'] },
         {
           title: '.NET SDK',
           collapsable: false,
