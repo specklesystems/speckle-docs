@@ -1,3 +1,10 @@
+---
+title: Architecture
+deprecationType: developer
+---
+
+<Banner />
+
 # Architecture
 
 ![image](./img/architecture/basic.png)

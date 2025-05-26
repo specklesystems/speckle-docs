@@ -1,11 +1,9 @@
 ---
 title: Python SDK
+deprecationMessages: sdks
 ---
 
-<div class="banner-ribbon">
-  <span><b>Notice</b>: This user guide is based on the legacy v2 Python SDK.</span>
-  <span class="next-gen">New documentation for the v3 SDK will be launched when it is ready at docs.speckle.systems</span>
-</div>
+<Banner />
 
 # Introduction
 

@@ -1,3 +1,10 @@
+---
+title: Custom Kits
+deprecationType: developer
+---
+
+<Banner />
+
 # Writing your own kit
 
 Writing your own kit is a quite simple task, as long as you are not intimidated by the various AEC software APIs 😁.

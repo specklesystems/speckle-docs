@@ -1,3 +1,10 @@
+---
+title: "Tutorial: A Simple Dashboard"
+deprecationType: sdks
+---
+
+<Banner />
+
 # Tutorial: Simple Dashboard
 
 In this tutorial, we'll be working with Speckle data and using it to create a super simple dashboard. We'll be receiving geometry from a stream, updating the data, and using it to do some calculations and simple plots using Plotly and Dash.

@@ -1,3 +1,10 @@
+---
+title: The Objects Kit
+deprecationType: developer
+---
+
+<Banner />
+
 # Objects kit
 
 ## Introduction

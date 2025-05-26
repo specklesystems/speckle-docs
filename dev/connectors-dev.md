@@ -1,3 +1,10 @@
+---
+title: Writing your own connector
+deprecationType: developer
+---
+
+<Banner />
+
 # Writing your own connector (Outdated)
 
 ![img](./img/connectors-dev/connectors.png)

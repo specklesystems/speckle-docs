@@ -1,3 +1,10 @@
+---
+title: Quickstart
+deprecationType: developer
+---
+
+<Banner />
+
 # QuickStart
 
 In a rush? Don't feel like reading through a lot of documentation? This guide will get you up and running with a local dev server and have you sending data to Speckle ASAP. Feel free to dip into the [User Guide](/user/) or [Dev Docs](/dev/speckle-sharp/) for more detailed explanations where you need them.

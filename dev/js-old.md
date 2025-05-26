@@ -1,3 +1,10 @@
+---
+title: Javascript
+deprecationType: developer
+---
+
+<Banner />
+
 # Introduction
 
 Note, these are WIP instructions. More details coming soon!

@@ -1,3 +1,9 @@
+---
+deprecationType: developer
+---
+
+<Banner />
+
 # Creating Your Own App
 
 ![Creating your own Speckle app](./img/apps-guide/app-guide-main-img.jpg)

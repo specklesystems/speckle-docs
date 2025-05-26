@@ -1,3 +1,10 @@
+---
+title: Object Kits
+deprecationType: developer
+---
+
+<Banner />
+
 # Kits
 
 Kits were originally discussed on the community forum. Check out [the original thread](https://speckle.community/t/introducing-kits-2-0/710)!

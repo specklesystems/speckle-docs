@@ -1,3 +1,10 @@
+---
+Title: Using Google Apps Script
+deprecationType: developer
+---
+
+<Banner />
+
 # Using Google Apps Scripts
 
 Using Speckle in [Google Apps Scripts](https://developers.google.com/apps-script) is very simple, and fun! With just a few lines of code, you'll be able to send, receive and leverage our API from Google Sheets, Docs etc.
