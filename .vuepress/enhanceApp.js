@@ -10,10 +10,12 @@ export default ({
   router, // the router instance for the app
   siteData, // site metadata
 }) => {
+  //performs a hard redirect for legacy /user/ and /workspaces/ paths
   router.beforeEach((to, from, next) => {
     if (to.path.startsWith('/user/') || to.path.startsWith('/workspaces/')) {
-      // perform a hard redirect
-      window.location.replace('https://docs.speckle.systems/');
+      if (typeof window !== 'undefined') {
+        window.location.replace('https://docs.speckle.systems/');
+      }
     } else {
       next();
     }
