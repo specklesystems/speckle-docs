@@ -26,9 +26,10 @@
         }, // allow single heading
       }
     },
-    "files.autoSave": "onWindowChange",
+    "files.autoSave": "onFocusChange",
     "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "file"
+    "editor.formatOnSaveMode": "file",
+    "files.autoSaveWorkspaceFilesOnly": true
   },
   "extensions": {
     "recommendations": [
