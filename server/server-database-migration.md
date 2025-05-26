@@ -1,6 +1,6 @@
 ---
 title: Backup, Upgrade & Restore
-deprecationType: server
+deprectationMessages: server
 ---
 
 # Database backup, upgrade, and restore

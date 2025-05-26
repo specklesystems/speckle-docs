@@ -1,6 +1,6 @@
 ---
 title: The Objects Kit
-deprecationType: developer
+deprectationMessages: developer
 ---
 
 <Banner />

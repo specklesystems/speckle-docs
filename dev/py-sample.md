@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: A Simple Dashboard"
-deprecationType: sdks
+deprectationMessages: sdks
 ---
 
 <Banner />

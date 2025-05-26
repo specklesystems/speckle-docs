@@ -1,6 +1,6 @@
 ---
 layout: BannerPage
-deprecationType: viewer
+deprectationMessages: viewer
 ---
 
 # Introduction

@@ -1,6 +1,6 @@
 ---
 title: Filtering and Flattening Data
-deprecationType: developer
+deprectationMessages: developer
 ---
 
 <Banner />

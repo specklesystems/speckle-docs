@@ -1,6 +1,6 @@
 ---
 title: Custom Kits (Obsolete)
-deprecationType: developer_obsolete
+deprectationMessages: developer_obsolete
 description: Writing your own kit iwas never a simple task. This page covered the basics of writing your own kit, including object models and converters.
 ---
 

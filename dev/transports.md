@@ -1,6 +1,6 @@
 ---
 title: Transports
-deprecationType: developer
+deprectationMessages: developer
 ---
 
 <Banner />

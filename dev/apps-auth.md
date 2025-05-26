@@ -1,6 +1,6 @@
 ---
 title: Apps and Auth
-deprecationType: developer
+deprectationMessages: developer
 ---
 
 <Banner />

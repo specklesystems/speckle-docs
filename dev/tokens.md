@@ -1,6 +1,6 @@
 ---
 title: Personal Access Tokens
-deprecationType: developer
+deprectationMessages: developer
 ---
 
 <Banner />

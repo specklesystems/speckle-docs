@@ -1,12 +1,11 @@
 <template>
-
   <div v-if="message" class="banner">
     <div class="banner-content">
       <span class="banner-text" v-html="message" />
     </div>
   </div>
-
 </template>
+
 <style scoped>
 .banner {
   background-color: #fff3cd;
