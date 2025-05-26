@@ -8,7 +8,7 @@ deprecationMessages: automate
 # Creating Functions
 
 If you have a verified account on [app.speckle.systems](https://app.speckle.systems), navigate to a Workspaces-hosted project where you are a collaborator. Go to the Automations tab and select View Functions to see your team's existing functions. To create a new function, click New Function in the top right:
-![new function button](/dev/img/new-function-button.png)
+![new function button](/automate/img/new-function-button.png)
 
 This launches the function creation wizard.
 
@@ -18,11 +18,11 @@ This launches the function creation wizard.
 
 1. **Authorise GitHub**  
    Required only the first time.  
-   ![authorise github](/dev/img/authorise-github.png)
+   ![authorise github](/automate/img/authorise-github.png)
 
    ::: tip 💡 **Authorized OAuth Apps**  
    Speckle Automate will appear under your GitHub account's Authorized OAuth Apps. Access can be revoked at any time, but it is necessary to publish new functions.  
-   ![authorised applications](/dev/img/authorised-applications.png)  
+   ![authorised applications](/automate/img/authorised-applications.png)  
    :::
 
 2. **Choose a Template**  
@@ -41,11 +41,11 @@ This launches the function creation wizard.
    ::: tip 🧙‍♂️ **Wizard Actions**  
    The wizard handles scaffolding for you:
    - Clones the template project into your repositories.  
-     ![repo-title](/dev/img/repo-title.png)  
+     ![repo-title](/automate/img/repo-title.png)  
    - Creates a GitHub action (`.github/workflows/main.yml`) for build and deployment.  
-     ![build-and-deploy](/dev/img/build-and-deploy.png)  
+     ![build-and-deploy](/automate/img/build-and-deploy.png)  
    - Injects API interaction environment variables (`SPECKLE_FUNCTION_ID` and `SPECKLE_FUNCTION_TOKEN`).  
-     ![repo-secrets](/dev/img/repo-secrets.png)  
+     ![repo-secrets](/automate/img/repo-secrets.png)  
    :::
 
 4. **Repository Management**  
@@ -59,7 +59,7 @@ This launches the function creation wizard.
 
 5. **Finalise Your Function**  
    Once created, the function template can be edited and tailored to your business logic.  
-   ![function-created](/dev/img/function-created.png)
+   ![function-created](/automate/img/function-created.png)
 
 6. **Next Steps**  
    From the success page, you can:
