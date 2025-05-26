@@ -59,6 +59,8 @@ module.exports = {
     lastUpdated: true,
     logo: '/assets/logo-docs.png',
     deprecationMessages: {
+      'user-migrated':
+        '✅ This user guide has moved to <a href="https://docs.speckle.systems/user">docs.speckle.systems/user</a>. Please update your bookmarks—Google might still send you here!',
       connectors:
         '🔗 Heads up! Connector docs have moved to <a href="https://docs.speckle.systems">docs.speckle.systems</a>. This old page will be retired soon—thanks for migrating with us!',
       sdks: '📦 You’re looking at docs for our older SDKs. New and improved guides are on their way at <a href="https://docs.speckle.systems">docs.speckle.systems</a>—stay tuned!',
@@ -68,6 +70,8 @@ module.exports = {
         '🛠️ Automate is in beta: things may shift as we refine flows and SDKs. Please bear with us and check back often!',
       developer:
         '⚠️ Developer docs are being updated and will follow our v3 Connectors launch. In the meantime, terminology may be outdated—see the latest at <a href="https://docs.speckle.systems">docs.speckle.systems</a>.',
+      'developer-obsolete':
+        '🛑 These Developer docs are now obsolete and won’t be carried over into the new site. Please migrate your workflows to <a href="https://docs.speckle.systems">docs.speckle.systems</a> as soon as possible.',
       server:
         '🖥️ These Server docs are still valid but take care to keep up-to-date for full compatibility with v3 connectors. This will soon be part of our new Developer Docs site. Hang tight!',
     },
@@ -123,6 +127,8 @@ module.exports = {
             'kits',
             'transports',
             'apps-auth',
+            'tokens',
+            'apps',
           ],
         },
         {
@@ -155,7 +161,7 @@ module.exports = {
           title: 'Server API & Apps',
           collapsable: false,
           children: [
-            'server-api',
+            '',
             'server-graphql-api',
             'server-rest-api',
             'server-stream-previews',
@@ -164,8 +170,6 @@ module.exports = {
             'server-manualsetup',
             'server-local-dev',
             'server-database-migration',
-            'tokens',
-            'apps',
             'server-setup',
           ],
         },
