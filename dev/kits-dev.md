@@ -1,11 +1,12 @@
 ---
-title: Custom Kits
-deprecationType: developer
+title: Custom Kits (Obsolete)
+deprecationType: developer-obsolete
+description: Writing your own kit iwas never a simple task. This page covered the basics of writing your own kit, including object models and converters.
 ---
 
 <Banner />
 
-# Writing your own kit
+# Writing your own kit (Obsolete)
 
 Writing your own kit is a quite simple task, as long as you are not intimidated by the various AEC software APIs 😁.
 As mentioned in [this page](/dev/kits), kits are made of:

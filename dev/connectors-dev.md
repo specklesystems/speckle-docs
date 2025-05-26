@@ -1,13 +1,14 @@
 ---
-title: Writing your own connector
-deprecationType: developer
+title: Writing your own connector (Obsolete)
+deprecationType: developer-obsolete
+description: Had a dream for a connector that doesn't yet exist? We had all the tools ready for you to start developing your own!
 ---
 
 <Banner />
 
 # Writing your own connector (Outdated)
 
-![img](./img/connectors-dev/connectors.png)
+![img](/dev/img/connectors-dev/connectors.png)
 
 Have a dream for a connector that doesn't yet exist? We have all the tools ready for you to start developing your own!
 
@@ -51,7 +52,7 @@ Then you can proceed to add the following packages from NuGet:
 - `Speckle.DesktopUI`
 - `Speckle.Objects`
 
-![image-20210427162106504](./img/connectors-dev/image-20210427162106504.png)
+![image-20210427162106504](/dev/img/connectors-dev/image-20210427162106504.png)
 
 By installing these packages,`Speckle.Core` and other packages will be also added automatically.
 
