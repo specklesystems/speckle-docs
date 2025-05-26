@@ -11,6 +11,12 @@
   color: #ffffff !important;
   text-decoration: underline !important;
 }
+
+.banner.automate .banner-text a,
+.banner.developer .banner-text a {
+  color: #000 !important;
+  text-decoration: underline !important;
+}
 </style>
 <style scoped>
 .banner {
