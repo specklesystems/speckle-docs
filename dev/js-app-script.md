@@ -18,7 +18,7 @@ As always, treat this token as a password!
 
 ## Writing your Queries
 
-To learn how to write queries check out our section on the [Server API](/dev/server-api), and use the GraphQL explorer to make sure your query or mutation works as expected.
+To learn how to write queries check out our section on the [Server API](/server/server-api), and use the GraphQL explorer to make sure your query or mutation works as expected.
 
 Next, since App Scripts doesn't have a GraphQL library we need to transform them a bit to work with `UrlFetchApp`, it's just a matter of setting the right payload and parameters.
 

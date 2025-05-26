@@ -5,7 +5,7 @@ deprecationType: sdks
 
 # GraphQL API
 
-Our Speckle Server offers both a GraphQL API and a [REST API](/dev/server-rest-api), for most of your queries the GQL API is probably best suited because of its flexibility and ease of use.
+Our Speckle Server offers both a GraphQL API and a [REST API](/server/server-rest-api), for most of your queries the GQL API is probably best suited because of its flexibility and ease of use.
 When working with uploading and downloading objects, the REST API is preferred.
 
 ## GraphQL Explorer

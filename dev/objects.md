@@ -222,7 +222,7 @@ Check out the [Transform class in speckle-sharp](https://github.com/specklesyste
 Speckle instance transformations are stored in a `System.Numerics.Matrix4x4` typed 4x4 matrix. We are following a column-dominant transform matrix convention, where the 3x3 sub-matrix contains scaling and rotation transforms and the 4th column is the translation vector.
 
 <p align="center">
-  <img src="./img/objects/transform1.jpg" height="200" />
+  <img src="/dev/img/objects/transform1.jpg" height="200" />
 </p>
 
 
@@ -234,7 +234,7 @@ Speckle instance transformations are stored in a `System.Numerics.Matrix4x4` typ
 When retrieving the row-dominant array value of the `System.Numerics.Matrix4x4` matrix, we expect the the **transformation basis x, y, and z vectors** to be represented by the 1st, 2nd, and 3rd columns of the 3x3 sub-matrix, respectively. The 4th column still represents translation.
 
 <p align="center">
-  <img src="./img/objects/transform2.jpg" height="200" />
+  <img src="/dev/img/objects/transform2.jpg" height="200" />
 </p>
 
 
