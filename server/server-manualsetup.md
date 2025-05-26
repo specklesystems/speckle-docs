@@ -1,6 +1,6 @@
 ---
 title: Deploying with Docker Compose
-deprecationMessages: sdks
+deprecationMessages: server
 ---
 
 <Banner />

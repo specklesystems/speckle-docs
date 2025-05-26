@@ -62,7 +62,7 @@ module.exports = {
       user: '✅ This user guide has moved to <a href="https://docs.speckle.systems/user">docs.speckle.systems/user</a>. Please update your bookmarks—Google might still send you here!',
       connectors:
         '🔗 Heads up! Connector docs have moved to <a href="https://docs.speckle.systems">docs.speckle.systems</a>. This old page will be retired soon—thanks for migrating with us!',
-      sdks: '📦 You’re looking at docs for our older SDKs. New and improved guides are on their way at <a href="https://docs.speckle.systems">docs.speckle.systems</a>—stay tuned!',
+      sdks: "📦 You're looking at docs for our older SDKs. New and improved guides are on their way at <a href='https://docs.speckle.systems'>docs.speckle.systems</a>—stay tuned!",
       viewer:
         '👀 These Viewer API docs are still valid and will soon be part of our new Developer Docs site. Hang tight!',
       automate:
@@ -70,9 +70,11 @@ module.exports = {
       developer:
         '⚠️ Developer docs are being updated and will follow our v3 Connectors launch. In the meantime, terminology may be outdated—see the latest at <a href="https://docs.speckle.systems">docs.speckle.systems</a>.',
       developer_obsolete:
-        '🛑 These Developer docs are now obsolete and won’t be carried over into the new site. Please migrate your workflows to <a href="https://docs.speckle.systems">docs.speckle.systems</a> as soon as possible.',
+        "🛑 These Developer docs are now obsolete and won't be carried over into the new site. Please migrate your workflows to <a href='https://docs.speckle.systems'>docs.speckle.systems</a> as soon as possible.",
       server:
         '🖥️ These Server docs are still valid but take care to keep up-to-date for full compatibility with v3 connectors. This will soon be part of our new Developer Docs site. Hang tight!',
+      server_obsolete:
+        "🛑 These Server docs are now obsolete and won't be carried over into the new site. Please migrate your workflows to <a href='https://docs.speckle.systems'>docs.speckle.systems</a> as soon as possible.",
     },
     algolia: {
       appId: 'XOL51LKXOA',

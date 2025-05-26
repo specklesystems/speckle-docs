@@ -1,6 +1,6 @@
 ---
 title: Deploying With Kubernetes
-deprecationMessages: sdks
+deprecationMessages: server
 ---
 
 <Banner />

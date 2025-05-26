@@ -33,18 +33,20 @@
 }
 
 .banner.viewer,
-.banner.viewer {
+.banner.server {
   background-color: #a2e489;
   color: #000
 }
 
 .banner.developer .banner-text,
 .banner.viewer .banner-text,
-.banner.automate .banner-text {
+.banner.automate .banner-text,
+.banner.server .banner-text {
   color: #000 !important;
 }
 
-.banner.developer_obsolete {
+.banner.developer_obsolete,
+.banner.server_obsolete {
   background-color: #df4848;
 }
 

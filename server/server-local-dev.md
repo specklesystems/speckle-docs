@@ -1,6 +1,6 @@
 ---
 title: Local Development Environment
-deprecationMessages: sdks
+deprecationMessages: server
 ---
 
 <Banner />

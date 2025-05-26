@@ -5,7 +5,7 @@ deprecationMessages: server_obsolete
 
 <Banner />
 
-# (deprecated) Deploying a Server - DigitalOcean Marketplace App
+# (Obsolete) Deploying a Server - DigitalOcean Marketplace App
 
 ::: tip IMPORTANT
 As of April 2024 Speckle has deprecated the DigitalOcean Marketplace App. We instead recommend following our [deployment guide using Docker Compose](./server-manualsetup.md).

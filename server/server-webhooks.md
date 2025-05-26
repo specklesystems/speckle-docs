@@ -1,6 +1,6 @@
 ---
 title: Webhooks
-deprecationMessages: sdks
+deprecationMessages: developer
 ---
 
 <Banner />

@@ -1,6 +1,6 @@
 ---
 title: Preview Images
-deprecationMessages: sdks
+deprecationMessages: server
 ---
 
 <Banner />
