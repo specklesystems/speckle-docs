@@ -136,7 +136,7 @@ module.exports = {
           collapsable: false,
           children: [
             'dotnet',
-            'FilteringData',
+            'filtering-data',
             'traversal',
             'objects',
             'connectors-dev',
