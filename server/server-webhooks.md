@@ -18,7 +18,7 @@ There are a few different fields to fill out when setting up a webhook:
 
 ![webhook-edit](https://user-images.githubusercontent.com/7717434/126979041-ac01d1f7-e9d3-455c-ab4f-7154ab891a96.png)
 
-You can of course also manage webhooks via the [GraphQL API](/dev/server-graphql-api) using the `webhookCreate`, `webhookUpdate`, and `webhookDelete` mutations. There is a `webhooks` field on the `stream` schema which you can query to get the webhooks for a stream and the `history` of previous requests.
+You can of course also manage webhooks via the [GraphQL API](/server/server-graphql-api) using the `webhookCreate`, `webhookUpdate`, and `webhookDelete` mutations. There is a `webhooks` field on the `stream` schema which you can query to get the webhooks for a stream and the `history` of previous requests.
 
 ## Receiving the Webhook
 When the condition defined in the webhook definition is met, a `POST` request will be made to the provided URL.
