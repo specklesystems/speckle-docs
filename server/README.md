@@ -1,3 +1,8 @@
+---
+title: Introduction
+deprecationType: server
+---
+
 # Introduction
 
 Speckle server, frontend and viewer are hosted in our [speckle-server](https://github.com/specklesystems/speckle-server) repo.

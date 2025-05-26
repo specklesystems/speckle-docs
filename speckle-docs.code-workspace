@@ -13,6 +13,10 @@
       "name": "Speckle Viewer API Guide"
     },
     {
+      "path": "./server",
+      "name": "Speckle Server API Guide"
+    },
+    {
       "path": ".",
       "name": "_"
     }

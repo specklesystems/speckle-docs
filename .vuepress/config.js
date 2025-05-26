@@ -68,6 +68,8 @@ module.exports = {
         '🛠️ Automate is in beta: things may shift as we refine flows and SDKs. Please bear with us and check back often!',
       developer:
         '⚠️ Developer docs are being updated and will follow our v3 Connectors launch. In the meantime, terminology may be outdated—see the latest at <a href="https://docs.speckle.systems">docs.speckle.systems</a>.',
+      server:
+        '🖥️ These Server docs are still valid but take care to keep up-to-date for full compatibility with v3 connectors. This will soon be part of our new Developer Docs site. Hang tight!',
     },
 
     algolia: {
@@ -91,6 +93,10 @@ module.exports = {
       {
         text: '⚠️ Developer Docs',
         link: '/',
+      },
+      {
+        text: '✅ Server',
+        link: '/server/',
       },
       {
         text: 'Speckle Website',
@@ -143,6 +149,8 @@ module.exports = {
           collapsable: false,
           children: ['python', 'py-examples', 'py-sample'],
         },
+      ],
+      '/server/': [
         {
           title: 'Server API & Apps',
           collapsable: false,

@@ -1,3 +1,8 @@
+---
+title: Backup, Upgrade & Restore
+deprecationType: server
+---
+
 # Database backup, upgrade, and restore
 
 We recommend backing up your database regularly, and especially prior to upgrading Speckle.  Backing up a database is often a requirement of a database upgrade, migrating your database between servers, or recovering from an incident.
