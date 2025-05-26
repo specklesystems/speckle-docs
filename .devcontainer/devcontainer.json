@@ -1,0 +1,39 @@
+{
+  "name": "Speckle Legacy Docs",
+  "build": {
+    "context": "..",
+    "dockerfile": "Dockerfile", // (or "Dockerfile-with-features" if you renamed it)
+    "args": {
+      "VARIANT": "18"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.profiles.linux": {
+          "zsh": {
+            "path": "/usr/bin/zsh",
+            "args": [
+              "-l"
+            ]
+          }
+        },
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "titiaiev.vue-docs",
+        "yzhang.markdown-all-in-one"
+      ]
+    }
+  },
+  "mounts": [
+    "source=speckle-docs-zsh-history,target=/home/node/.zsh_history,type=volume"
+  ],
+  "forwardPorts": [
+    8080
+  ],
+  "postCreateCommand": "if [ -f package.json ]; then npm install; else echo 'No package.json found, skipping npm install'; fi",
+  "remoteUser": "node"
+}
