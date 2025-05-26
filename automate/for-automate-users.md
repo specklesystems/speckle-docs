@@ -8,11 +8,11 @@
 
 From your automation list, you can view each automation by name, the function it is deploying, and the associated project and model. If an automation has been disabled, it will display a Paused icon.
 
-![A registered automation](./img/paused-status.png)
+![A registered automation](/automate/img/paused-status.png)
 
 If a model no longer exists, the automation will be automatically disabled, and a notification banner will appear under the details header.
 
-![model removed error](./img/model-error.png)
+![model removed error](/automate/img/model-error.png)
 
 Below the automation details, you will see a list of all runs, including their status, the model version they ran on, start time, duration, and a link to view the log output of each run. The status can be:
 - Pending  
@@ -20,7 +20,7 @@ Below the automation details, you will see a list of all runs, including their s
 - Success  
 - Failure  
 
-![automation run indicating success](./img/run-success.png)
+![automation run indicating success](/automate/img/run-success.png)
 
 Clicking on the details header opens the Automation page, where you can manage additional configurations.
 

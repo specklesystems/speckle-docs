@@ -18,4 +18,4 @@ You must verify your account by responding to the email sent to you upon sign-up
 
 As part of the public beta, Automate is now fully integrated into the main Speckle web application interface. You can access it by navigating to a project that you are the owner of:
 
-![Automate integrated into the Speckle web application](./img/integrated-ui.png)
+![Automate integrated into the Speckle web application](/automate/img/integrated-ui.png)

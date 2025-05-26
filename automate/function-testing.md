@@ -17,19 +17,19 @@ Unlike regular automations, test automations:
 ## How to Create a Test Automation
 
 1. Navigate to the **Automations** tab on your project page.  
-   ![automations-tab](./img/automations-tab.png)
+   ![automations-tab](/automate/img/automations-tab.png)
 
 2. Click the **New Automation** button.  
-   ![new-automation-button](./img/new-automation-button.png)
+   ![new-automation-button](/automate/img/new-automation-button.png)
 
 3. Select **Create Test Automation** in the bottom left.  
-   ![create-test-automation](./img/create-test-automation.png)
+   ![create-test-automation](/automate/img/create-test-automation.png)
 
 4. Follow the instructions to configure your test automation.  
-   ![configure-test](./img/configure-test.png)
+   ![configure-test](/automate/img/configure-test.png)
 
 5. Once created, your test automation will appear in the list. Use it to test your function against the project’s data.  
-   ![my-test-automation](./img/my-test-automation.png)
+   ![my-test-automation](/automate/img/my-test-automation.png)
 
 ## How to Use Test Automations
 
