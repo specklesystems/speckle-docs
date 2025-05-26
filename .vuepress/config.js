@@ -70,11 +70,11 @@ module.exports = {
       developer:
         '⚠️ Developer docs are being updated and will follow our v3 Connectors launch. In the meantime, terminology may be outdated—see the latest at <a href="https://docs.speckle.systems">docs.speckle.systems</a>.',
       developer_obsolete:
-        "🛑 These Developer docs are now obsolete and won't be carried over into the new site. Please migrate your workflows to <a href='https://docs.speckle.systems'>docs.speckle.systems</a> as soon as possible.",
+        "🛑 These Developer docs are now obsolete and won't be carried over into the new site. ",
       server:
         '🖥️ These Server docs are still valid but take care to keep up-to-date for full compatibility with v3 connectors. This will soon be part of our new Developer Docs site. Hang tight!',
       server_obsolete:
-        "🛑 These Server docs are now obsolete and won't be carried over into the new site. Please migrate your workflows to <a href='https://docs.speckle.systems'>docs.speckle.systems</a> as soon as possible.",
+        "🛑 These Server docs are now obsolete and won't be carried over into the new site. ",
     },
     algolia: {
       appId: 'XOL51LKXOA',
