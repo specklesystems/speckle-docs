@@ -1,3 +1,10 @@
+---
+title: Deploying with Docker Compose
+deprecationMessages: sdks
+---
+
+<Banner />
+
 # Deploying a Server - Docker Compose
 
 ::: tip IMPORTANT

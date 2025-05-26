@@ -3,6 +3,8 @@ title: GraphQL API
 deprecationMessages: sdks
 ---
 
+<Banner />
+
 # GraphQL API
 
 Our Speckle Server offers both a GraphQL API and a [REST API](/server/server-rest-api), for most of your queries the GQL API is probably best suited because of its flexibility and ease of use.

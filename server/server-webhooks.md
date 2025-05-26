@@ -1,3 +1,10 @@
+---
+title: Webhooks
+deprecationMessages: sdks
+---
+
+<Banner />
+
 # Webhooks
 
 Webhooks allow you to subscribe to a stream's events and get notified of them in real time. You can then use this to trigger ci apps, automation workflows, and more! The world is your oyster. Let's have a quick look at how to work with them.

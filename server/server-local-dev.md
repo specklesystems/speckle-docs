@@ -1,3 +1,10 @@
+---
+title: Local Development Environment
+deprecationMessages: sdks
+---
+
+<Banner />
+
 # Local Development Environment
 
 This is the recommended method for developing or debugging the Speckle Server locally.

@@ -1,3 +1,10 @@
+---
+title: Preview Images
+deprecationMessages: sdks
+---
+
+<Banner />
+
 # Stream Preview Images
 
 Preview images for your stream can be accessed through the `preview` endpoint. You can get preview for streams (which will give you the latest commit on `main`), specific commits, the latest commit on a branch, or even a specific object.

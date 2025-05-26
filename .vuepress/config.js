@@ -157,14 +157,24 @@ module.exports = {
       ],
       '/server/': [
         {
-          title: 'Server API & Apps',
+          title: 'Speckle Server',
+          collapsable: false,
+          children: [''],
+        },
+        {
+          title: 'APIs & Automation',
           collapsable: false,
           children: [
-            '',
             'server-graphql-api',
             'server-rest-api',
             'server-stream-previews',
             'server-webhooks',
+          ],
+        },
+        {
+          title: 'Deployments',
+          collapsable: false,
+          children: [
             'server-setup-k8s',
             'server-manualsetup',
             'server-local-dev',

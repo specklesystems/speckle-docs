@@ -1,3 +1,10 @@
+---
+title: Deploying with DigitalOcean Marketplace App
+deprecationMessages: server_obsolete
+---
+
+<Banner />
+
 # (deprecated) Deploying a Server - DigitalOcean Marketplace App
 
 ::: tip IMPORTANT

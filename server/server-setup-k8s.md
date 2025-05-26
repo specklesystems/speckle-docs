@@ -1,3 +1,10 @@
+---
+title: Deploying With Kubernetes
+deprecationMessages: sdks
+---
+
+<Banner />
+
 # Deploying a Server - Kubernetes
 
 To ease new deployments, we are maintaining [a Kubernetes Helm chart](https://specklesystems.github.io/helm/).
