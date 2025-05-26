@@ -96,7 +96,7 @@ module.exports = {
       },
       {
         text: '⚠️ Developers',
-        link: '/',
+        link: '/dev/',
       },
       {
         text: '✅ Server',

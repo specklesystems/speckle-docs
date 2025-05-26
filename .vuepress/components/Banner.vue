@@ -30,6 +30,7 @@
 .banner-text {
   font-size: 16px;
   color: #ffffff;
+  text-indent: -1.7rem !important;
 }
 
 .banner.developer,
@@ -64,11 +65,6 @@
   padding-left: 2.1rem;
 
 }
-
-.banner-text {
-  text-indent: -1.7rem !important;
-}
-
 
 .banner-icon {
   font-size: 20px;
