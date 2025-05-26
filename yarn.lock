@@ -1381,6 +1381,19 @@
     "@vuepress/types" "1.9.10"
     lodash.debounce "^4.0.8"
 
+"@vuepress/plugin-back-to-top@^1.9.10":
+  version "1.9.10"
+  resolved "https://registry.npmjs.org/@vuepress/plugin-back-to-top/-/plugin-back-to-top-1.9.10.tgz"
+  integrity sha512-iInIp66wu717CAnT2pyd9Bs/vAgrUBOBIQ7WMnfJo07cW/ZIothpyrSHnpCRSsfJ/jLivMPqW0pviqppt64BzQ==
+  dependencies:
+    "@vuepress/types" "1.9.10"
+    lodash.debounce "^4.0.8"
+
+"@vuepress/plugin-html-redirect@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.npmjs.org/@vuepress/plugin-html-redirect/-/plugin-html-redirect-0.2.1.tgz"
+  integrity sha512-QRDBzYrr6V8yoCAz2fQd+CNHup4kBebUdpRSxU/4wTFiAMe9Ex4qUw4o1VmCsw4nokLB32qQko0eovI/6PAJlg==
+
 "@vuepress/plugin-last-updated@1.9.10":
   version "1.9.10"
   resolved "https://registry.npmjs.org/@vuepress/plugin-last-updated/-/plugin-last-updated-1.9.10.tgz"
