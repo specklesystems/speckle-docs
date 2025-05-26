@@ -1,7 +1,3 @@
----
-permalink: /
----
-
 # Welcome!
 
 <div class="banner-ribbon">
