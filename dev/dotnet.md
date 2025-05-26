@@ -1,3 +1,12 @@
+---
+title: .NET (C#) SDK
+---
+
+<div class="banner-ribbon">
+  <span><b>Notice</b>: This user guide is based on the legacy v2 C# SDK.</span>
+  <span class="next-gen">New documentation for the v3 SDK will be launched when it is ready at docs.speckle.systems</span>
+</div>
+
 # Introduction
 
 Our .NET SDK is called [Core](https://github.com/specklesystems/speckle-sharp/tree/master/Core), and it's part of our [SpeckleSharp repo](https://github.com/specklesystems/speckle-sharp). Together with it you might find useful [Objects](https://github.com/specklesystems/speckle-sharp/tree/master/Objects), our default kit.
