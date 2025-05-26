@@ -1,7 +1,9 @@
 ---
-layout: BannerPage
+title: Introduction
 deprecationMessages: viewer
 ---
+
+<Banner />
 
 # Introduction
 

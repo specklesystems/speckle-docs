@@ -1,3 +1,10 @@
+---
+title: MeasurementsTool
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # MeasurementsTool
 
 This extension provides basic configurable measurement capabilities. The tool is autonomous, and is able to create measurements on it's own.

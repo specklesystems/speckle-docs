@@ -1,3 +1,10 @@
+---
+title: TopLevelAccelerationStructure
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # TopLevelAccelerationStructure
 
 The viewer is using [_three-mesh-bvh_](https://github.com/gkjohnson/three-mesh-bvh) as the backbone for it's BVH implementation. The AccelerationStructure class is a thin wrapper around the library's [_MeshBVH_](https://threejs.org/docs/index.html?q=box#api/en/math/Box3) class with some additional specific functionality.

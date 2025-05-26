@@ -1,3 +1,10 @@
+---
+title: Data Tree
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # Data Tree
 The speckle viewer organizes input data into data structures respecting the original hierarchical relations between objects with the purpose of offering functionality for reading, searching and working with the said data.
 <h2>World Tree</h2>

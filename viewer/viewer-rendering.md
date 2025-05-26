@@ -1,3 +1,10 @@
+---
+title: Rendering
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # Rendering
 
 With the introduction of custom loaders, we've potentially broadened the scope of what the viewer could be used for, however our goal and purpose is still focusing on AEC related visualisation, with a strong bias towards Speckle data. Because Speckle data is organized in a certain way, the viewer creates some concepts and abstractions around it so that clients can use it efficiently.

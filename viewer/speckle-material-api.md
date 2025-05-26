@@ -1,3 +1,10 @@
+---
+title: SpeckleMaterial
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # SpeckleMaterial
 
 All speckle-derived materials inherit this class. Internally, all speckle materials are mixins between three materials and this class.

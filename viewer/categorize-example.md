@@ -1,3 +1,10 @@
+---
+title: Animation & Custom Text
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # Animation & Custom Text
 
 This examples provides the previous [move gizmo](/viewer/object-manipulation-example.md) working together with the [box selection](/viewer/box-selection-example.md) extension from before and an additional extension that animates and categorizes objects based on their properties.

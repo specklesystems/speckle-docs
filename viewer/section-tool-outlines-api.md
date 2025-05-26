@@ -1,3 +1,10 @@
+---
+title: SectionToolOutlines
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # SectionToolOutlines
 
 This extension adds outlines to the section tool's sectioned geometry edges. 

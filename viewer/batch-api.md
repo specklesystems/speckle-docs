@@ -1,3 +1,10 @@
+---
+title: Batch
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # Batch
 
 A batch is the structural component of the viewer's scenegraph. All loaded objects are split and organized into batches. Instead of adding each individual object as an Object3D derived entity to the three.js scene, we split and organize them into batches, which are then added to the three.js scene.

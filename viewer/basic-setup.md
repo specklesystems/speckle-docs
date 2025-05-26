@@ -1,3 +1,10 @@
+---
+title: Basic Setup
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # Basic Setup
 
 The first thing you'll need is a container for the viewer and a [javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)/[typescript](https://www.typescriptlang.org/) script which will run the viewer code. 

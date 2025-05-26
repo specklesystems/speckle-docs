@@ -1,3 +1,10 @@
+---
+title: Queries
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # Queries
 Queries are a simple mechanism that allows the user to perform several operations in a contained way. The supported operations are 
 - Project a point

@@ -1,3 +1,10 @@
+---
+title: Loaders
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # Loaders
 
 The viewer provides a loader system which allows for virtually any data to be loaded in. The `SpeckleLoader` is an example of such loader that specialises on loading speckle data.

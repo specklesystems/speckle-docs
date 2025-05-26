@@ -1,3 +1,10 @@
+---
+title: Advanced Setup
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # Advanced Setup
 
 The viewer can be extended with functionality via [extensions](/viewer/overview.md#extensions). The package already contains a few stock extensions that offer typical functionality.

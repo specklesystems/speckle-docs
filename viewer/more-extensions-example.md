@@ -1,3 +1,10 @@
+---
+title: More Extensions
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # More Extensions
 
 We'll be expanding on our [basic example](/viewer/basic-example.md) by adding some of the stock viewer extensions.

@@ -1,3 +1,10 @@
+---
+title: SpeckleRenderer
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # SpeckleRenderer
 
 <!-- <style>

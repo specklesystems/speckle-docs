@@ -1,3 +1,10 @@
+---
+title: Migration Guide
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # Migration Guide
 
 # 2.23.6 - 2.23.8

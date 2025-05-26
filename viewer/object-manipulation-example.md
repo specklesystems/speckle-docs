@@ -1,3 +1,10 @@
+---
+title: Object Manipulation
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # Object Manipulation
 The viewer allows individual object transformation manipulation. In the example below, we've extended the stock `SelectionExtension` to allow us to move objects around.
 

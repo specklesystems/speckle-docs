@@ -1,3 +1,10 @@
+---
+title: Basic Example
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # Basic Example
 
 Let's explore the most basic Speckle viewer example, step-by-step.

@@ -1,3 +1,10 @@
+---
+title: SpeckleControls
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # SpeckleControls
 Abstract base class for all camera controls implementations
 

@@ -1,3 +1,10 @@
+---
+title: SmoothOrbitControls
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # SmoothOrbitControls
 [_SpeckleControls_](/viewer/speckle-controls-api) -> [_SmoothOrbitControls_](/viewer/smooth-orbit-controls-api)
 
