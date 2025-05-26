@@ -17,6 +17,10 @@
       "name": "Speckle Server API Guide"
     },
     {
+      "path": ".vuepress",
+      "name": "Config"
+    },
+    {
       "path": ".",
       "name": "_"
     }

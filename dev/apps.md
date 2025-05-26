@@ -1,4 +1,5 @@
 ---
+title: Custom Apps
 deprecationType: developer
 ---
 
