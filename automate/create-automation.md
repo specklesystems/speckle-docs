@@ -40,7 +40,7 @@ The library view includes both public functions [Coming Soon] and any private fu
    - **Choose a Speckle Model**: Select a model from the current project that will trigger your automation.  
      ![choose a model](/automate/img/choose-model.png)  
    - **Name Your Automation**: Provide a meaningful name for reference (uniqueness is not required).  
-     ![alt text](/automate/img/automation-name.png)
+     ![A form field to name the automation, with an example name entered](/automate/img/automation-name.png)
 
 4. **Create Your Automation**  
    - Click **Create** to finalise the setup.  
