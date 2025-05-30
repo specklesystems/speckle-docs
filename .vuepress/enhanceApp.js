@@ -15,6 +15,7 @@ export default ({
     if (to.path.startsWith('/user/') || to.path.startsWith('/workspaces/')) {
       if (typeof window !== 'undefined') {
         window.location.replace('https://docs.speckle.systems/');
+        return;
       }
     } else {
       next();
