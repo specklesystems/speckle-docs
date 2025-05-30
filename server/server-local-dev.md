@@ -42,7 +42,6 @@ On MacOS devices with Apple based chips (M2, M3 etc.) it is possible to run the 
 1. `cp packages/server/.env.example packages/server/.env`
 1. `cp packages/server/.env.test-example packages/server/.env.test`
 1. `cp packages/frontend-2/.env.example packages/frontend-2/.env`
-1. `cp packages/dui3/.env.example packages/dui3/.env`
 1. `yarn dev`
 
 Wait for the frontend to build, and voila, you have a fully functional Speckle Server running at `http://localhost:3000`.
@@ -71,7 +70,6 @@ If you are not running these dependencies via docker compose, please make sure, 
 Here again we are providing a set of sensible defaults that work out of the box if you follow this guide, but do make sure to reflect any changes you make in you environment.
 1. Similarly to the last step, we're providing sensible defaults for env variables that are applied when running tests or running the server in test mode
 1. Similarly to the last step, we're providing sensible defaults for env variables that are applied to the new frontend
-1. Similarly to the last step, we're providing sensible defaults for env variables that are applied to dui3
 1. Just like above, we use yarn to run the `dev` script in each package. This is probably not the most efficient way, since it starts more packages in development mode, than needed, but its the easiest command that gets a server up and running. When developing, you probably want to run each component separately. A good enough setup might be to just run the server and the preferred frontend (run `yarn dev` only in those individual package directories).
 
 When running `yarn dev` for all packages you might see errors relating to `@speckle/shared` being missing, but this is only temporarily because `@speckle/shared` is also being re-built at that point in time. Once its finished building all of the other packages should pick up on it and work fine. You might also see GraphQL Codegen errors, which also are temporary, because they rely on the speckle server being up and running.
