@@ -1,3 +1,10 @@
+---
+title: FAQs
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Frequently Asked Questions  
 
 ### **How much does it cost? Is Automate included in my enterprise subscription?**  

@@ -1,3 +1,10 @@
+---
+title: Loader
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # Loader
 
 Abstract class.

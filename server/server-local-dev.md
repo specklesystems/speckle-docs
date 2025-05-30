@@ -1,8 +1,15 @@
+---
+title: Local Development Environment
+deprecationMessages: server
+---
+
+<Banner />
+
 # Local Development Environment
 
 This is the recommended method for developing or debugging the Speckle Server locally.
 
-If you plan to give others access to your Server instance, consider running it with production settings. Please refer to our guide for [Kubernetes](server-setup-k8s) or [Docker Compose](server-manualsetup).
+If you plan to give others access to your Server instance, consider running it with production settings. Please refer to our guide for [Kubernetes](/server/server-setup-k8s) or [Docker Compose](server-manualsetup).
 
 ## TL;DR
 

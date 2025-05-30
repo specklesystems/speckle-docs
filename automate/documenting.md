@@ -1,3 +1,10 @@
+---
+title: Documenting Your Function
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Documenting Your Function
 
 Your function’s `README.md` will be published to its dedicated Automate page. This is your opportunity to communicate the key functionality, limitations, and detailed instructions for the function’s inputs to your team and organisation.
@@ -18,7 +25,7 @@ Clear documentation is critical for:
 
 Below is an example of how a well-documented `README.md` might appear on a function listing:
 
-![Example of the Readme as displayed in a function listing.](./img/readme.png)  
+![Example of the Readme as displayed in a function listing.](/automate/img/readme.png)  
 *Example of the README as displayed in a function listing.*
 
 ---

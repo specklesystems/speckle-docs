@@ -1,3 +1,10 @@
+---
+title: Reporting Success
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Reporting Success
 
 Effective execution reporting ensures visibility, debugging efficiency, and robust automation workflows. 

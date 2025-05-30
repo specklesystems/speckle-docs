@@ -1,3 +1,10 @@
+---
+title: Roadmap
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Roadmap
 
 The roadmap for Speckle Automate continues to evolve based on the feedback and insights from beta participants. During the Public Beta phase, our primary focus is on validating the usefulness of Automate by addressing two key blockers identified in earlier phases:

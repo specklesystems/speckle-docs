@@ -1,6 +1,13 @@
+---
+title: Custom Apps
+deprecationMessages: developer
+---
+
+<Banner />
+
 # Creating Your Own App
 
-![Creating your own Speckle app](./img/apps-guide/app-guide-main-img.jpg)
+![Creating your own Speckle app](/dev/img/apps-guide/app-guide-main-img.jpg)
 
 Welcome to this guide on how to `Create your own App` using Speckle. It's geared towards an audience that is familiar with Javascript and web development, or at least not scared by it!
 
@@ -58,7 +65,7 @@ This will ask you some questions, such as the version of vue to use, what plugin
 ::: details Vue setup - Step by step
 
 1. When prompted for a preset, select **Manually select features**
-   ![Step 1](./img/apps-guide/app-guide-vue-setup-step1.png)
+   ![Step 1](/dev/img/apps-guide/app-guide-vue-setup-step1.png)
 2. Next, specify the features needed for this project:
    - Choose vue version
    - Babel
@@ -67,23 +74,23 @@ This will ask you some questions, such as the version of vue to use, what plugin
    - Vuex
    - CSS Pre-processors
    - Linter
-     ![Step 2](./img/apps-guide/app-guide-vue-setup-step2.png)
+     ![Step 2](/dev/img/apps-guide/app-guide-vue-setup-step2.png)
 3. Choose version **2.x** of Vue.js
-   ![Step 3](./img/apps-guide/app-guide-vue-setup-step3.png)
+   ![Step 3](/dev/img/apps-guide/app-guide-vue-setup-step3.png)
 4. Choose **Yes** when prompted to use **history mode for router**
-   ![Step 4](./img/apps-guide/app-guide-vue-setup-step4.png)
+   ![Step 4](/dev/img/apps-guide/app-guide-vue-setup-step4.png)
 5. For the css-preprocessor to use, select **Sass/SCSS (with dart-sass)**
-   ![Step 5](./img/apps-guide/app-guide-vue-setup-step5.png)
+   ![Step 5](/dev/img/apps-guide/app-guide-vue-setup-step5.png)
 6. When prompted for a Linter, choose the option **ESLint with error prevention only**
-   ![Step 6](./img/apps-guide/app-guide-vue-setup-step6.png)
+   ![Step 6](/dev/img/apps-guide/app-guide-vue-setup-step6.png)
 7. When prompted for additional lint features, select **Lint on save**
-   ![Step 7](./img/apps-guide/app-guide-vue-setup-step7.png)
+   ![Step 7](/dev/img/apps-guide/app-guide-vue-setup-step7.png)
 8. Choose to place config files **In dedicated config files**
-   ![Step 8](./img/apps-guide/app-guide-vue-setup-step8.png)
+   ![Step 8](/dev/img/apps-guide/app-guide-vue-setup-step8.png)
 9. At last, you can save this selection as a preset, but for this time just select **No**
-   ![Step 9](./img/apps-guide/app-guide-vue-setup-step9.png)
+   ![Step 9](/dev/img/apps-guide/app-guide-vue-setup-step9.png)
 10. Wait for the process to finish
-    ![Step 10](./img/apps-guide/app-guide-vue-setup-step10.png)
+    ![Step 10](/dev/img/apps-guide/app-guide-vue-setup-step10.png)
 
 :::
 
@@ -91,7 +98,7 @@ This will ask you some questions, such as the version of vue to use, what plugin
 
 If you are already familiar with this process, just select the same answers as the screenshot bellow:
 
-![Vue setup answers](./img/apps-guide/app-guide-vue-setup.png)
+![Vue setup answers](/dev/img/apps-guide/app-guide-vue-setup.png)
 
 :::
 Once done, you'd have your Vue project ready. To open the project in **VSCode** we just need to run:
@@ -104,7 +111,7 @@ code speckle-demo-app
 
 This step assumes you already installed VSCode in your path. If you haven't, there's a command for it in VSCode.
 
-![Install vscode in path](./img/apps-guide/app-guide-vscode-shell-install.png)
+![Install vscode in path](/dev/img/apps-guide/app-guide-vscode-shell-install.png)
 
 :::
 
@@ -134,7 +141,7 @@ npm run serve
 
 In chrome, things should be looking like this:
 
-![Vuetify default welcome page](./img/apps-guide/app-guide-setup-preview.png)
+![Vuetify default welcome page](/dev/img/apps-guide/app-guide-setup-preview.png)
 
 ## Authenticating with the Server
 
@@ -397,11 +404,11 @@ Each is bound to the actions in the store we created earlier.
 
 At this point in time, your App should display only a menu bar with the title and the Log In button.
 
-![App.vue with login button](./img/apps-guide/app-guide-login-button.png)
+![App.vue with login button](/dev/img/apps-guide/app-guide-login-button.png)
 
 Now press the Log In button, follow the steps in the server and allow the app to access your data. This will take you back to `http://localhost:8080`. But notice the url will now contain a trailing `?access_code=YOUR_ACCESS_CODE`, we can now edit our `src/router/index.js` file to exchange the access code whenever it finds one.
 
-![Redirect with access code](./img/apps-guide/app-guide-redirect-access-code.png)
+![Redirect with access code](/dev/img/apps-guide/app-guide-redirect-access-code.png)
 
 #### Exchange the `access_code`
 
@@ -607,7 +614,7 @@ router.beforeEach(async (to, from, next) => {
 
 That should do it! Now, if you refresh the page you should see a welcome message with your user name and the server name you connected to, as well as the `Log Out` button:
 
-![Search bar and selection](./img/apps-guide/app-guide-user-fetch.gif)
+![Search bar and selection](/dev/img/apps-guide/app-guide-user-fetch.gif)
 
 ## Searching for streams
 
@@ -905,7 +912,7 @@ After making these changes, your app should display a welcome message when not l
 
 Introducing some text into the search bar should display a list of results in a dropdown. Selecting one of the result items will change the selection text from `No stream selected` to display the selected Stream name and id, as well as 2 buttons. The first one will take you to the stream page in the server, while the second one will clear the selection in the app state.
 
-![Search and selection functionality](./img/apps-guide/app-guide-stream-search.gif)
+![Search and selection functionality](/dev/img/apps-guide/app-guide-stream-search.gif)
 
 ## Displaying stream commits
 
@@ -1243,7 +1250,7 @@ export default {
 
 That should cover all the changes needed! Go ahead to `http://localhost:8080`. If logged in, your app should be looking like this 👇🏼
 
-![Final view with no stream selected](./img/apps-guide/app-guide-full-demo.gif)
+![Final view with no stream selected](/dev/img/apps-guide/app-guide-full-demo.gif)
 
 ## Adding data persistence
 
@@ -1288,17 +1295,17 @@ First, you'll need a GitHub account to push your app's repo to, and a Netlify ac
 ### Create your site
 
 1. Go to your Netlify's dashboard and find the `New site from Git` button
-   ![New site from git button](./img/apps-guide/app-guide-netlify-new-site.png)
+   ![New site from git button](/dev/img/apps-guide/app-guide-netlify-new-site.png)
 2. Follow the steps as shown:
-   1. ![Step 1](./img/apps-guide/app-guide-netlify-new-site-2.png)
-   2. ![Step 2](./img/apps-guide/app-guide-netlify-new-site-3.png)
-   3. ![Step 3](./img/apps-guide/app-guide-netlify-new-site-4.png)
+   1. ![Step 1](/dev/img/apps-guide/app-guide-netlify-new-site-2.png)
+   2. ![Step 2](/dev/img/apps-guide/app-guide-netlify-new-site-3.png)
+   3. ![Step 3](/dev/img/apps-guide/app-guide-netlify-new-site-4.png)
    4. Once this is done, you'll have a netlify url where you're app will live.
 3. Create a new Application on the Speckle server and set it's callback url to the application url you just got from Netlify. This will give you a new `appId` and `appSecret`.
 4. Last step is to set the `env` variables, similar to how we did it for our development server.
    1. Go to `Site Settings`->`Build and Deploy`-`Environment`
    2. Add the same environment variables as in your `.env.local` file but using the `appId` and `appSecret` values from step 3.
-      ![Env variables](./img/apps-guide/app-guide-netlify-env.png)
+      ![Env variables](/dev/img/apps-guide/app-guide-netlify-env.png)
 5. Go to the `Deploys` section of your app, find the `Trigger Deploy` button and select the `Deploy Site` option. This will force your app to restart and detect the new env variables.
 
 That's it! If you visit your netlify url, you should see your app running smoothly!

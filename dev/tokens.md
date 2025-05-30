@@ -1,3 +1,10 @@
+---
+title: Personal Access Tokens
+deprecationMessages: developer
+---
+
+<Banner />
+
 # Personal Access Tokens 
 
 Personal Access Tokens can be used to access the Speckle API. They function like ordinary OAuth access tokens, and they enable a script, an app, or any other piece of code to **act on your behalf**.

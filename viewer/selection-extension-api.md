@@ -1,3 +1,10 @@
+---
+title: SelectionExtension
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # SelectionExtension
 
 Defalt selection helper extension. Handles object selection automatically, both visually and data wise. Optionally can highlight on hover.

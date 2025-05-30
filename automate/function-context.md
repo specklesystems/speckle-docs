@@ -1,3 +1,10 @@
+---
+title: AutomationContext
+deprecationMessages: automate
+---
+
+<Banner />
+
 # `AutomationContext` Reference
 
 The **AutomateContext** is your function's interface to Speckle at runtime. It provides:

@@ -1,3 +1,10 @@
+---
+title: Releasing a New Version
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Releasing a New Versions
 
 New versions of a Function are created automatically when a new GitHub release is created.

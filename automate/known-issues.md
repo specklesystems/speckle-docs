@@ -1,3 +1,10 @@
+---
+title: Known Issues
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Known Issues  
 
 We are actively working to improve Speckle Automate and value your feedback. If you encounter any issues, please report them to the Speckle team.  

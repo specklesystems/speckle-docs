@@ -24,7 +24,8 @@
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "titiaiev.vue-docs",
-        "yzhang.markdown-all-in-one"
+        "yzhang.markdown-all-in-one",
+        "vue.volar"
       ]
     }
   },

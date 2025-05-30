@@ -14,7 +14,7 @@ module.exports = {
     },
   },
   base: '/',
-  title: 'Speckle Docs',
+  title: 'Speckle Docs (Legacy)',
 
   description: description,
   head: [
@@ -27,7 +27,7 @@ module.exports = {
     [
       'script',
       {
-        src: '/scripts/scroll-to-hash.js',
+        // src: '/scripts/scroll-to-hash.js',
       },
     ],
     [
@@ -51,13 +51,31 @@ module.exports = {
   themeConfig: {
     repo: 'specklesystems/speckle-docs/',
     docsBranch: 'main',
-    editLinks: true,
+    editLinks: false,
     editLinkText: 'Edit this page',
     docsDir: '',
     sidebarDepth: 2,
     activeHeaderLinks: false,
     lastUpdated: true,
     logo: '/assets/logo-docs.png',
+    deprecationMessages: {
+      user: '✅ This user guide has moved to <a href="https://docs.speckle.systems/user">docs.speckle.systems/user</a>. Please update your bookmarks—Google might still send you here!',
+      connectors:
+        '🔗 Heads up! Connector docs have moved to <a href="https://docs.speckle.systems">docs.speckle.systems</a>. This old page will be retired soon—thanks for migrating with us!',
+      sdks: "📦 You're looking at docs for our older SDKs. New and improved guides are on their way at <a href='https://docs.speckle.systems'>docs.speckle.systems</a>—stay tuned!",
+      viewer:
+        '👀 These Viewer API docs are still valid and will soon be part of our new Developer Docs site. Hang tight!',
+      automate:
+        '🛠️ Automate is in beta: things may shift as we refine flows and SDKs. Please bear with us and check back often!',
+      developer:
+        '⚠️ Developer docs are being updated and will follow our v3 Connectors launch. In the meantime, terminology may be outdated—see the latest at <a href="https://docs.speckle.systems">docs.speckle.systems</a>.',
+      developer_obsolete:
+        "🛑 These Developer docs are now obsolete and won't be carried over into the new site. ",
+      server:
+        '🖥️ These Server docs are still valid but take care to keep up-to-date for full compatibility with v3 connectors. This will soon be part of our new Developer Docs site. Hang tight!',
+      server_obsolete:
+        "🛑 These Server docs are now obsolete and won't be carried over into the new site. ",
+    },
     algolia: {
       appId: 'XOL51LKXOA',
       apiKey: '595b9c5533a46cfa0f999033d4e4ba28',
@@ -65,24 +83,24 @@ module.exports = {
     },
     nav: [
       {
-        text: 'User Guide',
-        link: '/',
+        text: '🆕 User Guides',
+        link: 'https://docs.speckle.systems',
       },
       {
-        text: 'Developer Docs',
-        link: '/dev/',
-      },
-      {
-        text: 'Automate',
-        link: '/automate/',
-      },
-      {
-        text: '3D Viewer',
+        text: '✅ Viewer API',
         link: '/viewer/',
       },
       {
-        text: 'Workspaces',
-        link: '/workspaces/',
+        text: '⚠️ Automate',
+        link: '/automate/',
+      },
+      {
+        text: '⚠️ Developers',
+        link: '/dev/',
+      },
+      {
+        text: '✅ Server',
+        link: '/server/',
       },
       {
         text: 'Speckle Website',
@@ -95,94 +113,6 @@ module.exports = {
       },
     ],
     sidebar: {
-      '/user/': [
-        {
-          title: 'User Guide 🤷',
-          collapsable: false,
-          children: ['', 'concepts', 'concepts-advanced', 'installing', 'FAQs'],
-        },
-        {
-          title: 'Connectors 🔌',
-          collapsable: false,
-          children: [
-            'connectors',
-            'ui2',
-            {
-              title: 'Revit',
-              collapsable: true,
-              children: [
-                './revit/intro',
-                './revit/installing-updating-the-connector',
-                './revit/sending-models',
-                './revit/receiving-models',
-                './revit/advanced-settings',
-                './revit/features',
-                './revit/support-table',
-                './revit/faq',
-              ],
-            },
-            'rhino',
-            'autocadcivil',
-            'grasshopper',
-            'dynamo',
-            'unity',
-            'unreal',
-            'blender',
-            'excel',
-            'csi',
-            {
-              title: 'SketchUp',
-              collapsable: true,
-              children: [
-                './sketchup/introduction',
-                './sketchup/installation',
-                './sketchup/basic-usage',
-                './sketchup/advanced-settings',
-                './sketchup/manual-installation',
-              ],
-            },
-            'qgis',
-            {
-              title: 'Power BI',
-              collapsable: true,
-              children: [
-                './powerbi/introduction',
-                './powerbi/installation',
-                './powerbi/configuration',
-                './powerbi/accessing-private-streams',
-                './powerbi/uninstallation',
-                './powerbi/using-powerbi-connector',
-                './powerbi/working-with-records',
-              ],
-            },
-            {
-              title: 'Power BI 3D Viewer',
-              collapsable: true,
-              children: [
-                './powerbi-visual/introduction',
-                './powerbi-visual/installation',
-                './powerbi-visual/basic-usage',
-                './powerbi-visual/coloring',
-                './powerbi-visual/object-tooltip',
-                './powerbi-visual/visual-settings',
-                './powerbi-visual/general-settings',
-              ],
-            },
-            'bentley',
-            'teklastructures',
-            'archicad',
-            'navisworks',
-            'ifc',
-            'mapping-tool',
-            'support-tables',
-          ],
-        },
-        {
-          title: 'Tutorials ⚡',
-          collapsable: false,
-          children: ['tutorials'],
-        },
-      ],
       '/dev/': [
         {
           title: 'Developer Docs 👩‍💻',
@@ -198,6 +128,8 @@ module.exports = {
             'kits',
             'transports',
             'apps-auth',
+            'tokens',
+            'apps',
           ],
         },
         {
@@ -205,12 +137,13 @@ module.exports = {
           collapsable: false,
           children: [],
         },
+        { title: 'GraphQL API', collapsable: false, children: ['graphql-api'] },
         {
           title: '.NET SDK',
           collapsable: false,
           children: [
             'dotnet',
-            'FilteringData',
+            'filtering-data',
             'traversal',
             'objects',
             'connectors-dev',
@@ -223,21 +156,31 @@ module.exports = {
           collapsable: false,
           children: ['python', 'py-examples', 'py-sample'],
         },
+      ],
+      '/server/': [
         {
-          title: 'Server API & Apps',
+          title: 'Speckle Server',
+          collapsable: false,
+          children: [''],
+        },
+        {
+          title: 'APIs & Automation',
           collapsable: false,
           children: [
-            'server-api',
             'server-graphql-api',
             'server-rest-api',
             'server-stream-previews',
             'server-webhooks',
+          ],
+        },
+        {
+          title: 'Deployments',
+          collapsable: false,
+          children: [
             'server-setup-k8s',
             'server-manualsetup',
             'server-local-dev',
             'server-database-migration',
-            'tokens',
-            'apps',
             'server-setup',
           ],
         },
@@ -253,17 +196,19 @@ module.exports = {
             {
               title: 'Core Functionalities',
               collapsable: true,
-              children: [
-                'for-automate-users',
-                'for-function-authors',
-              ],
+              children: ['for-automate-users', 'for-function-authors'],
             },
           ],
         },
         {
           title: 'Automations',
           collapsable: false,
-          children: ['create-automation', 'update-automation', 'viewing-results', 'troubleshooting'],
+          children: [
+            'create-automation',
+            'update-automation',
+            'viewing-results',
+            'troubleshooting',
+          ],
         },
         {
           title: 'Functions',
@@ -272,7 +217,7 @@ module.exports = {
             'public-functions',
             'create-function',
             {
-              title:'Making Your Function',
+              title: 'Making Your Function',
               collapsable: true,
               children: [
                 'function-inputs',
@@ -280,12 +225,12 @@ module.exports = {
                 'function-data',
                 'function-success',
                 'function-results',
-                'function-artefacts'
-              ]
+                'function-artefacts',
+              ],
             },
             'function-testing',
             'documenting',
-            'release-function-version'
+            'release-function-version',
           ],
         },
         {
@@ -342,8 +287,8 @@ module.exports = {
                     'rendering-pipeline-api/progressive-pipeline-api',
                     'rendering-pipeline-api/g-pass-api',
                     'rendering-pipeline-api/base-g-pass-api',
-                    'rendering-pipeline-api/progressive-g-pass-api'
-                  ]
+                    'rendering-pipeline-api/progressive-g-pass-api',
+                  ],
                 },
                 'speckle-material-api',
                 'speckle-renderer-api',
@@ -382,28 +327,6 @@ module.exports = {
             'object-manipulation-example',
             'box-selection-example',
             'categorize-example',
-          ],
-        },
-      ],
-      '/workspaces/': [
-        {
-          sidebarDepth: 0,
-          title: 'Workspace Docs 👩‍🏭',
-          collapsable: false,
-          children: ['', 'welcome-to-workspaces', 'getting-started', 'advanced-features'],
-        },
-        {
-          title: 'Refererences',
-          sidebarDepth: 1,
-          collapsable: false,
-          children: [
-            'projects',
-            'members',
-            'roles',
-            'workspaces-for-companies',
-            'billing',
-            'sso',
-            'data-residency',
           ],
         },
       ],

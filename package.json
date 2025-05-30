@@ -1,6 +1,6 @@
 {
   "name": "speckle-docs",
-  "version": "0.0.1",
+  "version": "2.21.6",
   "description": "Documentation on everything Speckle",
   "main": "index.js",
   "authors": {
@@ -9,18 +9,20 @@
   },
   "repository": "https://github.com/specklesystems/speckle-docs",
   "scripts": {
-    "dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev",
+    "dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev --debug",
     "dev:build": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build",
     "build": "vuepress build"
   },
   "license": "MIT",
   "devDependencies": {
-    "@vuepress/plugin-medium-zoom": "^1.9.10",
     "cross-env": "^7.0.3",
     "vuepress": "^1.9.10"
   },
   "dependencies": {
     "@adamdehaven/vuepress-plugin-custom-tooltip": "^1.4.3",
+    "@vuepress/plugin-back-to-top": "^1.9.10",
+    "@vuepress/plugin-html-redirect": "^0.2.1",
+    "@vuepress/plugin-medium-zoom": "^1.9.10",
     "markdown-it-html5-embed": "^1.0.0",
     "vuepress-plugin-matomo": "^1.0.2"
   },

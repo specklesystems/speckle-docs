@@ -1,5 +1,13 @@
-# Kits
+---
+title: Object Kits (Obsolete)
+deprecationMessages: developer_obsolete
+description: Kits were a way to package object models and conversion routines for interoperability in Speckle. This page covers the basics of kits, their structure, and how they work.
+---
 
+<Banner />
+
+# Kits (Obsolete)
+ 
 Kits were originally discussed on the community forum. Check out [the original thread](https://speckle.community/t/introducing-kits-2-0/710)!
 
 ## Preamble

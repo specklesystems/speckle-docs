@@ -1,3 +1,9 @@
+---
+title: Installation
+deprecationMessages: viewer
+---
+
+<Banner />
 
 # Installation
 

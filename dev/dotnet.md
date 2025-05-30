@@ -1,3 +1,10 @@
+---
+title: .NET (C#) SDK
+deprecationMessages: sdks
+---
+
+<Banner />
+
 # Introduction
 
 Our .NET SDK is called [Core](https://github.com/specklesystems/speckle-sharp/tree/master/Core), and it's part of our [SpeckleSharp repo](https://github.com/specklesystems/speckle-sharp). Together with it you might find useful [Objects](https://github.com/specklesystems/speckle-sharp/tree/master/Objects), our default kit.

@@ -1,3 +1,10 @@
+---
+title: GeometryConverter
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # GeometryConverter
 
 Abstract class

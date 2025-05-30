@@ -1,3 +1,10 @@
+---
+title: Intersections
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # Intersections
 
 Entry point for intersecting and obtaining intersection data from the scene. Accessible from [_SpeckleRenderer_](/viewer/speckle-renderer-api.md)

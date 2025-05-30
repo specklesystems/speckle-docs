@@ -1,3 +1,10 @@
+---
+title: BastchObject
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # BatchObject
 
 ### <h3>Constructors</h3>

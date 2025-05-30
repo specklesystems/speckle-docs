@@ -1,3 +1,10 @@
+---
+Title: Using Google Apps Script
+deprecationMessages: developer
+---
+
+<Banner />
+
 # Using Google Apps Scripts
 
 Using Speckle in [Google Apps Scripts](https://developers.google.com/apps-script) is very simple, and fun! With just a few lines of code, you'll be able to send, receive and leverage our API from Google Sheets, Docs etc.
@@ -11,7 +18,7 @@ As always, treat this token as a password!
 
 ## Writing your Queries
 
-To learn how to write queries check out our section on the [Server API](/dev/server-api), and use the GraphQL explorer to make sure your query or mutation works as expected.
+To learn how to write queries check out our section on the [Server API](/server/server-api), and use the GraphQL explorer to make sure your query or mutation works as expected.
 
 Next, since App Scripts doesn't have a GraphQL library we need to transform them a bit to work with `UrlFetchApp`, it's just a matter of setting the right payload and parameters.
 

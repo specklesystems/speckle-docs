@@ -1,3 +1,10 @@
+---
+title: Python SDK
+deprecationMessages: sdks
+---
+
+<Banner />
+
 # Introduction
 
 The Python SDK can be found in our [speckle-py repo](https://github.com/specklesystems/speckle-py), its readme contains instructions on how to build it.

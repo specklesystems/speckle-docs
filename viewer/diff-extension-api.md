@@ -1,3 +1,10 @@
+---
+title: DifExtension
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # DiffExtension
 
 The default diffing functionality expose as an extension.

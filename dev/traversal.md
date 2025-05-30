@@ -1,3 +1,10 @@
+---
+title: Data Traversal
+deprecationMessages: developer
+---
+
+<Banner />
+
 # Traversing Structured Data
 
 Before understanding traversal, it's crucial to recognize the challenges posed by handling structured data in Speckle. Without a method to navigate through complex, hierarchical data structures, you might end up with partial or incorrect data representations. Traversal provides a systematic way to explore Speckle data while capturing the relational context between objects.

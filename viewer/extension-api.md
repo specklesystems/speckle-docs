@@ -1,3 +1,10 @@
+---
+title: Extension 
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # Extension
 Base class for all extensions. Extensions are created via [_createExtension_](/viewer/viewer-api.md#createextension) method from the viewer instance.
 

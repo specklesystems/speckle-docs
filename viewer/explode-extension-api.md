@@ -1,3 +1,10 @@
+---
+title: ExplodeExtension
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # ExplodeExtension
 A simple extension that allows object movement in a sphercal fashion, similar to an 'explosion' 
 

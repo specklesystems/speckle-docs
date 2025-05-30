@@ -1,3 +1,10 @@
+---
+title: CameraController
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # CameraController
 
 The default camera controller extension that comes with the viewer package. Includes toggleable perspective and orthographic camera projections.

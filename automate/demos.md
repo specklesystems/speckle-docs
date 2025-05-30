@@ -1,3 +1,10 @@
+---
+title: Demos and Presentations
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Demos and Presentations
 
 ### SpeckleCon 2023 Announcement

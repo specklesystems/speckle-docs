@@ -1,3 +1,10 @@
+---
+title: Function Artefacts
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Creating Function Artefacts
 
 Speckle Automate provides multiple methods for generating and storing function results, each catering to different use 

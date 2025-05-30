@@ -1,3 +1,10 @@
+---
+title: Filtering and Flattening Data
+deprecationMessages: developer
+---
+
+<Banner />
+
 # Filtering and Flattening Speckle Data in .NET
 
 ::: tip

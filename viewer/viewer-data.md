@@ -1,10 +1,17 @@
+---
+title: Data Tree
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # Data Tree
 The speckle viewer organizes input data into data structures respecting the original hierarchical relations between objects with the purpose of offering functionality for reading, searching and working with the said data.
 <h2>World Tree</h2>
 The viewer stores data in a hierarchical fashion inside a tree-like structure which we call [*WorldTree*](/viewer/world-tree-api.md#worldtree)
 <br>
 <br>
-![Viewer Data](./img/worldtree.png "Viewer Data")
+![Viewer Data](/automate/img/worldtree.png "Viewer Data")
 
 A node inside the tree looks like the following:
 ```typescript

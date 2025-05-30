@@ -144,11 +144,11 @@ These globals can then be accessed from your scripts or applications like any ot
 
 To build or edit a stream's globals, click the "Globals" button in the stream sidebar.
 
-![globals button on stream page](./img/web/globals-button.png)
+![globals button on stream page](/ueser/img/web/globals-button.png)
 
 This will take you to the interactive globals editor. Here, you can add new fields with the ➕ button and fill in their info. You also have a toolbar on the top right to "clear" (delete all the fields / groups), "reset all" (undo all your changes), and "save" your changes with a message.
 
-![globals ui](./img/web/globals-info.png)
+![globals ui](/ueser/img/web/globals-info.png)
 
 Any field can be transformed into a group by clicking the box button on the right. Any group can also be flattened by clicking the collapse button on the right of its name. You can drag and drop any field or group anywhere you want within the editor to build the structure you want!
 
@@ -156,11 +156,11 @@ Any field can be transformed into a group by clicking the box button on the righ
 
 If you need to delete a field or group, toggle on "delete" mode and click the big red buttons.
 
-![deleting globals](./img/web/globals-delete.gif)
+![deleting globals](/ueser/img/web/globals-delete.gif)
 
 Each time you hit "save", you'll be prompted to add a message along with your changes. This will be saved to the chronological history which you can see at the bottom of the page. You can click on any of these messages to go back see the globals from that point in time.
 
-![globals history](./img/web/globals-history.png)
+![globals history](/ueser/img/web/globals-history.png)
 
 ::: tip 📝 NOTE
 
@@ -172,7 +172,7 @@ Globals currently do not support detached objects. Let us know on the forum if t
 
 The quickest way to grab your globals is to use the Grasshopper or Dynamo connectors. You can receive the globals using their URL just like you would any other stream, branch, or commit.
 
-![receive globals in grasshopper](./img/web/globals-gh-receive.gif)
+![receive globals in grasshopper](/ueser/img/web/globals-gh-receive.gif)
 
 If you want to get your globals using code, you can do this in the same way you would receive a commit. Under the hood, the globals exist in a branch called `globals`. Each time you save the globals, you create a new commit on this branch. The following snippet is a complete example of receiving the latest version of your globals using python:
 

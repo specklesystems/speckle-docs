@@ -1,3 +1,11 @@
+---
+permalink: /
+title: Introduction
+deprecationMessages: developer
+---
+
+<Banner />
+
 # Introduction
 
 Welcome to the **Speckle Developer Docs** - a single source of documentation on everything Speckle!

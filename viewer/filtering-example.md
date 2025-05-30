@@ -1,3 +1,10 @@
+---
+title: Filtering
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # Filtering
 
 All filtering functionality in the viewer is handled by the [`FilteringExtension`](/viewer/filtering-extension-api.md). In a nutshell you can:

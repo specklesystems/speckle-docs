@@ -1,3 +1,10 @@
+---
+title: Deploying with Docker Compose
+deprecationMessages: server
+---
+
+<Banner />
+
 # Deploying a Server - Docker Compose
 
 ::: tip IMPORTANT
@@ -11,7 +18,7 @@ See [https://speckle.systems/pricing/](https://speckle.systems/pricing/) for mor
 If you want to run your own instance, there are multiple ways to achieve this:
 
 - The easiest way is to use our precompiled releases that are available as docker images on Docker Hub. This guide provides details on how to do that.
-- If you want to deploy the Server with your own modifications, you should build your own docker images. Please refer to our separate guide on [local development](./server-local-dev).
+- If you want to deploy the Server with your own modifications, you should build your own docker images. Please refer to our separate guide on [local development](/server/server-local-dev).
 
 ## Dependencies
 
@@ -448,7 +455,7 @@ This deployment mechanism doesn't provide an automatic update mechanism,
 so from time to time server operators need to manually update the deployment.
 
 We recommend first backing up your data prior to modifying or updating the
-server. You can find instructions on how to do that [here](./server-database-migration.md).
+server. You can find instructions on how to do that [here](/server/server-database-migration.md).
 
 To update Speckle:
 
@@ -523,4 +530,4 @@ This will run the following containers, and will automatically launch them at sy
 
 ## Run in Development Mode
 
-See the dedicated getting started with speckle server development [page](/dev/server-local-dev).
+See the dedicated getting started with speckle server development [page](/server/server-local-dev).

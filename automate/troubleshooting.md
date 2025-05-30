@@ -1,3 +1,10 @@
+---
+title: Troubleshooting Automations
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Troubleshooting Automations  
 
 Automations may fail for three key reasons:

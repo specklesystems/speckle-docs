@@ -1,3 +1,10 @@
+---
+title: Input
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # Input
 
 Basic, viewer-core defined input event manager. Accessible from [_SpeckleRenderer_](/viewer/speckle-renderer-api.md)

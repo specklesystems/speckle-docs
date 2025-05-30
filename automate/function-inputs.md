@@ -1,3 +1,10 @@
+---
+title: Function Inputs
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Function Inputs
 
 When creating Speckle functions, you'll often need users to provide configuration values. Rather than having users edit code or configuration files, the SDK can automatically generate user-friendly form inputs in the web interface.

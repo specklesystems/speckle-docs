@@ -1,3 +1,10 @@
+---
+title: Examples
+deprecationMessages: sdks
+---
+
+<Banner />
+
 # Examples
 
 This doc will show you the basics of sending and receiving data and give you an overview of SpecklePy functionality. However, it is not comprehensive. For more examples, please explore the repo's [tests](https://github.com/specklesystems/speckle-py/tree/main/tests).

@@ -1,3 +1,10 @@
+---
+title: Rendering
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # Rendering
 
 With the introduction of custom loaders, we've potentially broadened the scope of what the viewer could be used for, however our goal and purpose is still focusing on AEC related visualisation, with a strong bias towards Speckle data. Because Speckle data is organized in a certain way, the viewer creates some concepts and abstractions around it so that clients can use it efficiently.
@@ -20,7 +27,7 @@ A render tree is just a wrapper around a part of (or the entire) world tree, wit
 const renderTree = worldTree.getRenderTree();
 ```
 
-![Render Tree](./img/rendertree2.png "Render Tree")
+![Render Tree](/automate/img/rendertree2.png "Render Tree")
 
 You can be more specific and get a render tree instance for only a part of the model by providing an object id. The id you provide to `getRenderTree` represents the root of the render tree. So the call below will you get you the render tree highlighted in the image below:
 
@@ -28,7 +35,7 @@ You can be more specific and get a render tree instance for only a part of the m
 const renderTree = worldTree.getRenderTree("2f1bd7295481641c888f09b5fbb6dc2b");
 ```
 
-![Render Tree](./img/rendertree.png "Render Tree")
+![Render Tree](/automate/img/rendertree.png "Render Tree")
 
 It's important to note that you should always get the minimum render tree for your needs. As in, it's probably easiest to just get the whole render tree each time, but keep in mind that if you're going through the tree, fetching render views, it's always better for that tree to be as small as possible.
 

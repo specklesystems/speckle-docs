@@ -1,3 +1,10 @@
+---
+title: Box Selection
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # Box Selection
 Making your own extension is a powerful feature of the viewer. In this example we've made a box selection feature by implementing our own extension. 
 

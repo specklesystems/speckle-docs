@@ -5,16 +5,20 @@
       "name": "Speckle Developer Guide"
     },
     {
-      "path": "./user",
-      "name": "Speckle User Guide"
-    },
-    {
       "path": "./automate",
       "name": "Speckle Automate Guide"
     },
     {
-      "path": "./workspaces",
-      "name": "Speckle Workspaces Guide"
+      "path": "./viewer",
+      "name": "Speckle Viewer API Guide"
+    },
+    {
+      "path": "./server",
+      "name": "Speckle Server API Guide"
+    },
+    {
+      "path": ".vuepress",
+      "name": "Config"
     },
     {
       "path": ".",
@@ -30,9 +34,10 @@
         }, // allow single heading
       }
     },
-    "files.autoSave": "onWindowChange",
+    "files.autoSave": "onFocusChange",
     "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "file"
+    "editor.formatOnSaveMode": "file",
+    "files.autoSaveWorkspaceFilesOnly": true
   },
   "extensions": {
     "recommendations": [

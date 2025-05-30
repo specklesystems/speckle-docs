@@ -1,3 +1,10 @@
+---
+title: SectionTool
+deprecationMessages: viewer
+---
+
+<Banner />
+
 # SectionTool
 
 Default section tool implementation.

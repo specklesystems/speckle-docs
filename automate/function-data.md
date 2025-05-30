@@ -1,3 +1,10 @@
+---
+title: Handling Data in Functions
+deprecationMessages: automate
+---
+
+<Banner />
+
 # Handling Data in Functions
 
 ## Core Concepts
@@ -10,7 +17,7 @@ Speckle represents building data as a **directed acyclic graph (DAG)**:
 - **References are one-way** (parent → child).
 - **Common structures** include `elements`, `parameters`, `units`, `applicationId`, and legacy `@` prefixed properties.
 
-[→ Deep dive into Speckle's data model](../dev/decomposition.md)
+[→ Deep dive into Speckle's data model](/dev/decomposition.md)
 
 ---
 
