@@ -14,14 +14,15 @@ This extension requires and active CameraController extension implementation.
 
 ### <h3>Accessors</h3>
 
-| [enabled](/viewer/section-tool-api.md#enabled) | [visible](/viewer/section-tool-api.md#visible) |
-| ----------------------------------------------------- | ----------------------------------------------------- |
+| [enabled](/viewer/section-tool-api.md#enabled) | [sectionPlanes](/viewer/section-tool-api.md#sectionplanes) | [visible](/viewer/section-tool-api) |
+:---------------------------------------- | :---------------------------------------------------------------- | :-------------------------------------------------- |
 
 ### <h3>Methods</h3>
 
-| [getBox](/viewer/section-tool-api.md#getbox) | [on](/viewer/camera-controller-api.md#on) | [removeListener](/viewer/camera-controller-api.md#removelistener) | [setBox](/viewer/section-tool-api.md#setbox) |
-| :-------------------------------------------------- | :---------------------------------------- | :---------------------------------------------------------------- | :-------------------------------------------------- |
-| [toggle](/viewer/section-tool-api.md#toggle) |                                           |                                                                   |
+| [getBox](/viewer/section-tool-api.md#getbox) | [getObbTransform](/viewer/camera-controller-api.md#getobbtransform) | [on](/viewer/camera-controller-api.md#on) | [removeListener](/viewer/camera-controller-api.md#removelistener) |
+| :------------------------------------------- | :---------------------------------------- | :---------------------------------------- | :--------------------------------------------------------------- |
+| [setBox](/viewer/section-tool-api.md#setbox) | [toggle](/viewer/section-tool-api.md#toggle) |                                      |                                                                 |
+
 
 ### <h3>Typedefs</h3>
 
@@ -41,6 +42,16 @@ Enables/disables the extension.
 
 **Returns**: boolean
 
+#### <b>sectionPlanes</b>
+
+```ts
+get sectionPlanes(): Planes[]
+```
+
+Gets the section box's up to date section planes
+
+**Returns**: [_Plane[]_](https://threejs.org/docs/?q=plane#api/en/math/Plane)
+
 #### <b>visible</b>
 
 ```ts
@@ -57,12 +68,22 @@ Gets and sets the visbility of the actual section box.
 #### <b>getBox</b>
 
 ```ts
-getBox(): Box3
+getBox(): OBB
 ```
 
 Gets the current section box bounds.
 
-**Returns**: [_Box3_](https://threejs.org/docs/index.html?q=box3#api/en/math/Box3)
+**Returns**: [_OBB_](https://threejs.org/docs/?q=OBB#examples/en/math/OBB)
+
+#### <b>getObbTransform</b>
+
+```ts
+getObbTransform(): Matrix4
+```
+
+Gets the current section box transform.
+
+**Returns**: [_Matrix4_](https://threejs.org/docs/?q=matrix4#api/en/math/Matrix4)
 
 #### <b>on</b>
 
@@ -97,13 +118,13 @@ Function for un-subscribing from camera events.
 #### <b>setBox</b>
 
 ```ts
-setBox(targetBox: Box3, offset = 0): void
+setBox(targetBox: OBB | Box3 | { min: Vector3Like; max: Vector3Like }, offset = 0): void
 ```
 
 Sets the section box to the specified bounds
 **Parameters**
 
-- **targetBox**: [_Box3_](https://threejs.org/docs/index.html?q=box3#api/en/math/Box3)
+- **targetBox**: [_Box3_](https://threejs.org/docs/index.html?q=box3#api/en/math/Box3) | [_OBB_](https://threejs.org/docs/?q=OBB#examples/en/math/OBB) | { min: _Vector3Like_; max: _Vector3Like_ }
 - _optional_ **offset**: Linear tolerance
 
 **Returns**: void
