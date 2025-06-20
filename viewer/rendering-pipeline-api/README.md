@@ -29,6 +29,15 @@ renderer.pipeline = new PenViewPipeline(renderer)
 
 Pipeline take optionally [options](/viewer/speckle-renderer-api.md#basepipelineoptions) of various kinds. All stock pipelines take [PipelineOptions](/viewer/speckle-renderer-api.md#pipelineoptions) which controls the overlaying of edges/outlines. Default is `true`. 
 
+To disable/enable edges/outlines rendering you can simply
+
+```ts
+const renderer = viewer.getRenderer()
+/** Works with all stock pipelines, not just DefaultPipeline */
+renderer.pipeline = new DefaultPipeline(renderer, { edges: false })
+```
+
+There are additional options related to the edges/outlines that you can play around with:
 ```ts
 const renderer = viewer.getRenderer()
 renderer.pipeline = new PenViewPipeline(renderer, {
