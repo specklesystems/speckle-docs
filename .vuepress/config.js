@@ -313,6 +313,7 @@ module.exports = {
                 'section-tool-outlines-api',
                 'speckle-controls-api',
                 'smooth-orbit-controls-api',
+                'view-modes-extension-api'
               ],
             },
           ],

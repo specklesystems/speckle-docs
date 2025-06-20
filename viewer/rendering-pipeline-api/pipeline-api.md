@@ -27,7 +27,7 @@ Abstract class that is the base for all concrete rendering pipeline implementati
 
 ### <h3>Typedefs</h3>
 
-| [BasePipelineOptions](/viewer/speckle-renderer-api.md#basepipelineoptions) | [EdgesPipelineOptions](/viewer/speckle-renderer-api.md#edgespipelineoptions) | [PipelineOptions](/viewer/speckle-renderer-api.md#pipelineoptions) |
+| [BasePipelineOptions](/viewer/rendering-pipeline-api/pipeline-api.md#basepipelineoptions) | [EdgesPipelineOptions](/viewer/rendering-pipeline-api/pipeline-api.md#edgespipelineoptions) | [PipelineOptions](/viewer/rendering-pipeline-api/pipeline-api.md#pipelineoptions) |
 | :------------------------------------------------------------------------- | :----------------------------------------------------------------------------- | :-------------------------------------------------------------------------------- |
 
 
@@ -277,7 +277,7 @@ The options applicable to any pipeline
 - _optional_ **edges**: _boolean_ If edges should be overlayed
 
 :::warning
-Setting this options **will** automatically apply edges/outlines to the [stock pipelines](http://localhost:8080/viewer/rendering-pipeline-api/#stock-pipelines).
+Setting this options **will** automatically apply edges/outlines to the [stock pipelines](/viewer/rendering-pipeline-api/#stock-pipelines).
 Setting this options **will not** automatically apply edges/outlines to custom pipelines! You will need to integrate the existing _EdgesPipeline_ as a subpipeline in your custom pipeline
 :::
 
