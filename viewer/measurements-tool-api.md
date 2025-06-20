@@ -19,8 +19,9 @@ This extension requires and active CameraController extension implementation.
 
 ### <h3>Methods</h3>
 
-| [removeMeasurement](/viewer/measurements-tool-api.md#removemeasurement) | [clearMeasurements](/viewer/measurements-tool-api.md#clearmeasurements) |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| [clearMeasurements](/viewer/measurements-tool-api.md#clearmeasurements) | [fromMeasurementData](/viewer/measurements-tool-api.md#frommeasurementdata) | [removeMeasurement](/viewer/measurements-tool-api.md#removemeasurement) |
+| :---------------------------------------------------------------------- | :------------------------------------------------------------------------- | :---------------------------------------------------------------------- |
+                                                                                                                                                                                   
 
 ### <h3>Typedefs</h3>
 
@@ -78,6 +79,30 @@ Gets the currently selected measurement. Null if there is none.
 
 ### <h3>Methods</h3>
 
+#### <b>clearMeasurements</b>
+
+```ts
+clearMeasurements(): void
+```
+
+Removes all measurements, including finished or ongoing now.
+
+**Returns**: void
+
+#### <b>fromMeasurementData</b>
+
+```ts
+fromMeasurementData(startPoint: Vector3, endPoint: Vector3): void
+```
+
+Programatically adds a measurements
+:::warning
+Currently only _PointToPoint_ measurements can pe programatically added
+:::
+
+
+**Returns**: void
+
 #### <b>removeMeasurement</b>
 
 ```ts
@@ -88,15 +113,6 @@ Removes any currently ongoing measurements.
 
 **Returns**: void
 
-#### <b>clearMeasurements</b>
-
-```ts
-clearMeasurements(): void
-```
-
-Removes all measurements, including finished or ongoing now.
-
-**Returns**: void
 
 ### <h3>Typedefs</h3>
 
@@ -112,11 +128,12 @@ Abstract class for all measurement types.
 
 ```ts
 interface MeasurementOptions {
-  visible: boolean;
-  type?: MeasurementType;
-  vertexSnap?: boolean;
-  units?: string;
-  precision?: number;
+  visible: boolean
+  type?: MeasurementType
+  vertexSnap?: boolean
+  units?: string
+  precision?: number
+  chain?: boolean
 }
 ```
 
@@ -127,6 +144,7 @@ The options for newly created measurements.
 - _optional_ **vertexSnap**: Should the cursor snap to the nearest vertex
 - _optional_ **units**: The measurement units
 - _optional_ **precision**: The number of decimals to be displayed
+- _optional_ **chain**: Automatically connects last measurement with the new one
 
 **Returns**: void
 
@@ -136,6 +154,8 @@ The options for newly created measurements.
 enum MeasurementType {
   PERPENDICULAR,
   POINTTOPOINT,
+  AREA,
+  POINT
 }
 ```
 
@@ -154,6 +174,7 @@ const DefaultMeasurementsOptions = {
   vertexSnap: true,
   units: "m",
   precision: 2,
+  chain: false
 };
 ```
 

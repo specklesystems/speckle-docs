@@ -6,6 +6,12 @@ deprecationMessages: viewer
 <Banner />
 
 # Migration Guide
+# 2.23.8 - 2.25.0
+- `get clippingVolume` from `SpeckleRenderer` now returns an `OBB`
+- `set clippingvolume` from `SpeckleRenderer` now accepts both `Box3` and `OBB`
+- all intersection methods from `Intersections` now accept both `Box3` and `OBB` as `bounds` argument
+- `expandBoxRelative` from `World` now accepts both a `Box3` and a `OBB`
+- `requestUpdate` from `SectionOutlines` extension now takes an optional `force` argument that forces an update
 
 # 2.23.6 - 2.23.8
 - `Loader`'s `resourceData` changed from `string | ArrayBuffer` to `unknown` to allow each loader to define it’s own resource data type

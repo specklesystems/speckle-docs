@@ -14,8 +14,9 @@ Abstract class that is the base for all concrete rendering pipeline implementati
 
 ### <h3>Accessors</h3>
 
-| [passes](/viewer/rendering-pipeline-api/pipeline-api.md#passes)
-| :------------------------------------------------ | 
+| [options](/viewer/rendering-pipeline-api/pipeline-api.md#options) | [passes](/viewer/rendering-pipeline-api/pipeline-api.md#passes) |
+| :-------------------------------------------------------------- | :-------------------------------------------------------------------------- |
+
 
 ### <h3>Methods</h3>
 
@@ -24,17 +25,23 @@ Abstract class that is the base for all concrete rendering pipeline implementati
 | [onBeforePipelineRender](/viewer/rendering-pipeline-api/pipeline-api.md#onbeforepipelinerender) | [render](/viewer/rendering-pipeline-api/pipeline-api.md#render)             | [reset](/viewer/rendering-pipeline-api/pipeline-api.md#reset)     | [resize](/viewer/rendering-pipeline-api/pipeline-api.md#resize)             |
 | [setClippingPlanes](/viewer/rendering-pipeline-api/pipeline-api.md#setclippingplanes)         | [update](/viewer/rendering-pipeline-api/pipeline-api.md#update) 
 
+### <h3>Typedefs</h3>
+
+| [BasePipelineOptions](/viewer/speckle-renderer-api.md#basepipelineoptions) | [EdgesPipelineOptions](/viewer/speckle-renderer-api.md#edgespipelineoptions) | [PipelineOptions](/viewer/speckle-renderer-api.md#pipelineoptions) |
+| :------------------------------------------------------------------------- | :----------------------------------------------------------------------------- | :-------------------------------------------------------------------------------- |
+
 
 ### <h3>Constructors</h3>
 
 #### <h4>constructor</h4>
 
 ```ts
-constructor(speckleRenderer: SpeckleRenderer)
+constructor(speckleRenderer: SpeckleRenderer, options: BasePipelineOptions)
 ```
 **Parameters**
 
 - **speckleRenderer**: The hosting renderer as [_SpeckleRenderer_](/viewer/speckle-renderer-api.md)
+- **options**: Options to init the pipeline with [_BasePipelineOptions_](/viewer/speckle-renderer-api.md#basepipelineoptions)
 
 
 ### <h3>Properties</h3>
@@ -72,6 +79,18 @@ The hosting speckle renderer instance
 
 
 ### <h3>Accessors</h3>
+
+#### <b>options</b>
+
+```ts
+get options(): BasePipelineOptions;
+set options(value: BasePipelineOptions): void
+```
+
+Gets and sets the pipeline options
+
+**Returns**: [BasePipelineOptions](/viewer/speckle-renderer-api.md#basepipelineoptions) or extending types
+
 
 #### <b>passes</b>
 
@@ -223,5 +242,45 @@ Propagates clipping planes towards the pipeline's consituent passes
 - **planes**: The clipping [_Planes_](https://threejs.org/docs/index.html?q=plane#api/en/math/Plane)
 
 **Returns**: _void_
+
+### <h3>Typedefs</h3>
+
+#### <b>BasePipelineOptions</b>
+
+```ts
+interface BasePipelineOptions {}
+```
+Base pipeline options
+
+#### <b>EdgesPipelineOptions</b>
+
+```ts
+interface EdgesPipelineOptions extends BasePipelineOptions {
+  outlineThickness?: number
+  outlineColor?: number
+  outlineOpacity?: number
+}
+```
+The options applicable to the _EdgesPipeline_
+- _optional_ **outlineThickness**: _number_ The width of the outlines in pixels
+- _optional_ **outlineColor**: _number_ The color of the outlines
+- _optional_ **outlineOpacity**: _number_ The opacity of the outlines
+
+#### <b>PipelineOptions</b>
+
+```ts
+interface PipelineOptions extends BasePipelineOptions {
+  edges?: boolean
+}
+```
+The options applicable to any pipeline
+- _optional_ **edges**: _boolean_ If edges should be overlayed
+
+:::warning
+Setting this options **will** automatically apply edges/outlines to the [stock pipelines](http://localhost:8080/viewer/rendering-pipeline-api/#stock-pipelines).
+Setting this options **will not** automatically apply edges/outlines to custom pipelines! You will need to integrate the existing _EdgesPipeline_ as a subpipeline in your custom pipeline
+:::
+
+
 
 
