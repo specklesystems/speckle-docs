@@ -7,7 +7,7 @@ deprecationMessages: viewer
 
 # Introduction
 
-The viewer features a completely customisable rendering pipeline based on core three.js functionality, but **not** on it's default `EffectComposer` approach.
+The viewer features a completely customisable rendering pipeline. Pipelines are composed of passes that take turns in order to render either to the screen, either to textures. 
 
 ### <h3>Stock Pipelines</h3>
 
